@@ -1528,7 +1528,6 @@ import {
   LabelingJobOutput,
   LastUpdateStatus,
   MemberDefinition,
-  MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
   ModelClientConfig,
@@ -1552,6 +1551,7 @@ import {
   ProfilerRuleConfiguration,
   RealTimeInferenceRecommendation,
   RecommendationMetrics,
+  RemoteDebugConfig,
   ResolvedAttributes,
   RetentionPolicy,
   SelectedStep,
@@ -1758,6 +1758,7 @@ import {
   ListPipelineExecutionsRequest,
   ListPipelineExecutionsResponse,
   ListPipelineExecutionStepsRequest,
+  MetricData,
   MetricSpecification,
   ModelCardExportJobSummary,
   ModelCardSummary,
@@ -1779,7 +1780,6 @@ import {
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
   OidcConfigForResponse,
-  PipelineExecutionStepMetadata,
   PipelineExecutionSummary,
   PredefinedMetricSpecification,
   ProcessingJobStepMetadata,
@@ -1863,6 +1863,7 @@ import {
   Pipeline,
   PipelineExecution,
   PipelineExecutionStep,
+  PipelineExecutionStepMetadata,
   PipelineSummary,
   ProcessingJob,
   ProcessingJobSummary,
@@ -1875,6 +1876,7 @@ import {
   QueryLineageRequest,
   QueryLineageResponse,
   RegisterDevicesRequest,
+  RemoteDebugConfigForUpdate,
   RenderableTask,
   RenderingError,
   RenderUiTemplateRequest,
@@ -2002,6 +2004,7 @@ import {
   UserProfileDetails,
   VariantProperty,
   Vertex,
+  VisibilityConditions,
 } from "../models/models_4";
 import { SageMakerServiceException as __BaseException } from "../models/SageMakerServiceException";
 
@@ -23114,6 +23117,10 @@ const se_QueryLineageRequest = (input: QueryLineageRequest, context: __SerdeCont
 
 // se_RegisterDevicesRequest omitted.
 
+// se_RemoteDebugConfig omitted.
+
+// se_RemoteDebugConfigForUpdate omitted.
+
 // se_RenderableTask omitted.
 
 // se_RenderUiTemplateRequest omitted.
@@ -23204,6 +23211,7 @@ const se_SearchRequest = (input: SearchRequest, context: __SerdeContext): any =>
     SearchExpression: (_) => se_SearchExpression(_, context),
     SortBy: [],
     SortOrder: [],
+    VisibilityConditions: _json,
   });
 };
 
@@ -23596,6 +23604,10 @@ const se_UpdateTrialComponentRequest = (input: UpdateTrialComponentRequest, cont
 // se_VariantPropertyList omitted.
 
 // se_VectorConfig omitted.
+
+// se_VisibilityConditions omitted.
+
+// se_VisibilityConditionsList omitted.
 
 // se_VpcConfig omitted.
 
@@ -27791,6 +27803,7 @@ const de_DescribeTrainingJobResponse = (output: any, context: __SerdeContext): D
     ProfilerRuleConfigurations: (_: any) => de_ProfilerRuleConfigurations(_, context),
     ProfilerRuleEvaluationStatuses: (_: any) => de_ProfilerRuleEvaluationStatuses(_, context),
     ProfilingStatus: __expectString,
+    RemoteDebugConfig: (_: any) => de_RemoteDebugConfig(_, context),
     ResourceConfig: (_: any) => de_ResourceConfig(_, context),
     RetryStrategy: (_: any) => de_RetryStrategy(_, context),
     RoleArn: __expectString,
@@ -34253,6 +34266,15 @@ const de_RedshiftDatasetDefinition = (output: any, context: __SerdeContext): Red
 const de_RegisterModelStepMetadata = (output: any, context: __SerdeContext): RegisterModelStepMetadata => {
   return take(output, {
     Arn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RemoteDebugConfig
+ */
+const de_RemoteDebugConfig = (output: any, context: __SerdeContext): RemoteDebugConfig => {
+  return take(output, {
+    EnableRemoteDebug: __expectBoolean,
   }) as any;
 };
 

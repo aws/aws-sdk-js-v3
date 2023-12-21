@@ -226,6 +226,20 @@ export interface ProfilerRuleConfiguration {
 
 /**
  * @public
+ * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. To learn more about the remote
+ *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
+ *                 for remote debugging</a>.</p>
+ */
+export interface RemoteDebugConfig {
+  /**
+   * @public
+   * <p>If set to True, enables remote debugging.</p>
+   */
+  EnableRemoteDebug?: boolean;
+}
+
+/**
+ * @public
  * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
  */
 export interface TensorBoardOutputConfig {
@@ -475,6 +489,14 @@ export interface CreateTrainingJobRequest {
    *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
+
+  /**
+   * @public
+   * <p>Configuration for remote debugging. To learn more about the remote
+   *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
+   *                 for remote debugging</a>.</p>
+   */
+  RemoteDebugConfig?: RemoteDebugConfig;
 
   /**
    * @public
@@ -10000,30 +10022,6 @@ export interface DescribeTrainingJobRequest {
    * <p>The name of the training job.</p>
    */
   TrainingJobName: string | undefined;
-}
-
-/**
- * @public
- * <p>The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.</p>
- */
-export interface MetricData {
-  /**
-   * @public
-   * <p>The name of the metric.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * @public
-   * <p>The value of the metric.</p>
-   */
-  Value?: number;
-
-  /**
-   * @public
-   * <p>The date and time that the algorithm emitted the metric.</p>
-   */
-  Timestamp?: Date;
 }
 
 /**

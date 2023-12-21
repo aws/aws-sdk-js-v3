@@ -9,14 +9,18 @@ import {
   AppSecurityGroupManagement,
   AppSpecification,
   AppType,
+  AutoMLJobStepMetadata,
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
   BooleanOperator,
   CacheHitResult,
+  CallbackStepMetadata,
   Channel,
   CheckpointConfig,
+  ClarifyCheckStepMetadata,
   ClusterInstanceGroupSpecification,
+  ConditionStepMetadata,
   ContainerDefinition,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -97,7 +101,6 @@ import {
   FeatureParameter,
   HyperParameterTrainingJobSummary,
   MemberDefinition,
-  MetricData,
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageGroupStatus,
@@ -133,32 +136,189 @@ import {
   Direction,
   DomainSettingsForUpdate,
   Edge,
+  EMRStepMetadata,
   Endpoint,
   Experiment,
+  FailStepMetadata,
   FeatureGroup,
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
   HyperParameterTuningJobSearchEntity,
   InferenceExperimentStopDesiredState,
+  LambdaStepMetadata,
   LineageType,
+  MetricData,
+  ModelStepMetadata,
   MonitoringAlertSummary,
-  PipelineExecutionStepMetadata,
+  ProcessingJobStepMetadata,
+  QualityCheckStepMetadata,
+  RegisterModelStepMetadata,
   ResourceType,
   SecondaryStatus,
   SecondaryStatusTransition,
   SortBy,
   SortOrder,
+  TrainingJobStepMetadata,
   TransformJobStatus,
+  TransformJobStepMetadata,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
+  TuningJobStepMetaData,
   UserProfileStatus,
   WarmPoolResourceStatus,
   WarmPoolStatus,
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Metadata for a step execution.</p>
+ */
+export interface PipelineExecutionStepMetadata {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
+   */
+  TrainingJob?: TrainingJobStepMetadata;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the processing job that was run by this step execution.</p>
+   */
+  ProcessingJob?: ProcessingJobStepMetadata;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
+   */
+  TransformJob?: TransformJobStepMetadata;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
+   */
+  TuningJob?: TuningJobStepMetaData;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the model that was created by this step execution.</p>
+   */
+  Model?: ModelStepMetadata;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the model package that the model was registered to by this step execution.</p>
+   */
+  RegisterModel?: RegisterModelStepMetadata;
+
+  /**
+   * @public
+   * <p>The outcome of the condition evaluation that was run by this step execution.</p>
+   */
+  Condition?: ConditionStepMetadata;
+
+  /**
+   * @public
+   * <p>The URL of the Amazon SQS queue used by this step execution, the pipeline generated token,
+   *         and a list of output parameters.</p>
+   */
+  Callback?: CallbackStepMetadata;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution and a list of
+   *         output parameters.</p>
+   */
+  Lambda?: LambdaStepMetadata;
+
+  /**
+   * @public
+   * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
+   */
+  EMR?: EMRStepMetadata;
+
+  /**
+   * @public
+   * <p>The configurations and outcomes of the check step execution. This includes: </p>
+   *          <ul>
+   *             <li>
+   *                <p>The type of the check conducted.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p>
+   *             </li>
+   *             <li>
+   *                <p>The model package group name provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URI of the violation report if violations detected.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Boolean flags indicating if the drift check is skipped.</p>
+   *             </li>
+   *             <li>
+   *                <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as
+   *             <code>CalculatedBaseline</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  QualityCheck?: QualityCheckStepMetadata;
+
+  /**
+   * @public
+   * <p>Container for the metadata for a Clarify check step. The configurations
+   *          and outcomes of the check step execution. This includes: </p>
+   *          <ul>
+   *             <li>
+   *                <p>The type of the check conducted,</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p>
+   *             </li>
+   *             <li>
+   *                <p>The model package group name provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon S3 URI of the violation report if violations detected.</p>
+   *             </li>
+   *             <li>
+   *                <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p>
+   *             </li>
+   *             <li>
+   *                <p>The boolean flags indicating if the drift check is skipped.</p>
+   *             </li>
+   *             <li>
+   *                <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as
+   *             <code>CalculatedBaseline</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  ClarifyCheck?: ClarifyCheckStepMetadata;
+
+  /**
+   * @public
+   * <p>The configurations and outcomes of a Fail step execution.</p>
+   */
+  Fail?: FailStepMetadata;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the AutoML job that was run by this step.</p>
+   */
+  AutoMLJob?: AutoMLJobStepMetadata;
+}
 
 /**
  * @public
@@ -3989,6 +4149,20 @@ export interface RegisterDevicesRequest {
 
 /**
  * @public
+ * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateTrainingJob.html">UpdateTrainingJob</a> API. To learn more about the remote
+ *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
+ *                 for remote debugging</a>.</p>
+ */
+export interface RemoteDebugConfigForUpdate {
+  /**
+   * @public
+   * <p>If set to True, enables remote debugging.</p>
+   */
+  EnableRemoteDebug?: boolean;
+}
+
+/**
+ * @public
  * <p>Contains input values for a task.</p>
  */
 export interface RenderableTask {
@@ -4135,6 +4309,24 @@ export const SearchSortOrder = {
  * @public
  */
 export type SearchSortOrder = (typeof SearchSortOrder)[keyof typeof SearchSortOrder];
+
+/**
+ * @public
+ * <p>The list of key-value pairs that you specify for your resources.</p>
+ */
+export interface VisibilityConditions {
+  /**
+   * @public
+   * <p>The key for that specifies the tag that you're using to filter the search results. The key must start with <code>Tags.</code>.</p>
+   */
+  Key?: string;
+
+  /**
+   * @public
+   * <p>The value for the tag that you're using to filter the search results.</p>
+   */
+  Value?: string;
+}
 
 /**
  * @public
@@ -6938,6 +7130,16 @@ export interface UpdateTrainingJobRequest {
    *             length.</p>
    */
   ResourceConfig?: ResourceConfigForUpdate;
+
+  /**
+   * @public
+   * <p>Configuration for remote debugging while the training job is running. You can
+   *             update the remote debugging configuration when the <code>SecondaryStatus</code> of the job
+   *             is <code>Downloading</code> or <code>Training</code>.To learn more about the remote
+   *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
+   *                 for remote debugging</a>.</p>
+   */
+  RemoteDebugConfig?: RemoteDebugConfigForUpdate;
 }
 
 /**
@@ -7324,6 +7526,14 @@ export interface SearchRequest {
    *     </p>
    */
   CrossAccountFilterOption?: CrossAccountFilterOption;
+
+  /**
+   * @public
+   * <p>
+   *       Limits the results of your search request to the resources that you can access.
+   *     </p>
+   */
+  VisibilityConditions?: VisibilityConditions[];
 }
 
 /**

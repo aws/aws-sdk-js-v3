@@ -292,6 +292,9 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *   RetryStrategy: { // RetryStrategy
  *     MaximumRetryAttempts: Number("int"), // required
  *   },
+ *   RemoteDebugConfig: { // RemoteDebugConfig
+ *     EnableRemoteDebug: true || false,
+ *   },
  *   InfraCheckConfig: { // InfraCheckConfig
  *     EnableInfraCheck: true || false,
  *   },

@@ -103,6 +103,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CrossAccountFilterOption: "SameAccount" || "CrossAccount",
+ *   VisibilityConditions: [ // VisibilityConditionsList
+ *     { // VisibilityConditions
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);

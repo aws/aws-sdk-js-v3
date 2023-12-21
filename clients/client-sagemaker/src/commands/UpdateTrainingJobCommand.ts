@@ -71,6 +71,9 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
  *   ResourceConfig: { // ResourceConfigForUpdate
  *     KeepAlivePeriodInSeconds: Number("int"), // required
  *   },
+ *   RemoteDebugConfig: { // RemoteDebugConfigForUpdate
+ *     EnableRemoteDebug: true || false,
+ *   },
  * };
  * const command = new UpdateTrainingJobCommand(input);
  * const response = await client.send(command);

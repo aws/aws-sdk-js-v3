@@ -276,6 +276,9 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * //   RetryStrategy: { // RetryStrategy
  * //     MaximumRetryAttempts: Number("int"), // required
  * //   },
+ * //   RemoteDebugConfig: { // RemoteDebugConfig
+ * //     EnableRemoteDebug: true || false,
+ * //   },
  * //   InfraCheckConfig: { // InfraCheckConfig
  * //     EnableInfraCheck: true || false,
  * //   },

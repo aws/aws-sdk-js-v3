@@ -14,18 +14,15 @@ import {
   AssociationSummary,
   AutoMLCandidate,
   AutoMLJobStatus,
-  AutoMLJobStepMetadata,
   AutoMLJobSummary,
   AutoMLSortBy,
   AutoMLSortOrder,
   BatchDataCaptureConfig,
   BatchStrategy,
-  CallbackStepMetadata,
   CandidateSortBy,
   CandidateStatus,
   Channel,
   CheckpointConfig,
-  ClarifyCheckStepMetadata,
   ClusterNodeSummary,
   ClusterSortBy,
   ClusterSummary,
@@ -35,7 +32,6 @@ import {
   CognitoConfig,
   CompilationJobStatus,
   CompilationJobSummary,
-  ConditionStepMetadata,
   ContextSummary,
   MetadataProperties,
   ModelApprovalStatus,
@@ -113,7 +109,6 @@ import {
   LabelingJobStatus,
   LastUpdateStatus,
   MemberDefinition,
-  MetricData,
   ModelArtifacts,
   ModelCardExportJobStatus,
   ModelClientConfig,
@@ -130,6 +125,7 @@ import {
   ProfilerRuleConfiguration,
   RecommendationJobStatus,
   RecommendationMetrics,
+  RemoteDebugConfig,
   RuleEvaluationStatus,
   ScheduleStatus,
   SourceIpConfig,
@@ -140,6 +136,30 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.</p>
+ */
+export interface MetricData {
+  /**
+   * @public
+   * <p>The name of the metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>The value of the metric.</p>
+   */
+  Value?: number;
+
+  /**
+   * @public
+   * <p>The date and time that the algorithm emitted the metric.</p>
+   */
+  Timestamp?: Date;
+}
 
 /**
  * @public
@@ -377,9 +397,6 @@ export interface SecondaryStatusTransition {
    *             <dt>Training</dt>
    *             <dd>
    *                <ul>
-   *                   <li>
-   *                      <p>Downloading the training image.</p>
-   *                   </li>
    *                   <li>
    *                      <p>Training
    *                                 image download completed. Training in
@@ -930,6 +947,14 @@ export interface DescribeTrainingJobResponse {
    *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
+
+  /**
+   * @public
+   * <p>Configuration for remote debugging. To learn more about the remote
+   *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
+   *                 for remote debugging</a>.</p>
+   */
+  RemoteDebugConfig?: RemoteDebugConfig;
 
   /**
    * @public
@@ -11090,151 +11115,4 @@ export interface TuningJobStepMetaData {
    * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
    */
   Arn?: string;
-}
-
-/**
- * @public
- * <p>Metadata for a step execution.</p>
- */
-export interface PipelineExecutionStepMetadata {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
-   */
-  TrainingJob?: TrainingJobStepMetadata;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the processing job that was run by this step execution.</p>
-   */
-  ProcessingJob?: ProcessingJobStepMetadata;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
-   */
-  TransformJob?: TransformJobStepMetadata;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
-   */
-  TuningJob?: TuningJobStepMetaData;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the model that was created by this step execution.</p>
-   */
-  Model?: ModelStepMetadata;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the model package that the model was registered to by this step execution.</p>
-   */
-  RegisterModel?: RegisterModelStepMetadata;
-
-  /**
-   * @public
-   * <p>The outcome of the condition evaluation that was run by this step execution.</p>
-   */
-  Condition?: ConditionStepMetadata;
-
-  /**
-   * @public
-   * <p>The URL of the Amazon SQS queue used by this step execution, the pipeline generated token,
-   *         and a list of output parameters.</p>
-   */
-  Callback?: CallbackStepMetadata;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution and a list of
-   *         output parameters.</p>
-   */
-  Lambda?: LambdaStepMetadata;
-
-  /**
-   * @public
-   * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
-   */
-  EMR?: EMRStepMetadata;
-
-  /**
-   * @public
-   * <p>The configurations and outcomes of the check step execution. This includes: </p>
-   *          <ul>
-   *             <li>
-   *                <p>The type of the check conducted.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p>
-   *             </li>
-   *             <li>
-   *                <p>The model package group name provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Amazon S3 URI of the violation report if violations detected.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Boolean flags indicating if the drift check is skipped.</p>
-   *             </li>
-   *             <li>
-   *                <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as
-   *             <code>CalculatedBaseline</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  QualityCheck?: QualityCheckStepMetadata;
-
-  /**
-   * @public
-   * <p>Container for the metadata for a Clarify check step. The configurations
-   *          and outcomes of the check step execution. This includes: </p>
-   *          <ul>
-   *             <li>
-   *                <p>The type of the check conducted,</p>
-   *             </li>
-   *             <li>
-   *                <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p>
-   *             </li>
-   *             <li>
-   *                <p>The model package group name provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Amazon S3 URI of the violation report if violations detected.</p>
-   *             </li>
-   *             <li>
-   *                <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p>
-   *             </li>
-   *             <li>
-   *                <p>The boolean flags indicating if the drift check is skipped.</p>
-   *             </li>
-   *             <li>
-   *                <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as
-   *             <code>CalculatedBaseline</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  ClarifyCheck?: ClarifyCheckStepMetadata;
-
-  /**
-   * @public
-   * <p>The configurations and outcomes of a Fail step execution.</p>
-   */
-  Fail?: FailStepMetadata;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the AutoML job that was run by this step.</p>
-   */
-  AutoMLJob?: AutoMLJobStepMetadata;
 }
