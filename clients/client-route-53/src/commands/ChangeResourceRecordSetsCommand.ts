@@ -1,20 +1,11 @@
 // smithy-typescript generated code
 import { getChangeResourceRecordSetsPlugin, getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse } from "../models/models_0";
 import { de_ChangeResourceRecordSetsCommand, se_ChangeResourceRecordSetsCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
@@ -816,77 +807,28 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * ```
  *
  */
-export class ChangeResourceRecordSetsCommand extends $Command<
-  ChangeResourceRecordSetsCommandInput,
-  ChangeResourceRecordSetsCommandOutput,
-  Route53ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ChangeResourceRecordSetsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Route53ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ChangeResourceRecordSetsCommandInput, ChangeResourceRecordSetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ChangeResourceRecordSetsCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getChangeResourceRecordSetsPlugin(configuration));
-    this.middlewareStack.use(getIdNormalizerPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Route53Client";
-    const commandName = "ChangeResourceRecordSetsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSDnsV20130401",
-        operation: "ChangeResourceRecordSets",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ChangeResourceRecordSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ChangeResourceRecordSetsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeResourceRecordSetsCommandOutput> {
-    return de_ChangeResourceRecordSetsCommand(output, context);
-  }
-}
+export class ChangeResourceRecordSetsCommand extends $Command
+  .classBuilder<
+    ChangeResourceRecordSetsCommandInput,
+    ChangeResourceRecordSetsCommandOutput,
+    Route53ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: Route53ClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getChangeResourceRecordSetsPlugin(config),
+      getIdNormalizerPlugin(config),
+    ];
+  })
+  .s("AWSDnsV20130401", "ChangeResourceRecordSets", {})
+  .n("Route53Client", "ChangeResourceRecordSetsCommand")
+  .f(void 0, void 0)
+  .ser(se_ChangeResourceRecordSetsCommand)
+  .de(de_ChangeResourceRecordSetsCommand)
+  .build() {}

@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ImportKeyInput, ImportKeyInputFilterSensitiveLog, ImportKeyOutput } from "../models/models_0";
 import {
   PaymentCryptographyClientResolvedConfig,
@@ -308,73 +299,26 @@ export interface ImportKeyCommandOutput extends ImportKeyOutput, __MetadataBeare
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
  */
-export class ImportKeyCommand extends $Command<
-  ImportKeyCommandInput,
-  ImportKeyCommandOutput,
-  PaymentCryptographyClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ImportKeyCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PaymentCryptographyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ImportKeyCommandInput, ImportKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ImportKeyCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PaymentCryptographyClient";
-    const commandName = "ImportKeyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ImportKeyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "PaymentCryptographyControlPlane",
-        operation: "ImportKey",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ImportKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ImportKeyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportKeyCommandOutput> {
-    return de_ImportKeyCommand(output, context);
-  }
-}
+export class ImportKeyCommand extends $Command
+  .classBuilder<
+    ImportKeyCommandInput,
+    ImportKeyCommandOutput,
+    PaymentCryptographyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: PaymentCryptographyClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PaymentCryptographyControlPlane", "ImportKey", {})
+  .n("PaymentCryptographyClient", "ImportKeyCommand")
+  .f(ImportKeyInputFilterSensitiveLog, void 0)
+  .ser(se_ImportKeyCommand)
+  .de(de_ImportKeyCommand)
+  .build() {}

@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchSnoozeAlarmRequest, BatchSnoozeAlarmResponse } from "../models/models_0";
 import { de_BatchSnoozeAlarmCommand, se_BatchSnoozeAlarmCommand } from "../protocols/Aws_restJson1";
@@ -92,75 +83,26 @@ export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse,
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
-export class BatchSnoozeAlarmCommand extends $Command<
-  BatchSnoozeAlarmCommandInput,
-  BatchSnoozeAlarmCommandOutput,
-  IoTEventsDataClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchSnoozeAlarmCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTEventsDataClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchSnoozeAlarmCommandInput, BatchSnoozeAlarmCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchSnoozeAlarmCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTEventsDataClient";
-    const commandName = "BatchSnoozeAlarmCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "IotColumboDataService",
-        operation: "BatchSnoozeAlarm",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchSnoozeAlarmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchSnoozeAlarmCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchSnoozeAlarmCommandOutput> {
-    return de_BatchSnoozeAlarmCommand(output, context);
-  }
-}
+export class BatchSnoozeAlarmCommand extends $Command
+  .classBuilder<
+    BatchSnoozeAlarmCommandInput,
+    BatchSnoozeAlarmCommandOutput,
+    IoTEventsDataClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: IoTEventsDataClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("IotColumboDataService", "BatchSnoozeAlarm", {})
+  .n("IoTEventsDataClient", "BatchSnoozeAlarmCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchSnoozeAlarmCommand)
+  .de(de_BatchSnoozeAlarmCommand)
+  .build() {}

@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartSpeakerEnrollmentJobRequest,
   StartSpeakerEnrollmentJobRequestFilterSensitiveLog,
@@ -150,78 +141,26 @@ export interface StartSpeakerEnrollmentJobCommandOutput extends StartSpeakerEnro
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
  */
-export class StartSpeakerEnrollmentJobCommand extends $Command<
-  StartSpeakerEnrollmentJobCommandInput,
-  StartSpeakerEnrollmentJobCommandOutput,
-  VoiceIDClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartSpeakerEnrollmentJobCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: VoiceIDClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartSpeakerEnrollmentJobCommandInput, StartSpeakerEnrollmentJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartSpeakerEnrollmentJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "VoiceIDClient";
-    const commandName = "StartSpeakerEnrollmentJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartSpeakerEnrollmentJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSpeakerEnrollmentJobResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "VoiceID",
-        operation: "StartSpeakerEnrollmentJob",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartSpeakerEnrollmentJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartSpeakerEnrollmentJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartSpeakerEnrollmentJobCommandOutput> {
-    return de_StartSpeakerEnrollmentJobCommand(output, context);
-  }
-}
+export class StartSpeakerEnrollmentJobCommand extends $Command
+  .classBuilder<
+    StartSpeakerEnrollmentJobCommandInput,
+    StartSpeakerEnrollmentJobCommandOutput,
+    VoiceIDClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: VoiceIDClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("VoiceID", "StartSpeakerEnrollmentJob", {})
+  .n("VoiceIDClient", "StartSpeakerEnrollmentJobCommand")
+  .f(StartSpeakerEnrollmentJobRequestFilterSensitiveLog, StartSpeakerEnrollmentJobResponseFilterSensitiveLog)
+  .ser(se_StartSpeakerEnrollmentJobCommand)
+  .de(de_StartSpeakerEnrollmentJobCommand)
+  .build() {}

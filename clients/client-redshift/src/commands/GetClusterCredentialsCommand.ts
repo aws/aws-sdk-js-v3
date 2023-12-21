@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ClusterCredentials, ClusterCredentialsFilterSensitiveLog } from "../models/models_0";
 import { GetClusterCredentialsMessage } from "../models/models_1";
 import { de_GetClusterCredentialsCommand, se_GetClusterCredentialsCommand } from "../protocols/Aws_query";
@@ -103,75 +94,26 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
-export class GetClusterCredentialsCommand extends $Command<
-  GetClusterCredentialsCommandInput,
-  GetClusterCredentialsCommandOutput,
-  RedshiftClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetClusterCredentialsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetClusterCredentialsCommandInput, GetClusterCredentialsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetClusterCredentialsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftClient";
-    const commandName = "GetClusterCredentialsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ClusterCredentialsFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RedshiftServiceVersion20121201",
-        operation: "GetClusterCredentials",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetClusterCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetClusterCredentialsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetClusterCredentialsCommandOutput> {
-    return de_GetClusterCredentialsCommand(output, context);
-  }
-}
+export class GetClusterCredentialsCommand extends $Command
+  .classBuilder<
+    GetClusterCredentialsCommandInput,
+    GetClusterCredentialsCommandOutput,
+    RedshiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: RedshiftClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServiceVersion20121201", "GetClusterCredentials", {})
+  .n("RedshiftClient", "GetClusterCredentialsCommand")
+  .f(void 0, ClusterCredentialsFilterSensitiveLog)
+  .ser(se_GetClusterCredentialsCommand)
+  .de(de_GetClusterCredentialsCommand)
+  .build() {}

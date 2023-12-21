@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateObjectAttributesRequest, UpdateObjectAttributesResponse } from "../models/models_0";
 import { de_UpdateObjectAttributesCommand, se_UpdateObjectAttributesCommand } from "../protocols/Aws_restJson1";
 
@@ -120,75 +111,26 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
  */
-export class UpdateObjectAttributesCommand extends $Command<
-  UpdateObjectAttributesCommandInput,
-  UpdateObjectAttributesCommandOutput,
-  CloudDirectoryClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateObjectAttributesCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudDirectoryClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateObjectAttributesCommandInput, UpdateObjectAttributesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateObjectAttributesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudDirectoryClient";
-    const commandName = "UpdateObjectAttributesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonCloudDirectory_20170111",
-        operation: "UpdateObjectAttributes",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateObjectAttributesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateObjectAttributesCommandOutput> {
-    return de_UpdateObjectAttributesCommand(output, context);
-  }
-}
+export class UpdateObjectAttributesCommand extends $Command
+  .classBuilder<
+    UpdateObjectAttributesCommandInput,
+    UpdateObjectAttributesCommandOutput,
+    CloudDirectoryClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CloudDirectoryClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonCloudDirectory_20170111", "UpdateObjectAttributes", {})
+  .n("CloudDirectoryClient", "UpdateObjectAttributesCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateObjectAttributesCommand)
+  .de(de_UpdateObjectAttributesCommand)
+  .build() {}

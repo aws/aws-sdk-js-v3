@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/models_0";
 import { de_RegisterStreamConsumerCommand, se_RegisterStreamConsumerCommand } from "../protocols/Aws_json1_1";
@@ -100,77 +91,28 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
-export class RegisterStreamConsumerCommand extends $Command<
-  RegisterStreamConsumerCommandInput,
-  RegisterStreamConsumerCommandOutput,
-  KinesisClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      OperationType: { type: "staticContextParams", value: `control` },
-      StreamARN: { type: "contextParams", name: "StreamARN" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RegisterStreamConsumerCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KinesisClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RegisterStreamConsumerCommandInput, RegisterStreamConsumerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RegisterStreamConsumerCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KinesisClient";
-    const commandName = "RegisterStreamConsumerCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Kinesis_20131202",
-        operation: "RegisterStreamConsumer",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RegisterStreamConsumerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RegisterStreamConsumerCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterStreamConsumerCommandOutput> {
-    return de_RegisterStreamConsumerCommand(output, context);
-  }
-}
+export class RegisterStreamConsumerCommand extends $Command
+  .classBuilder<
+    RegisterStreamConsumerCommandInput,
+    RegisterStreamConsumerCommandOutput,
+    KinesisClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    OperationType: { type: "staticContextParams", value: `control` },
+    StreamARN: { type: "contextParams", name: "StreamARN" },
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: KinesisClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Kinesis_20131202", "RegisterStreamConsumer", {})
+  .n("KinesisClient", "RegisterStreamConsumerCommand")
+  .f(void 0, void 0)
+  .ser(se_RegisterStreamConsumerCommand)
+  .de(de_RegisterStreamConsumerCommand)
+  .build() {}

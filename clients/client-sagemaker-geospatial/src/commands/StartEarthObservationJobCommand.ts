@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartEarthObservationJobInput,
   StartEarthObservationJobInputFilterSensitiveLog,
@@ -385,75 +376,26 @@ export interface StartEarthObservationJobCommandOutput extends StartEarthObserva
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
-export class StartEarthObservationJobCommand extends $Command<
-  StartEarthObservationJobCommandInput,
-  StartEarthObservationJobCommandOutput,
-  SageMakerGeospatialClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartEarthObservationJobCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerGeospatialClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartEarthObservationJobCommandInput, StartEarthObservationJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartEarthObservationJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerGeospatialClient";
-    const commandName = "StartEarthObservationJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartEarthObservationJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartEarthObservationJobOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "SageMakerGeospatial",
-        operation: "StartEarthObservationJob",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartEarthObservationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartEarthObservationJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartEarthObservationJobCommandOutput> {
-    return de_StartEarthObservationJobCommand(output, context);
-  }
-}
+export class StartEarthObservationJobCommand extends $Command
+  .classBuilder<
+    StartEarthObservationJobCommandInput,
+    StartEarthObservationJobCommandOutput,
+    SageMakerGeospatialClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: SageMakerGeospatialClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMakerGeospatial", "StartEarthObservationJob", {})
+  .n("SageMakerGeospatialClient", "StartEarthObservationJobCommand")
+  .f(StartEarthObservationJobInputFilterSensitiveLog, StartEarthObservationJobOutputFilterSensitiveLog)
+  .ser(se_StartEarthObservationJobCommand)
+  .de(de_StartEarthObservationJobCommand)
+  .build() {}

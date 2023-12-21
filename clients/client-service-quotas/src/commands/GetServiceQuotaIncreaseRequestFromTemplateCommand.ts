@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetServiceQuotaIncreaseRequestFromTemplateRequest,
   GetServiceQuotaIncreaseRequestFromTemplateResponse,
@@ -115,87 +106,26 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
  */
-export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
-  GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-  GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
-  ServiceQuotasClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ServiceQuotasClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<
+export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command
+  .classBuilder<
     GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
-  > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        GetServiceQuotaIncreaseRequestFromTemplateCommand.getEndpointParameterInstructions()
-      )
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ServiceQuotasClient";
-    const commandName = "GetServiceQuotaIncreaseRequestFromTemplateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ServiceQuotasV20190624",
-        operation: "GetServiceQuotaIncreaseRequestFromTemplate",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
-    return de_GetServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
-  }
-}
+    GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
+    ServiceQuotasClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: ServiceQuotasClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ServiceQuotasV20190624", "GetServiceQuotaIncreaseRequestFromTemplate", {})
+  .n("ServiceQuotasClient", "GetServiceQuotaIncreaseRequestFromTemplateCommand")
+  .f(void 0, void 0)
+  .ser(se_GetServiceQuotaIncreaseRequestFromTemplateCommand)
+  .de(de_GetServiceQuotaIncreaseRequestFromTemplateCommand)
+  .build() {}

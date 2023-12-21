@@ -1,25 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadInputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import {
   CloudSearchDomainClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UploadDocumentsRequest,
   UploadDocumentsRequestFilterSensitiveLog,
@@ -91,75 +81,26 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
  */
-export class UploadDocumentsCommand extends $Command<
-  UploadDocumentsCommandInput,
-  UploadDocumentsCommandOutput,
-  CloudSearchDomainClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UploadDocumentsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudSearchDomainClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UploadDocumentsCommandInput, UploadDocumentsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UploadDocumentsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudSearchDomainClient";
-    const commandName = "UploadDocumentsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UploadDocumentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonCloudSearch2013",
-        operation: "UploadDocuments",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UploadDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UploadDocumentsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadDocumentsCommandOutput> {
-    return de_UploadDocumentsCommand(output, context);
-  }
-}
+export class UploadDocumentsCommand extends $Command
+  .classBuilder<
+    UploadDocumentsCommandInput,
+    UploadDocumentsCommandOutput,
+    CloudSearchDomainClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CloudSearchDomainClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonCloudSearch2013", "UploadDocuments", {})
+  .n("CloudSearchDomainClient", "UploadDocumentsCommand")
+  .f(UploadDocumentsRequestFilterSensitiveLog, void 0)
+  .ser(se_UploadDocumentsCommand)
+  .de(de_UploadDocumentsCommand)
+  .build() {}

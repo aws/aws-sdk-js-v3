@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateTenantDatabaseMessage,
   CreateTenantDatabaseMessageFilterSensitiveLog,
@@ -119,75 +110,26 @@ export interface CreateTenantDatabaseCommandOutput extends CreateTenantDatabaseR
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
-export class CreateTenantDatabaseCommand extends $Command<
-  CreateTenantDatabaseCommandInput,
-  CreateTenantDatabaseCommandOutput,
-  RDSClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateTenantDatabaseCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateTenantDatabaseCommandInput, CreateTenantDatabaseCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateTenantDatabaseCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "CreateTenantDatabaseCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateTenantDatabaseMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTenantDatabaseResultFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonRDSv19",
-        operation: "CreateTenantDatabase",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateTenantDatabaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateTenantDatabaseCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTenantDatabaseCommandOutput> {
-    return de_CreateTenantDatabaseCommand(output, context);
-  }
-}
+export class CreateTenantDatabaseCommand extends $Command
+  .classBuilder<
+    CreateTenantDatabaseCommandInput,
+    CreateTenantDatabaseCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: RDSClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonRDSv19", "CreateTenantDatabase", {})
+  .n("RDSClient", "CreateTenantDatabaseCommand")
+  .f(CreateTenantDatabaseMessageFilterSensitiveLog, CreateTenantDatabaseResultFilterSensitiveLog)
+  .ser(se_CreateTenantDatabaseCommand)
+  .de(de_CreateTenantDatabaseCommand)
+  .build() {}

@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateMacSecKeyRequest, DisassociateMacSecKeyResponse } from "../models/models_0";
 import { de_DisassociateMacSecKeyCommand, se_DisassociateMacSecKeyCommand } from "../protocols/Aws_json1_1";
 
@@ -80,75 +71,26 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
-export class DisassociateMacSecKeyCommand extends $Command<
-  DisassociateMacSecKeyCommandInput,
-  DisassociateMacSecKeyCommandOutput,
-  DirectConnectClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DisassociateMacSecKeyCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DirectConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DisassociateMacSecKeyCommandInput, DisassociateMacSecKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DisassociateMacSecKeyCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DirectConnectClient";
-    const commandName = "DisassociateMacSecKeyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "OvertureService",
-        operation: "DisassociateMacSecKey",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DisassociateMacSecKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DisassociateMacSecKeyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateMacSecKeyCommandOutput> {
-    return de_DisassociateMacSecKeyCommand(output, context);
-  }
-}
+export class DisassociateMacSecKeyCommand extends $Command
+  .classBuilder<
+    DisassociateMacSecKeyCommandInput,
+    DisassociateMacSecKeyCommandOutput,
+    DirectConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: DirectConnectClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("OvertureService", "DisassociateMacSecKey", {})
+  .n("DirectConnectClient", "DisassociateMacSecKeyCommand")
+  .f(void 0, void 0)
+  .ser(se_DisassociateMacSecKeyCommand)
+  .de(de_DisassociateMacSecKeyCommand)
+  .build() {}

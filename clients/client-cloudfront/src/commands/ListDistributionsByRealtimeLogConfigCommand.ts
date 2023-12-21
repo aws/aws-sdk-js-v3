@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListDistributionsByRealtimeLogConfigRequest,
   ListDistributionsByRealtimeLogConfigResult,
@@ -386,81 +377,26 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
-export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
-  ListDistributionsByRealtimeLogConfigCommandInput,
-  ListDistributionsByRealtimeLogConfigCommandOutput,
-  CloudFrontClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListDistributionsByRealtimeLogConfigCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudFrontClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListDistributionsByRealtimeLogConfigCommandInput, ListDistributionsByRealtimeLogConfigCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListDistributionsByRealtimeLogConfigCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudFrontClient";
-    const commandName = "ListDistributionsByRealtimeLogConfigCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Cloudfront2020_05_31",
-        operation: "ListDistributionsByRealtimeLogConfig",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ListDistributionsByRealtimeLogConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListDistributionsByRealtimeLogConfigCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDistributionsByRealtimeLogConfigCommandOutput> {
-    return de_ListDistributionsByRealtimeLogConfigCommand(output, context);
-  }
-}
+export class ListDistributionsByRealtimeLogConfigCommand extends $Command
+  .classBuilder<
+    ListDistributionsByRealtimeLogConfigCommandInput,
+    ListDistributionsByRealtimeLogConfigCommandOutput,
+    CloudFrontClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CloudFrontClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Cloudfront2020_05_31", "ListDistributionsByRealtimeLogConfig", {})
+  .n("CloudFrontClient", "ListDistributionsByRealtimeLogConfigCommand")
+  .f(void 0, ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog)
+  .ser(se_ListDistributionsByRealtimeLogConfigCommand)
+  .de(de_ListDistributionsByRealtimeLogConfigCommand)
+  .build() {}

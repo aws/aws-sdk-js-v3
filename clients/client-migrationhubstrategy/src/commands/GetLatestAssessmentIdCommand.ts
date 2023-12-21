@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   MigrationHubStrategyClientResolvedConfig,
   ServiceInputTypes,
@@ -80,75 +71,26 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
-export class GetLatestAssessmentIdCommand extends $Command<
-  GetLatestAssessmentIdCommandInput,
-  GetLatestAssessmentIdCommandOutput,
-  MigrationHubStrategyClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetLatestAssessmentIdCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MigrationHubStrategyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetLatestAssessmentIdCommandInput, GetLatestAssessmentIdCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetLatestAssessmentIdCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MigrationHubStrategyClient";
-    const commandName = "GetLatestAssessmentIdCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSMigrationHubStrategyRecommendation",
-        operation: "GetLatestAssessmentId",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetLatestAssessmentIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetLatestAssessmentIdCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLatestAssessmentIdCommandOutput> {
-    return de_GetLatestAssessmentIdCommand(output, context);
-  }
-}
+export class GetLatestAssessmentIdCommand extends $Command
+  .classBuilder<
+    GetLatestAssessmentIdCommandInput,
+    GetLatestAssessmentIdCommandOutput,
+    MigrationHubStrategyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: MigrationHubStrategyClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSMigrationHubStrategyRecommendation", "GetLatestAssessmentId", {})
+  .n("MigrationHubStrategyClient", "GetLatestAssessmentIdCommand")
+  .f(void 0, void 0)
+  .ser(se_GetLatestAssessmentIdCommand)
+  .de(de_GetLatestAssessmentIdCommand)
+  .build() {}

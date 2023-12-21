@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { EnableSnapshotBlockPublicAccessRequest, EnableSnapshotBlockPublicAccessResult } from "../models/models_5";
 import {
   de_EnableSnapshotBlockPublicAccessCommand,
@@ -82,81 +73,26 @@ export interface EnableSnapshotBlockPublicAccessCommandOutput
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
-export class EnableSnapshotBlockPublicAccessCommand extends $Command<
-  EnableSnapshotBlockPublicAccessCommandInput,
-  EnableSnapshotBlockPublicAccessCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: EnableSnapshotBlockPublicAccessCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<EnableSnapshotBlockPublicAccessCommandInput, EnableSnapshotBlockPublicAccessCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, EnableSnapshotBlockPublicAccessCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "EnableSnapshotBlockPublicAccessCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonEC2",
-        operation: "EnableSnapshotBlockPublicAccess",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: EnableSnapshotBlockPublicAccessCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_EnableSnapshotBlockPublicAccessCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EnableSnapshotBlockPublicAccessCommandOutput> {
-    return de_EnableSnapshotBlockPublicAccessCommand(output, context);
-  }
-}
+export class EnableSnapshotBlockPublicAccessCommand extends $Command
+  .classBuilder<
+    EnableSnapshotBlockPublicAccessCommandInput,
+    EnableSnapshotBlockPublicAccessCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: EC2ClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "EnableSnapshotBlockPublicAccess", {})
+  .n("EC2Client", "EnableSnapshotBlockPublicAccessCommand")
+  .f(void 0, void 0)
+  .ser(se_EnableSnapshotBlockPublicAccessCommand)
+  .de(de_EnableSnapshotBlockPublicAccessCommand)
+  .build() {}

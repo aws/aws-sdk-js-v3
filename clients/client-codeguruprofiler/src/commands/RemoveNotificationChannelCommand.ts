@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RemoveNotificationChannelRequest, RemoveNotificationChannelResponse } from "../models/models_0";
 import { de_RemoveNotificationChannelCommand, se_RemoveNotificationChannelCommand } from "../protocols/Aws_restJson1";
 
@@ -88,78 +79,26 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
-export class RemoveNotificationChannelCommand extends $Command<
-  RemoveNotificationChannelCommandInput,
-  RemoveNotificationChannelCommandOutput,
-  CodeGuruProfilerClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RemoveNotificationChannelCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeGuruProfilerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RemoveNotificationChannelCommandInput, RemoveNotificationChannelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RemoveNotificationChannelCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeGuruProfilerClient";
-    const commandName = "RemoveNotificationChannelCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CodeGuruProfiler",
-        operation: "RemoveNotificationChannel",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RemoveNotificationChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RemoveNotificationChannelCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RemoveNotificationChannelCommandOutput> {
-    return de_RemoveNotificationChannelCommand(output, context);
-  }
-}
+export class RemoveNotificationChannelCommand extends $Command
+  .classBuilder<
+    RemoveNotificationChannelCommandInput,
+    RemoveNotificationChannelCommandOutput,
+    CodeGuruProfilerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CodeGuruProfilerClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeGuruProfiler", "RemoveNotificationChannel", {})
+  .n("CodeGuruProfilerClient", "RemoveNotificationChannelCommand")
+  .f(void 0, void 0)
+  .ser(se_RemoveNotificationChannelCommand)
+  .de(de_RemoveNotificationChannelCommand)
+  .build() {}

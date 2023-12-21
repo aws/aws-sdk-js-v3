@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRetrieverRequest, DeleteRetrieverResponse } from "../models/models_0";
 import { de_DeleteRetrieverCommand, se_DeleteRetrieverCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
@@ -88,74 +79,26 @@ export interface DeleteRetrieverCommandOutput extends DeleteRetrieverResponse, _
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
  */
-export class DeleteRetrieverCommand extends $Command<
-  DeleteRetrieverCommandInput,
-  DeleteRetrieverCommandOutput,
-  QBusinessClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteRetrieverCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QBusinessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteRetrieverCommandInput, DeleteRetrieverCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteRetrieverCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QBusinessClient";
-    const commandName = "DeleteRetrieverCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ExpertQ",
-        operation: "DeleteRetriever",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteRetrieverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteRetrieverCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRetrieverCommandOutput> {
-    return de_DeleteRetrieverCommand(output, context);
-  }
-}
+export class DeleteRetrieverCommand extends $Command
+  .classBuilder<
+    DeleteRetrieverCommandInput,
+    DeleteRetrieverCommandOutput,
+    QBusinessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: QBusinessClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ExpertQ", "DeleteRetriever", {})
+  .n("QBusinessClient", "DeleteRetrieverCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteRetrieverCommand)
+  .de(de_DeleteRetrieverCommand)
+  .build() {}

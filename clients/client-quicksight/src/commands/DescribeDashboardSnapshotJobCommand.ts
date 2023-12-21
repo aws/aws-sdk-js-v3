@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeDashboardSnapshotJobRequest,
   DescribeDashboardSnapshotJobResponse,
@@ -180,78 +171,26 @@ export interface DescribeDashboardSnapshotJobCommandOutput
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class DescribeDashboardSnapshotJobCommand extends $Command<
-  DescribeDashboardSnapshotJobCommandInput,
-  DescribeDashboardSnapshotJobCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeDashboardSnapshotJobCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeDashboardSnapshotJobCommandInput, DescribeDashboardSnapshotJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDashboardSnapshotJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "DescribeDashboardSnapshotJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeDashboardSnapshotJobResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "QuickSight_20180401",
-        operation: "DescribeDashboardSnapshotJob",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeDashboardSnapshotJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeDashboardSnapshotJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDashboardSnapshotJobCommandOutput> {
-    return de_DescribeDashboardSnapshotJobCommand(output, context);
-  }
-}
+export class DescribeDashboardSnapshotJobCommand extends $Command
+  .classBuilder<
+    DescribeDashboardSnapshotJobCommandInput,
+    DescribeDashboardSnapshotJobCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: QuickSightClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "DescribeDashboardSnapshotJob", {})
+  .n("QuickSightClient", "DescribeDashboardSnapshotJobCommand")
+  .f(void 0, DescribeDashboardSnapshotJobResponseFilterSensitiveLog)
+  .ser(se_DescribeDashboardSnapshotJobCommand)
+  .de(de_DescribeDashboardSnapshotJobCommand)
+  .build() {}

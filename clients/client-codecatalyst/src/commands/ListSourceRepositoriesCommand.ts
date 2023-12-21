@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSourceRepositoriesRequest, ListSourceRepositoriesResponse } from "../models/models_0";
 import { de_ListSourceRepositoriesCommand, se_ListSourceRepositoriesCommand } from "../protocols/Aws_restJson1";
 
@@ -97,74 +88,26 @@ export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositor
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
-export class ListSourceRepositoriesCommand extends $Command<
-  ListSourceRepositoriesCommandInput,
-  ListSourceRepositoriesCommandOutput,
-  CodeCatalystClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListSourceRepositoriesCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeCatalystClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListSourceRepositoriesCommandInput, ListSourceRepositoriesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListSourceRepositoriesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeCatalystClient";
-    const commandName = "ListSourceRepositoriesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CodeCatalyst",
-        operation: "ListSourceRepositories",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListSourceRepositoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListSourceRepositoriesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSourceRepositoriesCommandOutput> {
-    return de_ListSourceRepositoriesCommand(output, context);
-  }
-}
+export class ListSourceRepositoriesCommand extends $Command
+  .classBuilder<
+    ListSourceRepositoriesCommandInput,
+    ListSourceRepositoriesCommandOutput,
+    CodeCatalystClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CodeCatalystClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeCatalyst", "ListSourceRepositories", {})
+  .n("CodeCatalystClient", "ListSourceRepositoriesCommand")
+  .f(void 0, void 0)
+  .ser(se_ListSourceRepositoriesCommand)
+  .de(de_ListSourceRepositoriesCommand)
+  .build() {}

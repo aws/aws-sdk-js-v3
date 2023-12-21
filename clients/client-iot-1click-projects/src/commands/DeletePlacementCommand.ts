@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   IoT1ClickProjectsClientResolvedConfig,
   ServiceInputTypes,
@@ -84,75 +75,26 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
-export class DeletePlacementCommand extends $Command<
-  DeletePlacementCommandInput,
-  DeletePlacementCommandOutput,
-  IoT1ClickProjectsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeletePlacementCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoT1ClickProjectsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeletePlacementCommandInput, DeletePlacementCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeletePlacementCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoT1ClickProjectsClient";
-    const commandName = "DeletePlacementCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSIoT1ClickProjects",
-        operation: "DeletePlacement",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeletePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeletePlacementCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlacementCommandOutput> {
-    return de_DeletePlacementCommand(output, context);
-  }
-}
+export class DeletePlacementCommand extends $Command
+  .classBuilder<
+    DeletePlacementCommandInput,
+    DeletePlacementCommandOutput,
+    IoT1ClickProjectsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: IoT1ClickProjectsClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIoT1ClickProjects", "DeletePlacement", {})
+  .n("IoT1ClickProjectsClient", "DeletePlacementCommand")
+  .f(void 0, void 0)
+  .ser(se_DeletePlacementCommand)
+  .de(de_DeletePlacementCommand)
+  .build() {}

@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRecipeVersionsRequest, ListRecipeVersionsResponse } from "../models/models_0";
 import { de_ListRecipeVersionsCommand, se_ListRecipeVersionsCommand } from "../protocols/Aws_restJson1";
 
@@ -106,75 +97,26 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
  */
-export class ListRecipeVersionsCommand extends $Command<
-  ListRecipeVersionsCommandInput,
-  ListRecipeVersionsCommandOutput,
-  DataBrewClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListRecipeVersionsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DataBrewClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListRecipeVersionsCommandInput, ListRecipeVersionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListRecipeVersionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DataBrewClient";
-    const commandName = "ListRecipeVersionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSGlueDataBrew",
-        operation: "ListRecipeVersions",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListRecipeVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListRecipeVersionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecipeVersionsCommandOutput> {
-    return de_ListRecipeVersionsCommand(output, context);
-  }
-}
+export class ListRecipeVersionsCommand extends $Command
+  .classBuilder<
+    ListRecipeVersionsCommandInput,
+    ListRecipeVersionsCommandOutput,
+    DataBrewClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: DataBrewClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSGlueDataBrew", "ListRecipeVersions", {})
+  .n("DataBrewClient", "ListRecipeVersionsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListRecipeVersionsCommand)
+  .de(de_ListRecipeVersionsCommand)
+  .build() {}

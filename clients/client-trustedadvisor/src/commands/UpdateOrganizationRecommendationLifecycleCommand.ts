@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateOrganizationRecommendationLifecycleRequest,
   UpdateOrganizationRecommendationLifecycleRequestFilterSensitiveLog,
@@ -93,87 +84,26 @@ export interface UpdateOrganizationRecommendationLifecycleCommandOutput extends 
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
  */
-export class UpdateOrganizationRecommendationLifecycleCommand extends $Command<
-  UpdateOrganizationRecommendationLifecycleCommandInput,
-  UpdateOrganizationRecommendationLifecycleCommandOutput,
-  TrustedAdvisorClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateOrganizationRecommendationLifecycleCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TrustedAdvisorClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<
+export class UpdateOrganizationRecommendationLifecycleCommand extends $Command
+  .classBuilder<
     UpdateOrganizationRecommendationLifecycleCommandInput,
-    UpdateOrganizationRecommendationLifecycleCommandOutput
-  > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        UpdateOrganizationRecommendationLifecycleCommand.getEndpointParameterInstructions()
-      )
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TrustedAdvisorClient";
-    const commandName = "UpdateOrganizationRecommendationLifecycleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateOrganizationRecommendationLifecycleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "TrustedAdvisor",
-        operation: "UpdateOrganizationRecommendationLifecycle",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: UpdateOrganizationRecommendationLifecycleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_UpdateOrganizationRecommendationLifecycleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateOrganizationRecommendationLifecycleCommandOutput> {
-    return de_UpdateOrganizationRecommendationLifecycleCommand(output, context);
-  }
-}
+    UpdateOrganizationRecommendationLifecycleCommandOutput,
+    TrustedAdvisorClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: TrustedAdvisorClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("TrustedAdvisor", "UpdateOrganizationRecommendationLifecycle", {})
+  .n("TrustedAdvisorClient", "UpdateOrganizationRecommendationLifecycleCommand")
+  .f(UpdateOrganizationRecommendationLifecycleRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateOrganizationRecommendationLifecycleCommand)
+  .de(de_UpdateOrganizationRecommendationLifecycleCommand)
+  .build() {}

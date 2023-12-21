@@ -1,22 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetChunkInput, GetChunkOutput, GetChunkOutputFilterSensitiveLog } from "../models/models_0";
 import { de_GetChunkCommand, se_GetChunkCommand } from "../protocols/Aws_restJson1";
 
@@ -94,76 +83,26 @@ export interface GetChunkCommandOutput extends Omit<GetChunkOutput, "Data">, __M
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
-export class GetChunkCommand extends $Command<
-  GetChunkCommandInput,
-  GetChunkCommandOutput,
-  BackupStorageClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetChunkCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BackupStorageClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetChunkCommandInput, GetChunkCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetChunkCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BackupStorageClient";
-    const commandName = "GetChunkCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetChunkOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CryoStorageFrontendService",
-        operation: "GetChunk",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetChunkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetChunkCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetChunkCommandOutput> {
-    return de_GetChunkCommand(output, context);
-  }
-}
+export class GetChunkCommand extends $Command
+  .classBuilder<
+    GetChunkCommandInput,
+    GetChunkCommandOutput,
+    BackupStorageClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: BackupStorageClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CryoStorageFrontendService", "GetChunk", {})
+  .n("BackupStorageClient", "GetChunkCommand")
+  .f(void 0, GetChunkOutputFilterSensitiveLog)
+  .ser(se_GetChunkCommand)
+  .de(de_GetChunkCommand)
+  .build() {}

@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListConfiguredTableAssociationsInput, ListConfiguredTableAssociationsOutput } from "../models/models_0";
 import {
   de_ListConfiguredTableAssociationsCommand,
@@ -99,81 +90,26 @@ export interface ListConfiguredTableAssociationsCommandOutput
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
-export class ListConfiguredTableAssociationsCommand extends $Command<
-  ListConfiguredTableAssociationsCommandInput,
-  ListConfiguredTableAssociationsCommandOutput,
-  CleanRoomsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListConfiguredTableAssociationsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CleanRoomsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListConfiguredTableAssociationsCommandInput, ListConfiguredTableAssociationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListConfiguredTableAssociationsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CleanRoomsClient";
-    const commandName = "ListConfiguredTableAssociationsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSBastionControlPlaneServiceLambda",
-        operation: "ListConfiguredTableAssociations",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ListConfiguredTableAssociationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListConfiguredTableAssociationsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListConfiguredTableAssociationsCommandOutput> {
-    return de_ListConfiguredTableAssociationsCommand(output, context);
-  }
-}
+export class ListConfiguredTableAssociationsCommand extends $Command
+  .classBuilder<
+    ListConfiguredTableAssociationsCommandInput,
+    ListConfiguredTableAssociationsCommandOutput,
+    CleanRoomsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CleanRoomsClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSBastionControlPlaneServiceLambda", "ListConfiguredTableAssociations", {})
+  .n("CleanRoomsClient", "ListConfiguredTableAssociationsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListConfiguredTableAssociationsCommand)
+  .de(de_ListConfiguredTableAssociationsCommand)
+  .build() {}

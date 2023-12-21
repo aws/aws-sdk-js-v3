@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetPriceListFileUrlRequest, GetPriceListFileUrlResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
 import { de_GetPriceListFileUrlCommand, se_GetPriceListFileUrlCommand } from "../protocols/Aws_json1_1";
@@ -85,75 +76,26 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  */
-export class GetPriceListFileUrlCommand extends $Command<
-  GetPriceListFileUrlCommandInput,
-  GetPriceListFileUrlCommandOutput,
-  PricingClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetPriceListFileUrlCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PricingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetPriceListFileUrlCommandInput, GetPriceListFileUrlCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetPriceListFileUrlCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PricingClient";
-    const commandName = "GetPriceListFileUrlCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSPriceListService",
-        operation: "GetPriceListFileUrl",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetPriceListFileUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetPriceListFileUrlCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPriceListFileUrlCommandOutput> {
-    return de_GetPriceListFileUrlCommand(output, context);
-  }
-}
+export class GetPriceListFileUrlCommand extends $Command
+  .classBuilder<
+    GetPriceListFileUrlCommandInput,
+    GetPriceListFileUrlCommandOutput,
+    PricingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: PricingClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSPriceListService", "GetPriceListFileUrl", {})
+  .n("PricingClient", "GetPriceListFileUrlCommand")
+  .f(void 0, void 0)
+  .ser(se_GetPriceListFileUrlCommand)
+  .de(de_GetPriceListFileUrlCommand)
+  .build() {}

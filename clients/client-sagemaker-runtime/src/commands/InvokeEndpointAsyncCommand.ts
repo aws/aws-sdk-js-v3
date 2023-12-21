@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   InvokeEndpointAsyncInput,
   InvokeEndpointAsyncInputFilterSensitiveLog,
@@ -98,75 +89,26 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
  */
-export class InvokeEndpointAsyncCommand extends $Command<
-  InvokeEndpointAsyncCommandInput,
-  InvokeEndpointAsyncCommandOutput,
-  SageMakerRuntimeClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: InvokeEndpointAsyncCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerRuntimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<InvokeEndpointAsyncCommandInput, InvokeEndpointAsyncCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, InvokeEndpointAsyncCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerRuntimeClient";
-    const commandName = "InvokeEndpointAsyncCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: InvokeEndpointAsyncInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonSageMakerRuntime",
-        operation: "InvokeEndpointAsync",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: InvokeEndpointAsyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_InvokeEndpointAsyncCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeEndpointAsyncCommandOutput> {
-    return de_InvokeEndpointAsyncCommand(output, context);
-  }
-}
+export class InvokeEndpointAsyncCommand extends $Command
+  .classBuilder<
+    InvokeEndpointAsyncCommandInput,
+    InvokeEndpointAsyncCommandOutput,
+    SageMakerRuntimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: SageMakerRuntimeClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonSageMakerRuntime", "InvokeEndpointAsync", {})
+  .n("SageMakerRuntimeClient", "InvokeEndpointAsyncCommand")
+  .f(InvokeEndpointAsyncInputFilterSensitiveLog, void 0)
+  .ser(se_InvokeEndpointAsyncCommand)
+  .de(de_InvokeEndpointAsyncCommand)
+  .build() {}

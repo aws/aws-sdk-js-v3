@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import {
   GetExternalDataViewAccessDetailsRequest,
@@ -110,81 +101,26 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  */
-export class GetExternalDataViewAccessDetailsCommand extends $Command<
-  GetExternalDataViewAccessDetailsCommandInput,
-  GetExternalDataViewAccessDetailsCommandOutput,
-  FinspaceDataClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetExternalDataViewAccessDetailsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: FinspaceDataClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetExternalDataViewAccessDetailsCommandInput, GetExternalDataViewAccessDetailsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetExternalDataViewAccessDetailsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "FinspaceDataClient";
-    const commandName = "GetExternalDataViewAccessDetailsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetExternalDataViewAccessDetailsResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSHabaneroPublicAPI",
-        operation: "GetExternalDataViewAccessDetails",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetExternalDataViewAccessDetailsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetExternalDataViewAccessDetailsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetExternalDataViewAccessDetailsCommandOutput> {
-    return de_GetExternalDataViewAccessDetailsCommand(output, context);
-  }
-}
+export class GetExternalDataViewAccessDetailsCommand extends $Command
+  .classBuilder<
+    GetExternalDataViewAccessDetailsCommandInput,
+    GetExternalDataViewAccessDetailsCommandOutput,
+    FinspaceDataClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: FinspaceDataClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSHabaneroPublicAPI", "GetExternalDataViewAccessDetails", {})
+  .n("FinspaceDataClient", "GetExternalDataViewAccessDetailsCommand")
+  .f(void 0, GetExternalDataViewAccessDetailsResponseFilterSensitiveLog)
+  .ser(se_GetExternalDataViewAccessDetailsCommand)
+  .de(de_GetExternalDataViewAccessDetailsCommand)
+  .build() {}

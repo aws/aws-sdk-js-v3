@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetRecoveryGroupRequest, GetRecoveryGroupResponse } from "../models/models_0";
 import { de_GetRecoveryGroupCommand, se_GetRecoveryGroupCommand } from "../protocols/Aws_restJson1";
 import {
@@ -91,75 +82,26 @@ export interface GetRecoveryGroupCommandOutput extends GetRecoveryGroupResponse,
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
  */
-export class GetRecoveryGroupCommand extends $Command<
-  GetRecoveryGroupCommandInput,
-  GetRecoveryGroupCommandOutput,
-  Route53RecoveryReadinessClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetRecoveryGroupCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Route53RecoveryReadinessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetRecoveryGroupCommandInput, GetRecoveryGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRecoveryGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Route53RecoveryReadinessClient";
-    const commandName = "GetRecoveryGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Route53RecoveryReadiness",
-        operation: "GetRecoveryGroup",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetRecoveryGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetRecoveryGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecoveryGroupCommandOutput> {
-    return de_GetRecoveryGroupCommand(output, context);
-  }
-}
+export class GetRecoveryGroupCommand extends $Command
+  .classBuilder<
+    GetRecoveryGroupCommandInput,
+    GetRecoveryGroupCommandOutput,
+    Route53RecoveryReadinessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: Route53RecoveryReadinessClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Route53RecoveryReadiness", "GetRecoveryGroup", {})
+  .n("Route53RecoveryReadinessClient", "GetRecoveryGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_GetRecoveryGroupCommand)
+  .de(de_GetRecoveryGroupCommand)
+  .build() {}

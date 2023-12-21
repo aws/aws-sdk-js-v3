@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateEventIntegrationRequest, CreateEventIntegrationResponse } from "../models/models_0";
 import { de_CreateEventIntegrationCommand, se_CreateEventIntegrationCommand } from "../protocols/Aws_restJson1";
 
@@ -95,75 +86,26 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
-export class CreateEventIntegrationCommand extends $Command<
-  CreateEventIntegrationCommandInput,
-  CreateEventIntegrationCommandOutput,
-  AppIntegrationsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateEventIntegrationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppIntegrationsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateEventIntegrationCommandInput, CreateEventIntegrationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateEventIntegrationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppIntegrationsClient";
-    const commandName = "CreateEventIntegrationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonAppIntegrationService",
-        operation: "CreateEventIntegration",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateEventIntegrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateEventIntegrationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEventIntegrationCommandOutput> {
-    return de_CreateEventIntegrationCommand(output, context);
-  }
-}
+export class CreateEventIntegrationCommand extends $Command
+  .classBuilder<
+    CreateEventIntegrationCommandInput,
+    CreateEventIntegrationCommandOutput,
+    AppIntegrationsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: AppIntegrationsClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonAppIntegrationService", "CreateEventIntegration", {})
+  .n("AppIntegrationsClient", "CreateEventIntegrationCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateEventIntegrationCommand)
+  .de(de_CreateEventIntegrationCommand)
+  .build() {}

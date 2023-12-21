@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartUserAccessTasksRequest,
   StartUserAccessTasksRequestFilterSensitiveLog,
@@ -98,75 +89,26 @@ export interface StartUserAccessTasksCommandOutput extends StartUserAccessTasksR
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
  */
-export class StartUserAccessTasksCommand extends $Command<
-  StartUserAccessTasksCommandInput,
-  StartUserAccessTasksCommandOutput,
-  AppFabricClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartUserAccessTasksCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppFabricClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartUserAccessTasksCommandInput, StartUserAccessTasksCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartUserAccessTasksCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppFabricClient";
-    const commandName = "StartUserAccessTasksCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartUserAccessTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "FabricFrontEndService",
-        operation: "StartUserAccessTasks",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartUserAccessTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartUserAccessTasksCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartUserAccessTasksCommandOutput> {
-    return de_StartUserAccessTasksCommand(output, context);
-  }
-}
+export class StartUserAccessTasksCommand extends $Command
+  .classBuilder<
+    StartUserAccessTasksCommandInput,
+    StartUserAccessTasksCommandOutput,
+    AppFabricClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: AppFabricClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("FabricFrontEndService", "StartUserAccessTasks", {})
+  .n("AppFabricClient", "StartUserAccessTasksCommand")
+  .f(StartUserAccessTasksRequestFilterSensitiveLog, void 0)
+  .ser(se_StartUserAccessTasksCommand)
+  .de(de_StartUserAccessTasksCommand)
+  .build() {}

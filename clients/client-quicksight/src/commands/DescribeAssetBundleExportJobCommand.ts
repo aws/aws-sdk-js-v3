@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeAssetBundleExportJobRequest,
   DescribeAssetBundleExportJobResponse,
@@ -180,78 +171,26 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class DescribeAssetBundleExportJobCommand extends $Command<
-  DescribeAssetBundleExportJobCommandInput,
-  DescribeAssetBundleExportJobCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAssetBundleExportJobCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAssetBundleExportJobCommandInput, DescribeAssetBundleExportJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAssetBundleExportJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "DescribeAssetBundleExportJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeAssetBundleExportJobResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "QuickSight_20180401",
-        operation: "DescribeAssetBundleExportJob",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAssetBundleExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAssetBundleExportJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAssetBundleExportJobCommandOutput> {
-    return de_DescribeAssetBundleExportJobCommand(output, context);
-  }
-}
+export class DescribeAssetBundleExportJobCommand extends $Command
+  .classBuilder<
+    DescribeAssetBundleExportJobCommandInput,
+    DescribeAssetBundleExportJobCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: QuickSightClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "DescribeAssetBundleExportJob", {})
+  .n("QuickSightClient", "DescribeAssetBundleExportJobCommand")
+  .f(void 0, DescribeAssetBundleExportJobResponseFilterSensitiveLog)
+  .ser(se_DescribeAssetBundleExportJobCommand)
+  .de(de_DescribeAssetBundleExportJobCommand)
+  .build() {}

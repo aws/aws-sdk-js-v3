@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateRoutingControlStateRequest, UpdateRoutingControlStateResponse } from "../models/models_0";
 import { de_UpdateRoutingControlStateCommand, se_UpdateRoutingControlStateCommand } from "../protocols/Aws_json1_0";
 import {
@@ -125,78 +116,26 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
  */
-export class UpdateRoutingControlStateCommand extends $Command<
-  UpdateRoutingControlStateCommandInput,
-  UpdateRoutingControlStateCommandOutput,
-  Route53RecoveryClusterClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateRoutingControlStateCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Route53RecoveryClusterClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateRoutingControlStateCommandInput, UpdateRoutingControlStateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateRoutingControlStateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Route53RecoveryClusterClient";
-    const commandName = "UpdateRoutingControlStateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ToggleCustomerAPI",
-        operation: "UpdateRoutingControlState",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateRoutingControlStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateRoutingControlStateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRoutingControlStateCommandOutput> {
-    return de_UpdateRoutingControlStateCommand(output, context);
-  }
-}
+export class UpdateRoutingControlStateCommand extends $Command
+  .classBuilder<
+    UpdateRoutingControlStateCommandInput,
+    UpdateRoutingControlStateCommandOutput,
+    Route53RecoveryClusterClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: Route53RecoveryClusterClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ToggleCustomerAPI", "UpdateRoutingControlState", {})
+  .n("Route53RecoveryClusterClient", "UpdateRoutingControlStateCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateRoutingControlStateCommand)
+  .de(de_UpdateRoutingControlStateCommand)
+  .build() {}

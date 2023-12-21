@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutRumMetricsDestinationRequest, PutRumMetricsDestinationResponse } from "../models/models_0";
 import { de_PutRumMetricsDestinationCommand, se_PutRumMetricsDestinationCommand } from "../protocols/Aws_restJson1";
 import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
@@ -86,75 +77,26 @@ export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDest
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
  */
-export class PutRumMetricsDestinationCommand extends $Command<
-  PutRumMetricsDestinationCommandInput,
-  PutRumMetricsDestinationCommandOutput,
-  RUMClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutRumMetricsDestinationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RUMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutRumMetricsDestinationCommandInput, PutRumMetricsDestinationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutRumMetricsDestinationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RUMClient";
-    const commandName = "PutRumMetricsDestinationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RUM",
-        operation: "PutRumMetricsDestination",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutRumMetricsDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutRumMetricsDestinationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRumMetricsDestinationCommandOutput> {
-    return de_PutRumMetricsDestinationCommand(output, context);
-  }
-}
+export class PutRumMetricsDestinationCommand extends $Command
+  .classBuilder<
+    PutRumMetricsDestinationCommandInput,
+    PutRumMetricsDestinationCommandOutput,
+    RUMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: RUMClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RUM", "PutRumMetricsDestination", {})
+  .n("RUMClient", "PutRumMetricsDestinationCommand")
+  .f(void 0, void 0)
+  .ser(se_PutRumMetricsDestinationCommand)
+  .de(de_PutRumMetricsDestinationCommand)
+  .build() {}

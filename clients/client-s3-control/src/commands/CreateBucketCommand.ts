@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateBucketRequest, CreateBucketResult } from "../models/models_0";
 import { de_CreateBucketCommand, se_CreateBucketCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
@@ -140,78 +131,30 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
-export class CreateBucketCommand extends $Command<
-  CreateBucketCommandInput,
-  CreateBucketCommandOutput,
-  S3ControlClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      OutpostId: { type: "contextParams", name: "OutpostId" },
-      Bucket: { type: "contextParams", name: "Bucket" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateBucketCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ControlClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateBucketCommandInput, CreateBucketCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateBucketCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(getRedirectFromPostIdPlugin(configuration));
-    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3ControlClient";
-    const commandName = "CreateBucketCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSS3ControlServiceV20180820",
-        operation: "CreateBucket",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateBucketCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateBucketCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBucketCommandOutput> {
-    return de_CreateBucketCommand(output, context);
-  }
-}
+export class CreateBucketCommand extends $Command
+  .classBuilder<
+    CreateBucketCommandInput,
+    CreateBucketCommandOutput,
+    S3ControlClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    OutpostId: { type: "contextParams", name: "OutpostId" },
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: S3ControlClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getRedirectFromPostIdPlugin(config),
+      getApplyMd5BodyChecksumPlugin(config),
+    ];
+  })
+  .s("AWSS3ControlServiceV20180820", "CreateBucket", {})
+  .n("S3ControlClient", "CreateBucketCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateBucketCommand)
+  .de(de_CreateBucketCommand)
+  .build() {}

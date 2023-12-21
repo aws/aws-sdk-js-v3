@@ -28,6 +28,14 @@ export const resolveClientEndpointParameters = <T>(
   };
 };
 
+export const commonParams = {
+  UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+  UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+  Endpoint: { type: "builtInParams", name: "endpoint" },
+  Region: { type: "builtInParams", name: "region" },
+  UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+} as const;
+
 export interface EndpointParameters extends __EndpointParameters {
   Region?: string;
   UseDualStack?: boolean;

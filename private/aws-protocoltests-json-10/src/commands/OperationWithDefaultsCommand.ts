@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { OperationWithDefaultsInput, OperationWithDefaultsOutput } from "../models/models_0";
@@ -111,63 +101,20 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
  */
-export class OperationWithDefaultsCommand extends $Command<
-  OperationWithDefaultsCommandInput,
-  OperationWithDefaultsCommandOutput,
-  JSONRPC10ClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: OperationWithDefaultsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: JSONRPC10ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<OperationWithDefaultsCommandInput, OperationWithDefaultsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "JSONRPC10Client";
-    const commandName = "OperationWithDefaultsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "JsonRpc10",
-        operation: "OperationWithDefaults",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: OperationWithDefaultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_OperationWithDefaultsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<OperationWithDefaultsCommandOutput> {
-    return de_OperationWithDefaultsCommand(output, context);
-  }
-}
+export class OperationWithDefaultsCommand extends $Command
+  .classBuilder<
+    OperationWithDefaultsCommandInput,
+    OperationWithDefaultsCommandOutput,
+    JSONRPC10ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: JSONRPC10ClientResolvedConfig) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("JsonRpc10", "OperationWithDefaults", {})
+  .n("JSONRPC10Client", "OperationWithDefaultsCommand")
+  .f(void 0, void 0)
+  .ser(se_OperationWithDefaultsCommand)
+  .de(de_OperationWithDefaultsCommand)
+  .build() {}

@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MalformedBooleanInput } from "../models/models_0";
 import { de_MalformedBooleanCommand, se_MalformedBooleanCommand } from "../protocols/Aws_restJson1";
@@ -65,63 +55,20 @@ export interface MalformedBooleanCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
-export class MalformedBooleanCommand extends $Command<
-  MalformedBooleanCommandInput,
-  MalformedBooleanCommandOutput,
-  RestJsonProtocolClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: MalformedBooleanCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestJsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<MalformedBooleanCommandInput, MalformedBooleanCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestJsonProtocolClient";
-    const commandName = "MalformedBooleanCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RestJson",
-        operation: "MalformedBoolean",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: MalformedBooleanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_MalformedBooleanCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedBooleanCommandOutput> {
-    return de_MalformedBooleanCommand(output, context);
-  }
-}
+export class MalformedBooleanCommand extends $Command
+  .classBuilder<
+    MalformedBooleanCommandInput,
+    MalformedBooleanCommandOutput,
+    RestJsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: RestJsonProtocolClientResolvedConfig) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestJson", "MalformedBoolean", {})
+  .n("RestJsonProtocolClient", "MalformedBooleanCommand")
+  .f(void 0, void 0)
+  .ser(se_MalformedBooleanCommand)
+  .de(de_MalformedBooleanCommand)
+  .build() {}

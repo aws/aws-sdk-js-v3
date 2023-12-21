@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   BedrockAgentRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RetrieveAndGenerateRequest,
   RetrieveAndGenerateRequestFilterSensitiveLog,
@@ -143,75 +134,26 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
  */
-export class RetrieveAndGenerateCommand extends $Command<
-  RetrieveAndGenerateCommandInput,
-  RetrieveAndGenerateCommandOutput,
-  BedrockAgentRuntimeClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RetrieveAndGenerateCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BedrockAgentRuntimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RetrieveAndGenerateCommandInput, RetrieveAndGenerateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RetrieveAndGenerateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BedrockAgentRuntimeClient";
-    const commandName = "RetrieveAndGenerateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: RetrieveAndGenerateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RetrieveAndGenerateResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonBedrockAgentRunTimeService",
-        operation: "RetrieveAndGenerate",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RetrieveAndGenerateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RetrieveAndGenerateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RetrieveAndGenerateCommandOutput> {
-    return de_RetrieveAndGenerateCommand(output, context);
-  }
-}
+export class RetrieveAndGenerateCommand extends $Command
+  .classBuilder<
+    RetrieveAndGenerateCommandInput,
+    RetrieveAndGenerateCommandOutput,
+    BedrockAgentRuntimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: BedrockAgentRuntimeClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonBedrockAgentRunTimeService", "RetrieveAndGenerate", {})
+  .n("BedrockAgentRuntimeClient", "RetrieveAndGenerateCommand")
+  .f(RetrieveAndGenerateRequestFilterSensitiveLog, RetrieveAndGenerateResponseFilterSensitiveLog)
+  .ser(se_RetrieveAndGenerateCommand)
+  .de(de_RetrieveAndGenerateCommand)
+  .build() {}

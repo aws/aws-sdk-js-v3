@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/models_0";
 import {
   de_StopDataCollectionByAgentIdsCommand,
@@ -99,78 +90,30 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  */
-export class StopDataCollectionByAgentIdsCommand extends $Command<
-  StopDataCollectionByAgentIdsCommandInput,
-  StopDataCollectionByAgentIdsCommandOutput,
-  ApplicationDiscoveryServiceClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StopDataCollectionByAgentIdsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ApplicationDiscoveryServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StopDataCollectionByAgentIdsCommandInput, StopDataCollectionByAgentIdsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopDataCollectionByAgentIdsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ApplicationDiscoveryServiceClient";
-    const commandName = "StopDataCollectionByAgentIdsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSPoseidonService_V2015_11_01",
-        operation: "StopDataCollectionByAgentIds",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StopDataCollectionByAgentIdsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopDataCollectionByAgentIdsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopDataCollectionByAgentIdsCommandOutput> {
-    return de_StopDataCollectionByAgentIdsCommand(output, context);
-  }
-}
+export class StopDataCollectionByAgentIdsCommand extends $Command
+  .classBuilder<
+    StopDataCollectionByAgentIdsCommandInput,
+    StopDataCollectionByAgentIdsCommandOutput,
+    ApplicationDiscoveryServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (
+    this: any /*Command*/,
+    Command: any /*static*/,
+    config: ApplicationDiscoveryServiceClientResolvedConfig
+  ) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSPoseidonService_V2015_11_01", "StopDataCollectionByAgentIds", {})
+  .n("ApplicationDiscoveryServiceClient", "StopDataCollectionByAgentIdsCommand")
+  .f(void 0, void 0)
+  .ser(se_StopDataCollectionByAgentIdsCommand)
+  .de(de_StopDataCollectionByAgentIdsCommand)
+  .build() {}

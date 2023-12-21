@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListSnapshotBlocksRequest,
   ListSnapshotBlocksResponse,
@@ -106,75 +97,26 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
  */
-export class ListSnapshotBlocksCommand extends $Command<
-  ListSnapshotBlocksCommandInput,
-  ListSnapshotBlocksCommandOutput,
-  EBSClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListSnapshotBlocksCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EBSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListSnapshotBlocksCommandInput, ListSnapshotBlocksCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListSnapshotBlocksCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EBSClient";
-    const commandName = "ListSnapshotBlocksCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListSnapshotBlocksResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Ebs",
-        operation: "ListSnapshotBlocks",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListSnapshotBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListSnapshotBlocksCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSnapshotBlocksCommandOutput> {
-    return de_ListSnapshotBlocksCommand(output, context);
-  }
-}
+export class ListSnapshotBlocksCommand extends $Command
+  .classBuilder<
+    ListSnapshotBlocksCommandInput,
+    ListSnapshotBlocksCommandOutput,
+    EBSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: EBSClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Ebs", "ListSnapshotBlocks", {})
+  .n("EBSClient", "ListSnapshotBlocksCommand")
+  .f(void 0, ListSnapshotBlocksResponseFilterSensitiveLog)
+  .ser(se_ListSnapshotBlocksCommand)
+  .de(de_ListSnapshotBlocksCommand)
+  .build() {}

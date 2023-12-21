@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
 import { UpdateRescoreExecutionPlanRequest } from "../models/models_0";
 import { de_UpdateRescoreExecutionPlanCommand, se_UpdateRescoreExecutionPlanCommand } from "../protocols/Aws_json1_0";
@@ -110,77 +101,26 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
  */
-export class UpdateRescoreExecutionPlanCommand extends $Command<
-  UpdateRescoreExecutionPlanCommandInput,
-  UpdateRescoreExecutionPlanCommandOutput,
-  KendraRankingClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateRescoreExecutionPlanCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KendraRankingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateRescoreExecutionPlanCommandInput, UpdateRescoreExecutionPlanCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateRescoreExecutionPlanCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KendraRankingClient";
-    const commandName = "UpdateRescoreExecutionPlanCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSKendraRerankingFrontendService",
-        operation: "UpdateRescoreExecutionPlan",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateRescoreExecutionPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateRescoreExecutionPlanCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRescoreExecutionPlanCommandOutput> {
-    return de_UpdateRescoreExecutionPlanCommand(output, context);
-  }
-}
+export class UpdateRescoreExecutionPlanCommand extends $Command
+  .classBuilder<
+    UpdateRescoreExecutionPlanCommandInput,
+    UpdateRescoreExecutionPlanCommandOutput,
+    KendraRankingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: KendraRankingClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSKendraRerankingFrontendService", "UpdateRescoreExecutionPlan", {})
+  .n("KendraRankingClient", "UpdateRescoreExecutionPlanCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateRescoreExecutionPlanCommand)
+  .de(de_UpdateRescoreExecutionPlanCommand)
+  .build() {}

@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeHapgRequest, DescribeHapgResponse } from "../models/models_0";
 import { de_DescribeHapgCommand, se_DescribeHapgCommand } from "../protocols/Aws_json1_1";
 
@@ -102,73 +93,26 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  */
-export class DescribeHapgCommand extends $Command<
-  DescribeHapgCommandInput,
-  DescribeHapgCommandOutput,
-  CloudHSMClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeHapgCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudHSMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeHapgCommandInput, DescribeHapgCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeHapgCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudHSMClient";
-    const commandName = "DescribeHapgCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CloudHsmFrontendService",
-        operation: "DescribeHapg",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeHapgCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeHapgCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHapgCommandOutput> {
-    return de_DescribeHapgCommand(output, context);
-  }
-}
+export class DescribeHapgCommand extends $Command
+  .classBuilder<
+    DescribeHapgCommandInput,
+    DescribeHapgCommandOutput,
+    CloudHSMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CloudHSMClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CloudHsmFrontendService", "DescribeHapg", {})
+  .n("CloudHSMClient", "DescribeHapgCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeHapgCommand)
+  .de(de_DescribeHapgCommand)
+  .build() {}

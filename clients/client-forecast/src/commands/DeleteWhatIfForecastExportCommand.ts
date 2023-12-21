@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import { DeleteWhatIfForecastExportRequest } from "../models/models_0";
 import { de_DeleteWhatIfForecastExportCommand, se_DeleteWhatIfForecastExportCommand } from "../protocols/Aws_json1_1";
@@ -75,78 +66,26 @@ export interface DeleteWhatIfForecastExportCommandOutput extends __MetadataBeare
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
-export class DeleteWhatIfForecastExportCommand extends $Command<
-  DeleteWhatIfForecastExportCommandInput,
-  DeleteWhatIfForecastExportCommandOutput,
-  ForecastClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteWhatIfForecastExportCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ForecastClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteWhatIfForecastExportCommandInput, DeleteWhatIfForecastExportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteWhatIfForecastExportCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ForecastClient";
-    const commandName = "DeleteWhatIfForecastExportCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonForecast",
-        operation: "DeleteWhatIfForecastExport",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteWhatIfForecastExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteWhatIfForecastExportCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteWhatIfForecastExportCommandOutput> {
-    return de_DeleteWhatIfForecastExportCommand(output, context);
-  }
-}
+export class DeleteWhatIfForecastExportCommand extends $Command
+  .classBuilder<
+    DeleteWhatIfForecastExportCommandInput,
+    DeleteWhatIfForecastExportCommandOutput,
+    ForecastClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: ForecastClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonForecast", "DeleteWhatIfForecastExport", {})
+  .n("ForecastClient", "DeleteWhatIfForecastExportCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteWhatIfForecastExportCommand)
+  .de(de_DeleteWhatIfForecastExportCommand)
+  .build() {}

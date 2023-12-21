@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateVoiceProfileRequest,
   UpdateVoiceProfileResponse,
@@ -116,75 +107,26 @@ export interface UpdateVoiceProfileCommandOutput extends UpdateVoiceProfileRespo
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
  */
-export class UpdateVoiceProfileCommand extends $Command<
-  UpdateVoiceProfileCommandInput,
-  UpdateVoiceProfileCommandOutput,
-  ChimeSDKVoiceClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateVoiceProfileCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKVoiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateVoiceProfileCommandInput, UpdateVoiceProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateVoiceProfileCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKVoiceClient";
-    const commandName = "UpdateVoiceProfileCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: UpdateVoiceProfileResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ChimeSDKTelephonyService",
-        operation: "UpdateVoiceProfile",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateVoiceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateVoiceProfileCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVoiceProfileCommandOutput> {
-    return de_UpdateVoiceProfileCommand(output, context);
-  }
-}
+export class UpdateVoiceProfileCommand extends $Command
+  .classBuilder<
+    UpdateVoiceProfileCommandInput,
+    UpdateVoiceProfileCommandOutput,
+    ChimeSDKVoiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: ChimeSDKVoiceClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeSDKTelephonyService", "UpdateVoiceProfile", {})
+  .n("ChimeSDKVoiceClient", "UpdateVoiceProfileCommand")
+  .f(void 0, UpdateVoiceProfileResponseFilterSensitiveLog)
+  .ser(se_UpdateVoiceProfileCommand)
+  .de(de_UpdateVoiceProfileCommand)
+  .build() {}

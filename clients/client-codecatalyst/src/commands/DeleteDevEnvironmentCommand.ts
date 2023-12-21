@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDevEnvironmentRequest, DeleteDevEnvironmentResponse } from "../models/models_0";
 import { de_DeleteDevEnvironmentCommand, se_DeleteDevEnvironmentCommand } from "../protocols/Aws_restJson1";
 
@@ -89,74 +80,26 @@ export interface DeleteDevEnvironmentCommandOutput extends DeleteDevEnvironmentR
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
-export class DeleteDevEnvironmentCommand extends $Command<
-  DeleteDevEnvironmentCommandInput,
-  DeleteDevEnvironmentCommandOutput,
-  CodeCatalystClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteDevEnvironmentCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeCatalystClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteDevEnvironmentCommandInput, DeleteDevEnvironmentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteDevEnvironmentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeCatalystClient";
-    const commandName = "DeleteDevEnvironmentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CodeCatalyst",
-        operation: "DeleteDevEnvironment",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteDevEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteDevEnvironmentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevEnvironmentCommandOutput> {
-    return de_DeleteDevEnvironmentCommand(output, context);
-  }
-}
+export class DeleteDevEnvironmentCommand extends $Command
+  .classBuilder<
+    DeleteDevEnvironmentCommandInput,
+    DeleteDevEnvironmentCommandOutput,
+    CodeCatalystClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CodeCatalystClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeCatalyst", "DeleteDevEnvironment", {})
+  .n("CodeCatalystClient", "DeleteDevEnvironmentCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteDevEnvironmentCommand)
+  .de(de_DeleteDevEnvironmentCommand)
+  .build() {}

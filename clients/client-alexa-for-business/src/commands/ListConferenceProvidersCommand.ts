@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListConferenceProvidersRequest, ListConferenceProvidersResponse } from "../models/models_0";
 import { de_ListConferenceProvidersCommand, se_ListConferenceProvidersCommand } from "../protocols/Aws_json1_1";
 
@@ -88,75 +79,26 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
-export class ListConferenceProvidersCommand extends $Command<
-  ListConferenceProvidersCommandInput,
-  ListConferenceProvidersCommandOutput,
-  AlexaForBusinessClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListConferenceProvidersCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AlexaForBusinessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListConferenceProvidersCommandInput, ListConferenceProvidersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListConferenceProvidersCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AlexaForBusinessClient";
-    const commandName = "ListConferenceProvidersCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AlexaForBusiness",
-        operation: "ListConferenceProviders",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListConferenceProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListConferenceProvidersCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConferenceProvidersCommandOutput> {
-    return de_ListConferenceProvidersCommand(output, context);
-  }
-}
+export class ListConferenceProvidersCommand extends $Command
+  .classBuilder<
+    ListConferenceProvidersCommandInput,
+    ListConferenceProvidersCommandOutput,
+    AlexaForBusinessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: AlexaForBusinessClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AlexaForBusiness", "ListConferenceProviders", {})
+  .n("AlexaForBusinessClient", "ListConferenceProvidersCommand")
+  .f(void 0, void 0)
+  .ser(se_ListConferenceProvidersCommand)
+  .de(de_ListConferenceProvidersCommand)
+  .build() {}

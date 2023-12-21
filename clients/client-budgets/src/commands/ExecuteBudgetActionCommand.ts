@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ExecuteBudgetActionRequest, ExecuteBudgetActionResponse } from "../models/models_0";
 import { de_ExecuteBudgetActionCommand, se_ExecuteBudgetActionCommand } from "../protocols/Aws_json1_1";
 
@@ -93,75 +84,26 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
-export class ExecuteBudgetActionCommand extends $Command<
-  ExecuteBudgetActionCommandInput,
-  ExecuteBudgetActionCommandOutput,
-  BudgetsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ExecuteBudgetActionCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BudgetsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ExecuteBudgetActionCommandInput, ExecuteBudgetActionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ExecuteBudgetActionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BudgetsClient";
-    const commandName = "ExecuteBudgetActionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSBudgetServiceGateway",
-        operation: "ExecuteBudgetAction",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ExecuteBudgetActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ExecuteBudgetActionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteBudgetActionCommandOutput> {
-    return de_ExecuteBudgetActionCommand(output, context);
-  }
-}
+export class ExecuteBudgetActionCommand extends $Command
+  .classBuilder<
+    ExecuteBudgetActionCommandInput,
+    ExecuteBudgetActionCommandOutput,
+    BudgetsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: BudgetsClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSBudgetServiceGateway", "ExecuteBudgetAction", {})
+  .n("BudgetsClient", "ExecuteBudgetActionCommand")
+  .f(void 0, void 0)
+  .ser(se_ExecuteBudgetActionCommand)
+  .de(de_ExecuteBudgetActionCommand)
+  .build() {}

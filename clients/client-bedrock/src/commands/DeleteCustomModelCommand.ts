@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCustomModelRequest, DeleteCustomModelResponse } from "../models/models_0";
 import { de_DeleteCustomModelCommand, se_DeleteCustomModelCommand } from "../protocols/Aws_restJson1";
 
@@ -81,75 +72,26 @@ export interface DeleteCustomModelCommandOutput extends DeleteCustomModelRespons
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
  */
-export class DeleteCustomModelCommand extends $Command<
-  DeleteCustomModelCommandInput,
-  DeleteCustomModelCommandOutput,
-  BedrockClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteCustomModelCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BedrockClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteCustomModelCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BedrockClient";
-    const commandName = "DeleteCustomModelCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonBedrockControlPlaneService",
-        operation: "DeleteCustomModel",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteCustomModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteCustomModelCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomModelCommandOutput> {
-    return de_DeleteCustomModelCommand(output, context);
-  }
-}
+export class DeleteCustomModelCommand extends $Command
+  .classBuilder<
+    DeleteCustomModelCommandInput,
+    DeleteCustomModelCommandOutput,
+    BedrockClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: BedrockClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonBedrockControlPlaneService", "DeleteCustomModel", {})
+  .n("BedrockClient", "DeleteCustomModelCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteCustomModelCommand)
+  .de(de_DeleteCustomModelCommand)
+  .build() {}

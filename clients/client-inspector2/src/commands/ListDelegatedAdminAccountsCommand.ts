@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { ListDelegatedAdminAccountsRequest, ListDelegatedAdminAccountsResponse } from "../models/models_0";
 import { de_ListDelegatedAdminAccountsCommand, se_ListDelegatedAdminAccountsCommand } from "../protocols/Aws_restJson1";
@@ -86,78 +77,26 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
-export class ListDelegatedAdminAccountsCommand extends $Command<
-  ListDelegatedAdminAccountsCommandInput,
-  ListDelegatedAdminAccountsCommandOutput,
-  Inspector2ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListDelegatedAdminAccountsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Inspector2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListDelegatedAdminAccountsCommandInput, ListDelegatedAdminAccountsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListDelegatedAdminAccountsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Inspector2Client";
-    const commandName = "ListDelegatedAdminAccountsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Inspector2",
-        operation: "ListDelegatedAdminAccounts",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListDelegatedAdminAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListDelegatedAdminAccountsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDelegatedAdminAccountsCommandOutput> {
-    return de_ListDelegatedAdminAccountsCommand(output, context);
-  }
-}
+export class ListDelegatedAdminAccountsCommand extends $Command
+  .classBuilder<
+    ListDelegatedAdminAccountsCommandInput,
+    ListDelegatedAdminAccountsCommandOutput,
+    Inspector2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: Inspector2ClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Inspector2", "ListDelegatedAdminAccounts", {})
+  .n("Inspector2Client", "ListDelegatedAdminAccountsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListDelegatedAdminAccountsCommand)
+  .de(de_ListDelegatedAdminAccountsCommand)
+  .build() {}

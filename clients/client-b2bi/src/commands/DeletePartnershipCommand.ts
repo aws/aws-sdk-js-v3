@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeletePartnershipRequest } from "../models/models_0";
 import { de_DeletePartnershipCommand, se_DeletePartnershipCommand } from "../protocols/Aws_json1_0";
 
@@ -82,75 +73,26 @@ export interface DeletePartnershipCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
  */
-export class DeletePartnershipCommand extends $Command<
-  DeletePartnershipCommandInput,
-  DeletePartnershipCommandOutput,
-  B2biClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeletePartnershipCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: B2biClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeletePartnershipCommandInput, DeletePartnershipCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeletePartnershipCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "B2biClient";
-    const commandName = "DeletePartnershipCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "B2BI",
-        operation: "DeletePartnership",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeletePartnershipCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeletePartnershipCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartnershipCommandOutput> {
-    return de_DeletePartnershipCommand(output, context);
-  }
-}
+export class DeletePartnershipCommand extends $Command
+  .classBuilder<
+    DeletePartnershipCommandInput,
+    DeletePartnershipCommandOutput,
+    B2biClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: B2biClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("B2BI", "DeletePartnership", {})
+  .n("B2biClient", "DeletePartnershipCommand")
+  .f(void 0, void 0)
+  .ser(se_DeletePartnershipCommand)
+  .de(de_DeletePartnershipCommand)
+  .build() {}

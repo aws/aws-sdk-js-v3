@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartRecoveryRequest,
   StartRecoveryRequestFilterSensitiveLog,
@@ -148,73 +139,26 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
-export class StartRecoveryCommand extends $Command<
-  StartRecoveryCommandInput,
-  StartRecoveryCommandOutput,
-  DrsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartRecoveryCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DrsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartRecoveryCommandInput, StartRecoveryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StartRecoveryCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DrsClient";
-    const commandName = "StartRecoveryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartRecoveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRecoveryResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ElasticDisasterRecoveryService",
-        operation: "StartRecovery",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartRecoveryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartRecoveryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRecoveryCommandOutput> {
-    return de_StartRecoveryCommand(output, context);
-  }
-}
+export class StartRecoveryCommand extends $Command
+  .classBuilder<
+    StartRecoveryCommandInput,
+    StartRecoveryCommandOutput,
+    DrsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: DrsClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ElasticDisasterRecoveryService", "StartRecovery", {})
+  .n("DrsClient", "StartRecoveryCommand")
+  .f(StartRecoveryRequestFilterSensitiveLog, StartRecoveryResponseFilterSensitiveLog)
+  .ser(se_StartRecoveryCommand)
+  .de(de_StartRecoveryCommand)
+  .build() {}

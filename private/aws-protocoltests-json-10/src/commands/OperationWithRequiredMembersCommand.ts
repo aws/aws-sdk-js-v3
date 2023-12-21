@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { OperationWithRequiredMembersOutput } from "../models/models_0";
@@ -82,66 +72,20 @@ export interface OperationWithRequiredMembersCommandOutput
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
  */
-export class OperationWithRequiredMembersCommand extends $Command<
-  OperationWithRequiredMembersCommandInput,
-  OperationWithRequiredMembersCommandOutput,
-  JSONRPC10ClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: OperationWithRequiredMembersCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: JSONRPC10ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<OperationWithRequiredMembersCommandInput, OperationWithRequiredMembersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "JSONRPC10Client";
-    const commandName = "OperationWithRequiredMembersCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "JsonRpc10",
-        operation: "OperationWithRequiredMembers",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: OperationWithRequiredMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_OperationWithRequiredMembersCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<OperationWithRequiredMembersCommandOutput> {
-    return de_OperationWithRequiredMembersCommand(output, context);
-  }
-}
+export class OperationWithRequiredMembersCommand extends $Command
+  .classBuilder<
+    OperationWithRequiredMembersCommandInput,
+    OperationWithRequiredMembersCommandOutput,
+    JSONRPC10ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: JSONRPC10ClientResolvedConfig) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("JsonRpc10", "OperationWithRequiredMembers", {})
+  .n("JSONRPC10Client", "OperationWithRequiredMembersCommand")
+  .f(void 0, void 0)
+  .ser(se_OperationWithRequiredMembersCommand)
+  .de(de_OperationWithRequiredMembersCommand)
+  .build() {}

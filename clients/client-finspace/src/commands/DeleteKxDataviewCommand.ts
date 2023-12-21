@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import { DeleteKxDataviewRequest, DeleteKxDataviewResponse } from "../models/models_0";
 import { de_DeleteKxDataviewCommand, se_DeleteKxDataviewCommand } from "../protocols/Aws_restJson1";
@@ -86,75 +77,26 @@ export interface DeleteKxDataviewCommandOutput extends DeleteKxDataviewResponse,
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class DeleteKxDataviewCommand extends $Command<
-  DeleteKxDataviewCommandInput,
-  DeleteKxDataviewCommandOutput,
-  FinspaceClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteKxDataviewCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: FinspaceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteKxDataviewCommandInput, DeleteKxDataviewCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteKxDataviewCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "FinspaceClient";
-    const commandName = "DeleteKxDataviewCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSHabaneroManagementService",
-        operation: "DeleteKxDataview",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteKxDataviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteKxDataviewCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxDataviewCommandOutput> {
-    return de_DeleteKxDataviewCommand(output, context);
-  }
-}
+export class DeleteKxDataviewCommand extends $Command
+  .classBuilder<
+    DeleteKxDataviewCommandInput,
+    DeleteKxDataviewCommandOutput,
+    FinspaceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: FinspaceClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSHabaneroManagementService", "DeleteKxDataview", {})
+  .n("FinspaceClient", "DeleteKxDataviewCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteKxDataviewCommand)
+  .de(de_DeleteKxDataviewCommand)
+  .build() {}

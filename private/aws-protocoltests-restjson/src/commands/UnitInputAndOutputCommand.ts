@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { de_UnitInputAndOutputCommand, se_UnitInputAndOutputCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
@@ -59,63 +49,20 @@ export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
-export class UnitInputAndOutputCommand extends $Command<
-  UnitInputAndOutputCommandInput,
-  UnitInputAndOutputCommandOutput,
-  RestJsonProtocolClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: UnitInputAndOutputCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestJsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UnitInputAndOutputCommandInput, UnitInputAndOutputCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestJsonProtocolClient";
-    const commandName = "UnitInputAndOutputCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RestJson",
-        operation: "UnitInputAndOutput",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UnitInputAndOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UnitInputAndOutputCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnitInputAndOutputCommandOutput> {
-    return de_UnitInputAndOutputCommand(output, context);
-  }
-}
+export class UnitInputAndOutputCommand extends $Command
+  .classBuilder<
+    UnitInputAndOutputCommandInput,
+    UnitInputAndOutputCommandOutput,
+    RestJsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: RestJsonProtocolClientResolvedConfig) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestJson", "UnitInputAndOutput", {})
+  .n("RestJsonProtocolClient", "UnitInputAndOutputCommand")
+  .f(void 0, void 0)
+  .ser(se_UnitInputAndOutputCommand)
+  .de(de_UnitInputAndOutputCommand)
+  .build() {}

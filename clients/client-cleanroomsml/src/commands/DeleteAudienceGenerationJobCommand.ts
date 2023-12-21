@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteAudienceGenerationJobRequest } from "../models/models_0";
 import {
   de_DeleteAudienceGenerationJobCommand,
@@ -78,78 +69,26 @@ export interface DeleteAudienceGenerationJobCommandOutput extends __MetadataBear
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
  */
-export class DeleteAudienceGenerationJobCommand extends $Command<
-  DeleteAudienceGenerationJobCommandInput,
-  DeleteAudienceGenerationJobCommandOutput,
-  CleanRoomsMLClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteAudienceGenerationJobCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CleanRoomsMLClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteAudienceGenerationJobCommandInput, DeleteAudienceGenerationJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteAudienceGenerationJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CleanRoomsMLClient";
-    const commandName = "DeleteAudienceGenerationJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSStarkControlService",
-        operation: "DeleteAudienceGenerationJob",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteAudienceGenerationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteAudienceGenerationJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteAudienceGenerationJobCommandOutput> {
-    return de_DeleteAudienceGenerationJobCommand(output, context);
-  }
-}
+export class DeleteAudienceGenerationJobCommand extends $Command
+  .classBuilder<
+    DeleteAudienceGenerationJobCommandInput,
+    DeleteAudienceGenerationJobCommandOutput,
+    CleanRoomsMLClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CleanRoomsMLClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSStarkControlService", "DeleteAudienceGenerationJob", {})
+  .n("CleanRoomsMLClient", "DeleteAudienceGenerationJobCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteAudienceGenerationJobCommand)
+  .de(de_DeleteAudienceGenerationJobCommand)
+  .build() {}

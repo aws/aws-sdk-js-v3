@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateGraphInput, CreateGraphOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { de_CreateGraphCommand, se_CreateGraphCommand } from "../protocols/Aws_restJson1";
@@ -107,74 +98,27 @@ export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataB
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
  */
-export class CreateGraphCommand extends $Command<
-  CreateGraphCommandInput,
-  CreateGraphCommandOutput,
-  NeptuneGraphClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      ApiType: { type: "staticContextParams", value: `ControlPlane` },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateGraphCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: NeptuneGraphClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateGraphCommandInput, CreateGraphCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateGraphCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "NeptuneGraphClient";
-    const commandName = "CreateGraphCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonNeptuneGraph",
-        operation: "CreateGraph",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateGraphCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGraphCommandOutput> {
-    return de_CreateGraphCommand(output, context);
-  }
-}
+export class CreateGraphCommand extends $Command
+  .classBuilder<
+    CreateGraphCommandInput,
+    CreateGraphCommandOutput,
+    NeptuneGraphClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    ApiType: { type: "staticContextParams", value: `ControlPlane` },
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: NeptuneGraphClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonNeptuneGraph", "CreateGraph", {})
+  .n("NeptuneGraphClient", "CreateGraphCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateGraphCommand)
+  .de(de_CreateGraphCommand)
+  .build() {}

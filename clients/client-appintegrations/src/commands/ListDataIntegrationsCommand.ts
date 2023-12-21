@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDataIntegrationsRequest, ListDataIntegrationsResponse } from "../models/models_0";
 import { de_ListDataIntegrationsCommand, se_ListDataIntegrationsCommand } from "../protocols/Aws_restJson1";
 
@@ -90,75 +81,26 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
-export class ListDataIntegrationsCommand extends $Command<
-  ListDataIntegrationsCommandInput,
-  ListDataIntegrationsCommandOutput,
-  AppIntegrationsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListDataIntegrationsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppIntegrationsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListDataIntegrationsCommandInput, ListDataIntegrationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListDataIntegrationsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppIntegrationsClient";
-    const commandName = "ListDataIntegrationsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonAppIntegrationService",
-        operation: "ListDataIntegrations",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListDataIntegrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListDataIntegrationsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataIntegrationsCommandOutput> {
-    return de_ListDataIntegrationsCommand(output, context);
-  }
-}
+export class ListDataIntegrationsCommand extends $Command
+  .classBuilder<
+    ListDataIntegrationsCommandInput,
+    ListDataIntegrationsCommandOutput,
+    AppIntegrationsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: AppIntegrationsClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonAppIntegrationService", "ListDataIntegrations", {})
+  .n("AppIntegrationsClient", "ListDataIntegrationsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListDataIntegrationsCommand)
+  .de(de_ListDataIntegrationsCommand)
+  .build() {}

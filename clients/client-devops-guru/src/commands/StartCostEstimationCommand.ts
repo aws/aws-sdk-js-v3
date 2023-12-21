@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StartCostEstimationRequest, StartCostEstimationResponse } from "../models/models_0";
 import { de_StartCostEstimationCommand, se_StartCostEstimationCommand } from "../protocols/Aws_restJson1";
 
@@ -101,75 +92,26 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
-export class StartCostEstimationCommand extends $Command<
-  StartCostEstimationCommandInput,
-  StartCostEstimationCommandOutput,
-  DevOpsGuruClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartCostEstimationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DevOpsGuruClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartCostEstimationCommandInput, StartCostEstimationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartCostEstimationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DevOpsGuruClient";
-    const commandName = "StartCostEstimationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CapstoneControlPlaneService",
-        operation: "StartCostEstimation",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartCostEstimationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartCostEstimationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCostEstimationCommandOutput> {
-    return de_StartCostEstimationCommand(output, context);
-  }
-}
+export class StartCostEstimationCommand extends $Command
+  .classBuilder<
+    StartCostEstimationCommandInput,
+    StartCostEstimationCommandOutput,
+    DevOpsGuruClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: DevOpsGuruClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CapstoneControlPlaneService", "StartCostEstimation", {})
+  .n("DevOpsGuruClient", "StartCostEstimationCommand")
+  .f(void 0, void 0)
+  .ser(se_StartCostEstimationCommand)
+  .de(de_StartCostEstimationCommand)
+  .build() {}

@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ChimeSDKMediaPipelinesClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateMediaPipelineKinesisVideoStreamPoolRequest,
   UpdateMediaPipelineKinesisVideoStreamPoolResponse,
@@ -119,87 +110,26 @@ export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
-export class UpdateMediaPipelineKinesisVideoStreamPoolCommand extends $Command<
-  UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
-  UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
-  ChimeSDKMediaPipelinesClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateMediaPipelineKinesisVideoStreamPoolCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<
+export class UpdateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
+  .classBuilder<
     UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
-    UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput
-  > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        UpdateMediaPipelineKinesisVideoStreamPoolCommand.getEndpointParameterInstructions()
-      )
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "UpdateMediaPipelineKinesisVideoStreamPoolCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: UpdateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ChimeSDKMediaPipelinesService",
-        operation: "UpdateMediaPipelineKinesisVideoStreamPool",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_UpdateMediaPipelineKinesisVideoStreamPoolCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput> {
-    return de_UpdateMediaPipelineKinesisVideoStreamPoolCommand(output, context);
-  }
-}
+    UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+    ChimeSDKMediaPipelinesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: ChimeSDKMediaPipelinesClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeSDKMediaPipelinesService", "UpdateMediaPipelineKinesisVideoStreamPool", {})
+  .n("ChimeSDKMediaPipelinesClient", "UpdateMediaPipelineKinesisVideoStreamPoolCommand")
+  .f(void 0, UpdateMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog)
+  .ser(se_UpdateMediaPipelineKinesisVideoStreamPoolCommand)
+  .de(de_UpdateMediaPipelineKinesisVideoStreamPoolCommand)
+  .build() {}

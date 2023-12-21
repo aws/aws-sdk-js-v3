@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ApplicationInsightsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeWorkloadRequest, DescribeWorkloadResponse } from "../models/models_0";
 import { de_DescribeWorkloadCommand, se_DescribeWorkloadCommand } from "../protocols/Aws_json1_1";
 
@@ -87,75 +78,26 @@ export interface DescribeWorkloadCommandOutput extends DescribeWorkloadResponse,
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
-export class DescribeWorkloadCommand extends $Command<
-  DescribeWorkloadCommandInput,
-  DescribeWorkloadCommandOutput,
-  ApplicationInsightsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeWorkloadCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ApplicationInsightsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeWorkloadCommandInput, DescribeWorkloadCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeWorkloadCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ApplicationInsightsClient";
-    const commandName = "DescribeWorkloadCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "EC2WindowsBarleyService",
-        operation: "DescribeWorkload",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeWorkloadCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkloadCommandOutput> {
-    return de_DescribeWorkloadCommand(output, context);
-  }
-}
+export class DescribeWorkloadCommand extends $Command
+  .classBuilder<
+    DescribeWorkloadCommandInput,
+    DescribeWorkloadCommandOutput,
+    ApplicationInsightsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: ApplicationInsightsClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("EC2WindowsBarleyService", "DescribeWorkload", {})
+  .n("ApplicationInsightsClient", "DescribeWorkloadCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeWorkloadCommand)
+  .de(de_DescribeWorkloadCommand)
+  .build() {}

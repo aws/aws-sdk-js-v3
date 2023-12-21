@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateSubscriptionTargetInput,
   UpdateSubscriptionTargetInputFilterSensitiveLog,
@@ -131,74 +122,26 @@ export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptio
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
  */
-export class UpdateSubscriptionTargetCommand extends $Command<
-  UpdateSubscriptionTargetCommandInput,
-  UpdateSubscriptionTargetCommandOutput,
-  DataZoneClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateSubscriptionTargetCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DataZoneClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateSubscriptionTargetCommandInput, UpdateSubscriptionTargetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateSubscriptionTargetCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DataZoneClient";
-    const commandName = "UpdateSubscriptionTargetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateSubscriptionTargetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriptionTargetOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "DataZone",
-        operation: "UpdateSubscriptionTarget",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateSubscriptionTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateSubscriptionTargetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSubscriptionTargetCommandOutput> {
-    return de_UpdateSubscriptionTargetCommand(output, context);
-  }
-}
+export class UpdateSubscriptionTargetCommand extends $Command
+  .classBuilder<
+    UpdateSubscriptionTargetCommandInput,
+    UpdateSubscriptionTargetCommandOutput,
+    DataZoneClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: DataZoneClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("DataZone", "UpdateSubscriptionTarget", {})
+  .n("DataZoneClient", "UpdateSubscriptionTargetCommand")
+  .f(UpdateSubscriptionTargetInputFilterSensitiveLog, UpdateSubscriptionTargetOutputFilterSensitiveLog)
+  .ser(se_UpdateSubscriptionTargetCommand)
+  .de(de_UpdateSubscriptionTargetCommand)
+  .build() {}

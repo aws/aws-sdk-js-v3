@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
 import { ListModelPackagingJobsRequest, ListModelPackagingJobsResponse } from "../models/models_0";
 import { de_ListModelPackagingJobsCommand, se_ListModelPackagingJobsCommand } from "../protocols/Aws_restJson1";
@@ -103,75 +94,26 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
-export class ListModelPackagingJobsCommand extends $Command<
-  ListModelPackagingJobsCommandInput,
-  ListModelPackagingJobsCommandOutput,
-  LookoutVisionClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListModelPackagingJobsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LookoutVisionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListModelPackagingJobsCommandInput, ListModelPackagingJobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListModelPackagingJobsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LookoutVisionClient";
-    const commandName = "ListModelPackagingJobsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "LookoutVisionService",
-        operation: "ListModelPackagingJobs",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListModelPackagingJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListModelPackagingJobsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelPackagingJobsCommandOutput> {
-    return de_ListModelPackagingJobsCommand(output, context);
-  }
-}
+export class ListModelPackagingJobsCommand extends $Command
+  .classBuilder<
+    ListModelPackagingJobsCommandInput,
+    ListModelPackagingJobsCommandOutput,
+    LookoutVisionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: LookoutVisionClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("LookoutVisionService", "ListModelPackagingJobs", {})
+  .n("LookoutVisionClient", "ListModelPackagingJobsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListModelPackagingJobsCommand)
+  .de(de_ListModelPackagingJobsCommand)
+  .build() {}

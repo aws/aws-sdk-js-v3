@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import { ListUtteranceMetricsRequest, ListUtteranceMetricsResponse } from "../models/models_1";
 import { de_ListUtteranceMetricsCommand, se_ListUtteranceMetricsCommand } from "../protocols/Aws_restJson1";
@@ -177,75 +168,26 @@ export interface ListUtteranceMetricsCommandOutput extends ListUtteranceMetricsR
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class ListUtteranceMetricsCommand extends $Command<
-  ListUtteranceMetricsCommandInput,
-  ListUtteranceMetricsCommandOutput,
-  LexModelsV2ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListUtteranceMetricsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexModelsV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListUtteranceMetricsCommandInput, ListUtteranceMetricsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListUtteranceMetricsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexModelsV2Client";
-    const commandName = "ListUtteranceMetricsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "LexModelBuildingServiceV2",
-        operation: "ListUtteranceMetrics",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListUtteranceMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListUtteranceMetricsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUtteranceMetricsCommandOutput> {
-    return de_ListUtteranceMetricsCommand(output, context);
-  }
-}
+export class ListUtteranceMetricsCommand extends $Command
+  .classBuilder<
+    ListUtteranceMetricsCommandInput,
+    ListUtteranceMetricsCommandOutput,
+    LexModelsV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: LexModelsV2ClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("LexModelBuildingServiceV2", "ListUtteranceMetrics", {})
+  .n("LexModelsV2Client", "ListUtteranceMetricsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListUtteranceMetricsCommand)
+  .de(de_ListUtteranceMetricsCommand)
+  .build() {}

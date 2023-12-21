@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListHypervisorsInput, ListHypervisorsOutput } from "../models/models_0";
 import { de_ListHypervisorsCommand, se_ListHypervisorsCommand } from "../protocols/Aws_json1_0";
 
@@ -85,75 +76,26 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
  */
-export class ListHypervisorsCommand extends $Command<
-  ListHypervisorsCommandInput,
-  ListHypervisorsCommandOutput,
-  BackupGatewayClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListHypervisorsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BackupGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListHypervisorsCommandInput, ListHypervisorsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListHypervisorsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BackupGatewayClient";
-    const commandName = "ListHypervisorsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "BackupOnPremises_v20210101",
-        operation: "ListHypervisors",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListHypervisorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListHypervisorsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHypervisorsCommandOutput> {
-    return de_ListHypervisorsCommand(output, context);
-  }
-}
+export class ListHypervisorsCommand extends $Command
+  .classBuilder<
+    ListHypervisorsCommandInput,
+    ListHypervisorsCommandOutput,
+    BackupGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: BackupGatewayClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("BackupOnPremises_v20210101", "ListHypervisors", {})
+  .n("BackupGatewayClient", "ListHypervisorsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListHypervisorsCommand)
+  .de(de_ListHypervisorsCommand)
+  .build() {}

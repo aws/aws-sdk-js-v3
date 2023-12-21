@@ -2,7 +2,6 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
-
 import {
   ActionSummary,
   AgentAvailabilityTimer,

@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CloudFrontKeyValueStoreClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudFrontKeyValueStoreClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeKeyValueStoreRequest, DescribeKeyValueStoreResponse } from "../models/models_0";
 import { de_DescribeKeyValueStoreCommand, se_DescribeKeyValueStoreCommand } from "../protocols/Aws_restJson1";
 
@@ -86,75 +77,27 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
  */
-export class DescribeKeyValueStoreCommand extends $Command<
-  DescribeKeyValueStoreCommandInput,
-  DescribeKeyValueStoreCommandOutput,
-  CloudFrontKeyValueStoreClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      KvsARN: { type: "contextParams", name: "KvsARN" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeKeyValueStoreCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudFrontKeyValueStoreClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeKeyValueStoreCommandInput, DescribeKeyValueStoreCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeKeyValueStoreCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudFrontKeyValueStoreClient";
-    const commandName = "DescribeKeyValueStoreCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CloudFrontKeyValueStore",
-        operation: "DescribeKeyValueStore",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeKeyValueStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeKeyValueStoreCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeKeyValueStoreCommandOutput> {
-    return de_DescribeKeyValueStoreCommand(output, context);
-  }
-}
+export class DescribeKeyValueStoreCommand extends $Command
+  .classBuilder<
+    DescribeKeyValueStoreCommandInput,
+    DescribeKeyValueStoreCommandOutput,
+    CloudFrontKeyValueStoreClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    KvsARN: { type: "contextParams", name: "KvsARN" },
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: CloudFrontKeyValueStoreClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CloudFrontKeyValueStore", "DescribeKeyValueStore", {})
+  .n("CloudFrontKeyValueStoreClient", "DescribeKeyValueStoreCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeKeyValueStoreCommand)
+  .de(de_DescribeKeyValueStoreCommand)
+  .build() {}

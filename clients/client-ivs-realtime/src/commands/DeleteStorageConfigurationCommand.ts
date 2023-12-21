@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import { DeleteStorageConfigurationRequest, DeleteStorageConfigurationResponse } from "../models/models_0";
 import { de_DeleteStorageConfigurationCommand, se_DeleteStorageConfigurationCommand } from "../protocols/Aws_restJson1";
@@ -84,78 +75,26 @@ export interface DeleteStorageConfigurationCommandOutput extends DeleteStorageCo
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
  */
-export class DeleteStorageConfigurationCommand extends $Command<
-  DeleteStorageConfigurationCommandInput,
-  DeleteStorageConfigurationCommandOutput,
-  IVSRealTimeClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteStorageConfigurationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IVSRealTimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteStorageConfigurationCommandInput, DeleteStorageConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteStorageConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IVSRealTimeClient";
-    const commandName = "DeleteStorageConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonInteractiveVideoServiceRealTime",
-        operation: "DeleteStorageConfiguration",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteStorageConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteStorageConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteStorageConfigurationCommandOutput> {
-    return de_DeleteStorageConfigurationCommand(output, context);
-  }
-}
+export class DeleteStorageConfigurationCommand extends $Command
+  .classBuilder<
+    DeleteStorageConfigurationCommandInput,
+    DeleteStorageConfigurationCommandOutput,
+    IVSRealTimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: IVSRealTimeClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonInteractiveVideoServiceRealTime", "DeleteStorageConfiguration", {})
+  .n("IVSRealTimeClient", "DeleteStorageConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteStorageConfigurationCommand)
+  .de(de_DeleteStorageConfigurationCommand)
+  .build() {}

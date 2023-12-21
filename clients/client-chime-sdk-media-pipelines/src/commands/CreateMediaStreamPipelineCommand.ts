@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ChimeSDKMediaPipelinesClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateMediaStreamPipelineRequest,
   CreateMediaStreamPipelineRequestFilterSensitiveLog,
@@ -138,78 +129,26 @@ export interface CreateMediaStreamPipelineCommandOutput extends CreateMediaStrea
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
-export class CreateMediaStreamPipelineCommand extends $Command<
-  CreateMediaStreamPipelineCommandInput,
-  CreateMediaStreamPipelineCommandOutput,
-  ChimeSDKMediaPipelinesClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateMediaStreamPipelineCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateMediaStreamPipelineCommandInput, CreateMediaStreamPipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateMediaStreamPipelineCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "CreateMediaStreamPipelineCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateMediaStreamPipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMediaStreamPipelineResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ChimeSDKMediaPipelinesService",
-        operation: "CreateMediaStreamPipeline",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateMediaStreamPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateMediaStreamPipelineCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateMediaStreamPipelineCommandOutput> {
-    return de_CreateMediaStreamPipelineCommand(output, context);
-  }
-}
+export class CreateMediaStreamPipelineCommand extends $Command
+  .classBuilder<
+    CreateMediaStreamPipelineCommandInput,
+    CreateMediaStreamPipelineCommandOutput,
+    ChimeSDKMediaPipelinesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: ChimeSDKMediaPipelinesClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeSDKMediaPipelinesService", "CreateMediaStreamPipeline", {})
+  .n("ChimeSDKMediaPipelinesClient", "CreateMediaStreamPipelineCommand")
+  .f(CreateMediaStreamPipelineRequestFilterSensitiveLog, CreateMediaStreamPipelineResponseFilterSensitiveLog)
+  .ser(se_CreateMediaStreamPipelineCommand)
+  .de(de_CreateMediaStreamPipelineCommand)
+  .build() {}

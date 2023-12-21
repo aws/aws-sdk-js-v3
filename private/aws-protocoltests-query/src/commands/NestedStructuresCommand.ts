@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { NestedStructuresInput } from "../models/models_0";
 import { de_NestedStructuresCommand, se_NestedStructuresCommand } from "../protocols/Aws_query";
@@ -70,63 +60,20 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
-export class NestedStructuresCommand extends $Command<
-  NestedStructuresCommandInput,
-  NestedStructuresCommandOutput,
-  QueryProtocolClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: NestedStructuresCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QueryProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<NestedStructuresCommandInput, NestedStructuresCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QueryProtocolClient";
-    const commandName = "NestedStructuresCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AwsQuery",
-        operation: "NestedStructures",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: NestedStructuresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_NestedStructuresCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NestedStructuresCommandOutput> {
-    return de_NestedStructuresCommand(output, context);
-  }
-}
+export class NestedStructuresCommand extends $Command
+  .classBuilder<
+    NestedStructuresCommandInput,
+    NestedStructuresCommandOutput,
+    QueryProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: QueryProtocolClientResolvedConfig) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("AwsQuery", "NestedStructures", {})
+  .n("QueryProtocolClient", "NestedStructuresCommand")
+  .f(void 0, void 0)
+  .ser(se_NestedStructuresCommand)
+  .de(de_NestedStructuresCommand)
+  .build() {}

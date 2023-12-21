@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StartReportCreationInput, StartReportCreationOutput } from "../models/models_0";
 import { de_StartReportCreationCommand, se_StartReportCreationCommand } from "../protocols/Aws_json1_1";
 import {
@@ -131,75 +122,26 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
-export class StartReportCreationCommand extends $Command<
-  StartReportCreationCommandInput,
-  StartReportCreationCommandOutput,
-  ResourceGroupsTaggingAPIClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartReportCreationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ResourceGroupsTaggingAPIClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartReportCreationCommandInput, StartReportCreationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartReportCreationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ResourceGroupsTaggingAPIClient";
-    const commandName = "StartReportCreationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ResourceGroupsTaggingAPI_20170126",
-        operation: "StartReportCreation",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartReportCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartReportCreationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartReportCreationCommandOutput> {
-    return de_StartReportCreationCommand(output, context);
-  }
-}
+export class StartReportCreationCommand extends $Command
+  .classBuilder<
+    StartReportCreationCommandInput,
+    StartReportCreationCommandOutput,
+    ResourceGroupsTaggingAPIClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: ResourceGroupsTaggingAPIClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ResourceGroupsTaggingAPI_20170126", "StartReportCreation", {})
+  .n("ResourceGroupsTaggingAPIClient", "StartReportCreationCommand")
+  .f(void 0, void 0)
+  .ser(se_StartReportCreationCommand)
+  .de(de_StartReportCreationCommand)
+  .build() {}

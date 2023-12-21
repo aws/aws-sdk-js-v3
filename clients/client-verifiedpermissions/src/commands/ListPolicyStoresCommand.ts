@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListPolicyStoresInput,
   ListPolicyStoresOutput,
@@ -176,75 +167,26 @@ export interface ListPolicyStoresCommandOutput extends ListPolicyStoresOutput, _
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  */
-export class ListPolicyStoresCommand extends $Command<
-  ListPolicyStoresCommandInput,
-  ListPolicyStoresCommandOutput,
-  VerifiedPermissionsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListPolicyStoresCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: VerifiedPermissionsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListPolicyStoresCommandInput, ListPolicyStoresCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListPolicyStoresCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "VerifiedPermissionsClient";
-    const commandName = "ListPolicyStoresCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListPolicyStoresOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "VerifiedPermissions",
-        operation: "ListPolicyStores",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListPolicyStoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListPolicyStoresCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyStoresCommandOutput> {
-    return de_ListPolicyStoresCommand(output, context);
-  }
-}
+export class ListPolicyStoresCommand extends $Command
+  .classBuilder<
+    ListPolicyStoresCommandInput,
+    ListPolicyStoresCommandOutput,
+    VerifiedPermissionsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: VerifiedPermissionsClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("VerifiedPermissions", "ListPolicyStores", {})
+  .n("VerifiedPermissionsClient", "ListPolicyStoresCommand")
+  .f(void 0, ListPolicyStoresOutputFilterSensitiveLog)
+  .ser(se_ListPolicyStoresCommand)
+  .de(de_ListPolicyStoresCommand)
+  .build() {}

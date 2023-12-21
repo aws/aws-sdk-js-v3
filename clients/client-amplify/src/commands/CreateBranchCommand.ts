@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateBranchRequest,
   CreateBranchRequestFilterSensitiveLog,
@@ -151,73 +142,26 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
  */
-export class CreateBranchCommand extends $Command<
-  CreateBranchCommandInput,
-  CreateBranchCommandOutput,
-  AmplifyClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateBranchCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AmplifyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateBranchCommandInput, CreateBranchCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateBranchCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AmplifyClient";
-    const commandName = "CreateBranchCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateBranchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBranchResultFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Amplify",
-        operation: "CreateBranch",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateBranchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateBranchCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBranchCommandOutput> {
-    return de_CreateBranchCommand(output, context);
-  }
-}
+export class CreateBranchCommand extends $Command
+  .classBuilder<
+    CreateBranchCommandInput,
+    CreateBranchCommandOutput,
+    AmplifyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: AmplifyClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Amplify", "CreateBranch", {})
+  .n("AmplifyClient", "CreateBranchCommand")
+  .f(CreateBranchRequestFilterSensitiveLog, CreateBranchResultFilterSensitiveLog)
+  .ser(se_CreateBranchCommand)
+  .de(de_CreateBranchCommand)
+  .build() {}

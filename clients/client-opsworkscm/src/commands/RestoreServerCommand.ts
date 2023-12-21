@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RestoreServerRequest,
   RestoreServerResponse,
@@ -132,73 +123,26 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
-export class RestoreServerCommand extends $Command<
-  RestoreServerCommandInput,
-  RestoreServerCommandOutput,
-  OpsWorksCMClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RestoreServerCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OpsWorksCMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RestoreServerCommandInput, RestoreServerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, RestoreServerCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OpsWorksCMClient";
-    const commandName = "RestoreServerCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: RestoreServerResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "OpsWorksCM_V2016_11_01",
-        operation: "RestoreServer",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RestoreServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RestoreServerCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreServerCommandOutput> {
-    return de_RestoreServerCommand(output, context);
-  }
-}
+export class RestoreServerCommand extends $Command
+  .classBuilder<
+    RestoreServerCommandInput,
+    RestoreServerCommandOutput,
+    OpsWorksCMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: OpsWorksCMClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("OpsWorksCM_V2016_11_01", "RestoreServer", {})
+  .n("OpsWorksCMClient", "RestoreServerCommand")
+  .f(void 0, RestoreServerResponseFilterSensitiveLog)
+  .ser(se_RestoreServerCommand)
+  .de(de_RestoreServerCommand)
+  .build() {}
