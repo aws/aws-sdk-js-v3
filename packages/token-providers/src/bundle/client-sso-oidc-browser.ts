@@ -979,7 +979,7 @@ var loadRestJsonErrorCode = (output, data) => {
 };
 
 // ../../clients/client-sso-oidc/src/commands/CreateTokenCommand.ts
-var CreateTokenCommand = class _CreateTokenCommand extends $Command {
+class CreateTokenCommand extends $Command {
   /**
    * @public
    */
@@ -1035,14 +1035,14 @@ var CreateTokenCommand = class _CreateTokenCommand extends $Command {
   }
   // Start section: command_body_extra
   // End section: command_body_extra
-};
+}
 
 // ../../clients/client-sso-oidc/src/commands/RegisterClientCommand.ts
 import { getEndpointPlugin as getEndpointPlugin2 } from "@smithy/middleware-endpoint";
 import { getSerdePlugin as getSerdePlugin2 } from "@smithy/middleware-serde";
 import { Command as $Command2 } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer2, SMITHY_CONTEXT_KEY as SMITHY_CONTEXT_KEY2 } from "@smithy/types";
-var RegisterClientCommand = class _RegisterClientCommand extends $Command2 {
+class RegisterClientCommand extends $Command2 {
   /**
    * @public
    */
@@ -1100,14 +1100,14 @@ var RegisterClientCommand = class _RegisterClientCommand extends $Command2 {
   }
   // Start section: command_body_extra
   // End section: command_body_extra
-};
+}
 
 // ../../clients/client-sso-oidc/src/commands/StartDeviceAuthorizationCommand.ts
 import { getEndpointPlugin as getEndpointPlugin3 } from "@smithy/middleware-endpoint";
 import { getSerdePlugin as getSerdePlugin3 } from "@smithy/middleware-serde";
 import { Command as $Command3 } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer3, SMITHY_CONTEXT_KEY as SMITHY_CONTEXT_KEY3 } from "@smithy/types";
-var StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand extends $Command3 {
+class StartDeviceAuthorizationCommand extends $Command3 {
   /**
    * @public
    */
@@ -1165,7 +1165,7 @@ var StartDeviceAuthorizationCommand = class _StartDeviceAuthorizationCommand ext
   }
   // Start section: command_body_extra
   // End section: command_body_extra
-};
+}
 
 // ../../clients/client-sso-oidc/src/SSOOIDC.ts
 var commands = {
