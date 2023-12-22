@@ -3160,7 +3160,7 @@ export interface CreateWorkflowRequest {
 
   /**
    * @public
-   * <p>A storage capacity for the workflow in gigabytes.</p>
+   * <p>A storage capacity for the workflow in gibibytes.</p>
    */
   storageCapacity?: number;
 

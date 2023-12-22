@@ -43,7 +43,7 @@ export interface ListMultipartReadSetUploadsCommandOutput
 /**
  * @public
  * <p>
- *       Lists all multipart read set uploads and their statuses.
+ *       Lists multipart read set uploads and for in progress uploads. Once the upload is completed, a read set is created and the upload will no longer be returned in the respone.
  *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
