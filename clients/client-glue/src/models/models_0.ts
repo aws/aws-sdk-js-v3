@@ -7034,10 +7034,15 @@ export class FederationSourceException extends __BaseException {
 
 /**
  * @public
+ * <p>A federation source failed, but the operation may be retried.</p>
  */
 export class FederationSourceRetryableException extends __BaseException {
   readonly name: "FederationSourceRetryableException" = "FederationSourceRetryableException";
   readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
   Message?: string;
   /**
    * @internal

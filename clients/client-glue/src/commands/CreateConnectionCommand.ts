@@ -38,6 +38,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
 /**
  * @public
  * <p>Creates a connection definition in the Data Catalog.</p>
+ *          <p>Connections used for creating federated resources require the IAM <code>glue:PassConnection</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

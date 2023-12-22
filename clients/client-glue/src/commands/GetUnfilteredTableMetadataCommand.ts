@@ -47,6 +47,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * // const { GlueClient, GetUnfilteredTableMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetUnfilteredTableMetadataRequest
+ *   Region: "STRING_VALUE",
  *   CatalogId: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
@@ -60,6 +61,22 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  *   SupportedPermissionTypes: [ // PermissionTypeList // required
  *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION" || "NESTED_PERMISSION" || "NESTED_CELL_PERMISSION",
  *   ],
+ *   SupportedDialect: { // SupportedDialect
+ *     Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
+ *     DialectVersion: "STRING_VALUE",
+ *   },
+ *   Permissions: [ // PermissionList
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
+ *   ],
+ *   QuerySessionContext: { // QuerySessionContext
+ *     QueryId: "STRING_VALUE",
+ *     QueryStartTime: new Date("TIMESTAMP"),
+ *     ClusterId: "STRING_VALUE",
+ *     QueryAuthorizationId: "STRING_VALUE",
+ *     AdditionalContext: { // AdditionalContextMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new GetUnfilteredTableMetadataCommand(input);
  * const response = await client.send(command);
@@ -168,6 +185,11 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //       RowFilterExpression: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   QueryAuthorizationId: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Permissions: [ // PermissionList
+ * //     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
+ * //   ],
  * // };
  *
  * ```
@@ -185,6 +207,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  *  <p>A federation source failed.</p>
  *
  * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>

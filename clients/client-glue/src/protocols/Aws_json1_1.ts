@@ -1018,6 +1018,7 @@ import {
   PutSchemaVersionMetadataInput,
   PutWorkflowRunPropertiesRequest,
   QuerySchemaVersionMetadataInput,
+  QuerySessionContext,
   RegisterSchemaVersionInput,
   RemoveSchemaVersionMetadataInput,
   ResetJobBookmarkRequest,
@@ -1048,6 +1049,7 @@ import {
   StopSessionRequest,
   StopTriggerRequest,
   StopWorkflowRunRequest,
+  SupportedDialect,
   Table,
   TableVersion,
   TagResourceRequest,
@@ -2769,7 +2771,7 @@ export const se_GetUnfilteredPartitionMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUnfilteredPartitionMetadata");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GetUnfilteredPartitionMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2782,7 +2784,7 @@ export const se_GetUnfilteredPartitionsMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUnfilteredPartitionsMetadata");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GetUnfilteredPartitionsMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2795,7 +2797,7 @@ export const se_GetUnfilteredTableMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetUnfilteredTableMetadata");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_GetUnfilteredTableMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -16458,6 +16460,8 @@ const de_VersionMismatchExceptionRes = async (
 
 // se_ActionList omitted.
 
+// se_AdditionalContextMap omitted.
+
 // se_AdditionalOptions omitted.
 
 // se_AdditionalPlanOptionsMap omitted.
@@ -17507,11 +17511,66 @@ const se_GetTablesRequest = (input: GetTablesRequest, context: __SerdeContext): 
 
 // se_GetTriggersRequest omitted.
 
-// se_GetUnfilteredPartitionMetadataRequest omitted.
+/**
+ * serializeAws_json1_1GetUnfilteredPartitionMetadataRequest
+ */
+const se_GetUnfilteredPartitionMetadataRequest = (
+  input: GetUnfilteredPartitionMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AuditContext: _json,
+    CatalogId: [],
+    DatabaseName: [],
+    PartitionValues: _json,
+    QuerySessionContext: (_) => se_QuerySessionContext(_, context),
+    Region: [],
+    SupportedPermissionTypes: _json,
+    TableName: [],
+  });
+};
 
-// se_GetUnfilteredPartitionsMetadataRequest omitted.
+/**
+ * serializeAws_json1_1GetUnfilteredPartitionsMetadataRequest
+ */
+const se_GetUnfilteredPartitionsMetadataRequest = (
+  input: GetUnfilteredPartitionsMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AuditContext: _json,
+    CatalogId: [],
+    DatabaseName: [],
+    Expression: [],
+    MaxResults: [],
+    NextToken: [],
+    QuerySessionContext: (_) => se_QuerySessionContext(_, context),
+    Region: [],
+    Segment: _json,
+    SupportedPermissionTypes: _json,
+    TableName: [],
+  });
+};
 
-// se_GetUnfilteredTableMetadataRequest omitted.
+/**
+ * serializeAws_json1_1GetUnfilteredTableMetadataRequest
+ */
+const se_GetUnfilteredTableMetadataRequest = (
+  input: GetUnfilteredTableMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AuditContext: _json,
+    CatalogId: [],
+    DatabaseName: [],
+    Name: [],
+    Permissions: _json,
+    QuerySessionContext: (_) => se_QuerySessionContext(_, context),
+    Region: [],
+    SupportedDialect: _json,
+    SupportedPermissionTypes: _json,
+  });
+};
 
 // se_GetUserDefinedFunctionRequest omitted.
 
@@ -17944,6 +18003,19 @@ const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
 
 // se_QuerySchemaVersionMetadataInput omitted.
 
+/**
+ * serializeAws_json1_1QuerySessionContext
+ */
+const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeContext): any => {
+  return take(input, {
+    AdditionalContext: _json,
+    ClusterId: [],
+    QueryAuthorizationId: [],
+    QueryId: [],
+    QueryStartTime: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
 // se_Recipe omitted.
 
 // se_RecipeReference omitted.
@@ -18171,6 +18243,8 @@ const se_StringColumnStatisticsData = (input: StringColumnStatisticsData, contex
 };
 
 // se_StringList omitted.
+
+// se_SupportedDialect omitted.
 
 // se_TableIdentifier omitted.
 
@@ -20595,6 +20669,9 @@ const de_GetUnfilteredTableMetadataResponse = (
     AuthorizedColumns: _json,
     CellFilters: _json,
     IsRegisteredWithLakeFormation: __expectBoolean,
+    Permissions: _json,
+    QueryAuthorizationId: __expectString,
+    ResourceArn: __expectString,
     Table: (_: any) => de_Table(_, context),
   }) as any;
 };

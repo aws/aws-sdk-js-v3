@@ -142,6 +142,7 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
  *  <p>A federation source failed.</p>
  *
  * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>

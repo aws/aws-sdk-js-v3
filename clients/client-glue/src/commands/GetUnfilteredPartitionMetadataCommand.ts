@@ -52,6 +52,7 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  * // const { GlueClient, GetUnfilteredPartitionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const input = { // GetUnfilteredPartitionMetadataRequest
+ *   Region: "STRING_VALUE",
  *   CatalogId: "STRING_VALUE", // required
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
@@ -68,6 +69,15 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  *   SupportedPermissionTypes: [ // PermissionTypeList // required
  *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION" || "NESTED_PERMISSION" || "NESTED_CELL_PERMISSION",
  *   ],
+ *   QuerySessionContext: { // QuerySessionContext
+ *     QueryId: "STRING_VALUE",
+ *     QueryStartTime: new Date("TIMESTAMP"),
+ *     ClusterId: "STRING_VALUE",
+ *     QueryAuthorizationId: "STRING_VALUE",
+ *     AdditionalContext: { // AdditionalContextMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new GetUnfilteredPartitionMetadataCommand(input);
  * const response = await client.send(command);
@@ -161,6 +171,7 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  *  <p>A federation source failed.</p>
  *
  * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
