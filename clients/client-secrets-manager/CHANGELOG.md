@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.480.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.479.0...v3.480.0) (2023-12-22)
+
+
+### Features
+
+* **client-secrets-manager:** Update endpoint rules and examples. ([b9a4897](https://github.com/aws/aws-sdk-js-v3/commit/b9a4897c3fd274794de9c27e91688d325fcbc40b))
+
+
+
+
+
 # [3.478.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.477.0...v3.478.0) (2023-12-20)
 
 

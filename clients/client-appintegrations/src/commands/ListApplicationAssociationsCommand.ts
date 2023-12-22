@@ -93,6 +93,29 @@ export interface ListApplicationAssociationsCommandOutput
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @example To list application associations of an application
+ * ```javascript
+ * // The following retrives application associations of an application
+ * const input = {
+ *   "ApplicationId": "98542c53-e8ac-4570-9c85-c6552c8d9c5e"
+ * };
+ * const command = new ListApplicationAssociationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ApplicationAssociations": [
+ *     {
+ *       "ApplicationArn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+ *       "ApplicationAssociationArn": "arn:aws:app-integrations:us-west-2:0123456789012:application-association/98542c53-e8ac-4570-9c85-c6552c8d9c5e/461dfb57-320a-454d-9bba-bb560845ff38",
+ *       "ClientId": "connect.amazonaws.com"
+ *     }
+ *   ],
+ *   "NextToken": "abc"
+ * }
+ * *\/
+ * // example id: list-application-associations
+ * ```
+ *
  */
 export class ListApplicationAssociationsCommand extends $Command<
   ListApplicationAssociationsCommandInput,

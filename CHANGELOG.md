@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.480.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.479.0...v3.480.0) (2023-12-22)
+
+
+### Features
+
+* **client-bedrock-agent:** Adding Claude 2.1 support to Bedrock Agents ([f550b60](https://github.com/aws/aws-sdk-js-v3/commit/f550b60a33d9022dd03311939611ab4fe9649b66))
+* **client-glue:** This release adds additional configurations for Query Session Context on the following APIs: GetUnfilteredTableMetadata, GetUnfilteredPartitionMetadata, GetUnfilteredPartitionsMetadata. ([c1607f6](https://github.com/aws/aws-sdk-js-v3/commit/c1607f62644bd71352fe4d22c6823de4e39851b1))
+* **client-lakeformation:** This release adds additional configurations on GetTemporaryGlueTableCredentials for Query Session Context. ([edafaa1](https://github.com/aws/aws-sdk-js-v3/commit/edafaa10e84b1b4b9bc9fb6f115abfd2068b8653))
+* **client-mediaconnect:** This release adds the DescribeSourceMetadata API. This API can be used to view the stream information of the flow's source. ([92ebebb](https://github.com/aws/aws-sdk-js-v3/commit/92ebebb66682a17d4772c169cc572c348ec12439))
+* **client-networkmonitor:** CloudWatch Network Monitor is a new service within CloudWatch that will help network administrators and operators continuously monitor network performance metrics such as round-trip-time and packet loss between their AWS-hosted applications and their on-premises locations. ([ec0ecf7](https://github.com/aws/aws-sdk-js-v3/commit/ec0ecf75f9adc77ca80e4ad13c3eaa5ee96ac22c))
+* **client-s3:** Added additional examples for some operations. ([c313bdd](https://github.com/aws/aws-sdk-js-v3/commit/c313bdd9780672275c80d9cc408bd8a4a7ea3e6b))
+* **client-secrets-manager:** Update endpoint rules and examples. ([b9a4897](https://github.com/aws/aws-sdk-js-v3/commit/b9a4897c3fd274794de9c27e91688d325fcbc40b))
+* **clients:** update client endpoints as of 2023-12-22 ([186974b](https://github.com/aws/aws-sdk-js-v3/commit/186974b89e958cf1ec4dc817f8e6cbddab03f68b))
+
+
+
+
+
 # [3.479.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.478.0...v3.479.0) (2023-12-21)
 
 
