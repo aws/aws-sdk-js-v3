@@ -325,6 +325,14 @@ DescribeFlow
 </details>
 <details>
 <summary>
+DescribeFlowSourceMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediaconnect/command/DescribeFlowSourceMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconnect/Interface/DescribeFlowSourceMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediaconnect/Interface/DescribeFlowSourceMetadataCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeGateway
 </summary>
 

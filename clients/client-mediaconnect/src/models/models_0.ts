@@ -2221,6 +2221,114 @@ export interface Source {
 
 /**
  * @public
+ * The frame resolution used by the video stream.
+ */
+export interface FrameResolution {
+  /**
+   * @public
+   * The number of pixels in the height of the video frame.
+   */
+  FrameHeight: number | undefined;
+
+  /**
+   * @public
+   * The number of pixels in the width of the video frame.
+   */
+  FrameWidth: number | undefined;
+}
+
+/**
+ * @public
+ * The metadata of an elementary transport stream.
+ */
+export interface TransportStream {
+  /**
+   * @public
+   * The number of channels in the audio stream.
+   */
+  Channels?: number;
+
+  /**
+   * @public
+   * The codec used by the stream.
+   */
+  Codec?: string;
+
+  /**
+   * @public
+   * The frame rate used by the video stream.
+   */
+  FrameRate?: string;
+
+  /**
+   * @public
+   * The frame resolution used by the video stream.
+   */
+  FrameResolution?: FrameResolution;
+
+  /**
+   * @public
+   * The Packet ID (PID) as it is reported in the Program Map Table.
+   */
+  Pid: number | undefined;
+
+  /**
+   * @public
+   * The sample rate used by the audio stream.
+   */
+  SampleRate?: number;
+
+  /**
+   * @public
+   * The sample bit size used by the audio stream.
+   */
+  SampleSize?: number;
+
+  /**
+   * @public
+   * The Stream Type as it is reported in the Program Map Table.
+   */
+  StreamType: string | undefined;
+}
+
+/**
+ * @public
+ * The metadata of a single transport stream program.
+ */
+export interface TransportStreamProgram {
+  /**
+   * @public
+   * The Program Clock Reference (PCR) Packet ID (PID) as it is reported in the Program Association Table.
+   */
+  PcrPid: number | undefined;
+
+  /**
+   * @public
+   * The program name as it is reported in the Program Association Table.
+   */
+  ProgramName?: string;
+
+  /**
+   * @public
+   * The program number as it is reported in the Program Association Table.
+   */
+  ProgramNumber: number | undefined;
+
+  /**
+   * @public
+   * The program Packet ID (PID) as it is reported in the Program Association Table.
+   */
+  ProgramPid: number | undefined;
+
+  /**
+   * @public
+   * The list of elementary transport streams in the program. The list includes video, audio, and data streams.
+   */
+  Streams: TransportStream[] | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const NetworkInterfaceType = {
@@ -3487,6 +3595,58 @@ export interface DescribeFlowResponse {
    * Messages that provide the state of the flow.
    */
   Messages?: Messages;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowSourceMetadataRequest {
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of the flow.
+   */
+  FlowArn: string | undefined;
+}
+
+/**
+ * @public
+ * The metadata of the transport stream in the current flow's source.
+ */
+export interface TransportMediaInfo {
+  /**
+   * @public
+   * The list of transport stream programs in the current flow's source.
+   */
+  Programs: TransportStreamProgram[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowSourceMetadataResponse {
+  /**
+   * @public
+   * The ARN of the flow that DescribeFlowSourceMetadata was performed on.
+   */
+  FlowArn?: string;
+
+  /**
+   * @public
+   * Provides a status code and message regarding issues found with the flow source metadata.
+   */
+  Messages?: MessageDetail[];
+
+  /**
+   * @public
+   * The timestamp of the most recent change in metadata for this flow’s source.
+   */
+  Timestamp?: Date;
+
+  /**
+   * @public
+   * The metadata of the transport stream in the current flow's source.
+   */
+  TransportMediaInfo?: TransportMediaInfo;
 }
 
 /**

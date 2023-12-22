@@ -12,6 +12,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   take,
@@ -47,6 +48,10 @@ import {
 } from "../commands/DeregisterGatewayInstanceCommand";
 import { DescribeBridgeCommandInput, DescribeBridgeCommandOutput } from "../commands/DescribeBridgeCommand";
 import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "../commands/DescribeFlowCommand";
+import {
+  DescribeFlowSourceMetadataCommandInput,
+  DescribeFlowSourceMetadataCommandOutput,
+} from "../commands/DescribeFlowSourceMetadataCommand";
 import { DescribeGatewayCommandInput, DescribeGatewayCommandOutput } from "../commands/DescribeGatewayCommand";
 import {
   DescribeGatewayInstanceCommandInput,
@@ -152,6 +157,7 @@ import {
   Fmtp,
   FmtpRequest,
   ForbiddenException,
+  FrameResolution,
   Gateway,
   GatewayBridgeSource,
   GatewayInstance,
@@ -191,6 +197,9 @@ import {
   SourcePriority,
   TooManyRequestsException,
   Transport,
+  TransportMediaInfo,
+  TransportStream,
+  TransportStreamProgram,
   UpdateBridgeFlowSourceRequest,
   UpdateBridgeNetworkOutputRequest,
   UpdateBridgeNetworkSourceRequest,
@@ -519,6 +528,22 @@ export const se_DescribeFlowCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/v1/flows/{FlowArn}");
+  b.p("FlowArn", () => input.FlowArn!, "{FlowArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeFlowSourceMetadataCommand
+ */
+export const se_DescribeFlowSourceMetadataCommand = async (
+  input: DescribeFlowSourceMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/flows/{FlowArn}/source-metadata");
   b.p("FlowArn", () => input.FlowArn!, "{FlowArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -2201,6 +2226,71 @@ const de_DescribeFlowCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeFlowSourceMetadataCommand
+ */
+export const de_DescribeFlowSourceMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlowSourceMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeFlowSourceMetadataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FlowArn: [, __expectString, `flowArn`],
+    Messages: [, (_) => de___listOfMessageDetail(_, context), `messages`],
+    Timestamp: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `timestamp`],
+    TransportMediaInfo: [, (_) => de_TransportMediaInfo(_, context), `transportMediaInfo`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeFlowSourceMetadataCommandError
+ */
+const de_DescribeFlowSourceMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlowSourceMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5458,6 +5548,30 @@ const de___listOfSource = (output: any, context: __SerdeContext): Source[] => {
 };
 
 /**
+ * deserializeAws_restJson1__listOfTransportStream
+ */
+const de___listOfTransportStream = (output: any, context: __SerdeContext): TransportStream[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TransportStream(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfTransportStreamProgram
+ */
+const de___listOfTransportStreamProgram = (output: any, context: __SerdeContext): TransportStreamProgram[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TransportStreamProgram(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfVpcInterface
  */
 const de___listOfVpcInterface = (output: any, context: __SerdeContext): VpcInterface[] => {
@@ -5669,6 +5783,16 @@ const de_Fmtp = (output: any, context: __SerdeContext): Fmtp => {
     Range: [, __expectString, `range`],
     ScanMode: [, __expectString, `scanMode`],
     Tcs: [, __expectString, `tcs`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FrameResolution
+ */
+const de_FrameResolution = (output: any, context: __SerdeContext): FrameResolution => {
+  return take(output, {
+    FrameHeight: [, __expectInt32, `frameHeight`],
+    FrameWidth: [, __expectInt32, `frameWidth`],
   }) as any;
 };
 
@@ -6028,6 +6152,44 @@ const de_Transport = (output: any, context: __SerdeContext): Transport => {
     SourceListenerAddress: [, __expectString, `sourceListenerAddress`],
     SourceListenerPort: [, __expectInt32, `sourceListenerPort`],
     StreamId: [, __expectString, `streamId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TransportMediaInfo
+ */
+const de_TransportMediaInfo = (output: any, context: __SerdeContext): TransportMediaInfo => {
+  return take(output, {
+    Programs: [, (_: any) => de___listOfTransportStreamProgram(_, context), `programs`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TransportStream
+ */
+const de_TransportStream = (output: any, context: __SerdeContext): TransportStream => {
+  return take(output, {
+    Channels: [, __expectInt32, `channels`],
+    Codec: [, __expectString, `codec`],
+    FrameRate: [, __expectString, `frameRate`],
+    FrameResolution: [, (_: any) => de_FrameResolution(_, context), `frameResolution`],
+    Pid: [, __expectInt32, `pid`],
+    SampleRate: [, __expectInt32, `sampleRate`],
+    SampleSize: [, __expectInt32, `sampleSize`],
+    StreamType: [, __expectString, `streamType`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TransportStreamProgram
+ */
+const de_TransportStreamProgram = (output: any, context: __SerdeContext): TransportStreamProgram => {
+  return take(output, {
+    PcrPid: [, __expectInt32, `pcrPid`],
+    ProgramName: [, __expectString, `programName`],
+    ProgramNumber: [, __expectInt32, `programNumber`],
+    ProgramPid: [, __expectInt32, `programPid`],
+    Streams: [, (_: any) => de___listOfTransportStream(_, context), `streams`],
   }) as any;
 };
 

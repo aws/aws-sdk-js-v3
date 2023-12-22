@@ -14,6 +14,7 @@ export * from "./DeleteGatewayCommand";
 export * from "./DeregisterGatewayInstanceCommand";
 export * from "./DescribeBridgeCommand";
 export * from "./DescribeFlowCommand";
+export * from "./DescribeFlowSourceMetadataCommand";
 export * from "./DescribeGatewayCommand";
 export * from "./DescribeGatewayInstanceCommand";
 export * from "./DescribeOfferingCommand";
