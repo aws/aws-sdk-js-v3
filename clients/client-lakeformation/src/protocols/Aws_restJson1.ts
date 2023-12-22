@@ -201,6 +201,7 @@ import {
   PrincipalPermissions,
   PrincipalResourcePermissions,
   QueryPlanningContext,
+  QuerySessionContext,
   Resource,
   ResourceInfo,
   ResourceNotReadyException,
@@ -934,6 +935,8 @@ export const se_GetTemporaryGlueTableCredentialsCommand = async (
       AuditContext: (_) => _json(_),
       DurationSeconds: [],
       Permissions: (_) => _json(_),
+      QuerySessionContext: (_) => se_QuerySessionContext(_, context),
+      S3Path: [],
       SupportedPermissionTypes: (_) => _json(_),
       TableArn: [],
     })
@@ -3284,6 +3287,7 @@ export const de_GetTemporaryGlueTableCredentialsCommand = async (
     Expiration: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     SecretAccessKey: __expectString,
     SessionToken: __expectString,
+    VendedS3Path: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5047,6 +5051,8 @@ const de_WorkUnitsNotReadyYetExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AdditionalContextMap omitted.
+
 // se_AddObjectInput omitted.
 
 // se_AllRowsWildcard omitted.
@@ -5125,6 +5131,19 @@ const se_QueryPlanningContext = (input: QueryPlanningContext, context: __SerdeCo
     QueryAsOfTime: (_) => Math.round(_.getTime() / 1000),
     QueryParameters: _json,
     TransactionId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1QuerySessionContext
+ */
+const se_QuerySessionContext = (input: QuerySessionContext, context: __SerdeContext): any => {
+  return take(input, {
+    AdditionalContext: _json,
+    ClusterId: [],
+    QueryAuthorizationId: [],
+    QueryId: [],
+    QueryStartTime: (_) => Math.round(_.getTime() / 1000),
   });
 };
 
@@ -5253,6 +5272,8 @@ const de_LakeFormationOptInsInfoList = (output: any, context: __SerdeContext): L
 // de_PartitionObjects omitted.
 
 // de_PartitionValuesList omitted.
+
+// de_PathStringList omitted.
 
 // de_PermissionList omitted.
 

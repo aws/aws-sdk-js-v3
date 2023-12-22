@@ -61,6 +61,16 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  *   SupportedPermissionTypes: [ // PermissionTypeList
  *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION" || "NESTED_PERMISSION" || "NESTED_CELL_PERMISSION",
  *   ],
+ *   S3Path: "STRING_VALUE",
+ *   QuerySessionContext: { // QuerySessionContext
+ *     QueryId: "STRING_VALUE",
+ *     QueryStartTime: new Date("TIMESTAMP"),
+ *     ClusterId: "STRING_VALUE",
+ *     QueryAuthorizationId: "STRING_VALUE",
+ *     AdditionalContext: { // AdditionalContextMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new GetTemporaryGlueTableCredentialsCommand(input);
  * const response = await client.send(command);
@@ -69,6 +79,9 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  * //   SecretAccessKey: "STRING_VALUE",
  * //   SessionToken: "STRING_VALUE",
  * //   Expiration: new Date("TIMESTAMP"),
+ * //   VendedS3Path: [ // PathStringList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
