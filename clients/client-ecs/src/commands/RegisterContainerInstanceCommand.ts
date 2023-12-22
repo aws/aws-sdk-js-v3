@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RegisterContainerInstanceRequest, RegisterContainerInstanceResponse } from "../models/models_0";
 import { de_RegisterContainerInstanceCommand, se_RegisterContainerInstanceCommand } from "../protocols/Aws_json1_1";
 
@@ -200,78 +191,26 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
-export class RegisterContainerInstanceCommand extends $Command<
-  RegisterContainerInstanceCommandInput,
-  RegisterContainerInstanceCommandOutput,
-  ECSClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RegisterContainerInstanceCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RegisterContainerInstanceCommandInput, RegisterContainerInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RegisterContainerInstanceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECSClient";
-    const commandName = "RegisterContainerInstanceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonEC2ContainerServiceV20141113",
-        operation: "RegisterContainerInstance",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RegisterContainerInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RegisterContainerInstanceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterContainerInstanceCommandOutput> {
-    return de_RegisterContainerInstanceCommand(output, context);
-  }
-}
+export class RegisterContainerInstanceCommand extends $Command
+  .classBuilder<
+    RegisterContainerInstanceCommandInput,
+    RegisterContainerInstanceCommandOutput,
+    ECSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerServiceV20141113", "RegisterContainerInstance", {})
+  .n("ECSClient", "RegisterContainerInstanceCommand")
+  .f(void 0, void 0)
+  .ser(se_RegisterContainerInstanceCommand)
+  .de(de_RegisterContainerInstanceCommand)
+  .build() {}

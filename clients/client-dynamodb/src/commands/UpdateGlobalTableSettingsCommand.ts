@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateGlobalTableSettingsInput, UpdateGlobalTableSettingsOutput } from "../models/models_0";
 import { de_UpdateGlobalTableSettingsCommand, se_UpdateGlobalTableSettingsCommand } from "../protocols/Aws_json1_0";
 
@@ -271,78 +262,26 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
-export class UpdateGlobalTableSettingsCommand extends $Command<
-  UpdateGlobalTableSettingsCommandInput,
-  UpdateGlobalTableSettingsCommandOutput,
-  DynamoDBClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateGlobalTableSettingsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DynamoDBClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateGlobalTableSettingsCommandInput, UpdateGlobalTableSettingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateGlobalTableSettingsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DynamoDBClient";
-    const commandName = "UpdateGlobalTableSettingsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "DynamoDB_20120810",
-        operation: "UpdateGlobalTableSettings",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateGlobalTableSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateGlobalTableSettingsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateGlobalTableSettingsCommandOutput> {
-    return de_UpdateGlobalTableSettingsCommand(output, context);
-  }
-}
+export class UpdateGlobalTableSettingsCommand extends $Command
+  .classBuilder<
+    UpdateGlobalTableSettingsCommandInput,
+    UpdateGlobalTableSettingsCommandOutput,
+    DynamoDBClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("DynamoDB_20120810", "UpdateGlobalTableSettings", {})
+  .n("DynamoDBClient", "UpdateGlobalTableSettingsCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateGlobalTableSettingsCommand)
+  .de(de_UpdateGlobalTableSettingsCommand)
+  .build() {}

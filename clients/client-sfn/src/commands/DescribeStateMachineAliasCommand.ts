@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeStateMachineAliasInput,
   DescribeStateMachineAliasOutput,
@@ -113,78 +104,26 @@ export interface DescribeStateMachineAliasCommandOutput extends DescribeStateMac
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
-export class DescribeStateMachineAliasCommand extends $Command<
-  DescribeStateMachineAliasCommandInput,
-  DescribeStateMachineAliasCommandOutput,
-  SFNClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeStateMachineAliasCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SFNClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeStateMachineAliasCommandInput, DescribeStateMachineAliasCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeStateMachineAliasCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SFNClient";
-    const commandName = "DescribeStateMachineAliasCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeStateMachineAliasOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSStepFunctions",
-        operation: "DescribeStateMachineAlias",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeStateMachineAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeStateMachineAliasCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeStateMachineAliasCommandOutput> {
-    return de_DescribeStateMachineAliasCommand(output, context);
-  }
-}
+export class DescribeStateMachineAliasCommand extends $Command
+  .classBuilder<
+    DescribeStateMachineAliasCommandInput,
+    DescribeStateMachineAliasCommandOutput,
+    SFNClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSStepFunctions", "DescribeStateMachineAlias", {})
+  .n("SFNClient", "DescribeStateMachineAliasCommand")
+  .f(void 0, DescribeStateMachineAliasOutputFilterSensitiveLog)
+  .ser(se_DescribeStateMachineAliasCommand)
+  .de(de_DescribeStateMachineAliasCommand)
+  .build() {}

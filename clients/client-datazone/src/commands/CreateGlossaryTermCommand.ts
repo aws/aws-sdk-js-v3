@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateGlossaryTermInput,
   CreateGlossaryTermInputFilterSensitiveLog,
@@ -122,74 +113,26 @@ export interface CreateGlossaryTermCommandOutput extends CreateGlossaryTermOutpu
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
  */
-export class CreateGlossaryTermCommand extends $Command<
-  CreateGlossaryTermCommandInput,
-  CreateGlossaryTermCommandOutput,
-  DataZoneClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateGlossaryTermCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DataZoneClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateGlossaryTermCommandInput, CreateGlossaryTermCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateGlossaryTermCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DataZoneClient";
-    const commandName = "CreateGlossaryTermCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateGlossaryTermInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlossaryTermOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "DataZone",
-        operation: "CreateGlossaryTerm",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateGlossaryTermCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateGlossaryTermCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlossaryTermCommandOutput> {
-    return de_CreateGlossaryTermCommand(output, context);
-  }
-}
+export class CreateGlossaryTermCommand extends $Command
+  .classBuilder<
+    CreateGlossaryTermCommandInput,
+    CreateGlossaryTermCommandOutput,
+    DataZoneClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("DataZone", "CreateGlossaryTerm", {})
+  .n("DataZoneClient", "CreateGlossaryTermCommand")
+  .f(CreateGlossaryTermInputFilterSensitiveLog, CreateGlossaryTermOutputFilterSensitiveLog)
+  .ser(se_CreateGlossaryTermCommand)
+  .de(de_CreateGlossaryTermCommand)
+  .build() {}

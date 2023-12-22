@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   MigrationHubOrchestratorClientResolvedConfig,
   ServiceInputTypes,
@@ -132,75 +123,26 @@ export interface UpdateWorkflowCommandOutput extends UpdateMigrationWorkflowResp
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
-export class UpdateWorkflowCommand extends $Command<
-  UpdateWorkflowCommandInput,
-  UpdateWorkflowCommandOutput,
-  MigrationHubOrchestratorClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateWorkflowCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MigrationHubOrchestratorClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateWorkflowCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MigrationHubOrchestratorClient";
-    const commandName = "UpdateWorkflowCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateMigrationWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMigrationWorkflowResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSMigrationHubOrchestrator",
-        operation: "UpdateWorkflow",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateWorkflowCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkflowCommandOutput> {
-    return de_UpdateWorkflowCommand(output, context);
-  }
-}
+export class UpdateWorkflowCommand extends $Command
+  .classBuilder<
+    UpdateWorkflowCommandInput,
+    UpdateWorkflowCommandOutput,
+    MigrationHubOrchestratorClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSMigrationHubOrchestrator", "UpdateWorkflow", {})
+  .n("MigrationHubOrchestratorClient", "UpdateWorkflowCommand")
+  .f(UpdateMigrationWorkflowRequestFilterSensitiveLog, UpdateMigrationWorkflowResponseFilterSensitiveLog)
+  .ser(se_UpdateWorkflowCommand)
+  .de(de_UpdateWorkflowCommand)
+  .build() {}

@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAssetInput, GetAssetOutput, GetAssetOutputFilterSensitiveLog } from "../models/models_0";
 import { de_GetAssetCommand, se_GetAssetCommand } from "../protocols/Aws_restJson1";
 
@@ -120,72 +111,26 @@ export interface GetAssetCommandOutput extends GetAssetOutput, __MetadataBearer 
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
  */
-export class GetAssetCommand extends $Command<
-  GetAssetCommandInput,
-  GetAssetCommandOutput,
-  DataZoneClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetAssetCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DataZoneClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetAssetCommandInput, GetAssetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetAssetCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DataZoneClient";
-    const commandName = "GetAssetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetAssetOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "DataZone",
-        operation: "GetAsset",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetAssetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAssetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssetCommandOutput> {
-    return de_GetAssetCommand(output, context);
-  }
-}
+export class GetAssetCommand extends $Command
+  .classBuilder<
+    GetAssetCommandInput,
+    GetAssetCommandOutput,
+    DataZoneClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("DataZone", "GetAsset", {})
+  .n("DataZoneClient", "GetAssetCommand")
+  .f(void 0, GetAssetOutputFilterSensitiveLog)
+  .ser(se_GetAssetCommand)
+  .de(de_GetAssetCommand)
+  .build() {}

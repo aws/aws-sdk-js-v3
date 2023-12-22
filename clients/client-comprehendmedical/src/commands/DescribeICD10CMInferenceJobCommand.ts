@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ComprehendMedicalClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeICD10CMInferenceJobRequest, DescribeICD10CMInferenceJobResponse } from "../models/models_0";
 import { de_DescribeICD10CMInferenceJobCommand, se_DescribeICD10CMInferenceJobCommand } from "../protocols/Aws_json1_1";
 
@@ -109,78 +100,26 @@ export interface DescribeICD10CMInferenceJobCommandOutput
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  */
-export class DescribeICD10CMInferenceJobCommand extends $Command<
-  DescribeICD10CMInferenceJobCommandInput,
-  DescribeICD10CMInferenceJobCommandOutput,
-  ComprehendMedicalClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeICD10CMInferenceJobCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ComprehendMedicalClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeICD10CMInferenceJobCommandInput, DescribeICD10CMInferenceJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeICD10CMInferenceJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ComprehendMedicalClient";
-    const commandName = "DescribeICD10CMInferenceJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ComprehendMedical_20181030",
-        operation: "DescribeICD10CMInferenceJob",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeICD10CMInferenceJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeICD10CMInferenceJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeICD10CMInferenceJobCommandOutput> {
-    return de_DescribeICD10CMInferenceJobCommand(output, context);
-  }
-}
+export class DescribeICD10CMInferenceJobCommand extends $Command
+  .classBuilder<
+    DescribeICD10CMInferenceJobCommandInput,
+    DescribeICD10CMInferenceJobCommandOutput,
+    ComprehendMedicalClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ComprehendMedical_20181030", "DescribeICD10CMInferenceJob", {})
+  .n("ComprehendMedicalClient", "DescribeICD10CMInferenceJobCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeICD10CMInferenceJobCommand)
+  .de(de_DescribeICD10CMInferenceJobCommand)
+  .build() {}

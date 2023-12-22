@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ChimeSDKMessagingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListSubChannelsRequest,
   ListSubChannelsRequestFilterSensitiveLog,
@@ -102,75 +93,26 @@ export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, _
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
-export class ListSubChannelsCommand extends $Command<
-  ListSubChannelsCommandInput,
-  ListSubChannelsCommandOutput,
-  ChimeSDKMessagingClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListSubChannelsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMessagingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListSubChannelsCommandInput, ListSubChannelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListSubChannelsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMessagingClient";
-    const commandName = "ListSubChannelsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ListSubChannelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubChannelsResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ChimeMessagingService",
-        operation: "ListSubChannels",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListSubChannelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListSubChannelsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubChannelsCommandOutput> {
-    return de_ListSubChannelsCommand(output, context);
-  }
-}
+export class ListSubChannelsCommand extends $Command
+  .classBuilder<
+    ListSubChannelsCommandInput,
+    ListSubChannelsCommandOutput,
+    ChimeSDKMessagingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeMessagingService", "ListSubChannels", {})
+  .n("ChimeSDKMessagingClient", "ListSubChannelsCommand")
+  .f(ListSubChannelsRequestFilterSensitiveLog, ListSubChannelsResponseFilterSensitiveLog)
+  .ser(se_ListSubChannelsCommand)
+  .de(de_ListSubChannelsCommand)
+  .build() {}

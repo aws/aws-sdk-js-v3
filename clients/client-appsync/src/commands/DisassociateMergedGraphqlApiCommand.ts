@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateMergedGraphqlApiRequest, DisassociateMergedGraphqlApiResponse } from "../models/models_0";
 import {
   de_DisassociateMergedGraphqlApiCommand,
@@ -89,78 +80,26 @@ export interface DisassociateMergedGraphqlApiCommandOutput
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
-export class DisassociateMergedGraphqlApiCommand extends $Command<
-  DisassociateMergedGraphqlApiCommandInput,
-  DisassociateMergedGraphqlApiCommandOutput,
-  AppSyncClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DisassociateMergedGraphqlApiCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppSyncClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DisassociateMergedGraphqlApiCommandInput, DisassociateMergedGraphqlApiCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DisassociateMergedGraphqlApiCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppSyncClient";
-    const commandName = "DisassociateMergedGraphqlApiCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSDeepdishControlPlaneService",
-        operation: "DisassociateMergedGraphqlApi",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DisassociateMergedGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DisassociateMergedGraphqlApiCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateMergedGraphqlApiCommandOutput> {
-    return de_DisassociateMergedGraphqlApiCommand(output, context);
-  }
-}
+export class DisassociateMergedGraphqlApiCommand extends $Command
+  .classBuilder<
+    DisassociateMergedGraphqlApiCommandInput,
+    DisassociateMergedGraphqlApiCommandOutput,
+    AppSyncClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepdishControlPlaneService", "DisassociateMergedGraphqlApi", {})
+  .n("AppSyncClient", "DisassociateMergedGraphqlApiCommand")
+  .f(void 0, void 0)
+  .ser(se_DisassociateMergedGraphqlApiCommand)
+  .de(de_DisassociateMergedGraphqlApiCommand)
+  .build() {}

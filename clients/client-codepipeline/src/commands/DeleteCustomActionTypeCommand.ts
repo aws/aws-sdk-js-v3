@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteCustomActionTypeInput } from "../models/models_0";
 import { de_DeleteCustomActionTypeCommand, se_DeleteCustomActionTypeCommand } from "../protocols/Aws_json1_1";
 
@@ -79,75 +70,26 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
-export class DeleteCustomActionTypeCommand extends $Command<
-  DeleteCustomActionTypeCommandInput,
-  DeleteCustomActionTypeCommandOutput,
-  CodePipelineClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteCustomActionTypeCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodePipelineClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteCustomActionTypeCommandInput, DeleteCustomActionTypeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteCustomActionTypeCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodePipelineClient";
-    const commandName = "DeleteCustomActionTypeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CodePipeline_20150709",
-        operation: "DeleteCustomActionType",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteCustomActionTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteCustomActionTypeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomActionTypeCommandOutput> {
-    return de_DeleteCustomActionTypeCommand(output, context);
-  }
-}
+export class DeleteCustomActionTypeCommand extends $Command
+  .classBuilder<
+    DeleteCustomActionTypeCommandInput,
+    DeleteCustomActionTypeCommandOutput,
+    CodePipelineClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodePipeline_20150709", "DeleteCustomActionType", {})
+  .n("CodePipelineClient", "DeleteCustomActionTypeCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteCustomActionTypeCommand)
+  .de(de_DeleteCustomActionTypeCommand)
+  .build() {}

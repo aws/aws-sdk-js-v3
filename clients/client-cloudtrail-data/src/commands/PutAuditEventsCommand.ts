@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailDataClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutAuditEventsRequest, PutAuditEventsResponse } from "../models/models_0";
 import { de_PutAuditEventsCommand, se_PutAuditEventsCommand } from "../protocols/Aws_restJson1";
 
@@ -108,75 +99,26 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * <p>Base exception class for all service exceptions from CloudTrailData service.</p>
  *
  */
-export class PutAuditEventsCommand extends $Command<
-  PutAuditEventsCommandInput,
-  PutAuditEventsCommandOutput,
-  CloudTrailDataClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutAuditEventsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudTrailDataClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutAuditEventsCommandInput, PutAuditEventsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutAuditEventsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudTrailDataClient";
-    const commandName = "PutAuditEventsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CloudTrailDataService",
-        operation: "PutAuditEvents",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutAuditEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutAuditEventsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAuditEventsCommandOutput> {
-    return de_PutAuditEventsCommand(output, context);
-  }
-}
+export class PutAuditEventsCommand extends $Command
+  .classBuilder<
+    PutAuditEventsCommandInput,
+    PutAuditEventsCommandOutput,
+    CloudTrailDataClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudTrailDataClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CloudTrailDataService", "PutAuditEvents", {})
+  .n("CloudTrailDataClient", "PutAuditEventsCommand")
+  .f(void 0, void 0)
+  .ser(se_PutAuditEventsCommand)
+  .de(de_PutAuditEventsCommand)
+  .build() {}

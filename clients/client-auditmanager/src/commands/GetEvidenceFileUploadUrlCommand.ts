@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetEvidenceFileUploadUrlRequest,
   GetEvidenceFileUploadUrlRequestFilterSensitiveLog,
@@ -102,75 +93,26 @@ export interface GetEvidenceFileUploadUrlCommandOutput extends GetEvidenceFileUp
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
-export class GetEvidenceFileUploadUrlCommand extends $Command<
-  GetEvidenceFileUploadUrlCommandInput,
-  GetEvidenceFileUploadUrlCommandOutput,
-  AuditManagerClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetEvidenceFileUploadUrlCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AuditManagerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetEvidenceFileUploadUrlCommandInput, GetEvidenceFileUploadUrlCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetEvidenceFileUploadUrlCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AuditManagerClient";
-    const commandName = "GetEvidenceFileUploadUrlCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: GetEvidenceFileUploadUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEvidenceFileUploadUrlResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "BedrockAssessmentManagerLambda",
-        operation: "GetEvidenceFileUploadUrl",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetEvidenceFileUploadUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetEvidenceFileUploadUrlCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEvidenceFileUploadUrlCommandOutput> {
-    return de_GetEvidenceFileUploadUrlCommand(output, context);
-  }
-}
+export class GetEvidenceFileUploadUrlCommand extends $Command
+  .classBuilder<
+    GetEvidenceFileUploadUrlCommandInput,
+    GetEvidenceFileUploadUrlCommandOutput,
+    AuditManagerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("BedrockAssessmentManagerLambda", "GetEvidenceFileUploadUrl", {})
+  .n("AuditManagerClient", "GetEvidenceFileUploadUrlCommand")
+  .f(GetEvidenceFileUploadUrlRequestFilterSensitiveLog, GetEvidenceFileUploadUrlResponseFilterSensitiveLog)
+  .ser(se_GetEvidenceFileUploadUrlCommand)
+  .de(de_GetEvidenceFileUploadUrlCommand)
+  .build() {}

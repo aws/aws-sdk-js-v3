@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ExportServerEngineAttributeRequest,
   ExportServerEngineAttributeRequestFilterSensitiveLog,
@@ -106,78 +97,26 @@ export interface ExportServerEngineAttributeCommandOutput
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
-export class ExportServerEngineAttributeCommand extends $Command<
-  ExportServerEngineAttributeCommandInput,
-  ExportServerEngineAttributeCommandOutput,
-  OpsWorksCMClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ExportServerEngineAttributeCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OpsWorksCMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ExportServerEngineAttributeCommandInput, ExportServerEngineAttributeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ExportServerEngineAttributeCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OpsWorksCMClient";
-    const commandName = "ExportServerEngineAttributeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ExportServerEngineAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportServerEngineAttributeResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "OpsWorksCM_V2016_11_01",
-        operation: "ExportServerEngineAttribute",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ExportServerEngineAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ExportServerEngineAttributeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ExportServerEngineAttributeCommandOutput> {
-    return de_ExportServerEngineAttributeCommand(output, context);
-  }
-}
+export class ExportServerEngineAttributeCommand extends $Command
+  .classBuilder<
+    ExportServerEngineAttributeCommandInput,
+    ExportServerEngineAttributeCommandOutput,
+    OpsWorksCMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("OpsWorksCM_V2016_11_01", "ExportServerEngineAttribute", {})
+  .n("OpsWorksCMClient", "ExportServerEngineAttributeCommand")
+  .f(ExportServerEngineAttributeRequestFilterSensitiveLog, ExportServerEngineAttributeResponseFilterSensitiveLog)
+  .ser(se_ExportServerEngineAttributeCommand)
+  .de(de_ExportServerEngineAttributeCommand)
+  .build() {}

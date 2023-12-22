@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateLaunchTemplateVersionRequest,
   CreateLaunchTemplateVersionRequestFilterSensitiveLog,
@@ -643,78 +634,26 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * ```
  *
  */
-export class CreateLaunchTemplateVersionCommand extends $Command<
-  CreateLaunchTemplateVersionCommandInput,
-  CreateLaunchTemplateVersionCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateLaunchTemplateVersionCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateLaunchTemplateVersionCommandInput, CreateLaunchTemplateVersionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateLaunchTemplateVersionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "CreateLaunchTemplateVersionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateLaunchTemplateVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLaunchTemplateVersionResultFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonEC2",
-        operation: "CreateLaunchTemplateVersion",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateLaunchTemplateVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateLaunchTemplateVersionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLaunchTemplateVersionCommandOutput> {
-    return de_CreateLaunchTemplateVersionCommand(output, context);
-  }
-}
+export class CreateLaunchTemplateVersionCommand extends $Command
+  .classBuilder<
+    CreateLaunchTemplateVersionCommandInput,
+    CreateLaunchTemplateVersionCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "CreateLaunchTemplateVersion", {})
+  .n("EC2Client", "CreateLaunchTemplateVersionCommand")
+  .f(CreateLaunchTemplateVersionRequestFilterSensitiveLog, CreateLaunchTemplateVersionResultFilterSensitiveLog)
+  .ser(se_CreateLaunchTemplateVersionCommand)
+  .de(de_CreateLaunchTemplateVersionCommand)
+  .build() {}

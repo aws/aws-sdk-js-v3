@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListAppInstanceAdminsRequest,
   ListAppInstanceAdminsRequestFilterSensitiveLog,
@@ -102,75 +93,26 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
  */
-export class ListAppInstanceAdminsCommand extends $Command<
-  ListAppInstanceAdminsCommandInput,
-  ListAppInstanceAdminsCommandOutput,
-  ChimeSDKIdentityClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAppInstanceAdminsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKIdentityClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAppInstanceAdminsCommandInput, ListAppInstanceAdminsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAppInstanceAdminsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKIdentityClient";
-    const commandName = "ListAppInstanceAdminsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ListAppInstanceAdminsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppInstanceAdminsResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ChimeIdentityService",
-        operation: "ListAppInstanceAdmins",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListAppInstanceAdminsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAppInstanceAdminsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAppInstanceAdminsCommandOutput> {
-    return de_ListAppInstanceAdminsCommand(output, context);
-  }
-}
+export class ListAppInstanceAdminsCommand extends $Command
+  .classBuilder<
+    ListAppInstanceAdminsCommandInput,
+    ListAppInstanceAdminsCommandOutput,
+    ChimeSDKIdentityClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeIdentityService", "ListAppInstanceAdmins", {})
+  .n("ChimeSDKIdentityClient", "ListAppInstanceAdminsCommand")
+  .f(ListAppInstanceAdminsRequestFilterSensitiveLog, ListAppInstanceAdminsResponseFilterSensitiveLog)
+  .ser(se_ListAppInstanceAdminsCommand)
+  .de(de_ListAppInstanceAdminsCommand)
+  .build() {}

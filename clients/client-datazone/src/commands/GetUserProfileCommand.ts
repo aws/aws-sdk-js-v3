@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetUserProfileInput, GetUserProfileOutput, GetUserProfileOutputFilterSensitiveLog } from "../models/models_0";
 import { de_GetUserProfileCommand, se_GetUserProfileCommand } from "../protocols/Aws_restJson1";
 
@@ -98,74 +89,26 @@ export interface GetUserProfileCommandOutput extends GetUserProfileOutput, __Met
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
  */
-export class GetUserProfileCommand extends $Command<
-  GetUserProfileCommandInput,
-  GetUserProfileCommandOutput,
-  DataZoneClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetUserProfileCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DataZoneClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetUserProfileCommandInput, GetUserProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetUserProfileCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DataZoneClient";
-    const commandName = "GetUserProfileCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetUserProfileOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "DataZone",
-        operation: "GetUserProfile",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetUserProfileCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserProfileCommandOutput> {
-    return de_GetUserProfileCommand(output, context);
-  }
-}
+export class GetUserProfileCommand extends $Command
+  .classBuilder<
+    GetUserProfileCommandInput,
+    GetUserProfileCommandOutput,
+    DataZoneClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("DataZone", "GetUserProfile", {})
+  .n("DataZoneClient", "GetUserProfileCommand")
+  .f(void 0, GetUserProfileOutputFilterSensitiveLog)
+  .ser(se_GetUserProfileCommand)
+  .de(de_GetUserProfileCommand)
+  .build() {}

@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RemoveResourcePermissionRequest, RemoveResourcePermissionRequestFilterSensitiveLog } from "../models/models_0";
 import { de_RemoveResourcePermissionCommand, se_RemoveResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
@@ -81,75 +72,26 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
-export class RemoveResourcePermissionCommand extends $Command<
-  RemoveResourcePermissionCommandInput,
-  RemoveResourcePermissionCommandOutput,
-  WorkDocsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RemoveResourcePermissionCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkDocsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RemoveResourcePermissionCommandInput, RemoveResourcePermissionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RemoveResourcePermissionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WorkDocsClient";
-    const commandName = "RemoveResourcePermissionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: RemoveResourcePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSGorillaBoyService",
-        operation: "RemoveResourcePermission",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RemoveResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RemoveResourcePermissionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveResourcePermissionCommandOutput> {
-    return de_RemoveResourcePermissionCommand(output, context);
-  }
-}
+export class RemoveResourcePermissionCommand extends $Command
+  .classBuilder<
+    RemoveResourcePermissionCommandInput,
+    RemoveResourcePermissionCommandOutput,
+    WorkDocsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSGorillaBoyService", "RemoveResourcePermission", {})
+  .n("WorkDocsClient", "RemoveResourcePermissionCommand")
+  .f(RemoveResourcePermissionRequestFilterSensitiveLog, void 0)
+  .ser(se_RemoveResourcePermissionCommand)
+  .de(de_RemoveResourcePermissionCommand)
+  .build() {}

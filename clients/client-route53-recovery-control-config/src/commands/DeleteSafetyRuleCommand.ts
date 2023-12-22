@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteSafetyRuleRequest, DeleteSafetyRuleResponse } from "../models/models_0";
 import { de_DeleteSafetyRuleCommand, se_DeleteSafetyRuleCommand } from "../protocols/Aws_restJson1";
 import {
@@ -76,75 +67,26 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
-export class DeleteSafetyRuleCommand extends $Command<
-  DeleteSafetyRuleCommandInput,
-  DeleteSafetyRuleCommandOutput,
-  Route53RecoveryControlConfigClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteSafetyRuleCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Route53RecoveryControlConfigClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteSafetyRuleCommandInput, DeleteSafetyRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteSafetyRuleCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Route53RecoveryControlConfigClient";
-    const commandName = "DeleteSafetyRuleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Route53RecoveryControlConfig",
-        operation: "DeleteSafetyRule",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteSafetyRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteSafetyRuleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSafetyRuleCommandOutput> {
-    return de_DeleteSafetyRuleCommand(output, context);
-  }
-}
+export class DeleteSafetyRuleCommand extends $Command
+  .classBuilder<
+    DeleteSafetyRuleCommandInput,
+    DeleteSafetyRuleCommandOutput,
+    Route53RecoveryControlConfigClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Route53RecoveryControlConfig", "DeleteSafetyRule", {})
+  .n("Route53RecoveryControlConfigClient", "DeleteSafetyRuleCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteSafetyRuleCommand)
+  .de(de_DeleteSafetyRuleCommand)
+  .build() {}

@@ -1,21 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   SynthesizeSpeechInput,
   SynthesizeSpeechOutput,
@@ -160,78 +149,26 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  * ```
  *
  */
-export class SynthesizeSpeechCommand extends $Command<
-  SynthesizeSpeechCommandInput,
-  SynthesizeSpeechCommandOutput,
-  PollyClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: SynthesizeSpeechCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PollyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<SynthesizeSpeechCommandInput, SynthesizeSpeechCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, SynthesizeSpeechCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PollyClient";
-    const commandName = "SynthesizeSpeechCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: SynthesizeSpeechOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Parrot_v1",
-        operation: "SynthesizeSpeech",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: SynthesizeSpeechCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SynthesizeSpeechCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<SynthesizeSpeechCommandOutput> {
-    return de_SynthesizeSpeechCommand(output, context);
-  }
-}
+export class SynthesizeSpeechCommand extends $Command
+  .classBuilder<
+    SynthesizeSpeechCommandInput,
+    SynthesizeSpeechCommandOutput,
+    PollyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Parrot_v1", "SynthesizeSpeech", {})
+  .n("PollyClient", "SynthesizeSpeechCommand")
+  .f(void 0, SynthesizeSpeechOutputFilterSensitiveLog)
+  .ser(se_SynthesizeSpeechCommand)
+  .de(de_SynthesizeSpeechCommand)
+  .build() {}

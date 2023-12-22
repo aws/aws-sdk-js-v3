@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MediaTypeHeaderInput, MediaTypeHeaderOutput } from "../models/models_0";
 import { de_MediaTypeHeaderCommand, se_MediaTypeHeaderCommand } from "../protocols/Aws_restJson1";
@@ -64,63 +54,20 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
-export class MediaTypeHeaderCommand extends $Command<
-  MediaTypeHeaderCommandInput,
-  MediaTypeHeaderCommandOutput,
-  RestJsonProtocolClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: MediaTypeHeaderCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestJsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<MediaTypeHeaderCommandInput, MediaTypeHeaderCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestJsonProtocolClient";
-    const commandName = "MediaTypeHeaderCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RestJson",
-        operation: "MediaTypeHeader",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: MediaTypeHeaderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_MediaTypeHeaderCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MediaTypeHeaderCommandOutput> {
-    return de_MediaTypeHeaderCommand(output, context);
-  }
-}
+export class MediaTypeHeaderCommand extends $Command
+  .classBuilder<
+    MediaTypeHeaderCommandInput,
+    MediaTypeHeaderCommandOutput,
+    RestJsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestJson", "MediaTypeHeader", {})
+  .n("RestJsonProtocolClient", "MediaTypeHeaderCommand")
+  .f(void 0, void 0)
+  .ser(se_MediaTypeHeaderCommand)
+  .de(de_MediaTypeHeaderCommand)
+  .build() {}

@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateAgentActionGroupRequest,
   CreateAgentActionGroupRequestFilterSensitiveLog,
@@ -128,75 +119,26 @@ export interface CreateAgentActionGroupCommandOutput extends CreateAgentActionGr
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
  */
-export class CreateAgentActionGroupCommand extends $Command<
-  CreateAgentActionGroupCommandInput,
-  CreateAgentActionGroupCommandOutput,
-  BedrockAgentClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateAgentActionGroupCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BedrockAgentClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateAgentActionGroupCommandInput, CreateAgentActionGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateAgentActionGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BedrockAgentClient";
-    const commandName = "CreateAgentActionGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateAgentActionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAgentActionGroupResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonBedrockAgentBuildTimeLambda",
-        operation: "CreateAgentActionGroup",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateAgentActionGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateAgentActionGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAgentActionGroupCommandOutput> {
-    return de_CreateAgentActionGroupCommand(output, context);
-  }
-}
+export class CreateAgentActionGroupCommand extends $Command
+  .classBuilder<
+    CreateAgentActionGroupCommandInput,
+    CreateAgentActionGroupCommandOutput,
+    BedrockAgentClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonBedrockAgentBuildTimeLambda", "CreateAgentActionGroup", {})
+  .n("BedrockAgentClient", "CreateAgentActionGroupCommand")
+  .f(CreateAgentActionGroupRequestFilterSensitiveLog, CreateAgentActionGroupResponseFilterSensitiveLog)
+  .ser(se_CreateAgentActionGroupCommand)
+  .de(de_CreateAgentActionGroupCommand)
+  .build() {}

@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   ReplicationConfiguration,
@@ -143,81 +134,26 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
  */
-export class UpdateReplicationConfigurationCommand extends $Command<
-  UpdateReplicationConfigurationCommandInput,
-  UpdateReplicationConfigurationCommandOutput,
-  MgnClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateReplicationConfigurationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MgnClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateReplicationConfigurationCommandInput, UpdateReplicationConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateReplicationConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MgnClient";
-    const commandName = "UpdateReplicationConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicationConfigurationFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ApplicationMigrationService",
-        operation: "UpdateReplicationConfiguration",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: UpdateReplicationConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_UpdateReplicationConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateReplicationConfigurationCommandOutput> {
-    return de_UpdateReplicationConfigurationCommand(output, context);
-  }
-}
+export class UpdateReplicationConfigurationCommand extends $Command
+  .classBuilder<
+    UpdateReplicationConfigurationCommandInput,
+    UpdateReplicationConfigurationCommandOutput,
+    MgnClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ApplicationMigrationService", "UpdateReplicationConfiguration", {})
+  .n("MgnClient", "UpdateReplicationConfigurationCommand")
+  .f(UpdateReplicationConfigurationRequestFilterSensitiveLog, ReplicationConfigurationFilterSensitiveLog)
+  .ser(se_UpdateReplicationConfigurationCommand)
+  .de(de_UpdateReplicationConfigurationCommand)
+  .build() {}

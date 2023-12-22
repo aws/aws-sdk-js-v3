@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateProxySessionRequest,
   UpdateProxySessionResponse,
@@ -128,75 +119,26 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
-export class UpdateProxySessionCommand extends $Command<
-  UpdateProxySessionCommandInput,
-  UpdateProxySessionCommandOutput,
-  ChimeClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateProxySessionCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateProxySessionCommandInput, UpdateProxySessionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateProxySessionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeClient";
-    const commandName = "UpdateProxySessionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: UpdateProxySessionResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "UCBuzzConsoleService",
-        operation: "UpdateProxySession",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateProxySessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateProxySessionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProxySessionCommandOutput> {
-    return de_UpdateProxySessionCommand(output, context);
-  }
-}
+export class UpdateProxySessionCommand extends $Command
+  .classBuilder<
+    UpdateProxySessionCommandInput,
+    UpdateProxySessionCommandOutput,
+    ChimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("UCBuzzConsoleService", "UpdateProxySession", {})
+  .n("ChimeClient", "UpdateProxySessionCommand")
+  .f(void 0, UpdateProxySessionResponseFilterSensitiveLog)
+  .ser(se_UpdateProxySessionCommand)
+  .de(de_UpdateProxySessionCommand)
+  .build() {}

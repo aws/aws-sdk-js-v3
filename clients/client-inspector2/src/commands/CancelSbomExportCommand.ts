@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { CancelSbomExportRequest, CancelSbomExportResponse } from "../models/models_0";
 import { de_CancelSbomExportCommand, se_CancelSbomExportCommand } from "../protocols/Aws_restJson1";
@@ -81,75 +72,26 @@ export interface CancelSbomExportCommandOutput extends CancelSbomExportResponse,
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
-export class CancelSbomExportCommand extends $Command<
-  CancelSbomExportCommandInput,
-  CancelSbomExportCommandOutput,
-  Inspector2ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CancelSbomExportCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Inspector2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CancelSbomExportCommandInput, CancelSbomExportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CancelSbomExportCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Inspector2Client";
-    const commandName = "CancelSbomExportCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Inspector2",
-        operation: "CancelSbomExport",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CancelSbomExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CancelSbomExportCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSbomExportCommandOutput> {
-    return de_CancelSbomExportCommand(output, context);
-  }
-}
+export class CancelSbomExportCommand extends $Command
+  .classBuilder<
+    CancelSbomExportCommandInput,
+    CancelSbomExportCommandOutput,
+    Inspector2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Inspector2", "CancelSbomExport", {})
+  .n("Inspector2Client", "CancelSbomExportCommand")
+  .f(void 0, void 0)
+  .ser(se_CancelSbomExportCommand)
+  .de(de_CancelSbomExportCommand)
+  .build() {}

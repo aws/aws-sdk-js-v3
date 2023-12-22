@@ -2,22 +2,12 @@
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getCheckContentLengthHeaderPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadInputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutObjectOutput,
   PutObjectOutputFilterSensitiveLog,
@@ -254,6 +244,28 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @example To upload an object and specify server-side encryption and object tags
+ * ```javascript
+ * // The following example uploads an object. The request specifies the optional server-side encryption option. The request also specifies optional object tags. If the bucket is versioning enabled, S3 returns version ID in response.
+ * const input = {
+ *   "Body": "filetoupload",
+ *   "Bucket": "examplebucket",
+ *   "Key": "exampleobject",
+ *   "ServerSideEncryption": "AES256",
+ *   "Tagging": "key1=value1&key2=value2"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "ServerSideEncryption": "AES256",
+ *   "VersionId": "Ri.vC6qVlA4dEnjgRV4ZHsHoFIjqEMNt"
+ * }
+ * *\/
+ * // example id: to-upload-an-object-and-specify-server-side-encryption-and-object-tags-1483398331831
+ * ```
+ *
  * @example To create an object.
  * ```javascript
  * // The following example creates an object. If the bucket is versioning enabled, S3 returns version ID in response.
@@ -273,23 +285,46 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * // example id: to-create-an-object-1483147613675
  * ```
  *
- * @example To upload an object
+ * @example To upload an object (specify optional headers)
  * ```javascript
- * // The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.
+ * // The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.
  * const input = {
  *   "Body": "HappyFace.jpg",
  *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
+ *   "Key": "HappyFace.jpg",
+ *   "ServerSideEncryption": "AES256",
+ *   "StorageClass": "STANDARD_IA"
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
  * /* response ==
  * {
  *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "tpf3zF08nBplQK1XLOefGskR7mGDwcDk"
+ *   "ServerSideEncryption": "AES256",
+ *   "VersionId": "CG612hodqujkf8FaaNfp8U..FIhLROcp"
  * }
  * *\/
- * // example id: to-upload-an-object-1481760101010
+ * // example id: to-upload-an-object-(specify-optional-headers)
+ * ```
+ *
+ * @example To upload an object and specify optional tags
+ * ```javascript
+ * // The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.
+ * const input = {
+ *   "Body": "c:\\HappyFace.jpg",
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg",
+ *   "Tagging": "key1=value1&key2=value2"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "psM2sYY4.o1501dSx8wMvnkOzSBB.V4a"
+ * }
+ * *\/
+ * // example id: to-upload-an-object-and-specify-optional-tags-1481762310955
  * ```
  *
  * @example To upload object and specify user-defined metadata
@@ -315,70 +350,6 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * // example id: to-upload-object-and-specify-user-defined-metadata-1483396974757
  * ```
  *
- * @example To upload an object and specify optional tags
- * ```javascript
- * // The following example uploads an object. The request specifies optional object tags. The bucket is versioned, therefore S3 returns version ID of the newly created object.
- * const input = {
- *   "Body": "c:\\HappyFace.jpg",
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg",
- *   "Tagging": "key1=value1&key2=value2"
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "VersionId": "psM2sYY4.o1501dSx8wMvnkOzSBB.V4a"
- * }
- * *\/
- * // example id: to-upload-an-object-and-specify-optional-tags-1481762310955
- * ```
- *
- * @example To upload an object (specify optional headers)
- * ```javascript
- * // The following example uploads an object. The request specifies optional request headers to directs S3 to use specific storage class and use server-side encryption.
- * const input = {
- *   "Body": "HappyFace.jpg",
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg",
- *   "ServerSideEncryption": "AES256",
- *   "StorageClass": "STANDARD_IA"
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "ServerSideEncryption": "AES256",
- *   "VersionId": "CG612hodqujkf8FaaNfp8U..FIhLROcp"
- * }
- * *\/
- * // example id: to-upload-an-object-(specify-optional-headers)
- * ```
- *
- * @example To upload an object and specify server-side encryption and object tags
- * ```javascript
- * // The following example uploads an object. The request specifies the optional server-side encryption option. The request also specifies optional object tags. If the bucket is versioning enabled, S3 returns version ID in response.
- * const input = {
- *   "Body": "filetoupload",
- *   "Bucket": "examplebucket",
- *   "Key": "exampleobject",
- *   "ServerSideEncryption": "AES256",
- *   "Tagging": "key1=value1&key2=value2"
- * };
- * const command = new PutObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "ServerSideEncryption": "AES256",
- *   "VersionId": "Ri.vC6qVlA4dEnjgRV4ZHsHoFIjqEMNt"
- * }
- * *\/
- * // example id: to-upload-an-object-and-specify-server-side-encryption-and-object-tags-1483398331831
- * ```
- *
  * @example To upload an object and specify canned ACL.
  * ```javascript
  * // The following example uploads and object. The request specifies optional canned ACL (access control list) to all READ access to authenticated users. If the bucket is versioning enabled, S3 returns version ID in response.
@@ -399,87 +370,55 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * // example id: to-upload-an-object-and-specify-canned-acl-1483397779571
  * ```
  *
+ * @example To upload an object
+ * ```javascript
+ * // The following example uploads an object to a versioning-enabled bucket. The source file is specified using Windows file syntax. S3 returns VersionId of the newly created object.
+ * const input = {
+ *   "Body": "HappyFace.jpg",
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "VersionId": "tpf3zF08nBplQK1XLOefGskR7mGDwcDk"
+ * }
+ * *\/
+ * // example id: to-upload-an-object-1481760101010
+ * ```
+ *
  */
-export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectCommandOutput, S3ClientResolvedConfig> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      Key: { type: "contextParams", name: "Key" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutObjectCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutObjectCommandInput, PutObjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutObjectCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(getCheckContentLengthHeaderPlugin(configuration));
-    this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class PutObjectCommand extends $Command
+  .classBuilder<
+    PutObjectCommandInput,
+    PutObjectCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+    Key: { type: "contextParams", name: "Key" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getCheckContentLengthHeaderPlugin(config),
+      getSsecPlugin(config),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: false,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "PutObjectCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: PutObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonS3",
-        operation: "PutObject",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutObjectCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
-    return de_PutObjectCommand(output, context);
-  }
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "PutObject", {})
+  .n("S3Client", "PutObjectCommand")
+  .f(PutObjectRequestFilterSensitiveLog, PutObjectOutputFilterSensitiveLog)
+  .ser(se_PutObjectCommand)
+  .de(de_PutObjectCommand)
+  .build() {}

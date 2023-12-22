@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetCalculatedAttributeDefinitionRequest,
   GetCalculatedAttributeDefinitionResponse,
@@ -117,81 +108,26 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
  */
-export class GetCalculatedAttributeDefinitionCommand extends $Command<
-  GetCalculatedAttributeDefinitionCommandInput,
-  GetCalculatedAttributeDefinitionCommandOutput,
-  CustomerProfilesClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetCalculatedAttributeDefinitionCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CustomerProfilesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetCalculatedAttributeDefinitionCommandInput, GetCalculatedAttributeDefinitionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetCalculatedAttributeDefinitionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CustomerProfilesClient";
-    const commandName = "GetCalculatedAttributeDefinitionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetCalculatedAttributeDefinitionResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CustomerProfiles_20200815",
-        operation: "GetCalculatedAttributeDefinition",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetCalculatedAttributeDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetCalculatedAttributeDefinitionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCalculatedAttributeDefinitionCommandOutput> {
-    return de_GetCalculatedAttributeDefinitionCommand(output, context);
-  }
-}
+export class GetCalculatedAttributeDefinitionCommand extends $Command
+  .classBuilder<
+    GetCalculatedAttributeDefinitionCommandInput,
+    GetCalculatedAttributeDefinitionCommandOutput,
+    CustomerProfilesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CustomerProfiles_20200815", "GetCalculatedAttributeDefinition", {})
+  .n("CustomerProfilesClient", "GetCalculatedAttributeDefinitionCommand")
+  .f(void 0, GetCalculatedAttributeDefinitionResponseFilterSensitiveLog)
+  .ser(se_GetCalculatedAttributeDefinitionCommand)
+  .de(de_GetCalculatedAttributeDefinitionCommand)
+  .build() {}

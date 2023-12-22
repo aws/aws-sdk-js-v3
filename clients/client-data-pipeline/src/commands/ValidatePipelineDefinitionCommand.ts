@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput } from "../models/models_0";
 import { de_ValidatePipelineDefinitionCommand, se_ValidatePipelineDefinitionCommand } from "../protocols/Aws_json1_1";
 
@@ -274,78 +265,26 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
  */
-export class ValidatePipelineDefinitionCommand extends $Command<
-  ValidatePipelineDefinitionCommandInput,
-  ValidatePipelineDefinitionCommandOutput,
-  DataPipelineClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ValidatePipelineDefinitionCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DataPipelineClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ValidatePipelineDefinitionCommandInput, ValidatePipelineDefinitionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ValidatePipelineDefinitionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DataPipelineClient";
-    const commandName = "ValidatePipelineDefinitionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "DataPipeline",
-        operation: "ValidatePipelineDefinition",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ValidatePipelineDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ValidatePipelineDefinitionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ValidatePipelineDefinitionCommandOutput> {
-    return de_ValidatePipelineDefinitionCommand(output, context);
-  }
-}
+export class ValidatePipelineDefinitionCommand extends $Command
+  .classBuilder<
+    ValidatePipelineDefinitionCommandInput,
+    ValidatePipelineDefinitionCommandOutput,
+    DataPipelineClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("DataPipeline", "ValidatePipelineDefinition", {})
+  .n("DataPipelineClient", "ValidatePipelineDefinitionCommand")
+  .f(void 0, void 0)
+  .ser(se_ValidatePipelineDefinitionCommand)
+  .de(de_ValidatePipelineDefinitionCommand)
+  .build() {}

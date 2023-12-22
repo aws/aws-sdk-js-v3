@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAccountOverviewRequest, DescribeAccountOverviewResponse } from "../models/models_0";
 import { de_DescribeAccountOverviewCommand, se_DescribeAccountOverviewCommand } from "../protocols/Aws_restJson1";
 
@@ -86,75 +77,26 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
  */
-export class DescribeAccountOverviewCommand extends $Command<
-  DescribeAccountOverviewCommandInput,
-  DescribeAccountOverviewCommandOutput,
-  DevOpsGuruClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAccountOverviewCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DevOpsGuruClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAccountOverviewCommandInput, DescribeAccountOverviewCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAccountOverviewCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DevOpsGuruClient";
-    const commandName = "DescribeAccountOverviewCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CapstoneControlPlaneService",
-        operation: "DescribeAccountOverview",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAccountOverviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAccountOverviewCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountOverviewCommandOutput> {
-    return de_DescribeAccountOverviewCommand(output, context);
-  }
-}
+export class DescribeAccountOverviewCommand extends $Command
+  .classBuilder<
+    DescribeAccountOverviewCommandInput,
+    DescribeAccountOverviewCommandOutput,
+    DevOpsGuruClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CapstoneControlPlaneService", "DescribeAccountOverview", {})
+  .n("DevOpsGuruClient", "DescribeAccountOverviewCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeAccountOverviewCommand)
+  .de(de_DescribeAccountOverviewCommand)
+  .build() {}

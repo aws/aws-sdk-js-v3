@@ -1,20 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PrepareQueryRequest,
   PrepareQueryRequestFilterSensitiveLog,
@@ -129,76 +120,27 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
-export class PrepareQueryCommand extends $Command<
-  PrepareQueryCommandInput,
-  PrepareQueryCommandOutput,
-  TimestreamQueryClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PrepareQueryCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TimestreamQueryClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PrepareQueryCommandInput, PrepareQueryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PrepareQueryCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(
-      getEndpointDiscoveryPlugin(configuration, { clientStack, isDiscoveredEndpointRequired: true, options })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TimestreamQueryClient";
-    const commandName = "PrepareQueryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: PrepareQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PrepareQueryResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "Timestream_20181101",
-        operation: "PrepareQuery",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PrepareQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PrepareQueryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PrepareQueryCommandOutput> {
-    return de_PrepareQueryCommand(output, context);
-  }
-}
+export class PrepareQueryCommand extends $Command
+  .classBuilder<
+    PrepareQueryCommandInput,
+    PrepareQueryCommandOutput,
+    TimestreamQueryClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+    ];
+  })
+  .s("Timestream_20181101", "PrepareQuery", {})
+  .n("TimestreamQueryClient", "PrepareQueryCommand")
+  .f(PrepareQueryRequestFilterSensitiveLog, PrepareQueryResponseFilterSensitiveLog)
+  .ser(se_PrepareQueryCommand)
+  .de(de_PrepareQueryCommand)
+  .build() {}

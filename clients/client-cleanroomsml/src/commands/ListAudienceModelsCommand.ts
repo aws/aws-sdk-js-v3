@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAudienceModelsRequest, ListAudienceModelsResponse } from "../models/models_0";
 import { de_ListAudienceModelsCommand, se_ListAudienceModelsCommand } from "../protocols/Aws_restJson1";
 
@@ -83,75 +74,26 @@ export interface ListAudienceModelsCommandOutput extends ListAudienceModelsRespo
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
  */
-export class ListAudienceModelsCommand extends $Command<
-  ListAudienceModelsCommandInput,
-  ListAudienceModelsCommandOutput,
-  CleanRoomsMLClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAudienceModelsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CleanRoomsMLClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAudienceModelsCommandInput, ListAudienceModelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAudienceModelsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CleanRoomsMLClient";
-    const commandName = "ListAudienceModelsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSStarkControlService",
-        operation: "ListAudienceModels",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListAudienceModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAudienceModelsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAudienceModelsCommandOutput> {
-    return de_ListAudienceModelsCommand(output, context);
-  }
-}
+export class ListAudienceModelsCommand extends $Command
+  .classBuilder<
+    ListAudienceModelsCommandInput,
+    ListAudienceModelsCommandOutput,
+    CleanRoomsMLClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSStarkControlService", "ListAudienceModels", {})
+  .n("CleanRoomsMLClient", "ListAudienceModelsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListAudienceModelsCommand)
+  .de(de_ListAudienceModelsCommand)
+  .build() {}

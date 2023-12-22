@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { ListAdminsManagingAccountRequest, ListAdminsManagingAccountResponse } from "../models/models_0";
 import { de_ListAdminsManagingAccountCommand, se_ListAdminsManagingAccountCommand } from "../protocols/Aws_json1_1";
@@ -79,78 +70,26 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
-export class ListAdminsManagingAccountCommand extends $Command<
-  ListAdminsManagingAccountCommandInput,
-  ListAdminsManagingAccountCommandOutput,
-  FMSClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAdminsManagingAccountCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: FMSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAdminsManagingAccountCommandInput, ListAdminsManagingAccountCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAdminsManagingAccountCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "FMSClient";
-    const commandName = "ListAdminsManagingAccountCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSFMS_20180101",
-        operation: "ListAdminsManagingAccount",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListAdminsManagingAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAdminsManagingAccountCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAdminsManagingAccountCommandOutput> {
-    return de_ListAdminsManagingAccountCommand(output, context);
-  }
-}
+export class ListAdminsManagingAccountCommand extends $Command
+  .classBuilder<
+    ListAdminsManagingAccountCommandInput,
+    ListAdminsManagingAccountCommandOutput,
+    FMSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSFMS_20180101", "ListAdminsManagingAccount", {})
+  .n("FMSClient", "ListAdminsManagingAccountCommand")
+  .f(void 0, void 0)
+  .ser(se_ListAdminsManagingAccountCommand)
+  .de(de_ListAdminsManagingAccountCommand)
+  .build() {}

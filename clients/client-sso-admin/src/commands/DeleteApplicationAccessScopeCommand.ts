@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteApplicationAccessScopeRequest } from "../models/models_0";
 import {
   de_DeleteApplicationAccessScopeCommand,
@@ -90,78 +81,26 @@ export interface DeleteApplicationAccessScopeCommandOutput extends __MetadataBea
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
-export class DeleteApplicationAccessScopeCommand extends $Command<
-  DeleteApplicationAccessScopeCommandInput,
-  DeleteApplicationAccessScopeCommandOutput,
-  SSOAdminClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteApplicationAccessScopeCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SSOAdminClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteApplicationAccessScopeCommandInput, DeleteApplicationAccessScopeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteApplicationAccessScopeCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SSOAdminClient";
-    const commandName = "DeleteApplicationAccessScopeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "SWBExternalService",
-        operation: "DeleteApplicationAccessScope",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteApplicationAccessScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteApplicationAccessScopeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteApplicationAccessScopeCommandOutput> {
-    return de_DeleteApplicationAccessScopeCommand(output, context);
-  }
-}
+export class DeleteApplicationAccessScopeCommand extends $Command
+  .classBuilder<
+    DeleteApplicationAccessScopeCommandInput,
+    DeleteApplicationAccessScopeCommandOutput,
+    SSOAdminClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SWBExternalService", "DeleteApplicationAccessScope", {})
+  .n("SSOAdminClient", "DeleteApplicationAccessScopeCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteApplicationAccessScopeCommand)
+  .de(de_DeleteApplicationAccessScopeCommand)
+  .build() {}

@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeFolderContentsRequest,
   DescribeFolderContentsRequestFilterSensitiveLog,
@@ -151,75 +142,26 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
-export class DescribeFolderContentsCommand extends $Command<
-  DescribeFolderContentsCommandInput,
-  DescribeFolderContentsCommandOutput,
-  WorkDocsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeFolderContentsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkDocsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeFolderContentsCommandInput, DescribeFolderContentsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeFolderContentsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WorkDocsClient";
-    const commandName = "DescribeFolderContentsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: DescribeFolderContentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFolderContentsResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSGorillaBoyService",
-        operation: "DescribeFolderContents",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeFolderContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeFolderContentsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFolderContentsCommandOutput> {
-    return de_DescribeFolderContentsCommand(output, context);
-  }
-}
+export class DescribeFolderContentsCommand extends $Command
+  .classBuilder<
+    DescribeFolderContentsCommandInput,
+    DescribeFolderContentsCommandOutput,
+    WorkDocsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSGorillaBoyService", "DescribeFolderContents", {})
+  .n("WorkDocsClient", "DescribeFolderContentsCommand")
+  .f(DescribeFolderContentsRequestFilterSensitiveLog, DescribeFolderContentsResponseFilterSensitiveLog)
+  .ser(se_DescribeFolderContentsCommand)
+  .de(de_DescribeFolderContentsCommand)
+  .build() {}

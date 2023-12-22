@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
 import { GetSessionRequest, GetSessionResponse, GetSessionResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_restJson1";
@@ -220,73 +211,26 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
  */
-export class GetSessionCommand extends $Command<
-  GetSessionCommandInput,
-  GetSessionCommandOutput,
-  LexRuntimeV2ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetSessionCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexRuntimeV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetSessionCommandInput, GetSessionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetSessionCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexRuntimeV2Client";
-    const commandName = "GetSessionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSDeepSenseRunTimeServiceApi2_0",
-        operation: "GetSession",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetSessionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSessionCommandOutput> {
-    return de_GetSessionCommand(output, context);
-  }
-}
+export class GetSessionCommand extends $Command
+  .classBuilder<
+    GetSessionCommandInput,
+    GetSessionCommandOutput,
+    LexRuntimeV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseRunTimeServiceApi2_0", "GetSession", {})
+  .n("LexRuntimeV2Client", "GetSessionCommand")
+  .f(void 0, GetSessionResponseFilterSensitiveLog)
+  .ser(se_GetSessionCommand)
+  .de(de_GetSessionCommand)
+  .build() {}

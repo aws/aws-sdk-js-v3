@@ -1,21 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import {
   GetWorkUnitResultsRequest,
@@ -93,78 +82,26 @@ export interface GetWorkUnitResultsCommandOutput
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
-export class GetWorkUnitResultsCommand extends $Command<
-  GetWorkUnitResultsCommandInput,
-  GetWorkUnitResultsCommandOutput,
-  LakeFormationClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetWorkUnitResultsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LakeFormationClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetWorkUnitResultsCommandInput, GetWorkUnitResultsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetWorkUnitResultsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LakeFormationClient";
-    const commandName = "GetWorkUnitResultsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: GetWorkUnitResultsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkUnitResultsResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSLakeFormation",
-        operation: "GetWorkUnitResults",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetWorkUnitResultsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetWorkUnitResultsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetWorkUnitResultsCommandOutput> {
-    return de_GetWorkUnitResultsCommand(output, context);
-  }
-}
+export class GetWorkUnitResultsCommand extends $Command
+  .classBuilder<
+    GetWorkUnitResultsCommandInput,
+    GetWorkUnitResultsCommandOutput,
+    LakeFormationClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSLakeFormation", "GetWorkUnitResults", {})
+  .n("LakeFormationClient", "GetWorkUnitResultsCommand")
+  .f(GetWorkUnitResultsRequestFilterSensitiveLog, GetWorkUnitResultsResponseFilterSensitiveLog)
+  .ser(se_GetWorkUnitResultsCommand)
+  .de(de_GetWorkUnitResultsCommand)
+  .build() {}

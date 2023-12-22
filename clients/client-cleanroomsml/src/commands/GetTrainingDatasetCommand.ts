@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTrainingDatasetRequest, GetTrainingDatasetResponse } from "../models/models_0";
 import { de_GetTrainingDatasetCommand, se_GetTrainingDatasetCommand } from "../protocols/Aws_restJson1";
 
@@ -105,75 +96,26 @@ export interface GetTrainingDatasetCommandOutput extends GetTrainingDatasetRespo
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
  */
-export class GetTrainingDatasetCommand extends $Command<
-  GetTrainingDatasetCommandInput,
-  GetTrainingDatasetCommandOutput,
-  CleanRoomsMLClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetTrainingDatasetCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CleanRoomsMLClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetTrainingDatasetCommandInput, GetTrainingDatasetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetTrainingDatasetCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CleanRoomsMLClient";
-    const commandName = "GetTrainingDatasetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSStarkControlService",
-        operation: "GetTrainingDataset",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetTrainingDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetTrainingDatasetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrainingDatasetCommandOutput> {
-    return de_GetTrainingDatasetCommand(output, context);
-  }
-}
+export class GetTrainingDatasetCommand extends $Command
+  .classBuilder<
+    GetTrainingDatasetCommandInput,
+    GetTrainingDatasetCommandOutput,
+    CleanRoomsMLClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSStarkControlService", "GetTrainingDataset", {})
+  .n("CleanRoomsMLClient", "GetTrainingDatasetCommand")
+  .f(void 0, void 0)
+  .ser(se_GetTrainingDatasetCommand)
+  .de(de_GetTrainingDatasetCommand)
+  .build() {}

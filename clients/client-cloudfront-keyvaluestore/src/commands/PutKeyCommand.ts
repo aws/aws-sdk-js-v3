@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CloudFrontKeyValueStoreClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudFrontKeyValueStoreClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutKeyRequest, PutKeyRequestFilterSensitiveLog, PutKeyResponse } from "../models/models_0";
 import { de_PutKeyCommand, se_PutKeyCommand } from "../protocols/Aws_restJson1";
 
@@ -92,73 +83,27 @@ export interface PutKeyCommandOutput extends PutKeyResponse, __MetadataBearer {}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
  */
-export class PutKeyCommand extends $Command<
-  PutKeyCommandInput,
-  PutKeyCommandOutput,
-  CloudFrontKeyValueStoreClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      KvsARN: { type: "contextParams", name: "KvsARN" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutKeyCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudFrontKeyValueStoreClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutKeyCommandInput, PutKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutKeyCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudFrontKeyValueStoreClient";
-    const commandName = "PutKeyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: PutKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "CloudFrontKeyValueStore",
-        operation: "PutKey",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutKeyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutKeyCommandOutput> {
-    return de_PutKeyCommand(output, context);
-  }
-}
+export class PutKeyCommand extends $Command
+  .classBuilder<
+    PutKeyCommandInput,
+    PutKeyCommandOutput,
+    CloudFrontKeyValueStoreClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    KvsARN: { type: "contextParams", name: "KvsARN" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudFrontKeyValueStoreClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CloudFrontKeyValueStore", "PutKey", {})
+  .n("CloudFrontKeyValueStoreClient", "PutKeyCommand")
+  .f(PutKeyRequestFilterSensitiveLog, void 0)
+  .ser(se_PutKeyCommand)
+  .de(de_PutKeyCommand)
+  .build() {}

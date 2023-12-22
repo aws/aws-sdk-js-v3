@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   AssociateDeviceWithNetworkProfileRequest,
   AssociateDeviceWithNetworkProfileResponse,
@@ -83,81 +74,26 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
-export class AssociateDeviceWithNetworkProfileCommand extends $Command<
-  AssociateDeviceWithNetworkProfileCommandInput,
-  AssociateDeviceWithNetworkProfileCommandOutput,
-  AlexaForBusinessClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: AssociateDeviceWithNetworkProfileCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AlexaForBusinessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<AssociateDeviceWithNetworkProfileCommandInput, AssociateDeviceWithNetworkProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AssociateDeviceWithNetworkProfileCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AlexaForBusinessClient";
-    const commandName = "AssociateDeviceWithNetworkProfileCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AlexaForBusiness",
-        operation: "AssociateDeviceWithNetworkProfile",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: AssociateDeviceWithNetworkProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_AssociateDeviceWithNetworkProfileCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateDeviceWithNetworkProfileCommandOutput> {
-    return de_AssociateDeviceWithNetworkProfileCommand(output, context);
-  }
-}
+export class AssociateDeviceWithNetworkProfileCommand extends $Command
+  .classBuilder<
+    AssociateDeviceWithNetworkProfileCommandInput,
+    AssociateDeviceWithNetworkProfileCommandOutput,
+    AlexaForBusinessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AlexaForBusinessClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AlexaForBusiness", "AssociateDeviceWithNetworkProfile", {})
+  .n("AlexaForBusinessClient", "AssociateDeviceWithNetworkProfileCommand")
+  .f(void 0, void 0)
+  .ser(se_AssociateDeviceWithNetworkProfileCommand)
+  .de(de_AssociateDeviceWithNetworkProfileCommand)
+  .build() {}

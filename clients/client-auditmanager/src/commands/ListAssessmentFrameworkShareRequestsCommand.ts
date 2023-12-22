@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListAssessmentFrameworkShareRequestsRequest,
   ListAssessmentFrameworkShareRequestsResponse,
@@ -106,81 +97,26 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
-export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
-  ListAssessmentFrameworkShareRequestsCommandInput,
-  ListAssessmentFrameworkShareRequestsCommandOutput,
-  AuditManagerClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAssessmentFrameworkShareRequestsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AuditManagerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAssessmentFrameworkShareRequestsCommandInput, ListAssessmentFrameworkShareRequestsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAssessmentFrameworkShareRequestsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AuditManagerClient";
-    const commandName = "ListAssessmentFrameworkShareRequestsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "BedrockAssessmentManagerLambda",
-        operation: "ListAssessmentFrameworkShareRequests",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ListAssessmentFrameworkShareRequestsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListAssessmentFrameworkShareRequestsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> {
-    return de_ListAssessmentFrameworkShareRequestsCommand(output, context);
-  }
-}
+export class ListAssessmentFrameworkShareRequestsCommand extends $Command
+  .classBuilder<
+    ListAssessmentFrameworkShareRequestsCommandInput,
+    ListAssessmentFrameworkShareRequestsCommandOutput,
+    AuditManagerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("BedrockAssessmentManagerLambda", "ListAssessmentFrameworkShareRequests", {})
+  .n("AuditManagerClient", "ListAssessmentFrameworkShareRequestsCommand")
+  .f(void 0, ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog)
+  .ser(se_ListAssessmentFrameworkShareRequestsCommand)
+  .de(de_ListAssessmentFrameworkShareRequestsCommand)
+  .build() {}

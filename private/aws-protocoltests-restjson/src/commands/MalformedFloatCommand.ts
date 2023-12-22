@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MalformedFloatInput } from "../models/models_0";
 import { de_MalformedFloatCommand, se_MalformedFloatCommand } from "../protocols/Aws_restJson1";
@@ -65,63 +55,20 @@ export interface MalformedFloatCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
-export class MalformedFloatCommand extends $Command<
-  MalformedFloatCommandInput,
-  MalformedFloatCommandOutput,
-  RestJsonProtocolClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: MalformedFloatCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestJsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<MalformedFloatCommandInput, MalformedFloatCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestJsonProtocolClient";
-    const commandName = "MalformedFloatCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RestJson",
-        operation: "MalformedFloat",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: MalformedFloatCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_MalformedFloatCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedFloatCommandOutput> {
-    return de_MalformedFloatCommand(output, context);
-  }
-}
+export class MalformedFloatCommand extends $Command
+  .classBuilder<
+    MalformedFloatCommandInput,
+    MalformedFloatCommandOutput,
+    RestJsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestJson", "MalformedFloat", {})
+  .n("RestJsonProtocolClient", "MalformedFloatCommand")
+  .f(void 0, void 0)
+  .ser(se_MalformedFloatCommand)
+  .de(de_MalformedFloatCommand)
+  .build() {}

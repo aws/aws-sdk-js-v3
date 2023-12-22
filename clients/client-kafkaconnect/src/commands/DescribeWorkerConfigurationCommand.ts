@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import {
   DescribeWorkerConfigurationRequest,
@@ -110,78 +101,26 @@ export interface DescribeWorkerConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
-export class DescribeWorkerConfigurationCommand extends $Command<
-  DescribeWorkerConfigurationCommandInput,
-  DescribeWorkerConfigurationCommandOutput,
-  KafkaConnectClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeWorkerConfigurationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KafkaConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeWorkerConfigurationCommandInput, DescribeWorkerConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeWorkerConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KafkaConnectClient";
-    const commandName = "DescribeWorkerConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeWorkerConfigurationResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "KafkaConnect",
-        operation: "DescribeWorkerConfiguration",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeWorkerConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeWorkerConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeWorkerConfigurationCommandOutput> {
-    return de_DescribeWorkerConfigurationCommand(output, context);
-  }
-}
+export class DescribeWorkerConfigurationCommand extends $Command
+  .classBuilder<
+    DescribeWorkerConfigurationCommandInput,
+    DescribeWorkerConfigurationCommandOutput,
+    KafkaConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("KafkaConnect", "DescribeWorkerConfiguration", {})
+  .n("KafkaConnectClient", "DescribeWorkerConfigurationCommand")
+  .f(void 0, DescribeWorkerConfigurationResponseFilterSensitiveLog)
+  .ser(se_DescribeWorkerConfigurationCommand)
+  .de(de_DescribeWorkerConfigurationCommand)
+  .build() {}

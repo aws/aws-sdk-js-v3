@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   BatchImportEvidenceToAssessmentControlRequest,
   BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
@@ -137,81 +128,29 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
  */
-export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
-  BatchImportEvidenceToAssessmentControlCommandInput,
-  BatchImportEvidenceToAssessmentControlCommandOutput,
-  AuditManagerClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchImportEvidenceToAssessmentControlCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AuditManagerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchImportEvidenceToAssessmentControlCommandInput, BatchImportEvidenceToAssessmentControlCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchImportEvidenceToAssessmentControlCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AuditManagerClient";
-    const commandName = "BatchImportEvidenceToAssessmentControlCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "BedrockAssessmentManagerLambda",
-        operation: "BatchImportEvidenceToAssessmentControl",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: BatchImportEvidenceToAssessmentControlCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_BatchImportEvidenceToAssessmentControlCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchImportEvidenceToAssessmentControlCommandOutput> {
-    return de_BatchImportEvidenceToAssessmentControlCommand(output, context);
-  }
-}
+export class BatchImportEvidenceToAssessmentControlCommand extends $Command
+  .classBuilder<
+    BatchImportEvidenceToAssessmentControlCommandInput,
+    BatchImportEvidenceToAssessmentControlCommandOutput,
+    AuditManagerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("BedrockAssessmentManagerLambda", "BatchImportEvidenceToAssessmentControl", {})
+  .n("AuditManagerClient", "BatchImportEvidenceToAssessmentControlCommand")
+  .f(
+    BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
+    BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog
+  )
+  .ser(se_BatchImportEvidenceToAssessmentControlCommand)
+  .de(de_BatchImportEvidenceToAssessmentControlCommand)
+  .build() {}

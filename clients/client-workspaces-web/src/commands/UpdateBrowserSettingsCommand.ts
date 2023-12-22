@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateBrowserSettingsRequest,
   UpdateBrowserSettingsRequestFilterSensitiveLog,
@@ -93,75 +84,26 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
-export class UpdateBrowserSettingsCommand extends $Command<
-  UpdateBrowserSettingsCommandInput,
-  UpdateBrowserSettingsCommandOutput,
-  WorkSpacesWebClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateBrowserSettingsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkSpacesWebClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateBrowserSettingsCommandInput, UpdateBrowserSettingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateBrowserSettingsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WorkSpacesWebClient";
-    const commandName = "UpdateBrowserSettingsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateBrowserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBrowserSettingsResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSErmineControlPlaneService",
-        operation: "UpdateBrowserSettings",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateBrowserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateBrowserSettingsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrowserSettingsCommandOutput> {
-    return de_UpdateBrowserSettingsCommand(output, context);
-  }
-}
+export class UpdateBrowserSettingsCommand extends $Command
+  .classBuilder<
+    UpdateBrowserSettingsCommandInput,
+    UpdateBrowserSettingsCommandOutput,
+    WorkSpacesWebClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSErmineControlPlaneService", "UpdateBrowserSettings", {})
+  .n("WorkSpacesWebClient", "UpdateBrowserSettingsCommand")
+  .f(UpdateBrowserSettingsRequestFilterSensitiveLog, UpdateBrowserSettingsResponseFilterSensitiveLog)
+  .ser(se_UpdateBrowserSettingsCommand)
+  .de(de_UpdateBrowserSettingsCommand)
+  .build() {}

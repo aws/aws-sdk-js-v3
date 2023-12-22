@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetSourceApiAssociationRequest, GetSourceApiAssociationResponse } from "../models/models_0";
 import { de_GetSourceApiAssociationCommand, se_GetSourceApiAssociationCommand } from "../protocols/Aws_restJson1";
 
@@ -93,75 +84,26 @@ export interface GetSourceApiAssociationCommandOutput extends GetSourceApiAssoci
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
-export class GetSourceApiAssociationCommand extends $Command<
-  GetSourceApiAssociationCommandInput,
-  GetSourceApiAssociationCommandOutput,
-  AppSyncClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetSourceApiAssociationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppSyncClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetSourceApiAssociationCommandInput, GetSourceApiAssociationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetSourceApiAssociationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppSyncClient";
-    const commandName = "GetSourceApiAssociationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSDeepdishControlPlaneService",
-        operation: "GetSourceApiAssociation",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetSourceApiAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetSourceApiAssociationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSourceApiAssociationCommandOutput> {
-    return de_GetSourceApiAssociationCommand(output, context);
-  }
-}
+export class GetSourceApiAssociationCommand extends $Command
+  .classBuilder<
+    GetSourceApiAssociationCommandInput,
+    GetSourceApiAssociationCommandOutput,
+    AppSyncClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepdishControlPlaneService", "GetSourceApiAssociation", {})
+  .n("AppSyncClient", "GetSourceApiAssociationCommand")
+  .f(void 0, void 0)
+  .ser(se_GetSourceApiAssociationCommand)
+  .de(de_GetSourceApiAssociationCommand)
+  .build() {}

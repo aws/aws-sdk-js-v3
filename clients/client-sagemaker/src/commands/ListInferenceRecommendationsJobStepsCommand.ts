@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListInferenceRecommendationsJobStepsRequest,
   ListInferenceRecommendationsJobStepsResponse,
@@ -128,81 +119,26 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class ListInferenceRecommendationsJobStepsCommand extends $Command<
-  ListInferenceRecommendationsJobStepsCommandInput,
-  ListInferenceRecommendationsJobStepsCommandOutput,
-  SageMakerClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListInferenceRecommendationsJobStepsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListInferenceRecommendationsJobStepsCommandInput, ListInferenceRecommendationsJobStepsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListInferenceRecommendationsJobStepsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "ListInferenceRecommendationsJobStepsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "SageMaker",
-        operation: "ListInferenceRecommendationsJobSteps",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ListInferenceRecommendationsJobStepsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListInferenceRecommendationsJobStepsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListInferenceRecommendationsJobStepsCommandOutput> {
-    return de_ListInferenceRecommendationsJobStepsCommand(output, context);
-  }
-}
+export class ListInferenceRecommendationsJobStepsCommand extends $Command
+  .classBuilder<
+    ListInferenceRecommendationsJobStepsCommandInput,
+    ListInferenceRecommendationsJobStepsCommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "ListInferenceRecommendationsJobSteps", {})
+  .n("SageMakerClient", "ListInferenceRecommendationsJobStepsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListInferenceRecommendationsJobStepsCommand)
+  .de(de_ListInferenceRecommendationsJobStepsCommand)
+  .build() {}

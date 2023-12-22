@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetMeetingRequest, GetMeetingResponse, GetMeetingResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetMeetingCommand, se_GetMeetingCommand } from "../protocols/Aws_restJson1";
 
@@ -122,73 +113,26 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
-export class GetMeetingCommand extends $Command<
-  GetMeetingCommandInput,
-  GetMeetingCommandOutput,
-  ChimeSDKMeetingsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetMeetingCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMeetingsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetMeetingCommandInput, GetMeetingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetMeetingCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMeetingsClient";
-    const commandName = "GetMeetingCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetMeetingResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ChimeMeetingsSDKService",
-        operation: "GetMeeting",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetMeetingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetMeetingCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMeetingCommandOutput> {
-    return de_GetMeetingCommand(output, context);
-  }
-}
+export class GetMeetingCommand extends $Command
+  .classBuilder<
+    GetMeetingCommandInput,
+    GetMeetingCommandOutput,
+    ChimeSDKMeetingsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeMeetingsSDKService", "GetMeeting", {})
+  .n("ChimeSDKMeetingsClient", "GetMeetingCommand")
+  .f(void 0, GetMeetingResponseFilterSensitiveLog)
+  .ser(se_GetMeetingCommand)
+  .de(de_GetMeetingCommand)
+  .build() {}

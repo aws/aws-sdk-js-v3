@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteDataLakeOrganizationConfigurationRequest,
   DeleteDataLakeOrganizationConfigurationResponse,
@@ -109,87 +100,26 @@ export interface DeleteDataLakeOrganizationConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
-  DeleteDataLakeOrganizationConfigurationCommandInput,
-  DeleteDataLakeOrganizationConfigurationCommandOutput,
-  SecurityLakeClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteDataLakeOrganizationConfigurationCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SecurityLakeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<
+export class DeleteDataLakeOrganizationConfigurationCommand extends $Command
+  .classBuilder<
     DeleteDataLakeOrganizationConfigurationCommandInput,
-    DeleteDataLakeOrganizationConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        DeleteDataLakeOrganizationConfigurationCommand.getEndpointParameterInstructions()
-      )
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SecurityLakeClient";
-    const commandName = "DeleteDataLakeOrganizationConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "SecurityLake",
-        operation: "DeleteDataLakeOrganizationConfiguration",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: DeleteDataLakeOrganizationConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DeleteDataLakeOrganizationConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDataLakeOrganizationConfigurationCommandOutput> {
-    return de_DeleteDataLakeOrganizationConfigurationCommand(output, context);
-  }
-}
+    DeleteDataLakeOrganizationConfigurationCommandOutput,
+    SecurityLakeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SecurityLake", "DeleteDataLakeOrganizationConfiguration", {})
+  .n("SecurityLakeClient", "DeleteDataLakeOrganizationConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteDataLakeOrganizationConfigurationCommand)
+  .de(de_DeleteDataLakeOrganizationConfigurationCommand)
+  .build() {}

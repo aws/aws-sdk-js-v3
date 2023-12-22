@@ -3,18 +3,8 @@ import { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import { LengthInput, LengthOutput } from "../models/models_0";
 import { de_LengthCommand, se_LengthCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  MiddlewareStack,
-  SMITHY_CONTEXT_KEY,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 /**
  * @public
@@ -66,59 +56,20 @@ export interface LengthCommandOutput extends LengthOutput, __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EchoService service.</p>
  *
  */
-export class LengthCommand extends $Command<LengthCommandInput, LengthCommandOutput, EchoServiceClientResolvedConfig> {
-  /**
-   * @public
-   */
-  constructor(readonly input: LengthCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EchoServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<LengthCommandInput, LengthCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EchoServiceClient";
-    const commandName = "LengthCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "EchoService",
-        operation: "Length",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: LengthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_LengthCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<LengthCommandOutput> {
-    return de_LengthCommand(output, context);
-  }
-}
+export class LengthCommand extends $Command
+  .classBuilder<
+    LengthCommandInput,
+    LengthCommandOutput,
+    EchoServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: EchoServiceClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("EchoService", "Length", {})
+  .n("EchoServiceClient", "LengthCommand")
+  .f(void 0, void 0)
+  .ser(se_LengthCommand)
+  .de(de_LengthCommand)
+  .build() {}

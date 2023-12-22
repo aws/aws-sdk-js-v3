@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GenerateMacInput, GenerateMacInputFilterSensitiveLog, GenerateMacOutput } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
@@ -130,73 +121,26 @@ export interface GenerateMacCommandOutput extends GenerateMacOutput, __MetadataB
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
  */
-export class GenerateMacCommand extends $Command<
-  GenerateMacCommandInput,
-  GenerateMacCommandOutput,
-  PaymentCryptographyDataClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GenerateMacCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PaymentCryptographyDataClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GenerateMacCommandInput, GenerateMacCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GenerateMacCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PaymentCryptographyDataClient";
-    const commandName = "GenerateMacCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: GenerateMacInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "PaymentCryptographyDataPlane",
-        operation: "GenerateMac",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GenerateMacCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GenerateMacCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateMacCommandOutput> {
-    return de_GenerateMacCommand(output, context);
-  }
-}
+export class GenerateMacCommand extends $Command
+  .classBuilder<
+    GenerateMacCommandInput,
+    GenerateMacCommandOutput,
+    PaymentCryptographyDataClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PaymentCryptographyDataPlane", "GenerateMac", {})
+  .n("PaymentCryptographyDataClient", "GenerateMacCommand")
+  .f(GenerateMacInputFilterSensitiveLog, void 0)
+  .ser(se_GenerateMacCommand)
+  .de(de_GenerateMacCommand)
+  .build() {}

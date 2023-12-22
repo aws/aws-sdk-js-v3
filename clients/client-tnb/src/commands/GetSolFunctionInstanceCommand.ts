@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetSolFunctionInstanceInput,
   GetSolFunctionInstanceOutput,
@@ -112,75 +103,26 @@ export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInsta
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
  */
-export class GetSolFunctionInstanceCommand extends $Command<
-  GetSolFunctionInstanceCommandInput,
-  GetSolFunctionInstanceCommandOutput,
-  TnbClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetSolFunctionInstanceCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TnbClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetSolFunctionInstanceCommandInput, GetSolFunctionInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetSolFunctionInstanceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TnbClient";
-    const commandName = "GetSolFunctionInstanceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetSolFunctionInstanceOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "TNB",
-        operation: "GetSolFunctionInstance",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetSolFunctionInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetSolFunctionInstanceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolFunctionInstanceCommandOutput> {
-    return de_GetSolFunctionInstanceCommand(output, context);
-  }
-}
+export class GetSolFunctionInstanceCommand extends $Command
+  .classBuilder<
+    GetSolFunctionInstanceCommandInput,
+    GetSolFunctionInstanceCommandOutput,
+    TnbClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("TNB", "GetSolFunctionInstance", {})
+  .n("TnbClient", "GetSolFunctionInstanceCommand")
+  .f(void 0, GetSolFunctionInstanceOutputFilterSensitiveLog)
+  .ser(se_GetSolFunctionInstanceCommand)
+  .de(de_GetSolFunctionInstanceCommand)
+  .build() {}

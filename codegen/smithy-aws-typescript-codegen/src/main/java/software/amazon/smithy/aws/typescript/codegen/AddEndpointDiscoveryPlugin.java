@@ -186,8 +186,8 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
         OperationShape operationShape
     ) {
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("clientStack", Symbol.builder().name("clientStack").build());
-        params.put("options", Symbol.builder().name("options").build());
+        params.put("clientStack", Symbol.builder().name("cs").build());
+        params.put("options", Symbol.builder().name("o").build());
         params.put("isDiscoveredEndpointRequired", isClientDiscoveredEndpointRequired(
             serviceShape, operationShape));
 

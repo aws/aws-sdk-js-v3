@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateIpAccessSettingsRequest,
   UpdateIpAccessSettingsRequestFilterSensitiveLog,
@@ -108,75 +99,26 @@ export interface UpdateIpAccessSettingsCommandOutput extends UpdateIpAccessSetti
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
-export class UpdateIpAccessSettingsCommand extends $Command<
-  UpdateIpAccessSettingsCommandInput,
-  UpdateIpAccessSettingsCommandOutput,
-  WorkSpacesWebClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateIpAccessSettingsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkSpacesWebClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateIpAccessSettingsCommandInput, UpdateIpAccessSettingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateIpAccessSettingsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WorkSpacesWebClient";
-    const commandName = "UpdateIpAccessSettingsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateIpAccessSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIpAccessSettingsResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSErmineControlPlaneService",
-        operation: "UpdateIpAccessSettings",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateIpAccessSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateIpAccessSettingsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIpAccessSettingsCommandOutput> {
-    return de_UpdateIpAccessSettingsCommand(output, context);
-  }
-}
+export class UpdateIpAccessSettingsCommand extends $Command
+  .classBuilder<
+    UpdateIpAccessSettingsCommandInput,
+    UpdateIpAccessSettingsCommandOutput,
+    WorkSpacesWebClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSErmineControlPlaneService", "UpdateIpAccessSettings", {})
+  .n("WorkSpacesWebClient", "UpdateIpAccessSettingsCommand")
+  .f(UpdateIpAccessSettingsRequestFilterSensitiveLog, UpdateIpAccessSettingsResponseFilterSensitiveLog)
+  .ser(se_UpdateIpAccessSettingsCommand)
+  .de(de_UpdateIpAccessSettingsCommand)
+  .build() {}

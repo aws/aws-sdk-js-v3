@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateMeetingWithAttendeesRequest,
   CreateMeetingWithAttendeesRequestFilterSensitiveLog,
@@ -195,78 +186,26 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
-export class CreateMeetingWithAttendeesCommand extends $Command<
-  CreateMeetingWithAttendeesCommandInput,
-  CreateMeetingWithAttendeesCommandOutput,
-  ChimeSDKMeetingsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateMeetingWithAttendeesCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMeetingsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateMeetingWithAttendeesCommandInput, CreateMeetingWithAttendeesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateMeetingWithAttendeesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMeetingsClient";
-    const commandName = "CreateMeetingWithAttendeesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateMeetingWithAttendeesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMeetingWithAttendeesResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ChimeMeetingsSDKService",
-        operation: "CreateMeetingWithAttendees",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateMeetingWithAttendeesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateMeetingWithAttendeesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateMeetingWithAttendeesCommandOutput> {
-    return de_CreateMeetingWithAttendeesCommand(output, context);
-  }
-}
+export class CreateMeetingWithAttendeesCommand extends $Command
+  .classBuilder<
+    CreateMeetingWithAttendeesCommandInput,
+    CreateMeetingWithAttendeesCommandOutput,
+    ChimeSDKMeetingsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeMeetingsSDKService", "CreateMeetingWithAttendees", {})
+  .n("ChimeSDKMeetingsClient", "CreateMeetingWithAttendeesCommand")
+  .f(CreateMeetingWithAttendeesRequestFilterSensitiveLog, CreateMeetingWithAttendeesResponseFilterSensitiveLog)
+  .ser(se_CreateMeetingWithAttendeesCommand)
+  .de(de_CreateMeetingWithAttendeesCommand)
+  .build() {}

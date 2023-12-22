@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ExchangeCodeForTokenRequest,
   ExchangeCodeForTokenRequestFilterSensitiveLog,
@@ -83,75 +74,26 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
  */
-export class ExchangeCodeForTokenCommand extends $Command<
-  ExchangeCodeForTokenCommandInput,
-  ExchangeCodeForTokenCommandOutput,
-  AmplifyUIBuilderClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ExchangeCodeForTokenCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AmplifyUIBuilderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ExchangeCodeForTokenCommandInput, ExchangeCodeForTokenCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ExchangeCodeForTokenCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AmplifyUIBuilderClient";
-    const commandName = "ExchangeCodeForTokenCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ExchangeCodeForTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExchangeCodeForTokenResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmplifyUIBuilder",
-        operation: "ExchangeCodeForToken",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ExchangeCodeForTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ExchangeCodeForTokenCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExchangeCodeForTokenCommandOutput> {
-    return de_ExchangeCodeForTokenCommand(output, context);
-  }
-}
+export class ExchangeCodeForTokenCommand extends $Command
+  .classBuilder<
+    ExchangeCodeForTokenCommandInput,
+    ExchangeCodeForTokenCommandOutput,
+    AmplifyUIBuilderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmplifyUIBuilder", "ExchangeCodeForToken", {})
+  .n("AmplifyUIBuilderClient", "ExchangeCodeForTokenCommand")
+  .f(ExchangeCodeForTokenRequestFilterSensitiveLog, ExchangeCodeForTokenResponseFilterSensitiveLog)
+  .ser(se_ExchangeCodeForTokenCommand)
+  .de(de_ExchangeCodeForTokenCommand)
+  .build() {}

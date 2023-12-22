@@ -1,24 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ApplicationInsightsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateLogPatternRequest, CreateLogPatternResponse } from "../models/models_0";
 import { de_CreateLogPatternCommand, se_CreateLogPatternCommand } from "../protocols/Aws_json1_1";
 
@@ -91,75 +82,26 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
-export class CreateLogPatternCommand extends $Command<
-  CreateLogPatternCommandInput,
-  CreateLogPatternCommandOutput,
-  ApplicationInsightsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateLogPatternCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ApplicationInsightsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateLogPatternCommandInput, CreateLogPatternCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateLogPatternCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ApplicationInsightsClient";
-    const commandName = "CreateLogPatternCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "EC2WindowsBarleyService",
-        operation: "CreateLogPattern",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateLogPatternCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogPatternCommandOutput> {
-    return de_CreateLogPatternCommand(output, context);
-  }
-}
+export class CreateLogPatternCommand extends $Command
+  .classBuilder<
+    CreateLogPatternCommandInput,
+    CreateLogPatternCommandOutput,
+    ApplicationInsightsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("EC2WindowsBarleyService", "CreateLogPattern", {})
+  .n("ApplicationInsightsClient", "CreateLogPatternCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateLogPatternCommand)
+  .de(de_CreateLogPatternCommand)
+  .build() {}

@@ -1,18 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadInputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import {
   StreamingTraitsRequireLengthInput,
@@ -77,66 +66,20 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
-export class StreamingTraitsRequireLengthCommand extends $Command<
-  StreamingTraitsRequireLengthCommandInput,
-  StreamingTraitsRequireLengthCommandOutput,
-  RestJsonProtocolClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: StreamingTraitsRequireLengthCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestJsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StreamingTraitsRequireLengthCommandInput, StreamingTraitsRequireLengthCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestJsonProtocolClient";
-    const commandName = "StreamingTraitsRequireLengthCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StreamingTraitsRequireLengthInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RestJson",
-        operation: "StreamingTraitsRequireLength",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StreamingTraitsRequireLengthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StreamingTraitsRequireLengthCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StreamingTraitsRequireLengthCommandOutput> {
-    return de_StreamingTraitsRequireLengthCommand(output, context);
-  }
-}
+export class StreamingTraitsRequireLengthCommand extends $Command
+  .classBuilder<
+    StreamingTraitsRequireLengthCommandInput,
+    StreamingTraitsRequireLengthCommandOutput,
+    RestJsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestJson", "StreamingTraitsRequireLength", {})
+  .n("RestJsonProtocolClient", "StreamingTraitsRequireLengthCommand")
+  .f(StreamingTraitsRequireLengthInputFilterSensitiveLog, void 0)
+  .ser(se_StreamingTraitsRequireLengthCommand)
+  .de(de_StreamingTraitsRequireLengthCommand)
+  .build() {}

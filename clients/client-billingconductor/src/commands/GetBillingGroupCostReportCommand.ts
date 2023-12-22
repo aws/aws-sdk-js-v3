@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetBillingGroupCostReportInput, GetBillingGroupCostReportOutput } from "../models/models_0";
 import { de_GetBillingGroupCostReportCommand, se_GetBillingGroupCostReportCommand } from "../protocols/Aws_restJson1";
 
@@ -110,78 +101,26 @@ export interface GetBillingGroupCostReportCommandOutput extends GetBillingGroupC
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
-export class GetBillingGroupCostReportCommand extends $Command<
-  GetBillingGroupCostReportCommandInput,
-  GetBillingGroupCostReportCommandOutput,
-  BillingconductorClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetBillingGroupCostReportCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BillingconductorClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetBillingGroupCostReportCommandInput, GetBillingGroupCostReportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetBillingGroupCostReportCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BillingconductorClient";
-    const commandName = "GetBillingGroupCostReportCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSBillingConductor",
-        operation: "GetBillingGroupCostReport",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetBillingGroupCostReportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetBillingGroupCostReportCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBillingGroupCostReportCommandOutput> {
-    return de_GetBillingGroupCostReportCommand(output, context);
-  }
-}
+export class GetBillingGroupCostReportCommand extends $Command
+  .classBuilder<
+    GetBillingGroupCostReportCommandInput,
+    GetBillingGroupCostReportCommandOutput,
+    BillingconductorClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSBillingConductor", "GetBillingGroupCostReport", {})
+  .n("BillingconductorClient", "GetBillingGroupCostReportCommand")
+  .f(void 0, void 0)
+  .ser(se_GetBillingGroupCostReportCommand)
+  .de(de_GetBillingGroupCostReportCommand)
+  .build() {}

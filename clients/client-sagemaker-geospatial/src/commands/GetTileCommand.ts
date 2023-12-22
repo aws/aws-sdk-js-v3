@@ -1,21 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTileInput, GetTileOutput, GetTileOutputFilterSensitiveLog } from "../models/models_0";
 import { de_GetTileCommand, se_GetTileCommand } from "../protocols/Aws_restJson1";
 import {
@@ -101,76 +90,26 @@ export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">,
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
  */
-export class GetTileCommand extends $Command<
-  GetTileCommandInput,
-  GetTileCommandOutput,
-  SageMakerGeospatialClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetTileCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerGeospatialClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetTileCommandInput, GetTileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetTileCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerGeospatialClient";
-    const commandName = "GetTileCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetTileOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "SageMakerGeospatial",
-        operation: "GetTile",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetTileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetTileCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetTileCommandOutput> {
-    return de_GetTileCommand(output, context);
-  }
-}
+export class GetTileCommand extends $Command
+  .classBuilder<
+    GetTileCommandInput,
+    GetTileCommandOutput,
+    SageMakerGeospatialClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMakerGeospatial", "GetTile", {})
+  .n("SageMakerGeospatialClient", "GetTileCommand")
+  .f(void 0, GetTileOutputFilterSensitiveLog)
+  .ser(se_GetTileCommand)
+  .de(de_GetTileCommand)
+  .build() {}

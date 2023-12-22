@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RejectSkillRequest, RejectSkillResponse } from "../models/models_0";
 import { de_RejectSkillCommand, se_RejectSkillCommand } from "../protocols/Aws_json1_1";
 
@@ -73,73 +64,26 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
-export class RejectSkillCommand extends $Command<
-  RejectSkillCommandInput,
-  RejectSkillCommandOutput,
-  AlexaForBusinessClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RejectSkillCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AlexaForBusinessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RejectSkillCommandInput, RejectSkillCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, RejectSkillCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AlexaForBusinessClient";
-    const commandName = "RejectSkillCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AlexaForBusiness",
-        operation: "RejectSkill",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RejectSkillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RejectSkillCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectSkillCommandOutput> {
-    return de_RejectSkillCommand(output, context);
-  }
-}
+export class RejectSkillCommand extends $Command
+  .classBuilder<
+    RejectSkillCommandInput,
+    RejectSkillCommandOutput,
+    AlexaForBusinessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AlexaForBusinessClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AlexaForBusiness", "RejectSkill", {})
+  .n("AlexaForBusinessClient", "RejectSkillCommand")
+  .f(void 0, void 0)
+  .ser(se_RejectSkillCommand)
+  .de(de_RejectSkillCommand)
+  .build() {}

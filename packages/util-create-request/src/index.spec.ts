@@ -44,6 +44,9 @@ export const operationCommand: Command<InputTypesUnion, OutputTypesUnion, any, O
     const concatStack = stack.concat(operationCommand.middlewareStack);
     return concatStack.resolve(() => Promise.resolve({ output, response: {} }), {} as any);
   },
+  resolveMiddlewareWithContext: () => {
+    throw new Error("notImplemented");
+  },
 };
 
 export const httpRequest = new HttpRequest({

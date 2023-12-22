@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
 import { ListDICOMImportJobsRequest, ListDICOMImportJobsResponse } from "../models/models_0";
 import { de_ListDICOMImportJobsCommand, se_ListDICOMImportJobsCommand } from "../protocols/Aws_restJson1";
@@ -98,75 +89,26 @@ export interface ListDICOMImportJobsCommandOutput extends ListDICOMImportJobsRes
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
  */
-export class ListDICOMImportJobsCommand extends $Command<
-  ListDICOMImportJobsCommandInput,
-  ListDICOMImportJobsCommandOutput,
-  MedicalImagingClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListDICOMImportJobsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MedicalImagingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListDICOMImportJobsCommandInput, ListDICOMImportJobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListDICOMImportJobsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MedicalImagingClient";
-    const commandName = "ListDICOMImportJobsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AHIGatewayService",
-        operation: "ListDICOMImportJobs",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListDICOMImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListDICOMImportJobsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDICOMImportJobsCommandOutput> {
-    return de_ListDICOMImportJobsCommand(output, context);
-  }
-}
+export class ListDICOMImportJobsCommand extends $Command
+  .classBuilder<
+    ListDICOMImportJobsCommandInput,
+    ListDICOMImportJobsCommandOutput,
+    MedicalImagingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AHIGatewayService", "ListDICOMImportJobs", {})
+  .n("MedicalImagingClient", "ListDICOMImportJobsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListDICOMImportJobsCommand)
+  .de(de_ListDICOMImportJobsCommand)
+  .build() {}

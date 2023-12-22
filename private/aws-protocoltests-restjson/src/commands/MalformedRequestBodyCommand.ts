@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { MalformedRequestBodyInput } from "../models/models_0";
 import { de_MalformedRequestBodyCommand, se_MalformedRequestBodyCommand } from "../protocols/Aws_restJson1";
@@ -63,63 +53,20 @@ export interface MalformedRequestBodyCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
-export class MalformedRequestBodyCommand extends $Command<
-  MalformedRequestBodyCommandInput,
-  MalformedRequestBodyCommandOutput,
-  RestJsonProtocolClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: MalformedRequestBodyCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestJsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<MalformedRequestBodyCommandInput, MalformedRequestBodyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestJsonProtocolClient";
-    const commandName = "MalformedRequestBodyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RestJson",
-        operation: "MalformedRequestBody",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: MalformedRequestBodyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_MalformedRequestBodyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedRequestBodyCommandOutput> {
-    return de_MalformedRequestBodyCommand(output, context);
-  }
-}
+export class MalformedRequestBodyCommand extends $Command
+  .classBuilder<
+    MalformedRequestBodyCommandInput,
+    MalformedRequestBodyCommandOutput,
+    RestJsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestJson", "MalformedRequestBody", {})
+  .n("RestJsonProtocolClient", "MalformedRequestBodyCommand")
+  .f(void 0, void 0)
+  .ser(se_MalformedRequestBodyCommand)
+  .de(de_MalformedRequestBodyCommand)
+  .build() {}

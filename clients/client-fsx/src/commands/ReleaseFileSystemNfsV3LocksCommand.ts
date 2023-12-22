@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import {
   ReleaseFileSystemNfsV3LocksRequest,
@@ -647,78 +638,26 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
  */
-export class ReleaseFileSystemNfsV3LocksCommand extends $Command<
-  ReleaseFileSystemNfsV3LocksCommandInput,
-  ReleaseFileSystemNfsV3LocksCommandOutput,
-  FSxClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ReleaseFileSystemNfsV3LocksCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: FSxClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ReleaseFileSystemNfsV3LocksCommandInput, ReleaseFileSystemNfsV3LocksCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ReleaseFileSystemNfsV3LocksCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "FSxClient";
-    const commandName = "ReleaseFileSystemNfsV3LocksCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSSimbaAPIService_v20180301",
-        operation: "ReleaseFileSystemNfsV3Locks",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ReleaseFileSystemNfsV3LocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ReleaseFileSystemNfsV3LocksCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> {
-    return de_ReleaseFileSystemNfsV3LocksCommand(output, context);
-  }
-}
+export class ReleaseFileSystemNfsV3LocksCommand extends $Command
+  .classBuilder<
+    ReleaseFileSystemNfsV3LocksCommandInput,
+    ReleaseFileSystemNfsV3LocksCommandOutput,
+    FSxClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSSimbaAPIService_v20180301", "ReleaseFileSystemNfsV3Locks", {})
+  .n("FSxClient", "ReleaseFileSystemNfsV3LocksCommand")
+  .f(void 0, ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog)
+  .ser(se_ReleaseFileSystemNfsV3LocksCommand)
+  .de(de_ReleaseFileSystemNfsV3LocksCommand)
+  .build() {}

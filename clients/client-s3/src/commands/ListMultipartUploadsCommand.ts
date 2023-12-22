@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListMultipartUploadsOutput, ListMultipartUploadsRequest } from "../models/models_0";
 import { de_ListMultipartUploadsCommand, se_ListMultipartUploadsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -217,6 +208,51 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @example To list in-progress multipart uploads on a bucket
+ * ```javascript
+ * // The following example lists in-progress multipart uploads on a specific bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new ListMultipartUploadsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Uploads": [
+ *     {
+ *       "Initiated": "2014-05-01T05:40:58.000Z",
+ *       "Initiator": {
+ *         "DisplayName": "display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "Key": "JavaFile",
+ *       "Owner": {
+ *         "DisplayName": "display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "StorageClass": "STANDARD",
+ *       "UploadId": "examplelUa.CInXklLQtSMJITdUnoZ1Y5GACB5UckOtspm5zbDMCkPF_qkfZzMiFZ6dksmcnqxJyIBvQMG9X9Q--"
+ *     },
+ *     {
+ *       "Initiated": "2014-05-01T05:41:27.000Z",
+ *       "Initiator": {
+ *         "DisplayName": "display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "Key": "JavaFile",
+ *       "Owner": {
+ *         "DisplayName": "display-name",
+ *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       },
+ *       "StorageClass": "STANDARD",
+ *       "UploadId": "examplelo91lv1iwvWpvCiJWugw2xXLPAD7Z8cJyX9.WiIRgNrdG6Ldsn.9FtS63TCl1Uf5faTB.1U5Ckcbmdw--"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-in-progress-multipart-uploads-on-a-bucket-1481852775260
+ * ```
+ *
  * @example List next set of multipart uploads when previous result is truncated
  * ```javascript
  * // The following example specifies the upload-id-marker and key-marker from previous truncated response to retrieve next setup of multipart uploads.
@@ -272,129 +308,29 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * // example id: list-next-set-of-multipart-uploads-when-previous-result-is-truncated-1482428106748
  * ```
  *
- * @example To list in-progress multipart uploads on a bucket
- * ```javascript
- * // The following example lists in-progress multipart uploads on a specific bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new ListMultipartUploadsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Uploads": [
- *     {
- *       "Initiated": "2014-05-01T05:40:58.000Z",
- *       "Initiator": {
- *         "DisplayName": "display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *       },
- *       "Key": "JavaFile",
- *       "Owner": {
- *         "DisplayName": "display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *       },
- *       "StorageClass": "STANDARD",
- *       "UploadId": "examplelUa.CInXklLQtSMJITdUnoZ1Y5GACB5UckOtspm5zbDMCkPF_qkfZzMiFZ6dksmcnqxJyIBvQMG9X9Q--"
- *     },
- *     {
- *       "Initiated": "2014-05-01T05:41:27.000Z",
- *       "Initiator": {
- *         "DisplayName": "display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *       },
- *       "Key": "JavaFile",
- *       "Owner": {
- *         "DisplayName": "display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
- *       },
- *       "StorageClass": "STANDARD",
- *       "UploadId": "examplelo91lv1iwvWpvCiJWugw2xXLPAD7Z8cJyX9.WiIRgNrdG6Ldsn.9FtS63TCl1Uf5faTB.1U5Ckcbmdw--"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-in-progress-multipart-uploads-on-a-bucket-1481852775260
- * ```
- *
  */
-export class ListMultipartUploadsCommand extends $Command<
-  ListMultipartUploadsCommandInput,
-  ListMultipartUploadsCommandOutput,
-  S3ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      Prefix: { type: "contextParams", name: "Prefix" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListMultipartUploadsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListMultipartUploadsCommandInput, ListMultipartUploadsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListMultipartUploadsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "ListMultipartUploadsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonS3",
-        operation: "ListMultipartUploads",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListMultipartUploadsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListMultipartUploadsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMultipartUploadsCommandOutput> {
-    return de_ListMultipartUploadsCommand(output, context);
-  }
-}
+export class ListMultipartUploadsCommand extends $Command
+  .classBuilder<
+    ListMultipartUploadsCommandInput,
+    ListMultipartUploadsCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+    Prefix: { type: "contextParams", name: "Prefix" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonS3", "ListMultipartUploads", {})
+  .n("S3Client", "ListMultipartUploadsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListMultipartUploadsCommand)
+  .de(de_ListMultipartUploadsCommand)
+  .build() {}

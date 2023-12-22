@@ -1,17 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { XmlListsOutput } from "../models/models_0";
 import { de_XmlListsCommand, se_XmlListsCommand } from "../protocols/Aws_query";
@@ -117,63 +107,20 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
-export class XmlListsCommand extends $Command<
-  XmlListsCommandInput,
-  XmlListsCommandOutput,
-  QueryProtocolClientResolvedConfig
-> {
-  /**
-   * @public
-   */
-  constructor(readonly input: XmlListsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QueryProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<XmlListsCommandInput, XmlListsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QueryProtocolClient";
-    const commandName = "XmlListsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AwsQuery",
-        operation: "XmlLists",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: XmlListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_XmlListsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlListsCommandOutput> {
-    return de_XmlListsCommand(output, context);
-  }
-}
+export class XmlListsCommand extends $Command
+  .classBuilder<
+    XmlListsCommandInput,
+    XmlListsCommandOutput,
+    QueryProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("AwsQuery", "XmlLists", {})
+  .n("QueryProtocolClient", "XmlListsCommand")
+  .f(void 0, void 0)
+  .ser(se_XmlListsCommand)
+  .de(de_XmlListsCommand)
+  .build() {}

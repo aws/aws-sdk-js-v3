@@ -1,25 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  EventStreamSerdeContext as __EventStreamSerdeContext,
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   BedrockAgentRuntimeClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   InvokeAgentRequest,
   InvokeAgentRequestFilterSensitiveLog,
@@ -323,82 +313,33 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
  */
-export class InvokeAgentCommand extends $Command<
-  InvokeAgentCommandInput,
-  InvokeAgentCommandOutput,
-  BedrockAgentRuntimeClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: InvokeAgentCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BedrockAgentRuntimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<InvokeAgentCommandInput, InvokeAgentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, InvokeAgentCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BedrockAgentRuntimeClient";
-    const commandName = "InvokeAgentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: InvokeAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InvokeAgentResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonBedrockAgentRunTimeService",
-        operation: "InvokeAgent",
-        /**
-         * @internal
-         */
-        eventStream: {
-          output: true,
-        },
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: InvokeAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_InvokeAgentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __EventStreamSerdeContext
-  ): Promise<InvokeAgentCommandOutput> {
-    return de_InvokeAgentCommand(output, context);
-  }
-}
+export class InvokeAgentCommand extends $Command
+  .classBuilder<
+    InvokeAgentCommandInput,
+    InvokeAgentCommandOutput,
+    BedrockAgentRuntimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonBedrockAgentRunTimeService", "InvokeAgent", {
+    /**
+     * @internal
+     */
+    eventStream: {
+      output: true,
+    },
+  })
+  .n("BedrockAgentRuntimeClient", "InvokeAgentCommand")
+  .f(InvokeAgentRequestFilterSensitiveLog, InvokeAgentResponseFilterSensitiveLog)
+  .ser(se_InvokeAgentCommand)
+  .de(de_InvokeAgentCommand)
+  .build() {}

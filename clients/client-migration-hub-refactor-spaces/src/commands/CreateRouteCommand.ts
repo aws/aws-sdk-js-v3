@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   MigrationHubRefactorSpacesClientResolvedConfig,
   ServiceInputTypes,
@@ -207,73 +198,26 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
  */
-export class CreateRouteCommand extends $Command<
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput,
-  MigrationHubRefactorSpacesClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateRouteCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MigrationHubRefactorSpacesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateRouteCommandInput, CreateRouteCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateRouteCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MigrationHubRefactorSpacesClient";
-    const commandName = "CreateRouteCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateRouteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRouteResponseFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "RefactorSpaces",
-        operation: "CreateRoute",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateRouteCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRouteCommandOutput> {
-    return de_CreateRouteCommand(output, context);
-  }
-}
+export class CreateRouteCommand extends $Command
+  .classBuilder<
+    CreateRouteCommandInput,
+    CreateRouteCommandOutput,
+    MigrationHubRefactorSpacesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RefactorSpaces", "CreateRoute", {})
+  .n("MigrationHubRefactorSpacesClient", "CreateRouteCommand")
+  .f(CreateRouteRequestFilterSensitiveLog, CreateRouteResponseFilterSensitiveLog)
+  .ser(se_CreateRouteCommand)
+  .de(de_CreateRouteCommand)
+  .build() {}

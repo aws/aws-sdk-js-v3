@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetEffectiveRecommendationPreferencesRequest,
   GetEffectiveRecommendationPreferencesResponse,
@@ -131,81 +122,26 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
-export class GetEffectiveRecommendationPreferencesCommand extends $Command<
-  GetEffectiveRecommendationPreferencesCommandInput,
-  GetEffectiveRecommendationPreferencesCommandOutput,
-  ComputeOptimizerClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetEffectiveRecommendationPreferencesCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ComputeOptimizerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetEffectiveRecommendationPreferencesCommandInput, GetEffectiveRecommendationPreferencesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetEffectiveRecommendationPreferencesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ComputeOptimizerClient";
-    const commandName = "GetEffectiveRecommendationPreferencesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "ComputeOptimizerService",
-        operation: "GetEffectiveRecommendationPreferences",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetEffectiveRecommendationPreferencesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetEffectiveRecommendationPreferencesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetEffectiveRecommendationPreferencesCommandOutput> {
-    return de_GetEffectiveRecommendationPreferencesCommand(output, context);
-  }
-}
+export class GetEffectiveRecommendationPreferencesCommand extends $Command
+  .classBuilder<
+    GetEffectiveRecommendationPreferencesCommandInput,
+    GetEffectiveRecommendationPreferencesCommandOutput,
+    ComputeOptimizerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ComputeOptimizerService", "GetEffectiveRecommendationPreferences", {})
+  .n("ComputeOptimizerClient", "GetEffectiveRecommendationPreferencesCommand")
+  .f(void 0, void 0)
+  .ser(se_GetEffectiveRecommendationPreferencesCommand)
+  .de(de_GetEffectiveRecommendationPreferencesCommand)
+  .build() {}

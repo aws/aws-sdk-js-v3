@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDirectoryRegistrationsRequest, ListDirectoryRegistrationsResponse } from "../models/models_0";
 import { PcaConnectorAdClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PcaConnectorAdClient";
 import { de_ListDirectoryRegistrationsCommand, se_ListDirectoryRegistrationsCommand } from "../protocols/Aws_restJson1";
@@ -95,78 +86,26 @@ export interface ListDirectoryRegistrationsCommandOutput extends ListDirectoryRe
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
  */
-export class ListDirectoryRegistrationsCommand extends $Command<
-  ListDirectoryRegistrationsCommandInput,
-  ListDirectoryRegistrationsCommandOutput,
-  PcaConnectorAdClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListDirectoryRegistrationsCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PcaConnectorAdClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListDirectoryRegistrationsCommandInput, ListDirectoryRegistrationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListDirectoryRegistrationsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PcaConnectorAdClient";
-    const commandName = "ListDirectoryRegistrationsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "PcaConnectorAd",
-        operation: "ListDirectoryRegistrations",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListDirectoryRegistrationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListDirectoryRegistrationsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDirectoryRegistrationsCommandOutput> {
-    return de_ListDirectoryRegistrationsCommand(output, context);
-  }
-}
+export class ListDirectoryRegistrationsCommand extends $Command
+  .classBuilder<
+    ListDirectoryRegistrationsCommandInput,
+    ListDirectoryRegistrationsCommandOutput,
+    PcaConnectorAdClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PcaConnectorAd", "ListDirectoryRegistrations", {})
+  .n("PcaConnectorAdClient", "ListDirectoryRegistrationsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListDirectoryRegistrationsCommand)
+  .de(de_ListDirectoryRegistrationsCommand)
+  .build() {}

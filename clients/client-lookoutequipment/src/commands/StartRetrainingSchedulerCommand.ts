@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { StartRetrainingSchedulerRequest, StartRetrainingSchedulerResponse } from "../models/models_0";
 import { de_StartRetrainingSchedulerCommand, se_StartRetrainingSchedulerCommand } from "../protocols/Aws_json1_0";
@@ -108,75 +99,26 @@ export interface StartRetrainingSchedulerCommandOutput extends StartRetrainingSc
  * ```
  *
  */
-export class StartRetrainingSchedulerCommand extends $Command<
-  StartRetrainingSchedulerCommandInput,
-  StartRetrainingSchedulerCommandOutput,
-  LookoutEquipmentClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartRetrainingSchedulerCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LookoutEquipmentClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartRetrainingSchedulerCommandInput, StartRetrainingSchedulerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartRetrainingSchedulerCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LookoutEquipmentClient";
-    const commandName = "StartRetrainingSchedulerCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AWSLookoutEquipmentFrontendService",
-        operation: "StartRetrainingScheduler",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartRetrainingSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartRetrainingSchedulerCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRetrainingSchedulerCommandOutput> {
-    return de_StartRetrainingSchedulerCommand(output, context);
-  }
-}
+export class StartRetrainingSchedulerCommand extends $Command
+  .classBuilder<
+    StartRetrainingSchedulerCommandInput,
+    StartRetrainingSchedulerCommandOutput,
+    LookoutEquipmentClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSLookoutEquipmentFrontendService", "StartRetrainingScheduler", {})
+  .n("LookoutEquipmentClient", "StartRetrainingSchedulerCommand")
+  .f(void 0, void 0)
+  .ser(se_StartRetrainingSchedulerCommand)
+  .de(de_StartRetrainingSchedulerCommand)
+  .build() {}

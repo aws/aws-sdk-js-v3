@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   BatchIsAuthorizedInput,
   BatchIsAuthorizedInputFilterSensitiveLog,
@@ -304,75 +295,26 @@ export interface BatchIsAuthorizedCommandOutput extends BatchIsAuthorizedOutput,
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  */
-export class BatchIsAuthorizedCommand extends $Command<
-  BatchIsAuthorizedCommandInput,
-  BatchIsAuthorizedCommandOutput,
-  VerifiedPermissionsClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchIsAuthorizedCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: VerifiedPermissionsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchIsAuthorizedCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "VerifiedPermissionsClient";
-    const commandName = "BatchIsAuthorizedCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: BatchIsAuthorizedInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchIsAuthorizedOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "VerifiedPermissions",
-        operation: "BatchIsAuthorized",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchIsAuthorizedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchIsAuthorizedCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchIsAuthorizedCommandOutput> {
-    return de_BatchIsAuthorizedCommand(output, context);
-  }
-}
+export class BatchIsAuthorizedCommand extends $Command
+  .classBuilder<
+    BatchIsAuthorizedCommandInput,
+    BatchIsAuthorizedCommandOutput,
+    VerifiedPermissionsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("VerifiedPermissions", "BatchIsAuthorized", {})
+  .n("VerifiedPermissionsClient", "BatchIsAuthorizedCommand")
+  .f(BatchIsAuthorizedInputFilterSensitiveLog, BatchIsAuthorizedOutputFilterSensitiveLog)
+  .ser(se_BatchIsAuthorizedCommand)
+  .de(de_BatchIsAuthorizedCommand)
+  .build() {}

@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ExportKeyInput,
   ExportKeyInputFilterSensitiveLog,
@@ -194,73 +185,26 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
  */
-export class ExportKeyCommand extends $Command<
-  ExportKeyCommandInput,
-  ExportKeyCommandOutput,
-  PaymentCryptographyClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ExportKeyCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PaymentCryptographyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ExportKeyCommandInput, ExportKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ExportKeyCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PaymentCryptographyClient";
-    const commandName = "ExportKeyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ExportKeyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportKeyOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "PaymentCryptographyControlPlane",
-        operation: "ExportKey",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ExportKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ExportKeyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportKeyCommandOutput> {
-    return de_ExportKeyCommand(output, context);
-  }
-}
+export class ExportKeyCommand extends $Command
+  .classBuilder<
+    ExportKeyCommandInput,
+    ExportKeyCommandOutput,
+    PaymentCryptographyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PaymentCryptographyControlPlane", "ExportKey", {})
+  .n("PaymentCryptographyClient", "ExportKeyCommand")
+  .f(ExportKeyInputFilterSensitiveLog, ExportKeyOutputFilterSensitiveLog)
+  .ser(se_ExportKeyCommand)
+  .de(de_ExportKeyCommand)
+  .build() {}
