@@ -174,6 +174,10 @@ import {
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
 import {
+  SetKeepJobFlowAliveWhenNoStepsCommandInput,
+  SetKeepJobFlowAliveWhenNoStepsCommandOutput,
+} from "./commands/SetKeepJobFlowAliveWhenNoStepsCommand";
+import {
   SetTerminationProtectionCommandInput,
   SetTerminationProtectionCommandOutput,
 } from "./commands/SetTerminationProtectionCommand";
@@ -257,6 +261,7 @@ export type ServiceInputTypes =
   | RemoveManagedScalingPolicyCommandInput
   | RemoveTagsCommandInput
   | RunJobFlowCommandInput
+  | SetKeepJobFlowAliveWhenNoStepsCommandInput
   | SetTerminationProtectionCommandInput
   | SetVisibleToAllUsersCommandInput
   | StartNotebookExecutionCommandInput
@@ -316,6 +321,7 @@ export type ServiceOutputTypes =
   | RemoveManagedScalingPolicyCommandOutput
   | RemoveTagsCommandOutput
   | RunJobFlowCommandOutput
+  | SetKeepJobFlowAliveWhenNoStepsCommandOutput
   | SetTerminationProtectionCommandOutput
   | SetVisibleToAllUsersCommandOutput
   | StartNotebookExecutionCommandOutput

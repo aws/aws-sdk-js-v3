@@ -5728,6 +5728,25 @@ export interface RunJobFlowOutput {
 
 /**
  * @public
+ */
+export interface SetKeepJobFlowAliveWhenNoStepsInput {
+  /**
+   * @public
+   * <p>A list of strings that uniquely identify the clusters to protect. This identifier is returned by
+   *          <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html">RunJobFlow</a> and can also
+   *          be obtained from <a href="https://docs.aws.amazon.com/emr/latest/APIReference/API_DescribeJobFlows.html">DescribeJobFlows</a>.</p>
+   */
+  JobFlowIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A Boolean that indicates whether to terminate the cluster after all steps are executed.</p>
+   */
+  KeepJobFlowAliveWhenNoSteps: boolean | undefined;
+}
+
+/**
+ * @public
  * <p> The input argument to the <a>TerminationProtection</a> operation. </p>
  */
 export interface SetTerminationProtectionInput {

@@ -583,6 +583,14 @@ RunJobFlow
 </details>
 <details>
 <summary>
+SetKeepJobFlowAliveWhenNoSteps
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr/command/SetKeepJobFlowAliveWhenNoStepsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/SetKeepJobFlowAliveWhenNoStepsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr/Interface/SetKeepJobFlowAliveWhenNoStepsCommandOutput/)
+
+</details>
+<details>
+<summary>
 SetTerminationProtection
 </summary>
 

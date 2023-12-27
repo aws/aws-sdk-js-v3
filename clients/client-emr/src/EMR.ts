@@ -214,6 +214,11 @@ import {
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import { RunJobFlowCommand, RunJobFlowCommandInput, RunJobFlowCommandOutput } from "./commands/RunJobFlowCommand";
 import {
+  SetKeepJobFlowAliveWhenNoStepsCommand,
+  SetKeepJobFlowAliveWhenNoStepsCommandInput,
+  SetKeepJobFlowAliveWhenNoStepsCommandOutput,
+} from "./commands/SetKeepJobFlowAliveWhenNoStepsCommand";
+import {
   SetTerminationProtectionCommand,
   SetTerminationProtectionCommandInput,
   SetTerminationProtectionCommandOutput,
@@ -298,6 +303,7 @@ const commands = {
   RemoveManagedScalingPolicyCommand,
   RemoveTagsCommand,
   RunJobFlowCommand,
+  SetKeepJobFlowAliveWhenNoStepsCommand,
   SetTerminationProtectionCommand,
   SetVisibleToAllUsersCommand,
   StartNotebookExecutionCommand,
@@ -1024,6 +1030,23 @@ export interface EMR {
     args: RunJobFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RunJobFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetKeepJobFlowAliveWhenNoStepsCommand}
+   */
+  setKeepJobFlowAliveWhenNoSteps(
+    args: SetKeepJobFlowAliveWhenNoStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetKeepJobFlowAliveWhenNoStepsCommandOutput>;
+  setKeepJobFlowAliveWhenNoSteps(
+    args: SetKeepJobFlowAliveWhenNoStepsCommandInput,
+    cb: (err: any, data?: SetKeepJobFlowAliveWhenNoStepsCommandOutput) => void
+  ): void;
+  setKeepJobFlowAliveWhenNoSteps(
+    args: SetKeepJobFlowAliveWhenNoStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetKeepJobFlowAliveWhenNoStepsCommandOutput) => void
   ): void;
 
   /**
