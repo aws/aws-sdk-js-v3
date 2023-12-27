@@ -1,24 +1,31 @@
 {
   "name": "middleware-compression",
   "version": "1.0.0",
-  "description": "Package that implements the compression middleware for request bodies. ",
-  "main": "index.js",
+  "description": "Package that implements the compression middleware for request bodies.",
   "scripts": {
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aws/aws-sdk-js-v3.git"
+  "main": "./dist-cjs/index.js",
+  "types": "./dist-types/index.d.ts",
+  "module": "./dist-es/index.js",
+  "dependencies": {
+    "@smithy/types": "^2.7.0",
+    "tslib": "^2.5.0"
   },
   "keywords": [
     "middleware",
     "compression",
     "gzip"
   ],
-  "author": "AWS SDK for JavaScript Team",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/aws/aws-sdk-js-v3/issues"
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3#readme"
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-compression",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/middleware-compression"
+  }
 }
