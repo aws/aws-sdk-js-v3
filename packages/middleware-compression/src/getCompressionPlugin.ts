@@ -1,13 +1,20 @@
 import { Pluggable } from "@smithy/types";
 
-import { compressionMiddleware, compressionMiddlewareOptions } from "./compressionMiddleware";
+import {
+  compressionMiddleware,
+  CompressionMiddlewareConfig,
+  compressionMiddlewareOptions,
+} from "./compressionMiddleware";
 import { CompressionResolvedConfig } from "./configurations";
 
 /**
  * @internal
  */
-export const getCompressionPlugin = (options: CompressionResolvedConfig): Pluggable<any, any> => ({
+export const getCompressionPlugin = (
+  config: CompressionResolvedConfig,
+  middlewareConfig: CompressionMiddlewareConfig
+): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.add(compressionMiddleware(options), compressionMiddlewareOptions);
+    clientStack.add(compressionMiddleware(config, middlewareConfig), compressionMiddlewareOptions);
   },
 });
