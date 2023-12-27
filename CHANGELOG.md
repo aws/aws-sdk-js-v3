@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.482.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.481.0...v3.482.0) (2023-12-27)
+
+
+### Features
+
+* **client-emr:** Add support for customers to modify cluster attribute auto-terminate post cluster launch ([7a3e95b](https://github.com/aws/aws-sdk-js-v3/commit/7a3e95b38ef9c388cfb587d644ef240660026a7d))
+* **clients:** update client endpoints as of 2023-12-27 ([9820c88](https://github.com/aws/aws-sdk-js-v3/commit/9820c88498f3cd039cc2e16c7372955932794531))
+
+
+
+
+
 # [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
 
 
