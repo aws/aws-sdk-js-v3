@@ -1,4 +1,3 @@
-
 /**
  * @public
  *
@@ -19,13 +18,12 @@ export interface CompressionResolvedConfig {
   minCompressionSizeInBytes: number;
 }
 
-
 export const resolveCompressionConfig = <T>(input: T & CompressionInputConfig): T & CompressionResolvedConfig => {
   const minCompressionSizeInBytes = input.minCompressionSizeInBytes ?? 10240;
   const maxCompressionSizeInBytes = 10485760;
   // minCompressionSizeInBytes explanation
   if (minCompressionSizeInBytes < 0 || minCompressionSizeInBytes > maxCompressionSizeInBytes) {
-    throw new Error('minCompressionSizeInBytes must be between 0 and 10485760 bytes inclusive');
+    throw new Error("minCompressionSizeInBytes must be between 0 and 10485760 bytes inclusive");
   }
   return {
     ...input,
