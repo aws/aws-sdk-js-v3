@@ -10,7 +10,7 @@ import {
 } from "@smithy/types";
 
 import { compress, compressStream } from "./compress";
-import { CompressionResolvedConfig } from "./configuration";
+import { CompressionResolvedConfig } from "./configurations";
 import { CLIENT_SUPPORTED_ALGORITHMS as supportedAlgorithms } from "./types";
 import { isStreaming } from "./utils";
 
