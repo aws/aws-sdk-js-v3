@@ -17,7 +17,20 @@ import { isStreaming } from "./utils";
 /**
  * @internal
  */
-export const compressionMiddleware = (config: CompressionResolvedConfig): BuildMiddleware<any, any> => {
+export interface CompressionMiddlewareConfig {
+  /**
+   * Defines the priority-ordered list of compression algorithms supported by the service operation.
+   */
+  encodings: string[];
+}
+
+/**
+ * @internal
+ */
+export const compressionMiddleware = (
+  config: CompressionResolvedConfig,
+  middlewareConfig: CompressionMiddlewareConfig
+): BuildMiddleware<any, any> => {
   return <Output extends MetadataBearer>(
       next: BuildHandler<any, Output>,
       context: HandlerExecutionContext
