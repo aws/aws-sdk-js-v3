@@ -3,20 +3,23 @@ import { createGzip } from "zlib";
 
 import { compressStream } from "./compressStream";
 
-jest.mock("zlib", () => ({
-  createGzip: jest.fn().mockImplementation(() => {
-    const mockStream = new Readable({ read() {} }); // Create a mock readable stream
-    mockStream.pipe = jest.fn().mockReturnValue(mockStream); // Mock the pipe method
-    return mockStream;
-  }),
-}));
+jest.mock("zlib");
 
 describe(compressStream.name, () => {
-  let testDataStream: Readable;
+  const getGenerator = (chunks: string[]) =>
+    async function* generator() {
+      for (const chunk of chunks) {
+        yield chunk;
+      }
+    };
+
+  const testInputStream = Readable.from(getGenerator(["input"])());
+  const mockGzipFn = jest.fn();
+  const testOutputStream = Readable.from(getGenerator(["input", "gzipped"])());
 
   beforeEach(() => {
-    // Create a readable stream from a string
-    testDataStream = Readable.from("test data");
+    (createGzip as jest.Mock).mockReturnValue(mockGzipFn);
+    testInputStream.pipe = jest.fn().mockReturnValue(testOutputStream);
   });
 
   afterEach(() => {
@@ -24,9 +27,13 @@ describe(compressStream.name, () => {
   });
 
   it("should compress a readble stream using gzip", async () => {
-    const receivedOutput = await compressStream(testDataStream);
+    const outputStream = await compressStream(testInputStream);
 
-    expect(receivedOutput).toBeInstanceOf(Readable);
+    expect(outputStream).toBeInstanceOf(Readable);
+    expect(outputStream).toBe(testOutputStream);
+
+    expect(testInputStream.pipe).toHaveBeenCalledTimes(1);
+    expect(testInputStream.pipe).toHaveBeenCalledWith(mockGzipFn);
     expect(createGzip).toHaveBeenCalledTimes(1);
   });
 
@@ -37,8 +44,9 @@ describe(compressStream.name, () => {
       throw compressionError;
     });
 
-    await expect(compressStream(testDataStream)).rejects.toThrow(compressionError);
+    await expect(compressStream(testInputStream)).rejects.toThrow(compressionError);
 
     expect(createGzip).toHaveBeenCalledTimes(1);
+    expect(testInputStream.pipe).not.toHaveBeenCalled();
   });
 });
