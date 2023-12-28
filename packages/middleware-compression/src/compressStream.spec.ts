@@ -37,9 +37,7 @@ describe(compressStream.name, () => {
       throw compressionError;
     });
 
-    await expect(compressStream(testDataStream)).rejects.toThrow(
-      new Error("Failure during compression: " + compressionErrorMsg)
-    );
+    await expect(compressStream(testDataStream)).rejects.toThrow(compressionError);
 
     expect(createGzip).toHaveBeenCalledTimes(1);
   });
