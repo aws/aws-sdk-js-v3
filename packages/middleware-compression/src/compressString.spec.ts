@@ -2,7 +2,6 @@ import { toUint8Array } from "@smithy/util-utf8";
 import { gzip } from "zlib";
 
 import { compressString } from "./compressString";
-import { CompressionAlgorithm } from "./constants";
 
 const compressionSuffix = "compressed";
 const compressionSep = ".";
@@ -25,7 +24,7 @@ describe(compressString.name, () => {
   });
 
   it("should compress data with gzip", async () => {
-    const receivedOutput = await compressString(testData, CompressionAlgorithm.GZIP);
+    const receivedOutput = await compressString(testData);
     const expectedOutput = [testData, compressionSuffix].join(compressionSep);
 
     expect(receivedOutput).toEqual(expectedOutput);
@@ -36,17 +35,6 @@ describe(compressString.name, () => {
     expect(toUint8Array).toHaveBeenNthCalledWith(2, expectedOutput);
   });
 
-  it("should throw an error for unsupported compression algorithm", async () => {
-    const unsupportedAlgorithm = "unsupported" as CompressionAlgorithm;
-
-    await expect(compressString(testData, unsupportedAlgorithm)).rejects.toThrow(
-      new Error(`Only '${CompressionAlgorithm.GZIP}' is supported for compression. Got '${unsupportedAlgorithm}'.`)
-    );
-
-    expect(gzip).not.toHaveBeenCalled();
-    expect(toUint8Array).not.toHaveBeenCalled();
-  });
-
   it("should throw an error if compression fails", async () => {
     const compressionErrorMsg = "compression error message";
     const compressionError = new Error(compressionErrorMsg);
@@ -54,7 +42,7 @@ describe(compressString.name, () => {
       throw compressionError;
     });
 
-    await expect(compressString(testData, CompressionAlgorithm.GZIP)).rejects.toThrow(
+    await expect(compressString(testData)).rejects.toThrow(
       new Error("Failure during compression: " + compressionErrorMsg)
     );
 

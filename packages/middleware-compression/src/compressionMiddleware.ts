@@ -9,7 +9,8 @@ import {
   MetadataBearer,
 } from "@smithy/types";
 
-import { compressStream, compressString } from "./compressString";
+import { compressStream } from "./compressStream";
+import { compressString } from "./compressString";
 import { CompressionResolvedConfig } from "./configurations";
 import { CLIENT_SUPPORTED_ALGORITHMS, CompressionAlgorithm } from "./constants";
 import { isStreaming } from "./isStreaming";
@@ -48,13 +49,13 @@ export const compressionMiddleware =
         if (isStreaming(body)) {
           if (!isStreamingLengthRequired(body)) {
             // if isStreaming results in Transfer-Encoding: Chunked
-            request.body = compressStream(body, algorithm);
+            request.body = compressStream(body);
             // body.length checks --> check for util body length in smithy pkg
           } else {
             // Invalid case.
           }
         } else if (body.length >= config.requestMinCompressionSizeBytes) {
-          request.body = await compressString(body, algorithm as CompressionAlgorithm);
+          request.body = await compressString(body);
         }
 
         // Either append to the header if it already exists, else set it
