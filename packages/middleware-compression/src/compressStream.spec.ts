@@ -26,7 +26,7 @@ describe(compressStream.name, () => {
     jest.clearAllMocks();
   });
 
-  it("should compress a readble stream using gzip", async () => {
+  it("should compress a readable stream using gzip", async () => {
     const outputStream = await compressStream(testInputStream);
 
     expect(outputStream).toBeInstanceOf(Readable);
