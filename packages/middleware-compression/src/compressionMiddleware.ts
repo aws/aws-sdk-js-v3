@@ -9,7 +9,7 @@ import {
   MetadataBearer,
 } from "@smithy/types";
 
-import { compress, compressStream } from "./compress";
+import { compressStream, compressString } from "./compressString";
 import { CompressionResolvedConfig } from "./configurations";
 import { CLIENT_SUPPORTED_ALGORITHMS, CompressionAlgorithm } from "./constants";
 import { isStreaming } from "./isStreaming";
@@ -54,7 +54,7 @@ export const compressionMiddleware =
             // Invalid case.
           }
         } else if (body.length >= config.requestMinCompressionSizeBytes) {
-          request.body = await compress(body, algorithm);
+          request.body = await compressString(body, algorithm as CompressionAlgorithm);
         }
 
         // Either append to the header if it already exists, else set it
