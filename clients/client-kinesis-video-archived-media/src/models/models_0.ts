@@ -233,7 +233,8 @@ export class MissingCodecPrivateDataException extends __BaseException {
 
 /**
  * @public
- * <p>A streaming session was requested for a stream that does not retain data (that is, has
+ * <p>
+ *             <code>GetImages</code> was requested for a stream that does not retain data (that is, has
  *             a <code>DataRetentionInHours</code> of 0). </p>
  */
 export class NoDataRetentionException extends __BaseException {
@@ -1100,13 +1101,8 @@ export interface GetImagesInput {
 
   /**
    * @public
-   * <p>The time interval in milliseconds (ms) at which the images need to be generated from
-   *             the stream, with a default of 3000 ms. The minimum value that can be provided is 200 ms.
-   *             If the timestamp range is less than the sampling interval, the Image from the
-   *                 <code>startTimestamp</code> will be returned if available. </p>
-   *          <note>
-   *             <p>The minimum value of 200 ms is a hard limit.</p>
-   *          </note>
+   * <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 200 ms (5 images per second). If the timestamp range is less than the sampling interval, the image from the <code>startTimestamp</code> will be returned if available.
+   *         </p>
    */
   SamplingInterval?: number;
 
@@ -1402,6 +1398,9 @@ export interface ListFragmentsInput {
    * @public
    * <p>Describes the timestamp range and timestamp origin for the range of fragments to
    *             return.</p>
+   *          <note>
+   *             <p>This is only required when the <code>NextToken</code> isn't passed in the API.</p>
+   *          </note>
    */
   FragmentSelector?: FragmentSelector;
 }

@@ -227,7 +227,8 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  *  <p>No codec private data was found in at least one of tracks of the video stream.</p>
  *
  * @throws {@link NoDataRetentionException} (client fault)
- *  <p>A streaming session was requested for a stream that does not retain data (that is, has
+ *  <p>
+ *             <code>GetImages</code> was requested for a stream that does not retain data (that is, has
  *             a <code>DataRetentionInHours</code> of 0). </p>
  *
  * @throws {@link NotAuthorizedException} (client fault)

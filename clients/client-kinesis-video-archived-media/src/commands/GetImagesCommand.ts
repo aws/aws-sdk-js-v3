@@ -32,7 +32,8 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
 
 /**
  * @public
- * <p>Retrieves a list of Images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
+ * <p>Retrieves a list of images corresponding to each timestamp for a given time range,
+ *             sampling interval, and image format configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +83,11 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be
  *             used.</p>
+ *
+ * @throws {@link NoDataRetentionException} (client fault)
+ *  <p>
+ *             <code>GetImages</code> was requested for a stream that does not retain data (that is, has
+ *             a <code>DataRetentionInHours</code> of 0). </p>
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>Status Code: 403, The caller is not authorized to perform an operation on the given

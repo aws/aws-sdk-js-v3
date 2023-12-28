@@ -474,6 +474,9 @@ const de_GetImagesCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException":
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
