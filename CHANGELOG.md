@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.483.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.482.0...v3.483.0) (2023-12-28)
+
+
+### Features
+
+* **client-codestar-connections:** New integration with the GitLab self-managed provider type. ([4b37174](https://github.com/aws/aws-sdk-js-v3/commit/4b371742d0b5e7ae168694be3501b9ac1893b892))
+* **client-kinesis-video-archived-media:** NoDataRetentionException thrown when GetImages requested for a Stream that does not retain data (that is, has a DataRetentionInHours of 0). ([5e8a193](https://github.com/aws/aws-sdk-js-v3/commit/5e8a1937064b3494dc0c94d1d784c978b8d45fc9))
+* **client-sagemaker:** Amazon SageMaker Studio now supports Docker access from within app container ([16531e4](https://github.com/aws/aws-sdk-js-v3/commit/16531e45649f2a963f6cf6510699bf0527246499))
+* **clients:** update client endpoints as of 2023-12-28 ([77801af](https://github.com/aws/aws-sdk-js-v3/commit/77801afd2687d9bdd285be70621ccf816123edda))
+
+
+
+
+
 # [3.482.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.481.0...v3.482.0) (2023-12-27)
 
 

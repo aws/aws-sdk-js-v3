@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.483.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.482.0...v3.483.0) (2023-12-28)
+
+
+### Features
+
+* **client-kinesis-video-archived-media:** NoDataRetentionException thrown when GetImages requested for a Stream that does not retain data (that is, has a DataRetentionInHours of 0). ([5e8a193](https://github.com/aws/aws-sdk-js-v3/commit/5e8a1937064b3494dc0c94d1d784c978b8d45fc9))
+
+
+
+
+
 # [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
 
 

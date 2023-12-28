@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.483.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.482.0...v3.483.0) (2023-12-28)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Studio now supports Docker access from within app container ([16531e4](https://github.com/aws/aws-sdk-js-v3/commit/16531e45649f2a963f6cf6510699bf0527246499))
+
+
+
+
+
 # [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
 
 

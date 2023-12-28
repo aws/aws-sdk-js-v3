@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.483.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.482.0...v3.483.0) (2023-12-28)
+
+
+### Features
+
+* **client-codestar-connections:** New integration with the GitLab self-managed provider type. ([4b37174](https://github.com/aws/aws-sdk-js-v3/commit/4b371742d0b5e7ae168694be3501b9ac1893b892))
+
+
+
+
+
 # [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
 
 
