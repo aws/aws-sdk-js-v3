@@ -56,7 +56,7 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  * //     Branch: "STRING_VALUE", // required
  * //     ConfigFile: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE", // required
- * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
+ * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
  * //     RepositoryLinkId: "STRING_VALUE", // required
  * //     RepositoryName: "STRING_VALUE", // required
  * //     ResourceName: "STRING_VALUE", // required

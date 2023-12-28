@@ -52,7 +52,7 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  * //     Directory: "STRING_VALUE", // required
  * //     OwnerId: "STRING_VALUE", // required
  * //     RepositoryName: "STRING_VALUE", // required
- * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
+ * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
  * //     Sha: "STRING_VALUE", // required
  * //   },
  * //   LatestSuccessfulSync: { // ResourceSyncAttempt
@@ -69,7 +69,7 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  * //       Directory: "STRING_VALUE", // required
  * //       OwnerId: "STRING_VALUE", // required
  * //       RepositoryName: "STRING_VALUE", // required
- * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
  * //       Sha: "STRING_VALUE", // required
  * //     },
  * //     StartedAt: new Date("TIMESTAMP"), // required
@@ -79,7 +79,7 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  * //       Directory: "STRING_VALUE", // required
  * //       OwnerId: "STRING_VALUE", // required
  * //       RepositoryName: "STRING_VALUE", // required
- * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
  * //       Sha: "STRING_VALUE", // required
  * //     },
  * //     Target: "STRING_VALUE", // required
@@ -98,7 +98,7 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  * //       Directory: "STRING_VALUE", // required
  * //       OwnerId: "STRING_VALUE", // required
  * //       RepositoryName: "STRING_VALUE", // required
- * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
  * //       Sha: "STRING_VALUE", // required
  * //     },
  * //     StartedAt: new Date("TIMESTAMP"), // required
@@ -108,7 +108,7 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  * //       Directory: "STRING_VALUE", // required
  * //       OwnerId: "STRING_VALUE", // required
  * //       RepositoryName: "STRING_VALUE", // required
- * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
  * //       Sha: "STRING_VALUE", // required
  * //     },
  * //     Target: "STRING_VALUE", // required

@@ -58,7 +58,7 @@ export interface CreateRepositoryLinkCommandOutput extends CreateRepositoryLinkO
  * //     ConnectionArn: "STRING_VALUE", // required
  * //     EncryptionKeyArn: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE", // required
- * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
+ * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged", // required
  * //     RepositoryLinkArn: "STRING_VALUE", // required
  * //     RepositoryLinkId: "STRING_VALUE", // required
  * //     RepositoryName: "STRING_VALUE", // required

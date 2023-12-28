@@ -40,7 +40,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * // const { CodeStarConnectionsClient, ListConnectionsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // ListConnectionsInput
- *   ProviderTypeFilter: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
+ *   ProviderTypeFilter: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged",
  *   HostArnFilter: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -52,7 +52,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //     { // Connection
  * //       ConnectionName: "STRING_VALUE",
  * //       ConnectionArn: "STRING_VALUE",
- * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged",
  * //       OwnerAccountId: "STRING_VALUE",
  * //       ConnectionStatus: "PENDING" || "AVAILABLE" || "ERROR",
  * //       HostArn: "STRING_VALUE",

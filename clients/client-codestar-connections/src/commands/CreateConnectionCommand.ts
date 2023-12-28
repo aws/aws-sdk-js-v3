@@ -42,7 +42,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * // const { CodeStarConnectionsClient, CreateConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // CreateConnectionInput
- *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
+ *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab" || "GitLabSelfManaged",
  *   ConnectionName: "STRING_VALUE", // required
  *   Tags: [ // TagList
  *     { // Tag

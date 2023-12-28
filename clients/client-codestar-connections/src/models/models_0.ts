@@ -61,6 +61,7 @@ export const ProviderType = {
   GITHUB: "GitHub",
   GITHUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
   GITLAB: "GitLab",
+  GITLAB_SELF_MANAGED: "GitLabSelfManaged",
 } as const;
 
 /**
