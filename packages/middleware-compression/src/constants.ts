@@ -1,4 +1,8 @@
 /**
- * Compression algorithms supported by the SDK.
+ * Compression Algorithms supported by the SDK.
  */
-export type CompressionAlgorithm = "gzip";
+export enum CompressionAlgorithm {
+  GZIP = "gzip",
+}
+
+export const CLIENT_SUPPORTED_ALGORITHMS: CompressionAlgorithm[] = [CompressionAlgorithm.GZIP];
