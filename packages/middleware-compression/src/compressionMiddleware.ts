@@ -12,7 +12,7 @@ import {
 import { compress, compressStream } from "./compress";
 import { CompressionResolvedConfig } from "./configurations";
 import { CLIENT_SUPPORTED_ALGORITHMS, CompressionAlgorithm } from "./constants";
-import { isStreaming } from "./utils";
+import { isStreaming } from "./isStreaming";
 
 /**
  * @internal
