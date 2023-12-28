@@ -201,6 +201,12 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *     SecurityGroupIds: [ // DomainSecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     DockerSettings: { // DockerSettings
+ *       EnableDockerAccess: "ENABLED" || "DISABLED",
+ *       VpcOnlyTrustedAccounts: [ // VpcOnlyTrustedAccounts
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   AppSecurityGroupManagement: "Service" || "Customer",
  *   DefaultSpaceSettings: { // DefaultSpaceSettings

@@ -246,6 +246,12 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       DefaultResourceSpec: "<ResourceSpec>",
  *     },
  *     ExecutionRoleIdentityConfig: "USER_PROFILE_NAME" || "DISABLED",
+ *     DockerSettings: { // DockerSettings
+ *       EnableDockerAccess: "ENABLED" || "DISABLED",
+ *       VpcOnlyTrustedAccounts: [ // VpcOnlyTrustedAccounts
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   SubnetIds: [ // Subnets // required
  *     "STRING_VALUE",

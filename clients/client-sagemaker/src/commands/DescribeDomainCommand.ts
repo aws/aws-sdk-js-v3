@@ -217,6 +217,12 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //       DefaultResourceSpec: "<ResourceSpec>",
  * //     },
  * //     ExecutionRoleIdentityConfig: "USER_PROFILE_NAME" || "DISABLED",
+ * //     DockerSettings: { // DockerSettings
+ * //       EnableDockerAccess: "ENABLED" || "DISABLED",
+ * //       VpcOnlyTrustedAccounts: [ // VpcOnlyTrustedAccounts
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * //   AppNetworkAccessType: "PublicInternetOnly" || "VpcOnly",
  * //   HomeEfsFileSystemKmsKeyId: "STRING_VALUE",

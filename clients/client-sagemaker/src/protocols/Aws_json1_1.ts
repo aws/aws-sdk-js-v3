@@ -1146,6 +1146,7 @@ import {
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
+  DockerSettings,
   DomainSettings,
   DriftCheckBaselines,
   DriftCheckBias,
@@ -1265,7 +1266,6 @@ import {
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
-  ProfilerConfig,
   ProvisioningParameter,
   PublicWorkforceTaskPrice,
   RealTimeInferenceConfig,
@@ -1504,7 +1504,6 @@ import {
   DescribeStudioLifecycleConfigResponse,
   DescribeSubscribedWorkteamRequest,
   DescribeSubscribedWorkteamResponse,
-  DescribeTrainingJobRequest,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1548,6 +1547,7 @@ import {
   PipelineExperimentConfig,
   ProductionVariantStatus,
   ProductionVariantSummary,
+  ProfilerConfig,
   ProfilerRuleConfiguration,
   RealTimeInferenceRecommendation,
   RecommendationMetrics,
@@ -1568,6 +1568,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeTrainingJobRequest,
   DescribeTrainingJobResponse,
   DescribeTransformJobRequest,
   DescribeTransformJobResponse,
@@ -1802,7 +1803,6 @@ import {
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
-  TuningJobStepMetaData,
   WarmPoolStatus,
   Workforce,
   WorkforceVpcConfigResponse,
@@ -1932,6 +1932,7 @@ import {
   TrialComponentSourceDetail,
   TrialComponentSummary,
   TrialSummary,
+  TuningJobStepMetaData,
   UpdateActionRequest,
   UpdateActionResponse,
   UpdateAppImageConfigRequest,
@@ -21319,6 +21320,8 @@ const se_DesiredWeightAndCapacityList = (input: DesiredWeightAndCapacity[], cont
 
 // se_DisassociateTrialComponentRequest omitted.
 
+// se_DockerSettings omitted.
+
 // se_DomainSecurityGroupIds omitted.
 
 // se_DomainSettings omitted.
@@ -23610,6 +23613,8 @@ const se_UpdateTrialComponentRequest = (input: UpdateTrialComponentRequest, cont
 // se_VisibilityConditionsList omitted.
 
 // se_VpcConfig omitted.
+
+// se_VpcOnlyTrustedAccounts omitted.
 
 // se_VpcSecurityGroupIds omitted.
 
@@ -28084,6 +28089,16 @@ const de_DisassociateTrialComponentResponse = (
 };
 
 /**
+ * deserializeAws_json1_1DockerSettings
+ */
+const de_DockerSettings = (output: any, context: __SerdeContext): DockerSettings => {
+  return take(output, {
+    EnableDockerAccess: __expectString,
+    VpcOnlyTrustedAccounts: (_: any) => de_VpcOnlyTrustedAccounts(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DomainDetails
  */
 const de_DomainDetails = (output: any, context: __SerdeContext): DomainDetails => {
@@ -28127,6 +28142,7 @@ const de_DomainSecurityGroupIds = (output: any, context: __SerdeContext): string
  */
 const de_DomainSettings = (output: any, context: __SerdeContext): DomainSettings => {
   return take(output, {
+    DockerSettings: (_: any) => de_DockerSettings(_, context),
     ExecutionRoleIdentityConfig: __expectString,
     RStudioServerProDomainSettings: (_: any) => de_RStudioServerProDomainSettings(_, context),
     SecurityGroupIds: (_: any) => de_DomainSecurityGroupIds(_, context),
@@ -36412,6 +36428,18 @@ const de_VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
     SecurityGroupIds: (_: any) => de_VpcSecurityGroupIds(_, context),
     Subnets: (_: any) => de_Subnets(_, context),
   }) as any;
+};
+
+/**
+ * deserializeAws_json1_1VpcOnlyTrustedAccounts
+ */
+const de_VpcOnlyTrustedAccounts = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 /**

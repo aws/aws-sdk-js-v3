@@ -74,7 +74,6 @@ import {
   ProcessingResources,
   ProcessingStoppingCondition,
   Processor,
-  ProfilerConfig,
   ProvisioningParameter,
   RetryStrategy,
   RootAccess,
@@ -113,6 +112,7 @@ import {
   PipelineExperimentConfig,
   PipelineStatus,
   ProcessingJobStatus,
+  ProfilerConfig,
   ProfilerRuleConfiguration,
   ProjectStatus,
   ScheduleStatus,
@@ -165,13 +165,24 @@ import {
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
-  TuningJobStepMetaData,
   UserProfileStatus,
   WarmPoolResourceStatus,
   WarmPoolStatus,
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Metadata for a tuning step.</p>
+ */
+export interface TuningJobStepMetaData {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
+   */
+  Arn?: string;
+}
 
 /**
  * @public

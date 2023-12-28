@@ -53,6 +53,7 @@ import {
   _InstanceType,
   DebugHookConfig,
   DebugRuleConfiguration,
+  DockerSettings,
   EdgeOutputConfig,
   ExecutionRoleIdentityConfig,
   ExperimentConfig,
@@ -71,7 +72,6 @@ import {
   MonitoringType,
   OfflineStoreConfig,
   OnlineStoreConfig,
-  ProfilerConfig,
   RecommendationJobType,
   ResourceLimits,
   RetryStrategy,
@@ -122,6 +122,7 @@ import {
   OfflineStoreStatusValue,
   PipelineExecutionStatus,
   ProductionVariantSummary,
+  ProfilerConfig,
   ProfilerRuleConfiguration,
   RecommendationJobStatus,
   RecommendationMetrics,
@@ -136,6 +137,17 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeTrainingJobRequest {
+  /**
+   * @public
+   * <p>The name of the training job.</p>
+   */
+  TrainingJobName: string | undefined;
+}
 
 /**
  * @public
@@ -2353,6 +2365,12 @@ export interface DomainSettingsForUpdate {
    *             communication between Domain-level apps and user apps.</p>
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>A collection of settings that configure the domain's Docker interaction.</p>
+   */
+  DockerSettings?: DockerSettings;
 }
 
 /**
@@ -11101,18 +11119,6 @@ export interface TransformJobStepMetadata {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- * <p>Metadata for a tuning step.</p>
- */
-export interface TuningJobStepMetaData {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
    */
   Arn?: string;
 }

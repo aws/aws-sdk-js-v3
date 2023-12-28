@@ -159,7 +159,6 @@ import {
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
   ProductionVariantServerlessConfig,
-  ProfilerConfig,
   RecommendationJobInputConfig,
   RecommendationJobStoppingConditions,
   RecommendationJobType,
@@ -175,6 +174,43 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and
+ *             storage paths.</p>
+ */
+export interface ProfilerConfig {
+  /**
+   * @public
+   * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
+   */
+  S3OutputPath?: string;
+
+  /**
+   * @public
+   * <p>A time interval for capturing system metrics in milliseconds. Available values are
+   *             100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds. The default value is 500 milliseconds.</p>
+   */
+  ProfilingIntervalInMilliseconds?: number;
+
+  /**
+   * @public
+   * <p>Configuration information for capturing framework metrics. Available key strings for different profiling options are
+   *             <code>DetailedProfilingConfig</code>, <code>PythonProfilingConfig</code>, and <code>DataLoaderProfilingConfig</code>.
+   *             The following codes are configuration structures for the <code>ProfilingParameters</code> parameter. To learn more about
+   *             how to configure the <code>ProfilingParameters</code> parameter,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.
+   *         </p>
+   */
+  ProfilingParameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Configuration to turn off Amazon SageMaker Debugger's system monitoring and profiling functionality. To turn it off, set to <code>True</code>.</p>
+   */
+  DisableProfiler?: boolean;
+}
 
 /**
  * @public
@@ -10011,17 +10047,6 @@ export interface DescribeSubscribedWorkteamResponse {
    * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
    */
   SubscribedWorkteam: SubscribedWorkteam | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrainingJobRequest {
-  /**
-   * @public
-   * <p>The name of the training job.</p>
-   */
-  TrainingJobName: string | undefined;
 }
 
 /**
