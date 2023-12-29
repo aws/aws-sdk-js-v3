@@ -765,6 +765,9 @@ export const se_DeleteKeyCommand = async (
   const headers: any = {};
   b.bp("/metadata/v0/keys/{KeyName}");
   b.p("KeyName", () => input.KeyName!, "{KeyName}", false);
+  const query: any = map({
+    [_fD]: [() => input.ForceDelete !== void 0, () => input[_FD]!.toString()],
+  });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -774,7 +777,7 @@ export const se_DeleteKeyCommand = async (
     }
   }
   b.hn(resolvedHostname);
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -6594,11 +6597,13 @@ const isSerializableHeaderValue = (value: any): boolean =>
 
 const _CC = "CacheControl";
 const _CT = "ContentType";
+const _FD = "ForceDelete";
 const _K = "Key";
 const _L = "Language";
 const _TK = "TagKeys";
 const _cc = "cache-control";
 const _ct = "content-type";
+const _fD = "forceDelete";
 const _k = "key";
 const _l = "language";
 const _tK = "tagKeys";

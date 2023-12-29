@@ -159,7 +159,7 @@ export interface ApiKeyRestrictions {
    *             <li>
    *                <p>Other than wildcards, you must include the full ARN, including the
    *                     <code>arn</code>, <code>partition</code>, <code>service</code>,
-   *                     <code>region</code>, <code>account-id</code> and <code>resource-id</code>,
+   *                     <code>region</code>, <code>account-id</code> and <code>resource-id</code>
    *                     delimited by colons (:).</p>
    *             </li>
    *             <li>
@@ -469,6 +469,17 @@ export interface DeleteKeyRequest {
    * <p>The name of the API key to delete.</p>
    */
   KeyName: string | undefined;
+
+  /**
+   * @public
+   * <p>ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter <code>true</code> to delete the key or to <code>false</code> to not preemptively delete the API key.</p>
+   *          <p>Valid values: <code>true</code>, or <code>false</code>.</p>
+   *          <p>Required: No</p>
+   *          <note>
+   *             <p>This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.</p>
+   *          </note>
+   */
+  ForceDelete?: boolean;
 }
 
 /**

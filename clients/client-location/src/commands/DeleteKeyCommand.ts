@@ -38,6 +38,7 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * const client = new LocationClient(config);
  * const input = { // DeleteKeyRequest
  *   KeyName: "STRING_VALUE", // required
+ *   ForceDelete: true || false,
  * };
  * const command = new DeleteKeyCommand(input);
  * const response = await client.send(command);
