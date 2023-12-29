@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-compression",
-  "version": "3.0.0",
+  "version": "3.484.0",
   "description": "Middleware and Plugin for request compression.",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

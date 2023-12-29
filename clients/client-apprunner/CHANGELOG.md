@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
+
+
+### Features
+
+* **client-apprunner:** AWS App Runner adds Python 3.11 and Node.js 18 runtimes. ([edf4079](https://github.com/aws/aws-sdk-js-v3/commit/edf4079a58f6ad7a81fec0c86540f3674e45b20f))
+
+
+
+
+
 # [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
 
 

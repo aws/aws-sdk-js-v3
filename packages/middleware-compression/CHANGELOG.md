@@ -2,3 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
+
+
+### Bug Fixes
+
+* **middleware-compression:** add missing [@aws-sdk](https://github.com/aws-sdk) prefix in package name ([#5627](https://github.com/aws/aws-sdk-js-v3/issues/5627)) ([8b874f7](https://github.com/aws/aws-sdk-js-v3/commit/8b874f7fca8ee13bf5306a73242d94341c0874b1))
+
+
+### Features
+
+* **middleware-compression:** add middleware for request compression ([#5620](https://github.com/aws/aws-sdk-js-v3/issues/5620)) ([df38d23](https://github.com/aws/aws-sdk-js-v3/commit/df38d232895fe12d1321d6dfb6454ae130ff2f71))

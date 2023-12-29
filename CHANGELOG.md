@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
+
+
+### Bug Fixes
+
+* **middleware-compression:** add missing [@aws-sdk](https://github.com/aws-sdk) prefix in package name ([#5627](https://github.com/aws/aws-sdk-js-v3/issues/5627)) ([8b874f7](https://github.com/aws/aws-sdk-js-v3/commit/8b874f7fca8ee13bf5306a73242d94341c0874b1))
+
+
+### Features
+
+* **client-apprunner:** AWS App Runner adds Python 3.11 and Node.js 18 runtimes. ([edf4079](https://github.com/aws/aws-sdk-js-v3/commit/edf4079a58f6ad7a81fec0c86540f3674e45b20f))
+* **client-location:** This release introduces a new parameter to bypasses an API key's expiry conditions and delete the key. ([e713dfd](https://github.com/aws/aws-sdk-js-v3/commit/e713dfd8e6f205036f877bef3aa192f5f75f0414))
+* **client-quicksight:** Add LinkEntityArn support for different partitions; Add UnsupportedUserEditionException in UpdateDashboardLinks API; Add support for New Reader Experience Topics ([20cf1b2](https://github.com/aws/aws-sdk-js-v3/commit/20cf1b2ef100a1ead85c3a8d51640f790048f8d4))
+* **middleware-compression:** add middleware for request compression ([#5620](https://github.com/aws/aws-sdk-js-v3/issues/5620)) ([df38d23](https://github.com/aws/aws-sdk-js-v3/commit/df38d232895fe12d1321d6dfb6454ae130ff2f71))
+
+
+
+
+
 # [3.483.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.482.0...v3.483.0) (2023-12-28)
 
 
