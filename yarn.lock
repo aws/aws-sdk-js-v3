@@ -2792,14 +2792,14 @@
   dependencies:
     tslib "^2.5.0"
 
-"@smithy/config-resolver@^2.0.21":
-  version "2.0.21"
-  resolved "https://registry.yarnpkg.com/@smithy/config-resolver/-/config-resolver-2.0.21.tgz#97cb1c71f3c8c453fb01169545f98414b3414d7f"
-  integrity sha512-rlLIGT+BeqjnA6C2FWumPRJS1UW07iU5ZxDHtFuyam4W65gIaOFMjkB90ofKCIh+0mLVQrQFrl/VLtQT/6FWTA==
+"@smithy/config-resolver@^2.0.22":
+  version "2.0.22"
+  resolved "https://registry.yarnpkg.com/@smithy/config-resolver/-/config-resolver-2.0.22.tgz#c994a7d09d3c6f9e9a97a029db2ae16a8fbb0838"
+  integrity sha512-YuPjsLnq6I5ZQBTx6BL5NsCLtcLel5YIMf3gDeEa+GSCXn5mgRXm+8XO8HtjR3Xf69b88aY4c7bwKQQS2i8vtA==
   dependencies:
     "@smithy/node-config-provider" "^2.1.8"
     "@smithy/types" "^2.7.0"
-    "@smithy/util-config-provider" "^2.0.0"
+    "@smithy/util-config-provider" "^2.1.0"
     "@smithy/util-middleware" "^2.0.8"
     tslib "^2.5.0"
 
@@ -3284,6 +3284,13 @@
   dependencies:
     tslib "^2.5.0"
 
+"@smithy/util-config-provider@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@smithy/util-config-provider/-/util-config-provider-2.1.0.tgz#c733a862892772aaeb373a3e8af5182556da0ef9"
+  integrity sha512-S6V0JvvhQgFSGLcJeT1CBsaTR03MM8qTuxMH9WPCCddlSo2W0V5jIHimHtIQALMLEDPGQ0ROSRr/dU0O+mxiQg==
+  dependencies:
+    tslib "^2.5.0"
+
 "@smithy/util-defaults-mode-browser@^2.0.23":
   version "2.0.23"
   resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-browser/-/util-defaults-mode-browser-2.0.23.tgz#27bce42b7a55974ed4aff5b2b870256ce383613a"
@@ -3295,12 +3302,12 @@
     bowser "^2.11.0"
     tslib "^2.5.0"
 
-"@smithy/util-defaults-mode-node@^2.0.30":
-  version "2.0.30"
-  resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-node/-/util-defaults-mode-node-2.0.30.tgz#12c4c737a9f8b151cfbd951348cdf94febd083dd"
-  integrity sha512-nmcmEyRlClNprp7mBnUzfmW6HrKQK+yvl+cyXCRUoQSxRvZuLDrztV+JD+zr3qV/oirEc4Q0QNIrrhTDCE6JeA==
+"@smithy/util-defaults-mode-node@^2.0.31":
+  version "2.0.31"
+  resolved "https://registry.yarnpkg.com/@smithy/util-defaults-mode-node/-/util-defaults-mode-node-2.0.31.tgz#1b7dc36f695375cead8e8fa7de5e90c8bfcd0df8"
+  integrity sha512-ZwdjAJAFkkQQ4hdE8HOcxFAWC3GPFXQ3yQ8IBwHH5nQBlr9q+p5eRQ7Y8iRRORJe4vksR+NASRXZ+E81Us1aXQ==
   dependencies:
-    "@smithy/config-resolver" "^2.0.21"
+    "@smithy/config-resolver" "^2.0.22"
     "@smithy/credential-provider-imds" "^2.1.4"
     "@smithy/node-config-provider" "^2.1.8"
     "@smithy/property-provider" "^2.0.16"
