@@ -1,5 +1,6 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import {
+  AbsoluteLocation,
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOptions,
@@ -92,9 +93,10 @@ export const compressionMiddleware =
     });
   };
 
-export const compressionMiddlewareOptions: BuildHandlerOptions = {
+export const compressionMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   name: "compressionMiddleware",
   step: "build",
   tags: ["REQUEST_BODY_COMPRESSION", "GZIP"],
   override: true,
+  priority: "high",
 };
