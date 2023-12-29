@@ -45,36 +45,51 @@ export const compressionMiddleware =
     const { body, headers } = request;
     const { encodings, streamRequiresLength } = middlewareConfig;
 
+    let updatedBody = body;
+    let updatedHeaders = headers;
+
     for (const algorithm of encodings) {
       if (CLIENT_SUPPORTED_ALGORITHMS.includes(algorithm as CompressionAlgorithm)) {
-        // have to check for streaming length trait and @requiredLength trait;
-        // probably to be done in codegen part and not check in middleware
+        let isRequestCompressed = false;
         if (isStreaming(body)) {
           if (!streamRequiresLength) {
-            // if isStreaming results in Transfer-Encoding: Chunked
-            request.body = compressStream(body);
-            // body.length checks --> check for util body length in smithy pkg
+            updatedBody = await compressStream(body);
+            isRequestCompressed = true;
           } else {
-            // Invalid case.
+            // Invalid case. We should never get here.
+            throw new Error("Compression is not supported for streaming blobs that require a length.");
           }
         } else if (body.length >= config.requestMinCompressionSizeBytes) {
-          request.body = await compressString(body);
+          updatedBody = await compressString(body);
+          isRequestCompressed = true;
         }
 
-        // Either append to the header if it already exists, else set it
-        if (headers["Content-Encoding"]) {
-          headers["Content-Encoding"] += `,${algorithm}`;
-        } else {
-          headers["Content-Encoding"] = algorithm;
-        }
+        if (isRequestCompressed) {
+          // Either append to the header if it already exists, else set it
+          if (headers["Content-Encoding"]) {
+            updatedHeaders = {
+              ...headers,
+              "Content-Encoding": `${headers["Content-Encoding"]},${algorithm}`,
+            };
+          } else {
+            updatedHeaders = { ...headers, "Content-Encoding": algorithm };
+          }
 
-        // We've matched on one supported algorithm in the
-        // priority-ordered list, so we're finished.
-        break;
+          // We've matched on one supported algorithm in the
+          // priority-ordered list, so we're finished.
+          break;
+        }
       }
     }
 
-    return next({ ...args, request });
+    return next({
+      ...args,
+      request: {
+        ...request,
+        body: updatedBody,
+        headers: updatedHeaders,
+      },
+    });
   };
 
 export const compressionMiddlewareOptions: BuildHandlerOptions = {
