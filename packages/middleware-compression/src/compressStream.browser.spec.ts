@@ -1,5 +1,6 @@
 // @jest-environment jsdom
 import { AsyncGzip } from "fflate";
+import { ReadableStream } from "web-streams-polyfill";
 
 import { compressStream } from "./compressStream.browser";
 
