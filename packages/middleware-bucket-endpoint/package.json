@@ -26,7 +26,7 @@
     "@smithy/node-config-provider": "^2.1.8",
     "@smithy/protocol-http": "^3.0.11",
     "@smithy/types": "^2.7.0",
-    "@smithy/util-config-provider": "^2.0.0",
+    "@smithy/util-config-provider": "^2.1.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

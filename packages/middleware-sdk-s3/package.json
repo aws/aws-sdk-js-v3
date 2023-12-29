@@ -30,7 +30,7 @@
     "@smithy/signature-v4": "^2.0.0",
     "@smithy/smithy-client": "^2.2.0",
     "@smithy/types": "^2.7.0",
-    "@smithy/util-config-provider": "^2.0.0",
+    "@smithy/util-config-provider": "^2.1.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
