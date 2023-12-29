@@ -81,6 +81,17 @@ import {
 /**
  * @public
  */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
    * @public

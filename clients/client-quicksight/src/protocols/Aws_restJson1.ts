@@ -15008,6 +15008,9 @@ const de_UpdateDashboardLinksCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

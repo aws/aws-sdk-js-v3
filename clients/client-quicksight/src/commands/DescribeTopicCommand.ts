@@ -51,6 +51,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //   Topic: { // TopicDetails
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
+ * //     UserExperienceVersion: "LEGACY" || "NEW_READER_EXPERIENCE",
  * //     DataSets: [ // Datasets
  * //       { // DatasetMetadata
  * //         DatasetArn: "STRING_VALUE", // required

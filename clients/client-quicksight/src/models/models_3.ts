@@ -690,6 +690,20 @@ export interface DatasetMetadata {
 
 /**
  * @public
+ * @enum
+ */
+export const TopicUserExperienceVersion = {
+  LEGACY: "LEGACY",
+  NEW_READER_EXPERIENCE: "NEW_READER_EXPERIENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type TopicUserExperienceVersion = (typeof TopicUserExperienceVersion)[keyof typeof TopicUserExperienceVersion];
+
+/**
+ * @public
  * <p>A structure that describes the details of a topic, such as its name, description, and associated data sets.</p>
  */
 export interface TopicDetails {
@@ -704,6 +718,12 @@ export interface TopicDetails {
    * <p>The description of the topic.</p>
    */
   Description?: string;
+
+  /**
+   * @public
+   * <p>The user experience version of a topic.</p>
+   */
+  UserExperienceVersion?: TopicUserExperienceVersion;
 
   /**
    * @public
@@ -9061,17 +9081,6 @@ export interface ListRoleMembershipsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
-   */
-  ResourceArn: string | undefined;
 }
 
 /**
