@@ -53,6 +53,11 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "browser": {
+    "./dist-es/compressString": "./dist-es/compressString.browser",
+    "./dist-es/compressStream": "./dist-es/compressStream.browser"
+  },
+  "react-native": {},
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-compression",
   "repository": {
     "type": "git",
