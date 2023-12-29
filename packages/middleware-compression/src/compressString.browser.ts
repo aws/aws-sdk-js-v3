@@ -1,29 +1,13 @@
 import { toUint8Array } from "@smithy/util-utf8";
+import { gzip } from "fflate";
 
-import { compressStream } from "./compressStream.browser";
-
-export const compressString = async (body: any): Promise<Uint8Array> => {
-  // Only gzip shall be supported initial release.
-
-  const inputUint8Array = toUint8Array(body);
-  const inputStream = new ReadableStream({
-    start(controller) {
-      controller.enqueue(inputUint8Array);
-      controller.close();
-    },
+export const compressString = async (body: any): Promise<Uint8Array> =>
+  new Promise((resolve, reject) => {
+    gzip(toUint8Array(body || ""), (err, data) => {
+      if (err) {
+        reject(new Error("Failure during compression: " + err.message));
+      } else {
+        resolve(data);
+      }
+    });
   });
-
-  const outputStream = await compressStream(inputStream);
-
-  const reader = outputStream.getReader();
-  const chunks = [];
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) {
-      break;
-    }
-    chunks.push(...value);
-  }
-
-  return new Uint8Array(chunks);
-};

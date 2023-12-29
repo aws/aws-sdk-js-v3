@@ -1,19 +1,16 @@
+// @jest-environment jsdom
 import { toUint8Array } from "@smithy/util-utf8";
-import { gzip } from "zlib";
+import { gzip } from "fflate";
 
-import { compressString } from "./compressString";
-
-const compressionSuffix = "compressed";
-const compressionSeparator = ".";
+import { compressString } from "./compressString.browser";
 
 jest.mock("@smithy/util-utf8");
-jest.mock("util", () => ({ promisify: jest.fn().mockImplementation((fn) => fn) }));
-jest.mock("zlib", () => ({
-  gzip: jest.fn().mockImplementation((data) => [data, compressionSuffix].join(compressionSeparator)),
-}));
+jest.mock("fflate");
 
 describe(compressString.name, () => {
   const testData = "test";
+  const compressionSuffix = "compressed";
+  const compressionSeparator = ".";
 
   beforeEach(() => {
     (toUint8Array as jest.Mock).mockImplementation((data) => data);
@@ -24,22 +21,24 @@ describe(compressString.name, () => {
   });
 
   it("should compress data with gzip", async () => {
+    (gzip as jest.Mock).mockImplementation((data, callback) => {
+      callback(null, [data, compressionSuffix].join(compressionSeparator));
+    });
     const receivedOutput = await compressString(testData);
     const expectedOutput = [testData, compressionSuffix].join(compressionSeparator);
 
     expect(receivedOutput).toEqual(expectedOutput);
     expect(gzip).toHaveBeenCalledTimes(1);
-    expect(gzip).toHaveBeenCalledWith(testData);
-    expect(toUint8Array).toHaveBeenCalledTimes(2);
-    expect(toUint8Array).toHaveBeenNthCalledWith(1, testData);
-    expect(toUint8Array).toHaveBeenNthCalledWith(2, expectedOutput);
+    expect(gzip).toHaveBeenCalledWith(testData, expect.any(Function));
+    expect(toUint8Array).toHaveBeenCalledTimes(1);
+    expect(toUint8Array).toHaveBeenCalledWith(testData);
   });
 
   it("should throw an error if compression fails", async () => {
     const compressionErrorMsg = "compression error message";
     const compressionError = new Error(compressionErrorMsg);
-    (gzip as unknown as jest.Mock).mockImplementationOnce(() => {
-      throw compressionError;
+    (gzip as jest.Mock).mockImplementation((data, callback) => {
+      callback(compressionError);
     });
 
     await expect(compressString(testData)).rejects.toThrow(
@@ -47,7 +46,7 @@ describe(compressString.name, () => {
     );
 
     expect(gzip).toHaveBeenCalledTimes(1);
-    expect(gzip).toHaveBeenCalledWith(testData);
+    expect(gzip).toHaveBeenCalledWith(testData, expect.any(Function));
     expect(toUint8Array).toHaveBeenCalledTimes(1);
     expect(toUint8Array).toHaveBeenCalledWith(testData);
   });
