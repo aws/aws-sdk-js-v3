@@ -1,6 +1,7 @@
 import { numberSelector, SelectorType } from "@smithy/util-config-provider";
 
 import {
+  DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
   NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_CONFIG_OPTIONS,
   NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_ENV_NAME,
   NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_INI_NAME,
@@ -43,8 +44,8 @@ describe("NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_CONFIG_OPTIONS", () => {
     test(configFileSelector, profileContent, NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_INI_NAME, SelectorType.CONFIG);
   });
 
-  it("returns 10240 for default", () => {
+  it(`returns ${DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES} for default`, () => {
     const { default: defaultValue } = NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_CONFIG_OPTIONS;
-    expect(defaultValue).toEqual(10240);
+    expect(defaultValue).toEqual(DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES);
   });
 });
