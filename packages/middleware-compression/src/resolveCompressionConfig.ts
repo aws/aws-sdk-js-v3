@@ -1,5 +1,8 @@
 import { CompressionInputConfig, CompressionResolvedConfig } from "./configurations";
 
+/**
+ * @internal
+ */
 export const resolveCompressionConfig = <T>(input: T & CompressionInputConfig): T & CompressionResolvedConfig => {
   const { requestMinCompressionSizeBytes } = input;
 
