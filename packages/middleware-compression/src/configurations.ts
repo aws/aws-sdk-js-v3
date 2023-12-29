@@ -1,7 +1,14 @@
+import { BodyLengthCalculator } from "@smithy/types";
+
 /**
  * @public
  */
 export interface CompressionInputConfig {
+  /**
+   * A function that can calculate the length of a body.
+   */
+  bodyLengthChecker: BodyLengthCalculator;
+
   /**
    * Whether to disable request compression.
    */

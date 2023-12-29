@@ -60,9 +60,12 @@ export const compressionMiddleware =
             // Invalid case. We should never get here.
             throw new Error("Compression is not supported for streaming blobs that require a length.");
           }
-        } else if (body.length >= config.requestMinCompressionSizeBytes) {
-          updatedBody = await compressString(body);
-          isRequestCompressed = true;
+        } else {
+          const bodyLength = config.bodyLengthChecker(body);
+          if (bodyLength && bodyLength >= config.requestMinCompressionSizeBytes) {
+            updatedBody = await compressString(body);
+            isRequestCompressed = true;
+          }
         }
 
         if (isRequestCompressed) {

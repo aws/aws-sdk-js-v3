@@ -12,7 +12,9 @@ jest.mock("./compressStream");
 jest.mock("./isStreaming");
 
 describe(compressionMiddleware.name, () => {
+  const mockBody = "body";
   const mockConfig = {
+    bodyLengthChecker: jest.fn().mockReturnValue(mockBody.length),
     disableRequestCompression: false,
     requestMinCompressionSizeBytes: 0,
   };
@@ -22,7 +24,6 @@ describe(compressionMiddleware.name, () => {
 
   const mockNext = jest.fn();
   const mockContext = {};
-  const mockBody = "body";
   const mockArgs = { request: { headers: {}, body: mockBody } };
 
   afterEach(() => {
