@@ -14,10 +14,15 @@ export const NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_INI_NAME = "request_min_com
 /**
  * @internal
  */
+export const DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES = 10240;
+
+/**
+ * @internal
+ */
 export const NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_CONFIG_OPTIONS: LoadedConfigSelectors<number> = {
   environmentVariableSelector: (env: NodeJS.ProcessEnv) =>
     numberSelector(env, NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_ENV_NAME, SelectorType.ENV),
   configFileSelector: (profile) =>
     numberSelector(profile, NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_INI_NAME, SelectorType.CONFIG),
-  default: 10240,
+  default: DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
 };

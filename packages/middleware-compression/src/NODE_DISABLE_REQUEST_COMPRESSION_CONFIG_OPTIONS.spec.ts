@@ -1,6 +1,7 @@
 import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
 
 import {
+  DEFAULT_DISABLE_REQUEST_COMPRESSION,
   NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS,
   NODE_DISABLE_REQUEST_COMPRESSION_ENV_NAME,
   NODE_DISABLE_REQUEST_COMPRESSION_INI_NAME,
@@ -43,8 +44,8 @@ describe("NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS", () => {
     test(configFileSelector, profileContent, NODE_DISABLE_REQUEST_COMPRESSION_INI_NAME, SelectorType.CONFIG);
   });
 
-  it("returns false for default", () => {
+  it(`returns ${DEFAULT_DISABLE_REQUEST_COMPRESSION} for default`, () => {
     const { default: defaultValue } = NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS;
-    expect(defaultValue).toEqual(false);
+    expect(defaultValue).toEqual(DEFAULT_DISABLE_REQUEST_COMPRESSION);
   });
 });
