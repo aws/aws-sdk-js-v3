@@ -78,6 +78,8 @@ export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOption
       secretAccessKey: Credentials.SecretAccessKey,
       sessionToken: Credentials.SessionToken,
       expiration: Credentials.Expiration,
+      // TODO(credentialScope): access normally when shape is updated.
+      credentialScope: (Credentials as any).CredentialScope,
     };
   };
 };

@@ -16,8 +16,8 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "dependencies": {
-    "@smithy/node-config-provider": "^2.1.8",
-    "@smithy/types": "^2.7.0",
+    "@smithy/node-config-provider": "^2.1.9",
+    "@smithy/types": "^2.8.0",
     "@smithy/util-config-provider": "^2.1.0",
     "fflate": "0.8.1",
     "tslib": "^2.5.0"

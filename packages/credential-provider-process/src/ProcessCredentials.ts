@@ -7,4 +7,5 @@ export type ProcessCredentials = {
   SecretAccessKey: string;
   SessionToken?: string;
   Expiration?: number;
+  CredentialScope?: string;
 };

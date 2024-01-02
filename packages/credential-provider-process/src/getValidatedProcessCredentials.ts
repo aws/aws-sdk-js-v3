@@ -30,5 +30,6 @@ export const getValidatedProcessCredentials = (
     secretAccessKey: data.SecretAccessKey,
     ...(data.SessionToken && { sessionToken: data.SessionToken }),
     ...(data.Expiration && { expiration: new Date(data.Expiration) }),
+    ...(data.CredentialScope && { credentialScope: data.CredentialScope }),
   };
 };
