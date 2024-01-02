@@ -22,9 +22,9 @@
   "dependencies": {
     "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/types": "*",
-    "@smithy/protocol-http": "^3.0.11",
+    "@smithy/protocol-http": "^3.0.12",
     "@smithy/signature-v4": "^2.0.0",
-    "@smithy/types": "^2.7.0",
+    "@smithy/types": "^2.8.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

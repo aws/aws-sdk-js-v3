@@ -25,9 +25,9 @@
     "@aws-sdk/client-sagemaker": "*",
     "@aws-sdk/client-sagemaker-runtime": "*",
     "@aws-sdk/client-xray": "*",
-    "@smithy/protocol-http": "^3.0.11",
-    "@smithy/types": "^2.7.0",
-    "@smithy/util-stream": "^2.0.23",
+    "@smithy/protocol-http": "^3.0.12",
+    "@smithy/types": "^2.8.0",
+    "@smithy/util-stream": "^2.0.24",
     "@smithy/util-utf8": "^2.0.2",
     "tslib": "^2.5.0"
   },
