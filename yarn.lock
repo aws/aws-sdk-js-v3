@@ -2982,6 +2982,17 @@
     "@smithy/types" "^2.8.0"
     tslib "^2.5.0"
 
+"@smithy/middleware-compression@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-compression/-/middleware-compression-2.0.0.tgz#27f61af9ed0ef42820d7ad53c1a51610b3db60e1"
+  integrity sha512-o/1gfgkg+x1o5XAAklFYfGeZzM+sGZviFrFJ4QiVVn73f9bBQNbQJAho+yYPOaSs8yKiL89yN41Z9t6o2jQ4LA==
+  dependencies:
+    "@smithy/node-config-provider" "^2.1.9"
+    "@smithy/types" "^2.8.0"
+    "@smithy/util-config-provider" "^2.1.0"
+    fflate "0.8.1"
+    tslib "^2.5.0"
+
 "@smithy/middleware-content-length@^2.0.18":
   version "2.0.18"
   resolved "https://registry.yarnpkg.com/@smithy/middleware-content-length/-/middleware-content-length-2.0.18.tgz#a3b13beb300290f5d0d48ace0f818e44261356fa"
