@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getCompressionPlugin } from "@smithy/middleware-compression";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -150,6 +151,7 @@ export class PutMetricDataCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getCompressionPlugin(config, { encodings: ["gzip"] }),
     ];
   })
   .s("GraniteServiceVersion20100801", "PutMetricData", {})
