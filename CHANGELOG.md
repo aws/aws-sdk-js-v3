@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+
+### Features
+
+* **client-connect:** Amazon Connect, Contact Lens Evaluation API increase evaluation notes max length to 3072. ([a0b0198](https://github.com/aws/aws-sdk-js-v3/commit/a0b0198774ee461fd685d6b82b39c58a5c762c2a))
+* **client-mediaconvert:** This release includes video engine updates including HEVC improvements, support for ingesting VP9 encoded video in MP4 containers, and support for user-specified 3D LUTs. ([f784647](https://github.com/aws/aws-sdk-js-v3/commit/f7846472d6e88b4d3a9752e3e4f70fda2c541fe5))
+* **clients:** update client endpoints as of 2024-01-03 ([8f2029a](https://github.com/aws/aws-sdk-js-v3/commit/8f2029a554c5352b15443d127f1faeec3b6345cc))
+* **credential-providers:** add credentialScope field ([#5606](https://github.com/aws/aws-sdk-js-v3/issues/5606)) ([04c1459](https://github.com/aws/aws-sdk-js-v3/commit/04c14592898ac63ed87d47f2a53320ccaa991083))
+
+
+
+
+
 # [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
 
 

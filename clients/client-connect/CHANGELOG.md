@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+
+### Features
+
+* **client-connect:** Amazon Connect, Contact Lens Evaluation API increase evaluation notes max length to 3072. ([a0b0198](https://github.com/aws/aws-sdk-js-v3/commit/a0b0198774ee461fd685d6b82b39c58a5c762c2a))
+* **credential-providers:** add credentialScope field ([#5606](https://github.com/aws/aws-sdk-js-v3/issues/5606)) ([04c1459](https://github.com/aws/aws-sdk-js-v3/commit/04c14592898ac63ed87d47f2a53320ccaa991083))
+
+
+
+
+
 # [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

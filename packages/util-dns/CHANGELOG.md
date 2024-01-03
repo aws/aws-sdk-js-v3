@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+**Note:** Version bump only for package @aws-sdk/util-dns
+
+
+
+
+
 # [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
 
 **Note:** Version bump only for package @aws-sdk/util-dns
