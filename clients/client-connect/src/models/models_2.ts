@@ -82,12 +82,12 @@ export type SearchContactsTimeRangeType =
 
 /**
  * @public
- * <p>A structure of time range that you want to search results</p>
+ * <p>A structure of time range that you want to search results.</p>
  */
 export interface SearchContactsTimeRange {
   /**
    * @public
-   * <p>The type of timestamp to search</p>
+   * <p>The type of timestamp to search.</p>
    */
   Type: SearchContactsTimeRangeType | undefined;
 
@@ -110,13 +110,14 @@ export interface SearchContactsTimeRange {
 export interface SearchContactsRequest {
   /**
    * @public
-   * <p>The identifier of Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance</p>
+   * <p>The identifier of Amazon Connect instance. You can find the instance ID in the Amazon
+   *    Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * @public
-   * <p>Time range that you want to search results</p>
+   * <p>Time range that you want to search results.</p>
    */
   TimeRange: SearchContactsTimeRange | undefined;
 
@@ -134,13 +135,14 @@ export interface SearchContactsRequest {
 
   /**
    * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
    * @public
-   * <p>Specifies a field to sort by and a sort order</p>
+   * <p>Specifies a field to sort by and a sort order.</p>
    */
   Sort?: Sort;
 }
@@ -188,7 +190,7 @@ export interface ContactSearchSummaryQueueInfo {
 export interface ContactSearchSummary {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the contact</p>
+   * <p>The Amazon Resource Name (ARN) of the contact.</p>
    */
   Arn?: string;
 
@@ -236,7 +238,13 @@ export interface ContactSearchSummary {
 
   /**
    * @public
-   * <p>The date and time this contact was initiated, in UTC time. For INBOUND, this is when the contact arrived. For OUTBOUND, this is when the agent began dialing. For CALLBACK, this is when the callback contact was created. For TRANSFER and QUEUE_TRANSFER, this is when the transfer was initiated. For API, this is when the request arrived. For EXTERNAL_OUTBOUND, this is when the agent started dialing the external participant. For MONITOR, this is when the supervisor started listening to a contact.</p>
+   * <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is
+   *    when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For
+   *     <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code>
+   *    and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For API, this is when
+   *    the request arrived. For <code>EXTERNAL_OUTBOUND</code>, this is when the agent started dialing
+   *    the external participant. For <code>MONITOR</code>, this is when the supervisor started listening
+   *    to a contact.</p>
    */
   InitiationTimestamp?: Date;
 
@@ -5032,10 +5040,10 @@ export interface UserSearchCriteria {
   /**
    * @public
    * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *      <code>description</code>, and <code>resourceID</code>.</p>
-   *          </note>
+   *          <p>The currently supported values for <code>FieldName</code> are <code>username</code>,
+   *     <code>firstname</code>, <code>lastname</code>, <code>resourceId</code>,
+   *     <code>routingProfileId</code>, <code>securityProfileId</code>, <code>agentGroupId</code>, and
+   *     <code>agentGroupPathIds</code>.</p>
    */
   StringCondition?: StringCondition;
 

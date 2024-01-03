@@ -8923,7 +8923,8 @@ export type SearchContactsMatchType = (typeof SearchContactsMatchType)[keyof typ
 
 /**
  * @public
- * <p>The transcript criteria used to search</p>
+ * <p>A structure that defines search criteria base on words or phrases, participants in the
+ *    Contact Lens conversational analytics transcript.</p>
  */
 export interface TranscriptCriteria {
   /**
@@ -8940,121 +8941,136 @@ export interface TranscriptCriteria {
 
   /**
    * @public
-   * <p>The match type of search texts in a transcript criteria.</p>
+   * <p>The match type combining search criteria using multiple search texts in a transcript
+   *    criteria.</p>
    */
   MatchType: SearchContactsMatchType | undefined;
 }
 
 /**
  * @public
- * <p>The transcript object used to search results.</p>
+ * <p>A structure that defines search criteria and matching logic to search for contacts by
+ *    matching text with transcripts analyzed by Amazon Connect Contact Lens.</p>
  */
 export interface Transcript {
   /**
    * @public
-   * <p>The array of transcript search criteria</p>
+   * <p>The list of search criteria based on Contact Lens conversational analytics
+   *    transcript.</p>
    */
   Criteria: TranscriptCriteria[] | undefined;
 
   /**
    * @public
-   * <p>The match type of multiple transcript criteira</p>
+   * <p>The match type combining search criteria using multiple transcript criteria.</p>
    */
   MatchType?: SearchContactsMatchType;
 }
 
 /**
  * @public
- * <p>A structure that defines filters can be used to search within outputs analyzed by Amazon Connect Contact Lens in a contact.</p>
+ * <p>A structure that defines search criteria for contacts using analysis outputs from Amazon
+ *    Connect Contact Lens.</p>
  */
 export interface ContactAnalysis {
   /**
    * @public
-   * <p>A structure that defines filters can be used to search with text within an Amazon Connect Contact Lens analyzed transcript.</p>
+   * <p>Search criteria based on transcript analyzed by Amazon Connect Contact Lens.</p>
    */
   Transcript?: Transcript;
 }
 
 /**
  * @public
- * <p>The criteria of searchable contact attributes.</p>
+ * <p>The search criteria based on user-defned contact attribute key and values to search
+ *    on.</p>
  */
 export interface SearchableContactAttributesCriteria {
   /**
    * @public
-   * <p>The searchable contact attribute key</p>
+   * <p>The key containing a searchable user-defined contact attribute.</p>
    */
   Key: string | undefined;
 
   /**
    * @public
-   * <p>The array of contact attribute values used to filter search results.</p>
+   * <p>The list of values to search for within a user-defined contact attribute.</p>
    */
   Values: string[] | undefined;
 }
 
 /**
  * @public
- * <p>A structure that defines searchable contact attributes which can be used to filter search results. </p>
+ * <p>A structure that defines search criteria based on user-defined contact attributes that are
+ *    configured for contact search.</p>
  */
 export interface SearchableContactAttributes {
   /**
    * @public
-   * <p>The array of searhale contact attribute criteria</p>
+   * <p>The list of criteria based on user-defined contact attributes that are configured for
+   *    contact search.</p>
    */
   Criteria: SearchableContactAttributesCriteria[] | undefined;
 
   /**
    * @public
-   * <p>The match type of multiple searchable contact attributes criteria.</p>
+   * <p>The match type combining search criteria using multiple searchable contact
+   *    attributes.</p>
    */
   MatchType?: SearchContactsMatchType;
 }
 
 /**
  * @public
- * <p>A structure of search criteria to be used to return contacts</p>
+ * <p>A structure of search criteria to be used to return contacts.</p>
  */
 export interface SearchCriteria {
   /**
    * @public
-   * <p>The array of agent ids</p>
+   * <p>The identifiers of agents who handled the contacts.</p>
    */
   AgentIds?: string[];
 
   /**
    * @public
-   * <p>The agent hierarchy groups</p>
+   * <p>The agent hierarchy groups of the agent at the time of handling the contact.</p>
    */
   AgentHierarchyGroups?: AgentHierarchyGroups;
 
   /**
    * @public
-   * <p>The array of channels</p>
+   * <p>The list of channels associated with contacts.</p>
    */
   Channels?: Channel[];
 
   /**
    * @public
-   * <p>The ContactAnalysis object used in search criteria</p>
+   * <p>Search criteria based on analysis outputs from Amazon Connect Contact Lens.</p>
    */
   ContactAnalysis?: ContactAnalysis;
 
   /**
    * @public
-   * <p>The array of initiaton methods</p>
+   * <p>The list of initiation methods associated with contacts.</p>
    */
   InitiationMethods?: ContactInitiationMethod[];
 
   /**
    * @public
-   * <p>The array of queue ids.</p>
+   * <p>The list of queue IDs associated with contacts.</p>
    */
   QueueIds?: string[];
 
   /**
    * @public
-   * <p>The SearchableContactAttributes object used in search criteria</p>
+   * <p>The search criteria based on user-defined contact attributes that have been configured for
+   *    contact search. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by customer contact
+   *     attributes</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <important>
+   *             <p>To use <code>SearchableContactAttributes</code> in a search request, the
+   *      <code>GetContactAttributes</code> action is required to perform an API request. For more
+   *     information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions</a>Actions defined by Amazon Connect.</p>
+   *          </important>
    */
   SearchableContactAttributes?: SearchableContactAttributes;
 }
@@ -9079,7 +9095,7 @@ export type SortableFieldName = (typeof SortableFieldName)[keyof typeof Sortable
 
 /**
  * @public
- * <p>A structure that defines the sort by and a sort order</p>
+ * <p>A structure that defineds the field name to sort by and a sort order.</p>
  */
 export interface Sort {
   /**

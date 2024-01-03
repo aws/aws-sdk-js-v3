@@ -395,7 +395,9 @@ export interface AgentContactReference {
 
 /**
  * @public
- * <p>A structure that defines agent hierarchy group levels which can be used to filter search results. Important: Agent hierarchy group level information in search result is a snapshot, it does not represent current agent hierarchy who handled the contact.</p>
+ * <p>A structure that defines search criteria for contacts using agent hierarchy group levels.
+ *    For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
+ *     <i>Amazon Connect Administrator Guide</i>.</p>
  */
 export interface AgentHierarchyGroups {
   /**
