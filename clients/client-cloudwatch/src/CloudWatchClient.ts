@@ -21,6 +21,11 @@ import {
 } from "@aws-sdk/middleware-user-agent";
 import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  CompressionInputConfig,
+  CompressionResolvedConfig,
+  resolveCompressionConfig,
+} from "@smithy/middleware-compression";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -364,6 +369,7 @@ export type CloudWatchClientConfigType = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig &
+  CompressionInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -384,6 +390,7 @@ export type CloudWatchClientResolvedConfigType = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
+  CompressionResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -428,9 +435,10 @@ export class CloudWatchClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveAwsAuthConfig(_config_5);
     const _config_7 = resolveUserAgentConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    const _config_8 = resolveCompressionConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
