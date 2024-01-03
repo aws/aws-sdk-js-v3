@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { CreatePresetRequest, CreatePresetResponse } from "../models/models_1";
+import { CreatePresetRequest, CreatePresetResponse } from "../models/models_2";
 import { de_CreatePresetCommand, se_CreatePresetCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -294,7 +294,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *         TimedMetadataSchemeIdUri: "STRING_VALUE",
  *         TimedMetadataValue: "STRING_VALUE",
  *       },
- *       Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW",
+ *       Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
  *       F4vSettings: { // F4vSettings
  *         MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  *       },
@@ -457,7 +457,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           SlowPal: "DISABLED" || "ENABLED",
  *           Telecine: "NONE" || "HARD",
  *         },
- *         Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
+ *         Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "UNCOMPRESSED" || "VC3" || "VP8" || "VP9" || "XAVC",
  *         FrameCaptureSettings: { // FrameCaptureSettings
  *           FramerateDenominator: Number("int"),
  *           FramerateNumerator: Number("int"),
@@ -618,6 +618,17 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           SlowPal: "DISABLED" || "ENABLED",
  *           Telecine: "NONE" || "HARD",
  *         },
+ *         UncompressedSettings: { // UncompressedSettings
+ *           Fourcc: "I420" || "I422" || "I444",
+ *           FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
+ *           FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ *           FramerateDenominator: Number("int"),
+ *           FramerateNumerator: Number("int"),
+ *           InterlaceMode: "INTERLACED" || "PROGRESSIVE",
+ *           ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
+ *           SlowPal: "DISABLED" || "ENABLED",
+ *           Telecine: "NONE" || "HARD",
+ *         },
  *         Vc3Settings: { // Vc3Settings
  *           FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *           FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
@@ -750,6 +761,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *           },
  *           HdrToSdrToneMapper: "PRESERVE_DETAILS" || "VIBRANT",
  *           Hue: Number("int"),
+ *           MaxLuminance: Number("int"),
  *           SampleRangeConversion: "LIMITED_RANGE_SQUEEZE" || "NONE" || "LIMITED_RANGE_CLIP",
  *           Saturation: Number("int"),
  *           SdrReferenceWhiteLevel: Number("int"),
@@ -1094,7 +1106,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //           TimedMetadataSchemeIdUri: "STRING_VALUE",
  * //           TimedMetadataValue: "STRING_VALUE",
  * //         },
- * //         Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW",
+ * //         Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
  * //         F4vSettings: { // F4vSettings
  * //           MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  * //         },
@@ -1257,7 +1269,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             SlowPal: "DISABLED" || "ENABLED",
  * //             Telecine: "NONE" || "HARD",
  * //           },
- * //           Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
+ * //           Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "UNCOMPRESSED" || "VC3" || "VP8" || "VP9" || "XAVC",
  * //           FrameCaptureSettings: { // FrameCaptureSettings
  * //             FramerateDenominator: Number("int"),
  * //             FramerateNumerator: Number("int"),
@@ -1418,6 +1430,17 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             SlowPal: "DISABLED" || "ENABLED",
  * //             Telecine: "NONE" || "HARD",
  * //           },
+ * //           UncompressedSettings: { // UncompressedSettings
+ * //             Fourcc: "I420" || "I422" || "I444",
+ * //             FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
+ * //             FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //             FramerateDenominator: Number("int"),
+ * //             FramerateNumerator: Number("int"),
+ * //             InterlaceMode: "INTERLACED" || "PROGRESSIVE",
+ * //             ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
+ * //             SlowPal: "DISABLED" || "ENABLED",
+ * //             Telecine: "NONE" || "HARD",
+ * //           },
  * //           Vc3Settings: { // Vc3Settings
  * //             FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //             FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
@@ -1550,6 +1573,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * //             },
  * //             HdrToSdrToneMapper: "PRESERVE_DETAILS" || "VIBRANT",
  * //             Hue: Number("int"),
+ * //             MaxLuminance: Number("int"),
  * //             SampleRangeConversion: "LIMITED_RANGE_SQUEEZE" || "NONE" || "LIMITED_RANGE_CLIP",
  * //             Saturation: Number("int"),
  * //             SdrReferenceWhiteLevel: Number("int"),

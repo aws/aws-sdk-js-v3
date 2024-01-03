@@ -95,6 +95,7 @@ import {
   CmafEncryptionSettings,
   CmafGroupSettings,
   CmafImageBasedTrickPlaySettings,
+  ColorConversion3DLUTSetting,
   DashAdditionalManifest,
   DashIsoEncryptionSettings,
   DashIsoGroupSettings,
@@ -234,12 +235,12 @@ import {
   ProresSettings,
   Queue,
   ReservationPlan,
-  ReservationPlanSettings,
   TimecodeBurnin,
   TimecodeConfig,
   TimedMetadataInsertion,
   Timing,
   TooManyRequestsException,
+  UncompressedSettings,
   Vc3Settings,
   VideoCodecSettings,
   VideoDescription,
@@ -254,7 +255,7 @@ import {
   XavcHdProfileSettings,
   XavcSettings,
 } from "../models/models_1";
-import { Policy, ResourceTags } from "../models/models_2";
+import { Policy, ReservationPlanSettings, ResourceTags } from "../models/models_2";
 
 /**
  * serializeAws_restJson1AssociateCertificateCommand
@@ -3497,6 +3498,30 @@ const se_CmfcSettings = (input: CmfcSettings, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1ColorConversion3DLUTSetting
+ */
+const se_ColorConversion3DLUTSetting = (input: ColorConversion3DLUTSetting, context: __SerdeContext): any => {
+  return take(input, {
+    fileInput: [, , `FileInput`],
+    inputColorSpace: [, , `InputColorSpace`],
+    inputMasteringLuminance: [, , `InputMasteringLuminance`],
+    outputColorSpace: [, , `OutputColorSpace`],
+    outputMasteringLuminance: [, , `OutputMasteringLuminance`],
+  });
+};
+
+/**
+ * serializeAws_restJson1ColorConversion3DLUTSettings
+ */
+const se_ColorConversion3DLUTSettings = (input: ColorConversion3DLUTSetting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ColorConversion3DLUTSetting(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1ColorCorrector
  */
 const se_ColorCorrector = (input: ColorCorrector, context: __SerdeContext): any => {
@@ -3508,6 +3533,7 @@ const se_ColorCorrector = (input: ColorCorrector, context: __SerdeContext): any 
     hdr10Metadata: [, (_) => se_Hdr10Metadata(_, context), `Hdr10Metadata`],
     hdrToSdrToneMapper: [, , `HdrToSdrToneMapper`],
     hue: [, , `Hue`],
+    maxLuminance: [, , `MaxLuminance`],
     sampleRangeConversion: [, , `SampleRangeConversion`],
     saturation: [, , `Saturation`],
     sdrReferenceWhiteLevel: [, , `SdrReferenceWhiteLevel`],
@@ -4346,6 +4372,11 @@ const se_JobSettings = (input: JobSettings, context: __SerdeContext): any => {
   return take(input, {
     adAvailOffset: [, , `AdAvailOffset`],
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
+    colorConversion3DLUTSettings: [
+      ,
+      (_) => se_ColorConversion3DLUTSettings(_, context),
+      `ColorConversion3DLUTSettings`,
+    ],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
     extendedDataServices: [, (_) => se_ExtendedDataServices(_, context), `ExtendedDataServices`],
     followSource: [, , `FollowSource`],
@@ -4367,6 +4398,11 @@ const se_JobTemplateSettings = (input: JobTemplateSettings, context: __SerdeCont
   return take(input, {
     adAvailOffset: [, , `AdAvailOffset`],
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
+    colorConversion3DLUTSettings: [
+      ,
+      (_) => se_ColorConversion3DLUTSettings(_, context),
+      `ColorConversion3DLUTSettings`,
+    ],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
     extendedDataServices: [, (_) => se_ExtendedDataServices(_, context), `ExtendedDataServices`],
     followSource: [, , `FollowSource`],
@@ -5121,6 +5157,23 @@ const se_TtmlDestinationSettings = (input: TtmlDestinationSettings, context: __S
 };
 
 /**
+ * serializeAws_restJson1UncompressedSettings
+ */
+const se_UncompressedSettings = (input: UncompressedSettings, context: __SerdeContext): any => {
+  return take(input, {
+    fourcc: [, , `Fourcc`],
+    framerateControl: [, , `FramerateControl`],
+    framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
+    framerateDenominator: [, , `FramerateDenominator`],
+    framerateNumerator: [, , `FramerateNumerator`],
+    interlaceMode: [, , `InterlaceMode`],
+    scanTypeConversionMode: [, , `ScanTypeConversionMode`],
+    slowPal: [, , `SlowPal`],
+    telecine: [, , `Telecine`],
+  });
+};
+
+/**
  * serializeAws_restJson1Vc3Settings
  */
 const se_Vc3Settings = (input: Vc3Settings, context: __SerdeContext): any => {
@@ -5150,6 +5203,7 @@ const se_VideoCodecSettings = (input: VideoCodecSettings, context: __SerdeContex
     h265Settings: [, (_) => se_H265Settings(_, context), `H265Settings`],
     mpeg2Settings: [, (_) => se_Mpeg2Settings(_, context), `Mpeg2Settings`],
     proresSettings: [, (_) => se_ProresSettings(_, context), `ProresSettings`],
+    uncompressedSettings: [, (_) => se_UncompressedSettings(_, context), `UncompressedSettings`],
     vc3Settings: [, (_) => se_Vc3Settings(_, context), `Vc3Settings`],
     vp8Settings: [, (_) => se_Vp8Settings(_, context), `Vp8Settings`],
     vp9Settings: [, (_) => se_Vp9Settings(_, context), `Vp9Settings`],
@@ -5239,6 +5293,7 @@ const se_VideoSelector = (input: VideoSelector, context: __SerdeContext): any =>
     colorSpaceUsage: [, , `ColorSpaceUsage`],
     embeddedTimecodeOverride: [, , `EmbeddedTimecodeOverride`],
     hdr10Metadata: [, (_) => se_Hdr10Metadata(_, context), `Hdr10Metadata`],
+    maxLuminance: [, , `MaxLuminance`],
     padVideo: [, , `PadVideo`],
     pid: [, , `Pid`],
     programNumber: [, , `ProgramNumber`],
@@ -6410,6 +6465,31 @@ const de_CmfcSettings = (output: any, context: __SerdeContext): CmfcSettings => 
 };
 
 /**
+ * deserializeAws_restJson1ColorConversion3DLUTSetting
+ */
+const de_ColorConversion3DLUTSetting = (output: any, context: __SerdeContext): ColorConversion3DLUTSetting => {
+  return take(output, {
+    FileInput: [, __expectString, `fileInput`],
+    InputColorSpace: [, __expectString, `inputColorSpace`],
+    InputMasteringLuminance: [, __expectInt32, `inputMasteringLuminance`],
+    OutputColorSpace: [, __expectString, `outputColorSpace`],
+    OutputMasteringLuminance: [, __expectInt32, `outputMasteringLuminance`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ColorConversion3DLUTSettings
+ */
+const de_ColorConversion3DLUTSettings = (output: any, context: __SerdeContext): ColorConversion3DLUTSetting[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ColorConversion3DLUTSetting(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1ColorCorrector
  */
 const de_ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector => {
@@ -6421,6 +6501,7 @@ const de_ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector
     Hdr10Metadata: [, (_: any) => de_Hdr10Metadata(_, context), `hdr10Metadata`],
     HdrToSdrToneMapper: [, __expectString, `hdrToSdrToneMapper`],
     Hue: [, __expectInt32, `hue`],
+    MaxLuminance: [, __expectInt32, `maxLuminance`],
     SampleRangeConversion: [, __expectString, `sampleRangeConversion`],
     Saturation: [, __expectInt32, `saturation`],
     SdrReferenceWhiteLevel: [, __expectInt32, `sdrReferenceWhiteLevel`],
@@ -7328,6 +7409,11 @@ const de_JobSettings = (output: any, context: __SerdeContext): JobSettings => {
   return take(output, {
     AdAvailOffset: [, __expectInt32, `adAvailOffset`],
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
+    ColorConversion3DLUTSettings: [
+      ,
+      (_: any) => de_ColorConversion3DLUTSettings(_, context),
+      `colorConversion3DLUTSettings`,
+    ],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
     ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
     FollowSource: [, __expectInt32, `followSource`],
@@ -7374,6 +7460,11 @@ const de_JobTemplateSettings = (output: any, context: __SerdeContext): JobTempla
   return take(output, {
     AdAvailOffset: [, __expectInt32, `adAvailOffset`],
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
+    ColorConversion3DLUTSettings: [
+      ,
+      (_: any) => de_ColorConversion3DLUTSettings(_, context),
+      `colorConversion3DLUTSettings`,
+    ],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
     ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
     FollowSource: [, __expectInt32, `followSource`],
@@ -8221,6 +8312,23 @@ const de_TtmlDestinationSettings = (output: any, context: __SerdeContext): TtmlD
 };
 
 /**
+ * deserializeAws_restJson1UncompressedSettings
+ */
+const de_UncompressedSettings = (output: any, context: __SerdeContext): UncompressedSettings => {
+  return take(output, {
+    Fourcc: [, __expectString, `fourcc`],
+    FramerateControl: [, __expectString, `framerateControl`],
+    FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
+    FramerateDenominator: [, __expectInt32, `framerateDenominator`],
+    FramerateNumerator: [, __expectInt32, `framerateNumerator`],
+    InterlaceMode: [, __expectString, `interlaceMode`],
+    ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
+    SlowPal: [, __expectString, `slowPal`],
+    Telecine: [, __expectString, `telecine`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Vc3Settings
  */
 const de_Vc3Settings = (output: any, context: __SerdeContext): Vc3Settings => {
@@ -8250,6 +8358,7 @@ const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodec
     H265Settings: [, (_: any) => de_H265Settings(_, context), `h265Settings`],
     Mpeg2Settings: [, (_: any) => de_Mpeg2Settings(_, context), `mpeg2Settings`],
     ProresSettings: [, (_: any) => de_ProresSettings(_, context), `proresSettings`],
+    UncompressedSettings: [, (_: any) => de_UncompressedSettings(_, context), `uncompressedSettings`],
     Vc3Settings: [, (_: any) => de_Vc3Settings(_, context), `vc3Settings`],
     Vp8Settings: [, (_: any) => de_Vp8Settings(_, context), `vp8Settings`],
     Vp9Settings: [, (_: any) => de_Vp9Settings(_, context), `vp9Settings`],
@@ -8349,6 +8458,7 @@ const de_VideoSelector = (output: any, context: __SerdeContext): VideoSelector =
     ColorSpaceUsage: [, __expectString, `colorSpaceUsage`],
     EmbeddedTimecodeOverride: [, __expectString, `embeddedTimecodeOverride`],
     Hdr10Metadata: [, (_: any) => de_Hdr10Metadata(_, context), `hdr10Metadata`],
+    MaxLuminance: [, __expectInt32, `maxLuminance`],
     PadVideo: [, __expectString, `padVideo`],
     Pid: [, __expectInt32, `pid`],
     ProgramNumber: [, __expectInt32, `programNumber`],

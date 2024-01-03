@@ -343,7 +343,7 @@ export interface AacSettings {
 
   /**
    * @public
-   * AAC Profile.
+   * Specify the AAC profile. For the widest player compatibility and where higher bitrates are acceptable: Keep the default profile, LC (AAC-LC) For improved audio performance at lower bitrates: Choose HEV1 or HEV2. HEV1 (AAC-HE v1) adds spectral band replication to improve speech audio at low bitrates. HEV2 (AAC-HE v2) adds parametric stereo, which optimizes for encoding stereo audio at very low bitrates.
    */
   CodecProfile?: AacCodecProfile;
 
@@ -355,7 +355,7 @@ export interface AacSettings {
 
   /**
    * @public
-   * Rate Control Mode.
+   * Specify the AAC rate control mode. For a constant bitrate: Choose CBR. Your AAC output bitrate will be equal to the value that you choose for Bitrate. For a variable bitrate: Choose VBR. Your AAC output bitrate will vary according to your audio content and the value that you choose for Bitrate quality.
    */
   RateControlMode?: AacRateControlMode;
 
@@ -367,7 +367,7 @@ export interface AacSettings {
 
   /**
    * @public
-   * Specify the Sample rate in Hz. Valid sample rates depend on the Profile and Coding mode that you select. The following list shows valid sample rates for each Profile and Coding mode. * LC Profile, Coding mode 1.0, 2.0, and Receiver Mix: 8000, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 88200, 96000. * LC Profile, Coding mode 5.1: 32000, 44100, 48000, 96000. * HEV1 Profile, Coding mode 1.0 and Receiver Mix: 22050, 24000, 32000, 44100, 48000. * HEV1 Profile, Coding mode 2.0 and 5.1: 32000, 44100, 48000, 96000. * HEV2 Profile, Coding mode 2.0: 22050, 24000, 32000, 44100, 48000.
+   * Specify the AAC sample rate in samples per second (Hz). Valid sample rates depend on the AAC profile and Coding mode that you select. For a list of supported sample rates, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/aac-support.html
    */
   SampleRate?: number;
 
@@ -379,7 +379,7 @@ export interface AacSettings {
 
   /**
    * @public
-   * VBR Quality Level - Only used if rate_control_mode is VBR.
+   * Specify the quality of your variable bitrate (VBR) AAC audio. For a list of approximate VBR bitrates, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/aac-support.html#aac_vbr
    */
   VbrQuality?: AacVbrQuality;
 }
@@ -4304,6 +4304,12 @@ export interface VideoSelector {
 
   /**
    * @public
+   * Specify the maximum mastering display luminance. Enter an integer from 0 to 2147483647, in units of 0.0001 nits. For example, enter 10000000 for 1000 nits.
+   */
+  MaxLuminance?: number;
+
+  /**
+   * @public
    * Use this setting if your input has video and audio durations that don't align, and your output or player has strict alignment requirements. Examples: Input audio track has a delayed start. Input video track ends before audio ends. When you set Pad video to Black, MediaConvert generates black video frames so that output video and audio durations match. Black video frames are added at the beginning or end, depending on your input. To keep the default behavior and not generate black video, set Pad video to Disabled or leave blank.
    */
   PadVideo?: PadVideo;
@@ -4799,6 +4805,42 @@ export interface AvailBlanking {
    * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
    */
   AvailBlankingImage?: string;
+}
+
+/**
+ * @public
+ * Custom 3D lut settings
+ */
+export interface ColorConversion3DLUTSetting {
+  /**
+   * @public
+   * Specify the input file S3, HTTP, or HTTPS URL for your 3D LUT .cube file. Note that MediaConvert accepts 3D LUT files up to 8MB in size.
+   */
+  FileInput?: string;
+
+  /**
+   * @public
+   * Specify which inputs use this 3D LUT, according to their color space.
+   */
+  InputColorSpace?: ColorSpace;
+
+  /**
+   * @public
+   * Specify which inputs use this 3D LUT, according to their luminance. To apply this 3D LUT to HDR10 or P3D65 (HDR) inputs with a specific mastering luminance: Enter an integer from 0 to 2147483647, corresponding to the input's Maximum luminance value. To apply this 3D LUT to any input regardless of its luminance: Leave blank, or enter 0.
+   */
+  InputMasteringLuminance?: number;
+
+  /**
+   * @public
+   * Specify which outputs use this 3D LUT, according to their color space.
+   */
+  OutputColorSpace?: ColorSpace;
+
+  /**
+   * @public
+   * Specify which outputs use this 3D LUT, according to their luminance. To apply this 3D LUT to HDR10 or P3D65 (HDR) outputs with a specific luminance: Enter an integer from 0 to 2147483647, corresponding to the output's luminance. To apply this 3D LUT to any output regardless of its luminance: Leave blank, or enter 0.
+   */
+  OutputMasteringLuminance?: number;
 }
 
 /**
@@ -7314,17 +7356,3 @@ export const CmfcScte35Esam = {
  * @public
  */
 export type CmfcScte35Esam = (typeof CmfcScte35Esam)[keyof typeof CmfcScte35Esam];
-
-/**
- * @public
- * @enum
- */
-export const CmfcScte35Source = {
-  NONE: "NONE",
-  PASSTHROUGH: "PASSTHROUGH",
-} as const;
-
-/**
- * @public
- */
-export type CmfcScte35Source = (typeof CmfcScte35Source)[keyof typeof CmfcScte35Source];

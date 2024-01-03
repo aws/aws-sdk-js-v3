@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { CreateJobTemplateRequest, CreateJobTemplateResponse } from "../models/models_1";
+import { CreateJobTemplateRequest, CreateJobTemplateResponse } from "../models/models_2";
 import { de_CreateJobTemplateCommand, se_CreateJobTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -56,6 +56,15 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *     AvailBlanking: { // AvailBlanking
  *       AvailBlankingImage: "STRING_VALUE",
  *     },
+ *     ColorConversion3DLUTSettings: [ // ColorConversion3DLUTSettings
+ *       { // ColorConversion3DLUTSetting
+ *         FileInput: "STRING_VALUE",
+ *         InputColorSpace: "FOLLOW" || "REC_601" || "REC_709" || "HDR10" || "HLG_2020" || "P3DCI" || "P3D65_SDR" || "P3D65_HDR",
+ *         InputMasteringLuminance: Number("int"),
+ *         OutputColorSpace: "FOLLOW" || "REC_601" || "REC_709" || "HDR10" || "HLG_2020" || "P3DCI" || "P3D65_SDR" || "P3D65_HDR",
+ *         OutputMasteringLuminance: Number("int"),
+ *       },
+ *     ],
  *     Esam: { // EsamSettings
  *       ManifestConfirmConditionNotification: { // EsamManifestConfirmConditionNotification
  *         MccXml: "STRING_VALUE",
@@ -250,6 +259,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *             WhitePointX: Number("int"),
  *             WhitePointY: Number("int"),
  *           },
+ *           MaxLuminance: Number("int"),
  *           PadVideo: "DISABLED" || "BLACK",
  *           Pid: Number("int"),
  *           ProgramNumber: Number("int"),
@@ -880,7 +890,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                 TimedMetadataSchemeIdUri: "STRING_VALUE",
  *                 TimedMetadataValue: "STRING_VALUE",
  *               },
- *               Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW",
+ *               Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
  *               F4vSettings: { // F4vSettings
  *                 MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  *               },
@@ -1057,7 +1067,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                   SlowPal: "DISABLED" || "ENABLED",
  *                   Telecine: "NONE" || "HARD",
  *                 },
- *                 Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
+ *                 Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "UNCOMPRESSED" || "VC3" || "VP8" || "VP9" || "XAVC",
  *                 FrameCaptureSettings: { // FrameCaptureSettings
  *                   FramerateDenominator: Number("int"),
  *                   FramerateNumerator: Number("int"),
@@ -1218,6 +1228,17 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                   SlowPal: "DISABLED" || "ENABLED",
  *                   Telecine: "NONE" || "HARD",
  *                 },
+ *                 UncompressedSettings: { // UncompressedSettings
+ *                   Fourcc: "I420" || "I422" || "I444",
+ *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
+ *                   FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ *                   FramerateDenominator: Number("int"),
+ *                   FramerateNumerator: Number("int"),
+ *                   InterlaceMode: "INTERLACED" || "PROGRESSIVE",
+ *                   ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
+ *                   SlowPal: "DISABLED" || "ENABLED",
+ *                   Telecine: "NONE" || "HARD",
+ *                 },
  *                 Vc3Settings: { // Vc3Settings
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *                   FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
@@ -1350,6 +1371,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                   },
  *                   HdrToSdrToneMapper: "PRESERVE_DETAILS" || "VIBRANT",
  *                   Hue: Number("int"),
+ *                   MaxLuminance: Number("int"),
  *                   SampleRangeConversion: "LIMITED_RANGE_SQUEEZE" || "NONE" || "LIMITED_RANGE_CLIP",
  *                   Saturation: Number("int"),
  *                   SdrReferenceWhiteLevel: Number("int"),
@@ -1475,6 +1497,15 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //       AvailBlanking: { // AvailBlanking
  * //         AvailBlankingImage: "STRING_VALUE",
  * //       },
+ * //       ColorConversion3DLUTSettings: [ // ColorConversion3DLUTSettings
+ * //         { // ColorConversion3DLUTSetting
+ * //           FileInput: "STRING_VALUE",
+ * //           InputColorSpace: "FOLLOW" || "REC_601" || "REC_709" || "HDR10" || "HLG_2020" || "P3DCI" || "P3D65_SDR" || "P3D65_HDR",
+ * //           InputMasteringLuminance: Number("int"),
+ * //           OutputColorSpace: "FOLLOW" || "REC_601" || "REC_709" || "HDR10" || "HLG_2020" || "P3DCI" || "P3D65_SDR" || "P3D65_HDR",
+ * //           OutputMasteringLuminance: Number("int"),
+ * //         },
+ * //       ],
  * //       Esam: { // EsamSettings
  * //         ManifestConfirmConditionNotification: { // EsamManifestConfirmConditionNotification
  * //           MccXml: "STRING_VALUE",
@@ -1669,6 +1700,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //               WhitePointX: Number("int"),
  * //               WhitePointY: Number("int"),
  * //             },
+ * //             MaxLuminance: Number("int"),
  * //             PadVideo: "DISABLED" || "BLACK",
  * //             Pid: Number("int"),
  * //             ProgramNumber: Number("int"),
@@ -2299,7 +2331,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                   TimedMetadataSchemeIdUri: "STRING_VALUE",
  * //                   TimedMetadataValue: "STRING_VALUE",
  * //                 },
- * //                 Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW",
+ * //                 Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
  * //                 F4vSettings: { // F4vSettings
  * //                   MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  * //                 },
@@ -2476,7 +2508,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                     SlowPal: "DISABLED" || "ENABLED",
  * //                     Telecine: "NONE" || "HARD",
  * //                   },
- * //                   Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
+ * //                   Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "UNCOMPRESSED" || "VC3" || "VP8" || "VP9" || "XAVC",
  * //                   FrameCaptureSettings: { // FrameCaptureSettings
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
@@ -2637,6 +2669,17 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                     SlowPal: "DISABLED" || "ENABLED",
  * //                     Telecine: "NONE" || "HARD",
  * //                   },
+ * //                   UncompressedSettings: { // UncompressedSettings
+ * //                     Fourcc: "I420" || "I422" || "I444",
+ * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateDenominator: Number("int"),
+ * //                     FramerateNumerator: Number("int"),
+ * //                     InterlaceMode: "INTERLACED" || "PROGRESSIVE",
+ * //                     ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
+ * //                     SlowPal: "DISABLED" || "ENABLED",
+ * //                     Telecine: "NONE" || "HARD",
+ * //                   },
  * //                   Vc3Settings: { // Vc3Settings
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
@@ -2769,6 +2812,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                     },
  * //                     HdrToSdrToneMapper: "PRESERVE_DETAILS" || "VIBRANT",
  * //                     Hue: Number("int"),
+ * //                     MaxLuminance: Number("int"),
  * //                     SampleRangeConversion: "LIMITED_RANGE_SQUEEZE" || "NONE" || "LIMITED_RANGE_CLIP",
  * //                     Saturation: Number("int"),
  * //                     SdrReferenceWhiteLevel: Number("int"),

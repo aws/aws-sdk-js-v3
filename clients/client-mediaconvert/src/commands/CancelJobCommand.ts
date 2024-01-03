@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { CancelJobRequest, CancelJobResponse } from "../models/models_1";
+import { CancelJobRequest, CancelJobResponse } from "../models/models_2";
 import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_restJson1";
 
 /**

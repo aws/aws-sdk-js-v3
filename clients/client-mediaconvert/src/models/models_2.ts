@@ -1,8 +1,10 @@
 // smithy-typescript generated code
-import { AccelerationSettings, Endpoint, HopDestination } from "./models_0";
+import { AccelerationSettings, BillingTagsSource, Endpoint, HopDestination } from "./models_0";
 
 import {
+  Commitment,
   Job,
+  JobSettings,
   JobStatus,
   JobTemplate,
   JobTemplateSettings,
@@ -11,9 +13,266 @@ import {
   PricingPlan,
   Queue,
   QueueStatus,
-  ReservationPlanSettings,
+  RenewalType,
+  SimulateReservedQueue,
   StatusUpdateInterval,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CancelJobRequest {
+  /**
+   * @public
+   * The Job ID of the job to be cancelled.
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelJobResponse {}
+
+/**
+ * @public
+ */
+export interface CreateJobRequest {
+  /**
+   * @public
+   * Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+   */
+  AccelerationSettings?: AccelerationSettings;
+
+  /**
+   * @public
+   * Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
+   */
+  BillingTagsSource?: BillingTagsSource;
+
+  /**
+   * @public
+   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
+   */
+  HopDestinations?: HopDestination[];
+
+  /**
+   * @public
+   * Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
+   */
+  JobTemplate?: string;
+
+  /**
+   * @public
+   * Optional. Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html.
+   */
+  Queue?: string;
+
+  /**
+   * @public
+   * Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
+   */
+  Role: string | undefined;
+
+  /**
+   * @public
+   * JobSettings contains all the transcode settings for a job.
+   */
+  Settings: JobSettings | undefined;
+
+  /**
+   * @public
+   * Optional. Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
+   */
+  SimulateReservedQueue?: SimulateReservedQueue;
+
+  /**
+   * @public
+   * Optional. Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   */
+  StatusUpdateInterval?: StatusUpdateInterval;
+
+  /**
+   * @public
+   * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
+   */
+  UserMetadata?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateJobResponse {
+  /**
+   * @public
+   * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Job?: Job;
+}
+
+/**
+ * @public
+ */
+export interface CreateJobTemplateRequest {
+  /**
+   * @public
+   * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+   */
+  AccelerationSettings?: AccelerationSettings;
+
+  /**
+   * @public
+   * Optional. A category for the job template you are creating
+   */
+  Category?: string;
+
+  /**
+   * @public
+   * Optional. A description of the job template you are creating.
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
+   */
+  HopDestinations?: HopDestination[];
+
+  /**
+   * @public
+   * The name of the job template you are creating.
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * Optional. The queue that jobs created from this template are assigned to. If you don't specify this, jobs will go to the default queue.
+   */
+  Queue?: string;
+
+  /**
+   * @public
+   * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+   */
+  Settings: JobTemplateSettings | undefined;
+
+  /**
+   * @public
+   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   */
+  StatusUpdateInterval?: StatusUpdateInterval;
+
+  /**
+   * @public
+   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateJobTemplateResponse {
+  /**
+   * @public
+   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+   */
+  JobTemplate?: JobTemplate;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresetRequest {
+  /**
+   * @public
+   * Optional. A category for the preset you are creating.
+   */
+  Category?: string;
+
+  /**
+   * @public
+   * Optional. A description of the preset you are creating.
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * The name of the preset you are creating.
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * Settings for preset
+   */
+  Settings: PresetSettings | undefined;
+
+  /**
+   * @public
+   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresetResponse {
+  /**
+   * @public
+   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+   */
+  Preset?: Preset;
+}
+
+/**
+ * @public
+ * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+ */
+export interface ReservationPlanSettings {
+  /**
+   * @public
+   * The length of the term of your reserved queue pricing plan commitment.
+   */
+  Commitment: Commitment | undefined;
+
+  /**
+   * @public
+   * Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term. When your term is auto renewed, you extend your commitment by 12 months from the auto renew date. You can cancel this commitment.
+   */
+  RenewalType: RenewalType | undefined;
+
+  /**
+   * @public
+   * Specifies the number of reserved transcode slots (RTS) for this queue. The number of RTS determines how many jobs the queue can process in parallel; each RTS can process one job at a time. You can't decrease the number of RTS in your reserved queue. You can increase the number of RTS by extending your existing commitment with a new 12-month commitment for the larger number. The new commitment begins when you purchase the additional capacity. You can't cancel your commitment or revert to your original commitment after you increase the capacity.
+   */
+  ReservedSlots: number | undefined;
+}
 
 /**
  * @public

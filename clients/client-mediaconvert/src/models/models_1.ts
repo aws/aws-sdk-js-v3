@@ -19,7 +19,7 @@ import {
   CmfcKlvMetadata,
   CmfcManifestMetadataSignaling,
   CmfcScte35Esam,
-  CmfcScte35Source,
+  ColorConversion3DLUTSetting,
   EsamSettings,
   ExtendedDataServices,
   Hdr10Metadata,
@@ -39,6 +39,20 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const CmfcScte35Source = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CmfcScte35Source = (typeof CmfcScte35Source)[keyof typeof CmfcScte35Source];
 
 /**
  * @public
@@ -178,6 +192,7 @@ export const ContainerType = {
   MXF: "MXF",
   RAW: "RAW",
   WEBM: "WEBM",
+  Y4M: "Y4M",
 } as const;
 
 /**
@@ -2113,6 +2128,7 @@ export const VideoCodec = {
   MPEG2: "MPEG2",
   PASSTHROUGH: "PASSTHROUGH",
   PRORES: "PRORES",
+  UNCOMPRESSED: "UNCOMPRESSED",
   VC3: "VC3",
   VP8: "VP8",
   VP9: "VP9",
@@ -4287,6 +4303,169 @@ export interface ProresSettings {
  * @public
  * @enum
  */
+export const UncompressedFourcc = {
+  I420: "I420",
+  I422: "I422",
+  I444: "I444",
+} as const;
+
+/**
+ * @public
+ */
+export type UncompressedFourcc = (typeof UncompressedFourcc)[keyof typeof UncompressedFourcc];
+
+/**
+ * @public
+ * @enum
+ */
+export const UncompressedFramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type UncompressedFramerateControl =
+  (typeof UncompressedFramerateControl)[keyof typeof UncompressedFramerateControl];
+
+/**
+ * @public
+ * @enum
+ */
+export const UncompressedFramerateConversionAlgorithm = {
+  DUPLICATE_DROP: "DUPLICATE_DROP",
+  FRAMEFORMER: "FRAMEFORMER",
+  INTERPOLATE: "INTERPOLATE",
+} as const;
+
+/**
+ * @public
+ */
+export type UncompressedFramerateConversionAlgorithm =
+  (typeof UncompressedFramerateConversionAlgorithm)[keyof typeof UncompressedFramerateConversionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const UncompressedInterlaceMode = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type UncompressedInterlaceMode = (typeof UncompressedInterlaceMode)[keyof typeof UncompressedInterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const UncompressedScanTypeConversionMode = {
+  INTERLACED: "INTERLACED",
+  INTERLACED_OPTIMIZE: "INTERLACED_OPTIMIZE",
+} as const;
+
+/**
+ * @public
+ */
+export type UncompressedScanTypeConversionMode =
+  (typeof UncompressedScanTypeConversionMode)[keyof typeof UncompressedScanTypeConversionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const UncompressedSlowPal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type UncompressedSlowPal = (typeof UncompressedSlowPal)[keyof typeof UncompressedSlowPal];
+
+/**
+ * @public
+ * @enum
+ */
+export const UncompressedTelecine = {
+  HARD: "HARD",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type UncompressedTelecine = (typeof UncompressedTelecine)[keyof typeof UncompressedTelecine];
+
+/**
+ * @public
+ * Required when you set Codec, under VideoDescription>CodecSettings to the value UNCOMPRESSED.
+ */
+export interface UncompressedSettings {
+  /**
+   * @public
+   * The four character code for the uncompressed video.
+   */
+  Fourcc?: UncompressedFourcc;
+
+  /**
+   * @public
+   * Use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction.
+   */
+  FramerateControl?: UncompressedFramerateControl;
+
+  /**
+   * @public
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
+   */
+  FramerateConversionAlgorithm?: UncompressedFramerateConversionAlgorithm;
+
+  /**
+   * @public
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   */
+  FramerateDenominator?: number;
+
+  /**
+   * @public
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   */
+  FramerateNumerator?: number;
+
+  /**
+   * @public
+   * Optional. Choose the scan line type for this output. If you don't specify a value, MediaConvert will create a progressive output.
+   */
+  InterlaceMode?: UncompressedInterlaceMode;
+
+  /**
+   * @public
+   * Use this setting for interlaced outputs, when your output frame rate is half of your input frame rate. In this situation, choose Optimized interlacing to create a better quality interlaced output. In this case, each progressive frame from the input corresponds to an interlaced field in the output. Keep the default value, Basic interlacing, for all other output frame rates. With basic interlacing, MediaConvert performs any frame rate conversion first and then interlaces the frames. When you choose Optimized interlacing and you set your output frame rate to a value that isn't suitable for optimized interlacing, MediaConvert automatically falls back to basic interlacing. Required settings: To use optimized interlacing, you must set Telecine to None or Soft. You can't use optimized interlacing for hard telecine outputs. You must also set Interlace mode to a value other than Progressive.
+   */
+  ScanTypeConversionMode?: UncompressedScanTypeConversionMode;
+
+  /**
+   * @public
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output by relabeling the video frames and resampling your audio. Note that enabling this setting will slightly reduce the duration of your video. Related settings: You must also set Framerate to 25.
+   */
+  SlowPal?: UncompressedSlowPal;
+
+  /**
+   * @public
+   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard telecine to create a smoother picture. When you keep the default value, None, MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
+   */
+  Telecine?: UncompressedTelecine;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const Vc3FramerateControl = {
   INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
   SPECIFIED: "SPECIFIED",
@@ -5314,7 +5493,7 @@ export interface XavcSettings {
 
 /**
  * @public
- * Video codec settings contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec. For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
+ * Video codec settings contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec. For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * UNCOMPRESSED, UncompressedSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
  */
 export interface VideoCodecSettings {
   /**
@@ -5364,6 +5543,12 @@ export interface VideoCodecSettings {
    * Required when you set Codec to the value PRORES.
    */
   ProresSettings?: ProresSettings;
+
+  /**
+   * @public
+   * Required when you set Codec, under VideoDescription>CodecSettings to the value UNCOMPRESSED.
+   */
+  UncompressedSettings?: UncompressedSettings;
 
   /**
    * @public
@@ -5594,6 +5779,12 @@ export interface ColorCorrector {
    * Hue in degrees.
    */
   Hue?: number;
+
+  /**
+   * @public
+   * Specify the maximum mastering display luminance. Enter an integer from 0 to 2147483647, in units of 0.0001 nits. For example, enter 10000000 for 1000 nits.
+   */
+  MaxLuminance?: number;
 
   /**
    * @public
@@ -6127,7 +6318,7 @@ export interface VideoDescription {
 
   /**
    * @public
-   * Video codec settings contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec. For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
+   * Video codec settings contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec. For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * UNCOMPRESSED, UncompressedSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
    */
   CodecSettings?: VideoCodecSettings;
 
@@ -6367,6 +6558,12 @@ export interface JobSettings {
    * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
    */
   AvailBlanking?: AvailBlanking;
+
+  /**
+   * @public
+   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs.
+   */
+  ColorConversion3DLUTSettings?: ColorConversion3DLUTSetting[];
 
   /**
    * @public
@@ -6719,6 +6916,12 @@ export interface JobTemplateSettings {
    * Settings for ad avail blanking. Video can be blanked or overlaid with an image, and audio muted during SCTE-35 triggered ad avails.
    */
   AvailBlanking?: AvailBlanking;
+
+  /**
+   * @public
+   * Use 3D LUTs to specify custom color mapping behavior when you convert from one color space into another. You can include up to 8 different 3D LUTs.
+   */
+  ColorConversion3DLUTSettings?: ColorConversion3DLUTSetting[];
 
   /**
    * @public
@@ -7298,260 +7501,4 @@ export class TooManyRequestsException extends __BaseException {
     Object.setPrototypeOf(this, TooManyRequestsException.prototype);
     this.Message = opts.Message;
   }
-}
-
-/**
- * @public
- */
-export interface CancelJobRequest {
-  /**
-   * @public
-   * The Job ID of the job to be cancelled.
-   */
-  Id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CancelJobResponse {}
-
-/**
- * @public
- */
-export interface CreateJobRequest {
-  /**
-   * @public
-   * Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
-   */
-  AccelerationSettings?: AccelerationSettings;
-
-  /**
-   * @public
-   * Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
-   */
-  BillingTagsSource?: BillingTagsSource;
-
-  /**
-   * @public
-   * Prevent duplicate jobs from being created and ensure idempotency for your requests. A client request token can be any string that includes up to 64 ASCII characters. If you reuse a client request token within one minute of a successful request, the API returns the job details of the original request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * @public
-   * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
-   */
-  HopDestinations?: HopDestination[];
-
-  /**
-   * @public
-   * Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
-   */
-  JobTemplate?: string;
-
-  /**
-   * @public
-   * Optional. Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
-   */
-  Priority?: number;
-
-  /**
-   * @public
-   * Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html.
-   */
-  Queue?: string;
-
-  /**
-   * @public
-   * Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
-   */
-  Role: string | undefined;
-
-  /**
-   * @public
-   * JobSettings contains all the transcode settings for a job.
-   */
-  Settings: JobSettings | undefined;
-
-  /**
-   * @public
-   * Optional. Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
-   */
-  SimulateReservedQueue?: SimulateReservedQueue;
-
-  /**
-   * @public
-   * Optional. Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
-   */
-  StatusUpdateInterval?: StatusUpdateInterval;
-
-  /**
-   * @public
-   * Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
-   */
-  UserMetadata?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreateJobResponse {
-  /**
-   * @public
-   * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-   */
-  Job?: Job;
-}
-
-/**
- * @public
- */
-export interface CreateJobTemplateRequest {
-  /**
-   * @public
-   * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
-   */
-  AccelerationSettings?: AccelerationSettings;
-
-  /**
-   * @public
-   * Optional. A category for the job template you are creating
-   */
-  Category?: string;
-
-  /**
-   * @public
-   * Optional. A description of the job template you are creating.
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
-   */
-  HopDestinations?: HopDestination[];
-
-  /**
-   * @public
-   * The name of the job template you are creating.
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
-   */
-  Priority?: number;
-
-  /**
-   * @public
-   * Optional. The queue that jobs created from this template are assigned to. If you don't specify this, jobs will go to the default queue.
-   */
-  Queue?: string;
-
-  /**
-   * @public
-   * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
-   */
-  Settings: JobTemplateSettings | undefined;
-
-  /**
-   * @public
-   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
-   */
-  StatusUpdateInterval?: StatusUpdateInterval;
-
-  /**
-   * @public
-   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreateJobTemplateResponse {
-  /**
-   * @public
-   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
-   */
-  JobTemplate?: JobTemplate;
-}
-
-/**
- * @public
- */
-export interface CreatePresetRequest {
-  /**
-   * @public
-   * Optional. A category for the preset you are creating.
-   */
-  Category?: string;
-
-  /**
-   * @public
-   * Optional. A description of the preset you are creating.
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * The name of the preset you are creating.
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * Settings for preset
-   */
-  Settings: PresetSettings | undefined;
-
-  /**
-   * @public
-   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreatePresetResponse {
-  /**
-   * @public
-   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
-   */
-  Preset?: Preset;
-}
-
-/**
- * @public
- * Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
- */
-export interface ReservationPlanSettings {
-  /**
-   * @public
-   * The length of the term of your reserved queue pricing plan commitment.
-   */
-  Commitment: Commitment | undefined;
-
-  /**
-   * @public
-   * Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term. When your term is auto renewed, you extend your commitment by 12 months from the auto renew date. You can cancel this commitment.
-   */
-  RenewalType: RenewalType | undefined;
-
-  /**
-   * @public
-   * Specifies the number of reserved transcode slots (RTS) for this queue. The number of RTS determines how many jobs the queue can process in parallel; each RTS can process one job at a time. You can't decrease the number of RTS in your reserved queue. You can increase the number of RTS by extending your existing commitment with a new 12-month commitment for the larger number. The new commitment begins when you purchase the additional capacity. You can't cancel your commitment or revert to your original commitment after you increase the capacity.
-   */
-  ReservedSlots: number | undefined;
 }
