@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.486.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.485.0...v3.486.0) (2024-01-04)
+
+
+### Features
+
+* **client-ecs:** This release adds support for managed instance draining which facilitates graceful termination of Amazon ECS instances. ([618a36c](https://github.com/aws/aws-sdk-js-v3/commit/618a36ccf430e9e420aa1a7c876a709eda8b3184))
+
+
+
+
+
 # [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
 
 

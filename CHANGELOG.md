@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.486.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.485.0...v3.486.0) (2024-01-04)
+
+
+### Features
+
+* **client-config-service:** Updated ResourceType enum with new resource types onboarded by AWS Config in November and December 2023. ([e136069](https://github.com/aws/aws-sdk-js-v3/commit/e1360690e54dfd8cfef83309d5b9f073823b4a2b))
+* **client-docdb:** Adding PerformanceInsightsEnabled and PerformanceInsightsKMSKeyId fields to DescribeDBInstances Response. ([d8e0512](https://github.com/aws/aws-sdk-js-v3/commit/d8e0512c14306773126f623679e8d92c8943011d))
+* **client-ecs:** This release adds support for managed instance draining which facilitates graceful termination of Amazon ECS instances. ([618a36c](https://github.com/aws/aws-sdk-js-v3/commit/618a36ccf430e9e420aa1a7c876a709eda8b3184))
+* **client-elasticsearch-service:** This release adds support for new or existing Amazon OpenSearch domains to enable TLS 1.3 or TLS 1.2 with perfect forward secrecy cipher suites for domain endpoints. ([645d19a](https://github.com/aws/aws-sdk-js-v3/commit/645d19a9f9989da569115eb90d027e629b88c848))
+* **client-lightsail:** This release adds support to set up an HTTPS endpoint on an instance. ([89d32d2](https://github.com/aws/aws-sdk-js-v3/commit/89d32d2c19e4cd2e945b25f804dd04c842e75e40))
+* **client-opensearch:** This release adds support for new or existing Amazon OpenSearch domains to enable TLS 1.3 or TLS 1.2 with perfect forward secrecy cipher suites for domain endpoints. ([c790f71](https://github.com/aws/aws-sdk-js-v3/commit/c790f71611c03f726e228a3838f500a217578836))
+* **client-sagemaker:** Adding support for provisioned throughput mode for SageMaker Feature Groups ([985a85e](https://github.com/aws/aws-sdk-js-v3/commit/985a85e32ab4e71c9c88e7d4b1134458dbece21e))
+* **client-service-catalog:** Added Idempotency token support to Service Catalog  AssociateServiceActionWithProvisioningArtifact, DisassociateServiceActionFromProvisioningArtifact, DeleteServiceAction API ([970007d](https://github.com/aws/aws-sdk-js-v3/commit/970007d58dec0c61d5e80d5285260285660b965b))
+
+
+
+
+
 # [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
 
 

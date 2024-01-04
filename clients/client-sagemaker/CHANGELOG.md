@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.486.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.485.0...v3.486.0) (2024-01-04)
+
+
+### Features
+
+* **client-sagemaker:** Adding support for provisioned throughput mode for SageMaker Feature Groups ([985a85e](https://github.com/aws/aws-sdk-js-v3/commit/985a85e32ab4e71c9c88e7d4b1134458dbece21e))
+
+
+
+
+
 # [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
 
 
