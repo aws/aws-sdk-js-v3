@@ -12,6 +12,7 @@ import {
   CacheBehavior,
   CacheBehaviorPerPath,
   CacheSettings,
+  CertificateProvider,
   ComparisonOperator,
   ContactMethodVerificationProtocol,
   ContactProtocol,
@@ -44,6 +45,18 @@ import {
   Tag,
   TreatMissingData,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetContainerServicesRequest {
+  /**
+   * @public
+   * <p>The name of the container service for which to return information.</p>
+   *          <p>When omitted, the response includes all of your container services in the Amazon Web Services Region where the request is made.</p>
+   */
+  serviceName?: string;
+}
 
 /**
  * @public
@@ -145,7 +158,7 @@ export interface GetCostEstimateResult {
 export interface GetDiskRequest {
   /**
    * @public
-   * <p>The name of the disk (e.g., <code>my-disk</code>).</p>
+   * <p>The name of the disk (<code>my-disk</code>).</p>
    */
   diskName: string | undefined;
 }
@@ -201,7 +214,7 @@ export interface GetDisksResult {
 export interface GetDiskSnapshotRequest {
   /**
    * @public
-   * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
+   * <p>The name of the disk snapshot (<code>my-disk-snapshot</code>).</p>
    */
   diskSnapshotName: string | undefined;
 }
@@ -295,7 +308,7 @@ export interface GetDistributionLatestCacheResetResult {
 
   /**
    * @public
-   * <p>The timestamp of the last cache reset (e.g., <code>1479734909.17</code>) in Unix time
+   * <p>The timestamp of the last cache reset (<code>1479734909.17</code>) in Unix time
    *       format.</p>
    */
   createTime?: Date;
@@ -663,7 +676,7 @@ export interface InstanceHardware {
 
   /**
    * @public
-   * <p>The amount of RAM in GB on the instance (e.g., <code>1.0</code>).</p>
+   * <p>The amount of RAM in GB on the instance (<code>1.0</code>).</p>
    */
   ramSizeInGb?: number;
 }
@@ -1007,7 +1020,7 @@ export interface InstanceState {
 
   /**
    * @public
-   * <p>The state of the instance (e.g., <code>running</code> or <code>pending</code>).</p>
+   * <p>The state of the instance (<code>running</code> or <code>pending</code>).</p>
    */
   name?: string;
 }
@@ -1019,14 +1032,13 @@ export interface InstanceState {
 export interface Instance {
   /**
    * @public
-   * <p>The name the user gave the instance (e.g., <code>Amazon_Linux-1GB-Ohio-1</code>).</p>
+   * <p>The name the user gave the instance (<code>Amazon_Linux-1GB-Ohio-1</code>).</p>
    */
   name?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the instance (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the instance (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>).</p>
    */
   arn?: string;
 
@@ -1040,7 +1052,7 @@ export interface Instance {
 
   /**
    * @public
-   * <p>The timestamp when the instance was created (e.g., <code>1479734909.17</code>) in Unix
+   * <p>The timestamp when the instance was created (<code>1479734909.17</code>) in Unix
    *       time format.</p>
    */
   createdAt?: Date;
@@ -1066,19 +1078,19 @@ export interface Instance {
 
   /**
    * @public
-   * <p>The blueprint ID (e.g., <code>os_amlinux_2016_03</code>).</p>
+   * <p>The blueprint ID (<code>os_amlinux_2016_03</code>).</p>
    */
   blueprintId?: string;
 
   /**
    * @public
-   * <p>The friendly name of the blueprint (e.g., <code>Amazon Linux</code>).</p>
+   * <p>The friendly name of the blueprint (<code>Amazon Linux</code>).</p>
    */
   blueprintName?: string;
 
   /**
    * @public
-   * <p>The bundle for the instance (e.g., <code>micro_1_0</code>).</p>
+   * <p>The bundle for the instance (<code>micro_1_0</code>).</p>
    */
   bundleId?: string;
 
@@ -1135,20 +1147,19 @@ export interface Instance {
 
   /**
    * @public
-   * <p>The status code and the state (e.g., <code>running</code>) for the instance.</p>
+   * <p>The status code and the state (<code>running</code>) for the instance.</p>
    */
   state?: InstanceState;
 
   /**
    * @public
-   * <p>The user name for connecting to the instance (e.g., <code>ec2-user</code>).</p>
+   * <p>The user name for connecting to the instance (<code>ec2-user</code>).</p>
    */
   username?: string;
 
   /**
    * @public
-   * <p>The name of the SSH key being used to connect to the instance (e.g.,
-   *         <code>LightsailDefaultKeyPair</code>).</p>
+   * <p>The name of the SSH key being used to connect to the instance (<code>LightsailDefaultKeyPair</code>).</p>
    */
   sshKeyName?: string;
 
@@ -1325,7 +1336,7 @@ export interface InstanceAccessDetails {
   /**
    * @public
    * <p>For SSH access, the public key to use when accessing your instance For OpenSSH clients
-   *       (e.g., command line SSH), you should save this value to <code>tempkey-cert.pub</code>.</p>
+   *       (command line SSH), you should save this value to <code>tempkey-cert.pub</code>.</p>
    */
   certKey?: string;
 
@@ -1368,7 +1379,7 @@ export interface InstanceAccessDetails {
 
   /**
    * @public
-   * <p>For SSH access, the temporary private key. For OpenSSH clients (e.g., command line SSH),
+   * <p>For SSH access, the temporary private key. For OpenSSH clients (command line SSH),
    *       you should save this value to <code>tempkey</code>).</p>
    */
   privateKey?: string;
@@ -1916,8 +1927,7 @@ export interface InstanceSnapshot {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the snapshot (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the snapshot (<code>arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>).</p>
    */
   arn?: string;
 
@@ -1931,7 +1941,7 @@ export interface InstanceSnapshot {
 
   /**
    * @public
-   * <p>The timestamp when the snapshot was created (e.g., <code>1479907467.024</code>).</p>
+   * <p>The timestamp when the snapshot was created (<code>1479907467.024</code>).</p>
    */
   createdAt?: Date;
 
@@ -1984,14 +1994,13 @@ export interface InstanceSnapshot {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the instance from which the snapshot was created (<code>arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>).</p>
    */
   fromInstanceArn?: string;
 
   /**
    * @public
-   * <p>The blueprint ID from which you created the snapshot (e.g., <code>os_debian_8_3</code>). A
+   * <p>The blueprint ID from which you created the snapshot (<code>os_debian_8_3</code>). A
    *       blueprint is a virtual private server (or <i>instance</i>) image used to create
    *       instances quickly.</p>
    */
@@ -1999,7 +2008,7 @@ export interface InstanceSnapshot {
 
   /**
    * @public
-   * <p>The bundle ID from which you created the snapshot (e.g., <code>micro_1_0</code>).</p>
+   * <p>The bundle ID from which you created the snapshot (<code>micro_1_0</code>).</p>
    */
   fromBundleId?: string;
 
@@ -2420,7 +2429,7 @@ export interface LoadBalancerTlsCertificateSummary {
 export interface LoadBalancer {
   /**
    * @public
-   * <p>The name of the load balancer (e.g., <code>my-load-balancer</code>).</p>
+   * <p>The name of the load balancer (<code>my-load-balancer</code>).</p>
    */
   name?: string;
 
@@ -2446,14 +2455,14 @@ export interface LoadBalancer {
 
   /**
    * @public
-   * <p>The AWS Region where your load balancer was created (e.g., <code>us-east-2a</code>).
+   * <p>The AWS Region where your load balancer was created (<code>us-east-2a</code>).
    *       Lightsail automatically creates your load balancer across Availability Zones.</p>
    */
   location?: ResourceLocation;
 
   /**
    * @public
-   * <p>The resource type (e.g., <code>LoadBalancer</code>.</p>
+   * <p>The resource type (<code>LoadBalancer</code>.</p>
    */
   resourceType?: ResourceType;
 
@@ -3210,7 +3219,7 @@ export type LoadBalancerTlsCertificateStatus =
 export interface LoadBalancerTlsCertificate {
   /**
    * @public
-   * <p>The name of the SSL/TLS certificate (e.g., <code>my-certificate</code>).</p>
+   * <p>The name of the SSL/TLS certificate (<code>my-certificate</code>).</p>
    */
   name?: string;
 
@@ -3243,7 +3252,7 @@ export interface LoadBalancerTlsCertificate {
 
   /**
    * @public
-   * <p>The resource type (e.g., <code>LoadBalancerTlsCertificate</code>).</p>
+   * <p>The resource type (<code>LoadBalancerTlsCertificate</code>).</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3495,8 +3504,8 @@ export interface LoadBalancerTlsCertificate {
 
   /**
    * @public
-   * <p>An array of strings that specify the alternate domains (e.g., <code>example2.com</code>)
-   *       and subdomains (e.g., <code>blog.example.com</code>) for the certificate.</p>
+   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>)
+   *       and subdomains (<code>blog.example.com</code>) for the certificate.</p>
    */
   subjectAlternativeNames?: string[];
 }
@@ -3681,10 +3690,10 @@ export interface GetOperationsForResourceResult {
    * @public
    * @deprecated
    *
-   * <p>(Deprecated) Returns the number of pages of results that remain.</p>
+   * <p>(Discontinued) Returns the number of pages of results that remain.</p>
    *          <note>
    *             <p>In releases prior to June 12, 2017, this parameter returned <code>null</code> by the
-   *         API. It is now deprecated, and the API returns the <code>next page token</code> parameter
+   *         API. It is now discontinued, and the API returns the <code>next page token</code> parameter
    *         instead.</p>
    *          </note>
    */
@@ -3707,15 +3716,14 @@ export interface GetRegionsRequest {
   /**
    * @public
    * <p>A Boolean value indicating whether to also include Availability Zones in your get regions
-   *       request. Availability Zones are indicated with a letter: e.g., <code>us-east-2a</code>.</p>
+   *       request. Availability Zones are indicated with a letter: <code>us-east-2a</code>.</p>
    */
   includeAvailabilityZones?: boolean;
 
   /**
    * @public
    * <p>A Boolean value indicating whether to also include Availability Zones for databases in
-   *       your get regions request. Availability Zones are indicated with a letter (e.g.,
-   *         <code>us-east-2a</code>).</p>
+   *       your get regions request. Availability Zones are indicated with a letter (<code>us-east-2a</code>).</p>
    */
   includeRelationalDatabaseAvailabilityZones?: boolean;
 }
@@ -3727,26 +3735,26 @@ export interface GetRegionsRequest {
 export interface Region {
   /**
    * @public
-   * <p>The continent code (e.g., <code>NA</code>, meaning North America).</p>
+   * <p>The continent code (<code>NA</code>, meaning North America).</p>
    */
   continentCode?: string;
 
   /**
    * @public
-   * <p>The description of the Amazon Web Services Region (e.g., <code>This region is recommended
+   * <p>The description of the Amazon Web Services Region (<code>This region is recommended
    *         to serve users in the eastern United States and eastern Canada</code>).</p>
    */
   description?: string;
 
   /**
    * @public
-   * <p>The display name (e.g., <code>Ohio</code>).</p>
+   * <p>The display name (<code>Ohio</code>).</p>
    */
   displayName?: string;
 
   /**
    * @public
-   * <p>The region name (e.g., <code>us-east-2</code>).</p>
+   * <p>The region name (<code>us-east-2</code>).</p>
    */
   name?: RegionName;
 
@@ -5044,6 +5052,207 @@ export interface GetRelationalDatabaseSnapshotsResult {
 /**
  * @public
  */
+export interface GetSetupHistoryRequest {
+  /**
+   * @public
+   * <p>The name of the resource for which you are requesting information.</p>
+   */
+  resourceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetSetupHistory</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SetupStatus = {
+  Failed: "failed",
+  InProgress: "inProgress",
+  Succeeded: "succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type SetupStatus = (typeof SetupStatus)[keyof typeof SetupStatus];
+
+/**
+ * @public
+ * <p>Returns details about the commands that were run.</p>
+ */
+export interface SetupExecutionDetails {
+  /**
+   * @public
+   * <p>The command that was executed.</p>
+   */
+  command?: string;
+
+  /**
+   * @public
+   * <p>The timestamp for when the request was run.</p>
+   */
+  dateTime?: Date;
+
+  /**
+   * @public
+   * <p>The name of the target resource.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The status of the <code>SetupInstanceHttps</code> request.</p>
+   */
+  status?: SetupStatus;
+
+  /**
+   * @public
+   * <p>The text written by the command to stderr.</p>
+   */
+  standardError?: string;
+
+  /**
+   * @public
+   * <p>The text written by the command to stdout.</p>
+   */
+  standardOutput?: string;
+
+  /**
+   * @public
+   * <p>The current version of the script..</p>
+   */
+  version?: string;
+}
+
+/**
+ * @public
+ * <p>Returns information that was submitted during the <code>SetupInstanceHttps</code> request. Email
+ *       information is redacted for privacy.</p>
+ */
+export interface SetupRequest {
+  /**
+   * @public
+   * <p>The name of the Lightsail instance.</p>
+   */
+  instanceName?: string;
+
+  /**
+   * @public
+   * <p>The name of the domain and subdomains that the SSL/TLS certificate secures.</p>
+   */
+  domainNames?: string[];
+
+  /**
+   * @public
+   * <p>The Certificate Authority (CA) that issues the SSL/TLS certificate.</p>
+   */
+  certificateProvider?: CertificateProvider;
+}
+
+/**
+ * @public
+ * <p>The Lightsail resource that <code>SetupHistory</code> was ran on. </p>
+ */
+export interface SetupHistoryResource {
+  /**
+   * @public
+   * <p>The name of the Lightsail resource.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Lightsail resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The timestamp for when the resource was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * @public
+   * <p>Describes the resource location.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * @public
+   * <p>The Lightsail resource type. For example, <code>Instance</code>.</p>
+   */
+  resourceType?: ResourceType;
+}
+
+/**
+ * @public
+ * <p>Returns a list of the commands that were ran on the target resource.</p>
+ *          <p>The status of each command is also returned.</p>
+ */
+export interface SetupHistory {
+  /**
+   * @public
+   * <p>A GUID that's used to identify the operation.</p>
+   */
+  operationId?: string;
+
+  /**
+   * @public
+   * <p>Information about the specified request.</p>
+   */
+  request?: SetupRequest;
+
+  /**
+   * @public
+   * <p>The target resource name for the request.</p>
+   */
+  resource?: SetupHistoryResource;
+
+  /**
+   * @public
+   * <p>Describes the full details of the request.</p>
+   */
+  executionDetails?: SetupExecutionDetails[];
+
+  /**
+   * @public
+   * <p>The status of the request.</p>
+   */
+  status?: SetupStatus;
+}
+
+/**
+ * @public
+ */
+export interface GetSetupHistoryResult {
+  /**
+   * @public
+   * <p>The historical information that's returned.</p>
+   */
+  setupHistory?: SetupHistory[];
+
+  /**
+   * @public
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetSetupHistory</code> request and specify
+   *       the next page token using the pageToken parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetStaticIpRequest {
   /**
    * @public
@@ -5059,14 +5268,13 @@ export interface GetStaticIpRequest {
 export interface StaticIp {
   /**
    * @public
-   * <p>The name of the static IP (e.g., <code>StaticIP-Ohio-EXAMPLE</code>).</p>
+   * <p>The name of the static IP (<code>StaticIP-Ohio-EXAMPLE</code>).</p>
    */
   name?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the static IP (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the static IP (<code>arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>).</p>
    */
   arn?: string;
 
@@ -5080,7 +5288,7 @@ export interface StaticIp {
 
   /**
    * @public
-   * <p>The timestamp when the static IP was created (e.g., <code>1479735304.222</code>).</p>
+   * <p>The timestamp when the static IP was created (<code>1479735304.222</code>).</p>
    */
   createdAt?: Date;
 
@@ -5104,8 +5312,7 @@ export interface StaticIp {
 
   /**
    * @public
-   * <p>The instance where the static IP is attached (e.g.,
-   *       <code>Amazon_Linux-1GB-Ohio-1</code>).</p>
+   * <p>The instance where the static IP is attached (<code>Amazon_Linux-1GB-Ohio-1</code>).</p>
    */
   attachedTo?: string;
 
@@ -5629,7 +5836,7 @@ export interface ResetDistributionCacheResult {
 
   /**
    * @public
-   * <p>The timestamp of the reset cache request (e.g., <code>1479734909.17</code>) in Unix time
+   * <p>The timestamp of the reset cache request (<code>1479734909.17</code>) in Unix time
    *       format.</p>
    */
   createTime?: Date;
@@ -5673,7 +5880,7 @@ export interface SetIpAddressTypeRequest {
   /**
    * @public
    * <p>The resource type.</p>
-   *          <p>The possible values are <code>Distribution</code>, <code>Instance</code>, and
+   *          <p>The resource values are <code>Distribution</code>, <code>Instance</code>, and
    *         <code>LoadBalancer</code>.</p>
    *          <note>
    *             <p>Distribution-related APIs are available only in the N. Virginia (<code>us-east-1</code>)
@@ -5768,6 +5975,48 @@ export interface SetResourceAccessForBucketResult {
    * @public
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
+   */
+  operations?: Operation[];
+}
+
+/**
+ * @public
+ */
+export interface SetupInstanceHttpsRequest {
+  /**
+   * @public
+   * <p>The name of the Lightsail instance.</p>
+   */
+  instanceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The contact method for SSL/TLS certificate renewal alerts. You can enter one email
+   *       address. </p>
+   */
+  emailAddress: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the domain and subdomains that were specified for the SSL/TLS
+   *       certificate.</p>
+   */
+  domainNames: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The certificate authority that issues the SSL/TLS certificate.</p>
+   */
+  certificateProvider: CertificateProvider | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetupInstanceHttpsResult {
+  /**
+   * @public
+   * <p>The available API operations for <code>SetupInstanceHttps</code>.</p>
    */
   operations?: Operation[];
 }
@@ -6432,8 +6681,7 @@ export interface UpdateInstanceMetadataOptionsResult {
 export interface UpdateLoadBalancerAttributeRequest {
   /**
    * @public
-   * <p>The name of the load balancer that you want to modify (e.g.,
-   *       <code>my-load-balancer</code>.</p>
+   * <p>The name of the load balancer that you want to modify (<code>my-load-balancer</code>.</p>
    */
   loadBalancerName: string | undefined;
 
@@ -6673,6 +6921,14 @@ export const GetRelationalDatabaseMasterUserPasswordResultFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SetupInstanceHttpsRequestFilterSensitiveLog = (obj: SetupInstanceHttpsRequest): any => ({
+  ...obj,
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
 });
 
 /**

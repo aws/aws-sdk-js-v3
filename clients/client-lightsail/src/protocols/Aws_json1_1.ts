@@ -335,6 +335,7 @@ import {
   GetRelationalDatabaseSnapshotsCommandInput,
   GetRelationalDatabaseSnapshotsCommandOutput,
 } from "../commands/GetRelationalDatabaseSnapshotsCommand";
+import { GetSetupHistoryCommandInput, GetSetupHistoryCommandOutput } from "../commands/GetSetupHistoryCommand";
 import { GetStaticIpCommandInput, GetStaticIpCommandOutput } from "../commands/GetStaticIpCommand";
 import { GetStaticIpsCommandInput, GetStaticIpsCommandOutput } from "../commands/GetStaticIpsCommand";
 import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "../commands/ImportKeyPairCommand";
@@ -372,6 +373,7 @@ import {
   SetResourceAccessForBucketCommandInput,
   SetResourceAccessForBucketCommandOutput,
 } from "../commands/SetResourceAccessForBucketCommand";
+import { SetupInstanceHttpsCommandInput, SetupInstanceHttpsCommandOutput } from "../commands/SetupInstanceHttpsCommand";
 import { StartGUISessionCommandInput, StartGUISessionCommandOutput } from "../commands/StartGUISessionCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "../commands/StartInstanceCommand";
 import {
@@ -618,7 +620,6 @@ import {
   GetContainerServiceMetricDataResult,
   GetContainerServicePowersRequest,
   GetContainerServicePowersResult,
-  GetContainerServicesRequest,
   HeaderEnum,
   HeaderObject,
   InputOrigin,
@@ -642,6 +643,7 @@ import {
   UnauthenticatedException,
 } from "../models/models_0";
 import {
+  GetContainerServicesRequest,
   GetCostEstimateRequest,
   GetCostEstimateResult,
   GetDiskRequest,
@@ -721,6 +723,8 @@ import {
   GetRelationalDatabaseSnapshotsResult,
   GetRelationalDatabasesRequest,
   GetRelationalDatabasesResult,
+  GetSetupHistoryRequest,
+  GetSetupHistoryResult,
   GetStaticIpRequest,
   GetStaticIpResult,
   GetStaticIpsRequest,
@@ -768,6 +772,11 @@ import {
   SetIpAddressTypeResult,
   SetResourceAccessForBucketRequest,
   SetResourceAccessForBucketResult,
+  SetupExecutionDetails,
+  SetupHistory,
+  SetupHistoryResource,
+  SetupInstanceHttpsRequest,
+  SetupInstanceHttpsResult,
   StartGUISessionRequest,
   StartGUISessionResult,
   StartInstanceRequest,
@@ -2411,6 +2420,19 @@ export const se_GetRelationalDatabaseSnapshotsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetSetupHistoryCommand
+ */
+export const se_GetSetupHistoryCommand = async (
+  input: GetSetupHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetSetupHistory");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetStaticIpCommand
  */
 export const se_GetStaticIpCommand = async (
@@ -2613,6 +2635,19 @@ export const se_SetResourceAccessForBucketCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetResourceAccessForBucket");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1SetupInstanceHttpsCommand
+ */
+export const se_SetupInstanceHttpsCommand = async (
+  input: SetupInstanceHttpsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SetupInstanceHttps");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10532,6 +10567,64 @@ const de_GetRelationalDatabaseSnapshotsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetSetupHistoryCommand
+ */
+export const de_GetSetupHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSetupHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetSetupHistoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetSetupHistoryResult(data, context);
+  const response: GetSetupHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetSetupHistoryCommandError
+ */
+const de_GetSetupHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSetupHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetStaticIpCommand
  */
 export const de_GetStaticIpCommand = async (
@@ -11503,6 +11596,64 @@ const de_SetResourceAccessForBucketCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetResourceAccessForBucketCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1SetupInstanceHttpsCommand
+ */
+export const de_SetupInstanceHttpsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetupInstanceHttpsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_SetupInstanceHttpsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SetupInstanceHttpsResult(data, context);
+  const response: SetupInstanceHttpsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SetupInstanceHttpsCommandError
+ */
+const de_SetupInstanceHttpsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetupInstanceHttpsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -13318,6 +13469,8 @@ const se_GetRelationalDatabaseMetricDataRequest = (
 
 // se_GetRelationalDatabasesRequest omitted.
 
+// se_GetSetupHistoryRequest omitted.
+
 // se_GetStaticIpRequest omitted.
 
 // se_GetStaticIpsRequest omitted.
@@ -13398,6 +13551,10 @@ const se_PutAlarmRequest = (input: PutAlarmRequest, context: __SerdeContext): an
 // se_SetIpAddressTypeRequest omitted.
 
 // se_SetResourceAccessForBucketRequest omitted.
+
+// se_SetupDomainNameList omitted.
+
+// se_SetupInstanceHttpsRequest omitted.
 
 // se_StartGUISessionRequest omitted.
 
@@ -15369,6 +15526,16 @@ const de_GetRelationalDatabasesResult = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_json1_1GetSetupHistoryResult
+ */
+const de_GetSetupHistoryResult = (output: any, context: __SerdeContext): GetSetupHistoryResult => {
+  return take(output, {
+    nextPageToken: __expectString,
+    setupHistory: (_: any) => de_setupHistoryList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetStaticIpResult
  */
 const de_GetStaticIpResult = (output: any, context: __SerdeContext): GetStaticIpResult => {
@@ -16183,6 +16350,84 @@ const de_SetResourceAccessForBucketResult = (
     operations: (_: any) => de_OperationList(_, context),
   }) as any;
 };
+
+// de_SetupDomainNameList omitted.
+
+/**
+ * deserializeAws_json1_1SetupExecutionDetails
+ */
+const de_SetupExecutionDetails = (output: any, context: __SerdeContext): SetupExecutionDetails => {
+  return take(output, {
+    command: __expectString,
+    dateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    standardError: __expectString,
+    standardOutput: __expectString,
+    status: __expectString,
+    version: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SetupExecutionDetailsList
+ */
+const de_SetupExecutionDetailsList = (output: any, context: __SerdeContext): SetupExecutionDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SetupExecutionDetails(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1SetupHistory
+ */
+const de_SetupHistory = (output: any, context: __SerdeContext): SetupHistory => {
+  return take(output, {
+    executionDetails: (_: any) => de_SetupExecutionDetailsList(_, context),
+    operationId: __expectString,
+    request: _json,
+    resource: (_: any) => de_SetupHistoryResource(_, context),
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1setupHistoryList
+ */
+const de_setupHistoryList = (output: any, context: __SerdeContext): SetupHistory[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SetupHistory(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1SetupHistoryResource
+ */
+const de_SetupHistoryResource = (output: any, context: __SerdeContext): SetupHistoryResource => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    location: _json,
+    name: __expectString,
+    resourceType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SetupInstanceHttpsResult
+ */
+const de_SetupInstanceHttpsResult = (output: any, context: __SerdeContext): SetupInstanceHttpsResult => {
+  return take(output, {
+    operations: (_: any) => de_OperationList(_, context),
+  }) as any;
+};
+
+// de_SetupRequest omitted.
 
 /**
  * deserializeAws_json1_1StartGUISessionResult

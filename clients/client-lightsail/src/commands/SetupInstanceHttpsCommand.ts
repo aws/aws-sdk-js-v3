@@ -7,13 +7,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
-  CreateRelationalDatabaseFromSnapshotRequest,
-  CreateRelationalDatabaseFromSnapshotResult,
-} from "../models/models_0";
-import {
-  de_CreateRelationalDatabaseFromSnapshotCommand,
-  se_CreateRelationalDatabaseFromSnapshotCommand,
-} from "../protocols/Aws_json1_1";
+  SetupInstanceHttpsRequest,
+  SetupInstanceHttpsRequestFilterSensitiveLog,
+  SetupInstanceHttpsResult,
+} from "../models/models_1";
+import { de_SetupInstanceHttpsCommand, se_SetupInstanceHttpsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -22,52 +20,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateRelationalDatabaseFromSnapshotCommand}.
+ * The input for {@link SetupInstanceHttpsCommand}.
  */
-export interface CreateRelationalDatabaseFromSnapshotCommandInput extends CreateRelationalDatabaseFromSnapshotRequest {}
+export interface SetupInstanceHttpsCommandInput extends SetupInstanceHttpsRequest {}
 /**
  * @public
  *
- * The output of {@link CreateRelationalDatabaseFromSnapshotCommand}.
+ * The output of {@link SetupInstanceHttpsCommand}.
  */
-export interface CreateRelationalDatabaseFromSnapshotCommandOutput
-  extends CreateRelationalDatabaseFromSnapshotResult,
-    __MetadataBearer {}
+export interface SetupInstanceHttpsCommandOutput extends SetupInstanceHttpsResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>
- *          <p>You can create a new database from a snapshot in if something goes wrong with your
- *       original database, or to change it to a different plan, such as a high availability or
- *       standard plan.</p>
- *          <p>The <code>create relational database from snapshot</code> operation supports tag-based
- *       access control via request tags and resource tags applied to the resource identified by
- *       relationalDatabaseSnapshotName. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ * <p>Creates an SSL/TLS certificate that secures traffic for your website. After the
+ *       certificate is created, it is installed on the specified Lightsail instance.</p>
+ *          <p>If you provide more than one domain name in the request, at least one name must be less than or equal to 63 characters in length.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LightsailClient, CreateRelationalDatabaseFromSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
- * // const { LightsailClient, CreateRelationalDatabaseFromSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * import { LightsailClient, SetupInstanceHttpsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, SetupInstanceHttpsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
- * const input = { // CreateRelationalDatabaseFromSnapshotRequest
- *   relationalDatabaseName: "STRING_VALUE", // required
- *   availabilityZone: "STRING_VALUE",
- *   publiclyAccessible: true || false,
- *   relationalDatabaseSnapshotName: "STRING_VALUE",
- *   relationalDatabaseBundleId: "STRING_VALUE",
- *   sourceRelationalDatabaseName: "STRING_VALUE",
- *   restoreTime: new Date("TIMESTAMP"),
- *   useLatestRestorableTime: true || false,
- *   tags: [ // TagList
- *     { // Tag
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *     },
+ * const input = { // SetupInstanceHttpsRequest
+ *   instanceName: "STRING_VALUE", // required
+ *   emailAddress: "STRING_VALUE", // required
+ *   domainNames: [ // SetupDomainNameList // required
+ *     "STRING_VALUE",
  *   ],
+ *   certificateProvider: "LetsEncrypt", // required
  * };
- * const command = new CreateRelationalDatabaseFromSnapshotCommand(input);
+ * const command = new SetupInstanceHttpsCommand(input);
  * const response = await client.send(command);
- * // { // CreateRelationalDatabaseFromSnapshotResult
+ * // { // SetupInstanceHttpsResult
  * //   operations: [ // OperationList
  * //     { // Operation
  * //       id: "STRING_VALUE",
@@ -91,19 +75,15 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
  *
  * ```
  *
- * @param CreateRelationalDatabaseFromSnapshotCommandInput - {@link CreateRelationalDatabaseFromSnapshotCommandInput}
- * @returns {@link CreateRelationalDatabaseFromSnapshotCommandOutput}
- * @see {@link CreateRelationalDatabaseFromSnapshotCommandInput} for command's `input` shape.
- * @see {@link CreateRelationalDatabaseFromSnapshotCommandOutput} for command's `response` shape.
+ * @param SetupInstanceHttpsCommandInput - {@link SetupInstanceHttpsCommandInput}
+ * @returns {@link SetupInstanceHttpsCommandOutput}
+ * @see {@link SetupInstanceHttpsCommandInput} for command's `input` shape.
+ * @see {@link SetupInstanceHttpsCommandOutput} for command's `response` shape.
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
  *       credentials to access a resource.</p>
- *
- * @throws {@link AccountSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an account is still in the setup in progress
- *       state.</p>
  *
  * @throws {@link InvalidInputException} (client fault)
  *  <p>Lightsail throws this exception when user input does not conform to the validation rules
@@ -118,9 +98,6 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
  * @throws {@link NotFoundException} (client fault)
  *  <p>Lightsail throws this exception when it cannot find a resource.</p>
  *
- * @throws {@link OperationFailureException} (client fault)
- *  <p>Lightsail throws this exception when an operation fails to execute.</p>
- *
  * @throws {@link ServiceException} (server fault)
  *  <p>A general service exception.</p>
  *
@@ -131,10 +108,10 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
  */
-export class CreateRelationalDatabaseFromSnapshotCommand extends $Command
+export class SetupInstanceHttpsCommand extends $Command
   .classBuilder<
-    CreateRelationalDatabaseFromSnapshotCommandInput,
-    CreateRelationalDatabaseFromSnapshotCommandOutput,
+    SetupInstanceHttpsCommandInput,
+    SetupInstanceHttpsCommandOutput,
     LightsailClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -148,9 +125,9 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Lightsail_20161128", "CreateRelationalDatabaseFromSnapshot", {})
-  .n("LightsailClient", "CreateRelationalDatabaseFromSnapshotCommand")
-  .f(void 0, void 0)
-  .ser(se_CreateRelationalDatabaseFromSnapshotCommand)
-  .de(de_CreateRelationalDatabaseFromSnapshotCommand)
+  .s("Lightsail_20161128", "SetupInstanceHttps", {})
+  .n("LightsailClient", "SetupInstanceHttpsCommand")
+  .f(SetupInstanceHttpsRequestFilterSensitiveLog, void 0)
+  .ser(se_SetupInstanceHttpsCommand)
+  .de(de_SetupInstanceHttpsCommand)
   .build() {}

@@ -1202,6 +1202,14 @@ GetRelationalDatabaseSnapshots
 </details>
 <details>
 <summary>
+GetSetupHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetSetupHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetSetupHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetSetupHistoryCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetStaticIp
 </summary>
 
@@ -1326,6 +1334,14 @@ SetResourceAccessForBucket
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/SetResourceAccessForBucketCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetResourceAccessForBucketCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetResourceAccessForBucketCommandOutput/)
+
+</details>
+<details>
+<summary>
+SetupInstanceHttps
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/SetupInstanceHttpsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetupInstanceHttpsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetupInstanceHttpsCommandOutput/)
 
 </details>
 <details>

@@ -360,6 +360,7 @@ import {
   GetRelationalDatabaseSnapshotsCommandInput,
   GetRelationalDatabaseSnapshotsCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotsCommand";
+import { GetSetupHistoryCommandInput, GetSetupHistoryCommandOutput } from "./commands/GetSetupHistoryCommand";
 import { GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand";
 import { GetStaticIpsCommandInput, GetStaticIpsCommandOutput } from "./commands/GetStaticIpsCommand";
 import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./commands/ImportKeyPairCommand";
@@ -397,6 +398,7 @@ import {
   SetResourceAccessForBucketCommandInput,
   SetResourceAccessForBucketCommandOutput,
 } from "./commands/SetResourceAccessForBucketCommand";
+import { SetupInstanceHttpsCommandInput, SetupInstanceHttpsCommandOutput } from "./commands/SetupInstanceHttpsCommand";
 import { StartGUISessionCommandInput, StartGUISessionCommandOutput } from "./commands/StartGUISessionCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand";
 import {
@@ -579,6 +581,7 @@ export type ServiceInputTypes =
   | GetRelationalDatabaseSnapshotCommandInput
   | GetRelationalDatabaseSnapshotsCommandInput
   | GetRelationalDatabasesCommandInput
+  | GetSetupHistoryCommandInput
   | GetStaticIpCommandInput
   | GetStaticIpsCommandInput
   | ImportKeyPairCommandInput
@@ -595,6 +598,7 @@ export type ServiceInputTypes =
   | SendContactMethodVerificationCommandInput
   | SetIpAddressTypeCommandInput
   | SetResourceAccessForBucketCommandInput
+  | SetupInstanceHttpsCommandInput
   | StartGUISessionCommandInput
   | StartInstanceCommandInput
   | StartRelationalDatabaseCommandInput
@@ -743,6 +747,7 @@ export type ServiceOutputTypes =
   | GetRelationalDatabaseSnapshotCommandOutput
   | GetRelationalDatabaseSnapshotsCommandOutput
   | GetRelationalDatabasesCommandOutput
+  | GetSetupHistoryCommandOutput
   | GetStaticIpCommandOutput
   | GetStaticIpsCommandOutput
   | ImportKeyPairCommandOutput
@@ -759,6 +764,7 @@ export type ServiceOutputTypes =
   | SendContactMethodVerificationCommandOutput
   | SetIpAddressTypeCommandOutput
   | SetResourceAccessForBucketCommandOutput
+  | SetupInstanceHttpsCommandOutput
   | StartGUISessionCommandOutput
   | StartInstanceCommandOutput
   | StartRelationalDatabaseCommandOutput

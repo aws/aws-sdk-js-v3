@@ -28,7 +28,8 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
 
 /**
  * @public
- * <p>Retrieves information about the cost estimate for a specified resource. A cost estimate will not generate for a resource that has been deleted.</p>
+ * <p>Retrieves information about the cost estimate for a specified resource. A cost estimate
+ *       will not generate for a resource that has been deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
