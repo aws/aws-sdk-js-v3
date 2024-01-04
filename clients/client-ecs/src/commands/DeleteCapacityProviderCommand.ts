@@ -69,6 +69,7 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * //         instanceWarmupPeriod: Number("int"),
  * //       },
  * //       managedTerminationProtection: "ENABLED" || "DISABLED",
+ * //       managedDraining: "ENABLED" || "DISABLED",
  * //     },
  * //     updateStatus: "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
  * //     updateStatusReason: "STRING_VALUE",

@@ -67,6 +67,20 @@ export class ClientException extends __BaseException {
  * @public
  * @enum
  */
+export const ManagedDraining = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedDraining = (typeof ManagedDraining)[keyof typeof ManagedDraining];
+
+/**
+ * @public
+ * @enum
+ */
 export const ManagedScalingStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -186,6 +200,13 @@ export interface AutoScalingGroupProvider {
    * 			termination when the Auto Scaling group scales in.</p>
    */
   managedTerminationProtection?: ManagedTerminationProtection;
+
+  /**
+   * @public
+   * <p>The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.</p>
+   *          <p>The default is <code>ENABLED</code>.</p>
+   */
+  managedDraining?: ManagedDraining;
 }
 
 /**
@@ -11394,6 +11415,13 @@ export interface AutoScalingGroupProviderUpdate {
    * 			termination when the Auto Scaling group scales in.</p>
    */
   managedTerminationProtection?: ManagedTerminationProtection;
+
+  /**
+   * @public
+   * <p>The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.</p>
+   *          <p>The default is <code>ENABLED</code>.</p>
+   */
+  managedDraining?: ManagedDraining;
 }
 
 /**

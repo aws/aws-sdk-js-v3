@@ -53,6 +53,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *       instanceWarmupPeriod: Number("int"),
  *     },
  *     managedTerminationProtection: "ENABLED" || "DISABLED",
+ *     managedDraining: "ENABLED" || "DISABLED",
  *   },
  *   tags: [ // Tags
  *     { // Tag
@@ -78,6 +79,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * //         instanceWarmupPeriod: Number("int"),
  * //       },
  * //       managedTerminationProtection: "ENABLED" || "DISABLED",
+ * //       managedDraining: "ENABLED" || "DISABLED",
  * //     },
  * //     updateStatus: "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
  * //     updateStatusReason: "STRING_VALUE",
