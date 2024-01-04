@@ -535,7 +535,7 @@ export const se_AssociateServiceActionWithProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateServiceActionWithProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_AssociateServiceActionWithProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -782,7 +782,7 @@ export const se_DeleteServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteServiceAction");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_DeleteServiceActionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1068,7 +1068,7 @@ export const se_DisassociateServiceActionFromProvisioningArtifactCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DisassociateServiceActionFromProvisioningArtifact");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_DisassociateServiceActionFromProvisioningArtifactInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6287,7 +6287,21 @@ const de_TagOptionNotMigratedExceptionRes = async (
 
 // se_AssociateProductWithPortfolioInput omitted.
 
-// se_AssociateServiceActionWithProvisioningArtifactInput omitted.
+/**
+ * serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput
+ */
+const se_AssociateServiceActionWithProvisioningArtifactInput = (
+  input: AssociateServiceActionWithProvisioningArtifactInput,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AcceptLanguage: [],
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    ProductId: [],
+    ProvisioningArtifactId: [],
+    ServiceActionId: [],
+  });
+};
 
 // se_AssociateTagOptionWithResourceInput omitted.
 
@@ -6428,7 +6442,16 @@ const se_CreateServiceActionInput = (input: CreateServiceActionInput, context: _
 
 // se_DeleteProvisioningArtifactInput omitted.
 
-// se_DeleteServiceActionInput omitted.
+/**
+ * serializeAws_json1_1DeleteServiceActionInput
+ */
+const se_DeleteServiceActionInput = (input: DeleteServiceActionInput, context: __SerdeContext): any => {
+  return take(input, {
+    AcceptLanguage: [],
+    Id: [],
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+  });
+};
 
 // se_DeleteTagOptionInput omitted.
 
@@ -6472,7 +6495,21 @@ const se_CreateServiceActionInput = (input: CreateServiceActionInput, context: _
 
 // se_DisassociateProductFromPortfolioInput omitted.
 
-// se_DisassociateServiceActionFromProvisioningArtifactInput omitted.
+/**
+ * serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput
+ */
+const se_DisassociateServiceActionFromProvisioningArtifactInput = (
+  input: DisassociateServiceActionFromProvisioningArtifactInput,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AcceptLanguage: [],
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    ProductId: [],
+    ProvisioningArtifactId: [],
+    ServiceActionId: [],
+  });
+};
 
 // se_DisassociateTagOptionFromResourceInput omitted.
 

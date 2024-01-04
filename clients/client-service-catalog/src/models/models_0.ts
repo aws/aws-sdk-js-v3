@@ -459,6 +459,12 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
    *          </ul>
    */
   AcceptLanguage?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   */
+  IdempotencyToken?: string;
 }
 
 /**
@@ -1216,8 +1222,10 @@ export interface CreatePortfolioShareInput {
 
   /**
    * @public
-   * <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If this flag is not provided,
-   *          principal sharing is disabled. </p>
+   * <p>This parameter is only supported for portfolios with an <b>OrganizationalNode</b>
+   *       Type of <code>ORGANIZATION</code> or <code>ORGANIZATIONAL_UNIT</code>. </p>
+   *          <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If you do
+   *          <b>not</b> provide this flag, principal sharing is disabled. </p>
    *          <p>When you enable Principal Name Sharing for a portfolio share, the share recipient
    *          account end users with a principal that matches any of the associated IAM
    *          patterns can provision products from the portfolio. Once
@@ -2658,6 +2666,12 @@ export interface DeleteServiceActionInput {
    *          </ul>
    */
   AcceptLanguage?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   */
+  IdempotencyToken?: string;
 }
 
 /**
@@ -4926,6 +4940,12 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
    *          </ul>
    */
   AcceptLanguage?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   */
+  IdempotencyToken?: string;
 }
 
 /**

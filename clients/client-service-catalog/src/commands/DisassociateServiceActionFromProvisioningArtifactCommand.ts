@@ -49,6 +49,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  *   ProvisioningArtifactId: "STRING_VALUE", // required
  *   ServiceActionId: "STRING_VALUE", // required
  *   AcceptLanguage: "STRING_VALUE",
+ *   IdempotencyToken: "STRING_VALUE",
  * };
  * const command = new DisassociateServiceActionFromProvisioningArtifactCommand(input);
  * const response = await client.send(command);

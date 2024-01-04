@@ -38,6 +38,7 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * const input = { // DeleteServiceActionInput
  *   Id: "STRING_VALUE", // required
  *   AcceptLanguage: "STRING_VALUE",
+ *   IdempotencyToken: "STRING_VALUE",
  * };
  * const command = new DeleteServiceActionCommand(input);
  * const response = await client.send(command);
