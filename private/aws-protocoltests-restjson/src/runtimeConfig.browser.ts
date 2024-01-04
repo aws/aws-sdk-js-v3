@@ -8,6 +8,10 @@ import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smit
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
 import { blobHasher as streamHasher } from "@smithy/hash-blob-browser";
 import { Md5 } from "@smithy/md5-js";
+import {
+  DEFAULT_DISABLE_REQUEST_COMPRESSION,
+  DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
+} from "@smithy/middleware-compression";
 import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
@@ -31,9 +35,12 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    disableRequestCompression: config?.disableRequestCompression ?? DEFAULT_DISABLE_REQUEST_COMPRESSION,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     md5: config?.md5 ?? Md5,
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
+    requestMinCompressionSizeBytes:
+      config?.requestMinCompressionSizeBytes ?? DEFAULT_NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES,
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getCompressionPlugin } from "@smithy/middleware-compression";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -62,7 +63,10 @@ export class PutWithContentEncodingCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getCompressionPlugin(config, { encodings: ["gzip"] }),
+    ];
   })
   .s("JsonRpc10", "PutWithContentEncoding", {})
   .n("JSONRPC10Client", "PutWithContentEncodingCommand")
