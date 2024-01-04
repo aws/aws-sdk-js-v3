@@ -631,6 +631,7 @@ export const ResourceType = {
   AppRunnerVpcConnector: "AWS::AppRunner::VpcConnector",
   AppStreamApplication: "AWS::AppStream::Application",
   AppStreamDirectoryConfig: "AWS::AppStream::DirectoryConfig",
+  AppStreamFleet: "AWS::AppStream::Fleet",
   AppStreamStack: "AWS::AppStream::Stack",
   AppSyncGraphQLApi: "AWS::AppSync::GraphQLApi",
   Application: "AWS::ElasticBeanstalk::Application",
@@ -670,6 +671,9 @@ export const ResourceType = {
   CodeDeployDeploymentGroup: "AWS::CodeDeploy::DeploymentGroup",
   CodeGuruProfilerProfilingGroup: "AWS::CodeGuruProfiler::ProfilingGroup",
   CodeGuruReviewerRepositoryAssociation: "AWS::CodeGuruReviewer::RepositoryAssociation",
+  CognitoUserPool: "AWS::Cognito::UserPool",
+  CognitoUserPoolClient: "AWS::Cognito::UserPoolClient",
+  CognitoUserPoolGroup: "AWS::Cognito::UserPoolGroup",
   ConformancePackCompliance: "AWS::Config::ConformancePackCompliance",
   ConnectInstance: "AWS::Connect::Instance",
   ConnectPhoneNumber: "AWS::Connect::PhoneNumber",
@@ -710,6 +714,8 @@ export const ResourceType = {
   EC2IPAM: "AWS::EC2::IPAM",
   EC2IPAMPool: "AWS::EC2::IPAMPool",
   EC2IPAMScope: "AWS::EC2::IPAMScope",
+  EC2NetworkInsightsAccessScope: "AWS::EC2::NetworkInsightsAccessScope",
+  EC2NetworkInsightsAnalysis: "AWS::EC2::NetworkInsightsAnalysis",
   EC2NetworkInsightsPath: "AWS::EC2::NetworkInsightsPath",
   EC2PrefixList: "AWS::EC2::PrefixList",
   EC2SpotFleet: "AWS::EC2::SpotFleet",
@@ -768,8 +774,10 @@ export const ResourceType = {
   GlueClassifier: "AWS::Glue::Classifier",
   GlueJob: "AWS::Glue::Job",
   GlueMLTransform: "AWS::Glue::MLTransform",
+  GrafanaWorkspace: "AWS::Grafana::Workspace",
   GreengrassV2ComponentVersion: "AWS::GreengrassV2::ComponentVersion",
   GroundStationConfig: "AWS::GroundStation::Config",
+  GroundStationDataflowEndpointGroup: "AWS::GroundStation::DataflowEndpointGroup",
   GroundStationMissionProfile: "AWS::GroundStation::MissionProfile",
   Group: "AWS::IAM::Group",
   GuardDutyDetector: "AWS::GuardDuty::Detector",
@@ -788,6 +796,7 @@ export const ResourceType = {
   ImageBuilderContainerRecipe: "AWS::ImageBuilder::ContainerRecipe",
   ImageBuilderDistributionConfiguration: "AWS::ImageBuilder::DistributionConfiguration",
   ImageBuilderImagePipeline: "AWS::ImageBuilder::ImagePipeline",
+  ImageBuilderImageRecipe: "AWS::ImageBuilder::ImageRecipe",
   ImageBuilderInfrastructureConfiguration: "AWS::ImageBuilder::InfrastructureConfiguration",
   InspectorV2Filter: "AWS::InspectorV2::Filter",
   Instance: "AWS::EC2::Instance",
@@ -825,6 +834,7 @@ export const ResourceType = {
   IoTWirelessFuotaTask: "AWS::IoTWireless::FuotaTask",
   IoTWirelessMulticastGroup: "AWS::IoTWireless::MulticastGroup",
   IoTWirelessServiceProfile: "AWS::IoTWireless::ServiceProfile",
+  KMSAlias: "AWS::KMS::Alias",
   KafkaConnectConnector: "AWS::KafkaConnect::Connector",
   KendraIndex: "AWS::Kendra::Index",
   Key: "AWS::KMS::Key",
@@ -849,6 +859,7 @@ export const ResourceType = {
   LogsDestination: "AWS::Logs::Destination",
   LookoutMetricsAlert: "AWS::LookoutMetrics::Alert",
   LookoutVisionProject: "AWS::LookoutVision::Project",
+  M2Environment: "AWS::M2::Environment",
   MSKBatchScramSecret: "AWS::MSK::BatchScramSecret",
   MSKCluster: "AWS::MSK::Cluster",
   MSKConfiguration: "AWS::MSK::Configuration",
@@ -897,9 +908,14 @@ export const ResourceType = {
   Protection: "AWS::Shield::Protection",
   QLDBLedger: "AWS::QLDB::Ledger",
   Queue: "AWS::SQS::Queue",
+  QuickSightDataSource: "AWS::QuickSight::DataSource",
+  QuickSightTemplate: "AWS::QuickSight::Template",
+  QuickSightTheme: "AWS::QuickSight::Theme",
   RDSGlobalCluster: "AWS::RDS::GlobalCluster",
+  RDSOptionGroup: "AWS::RDS::OptionGroup",
   RUMAppMonitor: "AWS::RUM::AppMonitor",
   RateBasedRule: "AWS::WAF::RateBasedRule",
+  RedshiftEndpointAccess: "AWS::Redshift::EndpointAccess",
   RedshiftEventSubscription: "AWS::Redshift::EventSubscription",
   RedshiftScheduledAction: "AWS::Redshift::ScheduledAction",
   RegexPatternSetV2: "AWS::WAFv2::RegexPatternSet",
@@ -928,6 +944,7 @@ export const ResourceType = {
   Route53RecoveryReadinessRecoveryGroup: "AWS::Route53RecoveryReadiness::RecoveryGroup",
   Route53RecoveryReadinessResourceSet: "AWS::Route53RecoveryReadiness::ResourceSet",
   Route53ResolverFirewallDomainList: "AWS::Route53Resolver::FirewallDomainList",
+  Route53ResolverFirewallRuleGroup: "AWS::Route53Resolver::FirewallRuleGroup",
   Route53ResolverFirewallRuleGroupAssociation: "AWS::Route53Resolver::FirewallRuleGroupAssociation",
   Route53ResolverResolverEndpoint: "AWS::Route53Resolver::ResolverEndpoint",
   Route53ResolverResolverQueryLoggingConfig: "AWS::Route53Resolver::ResolverQueryLoggingConfig",
@@ -946,6 +963,7 @@ export const ResourceType = {
   SESReceiptFilter: "AWS::SES::ReceiptFilter",
   SESReceiptRuleSet: "AWS::SES::ReceiptRuleSet",
   SESTemplate: "AWS::SES::Template",
+  SSMDocument: "AWS::SSM::Document",
   SageMakerAppImageConfig: "AWS::SageMaker::AppImageConfig",
   SageMakerCodeRepository: "AWS::SageMaker::CodeRepository",
   SageMakerDomain: "AWS::SageMaker::Domain",
@@ -2934,7 +2952,8 @@ export interface RecordingModeOverride {
    *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
    *             </li>
    *             <li>
-   *                <p>Daily recording allows you record configuration data once every 24 hours, only if a change has occurred.</p>
+   *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+   * 			</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -2955,7 +2974,8 @@ export interface RecordingModeOverride {
  *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
  *             </li>
  *             <li>
- *                <p>Daily recording allows you record configuration data once every 24 hours, only if a change has occurred.</p>
+ *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+ * 			</p>
  *             </li>
  *          </ul>
  *          <note>
@@ -3078,7 +3098,8 @@ export interface ConfigurationRecorder {
    *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
    *             </li>
    *             <li>
-   *                <p>Daily recording allows you record configuration data once every 24 hours, only if a change has occurred.</p>
+   *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+   * 			</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -6110,9 +6131,12 @@ export interface RemediationConfiguration {
 
   /**
    * @public
-   * <p>Maximum time in seconds that Config runs auto-remediation. If you do not select a number, the default is 60 seconds. </p>
-   *          <p>For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5,
-   * 		Config will run auto-remediations 5 times within 50 seconds before throwing an exception.</p>
+   * <p>Time window to determine whether or not to add a remediation exception to prevent infinite remediation attempts.
+   * 			If <code>MaximumAutomaticAttempts</code> remediation attempts have been made under <code>RetryAttemptSeconds</code>, a remediation exception will be added to the resource.
+   * 			If you do not select a number, the default is 60 seconds.
+   * 		</p>
+   *          <p>For example, if you specify <code>RetryAttemptSeconds</code> as 50 seconds and <code>MaximumAutomaticAttempts</code> as 5,
+   * 			Config will run auto-remediations 5 times within 50 seconds before adding a remediation exception to the resource.</p>
    */
   RetryAttemptSeconds?: number;
 
