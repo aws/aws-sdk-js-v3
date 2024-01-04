@@ -82,7 +82,6 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DebugHookConfig,
-  DebugRuleConfiguration,
   DefaultSpaceSettings,
   DeploymentConfig,
   DeviceSelectionConfig,
@@ -113,7 +112,6 @@ import {
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
-  InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   JobType,
   LabelingJobAlgorithmsConfig,
@@ -171,9 +169,75 @@ import {
   SpaceSettings,
   SpaceSharingSettings,
   StudioLifecycleConfigAppType,
+  ThroughputMode,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Configuration information for SageMaker Debugger rules for debugging. To learn more about
+ *             how to configure the <code>DebugRuleConfiguration</code> parameter,
+ *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
+ */
+export interface DebugRuleConfiguration {
+  /**
+   * @public
+   * <p>The name of the rule configuration. It must be unique relative to other rule
+   *             configuration names.</p>
+   */
+  RuleConfigurationName: string | undefined;
+
+  /**
+   * @public
+   * <p>Path to local storage location for output of rules. Defaults to
+   *                 <code>/opt/ml/processing/output/rule/</code>.</p>
+   */
+  LocalPath?: string;
+
+  /**
+   * @public
+   * <p>Path to Amazon S3 storage location for rules.</p>
+   */
+  S3OutputPath?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Elastic Container (ECR) Image for the managed rule evaluation.</p>
+   */
+  RuleEvaluatorImage: string | undefined;
+
+  /**
+   * @public
+   * <p>The instance type to deploy a custom rule for debugging a training job.</p>
+   */
+  InstanceType?: ProcessingInstanceType;
+
+  /**
+   * @public
+   * <p>The size, in GB, of the ML storage volume attached to the processing instance.</p>
+   */
+  VolumeSizeInGB?: number;
+
+  /**
+   * @public
+   * <p>Runtime configuration for rule container.</p>
+   */
+  RuleParameters?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Configuration information for the infrastructure health check of a training job. A SageMaker-provided health check tests the health of instance hardware and cluster network
+ *       connectivity.</p>
+ */
+export interface InfraCheckConfig {
+  /**
+   * @public
+   * <p>Enables an infrastructure health check.</p>
+   */
+  EnableInfraCheck?: boolean;
+}
 
 /**
  * @public
@@ -5271,6 +5335,47 @@ export interface OfflineStoreStatus {
 
 /**
  * @public
+ * <p>Active throughput configuration of the feature group. Used to set feature group
+ *          throughput configuration. There are two modes: <code>ON_DEMAND</code> and
+ *             <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes
+ *          that your application performs on your feature group. You do not need to specify read and
+ *          write throughput because Feature Store accommodates your workloads as they ramp up and
+ *          down. You can switch a feature group to on-demand only once in a 24 hour period. With
+ *          provisioned throughput mode, you specify the read and write capacity per second that you
+ *          expect your application to require, and you are billed based on those limits. Exceeding
+ *          provisioned throughput will result in your requests being throttled. </p>
+ *          <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that
+ *          are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType">
+ *                <code>Standard</code>
+ *             </a> tier online store. </p>
+ */
+export interface ThroughputConfigDescription {
+  /**
+   * @public
+   * <p>The mode used for your feature group throughput: <code>ON_DEMAND</code> or
+   *             <code>PROVISIONED</code>. </p>
+   */
+  ThroughputMode: ThroughputMode | undefined;
+
+  /**
+   * @public
+   * <p> For provisioned feature groups with online store enabled, this indicates the read
+   *          throughput you are billed for and can consume without throttling. </p>
+   *          <p>This field is not applicable for on-demand feature groups. </p>
+   */
+  ProvisionedReadCapacityUnits?: number;
+
+  /**
+   * @public
+   * <p> For provisioned feature groups, this indicates the write throughput you are billed for
+   *          and can consume without throttling. </p>
+   *          <p>This field is not applicable for on-demand feature groups. </p>
+   */
+  ProvisionedWriteCapacityUnits?: number;
+}
+
+/**
+ * @public
  */
 export interface DescribeFeatureGroupResponse {
   /**
@@ -5351,6 +5456,24 @@ export interface DescribeFeatureGroupResponse {
    *          </ul>
    */
   OfflineStoreConfig?: OfflineStoreConfig;
+
+  /**
+   * @public
+   * <p>Active throughput configuration of the feature group. Used to set feature group
+   *          throughput configuration. There are two modes: <code>ON_DEMAND</code> and
+   *             <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes
+   *          that your application performs on your feature group. You do not need to specify read and
+   *          write throughput because Feature Store accommodates your workloads as they ramp up and
+   *          down. You can switch a feature group to on-demand only once in a 24 hour period. With
+   *          provisioned throughput mode, you specify the read and write capacity per second that you
+   *          expect your application to require, and you are billed based on those limits. Exceeding
+   *          provisioned throughput will result in your requests being throttled. </p>
+   *          <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that
+   *          are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType">
+   *                <code>Standard</code>
+   *             </a> tier online store. </p>
+   */
+  ThroughputConfig?: ThroughputConfigDescription;
 
   /**
    * @public
@@ -9989,64 +10112,6 @@ export interface DescribeStudioLifecycleConfigResponse {
    * <p>The App type that the Lifecycle Configuration is attached to.</p>
    */
   StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType;
-}
-
-/**
- * @public
- */
-export interface DescribeSubscribedWorkteamRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
-   */
-  WorkteamArn: string | undefined;
-}
-
-/**
- * @public
- * <p>Describes a work team of a vendor that does the a labelling job.</p>
- */
-export interface SubscribedWorkteam {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the vendor that you have subscribed.</p>
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The title of the service provided by the vendor in the Amazon Marketplace.</p>
-   */
-  MarketplaceTitle?: string;
-
-  /**
-   * @public
-   * <p>The name of the vendor in the Amazon Marketplace.</p>
-   */
-  SellerName?: string;
-
-  /**
-   * @public
-   * <p>The description of the vendor from the Amazon Marketplace.</p>
-   */
-  MarketplaceDescription?: string;
-
-  /**
-   * @public
-   * <p>Marketplace product listing ID.</p>
-   */
-  ListingId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeSubscribedWorkteamResponse {
-  /**
-   * @public
-   * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
-   */
-  SubscribedWorkteam: SubscribedWorkteam | undefined;
 }
 
 /**

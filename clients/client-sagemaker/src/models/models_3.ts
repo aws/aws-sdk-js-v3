@@ -52,7 +52,6 @@ import {
 import {
   _InstanceType,
   DebugHookConfig,
-  DebugRuleConfiguration,
   DockerSettings,
   EdgeOutputConfig,
   ExecutionRoleIdentityConfig,
@@ -65,7 +64,6 @@ import {
   HyperParameterTuningJobWarmStartConfig,
   InferenceExperimentSchedule,
   InferenceExperimentType,
-  InfraCheckConfig,
   LabelingJobInputConfig,
   ModelCardStatus,
   MonitoringScheduleConfig,
@@ -82,6 +80,7 @@ import {
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
+  DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DomainStatus,
   EdgePackagingJobStatus,
@@ -104,6 +103,7 @@ import {
   InferenceComponentStatus,
   InferenceExperimentStatus,
   InferenceMetrics,
+  InfraCheckConfig,
   LabelCounters,
   LabelingJobOutput,
   LabelingJobStatus,
@@ -137,6 +137,64 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeSubscribedWorkteamRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
+   */
+  WorkteamArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes a work team of a vendor that does the a labelling job.</p>
+ */
+export interface SubscribedWorkteam {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the vendor that you have subscribed.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The title of the service provided by the vendor in the Amazon Marketplace.</p>
+   */
+  MarketplaceTitle?: string;
+
+  /**
+   * @public
+   * <p>The name of the vendor in the Amazon Marketplace.</p>
+   */
+  SellerName?: string;
+
+  /**
+   * @public
+   * <p>The description of the vendor from the Amazon Marketplace.</p>
+   */
+  MarketplaceDescription?: string;
+
+  /**
+   * @public
+   * <p>Marketplace product listing ID.</p>
+   */
+  ListingId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSubscribedWorkteamResponse {
+  /**
+   * @public
+   * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
+   */
+  SubscribedWorkteam: SubscribedWorkteam | undefined;
+}
 
 /**
  * @public
@@ -11085,40 +11143,4 @@ export interface QualityCheckStepMetadata {
    *             BaselineUsedForDriftCheckStatistics</code> properties. </p>
    */
   RegisterNewBaseline?: boolean;
-}
-
-/**
- * @public
- * <p>Metadata for a register model job step.</p>
- */
-export interface RegisterModelStepMetadata {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- * <p>Metadata for a training job step.</p>
- */
-export interface TrainingJobStepMetadata {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- * <p>Metadata for a transform job step.</p>
- */
-export interface TransformJobStepMetadata {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
-   */
-  Arn?: string;
 }

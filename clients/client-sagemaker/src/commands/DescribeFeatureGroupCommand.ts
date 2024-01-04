@@ -87,6 +87,11 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * //     },
  * //     TableFormat: "Default" || "Glue" || "Iceberg",
  * //   },
+ * //   ThroughputConfig: { // ThroughputConfigDescription
+ * //     ThroughputMode: "OnDemand" || "Provisioned", // required
+ * //     ProvisionedReadCapacityUnits: Number("int"),
+ * //     ProvisionedWriteCapacityUnits: Number("int"),
+ * //   },
  * //   RoleArn: "STRING_VALUE",
  * //   FeatureGroupStatus: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
  * //   OfflineStoreStatus: { // OfflineStoreStatus

@@ -66,6 +66,11 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  *       Value: Number("int"),
  *     },
  *   },
+ *   ThroughputConfig: { // ThroughputConfigUpdate
+ *     ThroughputMode: "OnDemand" || "Provisioned",
+ *     ProvisionedReadCapacityUnits: Number("int"),
+ *     ProvisionedWriteCapacityUnits: Number("int"),
+ *   },
  * };
  * const command = new UpdateFeatureGroupCommand(input);
  * const response = await client.send(command);

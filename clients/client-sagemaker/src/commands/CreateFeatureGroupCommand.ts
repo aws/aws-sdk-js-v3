@@ -93,6 +93,11 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *     },
  *     TableFormat: "Default" || "Glue" || "Iceberg",
  *   },
+ *   ThroughputConfig: { // ThroughputConfig
+ *     ThroughputMode: "OnDemand" || "Provisioned", // required
+ *     ProvisionedReadCapacityUnits: Number("int"),
+ *     ProvisionedWriteCapacityUnits: Number("int"),
+ *   },
  *   RoleArn: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Tags: [ // TagList

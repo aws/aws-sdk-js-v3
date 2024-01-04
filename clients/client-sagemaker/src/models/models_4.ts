@@ -43,7 +43,6 @@ import {
 import {
   _InstanceType,
   DebugHookConfig,
-  DebugRuleConfiguration,
   DefaultSpaceSettings,
   DeploymentConfig,
   DriftCheckBaselines,
@@ -85,6 +84,7 @@ import {
   SpaceSettings,
   SpaceStorageSettings,
   StudioLifecycleConfigAppType,
+  ThroughputMode,
   TtlDuration,
   UiTemplate,
   UserSettings,
@@ -94,6 +94,7 @@ import {
 import {
   CrossAccountFilterOption,
   DataProcessing,
+  DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
   EndpointStatus,
@@ -120,7 +121,6 @@ import {
   ServiceCatalogProvisionedProductDetails,
   SourceIpConfig,
   SpaceStatus,
-  SubscribedWorkteam,
   TensorBoardOutputConfig,
   TrainingJobStatus,
   TrialComponentArtifact,
@@ -153,15 +153,13 @@ import {
   MonitoringAlertSummary,
   ProcessingJobStepMetadata,
   QualityCheckStepMetadata,
-  RegisterModelStepMetadata,
   ResourceType,
   SecondaryStatus,
   SecondaryStatusTransition,
   SortBy,
   SortOrder,
-  TrainingJobStepMetadata,
+  SubscribedWorkteam,
   TransformJobStatus,
-  TransformJobStepMetadata,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
@@ -171,6 +169,42 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Metadata for a register model job step.</p>
+ */
+export interface RegisterModelStepMetadata {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the model package.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ * <p>Metadata for a training job step.</p>
+ */
+export interface TrainingJobStepMetadata {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ * <p>Metadata for a transform job step.</p>
+ */
+export interface TransformJobStepMetadata {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
+   */
+  Arn?: string;
+}
 
 /**
  * @public
@@ -6132,6 +6166,37 @@ export interface UpdateExperimentResponse {
 
 /**
  * @public
+ * <p>The new throughput configuration for the feature group. You can switch between on-demand
+ *          and provisioned modes or update the read / write capacity of provisioned feature groups.
+ *          You can switch a feature group to on-demand only once in a 24 hour period. </p>
+ */
+export interface ThroughputConfigUpdate {
+  /**
+   * @public
+   * <p>Target throughput mode of the feature group. Throughput update is an asynchronous
+   *          operation, and the outcome should be monitored by polling <code>LastUpdateStatus</code>
+   *          field in <code>DescribeFeatureGroup</code> response. You cannot update a feature group's
+   *          throughput while another update is in progress. </p>
+   */
+  ThroughputMode?: ThroughputMode;
+
+  /**
+   * @public
+   * <p>For provisioned feature groups with online store enabled, this indicates the read
+   *          throughput you are billed for and can consume without throttling. </p>
+   */
+  ProvisionedReadCapacityUnits?: number;
+
+  /**
+   * @public
+   * <p>For provisioned feature groups, this indicates the write throughput you are billed for
+   *          and can consume without throttling. </p>
+   */
+  ProvisionedWriteCapacityUnits?: number;
+}
+
+/**
+ * @public
  */
 export interface UpdateFeatureGroupRequest {
   /**
@@ -6153,6 +6218,14 @@ export interface UpdateFeatureGroupRequest {
    * <p>Updates the feature group online store configuration.</p>
    */
   OnlineStoreConfig?: OnlineStoreConfigUpdate;
+
+  /**
+   * @public
+   * <p>The new throughput configuration for the feature group. You can switch between on-demand
+   *          and provisioned modes or update the read / write capacity of provisioned feature groups.
+   *          You can switch a feature group to on-demand only once in a 24 hour period. </p>
+   */
+  ThroughputConfig?: ThroughputConfigUpdate;
 }
 
 /**

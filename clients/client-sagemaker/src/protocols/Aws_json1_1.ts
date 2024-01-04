@@ -1139,7 +1139,6 @@ import {
   DataQualityJobInput,
   DatasetDefinition,
   DebugHookConfig,
-  DebugRuleConfiguration,
   DefaultEbsStorageSettings,
   DefaultSpaceSettings,
   DefaultSpaceStorageSettings,
@@ -1191,7 +1190,6 @@ import {
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
-  InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   IntegerParameterRange,
   JupyterLabAppSettings,
@@ -1299,6 +1297,7 @@ import {
   SpaceStorageSettings,
   Stairs,
   TensorBoardAppSettings,
+  ThroughputConfig,
   TrafficPattern,
   TtlDuration,
   TuningJobCompletionCriteria,
@@ -1325,6 +1324,7 @@ import {
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
+  DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeleteActionRequest,
   DeleteActionResponse,
@@ -1502,8 +1502,6 @@ import {
   DescribeSpaceResponse,
   DescribeStudioLifecycleConfigRequest,
   DescribeStudioLifecycleConfigResponse,
-  DescribeSubscribedWorkteamRequest,
-  DescribeSubscribedWorkteamResponse,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1523,6 +1521,7 @@ import {
   InferenceComponentSpecificationSummary,
   InferenceMetrics,
   InferenceRecommendation,
+  InfraCheckConfig,
   LabelCounters,
   LabelingJobOutput,
   LastUpdateStatus,
@@ -1558,8 +1557,8 @@ import {
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
   SourceIpConfig,
-  SubscribedWorkteam,
   TensorBoardOutputConfig,
+  ThroughputConfigDescription,
   TrainingJobStatusCounters,
   TrialComponentArtifact,
   TrialComponentParameterValue,
@@ -1568,6 +1567,8 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeSubscribedWorkteamRequest,
+  DescribeSubscribedWorkteamResponse,
   DescribeTrainingJobRequest,
   DescribeTrainingJobResponse,
   DescribeTransformJobRequest,
@@ -1790,16 +1791,14 @@ import {
   PropertyNameSuggestion,
   QualityCheckStepMetadata,
   RecommendationJobInferenceBenchmark,
-  RegisterModelStepMetadata,
   RStudioServerProDomainSettingsForUpdate,
   ScalingPolicy,
   ScalingPolicyMetric,
   ScalingPolicyObjective,
   SecondaryStatusTransition,
+  SubscribedWorkteam,
   SuggestionQuery,
   TargetTrackingScalingPolicyConfiguration,
-  TrainingJobStepMetadata,
-  TransformJobStepMetadata,
   TrialComponentMetricSummary,
   TrialComponentSource,
   TrialSource,
@@ -1876,6 +1875,7 @@ import {
   QueryLineageRequest,
   QueryLineageResponse,
   RegisterDevicesRequest,
+  RegisterModelStepMetadata,
   RemoteDebugConfigForUpdate,
   RenderableTask,
   RenderingError,
@@ -1922,9 +1922,12 @@ import {
   StopTrainingJobRequest,
   StopTransformJobRequest,
   StudioLifecycleConfigDetails,
+  ThroughputConfigUpdate,
   TrainingJob,
+  TrainingJobStepMetadata,
   TrainingJobSummary,
   TransformJob,
+  TransformJobStepMetadata,
   TransformJobSummary,
   Trial,
   TrialComponent,
@@ -23375,6 +23378,10 @@ const se_StopPipelineExecutionRequest = (input: StopPipelineExecutionRequest, co
 
 // se_TextGenerationJobConfig omitted.
 
+// se_ThroughputConfig omitted.
+
+// se_ThroughputConfigUpdate omitted.
+
 // se_TimeSeriesConfig omitted.
 
 // se_TimeSeriesForecastingJobConfig omitted.
@@ -27103,6 +27110,7 @@ const de_DescribeFeatureGroupResponse = (output: any, context: __SerdeContext): 
     OnlineStoreTotalSizeBytes: __expectLong,
     RecordIdentifierFeatureName: __expectString,
     RoleArn: __expectString,
+    ThroughputConfig: (_: any) => de_ThroughputConfigDescription(_, context),
   }) as any;
 };
 
@@ -35260,6 +35268,17 @@ const de_TextGenerationResolvedAttributes = (
 ): TextGenerationResolvedAttributes => {
   return take(output, {
     BaseModelName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ThroughputConfigDescription
+ */
+const de_ThroughputConfigDescription = (output: any, context: __SerdeContext): ThroughputConfigDescription => {
+  return take(output, {
+    ProvisionedReadCapacityUnits: __expectInt32,
+    ProvisionedWriteCapacityUnits: __expectInt32,
+    ThroughputMode: __expectString,
   }) as any;
 };
 
