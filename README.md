@@ -182,7 +182,7 @@ If you wish to use the latest / different version of the SDK from the one provid
 The performance of the AWS SDK for JavaScript v3 on node 18 has improved from v2 as seen in the [performance benchmarking](https://aws.amazon.com/blogs/developer/reduce-lambda-cold-start-times-migrate-to-aws-sdk-for-javascript-v3/)
 
 ### Best practices
-When using Lambda we should use a single SDK client per service, per region, and initialize it the outside of the handler's codepath. This is done to optimize for Lambda's [container reuse](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html).
+When using Lambda we should use a single SDK client per service, per region, and initialize it outside of the handler's codepath. This is done to optimize for Lambda's [container reuse](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html).
 
 The API calls themselves should be made from within the handler's codepath. 
 This is done to ensure that API calls are signed at the very last step of Lambda's execution cycle, after the Lambda is "hot" to avoid signing time skew.
