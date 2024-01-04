@@ -34,7 +34,7 @@
     "@smithy/fetch-http-handler": "^2.3.2",
     "@smithy/hash-node": "^2.0.18",
     "@smithy/invalid-dependency": "^2.0.16",
-    "@smithy/middleware-compression": "^2.0.1",
+    "@smithy/middleware-compression": "^2.0.2",
     "@smithy/middleware-content-length": "^2.0.18",
     "@smithy/middleware-retry": "^2.0.26",
     "@smithy/middleware-serde": "^2.0.16",

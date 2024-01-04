@@ -2982,10 +2982,10 @@
     "@smithy/types" "^2.8.0"
     tslib "^2.5.0"
 
-"@smithy/middleware-compression@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@smithy/middleware-compression/-/middleware-compression-2.0.1.tgz#24dcdb4905b548b22e6e11a2975f6bb879680cb2"
-  integrity sha512-fPi05kk3NuY+UTzGCRsq7VnpdPi1cSOUyQR316rooWDbIEphpNRUl5Q2Zb7GTH0PzGS5lN1i0GKD4lq4qMXNCw==
+"@smithy/middleware-compression@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@smithy/middleware-compression/-/middleware-compression-2.0.2.tgz#c3703e41f75375d85a56fc1068b0d019de105834"
+  integrity sha512-NfmxAKj64PCq8U4w2UpdraA4UAkd2Tsdms+8czU2CtOzjWMFe3aSE/pEWTfy/l+BpfyT8lsghFyTr3DIlk1kCg==
   dependencies:
     "@smithy/node-config-provider" "^2.1.9"
     "@smithy/types" "^2.8.0"

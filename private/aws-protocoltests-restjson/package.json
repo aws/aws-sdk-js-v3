@@ -37,7 +37,7 @@
     "@smithy/invalid-dependency": "^2.0.16",
     "@smithy/md5-js": "^2.0.18",
     "@smithy/middleware-apply-body-checksum": "^2.0.18",
-    "@smithy/middleware-compression": "^2.0.1",
+    "@smithy/middleware-compression": "^2.0.2",
     "@smithy/middleware-content-length": "^2.0.18",
     "@smithy/middleware-retry": "^2.0.26",
     "@smithy/middleware-serde": "^2.0.16",
