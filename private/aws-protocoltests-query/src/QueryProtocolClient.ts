@@ -21,6 +21,11 @@ import {
   resolveEndpointsConfig,
   resolveRegionConfig,
 } from "@smithy/config-resolver";
+import {
+  CompressionInputConfig,
+  CompressionResolvedConfig,
+  resolveCompressionConfig,
+} from "@smithy/middleware-compression";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
 import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
@@ -323,7 +328,8 @@ export type QueryProtocolClientConfigType = Partial<__SmithyConfiguration<__Http
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  CompressionInputConfig;
 /**
  * @public
  *
@@ -341,7 +347,8 @@ export type QueryProtocolClientResolvedConfigType = __SmithyResolvedConfiguratio
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  CompressionResolvedConfig;
 /**
  * @public
  *
@@ -371,9 +378,10 @@ export class QueryProtocolClient extends __Client<
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
     const _config_5 = resolveUserAgentConfig(_config_4);
-    const _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_6 = resolveCompressionConfig(_config_5);
+    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

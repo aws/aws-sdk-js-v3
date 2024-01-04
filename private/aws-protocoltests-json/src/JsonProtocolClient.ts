@@ -28,6 +28,11 @@ import {
   resolveEndpointsConfig,
   resolveRegionConfig,
 } from "@smithy/config-resolver";
+import {
+  CompressionInputConfig,
+  CompressionResolvedConfig,
+  resolveCompressionConfig,
+} from "@smithy/middleware-compression";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
 import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
@@ -282,7 +287,8 @@ export type JsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpH
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  CompressionInputConfig;
 /**
  * @public
  *
@@ -301,7 +307,8 @@ export type JsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  CompressionResolvedConfig;
 /**
  * @public
  *
@@ -331,9 +338,10 @@ export class JsonProtocolClient extends __Client<
     const _config_4 = resolveHostHeaderConfig(_config_3);
     const _config_5 = resolveAwsAuthConfig(_config_4);
     const _config_6 = resolveUserAgentConfig(_config_5);
-    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    super(_config_7);
-    this.config = _config_7;
+    const _config_7 = resolveCompressionConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
