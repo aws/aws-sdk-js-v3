@@ -1626,6 +1626,7 @@ export interface CognitoOptions {
 export const TLSSecurityPolicy = {
   POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
   POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
+  POLICY_MIN_TLS_1_2_PFS_2023_10: "Policy-Min-TLS-1-2-PFS-2023-10",
 } as const;
 
 /**
@@ -1658,6 +1659,11 @@ export interface DomainEndpointOptions {
    *                <p>
    *                   <b>Policy-Min-TLS-1-2-2019-07:</b> TLS security policy that
    *      supports only TLS version 1.2</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Policy-Min-TLS-1-2-PFS-2023-10:</b> TLS security policy that
+   *      supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites</p>
    *             </li>
    *          </ul>
    */
@@ -1977,7 +1983,9 @@ export interface CreateDomainRequest {
 
   /**
    * @public
-   * <p>The type of IP addresses supported by the endpoint for the domain.</p>
+   * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share
+   *    domain resources across IPv4 and IPv6 address types, and is the recommended option.
+   *    If you set your IP address type to dual stack, you can't change your address type later.</p>
    */
   IPAddressType?: IPAddressType;
 
@@ -2246,15 +2254,16 @@ export interface DomainStatus {
 
   /**
    * @public
-   * <p>The domain endpoint to which index and search requests are submitted. For example,
-   *     <code>search-imdb-movies-oopcnjfn6ugo.eu-west-1.es.amazonaws.com</code> or
-   *     <code>doc-imdb-movies-oopcnjfn6u.eu-west-1.es.amazonaws.com</code>.</p>
+   * <p>If <code>IPAddressType</code> to set to <code>dualstack</code>, a version 2 domain endpoint is provisioned.
+   *    This endpoint functions like a normal endpoint, except that it works with both IPv4 and IPv6 IP addresses.
+   *    Normal endpoints work only with IPv4 IP addresses.
+   *   </p>
    */
   EndpointV2?: string;
 
   /**
    * @public
-   * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints.. Example
+   * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints. Example
    *     <code>key, value</code>:
    *     <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>
    */
@@ -3888,7 +3897,9 @@ export interface DomainConfig {
 
   /**
    * @public
-   * <p>The type of IP addresses supported by the endpoint for the domain.</p>
+   * <p>Choose either dual stack or IPv4 as your IP address type.
+   *    Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option.
+   *    If you set your IP address type to dual stack, you can't change your address type later.</p>
    */
   IPAddressType?: IPAddressTypeStatus;
 
@@ -4883,15 +4894,15 @@ export interface DescribePackagesRequest {
   /**
    * @public
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
-   *     <code>nextToken</code> to get the next page of results.</p>
+   *    <code>nextToken</code> to get the next page of results.</p>
    */
   MaxResults?: number;
 
   /**
    * @public
    * <p>If your initial <code>DescribePackageFilters</code> operation returns a
-   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-   *     <code>DescribePackageFilters</code> operations, which returns results in the next page.</p>
+   *    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *    <code>DescribePackageFilters</code> operations, which returns results in the next page.</p>
    */
   NextToken?: string;
 }
@@ -4910,7 +4921,7 @@ export interface DescribePackagesResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -6875,7 +6886,10 @@ export interface UpdateDomainConfigRequest {
 
   /**
    * @public
-   * <p>The type of IP addresses supported by the endpoint for the domain.</p>
+   * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across
+   *    IPv4 and IPv6 address types, and is the recommended option.
+   *    If your IP address type is currently set to dual stack, you can't change it.
+   *   </p>
    */
   IPAddressType?: IPAddressType;
 
