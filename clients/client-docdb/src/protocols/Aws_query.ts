@@ -7848,6 +7848,12 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_CD] != null) {
     contents[_CD] = de_CertificateDetails(output[_CD], context);
   }
+  if (output[_PIE] != null) {
+    contents[_PIE] = __parseBoolean(output[_PIE]);
+  }
+  if (output[_PIKMSKI] != null) {
+    contents[_PIKMSKI] = __expectString(output[_PIKMSKI]);
+  }
   return contents;
 };
 
@@ -9771,6 +9777,7 @@ const _P = "Port";
 const _PA = "PubliclyAccessible";
 const _PBW = "PreferredBackupWindow";
 const _PCLE = "PendingCloudwatchLogsExports";
+const _PIE = "PerformanceInsightsEnabled";
 const _PIKMSKI = "PerformanceInsightsKMSKeyId";
 const _PMA = "PendingMaintenanceActions";
 const _PMAD = "PendingMaintenanceActionDetails";

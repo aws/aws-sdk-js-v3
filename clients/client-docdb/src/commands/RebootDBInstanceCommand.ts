@@ -135,6 +135,8 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     PerformanceInsightsEnabled: true || false,
+ * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

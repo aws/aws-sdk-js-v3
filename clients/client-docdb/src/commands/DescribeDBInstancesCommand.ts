@@ -140,6 +140,8 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //         CAIdentifier: "STRING_VALUE",
  * //         ValidTill: new Date("TIMESTAMP"),
  * //       },
+ * //       PerformanceInsightsEnabled: true || false,
+ * //       PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

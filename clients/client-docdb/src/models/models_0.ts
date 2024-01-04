@@ -2521,6 +2521,18 @@ export interface DBInstance {
    * <p>The details of the DB instance's server certificate.</p>
    */
   CertificateDetails?: CertificateDetails;
+
+  /**
+   * @public
+   * <p>Set to <code>true</code> if Amazon RDS Performance Insights is enabled for the DB instance, and otherwise <code>false</code>.</p>
+   */
+  PerformanceInsightsEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
 }
 
 /**

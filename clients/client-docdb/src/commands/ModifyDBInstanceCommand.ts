@@ -139,6 +139,8 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
+ * //     PerformanceInsightsEnabled: true || false,
+ * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
