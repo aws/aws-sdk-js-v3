@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.487.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.486.0...v3.487.0) (2024-01-05)
+
+
+### Features
+
+* **client-connect:** Minor trait updates for User APIs ([3509e69](https://github.com/aws/aws-sdk-js-v3/commit/3509e69b83af7eb058d07d9500c005b25a60238e))
+
+
+
+
+
 # [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
 
 
