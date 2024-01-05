@@ -28,10 +28,20 @@ body:
     attributes:
       label: Which JavaScript Runtime is this issue in?
       options:
-        - Node.js
+        - Node.js (includes AWS Lambda)
         - Browser
-        - Lambda
         - React Native
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: lambda-use
+    attributes:
+      label: AWS Lambda Usage
+      description: Are you running your application on AWS Lambda?
+      options:
+        - label: Yes, my application is running on AWS Lambda.
+        - label: No, my application is not running on AWS Lambda.
     validations:
       required: true
 
