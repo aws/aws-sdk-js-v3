@@ -270,9 +270,8 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *       or in the identification of the external key store proxy.</p>
  *
  * @throws {@link XksProxyInvalidConfigurationException} (client fault)
- *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
- *       the requirements for an external key store proxy. For details, see the exception
- *       message.</p>
+ *  <p>The request was rejected because the external key store proxy is not configured correctly.
+ *       To identify the cause, see the error message that accompanies the exception.</p>
  *
  * @throws {@link XksProxyInvalidResponseException} (client fault)
  *  <p></p>
@@ -281,16 +280,15 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *       issue. If you see this error repeatedly, report it to the proxy vendor.</p>
  *
  * @throws {@link XksProxyUriEndpointInUseException} (client fault)
- *  <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
- *       is already associated with an external key store in the Amazon Web Services account and Region. Each
- *       external key store in an account and Region must use a unique external key store proxy
- *       address.</p>
+ *  <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already
+ *       associated with another external key store in this Amazon Web Services Region. To identify the cause,
+ *       see the error message that accompanies the exception. </p>
  *
  * @throws {@link XksProxyUriInUseException} (client fault)
  *  <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
- *       and <code>XksProxyUriPath</code> is already associated with an external key store in the
- *       Amazon Web Services account and Region. Each external key store in an account and Region must use a unique
- *       external key store proxy API address.</p>
+ *       and <code>XksProxyUriPath</code> is already associated with another external key store in this
+ *       Amazon Web Services Region. Each external key store in a Region must use a unique external key store proxy
+ *       API address.</p>
  *
  * @throws {@link XksProxyUriUnreachableException} (client fault)
  *  <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
@@ -301,13 +299,14 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *
  * @throws {@link XksProxyVpcEndpointServiceInUseException} (client fault)
  *  <p>The request was rejected because the specified Amazon VPC endpoint service is already
- *       associated with an external key store in the Amazon Web Services account and Region. Each external key store
- *       in an Amazon Web Services account and Region must use a different Amazon VPC endpoint service.</p>
+ *       associated with another external key store in this Amazon Web Services Region. Each external key store in a
+ *       Region must use a different Amazon VPC endpoint service.</p>
  *
  * @throws {@link XksProxyVpcEndpointServiceInvalidConfigurationException} (client fault)
  *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
- *       the requirements for an external key store proxy. For details, see the exception message and
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
+ *       the requirements for an external key store. To identify the cause, see the error message that
+ *       accompanies the exception and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
+ *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
  *       store.</p>
  *
  * @throws {@link XksProxyVpcEndpointServiceNotFoundException} (client fault)

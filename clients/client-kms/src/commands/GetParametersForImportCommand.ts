@@ -44,12 +44,10 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  *       operation with an <code>Origin</code> value of <code>EXTERNAL</code> to create a KMS key with
  *       no key material. You can import key material for a symmetric encryption KMS key, HMAC KMS key,
  *       asymmetric encryption KMS key, or asymmetric signing KMS key. You can also import key material
- *       into a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of
- *       any supported type. However, you can't import key material into a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key
- *         store</a>. You can also use <code>GetParametersForImport</code> to get a public key and
- *       import token to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
- *         the original key material</a> into a KMS key whose key material expired or was
- *       deleted.</p>
+ *       into a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of any supported type. However, you can't import key material into
+ *       a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. You can also use <code>GetParametersForImport</code> to get a
+ *       public key and import token to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the original key
+ *         material</a> into a KMS key whose key material expired or was deleted.</p>
  *          <p>
  *             <code>GetParametersForImport</code> returns the items that you need to import your key
  *       material.</p>

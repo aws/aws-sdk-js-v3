@@ -380,9 +380,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *       resource is not valid for this operation.</p>
  *
  * @throws {@link XksKeyAlreadyInUseException} (client fault)
- *  <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with a
- *       KMS key in this external key store. Each KMS key in an external key store must be associated
- *       with a different external key.</p>
+ *  <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with
+ *       another KMS key in this external key store. Each KMS key in an external key store must be
+ *       associated with a different external key.</p>
  *
  * @throws {@link XksKeyInvalidConfigurationException} (client fault)
  *  <p>The request was rejected because the external key specified by the <code>XksKeyId</code>

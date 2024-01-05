@@ -745,7 +745,7 @@ export interface CreateCustomKeyStoreRequest {
    *             <li>
    *                <p>An external key store with <code>PUBLIC_ENDPOINT</code> connectivity cannot use the
    *           same <code>XksProxyUriEndpoint</code> value as an external key store with
-   *             <code>VPC_ENDPOINT_SERVICE</code> connectivity in the same Amazon Web Services Region.</p>
+   *             <code>VPC_ENDPOINT_SERVICE</code> connectivity in this Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                <p>Each external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity must have
@@ -921,9 +921,8 @@ export class XksProxyIncorrectAuthenticationCredentialException extends __BaseEx
 
 /**
  * @public
- * <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
- *       the requirements for an external key store proxy. For details, see the exception
- *       message.</p>
+ * <p>The request was rejected because the external key store proxy is not configured correctly.
+ *       To identify the cause, see the error message that accompanies the exception.</p>
  */
 export class XksProxyInvalidConfigurationException extends __BaseException {
   readonly name: "XksProxyInvalidConfigurationException" = "XksProxyInvalidConfigurationException";
@@ -966,10 +965,9 @@ export class XksProxyInvalidResponseException extends __BaseException {
 
 /**
  * @public
- * <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
- *       is already associated with an external key store in the Amazon Web Services account and Region. Each
- *       external key store in an account and Region must use a unique external key store proxy
- *       address.</p>
+ * <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already
+ *       associated with another external key store in this Amazon Web Services Region. To identify the cause,
+ *       see the error message that accompanies the exception. </p>
  */
 export class XksProxyUriEndpointInUseException extends __BaseException {
   readonly name: "XksProxyUriEndpointInUseException" = "XksProxyUriEndpointInUseException";
@@ -990,9 +988,9 @@ export class XksProxyUriEndpointInUseException extends __BaseException {
 /**
  * @public
  * <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
- *       and <code>XksProxyUriPath</code> is already associated with an external key store in the
- *       Amazon Web Services account and Region. Each external key store in an account and Region must use a unique
- *       external key store proxy API address.</p>
+ *       and <code>XksProxyUriPath</code> is already associated with another external key store in this
+ *       Amazon Web Services Region. Each external key store in a Region must use a unique external key store proxy
+ *       API address.</p>
  */
 export class XksProxyUriInUseException extends __BaseException {
   readonly name: "XksProxyUriInUseException" = "XksProxyUriInUseException";
@@ -1037,8 +1035,8 @@ export class XksProxyUriUnreachableException extends __BaseException {
 /**
  * @public
  * <p>The request was rejected because the specified Amazon VPC endpoint service is already
- *       associated with an external key store in the Amazon Web Services account and Region. Each external key store
- *       in an Amazon Web Services account and Region must use a different Amazon VPC endpoint service.</p>
+ *       associated with another external key store in this Amazon Web Services Region. Each external key store in a
+ *       Region must use a different Amazon VPC endpoint service.</p>
  */
 export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
   readonly name: "XksProxyVpcEndpointServiceInUseException" = "XksProxyVpcEndpointServiceInUseException";
@@ -1059,8 +1057,9 @@ export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
 /**
  * @public
  * <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
- *       the requirements for an external key store proxy. For details, see the exception message and
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
+ *       the requirements for an external key store. To identify the cause, see the error message that
+ *       accompanies the exception and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
+ *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
  *       store.</p>
  */
 export class XksProxyVpcEndpointServiceInvalidConfigurationException extends __BaseException {
@@ -2296,9 +2295,9 @@ export class UnsupportedOperationException extends __BaseException {
 
 /**
  * @public
- * <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with a
- *       KMS key in this external key store. Each KMS key in an external key store must be associated
- *       with a different external key.</p>
+ * <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with
+ *       another KMS key in this external key store. Each KMS key in an external key store must be
+ *       associated with a different external key.</p>
  */
 export class XksKeyAlreadyInUseException extends __BaseException {
   readonly name: "XksKeyAlreadyInUseException" = "XksKeyAlreadyInUseException";

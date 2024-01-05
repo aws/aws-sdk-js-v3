@@ -67,7 +67,8 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *         <code>ReplicateKey</code> operation in the primary key's Region and a <a>CreateKey</a> operation in the replica key's Region.</p>
  *          <p>If you replicate a multi-Region primary key with imported key material, the replica key is
  *       created with no key material. You must import the same key material that you imported into the
- *       primary key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html">Importing key material into multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       primary key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html">Importing key material into multi-Region
+ *         keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>To convert a replica key to a primary key, use the <a>UpdatePrimaryRegion</a>
  *       operation.</p>
  *          <note>
