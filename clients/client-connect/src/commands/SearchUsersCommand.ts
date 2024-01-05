@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchUsersRequest, SearchUsersResponse } from "../models/models_2";
+import { SearchUsersRequest, SearchUsersResponse, SearchUsersResponseFilterSensitiveLog } from "../models/models_2";
 import { de_SearchUsersCommand, se_SearchUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -175,7 +175,7 @@ export class SearchUsersCommand extends $Command
   })
   .s("AmazonConnectService", "SearchUsers", {})
   .n("ConnectClient", "SearchUsersCommand")
-  .f(void 0, void 0)
+  .f(void 0, SearchUsersResponseFilterSensitiveLog)
   .ser(se_SearchUsersCommand)
   .de(de_SearchUsersCommand)
   .build() {}

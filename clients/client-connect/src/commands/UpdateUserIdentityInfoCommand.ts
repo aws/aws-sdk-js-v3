@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserIdentityInfoRequest } from "../models/models_2";
+import { UpdateUserIdentityInfoRequest, UpdateUserIdentityInfoRequestFilterSensitiveLog } from "../models/models_2";
 import { de_UpdateUserIdentityInfoCommand, se_UpdateUserIdentityInfoCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -105,7 +105,7 @@ export class UpdateUserIdentityInfoCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateUserIdentityInfo", {})
   .n("ConnectClient", "UpdateUserIdentityInfoCommand")
-  .f(void 0, void 0)
+  .f(UpdateUserIdentityInfoRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateUserIdentityInfoCommand)
   .de(de_UpdateUserIdentityInfoCommand)
   .build() {}

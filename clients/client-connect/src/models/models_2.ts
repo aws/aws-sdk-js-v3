@@ -38,6 +38,7 @@ import {
   TaskTemplateField,
   TaskTemplateStatus,
   UserIdentityInfo,
+  UserIdentityInfoFilterSensitiveLog,
   UserPhoneConfig,
   UserProficiency,
   View,
@@ -5403,6 +5404,57 @@ export const SearchContactsRequestFilterSensitiveLog = (obj: SearchContactsReque
 /**
  * @internal
  */
+export const UserIdentityInfoLiteFilterSensitiveLog = (obj: UserIdentityInfoLite): any => ({
+  ...obj,
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UserSearchSummaryFilterSensitiveLog = (obj: UserSearchSummary): any => ({
+  ...obj,
+  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoLiteFilterSensitiveLog(obj.IdentityInfo) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchUsersResponseFilterSensitiveLog = (obj: SearchUsersResponse): any => ({
+  ...obj,
+  ...(obj.Users && { Users: obj.Users.map((item) => UserSearchSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartOutboundVoiceContactRequestFilterSensitiveLog = (obj: StartOutboundVoiceContactRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartTaskContactRequestFilterSensitiveLog = (obj: StartTaskContactRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartWebRTCContactRequestFilterSensitiveLog = (obj: StartWebRTCContactRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
   ...obj,
   ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
@@ -5422,6 +5474,23 @@ export const ConnectionDataFilterSensitiveLog = (obj: ConnectionData): any => ({
 export const StartWebRTCContactResponseFilterSensitiveLog = (obj: StartWebRTCContactResponse): any => ({
   ...obj,
   ...(obj.ConnectionData && { ConnectionData: ConnectionDataFilterSensitiveLog(obj.ConnectionData) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactRequestFilterSensitiveLog = (obj: UpdateContactRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserIdentityInfoRequestFilterSensitiveLog = (obj: UpdateUserIdentityInfoRequest): any => ({
+  ...obj,
+  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
 });
 
 /**

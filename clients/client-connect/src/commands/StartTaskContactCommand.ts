@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartTaskContactRequest, StartTaskContactResponse } from "../models/models_2";
+import {
+  StartTaskContactRequest,
+  StartTaskContactRequestFilterSensitiveLog,
+  StartTaskContactResponse,
+} from "../models/models_2";
 import { de_StartTaskContactCommand, se_StartTaskContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -161,7 +165,7 @@ export class StartTaskContactCommand extends $Command
   })
   .s("AmazonConnectService", "StartTaskContact", {})
   .n("ConnectClient", "StartTaskContactCommand")
-  .f(void 0, void 0)
+  .f(StartTaskContactRequestFilterSensitiveLog, void 0)
   .ser(se_StartTaskContactCommand)
   .de(de_StartTaskContactCommand)
   .build() {}

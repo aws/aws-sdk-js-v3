@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartOutboundVoiceContactRequest, StartOutboundVoiceContactResponse } from "../models/models_2";
+import {
+  StartOutboundVoiceContactRequest,
+  StartOutboundVoiceContactRequestFilterSensitiveLog,
+  StartOutboundVoiceContactResponse,
+} from "../models/models_2";
 import { de_StartOutboundVoiceContactCommand, se_StartOutboundVoiceContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -136,7 +140,7 @@ export class StartOutboundVoiceContactCommand extends $Command
   })
   .s("AmazonConnectService", "StartOutboundVoiceContact", {})
   .n("ConnectClient", "StartOutboundVoiceContactCommand")
-  .f(void 0, void 0)
+  .f(StartOutboundVoiceContactRequestFilterSensitiveLog, void 0)
   .ser(se_StartOutboundVoiceContactCommand)
   .de(de_StartOutboundVoiceContactCommand)
   .build() {}

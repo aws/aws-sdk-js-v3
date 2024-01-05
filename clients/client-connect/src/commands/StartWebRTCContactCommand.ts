@@ -8,6 +8,7 @@ import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartWebRTCContactRequest,
+  StartWebRTCContactRequestFilterSensitiveLog,
   StartWebRTCContactResponse,
   StartWebRTCContactResponseFilterSensitiveLog,
 } from "../models/models_2";
@@ -143,7 +144,7 @@ export class StartWebRTCContactCommand extends $Command
   })
   .s("AmazonConnectService", "StartWebRTCContact", {})
   .n("ConnectClient", "StartWebRTCContactCommand")
-  .f(void 0, StartWebRTCContactResponseFilterSensitiveLog)
+  .f(StartWebRTCContactRequestFilterSensitiveLog, StartWebRTCContactResponseFilterSensitiveLog)
   .ser(se_StartWebRTCContactCommand)
   .de(de_StartWebRTCContactCommand)
   .build() {}

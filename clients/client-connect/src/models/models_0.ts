@@ -7369,6 +7369,26 @@ export const CreateInstanceRequestFilterSensitiveLog = (obj: CreateInstanceReque
 /**
  * @internal
  */
+export const UserIdentityInfoFilterSensitiveLog = (obj: UserIdentityInfo): any => ({
+  ...obj,
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+  ...(obj.SecondaryEmail && { SecondaryEmail: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
+});
+
+/**
+ * @internal
+ */
 export const ViewInputContentFilterSensitiveLog = (obj: ViewInputContent): any => ({
   ...obj,
   ...(obj.Actions && { Actions: SENSITIVE_STRING }),
@@ -7415,6 +7435,23 @@ export const CreateViewResponseFilterSensitiveLog = (obj: CreateViewResponse): a
 export const CreateViewVersionResponseFilterSensitiveLog = (obj: CreateViewVersionResponse): any => ({
   ...obj,
   ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
+});
+
+/**
+ * @internal
+ */
+export const ContactFilterSensitiveLog = (obj: Contact): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeContactResponseFilterSensitiveLog = (obj: DescribeContactResponse): any => ({
+  ...obj,
+  ...(obj.Contact && { Contact: ContactFilterSensitiveLog(obj.Contact) }),
 });
 
 /**

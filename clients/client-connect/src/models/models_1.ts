@@ -57,6 +57,7 @@ import {
   TaskTemplateStatus,
   UseCaseType,
   UserIdentityInfo,
+  UserIdentityInfoFilterSensitiveLog,
   UserPhoneConfig,
   UserProficiency,
   View,
@@ -9114,6 +9115,22 @@ export interface Sort {
 /**
  * @internal
  */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+  ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+  ...(obj.User && { User: UserFilterSensitiveLog(obj.User) }),
+});
+
+/**
+ * @internal
+ */
 export const DescribeViewResponseFilterSensitiveLog = (obj: DescribeViewResponse): any => ({
   ...obj,
   ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
@@ -9133,7 +9150,7 @@ export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
  */
 export const GetFederationTokenResponseFilterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
   ...obj,
-  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
+  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
 });
 
 /**

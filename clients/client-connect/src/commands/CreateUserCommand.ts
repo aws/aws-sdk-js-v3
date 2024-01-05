@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateUserRequest, CreateUserResponse } from "../models/models_0";
+import { CreateUserRequest, CreateUserRequestFilterSensitiveLog, CreateUserResponse } from "../models/models_0";
 import { de_CreateUserCommand, se_CreateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -128,7 +128,7 @@ export class CreateUserCommand extends $Command
   })
   .s("AmazonConnectService", "CreateUser", {})
   .n("ConnectClient", "CreateUserCommand")
-  .f(void 0, void 0)
+  .f(CreateUserRequestFilterSensitiveLog, void 0)
   .ser(se_CreateUserCommand)
   .de(de_CreateUserCommand)
   .build() {}

@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContactRequest, UpdateContactResponse } from "../models/models_2";
+import {
+  UpdateContactRequest,
+  UpdateContactRequestFilterSensitiveLog,
+  UpdateContactResponse,
+} from "../models/models_2";
 import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -103,7 +107,7 @@ export class UpdateContactCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateContact", {})
   .n("ConnectClient", "UpdateContactCommand")
-  .f(void 0, void 0)
+  .f(UpdateContactRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateContactCommand)
   .de(de_UpdateContactCommand)
   .build() {}
