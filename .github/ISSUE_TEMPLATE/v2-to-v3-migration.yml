@@ -1,0 +1,87 @@
+---
+name: "🔀 Migration Issue: AWS SDK JS v2 to v3"
+description: Report an issue or discrepancy encountered during migration from AWS SDK JS v2 to v3
+title: "MIGRATION ISSUE: [Your Title Here]"
+labels: [needs-triage, v2-v3-inconsistency]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Migration Issue from AWS SDK JS v2 to v3
+        Thank you for taking the time to report your migration issue. To help us address your concerns effectively, please provide as much detail as possible.
+
+  - type: checkboxes
+    attributes:
+      label: Pre-Migration Checklist
+      options:
+        - label: I've read the [Migration Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/migrating-to-v3.html).
+          required: true
+        - label: I've reviewed the upgrading notes and major version differences mentioned in [`UPGRADING.md`](https://github.com/aws/aws-sdk-js-v3/blob/main/UPGRADING.md).
+          required: true
+        - label: I've checked [AWS Forums](https://forums.aws.amazon.com) and [StackOverflow](https://stackoverflow.com/questions/tagged/aws-sdk-js) for similar migration issues.
+          required: true
+
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Which JavaScript Runtime is this issue in?
+      options:
+        - Node.js (includes AWS Lambda)
+        - Browser
+        - React Native
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: lambda-use
+    attributes:
+      label: AWS Lambda Usage
+      description: Are you running your application on AWS Lambda?
+      options:
+        - label: Yes, my application is running on AWS Lambda.
+        - label: No, my application is not running on AWS Lambda.
+    validations:
+      required: true
+
+  - type: textarea
+    id: migration-issue-description
+    attributes:
+      label: Describe the Migration Issue
+      description: What specific problem or discrepancy are you encountering during migration?
+      placeholder: A clear and concise description of the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: code-comparison
+    attributes:
+      label: Code Comparison
+      description: |
+        Provide code snippets comparing v2 and v3 implementations.
+        - V2 Code Snippet:
+        - V3 Code Snippet:
+        Please ensure to remove any sensitive information.
+    validations:
+      required: false
+
+  - type: textarea
+    id: observed-differences
+    attributes:
+      label: Observed Differences/Errors
+      description: |
+        Detail any errors, behavioral differences, or unexpected outcomes you are observing.
+        Include error messages, stack traces, and any logs relevant to the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Provide any additional information that may be relevant to understanding your migration issue.
+        This can include dependencies, environment setup, specific AWS services involved, etc.
+    validations:
+      required: false
