@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.488.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.487.0...v3.488.0) (2024-01-08)
+
+
+### Features
+
+* **client-codebuild:** Aws CodeBuild now supports new compute type BUILD_GENERAL1_XLARGE ([5aeb14a](https://github.com/aws/aws-sdk-js-v3/commit/5aeb14a83ad7bc3c4c6cf394c83b14d4bf46e048))
+
+
+
+
+
 # [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
 
 

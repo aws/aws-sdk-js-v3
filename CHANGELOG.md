@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.488.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.487.0...v3.488.0) (2024-01-08)
+
+
+### Features
+
+* **client-codebuild:** Aws CodeBuild now supports new compute type BUILD_GENERAL1_XLARGE ([5aeb14a](https://github.com/aws/aws-sdk-js-v3/commit/5aeb14a83ad7bc3c4c6cf394c83b14d4bf46e048))
+* **client-ec2:** Amazon EC2 R7iz bare metal instances are powered by custom 4th generation Intel Xeon Scalable processors. ([c62c9b2](https://github.com/aws/aws-sdk-js-v3/commit/c62c9b2628e47193267498ae6463197c7d0ce275))
+* **client-route53resolver:** This release adds support for query type configuration on firewall rules that enables customers for granular action (ALLOW, ALERT, BLOCK) by DNS query type. ([e4f1a11](https://github.com/aws/aws-sdk-js-v3/commit/e4f1a11af770a859accab3806e58fc19a7ff01b0))
+* **experimentalIdentityAndAuth:** release phase for services with signing customizations ([#5286](https://github.com/aws/aws-sdk-js-v3/issues/5286)) ([1ba36c4](https://github.com/aws/aws-sdk-js-v3/commit/1ba36c483267397a903d8cf6dde068641772b552))
+
+
+
+
+
 # [3.487.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.486.0...v3.487.0) (2024-01-05)
 
 
