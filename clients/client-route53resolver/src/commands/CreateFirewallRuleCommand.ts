@@ -46,6 +46,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *   BlockOverrideDnsType: "CNAME",
  *   BlockOverrideTtl: Number("int"),
  *   Name: "STRING_VALUE", // required
+ *   Qtype: "STRING_VALUE",
  * };
  * const command = new CreateFirewallRuleCommand(input);
  * const response = await client.send(command);
@@ -63,6 +64,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * //     CreatorRequestId: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
+ * //     Qtype: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -61,6 +61,7 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //       CreatorRequestId: "STRING_VALUE",
  * //       CreationTime: "STRING_VALUE",
  * //       ModificationTime: "STRING_VALUE",
+ * //       Qtype: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

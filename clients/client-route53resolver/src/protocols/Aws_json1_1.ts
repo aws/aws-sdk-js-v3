@@ -5626,6 +5626,7 @@ const se_CreateFirewallRuleRequest = (input: CreateFirewallRuleRequest, context:
     FirewallRuleGroupId: [],
     Name: [],
     Priority: [],
+    Qtype: [],
   });
 };
 

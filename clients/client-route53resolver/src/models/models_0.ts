@@ -1359,6 +1359,56 @@ export interface CreateFirewallRuleRequest {
    * <p>A name that lets you identify the rule in the rule group.</p>
    */
   Name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * 			The DNS query type you want the rule to evaluate. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *          </ul>
+   */
+  Qtype?: string;
 }
 
 /**
@@ -1466,6 +1516,56 @@ export interface FirewallRule {
    * <p>The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    */
   ModificationTime?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			The DNS query type you want the rule to evaluate. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *          </ul>
+   */
+  Qtype?: string;
 }
 
 /**
@@ -2480,6 +2580,56 @@ export interface DeleteFirewallRuleRequest {
    * <p>The ID of the domain list that's used in the rule.  </p>
    */
   FirewallDomainListId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * 			The DNS query type that the rule you are deleting evaluates. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *          </ul>
+   */
+  Qtype?: string;
 }
 
 /**
@@ -5425,6 +5575,56 @@ export interface UpdateFirewallRuleRequest {
    * <p>The name of the rule.</p>
    */
   Name?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			The DNS query type you want the rule to evaluate. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *          </ul>
+   */
+  Qtype?: string;
 }
 
 /**

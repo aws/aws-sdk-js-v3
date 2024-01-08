@@ -38,6 +38,7 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * const input = { // DeleteFirewallRuleRequest
  *   FirewallRuleGroupId: "STRING_VALUE", // required
  *   FirewallDomainListId: "STRING_VALUE", // required
+ *   Qtype: "STRING_VALUE",
  * };
  * const command = new DeleteFirewallRuleCommand(input);
  * const response = await client.send(command);
@@ -55,6 +56,7 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * //     CreatorRequestId: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
+ * //     Qtype: "STRING_VALUE",
  * //   },
  * // };
  *
