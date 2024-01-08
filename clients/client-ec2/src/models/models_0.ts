@@ -9302,6 +9302,8 @@ export const _InstanceType = {
   r7iz_4xlarge: "r7iz.4xlarge",
   r7iz_8xlarge: "r7iz.8xlarge",
   r7iz_large: "r7iz.large",
+  r7iz_metal_16xl: "r7iz.metal-16xl",
+  r7iz_metal_32xl: "r7iz.metal-32xl",
   r7iz_xlarge: "r7iz.xlarge",
   t1_micro: "t1.micro",
   t2_2xlarge: "t2.2xlarge",
