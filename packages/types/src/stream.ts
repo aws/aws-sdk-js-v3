@@ -1,1 +1,1 @@
-export { GetAwsChunkedEncodingStream, GetAwsChunkedEncodingStreamOptions } from "@smithy/types";
+export type { GetAwsChunkedEncodingStream, GetAwsChunkedEncodingStreamOptions } from "@smithy/types";

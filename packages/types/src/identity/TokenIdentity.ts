@@ -1,1 +1,1 @@
-export { TokenIdentity, TokenIdentityProvider } from "@smithy/types";
+export type { TokenIdentity, TokenIdentityProvider } from "@smithy/types";

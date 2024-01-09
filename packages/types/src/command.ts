@@ -1,1 +1,1 @@
-export { Command } from "@smithy/types";
+export type { Command } from "@smithy/types";

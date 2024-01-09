@@ -1,1 +1,1 @@
-export { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+export type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";

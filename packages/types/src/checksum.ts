@@ -1,1 +1,1 @@
-export { Checksum, ChecksumConstructor } from "@smithy/types";
+export type { Checksum, ChecksumConstructor } from "@smithy/types";

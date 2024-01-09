@@ -1,4 +1,4 @@
-export { MetadataBearer, ResponseMetadata } from "@smithy/types";
+export type { MetadataBearer, ResponseMetadata } from "@smithy/types";
 
 /**
  * @internal

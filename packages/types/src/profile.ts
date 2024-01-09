@@ -1,1 +1,1 @@
-export { IniSection, Profile, ParsedIniData, SharedConfigFiles } from "@smithy/types";
+export type { IniSection, Profile, ParsedIniData, SharedConfigFiles } from "@smithy/types";

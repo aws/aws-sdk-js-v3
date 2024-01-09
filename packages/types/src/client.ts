@@ -1,1 +1,1 @@
-export { Client } from "@smithy/types";
+export type { Client } from "@smithy/types";

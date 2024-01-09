@@ -1,1 +1,1 @@
-export { AuthScheme, HttpAuthDefinition, HttpAuthLocation } from "@smithy/types";
+export type { AuthScheme, HttpAuthDefinition, HttpAuthLocation } from "@smithy/types";

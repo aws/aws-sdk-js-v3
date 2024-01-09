@@ -1,5 +1,5 @@
-import { HttpResponse } from "@smithy/types";
-export {
+import type { HttpResponse } from "@smithy/types";
+export type {
   Endpoint,
   HeaderBag,
   HttpHandlerOptions,
