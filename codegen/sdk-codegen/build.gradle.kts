@@ -55,6 +55,7 @@ tasks["smithyBuildJar"].enabled = false
 
 tasks.create<SmithyBuild>("buildSdk") {
     addRuntimeClasspath = true
+    allowUnknownTraits = true
 }
 
 configure<software.amazon.smithy.gradle.SmithyExtension> {
