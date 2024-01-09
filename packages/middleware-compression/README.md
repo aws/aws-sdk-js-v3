@@ -5,7 +5,7 @@
 
 Middleware and Plugin for request compression.
 
-> Depreacted. Use [@smithy/middleware-compression](https://www.npmjs.com/package/@smithy/middleware-compression) instead.
+> Deprecated. Use [@smithy/middleware-compression](https://www.npmjs.com/package/@smithy/middleware-compression) instead.
 
 ## Usage
 
