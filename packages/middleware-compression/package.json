@@ -16,8 +16,12 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "dependencies": {
+    "@smithy/eventstream-codec": "^2.0.0",
+    "@smithy/is-array-buffer": "^2.0.0",
     "@smithy/node-config-provider": "^2.1.9",
+    "@smithy/protocol-http": "^3.0.12",
     "@smithy/types": "^2.8.0",
+    "@smithy/util-utf8": "^2.0.2",
     "@smithy/util-config-provider": "^2.1.0",
     "fflate": "0.8.1",
     "tslib": "^2.5.0"

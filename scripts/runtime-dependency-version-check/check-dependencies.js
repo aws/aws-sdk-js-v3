@@ -44,9 +44,9 @@ const walk = require("../utils/walk");
       const importedDependencies = [];
       importedDependencies.push(
         ...new Set(
-          [...(contents.toString().match(/from "(@(aws-sdk|smithy)\/.*?)"/g) || [])]
-            .slice(1)
-            .map((_) => _.replace(/from "/g, "").replace(/"$/, ""))
+          [...(contents.toString().match(/from "(@(aws-sdk|smithy)\/.*?)";/g) || [])].map((_) =>
+            _.replace(/from "/g, "").replace(/";$/, "")
+          )
         )
       );
 

@@ -24,6 +24,7 @@
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
+    "@smithy/eventstream-codec": "^2.0.0",
     "@smithy/eventstream-serde-browser": "^2.0.16",
     "@smithy/fetch-http-handler": "^2.3.2",
     "@smithy/protocol-http": "^3.0.12",
