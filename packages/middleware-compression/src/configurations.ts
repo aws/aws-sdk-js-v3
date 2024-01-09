@@ -1,7 +1,7 @@
 import { BodyLengthCalculator } from "@smithy/types";
 
 /**
- * @public
+ * @deprecated Use {@link @smithy/middleware-compression#CompressionInputConfig} instead.
  */
 export interface CompressionInputConfig {
   /**

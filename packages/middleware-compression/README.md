@@ -5,8 +5,8 @@
 
 Middleware and Plugin for request compression.
 
-> An internal package
+> Depreacted. Use [@smithy/middleware-compression](https://www.npmjs.com/package/@smithy/middleware-compression) instead.
 
 ## Usage
 
-You probably shouldn't, at least directly.
+The `@aws-sdk/middleware-compression` was never used in AWS SDK for JavaScript (v3). It was replaced by `@smithy/middleware-compression` in the early stage of development. Please use `@smithy/middleware-compression` instead.
