@@ -30,6 +30,7 @@
     "@smithy/signature-v4": "^2.0.0",
     "@smithy/types": "^2.8.0",
     "@smithy/util-hex-encoding": "^2.0.0",
+    "@smithy/eventstream-codec": "^2.0.16", 
     "tslib": "^2.5.0"
   },
   "devDependencies": {
