@@ -33,11 +33,16 @@ export const getSignedUrl = async <
       client.config
     );
     const authScheme = endpointV2.properties?.authSchemes?.[0];
-
+    let region: string | undefined;
+    if (authScheme?.name === "sigv4a") {
+      region = authScheme?.signingRegionSet?.join(",");
+    } else {
+      region = authScheme?.signingRegion;
+    }
     s3Presigner = new S3RequestPresigner({
       ...client.config,
       signingName: authScheme?.signingName,
-      region: async () => authScheme?.signingRegion,
+      region: async () => region,
     });
   } else {
     s3Presigner = new S3RequestPresigner(client.config);
