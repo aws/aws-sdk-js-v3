@@ -33,6 +33,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Performs a manual search against the specified assistant. To retrieve recommendations for
  *       an assistant, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
  *     </p>
