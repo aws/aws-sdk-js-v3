@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+
+### Bug Fixes
+
+* dependency check script and undeclared dependencies ([#5658](https://github.com/aws/aws-sdk-js-v3/issues/5658)) ([3c249d0](https://github.com/aws/aws-sdk-js-v3/commit/3c249d00b522f2cbc4917c30fed3d2db50cad1b0))
+
+
+### Features
+
+* **client-cloudwatch-logs:** Add support for account level subscription filter policies to PutAccountPolicy, DescribeAccountPolicies, and DeleteAccountPolicy APIs. Additionally, PutAccountPolicy has been modified with new optional "selectionCriteria" parameter for resource selection. ([3bf5ed5](https://github.com/aws/aws-sdk-js-v3/commit/3bf5ed50c54615c0e8dfa345234981eb4a96f7c4))
+* **client-connectcampaigns:** Minor pattern updates for Campaign and Dial Request API fields. ([f7bd277](https://github.com/aws/aws-sdk-js-v3/commit/f7bd27747e229d74932f7f102f9d1d244625075f))
+* **client-location:** This release adds API support for custom layers for the maps service APIs: CreateMap, UpdateMap, DescribeMap. ([75ee39f](https://github.com/aws/aws-sdk-js-v3/commit/75ee39f2f6280c12f13ee1942ac45e8c9e3a3c27))
+* **client-qconnect:** QueryAssistant and GetRecommendations will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications. ([27cbbe0](https://github.com/aws/aws-sdk-js-v3/commit/27cbbe0a5279667e8f8f316e7d808302fb19efc5))
+* **client-route-53:** Route53 now supports geoproximity routing in AWS regions ([950e4a0](https://github.com/aws/aws-sdk-js-v3/commit/950e4a0efe8437da30334e183727ee445d4e3f9b))
+* **client-wisdom:** QueryAssistant and GetRecommendations will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications. ([e7c58be](https://github.com/aws/aws-sdk-js-v3/commit/e7c58be366bc063466f46182d65b9d3a80d32b57))
+* **clients:** update client endpoints as of 2024-01-10 ([e1dc42f](https://github.com/aws/aws-sdk-js-v3/commit/e1dc42fecc6baa8d7f75bdb76efdfa2ed166391d))
+
+
+
+
+
 # [3.488.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.487.0...v3.488.0) (2024-01-08)
 
 

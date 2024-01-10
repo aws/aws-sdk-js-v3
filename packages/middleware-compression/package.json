@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-compression",
-  "version": "3.485.0",
+  "version": "3.489.0",
   "description": "Middleware and Plugin for request compression.",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
@@ -21,8 +21,8 @@
     "@smithy/node-config-provider": "^2.1.9",
     "@smithy/protocol-http": "^3.0.12",
     "@smithy/types": "^2.8.0",
-    "@smithy/util-utf8": "^2.0.2",
     "@smithy/util-config-provider": "^2.1.0",
+    "@smithy/util-utf8": "^2.0.2",
     "fflate": "0.8.1",
     "tslib": "^2.5.0"
   },

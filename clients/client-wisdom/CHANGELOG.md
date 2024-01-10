@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+
+### Features
+
+* **client-wisdom:** QueryAssistant and GetRecommendations will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications. ([e7c58be](https://github.com/aws/aws-sdk-js-v3/commit/e7c58be366bc063466f46182d65b9d3a80d32b57))
+
+
+
+
+
 # [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
 
 

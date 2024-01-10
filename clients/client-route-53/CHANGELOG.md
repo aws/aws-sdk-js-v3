@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+
+### Features
+
+* **client-route-53:** Route53 now supports geoproximity routing in AWS regions ([950e4a0](https://github.com/aws/aws-sdk-js-v3/commit/950e4a0efe8437da30334e183727ee445d4e3f9b))
+
+
+
+
+
 # [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
 
 

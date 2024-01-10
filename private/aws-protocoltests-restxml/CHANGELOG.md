@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+**Note:** Version bump only for package @aws-sdk/aws-protocoltests-restxml
+
+
+
+
+
 # [3.487.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.486.0...v3.487.0) (2024-01-05)
 
 **Note:** Version bump only for package @aws-sdk/aws-protocoltests-restxml

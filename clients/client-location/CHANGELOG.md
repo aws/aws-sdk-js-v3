@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+
+### Features
+
+* **client-location:** This release adds API support for custom layers for the maps service APIs: CreateMap, UpdateMap, DescribeMap. ([75ee39f](https://github.com/aws/aws-sdk-js-v3/commit/75ee39f2f6280c12f13ee1942ac45e8c9e3a3c27))
+
+
+
+
+
 # [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
 
 
