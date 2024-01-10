@@ -2680,6 +2680,16 @@ export interface MapConfiguration {
    *          </note>
    */
   PoliticalView?: string;
+
+  /**
+   * @public
+   * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as POI layer for the VectorEsriNavigation style.
+   * Default is <code>unset</code>.</p>
+   *          <note>
+   *             <p>Not all map resources or styles support custom layers. See Custom Layers for more information.</p>
+   *          </note>
+   */
+  CustomLayers?: string[];
 }
 
 /**
@@ -5735,6 +5745,16 @@ export interface MapConfigurationUpdate {
    *          </note>
    */
   PoliticalView?: string;
+
+  /**
+   * @public
+   * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as POI layer for the VectorEsriNavigation style.
+   * Default is <code>unset</code>.</p>
+   *          <note>
+   *             <p>Not all map resources or styles support custom layers. See Custom Layers for more information.</p>
+   *          </note>
+   */
+  CustomLayers?: string[];
 }
 
 /**

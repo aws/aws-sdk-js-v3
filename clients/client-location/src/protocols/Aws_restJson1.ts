@@ -5684,6 +5684,8 @@ const se_Circle = (input: Circle, context: __SerdeContext): any => {
 
 // se_CountryCodeList omitted.
 
+// se_CustomLayerList omitted.
+
 // se_DataSourceConfiguration omitted.
 
 // se_DeviceIdsList omitted.
@@ -5967,6 +5969,8 @@ const de_Circle = (output: any, context: __SerdeContext): Circle => {
 };
 
 // de_CountryCodeList omitted.
+
+// de_CustomLayerList omitted.
 
 // de_DataSourceConfiguration omitted.
 

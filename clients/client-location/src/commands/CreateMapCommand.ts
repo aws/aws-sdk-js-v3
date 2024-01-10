@@ -47,6 +47,9 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  *   Configuration: { // MapConfiguration
  *     Style: "STRING_VALUE", // required
  *     PoliticalView: "STRING_VALUE",
+ *     CustomLayers: [ // CustomLayerList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   PricingPlan: "STRING_VALUE",
  *   Description: "STRING_VALUE",

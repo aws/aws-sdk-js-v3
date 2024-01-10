@@ -41,6 +41,9 @@ export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBea
  *   Description: "STRING_VALUE",
  *   ConfigurationUpdate: { // MapConfigurationUpdate
  *     PoliticalView: "STRING_VALUE",
+ *     CustomLayers: [ // CustomLayerList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  * };
  * const command = new UpdateMapCommand(input);
