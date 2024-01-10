@@ -32,6 +32,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Retrieves recommendations for the specified session. To avoid retrieving the same
  *       recommendations in subsequent calls, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_NotifyRecommendationsReceived.html">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the
  *         <code>waitTimeSeconds</code> parameter. Short poll is the default behavior and only returns
