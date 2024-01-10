@@ -70,6 +70,9 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  *             <p>You can end a session before it times out by closing the session stream or by closing the client that is receiving the
  *   stream. The session also ends if the established connection between the client and the server breaks.</p>
  *          </important>
+ *          <p>For examples of using an SDK to start a Live Tail session, see
+ *     <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/example_cloudwatch-logs_StartLiveTail_section.html">
+ *       Start a Live Tail session using an Amazon Web Services SDK</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
