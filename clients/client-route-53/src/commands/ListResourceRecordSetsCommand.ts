@@ -147,6 +147,15 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * //         CollectionId: "STRING_VALUE", // required
  * //         LocationName: "STRING_VALUE", // required
  * //       },
+ * //       GeoProximityLocation: { // GeoProximityLocation
+ * //         AWSRegion: "STRING_VALUE",
+ * //         LocalZoneGroup: "STRING_VALUE",
+ * //         Coordinates: { // Coordinates
+ * //           Latitude: "STRING_VALUE", // required
+ * //           Longitude: "STRING_VALUE", // required
+ * //         },
+ * //         Bias: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   IsTruncated: true || false, // required

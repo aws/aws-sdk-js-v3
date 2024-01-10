@@ -264,6 +264,7 @@ import {
   ConcurrentModification,
   ConflictingDomainExists,
   ConflictingTypes,
+  Coordinates,
   DelegationSet,
   DelegationSetAlreadyCreated,
   DelegationSetAlreadyReusable,
@@ -275,6 +276,7 @@ import {
   DNSSECStatus,
   GeoLocation,
   GeoLocationDetails,
+  GeoProximityLocation,
   HealthCheck,
   HealthCheckAlreadyExists,
   HealthCheckConfig,
@@ -7219,6 +7221,16 @@ const se_CidrRoutingConfig = (input: CidrRoutingConfig, context: __SerdeContext)
 };
 
 /**
+ * serializeAws_restXmlCoordinates
+ */
+const se_Coordinates = (input: Coordinates, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_Coo);
+  bn.cc(input, _La);
+  bn.cc(input, _Lo);
+  return bn;
+};
+
+/**
  * serializeAws_restXmlGeoLocation
  */
 const se_GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
@@ -7231,6 +7243,22 @@ const se_GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
   }
   if (input[_SC] != null) {
     bn.c(__XmlNode.of(_GLSC, input[_SC]).n(_SC));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlGeoProximityLocation
+ */
+const se_GeoProximityLocation = (input: GeoProximityLocation, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_GPL);
+  bn.cc(input, _AWSR);
+  bn.cc(input, _LZG);
+  if (input[_Coo] != null) {
+    bn.c(se_Coordinates(input[_Coo], context).n(_Coo));
+  }
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_B, String(input[_B])).n(_B));
   }
   return bn;
 };
@@ -7382,6 +7410,9 @@ const se_ResourceRecordSet = (input: ResourceRecordSet, context: __SerdeContext)
   bn.cc(input, _TPII);
   if (input[_CRC] != null) {
     bn.c(se_CidrRoutingConfig(input[_CRC], context).n(_CRC));
+  }
+  if (input[_GPL] != null) {
+    bn.c(se_GeoProximityLocation(input[_GPL], context).n(_GPL));
   }
   return bn;
 };
@@ -7658,6 +7689,20 @@ const de_CollectionSummary = (output: any, context: __SerdeContext): CollectionS
 };
 
 /**
+ * deserializeAws_restXmlCoordinates
+ */
+const de_Coordinates = (output: any, context: __SerdeContext): Coordinates => {
+  const contents: any = {};
+  if (output[_La] != null) {
+    contents[_La] = __expectString(output[_La]);
+  }
+  if (output[_Lo] != null) {
+    contents[_Lo] = __expectString(output[_Lo]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlDelegationSet
  */
 const de_DelegationSet = (output: any, context: __SerdeContext): DelegationSet => {
@@ -7800,6 +7845,26 @@ const de_GeoLocationDetailsList = (output: any, context: __SerdeContext): GeoLoc
     .map((entry: any) => {
       return de_GeoLocationDetails(entry, context);
     });
+};
+
+/**
+ * deserializeAws_restXmlGeoProximityLocation
+ */
+const de_GeoProximityLocation = (output: any, context: __SerdeContext): GeoProximityLocation => {
+  const contents: any = {};
+  if (output[_AWSR] != null) {
+    contents[_AWSR] = __expectString(output[_AWSR]);
+  }
+  if (output[_LZG] != null) {
+    contents[_LZG] = __expectString(output[_LZG]);
+  }
+  if (output[_Coo] != null) {
+    contents[_Coo] = de_Coordinates(output[_Coo], context);
+  }
+  if (output[_B] != null) {
+    contents[_B] = __strictParseInt32(output[_B]) as number;
+  }
+  return contents;
 };
 
 /**
@@ -8264,6 +8329,9 @@ const de_ResourceRecordSet = (output: any, context: __SerdeContext): ResourceRec
   if (output[_CRC] != null) {
     contents[_CRC] = de_CidrRoutingConfig(output[_CRC], context);
   }
+  if (output[_GPL] != null) {
+    contents[_GPL] = de_GeoProximityLocation(output[_GPL], context);
+  }
   return contents;
 };
 
@@ -8530,7 +8598,9 @@ const _AT = "AddTags";
 const _ATl = "AliasTarget";
 const _AVPCC = "AssociateVPCComment";
 const _AVPCWHZR = "AssociateVPCWithHostedZoneRequest";
+const _AWSR = "AWSRegion";
 const _Ar = "Arn";
+const _B = "Bias";
 const _C = "Comment";
 const _CA = "ChangeAction";
 const _CB = "ChangeBatch";
@@ -8581,6 +8651,7 @@ const _Cha = "Change";
 const _Ci = "Cidr";
 const _Co = "Collection";
 const _Con = "Config";
+const _Coo = "Coordinates";
 const _Cou = "Count";
 const _D = "Document";
 const _DAM = "DigestAlgorithmMnemonic";
@@ -8614,6 +8685,7 @@ const _GLCCe = "GeoLocationCountryCode";
 const _GLD = "GeoLocationDetails";
 const _GLDL = "GeoLocationDetailsList";
 const _GLSC = "GeoLocationSubdivisionCode";
+const _GPL = "GeoProximityLocation";
 const _HC = "HealthCheck";
 const _HCC = "HealthCheckConfig";
 const _HCCe = "HealthCheckCount";
@@ -8653,7 +8725,10 @@ const _LN = "LocationName";
 const _LS = "LinkedService";
 const _LTFRR = "ListTagsForResourcesRequest";
 const _LV = "LatestVersion";
+const _LZG = "LocalZoneGroup";
+const _La = "Latitude";
 const _Li = "Limit";
+const _Lo = "Longitude";
 const _M = "Marker";
 const _MI = "MaxItems";
 const _ML = "MeasureLatency";

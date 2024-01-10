@@ -412,10 +412,11 @@ export interface AliasTarget {
    *             </dd>
    *             <dt>Elastic Beanstalk environment</dt>
    *             <dd>
-   *                <p>Specify the hosted zone ID for the region that you created the environment
-   * 						in. The environment must have a regionalized subdomain. For a list of
-   * 						regions and the corresponding hosted zone IDs, see <a href="https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html">Elastic Beanstalk endpoints and quotas</a> in the the
-   * 							<i>Amazon Web Services General Reference</i>.</p>
+   *                <p>Specify the hosted zone ID for the region that you created the environment in. The
+   * 						environment must have a regionalized subdomain. For a list of regions and
+   * 						the corresponding hosted zone IDs, see <a href="https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html">Elastic Beanstalk
+   * 							endpoints and quotas</a> in the <i>Amazon Web Services
+   * 							General Reference</i>.</p>
    *             </dd>
    *             <dt>ELB load balancer</dt>
    *             <dd>
@@ -1096,8 +1097,7 @@ export type CidrCollectionChangeAction = (typeof CidrCollectionChangeAction)[key
 export interface CidrCollectionChange {
   /**
    * @public
-   * <p>Name of the location that is associated with the CIDR
-   * 			collection.</p>
+   * <p>Name of the location that is associated with the CIDR collection.</p>
    */
   LocationName: string | undefined;
 
@@ -1334,7 +1334,8 @@ export interface GeoLocation {
    * <p>For geolocation resource record sets, the two-letter code for a country.</p>
    *          <p>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
    * 				alpha-2</a>.</p>
-   *          <p>Route 53 also supports the contry code <b>UA</b> forr Ukraine.</p>
+   *          <p>Route 53 also supports the country code <b>UA</b> for
+   * 			Ukraine.</p>
    */
   CountryCode?: string;
 
@@ -1348,6 +1349,83 @@ export interface GeoLocation {
    * 				<code>CountryCode</code>. </p>
    */
   SubdivisionCode?: string;
+}
+
+/**
+ * @public
+ * <p>
+ * 			A complex type that lists the coordinates for a geoproximity resource record.
+ * 		</p>
+ */
+export interface Coordinates {
+  /**
+   * @public
+   * <p> Specifies a coordinate of the north–south position of a geographic point on the surface of
+   * 			the Earth (-90 - 90). </p>
+   */
+  Latitude: string | undefined;
+
+  /**
+   * @public
+   * <p> Specifies a coordinate of the east–west position of a geographic point on the surface of
+   * 			the Earth (-180 - 180). </p>
+   */
+  Longitude: string | undefined;
+}
+
+/**
+ * @public
+ * <p> (Resource record sets only): A complex type that lets you control how Amazon Route 53
+ * 			responds to DNS queries based on the geographic origin of the query and your resources.
+ * 			Only one of , <code>LocalZoneGroup</code>, <code>Coordinates</code>, or <code>Amazon Web ServicesRegion</code> is allowed per request at a time.</p>
+ *          <p>For more information about geoproximity routing, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html">Geoproximity routing</a> in the
+ * 					<i>Amazon Route 53 Developer Guide</i>.</p>
+ */
+export interface GeoProximityLocation {
+  /**
+   * @public
+   * <p> The Amazon Web Services Region the resource you are directing DNS traffic to, is in. </p>
+   */
+  AWSRegion?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			Specifies an Amazon Web Services Local Zone Group.
+   * 		</p>
+   *          <p>A local Zone Group is usually the Local Zone code without the ending character. For example,
+   * 			if the Local Zone is <code>us-east-1-bue-1a</code> the Local Zone Group is <code>us-east-1-bue-1</code>.</p>
+   *          <p>You can identify the Local Zones Group for a specific Local Zone by using the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html">describe-availability-zones</a> CLI command:</p>
+   *          <p>This command returns: <code>"GroupName": "us-west-2-den-1"</code>, specifying that the Local Zone <code>us-west-2-den-1a</code>
+   * 			belongs to the Local Zone Group <code>us-west-2-den-1</code>.</p>
+   */
+  LocalZoneGroup?: string;
+
+  /**
+   * @public
+   * <p> Contains the longitude and latitude for a geographic region. </p>
+   */
+  Coordinates?: Coordinates;
+
+  /**
+   * @public
+   * <p>
+   * 			The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+   * 		</p>
+   *          <p>To use <code>Bias</code> to change the size of the geographic region, specify the
+   * 			applicable value for the bias:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a
+   * 				positive integer from 1 to 99 for the bias. Route 53 shrinks the size of adjacent regions. </p>
+   *             </li>
+   *             <li>
+   *                <p>To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a
+   * 				negative bias of -1 to -99. Route 53 expands the size of adjacent regions. </p>
+   *             </li>
+   *          </ul>
+   */
+  Bias?: number;
 }
 
 /**
@@ -1680,16 +1758,12 @@ export interface ResourceRecordSet {
   /**
    * @public
    * <p>
-   *             <i>Geolocation resource record sets only:</i> A complex type that lets
-   * 			you control how Amazon Route 53 responds to DNS queries based on the geographic origin
-   * 			of the query. For example, if you want all queries from Africa to be routed to a web
-   * 			server with an IP address of <code>192.0.2.111</code>, create a resource record set with
-   * 			a <code>Type</code> of <code>A</code> and a <code>ContinentCode</code> of
+   *             <i>Geolocation resource record sets only:</i> A complex type that lets you
+   * 			control how Amazon Route 53 responds to DNS queries based on the geographic origin of
+   * 			the query. For example, if you want all queries from Africa to be routed to a web server
+   * 			with an IP address of <code>192.0.2.111</code>, create a resource record set with a
+   * 				<code>Type</code> of <code>A</code> and a <code>ContinentCode</code> of
    * 				<code>AF</code>.</p>
-   *          <note>
-   *             <p>Although creating geolocation and geolocation alias resource record sets in a
-   * 				private hosted zone is allowed, it's not supported.</p>
-   *          </note>
    *          <p>If you create separate resource record sets for overlapping geographic regions (for
    * 			example, one resource record set for a continent and one for a country on the same
    * 			continent), priority goes to the smallest geographic region. This allows you to route
@@ -2059,6 +2133,15 @@ export interface ResourceRecordSet {
    * 			record. <code>CollectionId</code> is still required for default record.</p>
    */
   CidrRoutingConfig?: CidrRoutingConfig;
+
+  /**
+   * @public
+   * <p>
+   *             <i> GeoproximityLocation resource record sets only:</i> A complex type that lets you control how
+   * 				Route 53 responds to DNS queries based on the geographic origin of the
+   * 			query and your resources. </p>
+   */
+  GeoProximityLocation?: GeoProximityLocation;
 }
 
 /**
@@ -2636,11 +2719,10 @@ export interface HealthCheckConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>RECOVERY_CONTROL</b>: The health check is
-   * 					assocated with a Route53 Application Recovery Controller routing control. If the
-   * 					routing control state is <code>ON</code>, the health check is considered
-   * 					healthy. If the state is <code>OFF</code>, the health check is considered
-   * 					unhealthy. </p>
+   *                   <b>RECOVERY_CONTROL</b>: The health check is associated with a
+   * 					Route53 Application Recovery Controller routing control. If the routing control
+   * 					state is <code>ON</code>, the health check is considered healthy. If the state
+   * 					is <code>OFF</code>, the health check is considered unhealthy. </p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Route 53 Determines Whether an Endpoint Is Healthy</a> in the
@@ -5504,7 +5586,7 @@ export interface GetDNSSECRequest {
 
 /**
  * @public
- * <p>A string repesenting the status of DNSSEC signing.</p>
+ * <p>A string representing the status of DNSSEC signing.</p>
  */
 export interface DNSSECStatus {
   /**
@@ -5557,7 +5639,7 @@ export interface DNSSECStatus {
 export interface GetDNSSECResponse {
   /**
    * @public
-   * <p>A string repesenting the status of DNSSEC.</p>
+   * <p>A string representing the status of DNSSEC.</p>
    */
   Status: DNSSECStatus | undefined;
 
@@ -5615,7 +5697,8 @@ export interface GetGeoLocationRequest {
    * @public
    * <p>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
    * 				alpha-2</a>.</p>
-   *          <p>Route 53 also supports the contry code <b>UA</b> forr Ukraine.</p>
+   *          <p>Route 53 also supports the country code <b>UA</b> for
+   * 			Ukraine.</p>
    */
   CountryCode?: string;
 
@@ -6547,9 +6630,9 @@ export interface ListGeoLocationsRequest {
 
   /**
    * @public
-   * <p>(Optional) The maximum number of geolocations to be included in the response body for
-   * 			this request. If more than <code>maxitems</code> geolocations remain to be listed, then
-   * 			the value of the <code>IsTruncated</code> element in the response is
+   * <p>(Optional) The maximum number of geolocations to be included in the response body for this
+   * 			request. If more than <code>maxitems</code> geolocations remain to be listed, then the
+   * 			value of the <code>IsTruncated</code> element in the response is
    * 			<code>true</code>.</p>
    */
   MaxItems?: number;
@@ -8398,6 +8481,8 @@ export interface UpdateHealthCheckRequest {
    * 			to the domain that you specify in <code>FullyQualifiedDomainName</code> at the interval
    * 			you specify in <code>RequestInterval</code>. Using an IPv4 address that is returned by
    * 			DNS, Route 53 then checks the health of the endpoint.</p>
+   *          <p>If you don't specify a value for <code>IPAddress</code>, you can’t update the health check to remove the <code>FullyQualifiedDomainName</code>; if you don’t specify a value for <code>IPAddress</code> on creation, a
+   * 			<code>FullyQualifiedDomainName</code> is required.</p>
    *          <note>
    *             <p>If you don't specify a value for <code>IPAddress</code>, Route 53 uses only IPv4
    * 				to send health checks to the endpoint. If there's no resource record set with a type
