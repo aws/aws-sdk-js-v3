@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
+
+
+### Bug Fixes
+
+* **experimentalIdentityAndAuth:** rename `AWSSDKSigV4` to `AwsSdkSigV4` ([#5667](https://github.com/aws/aws-sdk-js-v3/issues/5667)) ([9c3e91a](https://github.com/aws/aws-sdk-js-v3/commit/9c3e91aeb155cad42ce56cc116aa71bc8f2457c9))
+* **lib-storage:** fix Location field decoding in Upload class ([#5668](https://github.com/aws/aws-sdk-js-v3/issues/5668)) ([59ff8e1](https://github.com/aws/aws-sdk-js-v3/commit/59ff8e1d66cb4194ded8458f23a4b3f2caed2ee3))
+
+
+### Features
+
+* **client-ec2:** This release adds support for adding an ElasticBlockStorage volume configurations in ECS RunTask/StartTask/CreateService/UpdateService APIs. The configuration allows for attaching EBS volumes to ECS Tasks. ([dd0cdf2](https://github.com/aws/aws-sdk-js-v3/commit/dd0cdf2e755ed6702e14174510958c4609cd8748))
+* **client-ecs:** This release adds support for adding an ElasticBlockStorage volume configurations in ECS RunTask/StartTask/CreateService/UpdateService APIs. The configuration allows for attaching EBS volumes to ECS Tasks. ([8b7b13e](https://github.com/aws/aws-sdk-js-v3/commit/8b7b13e42caceea038c7c6b75c033baadbec7109))
+* **client-eventbridge:** Adding AppSync as an EventBridge Target ([1853dab](https://github.com/aws/aws-sdk-js-v3/commit/1853dabb140cea9f693bd0bf1c17c2109094c927))
+* **client-iot:** Add ConflictException to Update APIs of AWS IoT Software Package Catalog ([3b6b5e4](https://github.com/aws/aws-sdk-js-v3/commit/3b6b5e486b74e452f2aac54d3cfbb34248e5db2c))
+* **client-iotfleetwise:** The following dataTypes have been removed: CUSTOMER_DECODED_INTERFACE in NetworkInterfaceType; CUSTOMER_DECODED_SIGNAL_INFO_IS_NULL in SignalDecoderFailureReason; CUSTOMER_DECODED_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL in NetworkInterfaceFailureReason; CUSTOMER_DECODED_SIGNAL in SignalDecoderType ([ef8a699](https://github.com/aws/aws-sdk-js-v3/commit/ef8a69965f9bcf636b2a28134d85af788bd4923b))
+* **clients:** update client endpoints as of 2024-01-11 ([3ff330e](https://github.com/aws/aws-sdk-js-v3/commit/3ff330e7efaa525a37e5f3198d22c6e66a9cb0e9))
+* **experimentalIdentityAndAuth:** release phase for services with customizations ([#5288](https://github.com/aws/aws-sdk-js-v3/issues/5288)) ([ddc477c](https://github.com/aws/aws-sdk-js-v3/commit/ddc477c39da563db4d26e552f9e6edf7254d4ea3))
+
+
+
+
+
 # [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
 
 

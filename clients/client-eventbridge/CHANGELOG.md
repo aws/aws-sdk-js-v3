@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
+
+
+### Features
+
+* **client-eventbridge:** Adding AppSync as an EventBridge Target ([1853dab](https://github.com/aws/aws-sdk-js-v3/commit/1853dabb140cea9f693bd0bf1c17c2109094c927))
+
+
+
+
+
 # [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
 
 **Note:** Version bump only for package @aws-sdk/client-eventbridge
