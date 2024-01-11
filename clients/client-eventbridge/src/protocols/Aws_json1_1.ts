@@ -128,6 +128,7 @@ import { EventBridgeServiceException as __BaseException } from "../models/EventB
 import {
   ActivateEventSourceRequest,
   ApiDestination,
+  AppSyncParameters,
   Archive,
   AwsVpcConfiguration,
   BatchArrayProperties,
@@ -4079,6 +4080,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_ActivateEventSourceRequest omitted.
 
+// se_AppSyncParameters omitted.
+
 // se_AwsVpcConfiguration omitted.
 
 // se_BatchArrayProperties omitted.
@@ -4426,6 +4429,8 @@ const de_ApiDestinationResponseList = (output: any, context: __SerdeContext): Ap
     });
   return retVal;
 };
+
+// de_AppSyncParameters omitted.
 
 /**
  * deserializeAws_json1_1Archive

@@ -172,6 +172,9 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * //         MaximumRetryAttempts: Number("int"),
  * //         MaximumEventAgeInSeconds: Number("int"),
  * //       },
+ * //       AppSyncParameters: { // AppSyncParameters
+ * //         GraphQLOperation: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -209,6 +209,19 @@ export interface ApiDestination {
 
 /**
  * @public
+ * <p>Contains the GraphQL operation to be parsed and executed, if the event target is an AppSync API.</p>
+ */
+export interface AppSyncParameters {
+  /**
+   * @public
+   * <p>The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appsync/latest/devguide/graphql-architecture.html#graphql-operations">Operations</a> in the <i>AppSync User Guide</i>.</p>
+   */
+  GraphQLOperation?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ArchiveState = {
@@ -3124,31 +3137,6 @@ export interface Rule {
   /**
    * @public
    * <p>The state of the rule.</p>
-   *          <p>Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code>: The rule is disabled. EventBridge does not match any events against the rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code>: The rule is enabled.
-   *           EventBridge matches events against the rule, <i>except</i> for Amazon Web Services management events delivered through CloudTrail.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS</code>: The rule is enabled for all
-   *         events, including Amazon Web Services management events delivered through CloudTrail.</p>
-   *                <p>Management events provide visibility into management operations that are performed on
-   *           resources in your Amazon Web Services account. These are also known as control plane
-   *           operations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events">Logging management events</a> in the <i>CloudTrail User
-   *             Guide</i>, and <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-cloudtrail">Filtering management events from Amazon Web Services services</a> in the
-   *             <i>Amazon EventBridge User Guide</i>.</p>
-   *                <p>This value is only valid for rules on the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.html#eb-bus-concepts-buses">default</a> event bus
-   *           or <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-event-bus.html">custom event buses</a>.
-   *           It does not apply to <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-saas.html">partner event buses</a>.</p>
-   *             </li>
-   *          </ul>
    */
   State?: RuleState;
 
@@ -4072,6 +4060,12 @@ export interface Target {
    *       for the dead-letter queue.</p>
    */
   RetryPolicy?: RetryPolicy;
+
+  /**
+   * @public
+   * <p>Contains the GraphQL operation to be parsed and executed, if the event target is an AppSync API.</p>
+   */
+  AppSyncParameters?: AppSyncParameters;
 }
 
 /**
@@ -4568,32 +4562,7 @@ export interface PutRuleRequest {
 
   /**
    * @public
-   * <p>The state of the rule.</p>
-   *          <p>Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code>: The rule is disabled. EventBridge does not match any events against the rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code>: The rule is enabled.
-   *           EventBridge matches events against the rule, <i>except</i> for Amazon Web Services management events delivered through CloudTrail.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS</code>: The rule is enabled for all
-   *         events, including Amazon Web Services management events delivered through CloudTrail.</p>
-   *                <p>Management events provide visibility into management operations that are performed on
-   *           resources in your Amazon Web Services account. These are also known as control plane
-   *           operations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events">Logging management events</a> in the <i>CloudTrail User
-   *             Guide</i>, and <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-cloudtrail">Filtering management events from Amazon Web Services services</a> in the
-   *             <i>Amazon EventBridge User Guide</i>.</p>
-   *                <p>This value is only valid for rules on the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.html#eb-bus-concepts-buses">default</a> event bus
-   *           or <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-event-bus.html">custom event buses</a>.
-   *           It does not apply to <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-saas.html">partner event buses</a>.</p>
-   *             </li>
-   *          </ul>
+   * <p>Indicates whether the rule is enabled or disabled.</p>
    */
   State?: RuleState;
 
@@ -5408,6 +5377,14 @@ export interface UpdateEndpointResponse {
 /**
  * @internal
  */
+export const AppSyncParametersFilterSensitiveLog = (obj: AppSyncParameters): any => ({
+  ...obj,
+  ...(obj.GraphQLOperation && { GraphQLOperation: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
   obj: CreateConnectionApiKeyAuthRequestParameters
 ): any => ({
@@ -5571,6 +5548,7 @@ export const TargetFilterSensitiveLog = (obj: Target): any => ({
   ...(obj.RedshiftDataParameters && {
     RedshiftDataParameters: RedshiftDataParametersFilterSensitiveLog(obj.RedshiftDataParameters),
   }),
+  ...(obj.AppSyncParameters && { AppSyncParameters: AppSyncParametersFilterSensitiveLog(obj.AppSyncParameters) }),
 });
 
 /**

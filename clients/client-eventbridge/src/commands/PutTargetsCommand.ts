@@ -273,6 +273,9 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *         MaximumRetryAttempts: Number("int"),
  *         MaximumEventAgeInSeconds: Number("int"),
  *       },
+ *       AppSyncParameters: { // AppSyncParameters
+ *         GraphQLOperation: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };
