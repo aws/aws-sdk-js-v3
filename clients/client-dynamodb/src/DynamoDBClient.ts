@@ -504,17 +504,6 @@ export class DynamoDBClient extends __Client<
    */
   readonly config: DynamoDBClientResolvedConfig;
 
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultDynamoDBHttpAuthSchemeParametersProvider;
-  }
-
-  private getIdentityProviderConfigProvider() {
-    return async (config: DynamoDBClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
-  }
-
   constructor(...[configuration]: __CheckOptionalClientConfig<DynamoDBClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -552,5 +541,14 @@ export class DynamoDBClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultDynamoDBHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: DynamoDBClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

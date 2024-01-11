@@ -10716,6 +10716,288 @@ export interface ListSubscriptionTargetsInput {
 }
 
 /**
+ * @public
+ * <p>The details of the subscription target.</p>
+ */
+export interface SubscriptionTargetSummary {
+  /**
+   * @public
+   * <p>The identifier of the subscription target.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The authorized principals included in the subscription target.</p>
+   */
+  authorizedPrincipals: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon DataZone domain in which the subscription target exists.</p>
+   */
+  domainId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the project specified in the subscription target.</p>
+   */
+  projectId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the environment of the subscription target.</p>
+   */
+  environmentId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the subscription target.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of the subscription target.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon DataZone user who created the subscription target.</p>
+   */
+  createdBy: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon DataZone user who updated the subscription target.</p>
+   */
+  updatedBy?: string;
+
+  /**
+   * @public
+   * <p>The timestamp of when the subscription target was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp of when the subscription target was updated.</p>
+   */
+  updatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The manage access role specified in the subscription target.</p>
+   */
+  manageAccessRole: string | undefined;
+
+  /**
+   * @public
+   * <p>The asset types included in the subscription target.</p>
+   */
+  applicableAssetTypes: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The configuration of the subscription target.</p>
+   */
+  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
+
+  /**
+   * @public
+   * <p>The provider of the subscription target.</p>
+   */
+  provider: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionTargetsOutput {
+  /**
+   * @public
+   * <p>The results of the <code>ListSubscriptionTargets</code> action.</p>
+   */
+  items: SubscriptionTargetSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>When the number of subscription targets is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of subscription targets, the
+   *          response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to
+   *             <code>ListSubscriptionTargets</code> to list the next set of subscription
+   *          targets.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The ARN of the resource whose tags you want to list.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>The tags of the specified resource.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>The details of the automatically generated business metadata that is rejected.</p>
+ */
+export interface RejectChoice {
+  /**
+   * @public
+   * <p>Specifies the target (for example, a column name) where a prediction can be
+   *          rejected.</p>
+   */
+  predictionTarget?: string;
+
+  /**
+   * @public
+   * <p>Specifies the the automatically generated business metadata that can be rejected.</p>
+   */
+  predictionChoices?: number[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RejectRuleBehavior = {
+  ALL: "ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type RejectRuleBehavior = (typeof RejectRuleBehavior)[keyof typeof RejectRuleBehavior];
+
+/**
+ * @public
+ * <p>Specifies the rule and the threshold under which a prediction can be rejected.</p>
+ */
+export interface RejectRule {
+  /**
+   * @public
+   * <p>Specifies whether you want to reject the top prediction for all targets or none.</p>
+   */
+  rule?: RejectRuleBehavior;
+
+  /**
+   * @public
+   * <p>The confidence score that specifies the condition at which a prediction can be
+   *          rejected.</p>
+   */
+  threshold?: number;
+}
+
+/**
+ * @public
+ */
+export interface RejectPredictionsInput {
+  /**
+   * @public
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the prediction.</p>
+   */
+  identifier: string | undefined;
+
+  /**
+   * @public
+   * <p/>
+   */
+  revision?: string;
+
+  /**
+   * @public
+   * <p/>
+   */
+  rejectRule?: RejectRule;
+
+  /**
+   * @public
+   * <p/>
+   */
+  rejectChoices?: RejectChoice[];
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface RejectPredictionsOutput {
+  /**
+   * @public
+   * <p/>
+   */
+  domainId: string | undefined;
+
+  /**
+   * @public
+   * <p/>
+   */
+  assetId: string | undefined;
+
+  /**
+   * @public
+   * <p/>
+   */
+  assetRevision: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectSubscriptionRequestInput {
+  /**
+   * @public
+   * <p>The identifier of the Amazon DataZone domain in which the subscription request was
+   *          rejected.</p>
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the subscription request that was rejected.</p>
+   */
+  identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The decision comment of the rejected subscription request.</p>
+   */
+  decisionComment?: string;
+}
+
+/**
  * @internal
  */
 export const AcceptSubscriptionRequestInputFilterSensitiveLog = (obj: AcceptSubscriptionRequestInput): any => ({
@@ -11681,4 +11963,28 @@ export const SubscriptionSummaryFilterSensitiveLog = (obj: SubscriptionSummary):
 export const ListSubscriptionsOutputFilterSensitiveLog = (obj: ListSubscriptionsOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => SubscriptionSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionTargetSummaryFilterSensitiveLog = (obj: SubscriptionTargetSummary): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RejectSubscriptionRequestInputFilterSensitiveLog = (obj: RejectSubscriptionRequestInput): any => ({
+  ...obj,
+  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
 });

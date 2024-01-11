@@ -428,17 +428,6 @@ export class SQSClient extends __Client<
    */
   readonly config: SQSClientResolvedConfig;
 
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultSQSHttpAuthSchemeParametersProvider;
-  }
-
-  private getIdentityProviderConfigProvider() {
-    return async (config: SQSClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
-  }
-
   constructor(...[configuration]: __CheckOptionalClientConfig<SQSClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -473,5 +462,14 @@ export class SQSClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultSQSHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: SQSClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }
