@@ -11,12 +11,21 @@ import {
 } from "@smithy/types";
 
 import { getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
-import { throwAWSSDKSigningPropertyError } from "./throwAWSSDKSigningPropertyError";
 
 /**
  * @internal
  */
-interface AWSSDKSigV4Config {
+const throwSigningPropertyError = <T>(name: string, property: T | undefined): T | never => {
+  if (!property) {
+    throw new Error(`Property \`${name}\` is not resolved for AWS SDK SigV4Auth`);
+  }
+  return property;
+};
+
+/**
+ * @internal
+ */
+interface AwsSdkSigV4Config {
   systemClockOffset: number;
   signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
 }
@@ -24,8 +33,8 @@ interface AWSSDKSigV4Config {
 /**
  * @internal
  */
-interface AWSSDKSigV4AuthSigningProperties {
-  config: AWSSDKSigV4Config;
+interface AwsSdkSigV4AuthSigningProperties {
+  config: AwsSdkSigV4Config;
   signer: RequestSigner;
   signingRegion?: string;
   signingName?: string;
@@ -34,7 +43,7 @@ interface AWSSDKSigV4AuthSigningProperties {
 /**
  * @internal
  */
-interface AWSSDKSigV4Exception extends ServiceException {
+interface AwsSdkSigV4Exception extends ServiceException {
   ServerTime?: string;
 }
 
@@ -43,14 +52,14 @@ interface AWSSDKSigV4Exception extends ServiceException {
  */
 const validateSigningProperties = async (
   signingProperties: Record<string, unknown>
-): Promise<AWSSDKSigV4AuthSigningProperties> => {
-  const context = throwAWSSDKSigningPropertyError(
+): Promise<AwsSdkSigV4AuthSigningProperties> => {
+  const context = throwSigningPropertyError(
     "context",
     signingProperties.context as HandlerExecutionContext | undefined
   );
-  const config = throwAWSSDKSigningPropertyError("config", signingProperties.config as AWSSDKSigV4Config | undefined);
+  const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
   const authScheme = context.endpointV2?.properties?.authSchemes?.[0];
-  const signerFunction = throwAWSSDKSigningPropertyError(
+  const signerFunction = throwSigningPropertyError(
     "signer",
     config.signer as ((authScheme?: AuthScheme) => Promise<RequestSigner>) | undefined
   );
@@ -68,7 +77,7 @@ const validateSigningProperties = async (
 /**
  * @internal
  */
-export class AWSSDKSigV4Signer implements HttpSigner {
+export class AwsSdkSigV4Signer implements HttpSigner {
   async sign(
     httpRequest: IHttpRequest,
     /**
@@ -93,11 +102,11 @@ export class AWSSDKSigV4Signer implements HttpSigner {
   errorHandler(signingProperties: Record<string, unknown>): (error: Error) => never {
     return (error: Error) => {
       const serverTime: string | undefined =
-        (error as AWSSDKSigV4Exception).ServerTime ?? getDateHeader((error as AWSSDKSigV4Exception).$response);
+        (error as AwsSdkSigV4Exception).ServerTime ?? getDateHeader((error as AwsSdkSigV4Exception).$response);
       if (serverTime) {
-        const config = throwAWSSDKSigningPropertyError(
+        const config = throwSigningPropertyError(
           "config",
-          signingProperties.config as AWSSDKSigV4Config | undefined
+          signingProperties.config as AwsSdkSigV4Config | undefined
         );
         config.systemClockOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset);
       }
@@ -108,11 +117,16 @@ export class AWSSDKSigV4Signer implements HttpSigner {
   successHandler(httpResponse: HttpResponse | unknown, signingProperties: Record<string, unknown>): void {
     const dateHeader = getDateHeader(httpResponse);
     if (dateHeader) {
-      const config = throwAWSSDKSigningPropertyError(
+      const config = throwSigningPropertyError(
         "config",
-        signingProperties.config as AWSSDKSigV4Config | undefined
+        signingProperties.config as AwsSdkSigV4Config | undefined
       );
       config.systemClockOffset = getUpdatedSystemClockOffset(dateHeader, config.systemClockOffset);
     }
   }
 }
+
+/**
+ * @deprecated renamed to {@link AwsSdkSigV4Signer}
+ */
+export const AWSSDKSigV4Signer = AwsSdkSigV4Signer;
