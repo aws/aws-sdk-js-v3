@@ -21,7 +21,7 @@ interface PreviouslyResolved {
 export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
     async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
-      let input = { ...args.input };
+      const input = { ...args.input };
       const properties = [
         {
           target: "SSECustomerKey",
@@ -36,19 +36,25 @@ export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddlewar
       for (const prop of properties) {
         const value: SourceData | undefined = (input as any)[prop.target];
         if (value) {
-          const valueView: Uint8Array = ArrayBuffer.isView(value)
-            ? new Uint8Array(value.buffer, value.byteOffset, value.byteLength)
-            : typeof value === "string"
-            ? options.utf8Decoder(value)
-            : new Uint8Array(value);
-          const encoded = options.base64Encoder(valueView);
+          let valueForHash: Uint8Array;
+          if (typeof value === "string") {
+            const isBase64Encoded = /^(?:[A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value);
+            if (isBase64Encoded) {
+              valueForHash = new Uint8Array(Buffer.from(value, "base64"));
+            } else {
+              valueForHash = options.utf8Decoder(value);
+              input[prop.target] = options.base64Encoder(valueForHash);
+            }
+          } else {
+            valueForHash = ArrayBuffer.isView(value)
+              ? new Uint8Array(value.buffer, value.byteOffset, value.byteLength)
+              : new Uint8Array(value);
+            input[prop.target] = options.base64Encoder(valueForHash);
+          }
+
           const hash = new options.md5();
-          hash.update(valueView);
-          input = {
-            ...(input as any),
-            [prop.target]: encoded,
-            [prop.hash]: options.base64Encoder(await hash.digest()),
-          };
+          hash.update(valueForHash);
+          input[prop.hash] = options.base64Encoder(await hash.digest());
         }
       }
 
