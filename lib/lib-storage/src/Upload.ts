@@ -334,6 +334,9 @@ export class Upload extends EventEmitter {
         },
       };
       result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
+      if (typeof result?.Location === "string" && result.Location.includes("%2F")) {
+        result.Location = result.Location.replace(/%2F/g, "/");
+      }
     } else {
       result = this.singleUploadResult!;
     }
