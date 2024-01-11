@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AWSSDKSigV4Signer } from "@aws-sdk/core";
+import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
@@ -27,7 +27,7 @@ export const getRuntimeConfig = (config: PollyClientConfig) => {
       {
         schemeId: "aws.auth#sigv4",
         identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
-        signer: new AWSSDKSigV4Signer(),
+        signer: new AwsSdkSigV4Signer(),
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
