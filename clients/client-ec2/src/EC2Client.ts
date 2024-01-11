@@ -3594,17 +3594,6 @@ export class EC2Client extends __Client<
    */
   readonly config: EC2ClientResolvedConfig;
 
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultEC2HttpAuthSchemeParametersProvider;
-  }
-
-  private getIdentityProviderConfigProvider() {
-    return async (config: EC2ClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
-  }
-
   constructor(...[configuration]: __CheckOptionalClientConfig<EC2ClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -3639,5 +3628,14 @@ export class EC2Client extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultEC2HttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: EC2ClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

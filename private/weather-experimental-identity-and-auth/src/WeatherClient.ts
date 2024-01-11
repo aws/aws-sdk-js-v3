@@ -279,19 +279,6 @@ export class WeatherClient extends __Client<
    */
   readonly config: WeatherClientResolvedConfig;
 
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultWeatherHttpAuthSchemeParametersProvider;
-  }
-
-  private getIdentityProviderConfigProvider() {
-    return async (config: WeatherClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-        "smithy.api#httpApiKeyAuth": config.apiKey,
-        "smithy.api#httpBearerAuth": config.token,
-      });
-  }
-
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
     let _config_1 = resolveRegionConfig(_config_0);
@@ -325,5 +312,16 @@ export class WeatherClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultWeatherHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: WeatherClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+        "smithy.api#httpApiKeyAuth": config.apiKey,
+        "smithy.api#httpBearerAuth": config.token,
+      });
   }
 }

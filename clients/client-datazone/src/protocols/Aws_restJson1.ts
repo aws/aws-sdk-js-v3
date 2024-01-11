@@ -282,6 +282,8 @@ import {
   RedshiftRunConfigurationInput,
   RedshiftServerlessStorage,
   RedshiftStorage,
+  RejectChoice,
+  RejectRule,
   RelationalFilterConfiguration,
   ResourceNotFoundException,
   ScheduleConfiguration,
@@ -295,6 +297,7 @@ import {
   SubscriptionRequestSummary,
   SubscriptionSummary,
   SubscriptionTargetForm,
+  SubscriptionTargetSummary,
   TermRelations,
   ThrottlingException,
   UnauthorizedException,
@@ -306,15 +309,12 @@ import {
   FormTypeData,
   GlossaryItem,
   GlossaryTermItem,
-  RejectChoice,
-  RejectRule,
   SearchInItem,
   SearchInventoryResultItem,
   SearchOutputAdditionalAttribute,
   SearchResultItem,
   SearchSort,
   SearchTypesResultItem,
-  SubscriptionTargetSummary,
 } from "../models/models_1";
 
 /**

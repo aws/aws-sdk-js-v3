@@ -293,17 +293,6 @@ export class STSClient extends __Client<
    */
   readonly config: STSClientResolvedConfig;
 
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultSTSHttpAuthSchemeParametersProvider;
-  }
-
-  private getIdentityProviderConfigProvider() {
-    return async (config: STSClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
-  }
-
   constructor(...[configuration]: __CheckOptionalClientConfig<STSClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -338,5 +327,14 @@ export class STSClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultSTSHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: STSClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

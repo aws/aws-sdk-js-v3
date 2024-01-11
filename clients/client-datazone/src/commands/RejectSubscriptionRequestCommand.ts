@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  RejectSubscriptionRequestInput,
-  RejectSubscriptionRequestInputFilterSensitiveLog,
-  RejectSubscriptionRequestOutput,
-  RejectSubscriptionRequestOutputFilterSensitiveLog,
-} from "../models/models_1";
+import { RejectSubscriptionRequestInput, RejectSubscriptionRequestInputFilterSensitiveLog } from "../models/models_0";
+import { RejectSubscriptionRequestOutput, RejectSubscriptionRequestOutputFilterSensitiveLog } from "../models/models_1";
 import { de_RejectSubscriptionRequestCommand, se_RejectSubscriptionRequestCommand } from "../protocols/Aws_restJson1";
 
 /**

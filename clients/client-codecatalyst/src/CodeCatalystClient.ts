@@ -580,17 +580,6 @@ export class CodeCatalystClient extends __Client<
    */
   readonly config: CodeCatalystClientResolvedConfig;
 
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultCodeCatalystHttpAuthSchemeParametersProvider;
-  }
-
-  private getIdentityProviderConfigProvider() {
-    return async (config: CodeCatalystClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "smithy.api#httpBearerAuth": config.token,
-      });
-  }
-
   constructor(...[configuration]: __CheckOptionalClientConfig<CodeCatalystClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveClientEndpointParameters(_config_0);
@@ -625,5 +614,14 @@ export class CodeCatalystClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultCodeCatalystHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: CodeCatalystClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "smithy.api#httpBearerAuth": config.token,
+      });
   }
 }
