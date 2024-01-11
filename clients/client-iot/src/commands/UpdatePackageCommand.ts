@@ -59,6 +59,9 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * @see {@link UpdatePackageCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource with the same name already exists.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service
  *             is unavailable.</p>

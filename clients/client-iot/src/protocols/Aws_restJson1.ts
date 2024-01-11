@@ -20816,6 +20816,9 @@ const de_UpdatePackageCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.iot#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iot#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -20868,6 +20871,9 @@ const de_UpdatePackageConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.iot#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iot#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -20917,6 +20923,9 @@ const de_UpdatePackageVersionCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.iot#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iot#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
