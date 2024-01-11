@@ -52,7 +52,7 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * //       arn: "STRING_VALUE",
  * //       modelManifestArn: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "ACTIVE" || "DRAFT" || "INVALID" || "VALIDATING",
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       lastModificationTime: new Date("TIMESTAMP"), // required
  * //       message: "STRING_VALUE",

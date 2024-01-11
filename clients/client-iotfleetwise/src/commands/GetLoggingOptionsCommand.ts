@@ -40,7 +40,7 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * const response = await client.send(command);
  * // { // GetLoggingOptionsResponse
  * //   cloudWatchLogDelivery: { // CloudWatchLogDeliveryOptions
- * //     logType: "STRING_VALUE", // required
+ * //     logType: "OFF" || "ERROR", // required
  * //     logGroupName: "STRING_VALUE",
  * //   },
  * // };

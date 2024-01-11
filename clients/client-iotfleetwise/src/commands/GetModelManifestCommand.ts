@@ -45,7 +45,7 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  * //   arn: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   signalCatalogArn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "ACTIVE" || "DRAFT" || "INVALID" || "VALIDATING",
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   lastModificationTime: new Date("TIMESTAMP"), // required
  * // };

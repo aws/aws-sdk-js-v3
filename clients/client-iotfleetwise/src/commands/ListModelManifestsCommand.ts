@@ -52,7 +52,7 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  * //       arn: "STRING_VALUE",
  * //       signalCatalogArn: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "ACTIVE" || "DRAFT" || "INVALID" || "VALIDATING",
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       lastModificationTime: new Date("TIMESTAMP"), // required
  * //     },

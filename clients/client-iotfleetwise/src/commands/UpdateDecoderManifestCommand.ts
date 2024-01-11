@@ -43,7 +43,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *   signalDecodersToAdd: [ // SignalDecoders
  *     { // SignalDecoder
  *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
  *       interfaceId: "STRING_VALUE", // required
  *       canSignal: { // CanSignal
  *         messageId: Number("int"), // required
@@ -71,7 +71,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         structuredMessage: { // StructuredMessage Union: only one key present
  *           primitiveMessageDefinition: { // PrimitiveMessageDefinition Union: only one key present
  *             ros2PrimitiveMessageDefinition: { // ROS2PrimitiveMessageDefinition
- *               primitiveType: "STRING_VALUE", // required
+ *               primitiveType: "BOOL" || "BYTE" || "CHAR" || "FLOAT32" || "FLOAT64" || "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "STRING" || "WSTRING", // required
  *               offset: Number("double"),
  *               scaling: Number("double"),
  *               upperBound: Number("long"),
@@ -82,7 +82,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *             memberType: {//  Union: only one key present
  *               primitiveMessageDefinition: {//  Union: only one key present
  *                 ros2PrimitiveMessageDefinition: {
- *                   primitiveType: "STRING_VALUE", // required
+ *                   primitiveType: "BOOL" || "BYTE" || "CHAR" || "FLOAT32" || "FLOAT64" || "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "STRING" || "WSTRING", // required
  *                   offset: Number("double"),
  *                   scaling: Number("double"),
  *                   upperBound: Number("long"),
@@ -91,7 +91,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *               structuredMessageListDefinition: {
  *                 name: "STRING_VALUE", // required
  *                 memberType: "<StructuredMessage>", // required
- *                 listType: "STRING_VALUE", // required
+ *                 listType: "FIXED_CAPACITY" || "DYNAMIC_UNBOUNDED_CAPACITY" || "DYNAMIC_BOUNDED_CAPACITY", // required
  *                 capacity: Number("int"),
  *               },
  *               structuredMessageDefinition: [ // StructuredMessageDefinition
@@ -101,7 +101,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *                 },
  *               ],
  *             },
- *             listType: "STRING_VALUE", // required
+ *             listType: "FIXED_CAPACITY" || "DYNAMIC_UNBOUNDED_CAPACITY" || "DYNAMIC_BOUNDED_CAPACITY", // required
  *             capacity: Number("int"),
  *           },
  *           structuredMessageDefinition: [
@@ -117,7 +117,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *   signalDecodersToUpdate: [
  *     {
  *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
  *       interfaceId: "STRING_VALUE", // required
  *       canSignal: {
  *         messageId: Number("int"), // required
@@ -152,7 +152,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *   networkInterfacesToAdd: [ // NetworkInterfaces
  *     { // NetworkInterface
  *       interfaceId: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
  *       canInterface: { // CanInterface
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
@@ -169,14 +169,14 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *       },
  *       vehicleMiddleware: { // VehicleMiddleware
  *         name: "STRING_VALUE", // required
- *         protocolName: "STRING_VALUE", // required
+ *         protocolName: "ROS_2", // required
  *       },
  *     },
  *   ],
  *   networkInterfacesToUpdate: [
  *     {
  *       interfaceId: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
  *       canInterface: {
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
@@ -193,14 +193,14 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *       },
  *       vehicleMiddleware: {
  *         name: "STRING_VALUE", // required
- *         protocolName: "STRING_VALUE", // required
+ *         protocolName: "ROS_2", // required
  *       },
  *     },
  *   ],
  *   networkInterfacesToRemove: [ // InterfaceIds
  *     "STRING_VALUE",
  *   ],
- *   status: "STRING_VALUE",
+ *   status: "ACTIVE" || "DRAFT" || "INVALID" || "VALIDATING",
  * };
  * const command = new UpdateDecoderManifestCommand(input);
  * const response = await client.send(command);

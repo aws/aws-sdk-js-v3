@@ -41,14 +41,14 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *   dataExtraDimensions: [ // DataExtraDimensionNodePathList
  *     "STRING_VALUE",
  *   ],
- *   action: "STRING_VALUE", // required
+ *   action: "APPROVE" || "SUSPEND" || "RESUME" || "UPDATE", // required
  * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
  * // { // UpdateCampaignResponse
  * //   arn: "STRING_VALUE",
  * //   name: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "CREATING" || "WAITING_FOR_APPROVAL" || "RUNNING" || "SUSPENDED",
  * // };
  *
  * ```

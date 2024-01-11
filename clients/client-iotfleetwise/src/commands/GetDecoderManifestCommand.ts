@@ -45,7 +45,7 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  * //   arn: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   modelManifestArn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "ACTIVE" || "DRAFT" || "INVALID" || "VALIDATING",
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   lastModificationTime: new Date("TIMESTAMP"), // required
  * //   message: "STRING_VALUE",

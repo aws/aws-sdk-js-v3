@@ -61,7 +61,7 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
  * // { // RegisterAccountResponse
- * //   registerAccountStatus: "STRING_VALUE", // required
+ * //   registerAccountStatus: "REGISTRATION_PENDING" || "REGISTRATION_SUCCESS" || "REGISTRATION_FAILURE", // required
  * //   timestreamResources: { // TimestreamResources
  * //     timestreamDatabaseName: "STRING_VALUE", // required
  * //     timestreamTableName: "STRING_VALUE", // required

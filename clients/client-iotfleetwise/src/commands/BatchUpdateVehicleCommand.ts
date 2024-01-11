@@ -50,7 +50,7 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  *       attributes: { // attributesMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       attributeUpdateMode: "STRING_VALUE",
+ *       attributeUpdateMode: "Overwrite" || "Merge",
  *     },
  *   ],
  * };

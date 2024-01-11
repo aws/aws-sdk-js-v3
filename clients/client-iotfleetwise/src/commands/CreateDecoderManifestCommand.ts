@@ -57,7 +57,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *   signalDecoders: [ // SignalDecoders
  *     { // SignalDecoder
  *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
  *       interfaceId: "STRING_VALUE", // required
  *       canSignal: { // CanSignal
  *         messageId: Number("int"), // required
@@ -85,7 +85,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         structuredMessage: { // StructuredMessage Union: only one key present
  *           primitiveMessageDefinition: { // PrimitiveMessageDefinition Union: only one key present
  *             ros2PrimitiveMessageDefinition: { // ROS2PrimitiveMessageDefinition
- *               primitiveType: "STRING_VALUE", // required
+ *               primitiveType: "BOOL" || "BYTE" || "CHAR" || "FLOAT32" || "FLOAT64" || "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "STRING" || "WSTRING", // required
  *               offset: Number("double"),
  *               scaling: Number("double"),
  *               upperBound: Number("long"),
@@ -96,7 +96,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *             memberType: {//  Union: only one key present
  *               primitiveMessageDefinition: {//  Union: only one key present
  *                 ros2PrimitiveMessageDefinition: {
- *                   primitiveType: "STRING_VALUE", // required
+ *                   primitiveType: "BOOL" || "BYTE" || "CHAR" || "FLOAT32" || "FLOAT64" || "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "STRING" || "WSTRING", // required
  *                   offset: Number("double"),
  *                   scaling: Number("double"),
  *                   upperBound: Number("long"),
@@ -105,7 +105,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *               structuredMessageListDefinition: {
  *                 name: "STRING_VALUE", // required
  *                 memberType: "<StructuredMessage>", // required
- *                 listType: "STRING_VALUE", // required
+ *                 listType: "FIXED_CAPACITY" || "DYNAMIC_UNBOUNDED_CAPACITY" || "DYNAMIC_BOUNDED_CAPACITY", // required
  *                 capacity: Number("int"),
  *               },
  *               structuredMessageDefinition: [ // StructuredMessageDefinition
@@ -115,7 +115,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *                 },
  *               ],
  *             },
- *             listType: "STRING_VALUE", // required
+ *             listType: "FIXED_CAPACITY" || "DYNAMIC_UNBOUNDED_CAPACITY" || "DYNAMIC_BOUNDED_CAPACITY", // required
  *             capacity: Number("int"),
  *           },
  *           structuredMessageDefinition: [
@@ -131,7 +131,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *   networkInterfaces: [ // NetworkInterfaces
  *     { // NetworkInterface
  *       interfaceId: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
  *       canInterface: { // CanInterface
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
@@ -148,7 +148,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *       },
  *       vehicleMiddleware: { // VehicleMiddleware
  *         name: "STRING_VALUE", // required
- *         protocolName: "STRING_VALUE", // required
+ *         protocolName: "ROS_2", // required
  *       },
  *     },
  *   ],

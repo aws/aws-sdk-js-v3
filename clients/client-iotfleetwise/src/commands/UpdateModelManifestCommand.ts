@@ -45,7 +45,7 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  *   nodesToRemove: [
  *     "STRING_VALUE",
  *   ],
- *   status: "STRING_VALUE",
+ *   status: "ACTIVE" || "DRAFT" || "INVALID" || "VALIDATING",
  * };
  * const command = new UpdateModelManifestCommand(input);
  * const response = await client.send(command);

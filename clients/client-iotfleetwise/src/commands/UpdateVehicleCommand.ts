@@ -42,7 +42,7 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  *   attributes: { // attributesMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   attributeUpdateMode: "STRING_VALUE",
+ *   attributeUpdateMode: "Overwrite" || "Merge",
  * };
  * const command = new UpdateVehicleCommand(input);
  * const response = await client.send(command);

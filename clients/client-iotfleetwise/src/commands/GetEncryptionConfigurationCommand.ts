@@ -40,8 +40,8 @@ export interface GetEncryptionConfigurationCommandOutput extends GetEncryptionCo
  * const response = await client.send(command);
  * // { // GetEncryptionConfigurationResponse
  * //   kmsKeyId: "STRING_VALUE",
- * //   encryptionStatus: "STRING_VALUE", // required
- * //   encryptionType: "STRING_VALUE", // required
+ * //   encryptionStatus: "PENDING" || "SUCCESS" || "FAILURE", // required
+ * //   encryptionType: "KMS_BASED_ENCRYPTION" || "FLEETWISE_DEFAULT_ENCRYPTION", // required
  * //   errorMessage: "STRING_VALUE",
  * //   creationTime: new Date("TIMESTAMP"),
  * //   lastModificationTime: new Date("TIMESTAMP"),

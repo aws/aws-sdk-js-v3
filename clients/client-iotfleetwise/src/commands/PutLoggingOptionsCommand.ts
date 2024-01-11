@@ -37,7 +37,7 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * const client = new IoTFleetWiseClient(config);
  * const input = { // PutLoggingOptionsRequest
  *   cloudWatchLogDelivery: { // CloudWatchLogDeliveryOptions
- *     logType: "STRING_VALUE", // required
+ *     logType: "OFF" || "ERROR", // required
  *     logGroupName: "STRING_VALUE",
  *   },
  * };

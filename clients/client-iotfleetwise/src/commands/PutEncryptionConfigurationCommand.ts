@@ -37,14 +37,14 @@ export interface PutEncryptionConfigurationCommandOutput extends PutEncryptionCo
  * const client = new IoTFleetWiseClient(config);
  * const input = { // PutEncryptionConfigurationRequest
  *   kmsKeyId: "STRING_VALUE",
- *   encryptionType: "STRING_VALUE", // required
+ *   encryptionType: "KMS_BASED_ENCRYPTION" || "FLEETWISE_DEFAULT_ENCRYPTION", // required
  * };
  * const command = new PutEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // PutEncryptionConfigurationResponse
  * //   kmsKeyId: "STRING_VALUE",
- * //   encryptionStatus: "STRING_VALUE", // required
- * //   encryptionType: "STRING_VALUE", // required
+ * //   encryptionStatus: "PENDING" || "SUCCESS" || "FAILURE", // required
+ * //   encryptionType: "KMS_BASED_ENCRYPTION" || "FLEETWISE_DEFAULT_ENCRYPTION", // required
  * // };
  *
  * ```

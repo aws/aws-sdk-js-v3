@@ -48,9 +48,9 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *   startTime: new Date("TIMESTAMP"),
  *   expiryTime: new Date("TIMESTAMP"),
  *   postTriggerCollectionDuration: Number("long"),
- *   diagnosticsMode: "STRING_VALUE",
- *   spoolingMode: "STRING_VALUE",
- *   compression: "STRING_VALUE",
+ *   diagnosticsMode: "OFF" || "SEND_ACTIVE_DTCS",
+ *   spoolingMode: "OFF" || "TO_DISK",
+ *   compression: "OFF" || "SNAPPY",
  *   priority: Number("int"),
  *   signalsToCollect: [ // SignalInformationList
  *     { // SignalInformation
@@ -66,7 +66,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *     conditionBasedCollectionScheme: { // ConditionBasedCollectionScheme
  *       expression: "STRING_VALUE", // required
  *       minimumTriggerIntervalMs: Number("long"),
- *       triggerMode: "STRING_VALUE",
+ *       triggerMode: "ALWAYS" || "RISING_EDGE",
  *       conditionLanguageVersion: Number("int"),
  *     },
  *   },
@@ -83,8 +83,8 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *     { // DataDestinationConfig Union: only one key present
  *       s3Config: { // S3Config
  *         bucketArn: "STRING_VALUE", // required
- *         dataFormat: "STRING_VALUE",
- *         storageCompressionFormat: "STRING_VALUE",
+ *         dataFormat: "JSON" || "PARQUET",
+ *         storageCompressionFormat: "NONE" || "GZIP",
  *         prefix: "STRING_VALUE",
  *       },
  *       timestreamConfig: { // TimestreamConfig

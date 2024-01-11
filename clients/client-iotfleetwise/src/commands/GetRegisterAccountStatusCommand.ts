@@ -46,18 +46,18 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * const response = await client.send(command);
  * // { // GetRegisterAccountStatusResponse
  * //   customerAccountId: "STRING_VALUE", // required
- * //   accountStatus: "STRING_VALUE", // required
+ * //   accountStatus: "REGISTRATION_PENDING" || "REGISTRATION_SUCCESS" || "REGISTRATION_FAILURE", // required
  * //   timestreamRegistrationResponse: { // TimestreamRegistrationResponse
  * //     timestreamDatabaseName: "STRING_VALUE", // required
  * //     timestreamTableName: "STRING_VALUE", // required
  * //     timestreamDatabaseArn: "STRING_VALUE",
  * //     timestreamTableArn: "STRING_VALUE",
- * //     registrationStatus: "STRING_VALUE", // required
+ * //     registrationStatus: "REGISTRATION_PENDING" || "REGISTRATION_SUCCESS" || "REGISTRATION_FAILURE", // required
  * //     errorMessage: "STRING_VALUE",
  * //   },
  * //   iamRegistrationResponse: { // IamRegistrationResponse
  * //     roleArn: "STRING_VALUE", // required
- * //     registrationStatus: "STRING_VALUE", // required
+ * //     registrationStatus: "REGISTRATION_PENDING" || "REGISTRATION_SUCCESS" || "REGISTRATION_FAILURE", // required
  * //     errorMessage: "STRING_VALUE",
  * //   },
  * //   creationTime: new Date("TIMESTAMP"), // required

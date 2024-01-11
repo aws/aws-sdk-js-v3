@@ -53,7 +53,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * //       description: "STRING_VALUE",
  * //       signalCatalogArn: "STRING_VALUE",
  * //       targetArn: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "CREATING" || "WAITING_FOR_APPROVAL" || "RUNNING" || "SUSPENDED",
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       lastModificationTime: new Date("TIMESTAMP"), // required
  * //     },

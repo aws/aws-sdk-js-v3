@@ -57,7 +57,7 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * //   networkInterfaces: [ // NetworkInterfaces
  * //     { // NetworkInterface
  * //       interfaceId: "STRING_VALUE", // required
- * //       type: "STRING_VALUE", // required
+ * //       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
  * //       canInterface: { // CanInterface
  * //         name: "STRING_VALUE", // required
  * //         protocolName: "STRING_VALUE",
@@ -74,7 +74,7 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * //       },
  * //       vehicleMiddleware: { // VehicleMiddleware
  * //         name: "STRING_VALUE", // required
- * //         protocolName: "STRING_VALUE", // required
+ * //         protocolName: "ROS_2", // required
  * //       },
  * //     },
  * //   ],

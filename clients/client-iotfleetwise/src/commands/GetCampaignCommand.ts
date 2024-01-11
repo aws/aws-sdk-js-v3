@@ -46,13 +46,13 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //   description: "STRING_VALUE",
  * //   signalCatalogArn: "STRING_VALUE",
  * //   targetArn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "CREATING" || "WAITING_FOR_APPROVAL" || "RUNNING" || "SUSPENDED",
  * //   startTime: new Date("TIMESTAMP"),
  * //   expiryTime: new Date("TIMESTAMP"),
  * //   postTriggerCollectionDuration: Number("long"),
- * //   diagnosticsMode: "STRING_VALUE",
- * //   spoolingMode: "STRING_VALUE",
- * //   compression: "STRING_VALUE",
+ * //   diagnosticsMode: "OFF" || "SEND_ACTIVE_DTCS",
+ * //   spoolingMode: "OFF" || "TO_DISK",
+ * //   compression: "OFF" || "SNAPPY",
  * //   priority: Number("int"),
  * //   signalsToCollect: [ // SignalInformationList
  * //     { // SignalInformation
@@ -68,7 +68,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //     conditionBasedCollectionScheme: { // ConditionBasedCollectionScheme
  * //       expression: "STRING_VALUE", // required
  * //       minimumTriggerIntervalMs: Number("long"),
- * //       triggerMode: "STRING_VALUE",
+ * //       triggerMode: "ALWAYS" || "RISING_EDGE",
  * //       conditionLanguageVersion: Number("int"),
  * //     },
  * //   },
@@ -81,8 +81,8 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //     { // DataDestinationConfig Union: only one key present
  * //       s3Config: { // S3Config
  * //         bucketArn: "STRING_VALUE", // required
- * //         dataFormat: "STRING_VALUE",
- * //         storageCompressionFormat: "STRING_VALUE",
+ * //         dataFormat: "JSON" || "PARQUET",
+ * //         storageCompressionFormat: "NONE" || "GZIP",
  * //         prefix: "STRING_VALUE",
  * //       },
  * //       timestreamConfig: { // TimestreamConfig

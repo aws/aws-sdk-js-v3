@@ -50,7 +50,7 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  *       attributes: { // attributesMap
  *         "<keys>": "STRING_VALUE",
  *       },
- *       associationBehavior: "STRING_VALUE",
+ *       associationBehavior: "CreateIotThing" || "ValidateIotThingExists",
  *       tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE", // required

@@ -49,7 +49,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *       },
  *       sensor: { // Sensor
  *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
+ *         dataType: "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "BOOLEAN" || "FLOAT" || "DOUBLE" || "STRING" || "UNIX_TIMESTAMP" || "INT8_ARRAY" || "UINT8_ARRAY" || "INT16_ARRAY" || "UINT16_ARRAY" || "INT32_ARRAY" || "UINT32_ARRAY" || "INT64_ARRAY" || "UINT64_ARRAY" || "BOOLEAN_ARRAY" || "FLOAT_ARRAY" || "DOUBLE_ARRAY" || "STRING_ARRAY" || "UNIX_TIMESTAMP_ARRAY" || "UNKNOWN" || "STRUCT" || "STRUCT_ARRAY", // required
  *         description: "STRING_VALUE",
  *         unit: "STRING_VALUE",
  *         allowedValues: [ // listOfStrings
@@ -63,7 +63,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *       },
  *       actuator: { // Actuator
  *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
+ *         dataType: "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "BOOLEAN" || "FLOAT" || "DOUBLE" || "STRING" || "UNIX_TIMESTAMP" || "INT8_ARRAY" || "UINT8_ARRAY" || "INT16_ARRAY" || "UINT16_ARRAY" || "INT32_ARRAY" || "UINT32_ARRAY" || "INT64_ARRAY" || "UINT64_ARRAY" || "BOOLEAN_ARRAY" || "FLOAT_ARRAY" || "DOUBLE_ARRAY" || "STRING_ARRAY" || "UNIX_TIMESTAMP_ARRAY" || "UNKNOWN" || "STRUCT" || "STRUCT_ARRAY", // required
  *         description: "STRING_VALUE",
  *         unit: "STRING_VALUE",
  *         allowedValues: [
@@ -78,7 +78,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *       },
  *       attribute: { // Attribute
  *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
+ *         dataType: "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "BOOLEAN" || "FLOAT" || "DOUBLE" || "STRING" || "UNIX_TIMESTAMP" || "INT8_ARRAY" || "UINT8_ARRAY" || "INT16_ARRAY" || "UINT16_ARRAY" || "INT32_ARRAY" || "UINT32_ARRAY" || "INT64_ARRAY" || "UINT64_ARRAY" || "BOOLEAN_ARRAY" || "FLOAT_ARRAY" || "DOUBLE_ARRAY" || "STRING_ARRAY" || "UNIX_TIMESTAMP_ARRAY" || "UNKNOWN" || "STRUCT" || "STRUCT_ARRAY", // required
  *         description: "STRING_VALUE",
  *         unit: "STRING_VALUE",
  *         allowedValues: [
@@ -99,8 +99,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *       },
  *       property: { // CustomProperty
  *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         dataEncoding: "STRING_VALUE",
+ *         dataType: "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "BOOLEAN" || "FLOAT" || "DOUBLE" || "STRING" || "UNIX_TIMESTAMP" || "INT8_ARRAY" || "UINT8_ARRAY" || "INT16_ARRAY" || "UINT16_ARRAY" || "INT32_ARRAY" || "UINT32_ARRAY" || "INT64_ARRAY" || "UINT64_ARRAY" || "BOOLEAN_ARRAY" || "FLOAT_ARRAY" || "DOUBLE_ARRAY" || "STRING_ARRAY" || "UNIX_TIMESTAMP_ARRAY" || "UNKNOWN" || "STRUCT" || "STRUCT_ARRAY", // required
+ *         dataEncoding: "BINARY" || "TYPED",
  *         description: "STRING_VALUE",
  *         deprecationMessage: "STRING_VALUE",
  *         comment: "STRING_VALUE",
