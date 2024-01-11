@@ -113,11 +113,6 @@ tasks.register("generate-smithy-build") {
                 ShapeId.from("com.amazonaws.rds#AmazonRDSv19"),
                 ShapeId.from("com.amazonaws.ec2#AmazonEC2"),
                 ShapeId.from("com.amazonaws.polly#Parrot_v1"),
-                ShapeId.from("com.amazonaws.apigateway#BackplaneControlService"),
-                ShapeId.from("com.amazonaws.glacier#Glacier"),
-                ShapeId.from("com.amazonaws.machinelearning#AmazonML_20141212"),
-                ShapeId.from("com.amazonaws.route53#AWSDnsV20130401"),
-                ShapeId.from("com.amazonaws.s3control#AWSS3ControlServiceV20180820"),
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
