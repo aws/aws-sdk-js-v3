@@ -991,7 +991,7 @@ export interface DescribeSecretResponse {
   /**
    * @public
    * <p>The last date and time that Secrets Manager rotated the secret.
-   *       If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   *       If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>
    */
   LastRotatedDate?: Date;
 
@@ -1020,7 +1020,7 @@ export interface DescribeSecretResponse {
 
   /**
    * @public
-   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>
    */
   NextRotationDate?: Date;
 
@@ -1269,9 +1269,7 @@ export interface GetSecretValueResponse {
   /**
    * @public
    * <p>The decrypted secret value, if the secret value was originally provided as
-   *       binary data in the form of a byte array. The response parameter represents the binary data as
-   *       a <a href="https://tools.ietf.org/html/rfc4648#section-4">base64-encoded</a>
-   *       string.</p>
+   *       binary data in the form of a byte array. When you retrieve a <code>SecretBinary</code> using the HTTP API, the Python SDK, or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
    *          <p>If the secret was created by using the Secrets Manager console, or if the secret value was
    *       originally provided as a string, then this field is omitted. The secret value appears in
    *       <code>SecretString</code> instead.</p>
@@ -1441,7 +1439,7 @@ export interface SecretListEntry {
 
   /**
    * @public
-   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>
    */
   NextRotationDate?: Date;
 
