@@ -34,6 +34,13 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 			registries, enable ECS managed tags option, propagate tags option, task placement
  * 			constraints and strategies, and task definition. When you update any of these
  * 			parameters, Amazon ECS starts new tasks with the new configuration. </p>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when starting or
+ * 			running a task, or when creating or updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. You can update
+ * 			your volume configurations and trigger a new deployment.
+ * 				<code>volumeConfigurations</code> is only supported for REPLICA service and not
+ * 			DAEMON service. If you leave <code>volumeConfigurations</code>
+ *             <code>null</code>, it doesn't trigger a new deployment. For more infomation on volumes,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
  * 			only the desired count, deployment configuration, health check grace period, task
  * 			placement constraints and strategies, enable ECS managed tags option, and propagate tags
@@ -48,7 +55,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          <p>You can add to or subtract from the number of instantiations of a task definition in a
  * 			service by specifying the cluster that the service is running in and a new
  * 				<code>desiredCount</code> parameter.</p>
- *          <p>If you have updated the Docker image of your application, you can create a new task
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when starting or
+ * 			running a task, or when creating or updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>If you have updated the container image of your application, you can create a new task
  * 			definition with that image and deploy it to your service. The service scheduler uses the
  * 			minimum healthy percent and maximum percent parameters (in the service's deployment
  * 			configuration) to determine the deployment strategy.</p>
@@ -147,8 +156,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *                   </p>
  *                </li>
  *             </ul>
- *             <p>For more information about the role see the <code>CreateService</code> request parameter
- * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role">
+ *             <p>For more information about the role see the <code>CreateService</code> request
+ * 				parameter <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role">
  *                   <code>role</code>
  *                </a>. </p>
  *          </note>
@@ -259,6 +268,34 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       ],
  *     },
  *   },
+ *   volumeConfigurations: [ // ServiceVolumeConfigurations
+ *     { // ServiceVolumeConfiguration
+ *       name: "STRING_VALUE", // required
+ *       managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ *         encrypted: true || false,
+ *         kmsKeyId: "STRING_VALUE",
+ *         volumeType: "STRING_VALUE",
+ *         sizeInGiB: Number("int"),
+ *         snapshotId: "STRING_VALUE",
+ *         iops: Number("int"),
+ *         throughput: Number("int"),
+ *         tagSpecifications: [ // EBSTagSpecifications
+ *           { // EBSTagSpecification
+ *             resourceType: "volume", // required
+ *             tags: [ // Tags
+ *               { // Tag
+ *                 key: "STRING_VALUE",
+ *                 value: "STRING_VALUE",
+ *               },
+ *             ],
+ *             propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *           },
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *         filesystemType: "ext3" || "ext4" || "xfs",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
@@ -448,6 +485,34 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //             discoveryArn: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         volumeConfigurations: [ // ServiceVolumeConfigurations
+ * //           { // ServiceVolumeConfiguration
+ * //             name: "STRING_VALUE", // required
+ * //             managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ * //               encrypted: true || false,
+ * //               kmsKeyId: "STRING_VALUE",
+ * //               volumeType: "STRING_VALUE",
+ * //               sizeInGiB: Number("int"),
+ * //               snapshotId: "STRING_VALUE",
+ * //               iops: Number("int"),
+ * //               throughput: Number("int"),
+ * //               tagSpecifications: [ // EBSTagSpecifications
+ * //                 { // EBSTagSpecification
+ * //                   resourceType: "volume", // required
+ * //                   tags: [
+ * //                     {
+ * //                       key: "STRING_VALUE",
+ * //                       value: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ * //                 },
+ * //               ],
+ * //               roleArn: "STRING_VALUE", // required
+ * //               filesystemType: "ext3" || "ext4" || "xfs",
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     roleArn: "STRING_VALUE",
@@ -483,12 +548,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //     deploymentController: { // DeploymentController
  * //       type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
  * //     },
- * //     tags: [
- * //       {
- * //         key: "STRING_VALUE",
- * //         value: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     tags: "<Tags>",
  * //     createdBy: "STRING_VALUE",
  * //     enableECSManagedTags: true || false,
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
@@ -539,6 +599,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link ServiceNotFoundException} (client fault)
  *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

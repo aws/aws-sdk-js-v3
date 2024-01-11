@@ -39,6 +39,9 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 			optionally run your service behind one or more load balancers. The load balancers
  * 			distribute traffic across the tasks that are associated with the service. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
+ * 			updating a service. <code>volumeConfigurations</code> is only supported for REPLICA
+ * 			service and not DAEMON service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>Tasks for services that don't use a load balancer are considered healthy if they're in
  * 			the <code>RUNNING</code> state. Tasks for services that use a load balancer are
  * 			considered healthy if they're in the <code>RUNNING</code> state and are reported as
@@ -227,6 +230,34 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       ],
  *     },
  *   },
+ *   volumeConfigurations: [ // ServiceVolumeConfigurations
+ *     { // ServiceVolumeConfiguration
+ *       name: "STRING_VALUE", // required
+ *       managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ *         encrypted: true || false,
+ *         kmsKeyId: "STRING_VALUE",
+ *         volumeType: "STRING_VALUE",
+ *         sizeInGiB: Number("int"),
+ *         snapshotId: "STRING_VALUE",
+ *         iops: Number("int"),
+ *         throughput: Number("int"),
+ *         tagSpecifications: [ // EBSTagSpecifications
+ *           { // EBSTagSpecification
+ *             resourceType: "volume", // required
+ *             tags: [
+ *               {
+ *                 key: "STRING_VALUE",
+ *                 value: "STRING_VALUE",
+ *               },
+ *             ],
+ *             propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *           },
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *         filesystemType: "ext3" || "ext4" || "xfs",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
@@ -416,6 +447,34 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //             discoveryArn: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         volumeConfigurations: [ // ServiceVolumeConfigurations
+ * //           { // ServiceVolumeConfiguration
+ * //             name: "STRING_VALUE", // required
+ * //             managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ * //               encrypted: true || false,
+ * //               kmsKeyId: "STRING_VALUE",
+ * //               volumeType: "STRING_VALUE",
+ * //               sizeInGiB: Number("int"),
+ * //               snapshotId: "STRING_VALUE",
+ * //               iops: Number("int"),
+ * //               throughput: Number("int"),
+ * //               tagSpecifications: [ // EBSTagSpecifications
+ * //                 { // EBSTagSpecification
+ * //                   resourceType: "volume", // required
+ * //                   tags: [
+ * //                     {
+ * //                       key: "STRING_VALUE",
+ * //                       value: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ * //                 },
+ * //               ],
+ * //               roleArn: "STRING_VALUE", // required
+ * //               filesystemType: "ext3" || "ext4" || "xfs",
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     roleArn: "STRING_VALUE",
@@ -451,12 +510,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //     deploymentController: { // DeploymentController
  * //       type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
  * //     },
- * //     tags: [
- * //       {
- * //         key: "STRING_VALUE",
- * //         value: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     tags: "<Tags>",
  * //     createdBy: "STRING_VALUE",
  * //     enableECSManagedTags: true || false,
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",

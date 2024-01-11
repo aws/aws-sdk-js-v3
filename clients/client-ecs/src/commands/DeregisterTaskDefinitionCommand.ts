@@ -28,12 +28,12 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
 
 /**
  * @public
- * <p>Deregisters the specified task definition by family and revision. Upon deregistration, the
- * 			task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
+ * <p>Deregisters the specified task definition by family and revision. Upon deregistration,
+ * 			the task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
  * 			reference an <code>INACTIVE</code> task definition continue to run without disruption.
  * 			Existing services that reference an <code>INACTIVE</code> task definition can still
- * 			scale up or down by modifying the service's desired count. If you want to delete a  task
- * 			definition revision, you must first deregister the  task definition revision.</p>
+ * 			scale up or down by modifying the service's desired count. If you want to delete a task
+ * 			definition revision, you must first deregister the task definition revision.</p>
  *          <p>You can't use an <code>INACTIVE</code> task definition to run new tasks or create new
  * 			services, and you can't update an existing service to reference an <code>INACTIVE</code>
  * 			task definition. However, there may be up to a 10-minute window following deregistration
@@ -44,8 +44,8 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * 				don't recommend that you rely on <code>INACTIVE</code> task definitions persisting
  * 				beyond the lifecycle of any associated tasks and services.</p>
  *          </note>
- *          <p>You must deregister a task definition revision before you delete it. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskDefinitions.html">DeleteTaskDefinitions</a>.</p>
+ *          <p>You must deregister a task definition revision before you delete it. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskDefinitions.html">DeleteTaskDefinitions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -266,6 +266,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //             domain: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         configuredAtLaunch: true || false,
  * //       },
  * //     ],
  * //     status: "ACTIVE" || "INACTIVE" || "DELETE_IN_PROGRESS",

@@ -29,20 +29,25 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
 /**
  * @public
  * <p>Deletes one or more task definitions.</p>
- *          <p>You must deregister a task definition revision before you delete it. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html">DeregisterTaskDefinition</a>.</p>
+ *          <p>You must deregister a task definition revision before you delete it. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html">DeregisterTaskDefinition</a>.</p>
  *          <p>When you delete a task definition revision, it is immediately transitions from the
- * 		<code>INACTIVE</code> to <code>DELETE_IN_PROGRESS</code>. Existing tasks and services
- * 		that reference a <code>DELETE_IN_PROGRESS</code> task definition revision continue to run
- * 		without disruption. Existing services that reference a <code>DELETE_IN_PROGRESS</code> task
- * 		definition revision can still scale up or down by modifying the service's desired
- * 		count.</p>
- *          <p>You can't use a <code>DELETE_IN_PROGRESS</code> task definition revision to run new tasks
- * 			or create new services. You also can't update an existing service to reference a
- * 			<code>DELETE_IN_PROGRESS</code> task definition revision.</p>
+ * 				<code>INACTIVE</code> to <code>DELETE_IN_PROGRESS</code>. Existing tasks and
+ * 			services that reference a <code>DELETE_IN_PROGRESS</code> task definition revision
+ * 			continue to run without disruption. Existing services that reference a
+ * 				<code>DELETE_IN_PROGRESS</code> task definition revision can still scale up or down
+ * 			by modifying the service's desired count.</p>
+ *          <p>You can't use a <code>DELETE_IN_PROGRESS</code> task definition revision to run new
+ * 			tasks or create new services. You also can't update an existing service to reference a
+ * 				<code>DELETE_IN_PROGRESS</code> task definition revision.</p>
  *          <p> A task definition revision will stay in <code>DELETE_IN_PROGRESS</code> status until
  * 			all the associated tasks and services have been terminated.</p>
- *          <p>When you delete all <code>INACTIVE</code> task definition revisions, the task definition name is not displayed in the console and not returned in the API. If a task definition revisions are in the <code>DELETE_IN_PROGRESS</code> state, the task definition name is displayed in the console and returned in the API. The task definition name is retained by  Amazon ECS and the revision is incremented the next time you create a task definition with that name.</p>
+ *          <p>When you delete all <code>INACTIVE</code> task definition revisions, the task
+ * 			definition name is not displayed in the console and not returned in the API. If a task
+ * 			definition revisions are in the <code>DELETE_IN_PROGRESS</code> state, the task
+ * 			definition name is displayed in the console and returned in the API. The task definition
+ * 			name is retained by Amazon ECS and the revision is incremented the next time you create a
+ * 			task definition with that name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -266,6 +271,7 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //               domain: "STRING_VALUE", // required
  * //             },
  * //           },
+ * //           configuredAtLaunch: true || false,
  * //         },
  * //       ],
  * //       status: "ACTIVE" || "INACTIVE" || "DELETE_IN_PROGRESS",

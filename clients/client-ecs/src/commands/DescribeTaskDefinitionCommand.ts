@@ -259,6 +259,7 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * //             domain: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         configuredAtLaunch: true || false,
  * //       },
  * //     ],
  * //     status: "ACTIVE" || "INACTIVE" || "DELETE_IN_PROGRESS",

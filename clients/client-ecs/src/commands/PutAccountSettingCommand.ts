@@ -29,25 +29,25 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
 /**
  * @public
  * <p>Modifies an account setting. Account settings are set on a per-Region basis.</p>
- *          <p>If you change the root user account setting, the default settings are reset for  users
- * 			and roles that do not have specified individual account settings. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
+ *          <p>If you change the root user account setting, the default settings are reset for users and
+ * 			roles that do not have specified individual account settings. For more information, see
+ * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
  * 				Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>When  you specify <code>serviceLongArnFormat</code>, <code>taskLongArnFormat</code>, or
+ *          <p>When you specify <code>serviceLongArnFormat</code>, <code>taskLongArnFormat</code>, or
  * 				<code>containerInstanceLongArnFormat</code>, the Amazon Resource Name (ARN) and
  * 			resource ID format of the resource type for a specified user, role, or the root user for an
  * 			account is affected. The opt-in and opt-out account setting must be set for each Amazon ECS
  * 			resource separately. The ARN and resource ID format of a resource is defined by the
  * 			opt-in status of the user or role that created the resource. You must turn on this
  * 			setting to use Amazon ECS features such as resource tagging.</p>
- *          <p>When you specify <code>awsvpcTrunking</code>, the elastic network interface (ENI) limit for
- * 			any new container instances that support the feature is changed. If
+ *          <p>When you specify <code>awsvpcTrunking</code>, the elastic network interface (ENI)
+ * 			limit for any new container instances that support the feature is changed. If
  * 				<code>awsvpcTrunking</code> is turned on, any new container instances that support
  * 			the feature are launched have the increased ENI limits available to them. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html">Elastic Network
  * 				Interface Trunking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>When you specify <code>containerInsights</code>, the default setting indicating whether
- * 			Amazon Web Services CloudWatch Container Insights is turned on for your clusters is changed. If
+ *          <p>When you specify <code>containerInsights</code>, the default setting indicating
+ * 			whether Amazon Web Services CloudWatch Container Insights is turned on for your clusters is changed. If
  * 				<code>containerInsights</code> is turned on, any new clusters that are created will
  * 			have Container Insights turned on unless you disable it during cluster creation. For
  * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
@@ -59,12 +59,13 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * 			you must grant explicit permissions to use the <code>ecs:TagResource</code> action. For
  * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html">Grant
  * 				permission to tag resources on creation</a> in the <i>Amazon ECS Developer
- * 					Guide</i>.</p>
+ * 				Guide</i>.</p>
  *          <p>When Amazon Web Services determines that a security or infrastructure update is needed for an Amazon ECS
  * 			task hosted on Fargate, the tasks need to be stopped and new tasks launched to replace
  * 			them. Use <code>fargateTaskRetirementWaitPeriod</code> to configure the wait time to
- * 			retire a Fargate task. For information about the Fargate tasks maintenance, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon Web Services Fargate task maintenance</a> in the <i>Amazon ECS Developer
- * 					Guide</i>.</p>
+ * 			retire a Fargate task. For information about the Fargate tasks maintenance, see
+ * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon Web Services Fargate task
+ * 				maintenance</a> in the <i>Amazon ECS Developer Guide</i>.</p>
  *          <p>The <code>guardDutyActivate</code> parameter is read-only in Amazon ECS and indicates whether
  * 			Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator in your
  * 			Amazon ECS account. Amazon GuardDuty controls this account setting on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</p>

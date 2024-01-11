@@ -37,6 +37,8 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *          <note>
  *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
  *          </note>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
+ * 			updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>The Amazon ECS API follows an eventual consistency model. This is because of the
  * 			distributed nature of the system supporting the API. This means that the result of an
  * 			API command you run that affects your Amazon ECS resources might not be immediately visible
@@ -158,6 +160,37 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *   ],
  *   taskDefinition: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   volumeConfigurations: [ // TaskVolumeConfigurations
+ *     { // TaskVolumeConfiguration
+ *       name: "STRING_VALUE", // required
+ *       managedEBSVolume: { // TaskManagedEBSVolumeConfiguration
+ *         encrypted: true || false,
+ *         kmsKeyId: "STRING_VALUE",
+ *         volumeType: "STRING_VALUE",
+ *         sizeInGiB: Number("int"),
+ *         snapshotId: "STRING_VALUE",
+ *         iops: Number("int"),
+ *         throughput: Number("int"),
+ *         tagSpecifications: [ // EBSTagSpecifications
+ *           { // EBSTagSpecification
+ *             resourceType: "volume", // required
+ *             tags: [
+ *               {
+ *                 key: "STRING_VALUE",
+ *                 value: "STRING_VALUE",
+ *               },
+ *             ],
+ *             propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *           },
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *         terminationPolicy: { // TaskManagedEBSVolumeTerminationPolicy
+ *           deleteOnTermination: true || false, // required
+ *         },
+ *         filesystemType: "ext3" || "ext4" || "xfs",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new RunTaskCommand(input);
  * const response = await client.send(command);
@@ -360,12 +393,11 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *          <p>To fix this issue:</p>
  *          <ul>
  *             <li>
- *                <p>Run <code>RunTask</code> with a unique
- * 				<code>clientToken</code>.</p>
+ *                <p>Run <code>RunTask</code> with a unique <code>clientToken</code>.</p>
  *             </li>
  *             <li>
- *                <p>Run <code>RunTask</code> with the <code>clientToken</code> and the original set of
- * 					parameters</p>
+ *                <p>Run <code>RunTask</code> with the <code>clientToken</code> and the original
+ * 					set of parameters</p>
  *             </li>
  *          </ul>
  *

@@ -29,8 +29,8 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
 /**
  * @public
  * <p>Returns a list of tasks. You can filter the results by cluster, task definition
- * 			family, container instance, launch type, what IAM principal started the task, or by the
- * 			desired status of the task.</p>
+ * 			family, container instance, launch type, what IAM principal started the task, or by
+ * 			the desired status of the task.</p>
  *          <p>Recently stopped tasks might appear in the returned results. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

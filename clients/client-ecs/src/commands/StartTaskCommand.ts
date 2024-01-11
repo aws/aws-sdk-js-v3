@@ -35,6 +35,8 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *          </note>
  *          <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
+ * 			updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,6 +114,37 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *     },
  *   ],
  *   taskDefinition: "STRING_VALUE", // required
+ *   volumeConfigurations: [ // TaskVolumeConfigurations
+ *     { // TaskVolumeConfiguration
+ *       name: "STRING_VALUE", // required
+ *       managedEBSVolume: { // TaskManagedEBSVolumeConfiguration
+ *         encrypted: true || false,
+ *         kmsKeyId: "STRING_VALUE",
+ *         volumeType: "STRING_VALUE",
+ *         sizeInGiB: Number("int"),
+ *         snapshotId: "STRING_VALUE",
+ *         iops: Number("int"),
+ *         throughput: Number("int"),
+ *         tagSpecifications: [ // EBSTagSpecifications
+ *           { // EBSTagSpecification
+ *             resourceType: "volume", // required
+ *             tags: [
+ *               {
+ *                 key: "STRING_VALUE",
+ *                 value: "STRING_VALUE",
+ *               },
+ *             ],
+ *             propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *           },
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *         terminationPolicy: { // TaskManagedEBSVolumeTerminationPolicy
+ *           deleteOnTermination: true || false, // required
+ *         },
+ *         filesystemType: "ext3" || "ext4" || "xfs",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new StartTaskCommand(input);
  * const response = await client.send(command);
@@ -305,6 +338,9 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

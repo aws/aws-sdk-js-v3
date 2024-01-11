@@ -28,8 +28,8 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
 
 /**
  * @public
- * <p>Disables an account setting for a specified  user, role, or the root user for
- * 			an account.</p>
+ * <p>Disables an account setting for a specified user, role, or the root user for an
+ * 			account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

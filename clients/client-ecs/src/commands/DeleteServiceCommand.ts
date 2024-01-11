@@ -248,6 +248,34 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //             discoveryArn: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         volumeConfigurations: [ // ServiceVolumeConfigurations
+ * //           { // ServiceVolumeConfiguration
+ * //             name: "STRING_VALUE", // required
+ * //             managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ * //               encrypted: true || false,
+ * //               kmsKeyId: "STRING_VALUE",
+ * //               volumeType: "STRING_VALUE",
+ * //               sizeInGiB: Number("int"),
+ * //               snapshotId: "STRING_VALUE",
+ * //               iops: Number("int"),
+ * //               throughput: Number("int"),
+ * //               tagSpecifications: [ // EBSTagSpecifications
+ * //                 { // EBSTagSpecification
+ * //                   resourceType: "volume", // required
+ * //                   tags: [
+ * //                     {
+ * //                       key: "STRING_VALUE",
+ * //                       value: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ * //                 },
+ * //               ],
+ * //               roleArn: "STRING_VALUE", // required
+ * //               filesystemType: "ext3" || "ext4" || "xfs",
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     roleArn: "STRING_VALUE",
@@ -283,12 +311,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //     deploymentController: { // DeploymentController
  * //       type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
  * //     },
- * //     tags: [
- * //       {
- * //         key: "STRING_VALUE",
- * //         value: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     tags: "<Tags>",
  * //     createdBy: "STRING_VALUE",
  * //     enableECSManagedTags: true || false,
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",

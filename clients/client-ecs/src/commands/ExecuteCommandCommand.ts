@@ -33,12 +33,13 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
 /**
  * @public
  * <p>Runs a command remotely on a container within a task.</p>
- *          <p>If you use a condition key in your IAM policy to refine the conditions for the policy
- * 			statement, for example limit the actions to a specific cluster, you receive an
+ *          <p>If you use a condition key in your IAM policy to refine the conditions for the
+ * 			policy statement, for example limit the actions to a specific cluster, you receive an
  * 				<code>AccessDeniedException</code> when there is a mismatch between the condition
  * 			key value and the corresponding parameter value.</p>
- *          <p>For information about required permissions and considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Using Amazon ECS Exec for
- * 			debugging</a> in the <i>Amazon ECS Developer Guide</i>. </p>
+ *          <p>For information about required permissions and considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Using Amazon ECS
+ * 				Exec for debugging</a> in the <i>Amazon ECS Developer Guide</i>.
+ * 		</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,8 +105,8 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  *                <p>The SSM agent is not installed or is not running</p>
  *             </li>
  *             <li>
- *                <p> There is an interface Amazon VPC endpoint for Amazon ECS, but there is not one for Systems
- * 					Manager Session Manager</p>
+ *                <p> There is an interface Amazon VPC endpoint for Amazon ECS, but there is not one for
+ * 					Systems Manager Session Manager</p>
  *             </li>
  *          </ul>
  *          <p>For information about how to troubleshoot the issues, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Troubleshooting issues with ECS

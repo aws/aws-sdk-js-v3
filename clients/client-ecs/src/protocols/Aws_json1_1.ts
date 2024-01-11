@@ -239,6 +239,7 @@ import {
   DeviceCgroupPermission,
   DiscoverPollEndpointRequest,
   DockerVolumeConfiguration,
+  EBSTagSpecification,
   EFSAuthorizationConfig,
   EFSVolumeConfiguration,
   EnvironmentFile,
@@ -316,9 +317,11 @@ import {
   ServiceConnectService,
   ServiceEvent,
   ServiceField,
+  ServiceManagedEBSVolumeConfiguration,
   ServiceNotActiveException,
   ServiceNotFoundException,
   ServiceRegistry,
+  ServiceVolumeConfiguration,
   StartTaskRequest,
   StartTaskResponse,
   StopTaskRequest,
@@ -336,10 +339,13 @@ import {
   TaskDefinitionField,
   TaskDefinitionPlacementConstraint,
   TaskField,
+  TaskManagedEBSVolumeConfiguration,
+  TaskManagedEBSVolumeTerminationPolicy,
   TaskOverride,
   TaskSet,
   TaskSetField,
   TaskSetNotFoundException,
+  TaskVolumeConfiguration,
   Tmpfs,
   Ulimit,
   UnsupportedFeatureException,
@@ -3404,6 +3410,9 @@ const de_StartTaskCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecs#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
+      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4094,6 +4103,9 @@ const de_UpdateServiceCommandError = async (
     case "ServiceNotFoundException":
     case "com.amazonaws.ecs#ServiceNotFoundException":
       throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
+      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4841,6 +4853,10 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 
 // se_DockerVolumeConfiguration omitted.
 
+// se_EBSTagSpecification omitted.
+
+// se_EBSTagSpecifications omitted.
+
 // se_EFSAuthorizationConfig omitted.
 
 // se_EFSVolumeConfiguration omitted.
@@ -5036,6 +5052,7 @@ const se_RunTaskRequest = (input: RunTaskRequest, context: __SerdeContext): any 
     startedBy: [],
     tags: _json,
     taskDefinition: [],
+    volumeConfigurations: _json,
   });
 };
 
@@ -5067,9 +5084,15 @@ const se_Scale = (input: Scale, context: __SerdeContext): any => {
 
 // se_ServiceFieldList omitted.
 
+// se_ServiceManagedEBSVolumeConfiguration omitted.
+
 // se_ServiceRegistries omitted.
 
 // se_ServiceRegistry omitted.
+
+// se_ServiceVolumeConfiguration omitted.
+
+// se_ServiceVolumeConfigurations omitted.
 
 // se_StartTaskRequest omitted.
 
@@ -5121,9 +5144,17 @@ const se_SubmitTaskStateChangeRequest = (input: SubmitTaskStateChangeRequest, co
 
 // se_TaskFieldList omitted.
 
+// se_TaskManagedEBSVolumeConfiguration omitted.
+
+// se_TaskManagedEBSVolumeTerminationPolicy omitted.
+
 // se_TaskOverride omitted.
 
 // se_TaskSetFieldList omitted.
+
+// se_TaskVolumeConfiguration omitted.
+
+// se_TaskVolumeConfigurations omitted.
 
 // se_Tmpfs omitted.
 
@@ -5405,6 +5436,7 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
     status: __expectString,
     taskDefinition: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    volumeConfigurations: _json,
   }) as any;
 };
 
@@ -5520,6 +5552,10 @@ const de_DescribeTasksResponse = (output: any, context: __SerdeContext): Describ
 // de_DockerLabelsMap omitted.
 
 // de_DockerVolumeConfiguration omitted.
+
+// de_EBSTagSpecification omitted.
+
+// de_EBSTagSpecifications omitted.
 
 // de_EFSAuthorizationConfig omitted.
 
@@ -5904,6 +5940,8 @@ const de_ServiceEvents = (output: any, context: __SerdeContext): ServiceEvent[] 
   return retVal;
 };
 
+// de_ServiceManagedEBSVolumeConfiguration omitted.
+
 // de_ServiceNotActiveException omitted.
 
 // de_ServiceNotFoundException omitted.
@@ -5923,6 +5961,10 @@ const de_Services = (output: any, context: __SerdeContext): Service[] => {
     });
   return retVal;
 };
+
+// de_ServiceVolumeConfiguration omitted.
+
+// de_ServiceVolumeConfigurations omitted.
 
 // de_Session omitted.
 

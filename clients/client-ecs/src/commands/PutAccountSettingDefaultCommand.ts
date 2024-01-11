@@ -28,9 +28,8 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
 
 /**
  * @public
- * <p>Modifies an account setting for all users on an account for whom no individual
- * 			account setting has been specified. Account settings are set on a per-Region
- * 			basis.</p>
+ * <p>Modifies an account setting for all users on an account for whom no individual account
+ * 			setting has been specified. Account settings are set on a per-Region basis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
