@@ -147,20 +147,26 @@ Some feedback we received frequently was that it can be difficult to debug what 
 We’ve switched to using a middleware stack to control the lifecycle of an operation call now.
 This gives us a few benefits. Each middleware in the stack calls the next middleware after making any changes to the request object.
 This also makes debugging issues in the stack much easier since you can see exactly which middleware have been called leading up to an error.
-Here’s an example of adding a custom header using middleware:
+Here’s an example of logging requests using middleware:
 
 ```javascript
 const client = new DynamoDB({ region: "us-west-2" });
+
 client.middlewareStack.add(
   (next, context) => (args) => {
-    args.request.headers["Custom-Header"] = "value";
-    console.log("\n -- printed from inside middleware -- \n");
-    return next(args);
+    console.log("AWS SDK context", context.clientName, context.commandName);
+    console.log("AWS SDK request input", args.input);
+    const result = await next(args);
+    console.log("AWS SDK request output:", result.output);
+    return result;
   },
   {
+    name: "MyMiddleware",
     step: "build",
+    override: true,
   }
 );
+
 await client.listTables({});
 ```
 
@@ -176,18 +182,21 @@ we have them listed in [UPGRADING.md](https://github.com/aws/aws-sdk-js-v3/blob/
 ## Working with the SDK in Lambda
 
 ### General Info
+
 The Lambda provided AWS SDK is set to a specific minor version, and **NOT** the latest version. To check the minor version used by Lambda please refer to [Lambda runtimes doc page](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
 If you wish to use the latest / different version of the SDK from the one provided by lambda, we recommend that you [bundle and minify](https://aws.amazon.com/blogs/compute/optimizing-node-js-dependencies-in-aws-lambda/) your project, or [upload it as a Lambda layer](https://aws.amazon.com/blogs/compute/using-lambda-layers-to-simplify-your-development-process/).
 
 The performance of the AWS SDK for JavaScript v3 on node 18 has improved from v2 as seen in the [performance benchmarking](https://aws.amazon.com/blogs/developer/reduce-lambda-cold-start-times-migrate-to-aws-sdk-for-javascript-v3/)
 
 ### Best practices
+
 When using Lambda we should use a single SDK client per service, per region, and initialize it outside of the handler's codepath. This is done to optimize for Lambda's [container reuse](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html).
 
-The API calls themselves should be made from within the handler's codepath. 
+The API calls themselves should be made from within the handler's codepath.
 This is done to ensure that API calls are signed at the very last step of Lambda's execution cycle, after the Lambda is "hot" to avoid signing time skew.
 
 Example:
+
 ```javascript
 import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
 
@@ -195,9 +204,9 @@ const client = new STSClient({}); // SDK Client initialized outside the handler
 
 export const handler = async (event) => {
   const response = {
-    statusCode: 200, 
+    statusCode: 200,
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
 
@@ -207,9 +216,9 @@ export const handler = async (event) => {
       userId: results.UserId,
     };
 
-    response.body = JSON.stringify(responseBody); 
+    response.body = JSON.stringify(responseBody);
   } catch (err) {
-    console.log('Error:', err);
+    console.log("Error:", err);
     response.statusCode = 500;
     response.body = JSON.stringify({
       message: "Internal Server Error",
@@ -263,7 +272,7 @@ All clients have been published to NPM and can be installed as described above. 
    ```
    yarn add ./path/to/vendors/folder/aws-sdk-client-dynamodb-v3.0.0.tgz
    ```
-   
+
 ## Giving feedback and contributing
 
 You can provide feedback to us in several ways. Both positive and negative feedback is appreciated.
@@ -510,29 +519,33 @@ For a full abort controller deep dive please check out our [blog post](https://a
 
 ### Middleware Stack
 
-The JavaScript SDK maintains a series of asynchronous actions. These series include actions that serialize input parameters into the data over the wire and deserialize response data into JavaScript objects. Such actions are implemented using functions called middleware and executed in a specific order. The object that hosts all the middleware including the ordering information is called a Middleware Stack. You can add your custom actions to the SDK and/or remove the default ones.
+The AWS SDK for JavaScript (v3) maintains a series of asynchronous actions. These series include actions that serialize input parameters into the data over the wire and deserialize response data into JavaScript objects. Such actions are implemented using functions called middleware and executed in a specific order. The object that hosts all the middleware including the ordering information is called a Middleware Stack. You can add your custom actions to the SDK and/or remove the default ones.
 
 When an API call is made, SDK sorts the middleware according to the step it belongs to and its priority within each step. The input parameters pass through each middleware. An HTTP request gets created and updated along the process. The HTTP Handler sends a request to the service, and receives a response. A response object is passed back through the same middleware stack in reverse, and is deserialized into a JavaScript object.
 
 A middleware is a higher-order function that transfers user input and/or HTTP request, then delegates to “next” middleware. It also transfers the result from “next” middleware. A middleware function also has access to context parameter, which optionally contains data to be shared across middleware.
 
-For example, you can use middleware to add a custom header like S3 object metadata:
+For example, you can use middleware to log or modify a request:
 
 ```javascript
 const { S3 } = require("@aws-sdk/client-s3");
 const client = new S3({ region: "us-west-2" });
+
 // Middleware added to client, applies to all commands.
 client.middlewareStack.add(
-  (next, context) => async (args) => {
+  (next, context) => (args) => {
     args.request.headers["x-amz-meta-foo"] = "bar";
+    console.log("AWS SDK context", context.clientName, context.commandName);
+    console.log("AWS SDK request input", args.input);
     const result = await next(args);
-    // result.response contains data returned from next middleware.
+    console.log("AWS SDK request output:", result.output);
     return result;
   },
   {
     step: "build",
     name: "addFooMetadataMiddleware",
     tags: ["METADATA", "FOO"],
+    override: true,
   }
 );
 
@@ -551,8 +564,10 @@ The example above adds middleware to `build` step of middleware stack. The middl
 
 ```javascript
 client.middlewareStack.add(middleware, {
+  name: "MyMiddleware",
   step: "initialize",
   priority: "high", // or "low".
+  override: true, // provide both a name and override=true to avoid accidental middleware duplication.
 });
 ```
 
@@ -582,14 +597,29 @@ Earlier versions require Node.js >= 10.
 | @aws-sdk/middleware-stack   | packages          | AWS SDK JS team   | public/stable |
 | remaining @aws-sdk/\*       | packages          | AWS SDK JS team   | internal      |
 
+Public interfaces are marked with the `@public` annotation in source code and appear
+in our [API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/).
+
 Additional notes:
 
-- internal does not mean a package or interface is constantly changing
+- `@internal` does not mean a package or interface is constantly changing
   or being actively worked on. It means it is subject to change without any
   notice period. The changes are included in the release notes.
 - public interfaces such as client configuration are also subject to change
   in exceptional cases. We will try to undergo a deprecation period with
   an advance notice.
+
+All supported interfaces are provided at the package level, e.g.:
+
+```js
+import { S3Client } from "@aws-sdk/client-s3"; // Yes, do this.
+
+import { S3Client } from "@aws-sdk/client-s3/dist-cjs/S3Client"; // No, don't do this.
+```
+
+Do not import from a deep path in any package, since the file structure may change, and
+in the future packages may include the `exports` metadata in `package.json` preventing
+access to the file structure.
 
 ## Known Issues
 
