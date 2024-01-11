@@ -76684,6 +76684,12 @@ const de_EbsInstanceBlockDevice = (output: any, context: __SerdeContext): EbsIns
   if (output[_vIo] != null) {
     contents[_VIo] = __expectString(output[_vIo]);
   }
+  if (output[_aRs] != null) {
+    contents[_ARs] = __expectString(output[_aRs]);
+  }
+  if (output[_vOI] != null) {
+    contents[_VOI] = __expectString(output[_vOI]);
+  }
   return contents;
 };
 
@@ -78517,9 +78523,9 @@ const de_GetAssociatedEnclaveCertificateIamRolesResult = (
 ): GetAssociatedEnclaveCertificateIamRolesResult => {
   const contents: any = {};
   if (output.associatedRoleSet === "") {
-    contents[_ARs] = [];
+    contents[_ARss] = [];
   } else if (output[_aRS] != null && output[_aRS][_i] != null) {
-    contents[_ARs] = de_AssociatedRolesList(__getArrayIfSingleItem(output[_aRS][_i]), context);
+    contents[_ARss] = de_AssociatedRolesList(__getArrayIfSingleItem(output[_aRS][_i]), context);
   }
   return contents;
 };
@@ -83198,7 +83204,7 @@ const de_Ipv6CidrAssociation = (output: any, context: __SerdeContext): Ipv6CidrA
     contents[_ICp] = __expectString(output[_iCp]);
   }
   if (output[_aRs] != null) {
-    contents[_ARss] = __expectString(output[_aRs]);
+    contents[_ARs] = __expectString(output[_aRs]);
   }
   return contents;
 };
@@ -93137,8 +93143,8 @@ const de_TransitGatewayVpcAttachment = (output: any, context: __SerdeContext): T
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
   }
-  if (output[_vOI] != null) {
-    contents[_VOI] = __expectString(output[_vOI]);
+  if (output[_vOIp] != null) {
+    contents[_VOIp] = __expectString(output[_vOIp]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -94303,6 +94309,12 @@ const de_VolumeAttachment = (output: any, context: __SerdeContext): VolumeAttach
   if (output[_dOT] != null) {
     contents[_DOT] = __parseBoolean(output[_dOT]);
   }
+  if (output[_aRs] != null) {
+    contents[_ARs] = __expectString(output[_aRs]);
+  }
+  if (output[_iOS] != null) {
+    contents[_IOS] = __expectString(output[_iOS]);
+  }
   return contents;
 };
 
@@ -95414,8 +95426,8 @@ const _ARcl = "AclRule";
 const _ARd = "AddressRegion";
 const _ARl = "AllowReassociation";
 const _ARll = "AllRegions";
-const _ARs = "AssociatedRoles";
-const _ARss = "AssociatedResource";
+const _ARs = "AssociatedResource";
+const _ARss = "AssociatedRoles";
 const _ARu = "AutoRecovery";
 const _ARut = "AuthorizationRules";
 const _AS = "AllocationStrategy";
@@ -96523,6 +96535,7 @@ const _INLp = "Ipv4NetmaskLength";
 const _IOA = "ImageOwnerAlias";
 const _IOI = "IpOwnerId";
 const _IOIn = "InstanceOwnerId";
+const _IOS = "InstanceOwningService";
 const _IP = "Ipv6Prefixes";
 const _IPA = "IpamPoolAllocation";
 const _IPAI = "IpamPoolAllocationId";
@@ -97774,7 +97787,8 @@ const _VMo = "VolumeModification";
 const _VN = "VirtualName";
 const _VNI = "VirtualNetworkId";
 const _VNe = "VersionNumber";
-const _VOI = "VpcOwnerId";
+const _VOI = "VolumeOwnerId";
+const _VOIp = "VpcOwnerId";
 const _VP = "VpnPort";
 const _VPC = "VpcPeeringConnection";
 const _VPCI = "VpcPeeringConnectionId";
@@ -98445,6 +98459,7 @@ const _iOA = "imageOwnerAlias";
 const _iOI = "imageOwnerId";
 const _iOIn = "instanceOwnerId";
 const _iOIp = "ipOwnerId";
+const _iOS = "instanceOwningService";
 const _iP = "instancePort";
 const _iPA = "ipamPoolAllocation";
 const _iPAI = "ipamPoolAllocationId";
@@ -99391,7 +99406,8 @@ const _vMS = "volumeModificationSet";
 const _vN = "virtualName";
 const _vNI = "virtualNetworkId";
 const _vNe = "versionNumber";
-const _vOI = "vpcOwnerId";
+const _vOI = "volumeOwnerId";
+const _vOIp = "vpcOwnerId";
 const _vP = "vpnProtocol";
 const _vPC = "vpcPeeringConnection";
 const _vPCI = "vpcPeeringConnectionId";

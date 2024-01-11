@@ -2859,7 +2859,8 @@ export interface DescribeCapacityBlockOfferingsRequest {
 
   /**
    * @public
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 }
@@ -2965,7 +2966,8 @@ export interface DescribeCapacityReservationFleetsRequest {
 
   /**
    * @public
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
@@ -3190,7 +3192,8 @@ export interface DescribeCapacityReservationsRequest {
 
   /**
    * @public
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
@@ -6596,8 +6599,7 @@ export interface SpotOptions {
 export interface TargetCapacitySpecification {
   /**
    * @public
-   * <p>The number of units to request, filled using
-   *          <code>DefaultTargetCapacityType</code>.</p>
+   * <p>The number of units to request, filled the default target capacity type.</p>
    */
   TotalTargetCapacity?: number;
 
@@ -6615,15 +6617,13 @@ export interface TargetCapacitySpecification {
 
   /**
    * @public
-   * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-   *          <code>On-Demand</code>.</p>
+   * <p>The default target capacity type.</p>
    */
   DefaultTargetCapacityType?: DefaultTargetCapacityType;
 
   /**
    * @public
-   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
-   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   * <p>The unit for the target capacity.</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType;
 }

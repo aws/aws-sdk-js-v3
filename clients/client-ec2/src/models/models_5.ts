@@ -6085,6 +6085,8 @@ export interface EnableSnapshotBlockPublicAccessRequest {
    *           available.</p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <code>unblocked</code> is not a valid value for <b>EnableSnapshotBlockPublicAccess</b>.</p>
    */
   State: SnapshotBlockPublicAccessState | undefined;
 
@@ -6895,8 +6897,8 @@ export interface GetCapacityReservationUsageRequest {
 
   /**
    * @public
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   *          <p>Valid range: Minimum value of 1. Maximum value of 1000.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 
@@ -7447,7 +7449,8 @@ export interface GetGroupsForCapacityReservationRequest {
 
   /**
    * @public
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
    */
   MaxResults?: number;
 

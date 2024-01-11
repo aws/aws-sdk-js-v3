@@ -345,6 +345,8 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //             DeleteOnTermination: true || false,
  * //             Status: "attaching" || "attached" || "detaching" || "detached",
  * //             VolumeId: "STRING_VALUE",
+ * //             AssociatedResource: "STRING_VALUE",
+ * //             VolumeOwnerId: "STRING_VALUE",
  * //           },
  * //         },
  * //       ],

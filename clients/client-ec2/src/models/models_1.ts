@@ -2756,15 +2756,14 @@ export type TargetCapacityUnitType = (typeof TargetCapacityUnitType)[keyof typeo
  *          does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances
  *          in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're
  *          willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops
- *          launching instances even if it hasn’t met the target capacity. The
+ *          launching instances even if it hasn't met the target capacity. The
  *          <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a>
  *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
  */
 export interface TargetCapacitySpecificationRequest {
   /**
    * @public
-   * <p>The number of units to request, filled using
-   *          <code>DefaultTargetCapacityType</code>.</p>
+   * <p>The number of units to request, filled using the default target capacity type.</p>
    */
   TotalTargetCapacity: number | undefined;
 
@@ -2782,15 +2781,15 @@ export interface TargetCapacitySpecificationRequest {
 
   /**
    * @public
-   * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-   *          <code>On-Demand</code>.</p>
+   * <p>The default target capacity type.</p>
    */
   DefaultTargetCapacityType?: DefaultTargetCapacityType;
 
   /**
    * @public
-   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
-   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   * <p>The unit for the target capacity. You can specify this parameter only when using
+   *          attributed-based instance type selection.</p>
+   *          <p>Default: <code>units</code> (the number of instances)</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType;
 }
@@ -9158,7 +9157,7 @@ export interface StateReason {
    *             <li>
    *                <p>
    *                   <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down
-   *                     using the <code>shutdown -h</code> command from the instance.</p>
+   *                     from the operating system of the instance.</p>
    *             </li>
    *             <li>
    *                <p>

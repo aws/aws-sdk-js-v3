@@ -67,6 +67,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * //           State: "attaching" || "attached" || "detaching" || "detached" || "busy",
  * //           VolumeId: "STRING_VALUE",
  * //           DeleteOnTermination: true || false,
+ * //           AssociatedResource: "STRING_VALUE",
+ * //           InstanceOwningService: "STRING_VALUE",
  * //         },
  * //       ],
  * //       AvailabilityZone: "STRING_VALUE",

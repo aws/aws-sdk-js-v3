@@ -341,6 +341,21 @@ export interface EbsInstanceBlockDevice {
    * <p>The ID of the EBS volume.</p>
    */
   VolumeId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the Amazon ECS or Fargate task
+   *             to which the volume is attached.</p>
+   */
+  AssociatedResource?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that owns the volume.</p>
+   *          <p>This parameter is returned only for volumes that are attached to
+   *             Fargate tasks.</p>
+   */
+  VolumeOwnerId?: string;
 }
 
 /**
@@ -1851,27 +1866,24 @@ export interface InstanceMetadataOptionsResponse {
 
   /**
    * @public
-   * <p>IMDSv2 uses token-backed sessions. Indicates whether the use of HTTP tokens is
-   *                 <code>optional</code> (in other words, indicates whether the use of IMDSv2 is
-   *                 <code>optional</code>) or <code>required</code> (in other words, indicates whether
-   *             the use of IMDSv2 is <code>required</code>).</p>
+   * <p>Indicates whether IMDSv2 is required.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
-   *             a session token in your request. If you retrieve the IAM role credentials
-   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
-   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
+   *                     session token in your instance metadata retrieval requests. If you retrieve
+   *                     IAM role credentials without a session token, you receive the IMDSv1 role
+   *                     credentials. If you retrieve IAM role credentials using a valid session token,
+   *                     you receive the IMDSv2 role credentials.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
-   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *                   <code>required</code> - IMDSv2 is required. You must send a session token
+   *                     in your instance metadata retrieval requests. With this option, retrieving the
+   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
+   *                     not available.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: <code>optional</code>
-   *          </p>
    */
   HttpTokens?: HttpTokensState;
 
@@ -11699,8 +11711,9 @@ export interface SpotFleetRequestConfigData {
 
   /**
    * @public
-   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
-   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   * <p>The unit for the target capacity. You can specify this parameter only when
+   *          using attribute-based instance type selection.</p>
+   *          <p>Default: <code>units</code> (the number of instances)</p>
    */
   TargetCapacityUnitType?: TargetCapacityUnitType;
 

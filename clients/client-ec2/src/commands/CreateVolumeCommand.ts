@@ -81,6 +81,8 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * //       State: "attaching" || "attached" || "detaching" || "detached" || "busy",
  * //       VolumeId: "STRING_VALUE",
  * //       DeleteOnTermination: true || false,
+ * //       AssociatedResource: "STRING_VALUE",
+ * //       InstanceOwningService: "STRING_VALUE",
  * //     },
  * //   ],
  * //   AvailabilityZone: "STRING_VALUE",

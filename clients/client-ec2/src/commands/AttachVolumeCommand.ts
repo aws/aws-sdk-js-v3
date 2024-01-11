@@ -74,6 +74,8 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
  * //   VolumeId: "STRING_VALUE",
  * //   DeleteOnTermination: true || false,
+ * //   AssociatedResource: "STRING_VALUE",
+ * //   InstanceOwningService: "STRING_VALUE",
  * // };
  *
  * ```

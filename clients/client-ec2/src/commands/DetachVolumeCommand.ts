@@ -38,6 +38,9 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *       first.</p>
  *          <p>When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the
  *       product code is no longer associated with the instance.</p>
+ *          <p>You can't detach or force detach volumes that are attached to Amazon ECS or
+ *       Fargate tasks. Attempting to do this results in the <code>UnsupportedOperationException</code>
+ *       exception with the <code>Unable to detach volume attached to ECS tasks</code> error message.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detach an Amazon EBS volume</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -62,6 +65,8 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
  * //   VolumeId: "STRING_VALUE",
  * //   DeleteOnTermination: true || false,
+ * //   AssociatedResource: "STRING_VALUE",
+ * //   InstanceOwningService: "STRING_VALUE",
  * // };
  *
  * ```

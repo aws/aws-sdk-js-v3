@@ -2142,27 +2142,26 @@ export interface InstanceMaintenanceOptionsRequest {
 export interface InstanceMetadataOptionsRequest {
   /**
    * @public
-   * <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code>
-   *             (in other words, set the use of IMDSv2 to <code>optional</code>) or
-   *                 <code>required</code> (in other words, set the use of IMDSv2 to
-   *                 <code>required</code>).</p>
+   * <p>Indicates whether IMDSv2 is required.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
-   *             a session token in your request. If you retrieve the IAM role credentials
-   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
-   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
+   *                     session token in your instance metadata retrieval requests. If you retrieve
+   *                     IAM role credentials without a session token, you receive the IMDSv1 role
+   *                     credentials. If you retrieve IAM role credentials using a valid session token,
+   *                     you receive the IMDSv2 role credentials.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
-   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *                   <code>required</code> - IMDSv2 is required. You must send a session token
+   *                     in your instance metadata retrieval requests. With this option, retrieving the
+   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
+   *                     not available.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: <code>optional</code>
-   *          </p>
+   *          <p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
+   *             for your instance is <code>v2.0</code>, the default is <code>required</code>.</p>
    */
   HttpTokens?: HttpTokensState;
 
@@ -2804,6 +2803,8 @@ export interface ScheduledInstancesNetworkInterface {
    *          assigned to a new network interface, not an existing one. You cannot specify more than one
    *          network interface in the request. If launching into a default subnet, the default value is
    *          <code>true</code>.</p>
+   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   AssociatePublicIpAddress?: boolean;
 

@@ -6140,12 +6140,16 @@ export interface VolumeAttachment {
   /**
    * @public
    * <p>The device name.</p>
+   *          <p>If the volume is attached to a Fargate task, this parameter
+   *       returns <code>null</code>.</p>
    */
   Device?: string;
 
   /**
    * @public
    * <p>The ID of the instance.</p>
+   *          <p>If the volume is attached to a Fargate task, this parameter
+   *       returns <code>null</code>.</p>
    */
   InstanceId?: string;
 
@@ -6166,6 +6170,22 @@ export interface VolumeAttachment {
    * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
    */
   DeleteOnTermination?: boolean;
+
+  /**
+   * @public
+   * <p>The ARN of the Amazon ECS or Fargate task
+   *       to which the volume is attached.</p>
+   */
+  AssociatedResource?: string;
+
+  /**
+   * @public
+   * <p>The service principal of Amazon Web Services service that owns the underlying
+   *       instance to which the volume is attached.</p>
+   *          <p>This parameter is returned only for volumes that are attached to
+   *       Fargate tasks.</p>
+   */
+  InstanceOwningService?: string;
 }
 
 /**
