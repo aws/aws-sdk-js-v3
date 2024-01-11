@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AWSSDKSigV4Signer } from "@aws-sdk/core";
+import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
 import { IdentityProviderConfig } from "@smithy/types";
@@ -27,7 +27,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
       {
         schemeId: "aws.auth#sigv4",
         identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
-        signer: new AWSSDKSigV4Signer(),
+        signer: new AwsSdkSigV4Signer(),
       },
       {
         schemeId: "smithy.api#noAuth",

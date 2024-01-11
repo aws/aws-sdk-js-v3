@@ -1,9 +1,9 @@
 // smithy-typescript generated code
 import {
-  AWSSDKSigV4AuthInputConfig,
-  AWSSDKSigV4AuthResolvedConfig,
-  AWSSDKSigV4PreviouslyResolved,
-  resolveAWSSDKSigV4Config,
+  AwsSdkSigV4AuthInputConfig,
+  AwsSdkSigV4AuthResolvedConfig,
+  AwsSdkSigV4PreviouslyResolved,
+  resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core";
 import {
   HandlerExecutionContext,
@@ -93,7 +93,7 @@ export const defaultSQSHttpAuthSchemeProvider: SQSHttpAuthSchemeProvider = (auth
 /**
  * @internal
  */
-export interface HttpAuthSchemeInputConfig extends AWSSDKSigV4AuthInputConfig {
+export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**
    * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
@@ -110,7 +110,7 @@ export interface HttpAuthSchemeInputConfig extends AWSSDKSigV4AuthInputConfig {
 /**
  * @internal
  */
-export interface HttpAuthSchemeResolvedConfig extends AWSSDKSigV4AuthResolvedConfig {
+export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
   /**
    * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
@@ -128,9 +128,9 @@ export interface HttpAuthSchemeResolvedConfig extends AWSSDKSigV4AuthResolvedCon
  * @internal
  */
 export const resolveHttpAuthSchemeConfig = <T>(
-  config: T & HttpAuthSchemeInputConfig & AWSSDKSigV4PreviouslyResolved
+  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
-  const config_0 = resolveAWSSDKSigV4Config(config);
+  const config_0 = resolveAwsSdkSigV4Config(config);
   return {
     ...config_0,
   } as T & HttpAuthSchemeResolvedConfig;

@@ -21,7 +21,7 @@ import {
 /**
  * @internal
  */
-export interface AWSSDKSigV4AuthInputConfig {
+export interface AwsSdkSigV4AuthInputConfig {
   /**
    * The credentials used to sign requests.
    */
@@ -60,7 +60,7 @@ export interface AWSSDKSigV4AuthInputConfig {
 /**
  * @internal
  */
-export interface AWSSDKSigV4PreviouslyResolved {
+export interface AwsSdkSigV4PreviouslyResolved {
   credentialDefaultProvider?: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
   sha256: ChecksumConstructor | HashConstructor;
@@ -75,23 +75,23 @@ export interface AWSSDKSigV4PreviouslyResolved {
 /**
  * @internal
  */
-export interface AWSSDKSigV4AuthResolvedConfig {
+export interface AwsSdkSigV4AuthResolvedConfig {
   /**
-   * Resolved value for input config {@link AWSSDKSigV4AuthInputConfig.credentials}
+   * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.credentials}
    * This provider MAY memoize the loaded credentials for certain period.
    * See {@link MemoizedProvider} for more information.
    */
   credentials: AwsCredentialIdentityProvider;
   /**
-   * Resolved value for input config {@link AWSSDKSigV4AuthInputConfig.signer}
+   * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.signer}
    */
   signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   /**
-   * Resolved value for input config {@link AWSSDKSigV4AuthInputConfig.signingEscapePath}
+   * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.signingEscapePath}
    */
   signingEscapePath: boolean;
   /**
-   * Resolved value for input config {@link AWSSDKSigV4AuthInputConfig.systemClockOffset}
+   * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.systemClockOffset}
    */
   systemClockOffset: number;
 }
@@ -99,9 +99,9 @@ export interface AWSSDKSigV4AuthResolvedConfig {
 /**
  * @internal
  */
-export const resolveAWSSDKSigV4Config = <T>(
-  config: T & AWSSDKSigV4AuthInputConfig & AWSSDKSigV4PreviouslyResolved
-): T & AWSSDKSigV4AuthResolvedConfig => {
+export const resolveAwsSdkSigV4Config = <T>(
+  config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved
+): T & AwsSdkSigV4AuthResolvedConfig => {
   // Normalize credentials
   let normalizedCreds: AwsCredentialIdentityProvider | undefined;
   if (config.credentials) {
@@ -214,3 +214,23 @@ export const resolveAWSSDKSigV4Config = <T>(
     signer,
   };
 };
+
+/**
+ * @deprecated renamed to {@link AwsSdkSigV4AuthInputConfig}
+ */
+export interface AWSSDKSigV4AuthInputConfig extends AwsSdkSigV4AuthInputConfig {}
+
+/**
+ * @deprecated renamed to {@link AwsSdkSigV4PreviouslyResolved}
+ */
+export interface AWSSDKSigV4PreviouslyResolved extends AwsSdkSigV4PreviouslyResolved {}
+
+/**
+ * @deprecated renamed to {@link AwsSdkSigV4AuthResolvedConfig}
+ */
+export interface AWSSDKSigV4AuthResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {}
+
+/**
+ * @deprecated renamed to {@link resolveAwsSdkSigV4Config}
+ */
+export const resolveAWSSDKSigV4Config = resolveAwsSdkSigV4Config;

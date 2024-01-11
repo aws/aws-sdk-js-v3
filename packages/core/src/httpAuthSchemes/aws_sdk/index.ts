@@ -1,2 +1,2 @@
-export * from "./AWSSDKSigV4Signer";
-export * from "./resolveAWSSDKSigV4Config";
+export * from "./AwsSdkSigV4Signer";
+export * from "./resolveAwsSdkSigV4Config";
