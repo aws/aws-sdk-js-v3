@@ -14,17 +14,19 @@ import {
   S3ControlResolvedConfig,
 } from "@aws-sdk/middleware-sdk-s3-control";
 import {
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
+  getAwsAuthPlugin,
+  resolveAwsAuthConfig,
+} from "@aws-sdk/middleware-signing";
+import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
-import {
-  DefaultIdentityProviderConfig,
-  getHttpAuthSchemeEndpointRuleSetPlugin,
-  getHttpSigningPlugin,
-} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -36,7 +38,6 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
-  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
@@ -56,12 +57,6 @@ import {
 } from "@smithy/types";
 import { Readable } from "stream";
 
-import {
-  defaultS3ControlHttpAuthSchemeParametersProvider,
-  HttpAuthSchemeInputConfig,
-  HttpAuthSchemeResolvedConfig,
-  resolveHttpAuthSchemeConfig,
-} from "./auth/httpAuthSchemeProvider";
 import {
   AssociateAccessGrantsIdentityCenterCommandInput,
   AssociateAccessGrantsIdentityCenterCommandOutput,
@@ -641,22 +636,21 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
-
-  /**
    * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
-   * @deprecated
    * @internal
    */
-  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -709,9 +703,9 @@ export type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
+  AwsAuthInputConfig &
   S3ControlInputConfig &
   UserAgentInputConfig &
-  HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -730,9 +724,9 @@ export type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__
   EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
+  AwsAuthResolvedConfig &
   S3ControlResolvedConfig &
   UserAgentResolvedConfig &
-  HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -763,9 +757,9 @@ export class S3ControlClient extends __Client<
     const _config_3 = resolveEndpointConfig(_config_2);
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveS3ControlConfig(_config_5);
-    const _config_7 = resolveUserAgentConfig(_config_6);
-    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveS3ControlConfig(_config_6);
+    const _config_8 = resolveUserAgentConfig(_config_7);
     const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     super(_config_9);
     this.config = _config_9;
@@ -774,15 +768,9 @@ export class S3ControlClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
+    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getHostPrefixDeduplicationPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
-    this.middlewareStack.use(
-      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
-      })
-    );
-    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -792,14 +780,5 @@ export class S3ControlClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultS3ControlHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: S3ControlClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }
