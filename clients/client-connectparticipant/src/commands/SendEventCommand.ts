@@ -70,6 +70,9 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An attachment with that identifier is already being uploaded.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
  *

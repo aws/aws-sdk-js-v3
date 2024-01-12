@@ -649,6 +649,9 @@ const de_SendEventCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.connectparticipant#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.connectparticipant#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);

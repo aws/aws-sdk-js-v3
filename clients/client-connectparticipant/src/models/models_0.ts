@@ -367,6 +367,7 @@ export const ResourceType = {
   HIERARCHY_LEVEL: "HIERARCHY_LEVEL",
   INSTANCE: "INSTANCE",
   PARTICIPANT: "PARTICIPANT",
+  PHONE_NUMBER: "PHONE_NUMBER",
   USER: "USER",
 } as const;
 
@@ -670,6 +671,7 @@ export const ParticipantRole = {
   AGENT: "AGENT",
   CUSTOMER: "CUSTOMER",
   CUSTOM_BOT: "CUSTOM_BOT",
+  SUPERVISOR: "SUPERVISOR",
   SYSTEM: "SYSTEM",
 } as const;
 
