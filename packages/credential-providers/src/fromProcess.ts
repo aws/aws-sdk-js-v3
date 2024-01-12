@@ -1,7 +1,5 @@
-import { fromProcess as _fromProcess, FromProcessInit as _FromProcessInit } from "@aws-sdk/credential-provider-process";
+import { fromProcess as _fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
-
-export interface FromProcessInit extends _FromProcessInit {}
 
 /**
  * Creates a credential provider function that executes a given process and attempt to read its standard output to

@@ -42,8 +42,6 @@ public class AddAwsAuthPluginTest {
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), not(containsString("signingName")));
 
         // Check config files
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(),
-                containsString("decorateDefaultCredentialProvider"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("Credential is missing"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), not(containsString("signingName:")));
 
@@ -81,8 +79,6 @@ public class AddAwsAuthPluginTest {
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("signingName?"));
 
         // Check config files
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(),
-                containsString("decorateDefaultCredentialProvider"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("Credential is missing"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), containsString("signingName:"));
 

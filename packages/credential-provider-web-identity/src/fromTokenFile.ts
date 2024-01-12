@@ -9,7 +9,7 @@ const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
 /**
- * @internal
+ * @public
  */
 export interface FromTokenFileInit extends Partial<Omit<FromWebTokenInit, "webIdentityToken">> {
   /**

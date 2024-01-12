@@ -1,12 +1,13 @@
-import { SSOOIDCClient } from "./bundle/client-sso-oidc-node";
-
-const ssoOidcClientsHash: Record<string, typeof SSOOIDCClient | any> = {};
+const ssoOidcClientsHash: Record<string, any> = {};
 
 /**
  * Returns a SSOOIDC client for the given region. If the client has already been created,
  * it will be returned from the hash.
+ * @internal
  */
-export const getSsoOidcClient = (ssoRegion: string) => {
+export const getSsoOidcClient = async (ssoRegion: string) => {
+  const { SSOOIDCClient } = await import("./loadSsoOidc");
+
   // return ssoOidsClient if already created.
   if (ssoOidcClientsHash[ssoRegion]) {
     return ssoOidcClientsHash[ssoRegion];

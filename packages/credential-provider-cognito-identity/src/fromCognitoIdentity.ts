@@ -1,4 +1,3 @@
-import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, Provider } from "@smithy/types";
 
@@ -30,6 +29,8 @@ export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredenti
  */
 export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider {
   return async (): Promise<CognitoIdentityCredentials> => {
+    const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
+
     const {
       Credentials: {
         AccessKeyId = throwOnMissingAccessKeyId(),
@@ -37,7 +38,7 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
         SecretKey = throwOnMissingSecretKey(),
         SessionToken,
       } = throwOnMissingCredentials(),
-    } = await parameters.client.send(
+    } = await (parameters.client ?? new CognitoIdentityClient(parameters.clientConfig ?? {})).send(
       new GetCredentialsForIdentityCommand({
         CustomRoleArn: parameters.customRoleArn,
         IdentityId: parameters.identityId,

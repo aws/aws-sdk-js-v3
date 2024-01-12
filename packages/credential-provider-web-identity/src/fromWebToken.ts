@@ -1,8 +1,8 @@
-import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+import type { STSClientConfig } from "@aws-sdk/client-sts";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
 /**
- * @internal
+ * @public
  */
 export interface AssumeRoleWithWebIdentityParams {
   /**
@@ -115,8 +115,9 @@ export interface AssumeRoleWithWebIdentityParams {
 }
 
 type LowerCaseKey<T> = { [K in keyof T as `${Uncapitalize<string & K>}`]: T[K] };
+
 /**
- * @internal
+ * @public
  */
 export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIdentityParams>, "roleSessionName"> {
   /**
@@ -131,6 +132,16 @@ export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIde
    * @param params input parameter of sts:AssumeRoleWithWebIdentity API.
    */
   roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
+
+  /**
+   * @internal
+   */
+  clientConfig?: STSClientConfig;
+
+  /**
+   * @internal
+   */
+  clientPlugins?: Pluggable<any, any>[];
 }
 
 /**
@@ -138,24 +149,14 @@ export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIde
  */
 export const fromWebToken =
   (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
-  () => {
-    const {
-      roleArn,
-      roleSessionName,
-      webIdentityToken,
-      providerId,
-      policyArns,
-      policy,
-      durationSeconds,
-      roleAssumerWithWebIdentity,
-    } = init;
+  async () => {
+    const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
+
+    let { roleAssumerWithWebIdentity } = init;
 
     if (!roleAssumerWithWebIdentity) {
-      throw new CredentialsProviderError(
-        `Role Arn '${roleArn}' needs to be assumed with web identity,` +
-          ` but no role assumption callback was provided.`,
-        false
-      );
+      const { getDefaultRoleAssumerWithWebIdentity } = await import("./loadSts");
+      roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins);
     }
 
     return roleAssumerWithWebIdentity({

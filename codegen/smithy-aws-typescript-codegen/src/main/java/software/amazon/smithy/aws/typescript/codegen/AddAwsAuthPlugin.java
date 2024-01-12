@@ -207,19 +207,22 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
-                        if (!testServiceId(service, "STS")) {
-                            writer.addDependency(AwsDependency.STS_CLIENT);
-                            writer.addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
-                                    AwsDependency.STS_CLIENT);
+                        if (testServiceId(service, "STS")) {
+                            writer
+                                .addRelativeImport("decorateDefaultCredentialProvider", null,
+                                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE))
+                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .addImport("defaultProvider", "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
                         } else {
-                            writer.addRelativeImport("decorateDefaultCredentialProvider",
-                                "decorateDefaultCredentialProvider", Paths.get(".", CodegenUtils.SOURCE_FOLDER,
-                                STS_ROLE_ASSUMERS_FILE));
+                            writer
+                                .addDependency(AwsDependency.STS_CLIENT)
+                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .addImport("defaultProvider", "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .write("credentialDefaultProvider");
                         }
-                        writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                        writer.addImport("defaultProvider", "credentialDefaultProvider",
-                                AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                        writer.write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
                     }
                 );
             default:

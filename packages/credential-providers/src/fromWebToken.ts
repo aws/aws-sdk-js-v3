@@ -1,14 +1,5 @@
-import { getDefaultRoleAssumerWithWebIdentity, STSClientConfig } from "@aws-sdk/client-sts";
-import {
-  fromWebToken as _fromWebToken,
-  FromWebTokenInit as _FromWebTokenInit,
-} from "@aws-sdk/credential-provider-web-identity";
-import { AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
-
-export interface FromWebTokenInit extends _FromWebTokenInit {
-  clientConfig?: STSClientConfig;
-  clientPlugins?: Pluggable<any, any>[];
-}
+import { fromWebToken as _fromWebToken, FromWebTokenInit } from "@aws-sdk/credential-provider-web-identity";
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * Creates a credential provider function that gets credentials calling STS
@@ -50,6 +41,4 @@ export interface FromWebTokenInit extends _FromWebTokenInit {
 export const fromWebToken = (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
   _fromWebToken({
     ...init,
-    roleAssumerWithWebIdentity:
-      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins),
   });

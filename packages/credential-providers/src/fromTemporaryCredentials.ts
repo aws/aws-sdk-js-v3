@@ -1,4 +1,4 @@
-import { AssumeRoleCommand, AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/client-sts";
+import type { AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/client-sts";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
@@ -63,6 +63,9 @@ export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOption
       }
       params.TokenCode = await options.mfaCodeProvider(params?.SerialNumber);
     }
+
+    const { AssumeRoleCommand, STSClient } = await import("./loadSts");
+
     if (!stsClient) stsClient = new STSClient({ ...options.clientConfig, credentials: options.masterCredentials });
     if (options.clientPlugins) {
       for (const plugin of options.clientPlugins) {

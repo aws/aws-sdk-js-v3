@@ -112,12 +112,10 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                         "credentialDefaultProvider", writer -> {
                             writer
                                 .addDependency(AwsDependency.STS_CLIENT)
-                                .addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
-                                        AwsDependency.STS_CLIENT)
                                 .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
                                 .addImport("defaultProvider", "credentialDefaultProvider",
                                     AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
+                                .write("credentialDefaultProvider");
                         }
                     );
                 }

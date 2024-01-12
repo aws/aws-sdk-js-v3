@@ -1,4 +1,4 @@
-import { CognitoIdentityClient, CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
+import type { CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
 import {
   CognitoIdentityCredentialProvider,
   fromCognitoIdentityPool as _fromCognitoIdentityPool,
@@ -54,5 +54,4 @@ export const fromCognitoIdentityPool = (
 ): CognitoIdentityCredentialProvider =>
   _fromCognitoIdentityPool({
     ...options,
-    client: new CognitoIdentityClient(options.clientConfig ?? {}),
   });

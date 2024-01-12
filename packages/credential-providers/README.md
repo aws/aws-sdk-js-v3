@@ -28,6 +28,9 @@ A collection of all credential providers, with default clients.
 
 ## `fromCognitoIdentity()`
 
+- Uses `@aws-sdk/client-cognito-identity`
+- Available in browsers & native apps
+
 The function `fromCognitoIdentity()` returns `CredentialsProvider` that retrieves credentials for
 the provided identity ID. See [GetCredentialsForIdentity API][getcredentialsforidentity_api]
 for more information.
@@ -62,6 +65,9 @@ const client = new FooClient({
 ```
 
 ## `fromCognitoIdentityPool()`
+
+- Uses `@aws-sdk/client-cognito-identity`
+- Available in browsers & native apps
 
 The function `fromCognitoIdentityPool()` returns `AwsCredentialIdentityProvider` that calls [GetId API][getid_api]
 to obtain an `identityId`, then generates temporary AWS credentials with
@@ -108,6 +114,9 @@ const client = new FooClient({
 
 ## `fromTemporaryCredentials()`
 
+- Uses `@aws-sdk/client-sts`
+- Available in browsers & native apps
+
 The function `fromTemporaryCredentials` returns `AwsCredentialIdentityProvider` that retrieves temporary
 credentials from [STS AssumeRole API][assumerole_api].
 
@@ -146,6 +155,9 @@ const client = new FooClient({
 ```
 
 ## `fromWebToken()`
+
+- Uses `@aws-sdk/client-sts`
+- Available in browsers & native apps
 
 The function `fromWebToken` returns `AwsCredentialIdentityProvider` that gets credentials calling
 [STS AssumeRoleWithWebIdentity API][assumerolewithwebidentity_api]
@@ -210,6 +222,8 @@ provider, see the documentation for the identity provider.
 
 ## `fromContainerMetadata()` and `fromInstanceMetadata()`
 
+- Not available in browsers & native apps
+
 `fromContainerMetadata` and `fromInstanceMetadata` will create `AwsCredentialIdentityProvider` functions that
 read from the ECS container metadata service and the EC2 instance metadata service, respectively.
 
@@ -259,6 +273,8 @@ supported.
 Please see [Configure the instance metadata service][config_instance_metadata] for more information.
 
 ## `fromHttp()`
+
+- Available in browsers & native apps, without the EC2 and Container metadata components.
 
 This creates a provider function that makes a `GET` request to
 any provided HTTPS URL. A limited set of HTTP destinations are also accepted.
@@ -358,6 +374,10 @@ const client = new FooClient({
 ```
 
 ## `fromIni()`
+
+- May use `@aws-sdk/client-sso` or `@aws-sdk/client-sts` depending
+  on how the file is configured.
+- Not available in browsers & native apps.
 
 `fromIni` creates `AwsCredentialIdentityProvider` functions that read from a shared credentials file at
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both files are expected to
@@ -485,6 +505,8 @@ See [`fromSSO()`](#fromsso) fro more information
 
 ## `fromEnv()`
 
+- Not available in browser & native apps
+
 ```javascript
 import { fromEnv } from "@aws-sdk/credential-providers"; // ES6 import
 // const { fromEnv } = require("@aws-sdk/credential-providers"); // CommonJS import
@@ -509,6 +531,8 @@ If either the `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` environment variabl
 contains a falsy value, the promise returned by the `fromEnv` function will be rejected.
 
 ## `fromProcess()`
+
+- Not available in browsers & native apps
 
 ```javascript
 import { fromProcess } from "@aws-sdk/credential-providers"; // ES6 import
@@ -566,6 +590,9 @@ credential_process = /usr/local/bin/awscreds dev
 
 ## `fromTokenFile()`
 
+- Uses `@aws-sdk/client-sts`
+- Not available in browsers & native apps
+
 The function `fromTokenFile` returns `AwsCredentialIdentityProvider` that reads credentials as follows:
 
 - Reads file location of where the OIDC token is stored from either provided option
@@ -597,6 +624,9 @@ const client = new FooClient({
 ```
 
 ## `fromSSO()`
+
+- Uses `@aws-sdk/client-sso` & `@aws-sdk/client-sso-oidc`
+- Not available in browsers & native apps
 
 > This credential provider **ONLY** supports profiles using the SSO credential. If you have a
 > profile that assumes a role which derived from the SSO credential, you should use the
@@ -717,6 +747,10 @@ sso_start_url = https://d-abc123.awsapps.com/start
 ```
 
 ## `fromNodeProviderChain()`
+
+- May use `@aws-sdk/client-sts`, `@aws-sdk/client-sso`, etc. depending on
+  which link in the chain finally resolves credentials.
+- Not available in browsers & native apps
 
 The credential provider used as default in the Node.js clients, but with default role assumers so
 you don't need to import them from STS client and supply them manually. You normally don't need

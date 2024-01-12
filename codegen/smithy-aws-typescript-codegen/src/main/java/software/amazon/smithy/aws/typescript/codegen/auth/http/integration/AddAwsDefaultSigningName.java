@@ -11,7 +11,6 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSig
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
-import software.amazon.smithy.aws.typescript.codegen.AddAwsAuthPlugin;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -27,7 +26,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AddAwsDefaultSigningName implements TypeScriptIntegration {
-    private static final Logger LOGGER = Logger.getLogger(AddAwsAuthPlugin.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(AddAwsDefaultSigningName.class.getName());
 
     /**
      * Integration should only be used if `experimentalIdentityAndAuth` flag is true.

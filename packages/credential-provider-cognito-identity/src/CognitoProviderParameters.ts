@@ -1,4 +1,4 @@
-import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+import type { CognitoIdentityClient, CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
 
 import { Logins } from "./Logins";
 
@@ -10,7 +10,12 @@ export interface CognitoProviderParameters {
    * The SDK client with which the credential provider will contact the Amazon
    * Cognito service.
    */
-  client: CognitoIdentityClient;
+  client?: CognitoIdentityClient;
+
+  /**
+   * Client config, only used when not supplying a client.
+   */
+  clientConfig?: CognitoIdentityClientConfig;
 
   /**
    * The Amazon Resource Name (ARN) of the role to be assumed when multiple

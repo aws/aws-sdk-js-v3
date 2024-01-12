@@ -1,4 +1,4 @@
-import { GetRoleCredentialsCommand, GetRoleCredentialsCommandOutput, SSOClient } from "@aws-sdk/client-sso";
+import type { GetRoleCredentialsCommandOutput } from "@aws-sdk/client-sso";
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getSSOTokenFromFile, SSOToken } from "@smithy/shared-ini-file-loader";
@@ -52,6 +52,9 @@ export const resolveSSOCredentials = async ({
   }
 
   const { accessToken } = token;
+
+  const { SSOClient, GetRoleCredentialsCommand } = await import("./loadSso");
+
   const sso = ssoClient || new SSOClient({ region: ssoRegion });
   let ssoResp: GetRoleCredentialsCommandOutput;
   try {

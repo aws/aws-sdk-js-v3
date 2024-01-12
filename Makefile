@@ -23,6 +23,18 @@ unlink-smithy:
 copy-smithy:
 	node ./scripts/copy-smithy-dist-files
 
+gen-auth:
+	node ./scripts/cli-dispatcher client sso - gen;
+	node ./scripts/cli-dispatcher client sts - gen;
+	node ./scripts/cli-dispatcher client sso-oidc - gen;
+	node ./scripts/cli-dispatcher client cognito identity - gen;
+
+b-auth:
+	node ./scripts/cli-dispatcher client sso - deps;
+	node ./scripts/cli-dispatcher client sts - b;
+	node ./scripts/cli-dispatcher client sso-oidc - b;
+	node ./scripts/cli-dispatcher client cognito identity - b;
+
 # Runs build for all packages using Turborepo
 turbo-build:
 	(cd scripts/remote-cache && yarn)
@@ -31,17 +43,10 @@ turbo-build:
 	npx turbo run build --api="http://localhost:3000" --team="aws-sdk-js" --token="xyz"
 	node scripts/remote-cache/ stop
 
-protocols:
-	yarn generate-clients -g codegen/sdk-codegen/aws-models/rekognitionstreaming.json
-	git checkout HEAD clients/client-rekognitionstreaming
-	yarn test:protocols
+# run turbo build for packages only.
+tpk:
+	npx turbo run build --filter='./packages/*'
 
 server-protocols:
 	yarn generate-clients -s
 	yarn test:server-protocols
-
-bytes-cjs:
-	make turbo-build
-	node scripts/remote-cache/ start&
-	npx turbo run build:cjs --api="http://localhost:3000" --team="aws-sdk-js" --token="xyz"
-	node scripts/remote-cache/ stop

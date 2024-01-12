@@ -9,6 +9,9 @@ import { AwsCredentialIdentity, MemoizedProvider } from "@smithy/types";
 
 import { remoteProvider } from "./remoteProvider";
 
+/**
+ * @public
+ */
 export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit;
 
 /**
@@ -30,20 +33,20 @@ export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcess
  * @param init                  Configuration that is passed to each individual
  *                              provider
  *
- * @see {@link fromEnv}                 The function used to source credentials from
- *                              environment variables
- * @see {@link fromSSO}                 The function used to source credentials from
- *                              resolved SSO token cache
- * @see {@link fromTokenFile}           The function used to source credentials from
- *                              token file
- * @see {@link fromIni}                The function used to source credentials from INI
- *                              files
- * @see {@link fromProcess}             The function used to sources credentials from
- *                              credential_process in INI files
+ * @see {@link fromEnv}         The function used to source credentials from
+ *                              environment variables.
+ * @see {@link fromSSO}         The function used to source credentials from
+ *                              resolved SSO token cache.
+ * @see {@link fromTokenFile}   The function used to source credentials from
+ *                              token file.
+ * @see {@link fromIni}         The function used to source credentials from INI
+ *                              files.
+ * @see {@link fromProcess}     The function used to sources credentials from
+ *                              credential_process in INI files.
  * @see {@link fromInstanceMetadata}    The function used to source credentials from the
- *                              EC2 Instance Metadata Service
+ *                                      EC2 Instance Metadata Service.
  * @see {@link fromContainerMetadata}   The function used to source credentials from the
- *                              ECS Container Metadata Service
+ *                                      ECS Container Metadata Service.
  */
 export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> =>
   memoize(

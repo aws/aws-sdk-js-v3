@@ -86,10 +86,8 @@ export const resolveAssumeRoleCredentials = async (
   const data = profiles[profileName];
 
   if (!options.roleAssumer) {
-    throw new CredentialsProviderError(
-      `Profile ${profileName} requires a role to be assumed, but no role assumption callback was provided.`,
-      false
-    );
+    const { getDefaultRoleAssumer } = await import("./loadSts");
+    options.roleAssumer = getDefaultRoleAssumer(options.clientConfig, options.clientPlugins);
   }
 
   const { source_profile } = data;

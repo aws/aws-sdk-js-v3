@@ -1,4 +1,3 @@
-import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
 import { fromCognitoIdentityPool as coreProvider } from "@aws-sdk/credential-provider-cognito-identity";
 
 import { fromCognitoIdentityPool } from "./fromCognitoIdentityPool";
@@ -20,28 +19,12 @@ describe("fromCognitoIdentityPool", () => {
     jest.clearAllMocks();
   });
 
-  it("should inject default client", () => {
+  it("defers to @aws-sdk/credential-provider-cognito-identity", () => {
     fromCognitoIdentityPool({
       identityPoolId,
     });
-    expect(coreProvider).toBeCalledWith(
-      expect.objectContaining({
-        identityPoolId,
-      })
-    );
-    expect((coreProvider as jest.Mock).mock.calls[0][0]?.identityPoolId).toBe(identityPoolId);
-    expect((coreProvider as jest.Mock).mock.calls[0][0]?.client).toBeInstanceOf(CognitoIdentityClient);
-    expect(CognitoIdentityClient).toBeCalledWith({});
-  });
-
-  it("should use client config if supplied", () => {
-    const clientConfig = "CLIENT" as any;
-    fromCognitoIdentityPool({
+    expect(coreProvider).toHaveBeenCalledWith({
       identityPoolId,
-      clientConfig,
     });
-    expect((coreProvider as jest.Mock).mock.calls[0][0]?.identityPoolId).toBe(identityPoolId);
-    expect((coreProvider as jest.Mock).mock.calls[0][0]?.client).toBeInstanceOf(CognitoIdentityClient);
-    expect(CognitoIdentityClient).toBeCalledWith(clientConfig);
   });
 });

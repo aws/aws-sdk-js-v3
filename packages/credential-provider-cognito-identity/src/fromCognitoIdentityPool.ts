@@ -1,4 +1,3 @@
-import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
 import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
@@ -21,17 +20,23 @@ export function fromCognitoIdentityPool({
   accountId,
   cache = localStorage(),
   client,
+  clientConfig,
   customRoleArn,
   identityPoolId,
   logins,
   userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined,
 }: FromCognitoIdentityPoolParameters): CognitoIdentityCredentialProvider {
-  const cacheKey = userIdentifier ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}` : undefined;
+  const cacheKey: string | undefined = userIdentifier
+    ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
+    : undefined;
 
   let provider: CognitoIdentityCredentialProvider = async () => {
+    const { GetIdCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
+    const _client = client ?? new CognitoIdentityClient(clientConfig ?? {});
+
     let identityId = cacheKey && (await cache.getItem(cacheKey));
     if (!identityId) {
-      const { IdentityId = throwOnMissingId() } = await client.send(
+      const { IdentityId = throwOnMissingId() } = await _client.send(
         new GetIdCommand({
           AccountId: accountId,
           IdentityPoolId: identityPoolId,
@@ -45,7 +50,7 @@ export function fromCognitoIdentityPool({
     }
 
     provider = fromCognitoIdentity({
-      client,
+      client: _client,
       customRoleArn,
       logins,
       identityId,

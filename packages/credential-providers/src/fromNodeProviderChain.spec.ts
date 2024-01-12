@@ -20,16 +20,14 @@ describe(fromNodeProviderChain.name, () => {
     jest.clearAllMocks();
   });
 
-  it("should inject default role assumers", () => {
+  it("should not inject default role assumers", () => {
     const profile = "profile";
     fromNodeProviderChain({ profile });
-    expect(defaultProvider).toBeCalledWith({
+    expect(defaultProvider).toHaveBeenCalledWith({
       profile,
-      roleAssumer: mockRoleAssumer,
-      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
     });
-    expect(getDefaultRoleAssumer).toBeCalled();
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalled();
+    expect(getDefaultRoleAssumer).not.toHaveBeenCalled();
+    expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
   it("should use supplied role assumers", () => {
@@ -37,23 +35,22 @@ describe(fromNodeProviderChain.name, () => {
     const roleAssumer = jest.fn();
     const roleAssumerWithWebIdentity = jest.fn();
     fromNodeProviderChain({ profile, roleAssumer, roleAssumerWithWebIdentity });
-    expect(defaultProvider).toBeCalledWith({
+    expect(defaultProvider).toHaveBeenCalledWith({
       profile,
       roleAssumer,
       roleAssumerWithWebIdentity,
     });
-    expect(getDefaultRoleAssumer).not.toBeCalled();
-    expect(getDefaultRoleAssumerWithWebIdentity).not.toBeCalled();
+    expect(getDefaultRoleAssumer).not.toHaveBeenCalled();
+    expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("should use supplied sts options and plugins", () => {
+  it("should defer to @aws-sdk/credential-provider-node", () => {
     const profile = "profile";
     const clientConfig = {
       region: "US_BAR_1",
     };
     const plugin = { applyToStack: () => {} };
     fromNodeProviderChain({ profile, clientConfig, clientPlugins: [plugin] });
-    expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig, [plugin]);
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig, [plugin]);
+    expect(defaultProvider).toHaveBeenCalledWith({ profile, clientConfig, clientPlugins: [plugin] });
   });
 });
