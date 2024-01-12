@@ -64,7 +64,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  * //       Transcript: { // RealTimeContactAnalysisSegmentTranscript
  * //         Id: "STRING_VALUE", // required
  * //         ParticipantId: "STRING_VALUE", // required
- * //         ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT", // required
+ * //         ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT" || "SUPERVISOR", // required
  * //         DisplayName: "STRING_VALUE",
  * //         Content: "STRING_VALUE", // required
  * //         ContentType: "STRING_VALUE",
@@ -116,7 +116,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  * //       Event: { // RealTimeContactAnalysisSegmentEvent
  * //         Id: "STRING_VALUE", // required
  * //         ParticipantId: "STRING_VALUE",
- * //         ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT",
+ * //         ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT" || "SUPERVISOR",
  * //         DisplayName: "STRING_VALUE",
  * //         EventType: "STRING_VALUE", // required
  * //         Time: {//  Union: only one key present
@@ -126,7 +126,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  * //       Attachments: { // RealTimeContactAnalysisSegmentAttachments
  * //         Id: "STRING_VALUE", // required
  * //         ParticipantId: "STRING_VALUE", // required
- * //         ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT", // required
+ * //         ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT" || "SUPERVISOR", // required
  * //         DisplayName: "STRING_VALUE",
  * //         Attachments: [ // RealTimeContactAnalysisAttachments // required
  * //           { // RealTimeContactAnalysisAttachment

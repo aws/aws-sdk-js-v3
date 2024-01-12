@@ -3076,6 +3076,7 @@ export const ParticipantRole = {
   AGENT: "AGENT",
   CUSTOMER: "CUSTOMER",
   CUSTOM_BOT: "CUSTOM_BOT",
+  SUPERVISOR: "SUPERVISOR",
   SYSTEM: "SYSTEM",
 } as const;
 
@@ -6423,6 +6424,12 @@ export interface EvaluationNote {
   /**
    * @public
    * <p>The note for an item (section or question) in a contact evaluation.</p>
+   *          <note>
+   *             <p>Even though a note in an evaluation can have up to 3072 chars, there is also a limit on the
+   *     total number of chars for all the notes in the evaluation combined. Assuming there are N
+   *     questions in the evaluation being submitted, then the max char limit for all notes combined is N
+   *     x 1024.</p>
+   *          </note>
    */
   Value?: string;
 }
@@ -7003,6 +7010,7 @@ export const InstanceAttributeType = {
   CONTACTFLOW_LOGS: "CONTACTFLOW_LOGS",
   CONTACT_LENS: "CONTACT_LENS",
   EARLY_MEDIA: "EARLY_MEDIA",
+  ENHANCED_CHAT_MONITORING: "ENHANCED_CHAT_MONITORING",
   ENHANCED_CONTACT_MONITORING: "ENHANCED_CONTACT_MONITORING",
   HIGH_VOLUME_OUTBOUND: "HIGH_VOLUME_OUTBOUND",
   INBOUND_CALLS: "INBOUND_CALLS",

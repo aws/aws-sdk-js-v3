@@ -41,7 +41,7 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  *   ContactId: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  *   ParticipantDetails: { // ParticipantDetailsToAdd
- *     ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT",
+ *     ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT" || "SUPERVISOR",
  *     DisplayName: "STRING_VALUE",
  *   },
  * };

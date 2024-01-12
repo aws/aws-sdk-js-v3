@@ -2049,10 +2049,15 @@ export interface GetCurrentMetricDataRequest {
    *             <li>
    *                <p>Channels: 3 (VOICE, CHAT, and TASK channels are supported.)</p>
    *             </li>
+   *             <li>
+   *                <p>RoutingStepExpressions: 50</p>
+   *             </li>
    *          </ul>
    *          <p>Metric data is retrieved only for the resources associated with the queues or routing
    *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND
-   *    routing profile.) You can include both resource IDs and resource ARNs in the same request. </p>
+   *    routing profile.) You can include both resource IDs and resource ARNs in the same request.</p>
+   *          <p>When using <code>RoutingStepExpression</code>, you need to pass exactly one
+   *     <code>QueueId</code>.</p>
    *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
    */
   Filters: Filters | undefined;
@@ -2076,6 +2081,10 @@ export interface GetCurrentMetricDataRequest {
    *             <li>
    *                <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
    *      returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>When using the <code>RoutingStepExpression</code> filter, group by
+   *       <code>ROUTING_STEP_EXPRESSION</code> is required.</p>
    *             </li>
    *          </ul>
    */
@@ -2160,6 +2169,11 @@ export interface GetCurrentMetricDataRequest {
    *                   <code>\{ "Metric": \{ "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" \}, "Value": 24113.0
    *       </code>\}</p>
    *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
+   *                <p>When the filter <code>RoutingStepExpression</code> is used, this metric is still
+   *       calculated from enqueue time. For example, if a contact that has been queued under
+   *        <code><Expression 1></code> for 10 seconds has expired and <code><Expression 2></code>
+   *       becomes active, then <code>OLDEST_CONTACT_AGE</code> for this queue will be counted starting
+   *       from 10, not 0.</p>
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a>
    *                </p>
    *             </dd>
@@ -2873,6 +2887,8 @@ export interface GetMetricDataRequest {
    * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
    *    retrieved only for the resources associated with the queues or channels included in the filter.
    *    You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
+   *          <p>RoutingStepExpression is not a valid filter for GetMetricData and we recommend switching to
+   *    GetMetricDataV2 for more up-to-date features.</p>
    *          <note>
    *             <p>To filter by <code>Queues</code>, enter the queue
    *     ID/ARN, not the name of the queue.</p>
@@ -2886,6 +2902,8 @@ export interface GetMetricDataRequest {
    *    queue, the metrics returned are grouped by queue. The values returned apply to the metrics for
    *    each queue rather than aggregated for all queues.</p>
    *          <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
+   *          <p>RoutingStepExpression is not a valid filter for GetMetricData and we recommend switching to
+   *    GetMetricDataV2 for more up-to-date features.</p>
    */
   Groupings?: Grouping[];
 
@@ -3396,6 +3414,9 @@ export interface GetMetricDataV2Request {
    *             <li>
    *                <p>Feature</p>
    *             </li>
+   *             <li>
+   *                <p>Routing step expression</p>
+   *             </li>
    *          </ul>
    *          <p>At least one filter must be passed from queues, routing profiles, agents, or user hierarchy
    *    groups.</p>
@@ -3411,7 +3432,8 @@ export interface GetMetricDataV2Request {
    *       <code>AGENT</code> | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> |
    *       <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> |
    *       <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> |
-   *       <code>FEATURE</code> | <code>contact/segmentAttributes/connect:Subtype</code>
+   *       <code>FEATURE</code> | <code>contact/segmentAttributes/connect:Subtype</code> |
+   *       <code>ROUTING_STEP_EXPRESSION</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3429,6 +3451,8 @@ export interface GetMetricDataV2Request {
    *                   <code>connect:Chat</code>, <code>connect:SMS</code>, <code>connect:Telephony</code>, and
    *       <code>connect:WebRTC</code> are valid <code>filterValue</code> examples (not exhaustive) for
    *      the <code>contact/segmentAttributes/connect:Subtype filter</code> key.</p>
+   *                <p>ROUTING_STEP_EXPRESSION is a valid filter key with a filter value up to 3000
+   *      length.</p>
    *             </li>
    *          </ul>
    */
@@ -3444,7 +3468,8 @@ export interface GetMetricDataV2Request {
    *    | <code>CHANNEL</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> |
    *     <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> |
    *     <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code>,
-   *     <code>contact/segmentAttributes/connect:Subtype</code>
+   *     <code>contact/segmentAttributes/connect:Subtype</code> |
+   *    <code>ROUTING_STEP_EXPRESSION</code>
    *          </p>
    */
   Groupings?: string[];
@@ -3572,7 +3597,7 @@ export interface GetMetricDataV2Request {
    *             <dd>
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature,
-   *       contact/segmentAttributes/connect:Subtype</p>
+   *       contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
    *                <note>
    *                   <p>Feature is a valid filter but not a valid grouping.</p>
    *                </note>
@@ -3685,7 +3710,7 @@ export interface GetMetricDataV2Request {
    *             <dd>
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
-   *       contact/segmentAttributes/connect:Subtype</p>
+   *       contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
    *             </dd>
    *             <dt>CONTACTS_CREATED</dt>
    *             <dd>
@@ -3705,7 +3730,7 @@ export interface GetMetricDataV2Request {
    *       <code>DISCONNECT_REASON</code>
    *                </p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature,
-   *       contact/segmentAttributes/connect:Subtype</p>
+   *       contact/segmentAttributes/connect:Subtype, RoutingStepExpression</p>
    *                <note>
    *                   <p>Feature is a valid filter but not a valid grouping.</p>
    *                </note>
@@ -3783,6 +3808,16 @@ export interface GetMetricDataV2Request {
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
    *       contact/segmentAttributes/connect:Subtype</p>
    *             </dd>
+   *             <dt>PERCENT_CONTACTS_STEP_EXPIRED</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Queue, RoutingStepExpression</p>
+   *             </dd>
+   *             <dt>PERCENT_CONTACTS_STEP_JOINED</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Queue, RoutingStepExpression</p>
+   *             </dd>
    *             <dt>PERCENT_NON_TALK_TIME</dt>
    *             <dd>
    *                <p>This metric is available only for contacts analyzed by Contact Lens conversational
@@ -3823,6 +3858,11 @@ export interface GetMetricDataV2Request {
    *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
    *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
    *       "Less than"). </p>
+   *             </dd>
+   *             <dt>STEP_CONTACTS_QUEUED</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, RoutingStepExpression</p>
    *             </dd>
    *             <dt>SUM_AFTER_CONTACT_WORK_TIME</dt>
    *             <dd>
@@ -8577,7 +8617,7 @@ export interface MonitorContactRequest {
   /**
    * @public
    * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user
-   *    is allowed to escalate from silent monitoring to barge.</p>
+   *    is allowed to escalate from silent monitoring to barge.  AllowedMonitorCapabilities is required if barge is enabled.</p>
    */
   AllowedMonitorCapabilities?: MonitorCapability[];
 

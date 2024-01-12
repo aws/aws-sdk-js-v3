@@ -74,7 +74,7 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *       Transcript: { // Transcript
  *         Criteria: [ // TranscriptCriteriaList // required
  *           { // TranscriptCriteria
- *             ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT", // required
+ *             ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT" || "SUPERVISOR", // required
  *             SearchText: [ // SearchTextList // required
  *               "STRING_VALUE",
  *             ],
