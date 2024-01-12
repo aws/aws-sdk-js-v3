@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.491.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.490.0...v3.491.0) (2024-01-12)
+
+
+### Features
+
+* **client-mwaa:** This Amazon MWAA feature release includes new fields in CreateWebLoginToken response model. The new fields IamIdentity and AirflowIdentity will let you match identifications, as the Airflow identity length is currently hashed to 64 characters. ([68138df](https://github.com/aws/aws-sdk-js-v3/commit/68138df9798d63c3fdf34da69f75ffafce9891e1))
+
+
+
+
+
 # [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
 
 **Note:** Version bump only for package @aws-sdk/client-mwaa

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.491.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.490.0...v3.491.0) (2024-01-12)
+
+
+### Features
+
+* cjs inline build ([#5644](https://github.com/aws/aws-sdk-js-v3/issues/5644)) ([5aee321](https://github.com/aws/aws-sdk-js-v3/commit/5aee321bc0327c43c2fd1347bd4dda791ac2b1d0))
+* **client-connectparticipant:** Introduce new Supervisor participant role ([2413b69](https://github.com/aws/aws-sdk-js-v3/commit/2413b690d5d36016b6529254a639781a73b378bd))
+* **client-connect:** Supervisor Barge for Chat is now supported through the MonitorContact API. ([ecf269c](https://github.com/aws/aws-sdk-js-v3/commit/ecf269c54aadfb474431a9288ff8e37d42e19d6f))
+* **client-mwaa:** This Amazon MWAA feature release includes new fields in CreateWebLoginToken response model. The new fields IamIdentity and AirflowIdentity will let you match identifications, as the Airflow identity length is currently hashed to 64 characters. ([68138df](https://github.com/aws/aws-sdk-js-v3/commit/68138df9798d63c3fdf34da69f75ffafce9891e1))
+* **client-s3-control:** S3 On Outposts team adds dualstack endpoints support for S3Control and S3Outposts API calls. ([1c20e12](https://github.com/aws/aws-sdk-js-v3/commit/1c20e12278f07f6792fd3408218b4cbb5925920c))
+* **client-supplychain:** This release includes APIs CreateBillOfMaterialsImportJob and GetBillOfMaterialsImportJob. ([4b2fcab](https://github.com/aws/aws-sdk-js-v3/commit/4b2fcab4240a97fd076b984c82cd15a44b7c014c))
+* **client-transfer:** AWS Transfer Family now supports static IP addresses for SFTP & AS2 connectors and for async MDNs on AS2 servers. ([e2471e2](https://github.com/aws/aws-sdk-js-v3/commit/e2471e2618c1f5c71639ec67d8db6249d0fb7eef))
+* **clients:** update client endpoints as of 2024-01-12 ([e3f719a](https://github.com/aws/aws-sdk-js-v3/commit/e3f719aa8c17e96d34532aa13cc6c393e8ad3fd7))
+
+
+
+
+
 # [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
 
 

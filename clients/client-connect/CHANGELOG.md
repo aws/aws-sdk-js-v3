@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.491.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.490.0...v3.491.0) (2024-01-12)
+
+
+### Features
+
+* **client-connect:** Supervisor Barge for Chat is now supported through the MonitorContact API. ([ecf269c](https://github.com/aws/aws-sdk-js-v3/commit/ecf269c54aadfb474431a9288ff8e37d42e19d6f))
+
+
+
+
+
 # [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
 
 **Note:** Version bump only for package @aws-sdk/client-connect
