@@ -515,6 +515,8 @@ export const de_CreateWebLoginTokenCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AirflowIdentity: __expectString,
+    IamIdentity: __expectString,
     WebServerHostname: __expectString,
     WebToken: __expectString,
   });

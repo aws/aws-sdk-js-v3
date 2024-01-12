@@ -441,6 +441,18 @@ export interface CreateWebLoginTokenResponse {
    * <p>The Airflow web server hostname for the environment.</p>
    */
   WebServerHostname?: string;
+
+  /**
+   * @public
+   * <p>The name of the IAM identity creating the web login token. This might be an IAM user, or an assumed or federated identity. For example, <code>assumed-role/Admin/your-name</code>.</p>
+   */
+  IamIdentity?: string;
+
+  /**
+   * @public
+   * <p>The user name of the Apache Airflow identity creating the web login token.</p>
+   */
+  AirflowIdentity?: string;
 }
 
 /**

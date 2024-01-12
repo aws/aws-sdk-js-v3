@@ -47,6 +47,8 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * // { // CreateWebLoginTokenResponse
  * //   WebToken: "STRING_VALUE",
  * //   WebServerHostname: "STRING_VALUE",
+ * //   IamIdentity: "STRING_VALUE",
+ * //   AirflowIdentity: "STRING_VALUE",
  * // };
  *
  * ```
