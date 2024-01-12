@@ -647,6 +647,29 @@
                         {
                           "conditions": [
                             {
+                              "fn": "isSet",
+                              "argv": [
+                                {
+                                  "ref": "Endpoint"
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: DualStack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [
+                            {
                               "fn": "isValidHostLabel",
                               "argv": [
                                 {
@@ -657,21 +680,6 @@
                             }
                           ],
                           "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    {
-                                      "ref": "UseDualStack"
-                                    },
-                                    true
-                                  ]
-                                }
-                              ],
-                              "error": "Invalid configuration: Outposts do not support dual-stack",
-                              "type": "error"
-                            },
                             {
                               "conditions": [
                                 {
@@ -718,10 +726,75 @@
                                     },
                                     true
                                   ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "UseDualStack"
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://s3-outposts-fips.{Region}.{partitionResult#dualStackDnsSuffix}",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "disableDoubleEncoding": true,
+                                      "name": "sigv4",
+                                      "signingName": "s3-outposts",
+                                      "signingRegion": "{Region}"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "UseFIPS"
+                                    },
+                                    true
+                                  ]
                                 }
                               ],
                               "endpoint": {
                                 "url": "https://s3-outposts-fips.{Region}.{partitionResult#dnsSuffix}",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "disableDoubleEncoding": true,
+                                      "name": "sigv4",
+                                      "signingName": "s3-outposts",
+                                      "signingRegion": "{Region}"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "UseDualStack"
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://s3-outposts.{Region}.{partitionResult#dualStackDnsSuffix}",
                                 "properties": {
                                   "authSchemes": [
                                     {
@@ -839,21 +912,6 @@
                             {
                               "conditions": [
                                 {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    {
-                                      "ref": "UseDualStack"
-                                    },
-                                    true
-                                  ]
-                                }
-                              ],
-                              "error": "Invalid configuration: Outpost Access Points do not support dual-stack",
-                              "type": "error"
-                            },
-                            {
-                              "conditions": [
-                                {
                                   "fn": "getAttr",
                                   "argv": [
                                     {
@@ -878,6 +936,29 @@
                                     }
                                   ],
                                   "rules": [
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "isSet",
+                                          "argv": [
+                                            {
+                                              "ref": "Endpoint"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "fn": "booleanEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "UseDualStack"
+                                            },
+                                            true
+                                          ]
+                                        }
+                                      ],
+                                      "error": "Invalid Configuration: DualStack and custom endpoint are not supported",
+                                      "type": "error"
+                                    },
                                     {
                                       "conditions": [
                                         {
@@ -1121,10 +1202,85 @@
                                                                                 },
                                                                                 true
                                                                               ]
+                                                                            },
+                                                                            {
+                                                                              "fn": "booleanEquals",
+                                                                              "argv": [
+                                                                                {
+                                                                                  "ref": "UseDualStack"
+                                                                                },
+                                                                                true
+                                                                              ]
+                                                                            }
+                                                                          ],
+                                                                          "endpoint": {
+                                                                            "url": "https://s3-outposts-fips.{accessPointArn#region}.{arnPartition#dualStackDnsSuffix}",
+                                                                            "properties": {
+                                                                              "authSchemes": [
+                                                                                {
+                                                                                  "disableDoubleEncoding": true,
+                                                                                  "name": "sigv4",
+                                                                                  "signingName": "s3-outposts",
+                                                                                  "signingRegion": "{accessPointArn#region}"
+                                                                                }
+                                                                              ]
+                                                                            },
+                                                                            "headers": {
+                                                                              "x-amz-account-id": [
+                                                                                "{accessPointArn#accountId}"
+                                                                              ],
+                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                            }
+                                                                          },
+                                                                          "type": "endpoint"
+                                                                        },
+                                                                        {
+                                                                          "conditions": [
+                                                                            {
+                                                                              "fn": "booleanEquals",
+                                                                              "argv": [
+                                                                                {
+                                                                                  "ref": "UseFIPS"
+                                                                                },
+                                                                                true
+                                                                              ]
                                                                             }
                                                                           ],
                                                                           "endpoint": {
                                                                             "url": "https://s3-outposts-fips.{accessPointArn#region}.{arnPartition#dnsSuffix}",
+                                                                            "properties": {
+                                                                              "authSchemes": [
+                                                                                {
+                                                                                  "disableDoubleEncoding": true,
+                                                                                  "name": "sigv4",
+                                                                                  "signingName": "s3-outposts",
+                                                                                  "signingRegion": "{accessPointArn#region}"
+                                                                                }
+                                                                              ]
+                                                                            },
+                                                                            "headers": {
+                                                                              "x-amz-account-id": [
+                                                                                "{accessPointArn#accountId}"
+                                                                              ],
+                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                            }
+                                                                          },
+                                                                          "type": "endpoint"
+                                                                        },
+                                                                        {
+                                                                          "conditions": [
+                                                                            {
+                                                                              "fn": "booleanEquals",
+                                                                              "argv": [
+                                                                                {
+                                                                                  "ref": "UseDualStack"
+                                                                                },
+                                                                                true
+                                                                              ]
+                                                                            }
+                                                                          ],
+                                                                          "endpoint": {
+                                                                            "url": "https://s3-outposts.{accessPointArn#region}.{arnPartition#dualStackDnsSuffix}",
                                                                             "properties": {
                                                                               "authSchemes": [
                                                                                 {
@@ -1371,21 +1527,6 @@
                             {
                               "conditions": [
                                 {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    {
-                                      "ref": "UseDualStack"
-                                    },
-                                    true
-                                  ]
-                                }
-                              ],
-                              "error": "Invalid configuration: Outpost buckets do not support dual-stack",
-                              "type": "error"
-                            },
-                            {
-                              "conditions": [
-                                {
                                   "fn": "getAttr",
                                   "argv": [
                                     {
@@ -1410,6 +1551,29 @@
                                     }
                                   ],
                                   "rules": [
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "isSet",
+                                          "argv": [
+                                            {
+                                              "ref": "Endpoint"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "fn": "booleanEquals",
+                                          "argv": [
+                                            {
+                                              "ref": "UseDualStack"
+                                            },
+                                            true
+                                          ]
+                                        }
+                                      ],
+                                      "error": "Invalid Configuration: DualStack and custom endpoint are not supported",
+                                      "type": "error"
+                                    },
                                     {
                                       "conditions": [
                                         {
@@ -1653,10 +1817,85 @@
                                                                                 },
                                                                                 true
                                                                               ]
+                                                                            },
+                                                                            {
+                                                                              "fn": "booleanEquals",
+                                                                              "argv": [
+                                                                                {
+                                                                                  "ref": "UseDualStack"
+                                                                                },
+                                                                                true
+                                                                              ]
+                                                                            }
+                                                                          ],
+                                                                          "endpoint": {
+                                                                            "url": "https://s3-outposts-fips.{bucketArn#region}.{arnPartition#dualStackDnsSuffix}",
+                                                                            "properties": {
+                                                                              "authSchemes": [
+                                                                                {
+                                                                                  "disableDoubleEncoding": true,
+                                                                                  "name": "sigv4",
+                                                                                  "signingName": "s3-outposts",
+                                                                                  "signingRegion": "{bucketArn#region}"
+                                                                                }
+                                                                              ]
+                                                                            },
+                                                                            "headers": {
+                                                                              "x-amz-account-id": [
+                                                                                "{bucketArn#accountId}"
+                                                                              ],
+                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                            }
+                                                                          },
+                                                                          "type": "endpoint"
+                                                                        },
+                                                                        {
+                                                                          "conditions": [
+                                                                            {
+                                                                              "fn": "booleanEquals",
+                                                                              "argv": [
+                                                                                {
+                                                                                  "ref": "UseFIPS"
+                                                                                },
+                                                                                true
+                                                                              ]
                                                                             }
                                                                           ],
                                                                           "endpoint": {
                                                                             "url": "https://s3-outposts-fips.{bucketArn#region}.{arnPartition#dnsSuffix}",
+                                                                            "properties": {
+                                                                              "authSchemes": [
+                                                                                {
+                                                                                  "disableDoubleEncoding": true,
+                                                                                  "name": "sigv4",
+                                                                                  "signingName": "s3-outposts",
+                                                                                  "signingRegion": "{bucketArn#region}"
+                                                                                }
+                                                                              ]
+                                                                            },
+                                                                            "headers": {
+                                                                              "x-amz-account-id": [
+                                                                                "{bucketArn#accountId}"
+                                                                              ],
+                                                                              "x-amz-outpost-id": ["{outpostId}"]
+                                                                            }
+                                                                          },
+                                                                          "type": "endpoint"
+                                                                        },
+                                                                        {
+                                                                          "conditions": [
+                                                                            {
+                                                                              "fn": "booleanEquals",
+                                                                              "argv": [
+                                                                                {
+                                                                                  "ref": "UseDualStack"
+                                                                                },
+                                                                                true
+                                                                              ]
+                                                                            }
+                                                                          ],
+                                                                          "endpoint": {
+                                                                            "url": "https://s3-outposts.{bucketArn#region}.{arnPartition#dualStackDnsSuffix}",
                                                                             "properties": {
                                                                               "authSchemes": [
                                                                                 {
@@ -3387,10 +3626,50 @@
               }
             },
             {
-              "documentation": "outpost access points do not support dualstack@us-west-2",
+              "documentation": "outpost access points support dualstack@us-west-2",
               "expect": {
-                "error": "Invalid configuration: Outpost Access Points do not support dual-stack"
+                "endpoint": {
+                  "headers": {
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
+                  },
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "us-west-2",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://s3-outposts.us-west-2.api.aws"
+                }
               },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "us-west-2",
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "GetAccessPoint",
+                  "operationParams": {
+                    "Name": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+                    "AccountId": "123456789012"
+                  }
+                },
+                {
+                  "builtInParams": {
+                    "AWS::Region": "us-west-2",
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "DeleteAccessPoint",
+                  "operationParams": {
+                    "Name": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+                    "AccountId": "123456789012"
+                  }
+                }
+              ],
               "params": {
                 "AccessPointName": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
                 "AccountId": "123456789012",
@@ -3401,31 +3680,113 @@
               }
             },
             {
-              "documentation": "outpost access points do not support dualstack@cn-north-1",
+              "documentation": "outpost access points support dualstack@af-south-1",
               "expect": {
-                "error": "Invalid configuration: Outpost Access Points do not support dual-stack"
+                "endpoint": {
+                  "headers": {
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
+                  },
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "af-south-1",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://s3-outposts.af-south-1.api.aws"
+                }
               },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "af-south-1",
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "GetAccessPoint",
+                  "operationParams": {
+                    "Name": "arn:aws:s3-outposts:af-south-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+                    "AccountId": "123456789012"
+                  }
+                },
+                {
+                  "builtInParams": {
+                    "AWS::Region": "af-south-1",
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "DeleteAccessPoint",
+                  "operationParams": {
+                    "Name": "arn:aws:s3-outposts:af-south-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+                    "AccountId": "123456789012"
+                  }
+                }
+              ],
               "params": {
-                "AccessPointName": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+                "AccessPointName": "arn:aws:s3-outposts:af-south-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
                 "AccountId": "123456789012",
-                "Region": "cn-north-1",
+                "Region": "af-south-1",
                 "RequiresAccountId": true,
                 "UseDualStack": true,
                 "UseFIPS": false
               }
             },
             {
-              "documentation": "outpost access points do not support dualstack@af-south-1",
+              "documentation": "outpost access points support fips + dualstack@af-south-1",
               "expect": {
-                "error": "Invalid configuration: Outpost Access Points do not support dual-stack"
+                "endpoint": {
+                  "headers": {
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
+                  },
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "af-south-1",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://s3-outposts-fips.af-south-1.api.aws"
+                }
               },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "af-south-1",
+                    "AWS::UseFIPS": true,
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "GetAccessPoint",
+                  "operationParams": {
+                    "Name": "arn:aws:s3-outposts:af-south-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+                    "AccountId": "123456789012"
+                  }
+                },
+                {
+                  "builtInParams": {
+                    "AWS::Region": "af-south-1",
+                    "AWS::UseFIPS": true,
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "DeleteAccessPoint",
+                  "operationParams": {
+                    "Name": "arn:aws:s3-outposts:af-south-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+                    "AccountId": "123456789012"
+                  }
+                }
+              ],
               "params": {
-                "AccessPointName": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+                "AccessPointName": "arn:aws:s3-outposts:af-south-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
                 "AccountId": "123456789012",
                 "Region": "af-south-1",
                 "RequiresAccountId": true,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": true
               }
             },
             {
@@ -3830,6 +4191,46 @@
               }
             },
             {
+              "documentation": "ListRegionalBucket + OutpostId + fips + dualstack@us-east-2",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "us-east-2",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://s3-outposts-fips.us-east-2.api.aws"
+                }
+              },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "us-east-2",
+                    "AWS::UseFIPS": true,
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "ListRegionalBuckets",
+                  "operationParams": {
+                    "AccountId": "123456789012",
+                    "OutpostId": "op-123"
+                  }
+                }
+              ],
+              "params": {
+                "AccountId": "123456789012",
+                "OutpostId": "op-123",
+                "Region": "us-east-2",
+                "RequiresAccountId": true,
+                "UseDualStack": true,
+                "UseFIPS": true
+              }
+            },
+            {
               "documentation": "CreateBucket + OutpostId endpoint url@us-east-2",
               "expect": {
                 "endpoint": {
@@ -3873,28 +4274,13 @@
             {
               "documentation": "dualstack cannot be used with outposts when an endpoint URL is set@us-west-2.",
               "expect": {
-                "error": "Invalid configuration: Outpost Access Points do not support dual-stack"
+                "error": "Invalid Configuration: DualStack and custom endpoint are not supported"
               },
               "params": {
                 "AccessPointName": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
-                "Endpoint": "https://beta.example.com",
+                "Endpoint": "https://s3-outposts.us-west-2.api.aws",
                 "Region": "us-west-2",
                 "RequiresAccountId": true,
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "Dual-stack cannot be used with outposts@us-west-2",
-              "expect": {
-                "error": "Invalid configuration: Outposts do not support dual-stack"
-              },
-              "params": {
-                "Bucket": "bucketname",
-                "Endpoint": "https://beta.example.com",
-                "OutpostId": "op-123",
-                "Region": "us-west-2",
-                "RequiresAccountId": false,
                 "UseDualStack": true,
                 "UseFIPS": false
               }
@@ -4108,16 +4494,46 @@
               }
             },
             {
-              "documentation": "Outposts do not support dualstack@us-west-2",
+              "documentation": "bucket ARN in aws partition with fips + dualstack@us-east-2",
               "expect": {
-                "error": "Invalid configuration: Outpost buckets do not support dual-stack"
+                "endpoint": {
+                  "headers": {
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
+                  },
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "us-east-2",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://s3-outposts-fips.us-east-2.api.aws"
+                }
               },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "us-east-2",
+                    "AWS::UseFIPS": true,
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "GetBucket",
+                  "operationParams": {
+                    "Bucket": "arn:aws:s3-outposts:us-east-2:123456789012:outpost:op-01234567890123456:bucket:mybucket",
+                    "AccountId": "123456789012"
+                  }
+                }
+              ],
               "params": {
-                "Bucket": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:bucket:mybucket",
-                "Region": "us-west-2",
+                "Bucket": "arn:aws:s3-outposts:us-east-2:123456789012:outpost:op-01234567890123456:bucket:mybucket",
+                "Region": "us-east-2",
                 "RequiresAccountId": true,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": true
               }
             },
             {
@@ -4329,10 +4745,39 @@
               }
             },
             {
-              "documentation": "Outposts do not support dualstack@us-west-2",
+              "documentation": "Outposts support dualstack @us-west-2",
               "expect": {
-                "error": "Invalid configuration: Outpost buckets do not support dual-stack"
+                "endpoint": {
+                  "headers": {
+                    "x-amz-account-id": ["123456789012"],
+                    "x-amz-outpost-id": ["op-01234567890123456"]
+                  },
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "s3-outposts",
+                        "signingRegion": "us-west-2",
+                        "disableDoubleEncoding": true
+                      }
+                    ]
+                  },
+                  "url": "https://s3-outposts.us-west-2.api.aws"
+                }
               },
+              "operationInputs": [
+                {
+                  "builtInParams": {
+                    "AWS::Region": "us-west-2",
+                    "AWS::UseDualStack": true
+                  },
+                  "operationName": "GetBucket",
+                  "operationParams": {
+                    "Bucket": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:bucket:mybucket",
+                    "AccountId": "123456789012"
+                  }
+                }
+              ],
               "params": {
                 "Bucket": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:bucket:mybucket",
                 "Region": "us-west-2",
@@ -4547,19 +4992,6 @@
                 "RequiresAccountId": true,
                 "UseDualStack": false,
                 "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "Outposts do not support dualstack@us-west-2",
-              "expect": {
-                "error": "Invalid configuration: Outpost buckets do not support dual-stack"
-              },
-              "params": {
-                "Bucket": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:bucket:mybucket",
-                "Region": "us-west-2",
-                "RequiresAccountId": true,
-                "UseDualStack": true,
-                "UseFIPS": false
               }
             },
             {
@@ -5339,16 +5771,16 @@
               }
             },
             {
-              "documentation": "get bucket with endpoint_url and dualstack is not supported@us-west-2",
+              "documentation": "get bucket with custom endpoint and dualstack is not supported@us-west-2",
               "expect": {
-                "error": "Invalid configuration: Outpost buckets do not support dual-stack"
+                "error": "Invalid Configuration: DualStack and custom endpoint are not supported"
               },
               "operationInputs": [
                 {
                   "builtInParams": {
                     "AWS::Region": "us-west-2",
                     "AWS::UseDualStack": true,
-                    "SDK::Endpoint": "https://beta.example.com"
+                    "SDK::Endpoint": "https://s3-outposts.us-west-2.api.aws"
                   },
                   "operationName": "GetBucket",
                   "operationParams": {
@@ -5359,7 +5791,7 @@
               ],
               "params": {
                 "Bucket": "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:bucket:mybucket",
-                "Endpoint": "https://beta.example.com",
+                "Endpoint": "https://s3-outposts.us-west-2.api.aws",
                 "Region": "us-west-2",
                 "RequiresAccountId": true,
                 "UseDualStack": true,
