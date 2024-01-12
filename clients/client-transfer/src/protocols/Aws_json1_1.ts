@@ -5014,6 +5014,8 @@ const de_ListHostKeysResponse = (output: any, context: __SerdeContext): ListHost
 
 // de_SendWorkflowStepStateResponse omitted.
 
+// de_ServiceManagedEgressIpAddresses omitted.
+
 // de_ServiceMetadata omitted.
 
 // de_ServiceUnavailableException omitted.

@@ -1259,7 +1259,7 @@ export interface IdentityProviderDetails {
 
   /**
    * @public
-   * <p>The identifier of the Directory Service directory that you want to stop sharing.</p>
+   * <p>The identifier of the Directory Service directory that you want to use as your identity provider.</p>
    */
   DirectoryId?: string;
 
@@ -3059,6 +3059,12 @@ export interface DescribedConnector {
    * <p>A structure that contains the parameters for an SFTP connector object.</p>
    */
   SftpConfig?: SftpConnectorConfig;
+
+  /**
+   * @public
+   * <p>The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.</p>
+   */
+  ServiceManagedEgressIpAddresses?: string[];
 }
 
 /**
@@ -3860,6 +3866,15 @@ export interface DescribedServer {
    *             <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>
    */
   S3StorageOptions?: S3StorageOptions;
+
+  /**
+   * @public
+   * <p>The list of egress IP addresses of this server. These IP addresses are only relevant
+   *     for servers that use the AS2 protocol. They are used for sending asynchronous MDNs.</p>
+   *          <p>These IP addresses are assigned automatically when you create an AS2 server. Additionally,
+   *     if you update an existing server and add the AS2 protocol, static IP addresses are assigned as well.</p>
+   */
+  As2ServiceManagedEgressIpAddresses?: string[];
 }
 
 /**

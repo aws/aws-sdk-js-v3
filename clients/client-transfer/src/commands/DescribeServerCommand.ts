@@ -116,6 +116,9 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * //     S3StorageOptions: { // S3StorageOptions
  * //       DirectoryListingOptimization: "ENABLED" || "DISABLED",
  * //     },
+ * //     As2ServiceManagedEgressIpAddresses: [ // ServiceManagedEgressIpAddresses
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
