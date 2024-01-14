@@ -99,7 +99,7 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  *       },
  *     ],
  *     AdditionalS3DataSource: { // AdditionalS3DataSource
- *       S3DataType: "S3Object", // required
+ *       S3DataType: "S3Object" || "S3Prefix", // required
  *       S3Uri: "STRING_VALUE", // required
  *       CompressionType: "None" || "Gzip",
  *     },
@@ -122,7 +122,7 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  *         FrameworkVersion: "STRING_VALUE",
  *         NearestModelName: "STRING_VALUE",
  *         AdditionalS3DataSource: {
- *           S3DataType: "S3Object", // required
+ *           S3DataType: "S3Object" || "S3Prefix", // required
  *           S3Uri: "STRING_VALUE", // required
  *           CompressionType: "None" || "Gzip",
  *         },

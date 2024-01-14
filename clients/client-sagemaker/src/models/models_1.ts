@@ -11698,8 +11698,6 @@ export const StudioLifecycleConfigAppType = {
   JupyterLab: "JupyterLab",
   JupyterServer: "JupyterServer",
   KernelGateway: "KernelGateway",
-  Savitur: "Savitur",
-  VSCode: "VSCode",
 } as const;
 
 /**

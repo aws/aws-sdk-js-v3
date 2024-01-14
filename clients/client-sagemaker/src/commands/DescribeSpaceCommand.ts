@@ -110,7 +110,7 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * //         },
  * //       ],
  * //     },
- * //     AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSession" || "RSessionGateway" || "Canvas" || "DatasetManager" || "SageMakerLite" || "Local",
+ * //     AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  * //     SpaceStorageSettings: { // SpaceStorageSettings
  * //       EbsStorageSettings: { // EbsStorageSettings
  * //         EbsVolumeSizeInGb: Number("int"), // required

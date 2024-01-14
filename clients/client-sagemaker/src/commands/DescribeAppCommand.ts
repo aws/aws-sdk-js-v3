@@ -39,14 +39,14 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  *   DomainId: "STRING_VALUE", // required
  *   UserProfileName: "STRING_VALUE",
  *   SpaceName: "STRING_VALUE",
- *   AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSession" || "RSessionGateway" || "Canvas" || "DatasetManager" || "SageMakerLite" || "Local", // required
+ *   AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas", // required
  *   AppName: "STRING_VALUE", // required
  * };
  * const command = new DescribeAppCommand(input);
  * const response = await client.send(command);
  * // { // DescribeAppResponse
  * //   AppArn: "STRING_VALUE",
- * //   AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSession" || "RSessionGateway" || "Canvas" || "DatasetManager" || "SageMakerLite" || "Local",
+ * //   AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  * //   AppName: "STRING_VALUE",
  * //   DomainId: "STRING_VALUE",
  * //   UserProfileName: "STRING_VALUE",

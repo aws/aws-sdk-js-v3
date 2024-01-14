@@ -68,7 +68,7 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * //             FrameworkVersion: "STRING_VALUE",
  * //             NearestModelName: "STRING_VALUE",
  * //             AdditionalS3DataSource: { // AdditionalS3DataSource
- * //               S3DataType: "S3Object", // required
+ * //               S3DataType: "S3Object" || "S3Prefix", // required
  * //               S3Uri: "STRING_VALUE", // required
  * //               CompressionType: "None" || "Gzip",
  * //             },

@@ -52,7 +52,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * //       DomainId: "STRING_VALUE",
  * //       UserProfileName: "STRING_VALUE",
  * //       SpaceName: "STRING_VALUE",
- * //       AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSession" || "RSessionGateway" || "Canvas" || "DatasetManager" || "SageMakerLite" || "Local",
+ * //       AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSessionGateway" || "Canvas",
  * //       AppName: "STRING_VALUE",
  * //       Status: "Deleted" || "Deleting" || "Failed" || "InService" || "Pending",
  * //       CreationTime: new Date("TIMESTAMP"),

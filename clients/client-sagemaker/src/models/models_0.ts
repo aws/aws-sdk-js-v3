@@ -237,6 +237,7 @@ export type CompressionType = (typeof CompressionType)[keyof typeof CompressionT
  */
 export const AdditionalS3DataSourceDataType = {
   S3OBJECT: "S3Object",
+  S3PREFIX: "S3Prefix",
 } as const;
 
 /**
@@ -3861,19 +3862,13 @@ export interface AnnotationConsolidationConfig {
 export const AppType = {
   Canvas: "Canvas",
   CodeEditor: "CodeEditor",
-  DatasetManager: "DatasetManager",
   DetailedProfiler: "DetailedProfiler",
   JupyterLab: "JupyterLab",
   JupyterServer: "JupyterServer",
   KernelGateway: "KernelGateway",
-  Local: "Local",
-  RSession: "RSession",
   RSessionGateway: "RSessionGateway",
   RStudioServerPro: "RStudioServerPro",
-  SageMakerLite: "SageMakerLite",
-  Savitur: "Savitur",
   TensorBoard: "TensorBoard",
-  VSCode: "VSCode",
 } as const;
 
 /**

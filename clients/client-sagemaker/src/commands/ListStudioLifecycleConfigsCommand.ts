@@ -39,7 +39,7 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   NameContains: "STRING_VALUE",
- *   AppTypeEquals: "JupyterServer" || "KernelGateway" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab",
+ *   AppTypeEquals: "JupyterServer" || "KernelGateway" || "CodeEditor" || "JupyterLab",
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   CreationTimeAfter: new Date("TIMESTAMP"),
  *   ModifiedTimeBefore: new Date("TIMESTAMP"),
@@ -57,7 +57,7 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * //       StudioLifecycleConfigName: "STRING_VALUE",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),
- * //       StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab",
+ * //       StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway" || "CodeEditor" || "JupyterLab",
  * //     },
  * //   ],
  * // };
