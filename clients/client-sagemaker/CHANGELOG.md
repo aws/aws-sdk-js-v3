@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.492.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.491.0...v3.492.0) (2024-01-14)
+
+
+### Features
+
+* **client-sagemaker:** This release will have ValidationException thrown if certain invalid app types are provided. The release will also throw ValidationException if more than 10 account ids are provided in VpcOnlyTrustedAccounts. ([b548c9f](https://github.com/aws/aws-sdk-js-v3/commit/b548c9f78b0f743af94303a35553bfd63baa47e6))
+
+
+
+
+
 # [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
