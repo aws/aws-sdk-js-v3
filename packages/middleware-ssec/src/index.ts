@@ -40,7 +40,7 @@ export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddlewar
           if (typeof value === "string") {
             const isBase64Encoded = /^(?:[A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value);
             if (isBase64Encoded) {
-              valueForHash = new Uint8Array(Buffer.from(value, "base64"));
+              valueForHash = base64ToUint8Array(value);
             } else {
               valueForHash = options.utf8Decoder(value);
               input[prop.target] = options.base64Encoder(valueForHash);
@@ -63,6 +63,16 @@ export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddlewar
         input,
       });
     };
+}
+
+function base64ToUint8Array(base64String: string) {
+  const binaryString = atob(base64String);
+  const len = binaryString.length;
+  const bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
+  return bytes;
 }
 
 export const ssecMiddlewareOptions: InitializeHandlerOptions = {
