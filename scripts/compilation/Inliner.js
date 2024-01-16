@@ -149,6 +149,7 @@ module.exports = class Inliner {
 
     await esbuild.build({
       platform: this.platform,
+      target: ["node14"],
       bundle: true,
       format: "cjs",
       mainFields: ["main"],
