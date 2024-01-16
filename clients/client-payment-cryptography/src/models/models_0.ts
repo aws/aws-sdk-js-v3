@@ -451,6 +451,7 @@ export const KeyUsage = {
   TR31_K1_KEY_BLOCK_PROTECTION_KEY: "TR31_K1_KEY_BLOCK_PROTECTION_KEY",
   TR31_K2_TR34_ASYMMETRIC_KEY: "TR31_K2_TR34_ASYMMETRIC_KEY",
   TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT: "TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT",
+  TR31_M1_ISO_9797_1_MAC_KEY: "TR31_M1_ISO_9797_1_MAC_KEY",
   TR31_M3_ISO_9797_3_MAC_KEY: "TR31_M3_ISO_9797_3_MAC_KEY",
   TR31_M6_ISO_9797_5_CMAC_KEY: "TR31_M6_ISO_9797_5_CMAC_KEY",
   TR31_M7_HMAC_KEY: "TR31_M7_HMAC_KEY",
@@ -760,6 +761,44 @@ export interface ExportAttributes {
 
 /**
  * @public
+ * @enum
+ */
+export const WrappingKeySpec = {
+  RSA_OAEP_SHA_256: "RSA_OAEP_SHA_256",
+  RSA_OAEP_SHA_512: "RSA_OAEP_SHA_512",
+} as const;
+
+/**
+ * @public
+ */
+export type WrappingKeySpec = (typeof WrappingKeySpec)[keyof typeof WrappingKeySpec];
+
+/**
+ * @public
+ * <p>Parameter information for key material export using asymmetric RSA wrap and unwrap key exchange method.</p>
+ */
+export interface ExportKeyCryptogram {
+  /**
+   * @public
+   * <p>The <code>KeyARN</code> of the certificate chain that signs the wrapping key certificate during RSA wrap and unwrap key export.</p>
+   */
+  CertificateAuthorityPublicKeyIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The wrapping key certificate in PEM format (base64 encoded). Amazon Web Services Payment Cryptography uses this certificate to wrap the key under export.</p>
+   */
+  WrappingKeyCertificate: string | undefined;
+
+  /**
+   * @public
+   * <p>The wrapping spec for the key under export.</p>
+   */
+  WrappingSpec?: WrappingKeySpec;
+}
+
+/**
+ * @public
  * <p>Parameter information for key material export using symmetric TR-31 key exchange method.</p>
  */
 export interface ExportTr31KeyBlock {
@@ -821,9 +860,10 @@ export interface ExportTr34KeyBlock {
 
 /**
  * @public
- * <p>Parameter information for key material export from Amazon Web Services Payment Cryptography using TR-31 or TR-34 key exchange method.</p>
+ * <p>Parameter information for key material export from Amazon Web Services Payment Cryptography using TR-31 or TR-34 or RSA wrap and unwrap key exchange method.</p>
  */
 export type ExportKeyMaterial =
+  | ExportKeyMaterial.KeyCryptogramMember
   | ExportKeyMaterial.Tr31KeyBlockMember
   | ExportKeyMaterial.Tr34KeyBlockMember
   | ExportKeyMaterial.$UnknownMember;
@@ -839,6 +879,7 @@ export namespace ExportKeyMaterial {
   export interface Tr31KeyBlockMember {
     Tr31KeyBlock: ExportTr31KeyBlock;
     Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -849,6 +890,18 @@ export namespace ExportKeyMaterial {
   export interface Tr34KeyBlockMember {
     Tr31KeyBlock?: never;
     Tr34KeyBlock: ExportTr34KeyBlock;
+    KeyCryptogram?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Parameter information for key material export using asymmetric RSA wrap and unwrap key exchange method</p>
+   */
+  export interface KeyCryptogramMember {
+    Tr31KeyBlock?: never;
+    Tr34KeyBlock?: never;
+    KeyCryptogram: ExportKeyCryptogram;
     $unknown?: never;
   }
 
@@ -858,18 +911,21 @@ export namespace ExportKeyMaterial {
   export interface $UnknownMember {
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Tr31KeyBlock: (value: ExportTr31KeyBlock) => T;
     Tr34KeyBlock: (value: ExportTr34KeyBlock) => T;
+    KeyCryptogram: (value: ExportKeyCryptogram) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ExportKeyMaterial, visitor: Visitor<T>): T => {
     if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
     if (value.Tr34KeyBlock !== undefined) return visitor.Tr34KeyBlock(value.Tr34KeyBlock);
+    if (value.KeyCryptogram !== undefined) return visitor.KeyCryptogram(value.KeyCryptogram);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -955,7 +1011,7 @@ export interface WrappedKey {
 export interface ExportKeyOutput {
   /**
    * @public
-   * <p>The key material under export as a TR-34 WrappedKeyBlock or a TR-31 WrappedKeyBlock. </p>
+   * <p>The key material under export as a TR-34 WrappedKeyBlock or a TR-31 WrappedKeyBlock. or a RSA WrappedKeyCryptogram.</p>
    */
   WrappedKey?: WrappedKey;
 }
@@ -987,6 +1043,7 @@ export interface GetKeyOutput {
  * @enum
  */
 export const KeyMaterialType = {
+  KEY_CRYPTOGRAM: "KEY_CRYPTOGRAM",
   ROOT_PUBLIC_KEY_CERTIFICATE: "ROOT_PUBLIC_KEY_CERTIFICATE",
   TR31_KEY_BLOCK: "TR31_KEY_BLOCK",
   TR34_KEY_BLOCK: "TR34_KEY_BLOCK",
@@ -1056,7 +1113,7 @@ export interface GetParametersForExportOutput {
 export interface GetParametersForImportInput {
   /**
    * @public
-   * <p>The method to use for key material import. Import token is only required for TR-34 WrappedKeyBlock (<code>TR34_KEY_BLOCK</code>).</p>
+   * <p>The method to use for key material import. Import token is only required for TR-34 WrappedKeyBlock (<code>TR34_KEY_BLOCK</code>) and RSA WrappedKeyCryptogram (<code>KEY_CRYPTOGRAM</code>).</p>
    *          <p>Import token is not required for TR-31, root public key cerificate or trusted public key certificate.</p>
    */
   KeyMaterialType: KeyMaterialType | undefined;
@@ -1064,7 +1121,7 @@ export interface GetParametersForImportInput {
   /**
    * @public
    * <p>The wrapping key algorithm to generate a wrapping key certificate. This certificate wraps the key under import.</p>
-   *          <p>At this time, <code>RSA_2048</code>, <code>RSA_3072</code>, <code>RSA_4096</code> are the only allowed algorithms for TR-34 WrappedKeyBlock import.</p>
+   *          <p>At this time, <code>RSA_2048</code> is the allowed algorithm for TR-34 WrappedKeyBlock import. Additionally, <code>RSA_2048</code>, <code>RSA_3072</code>, <code>RSA_4096</code> are the allowed algorithms for RSA WrappedKeyCryptogram import.</p>
    */
   WrappingKeyAlgorithm: KeyAlgorithm | undefined;
 }
@@ -1087,7 +1144,7 @@ export interface GetParametersForImportOutput {
 
   /**
    * @public
-   * <p>The algorithm of the wrapping key for use within TR-34 WrappedKeyBlock.</p>
+   * <p>The algorithm of the wrapping key for use within TR-34 WrappedKeyBlock or RSA WrappedKeyCryptogram.</p>
    */
   WrappingKeyAlgorithm: KeyAlgorithm | undefined;
 
@@ -1130,6 +1187,42 @@ export interface GetPublicKeyCertificateOutput {
    * <p>The root certificate authority (CA) that signed the public key certificate in PEM format (base64 encoded) of the asymmetric key pair.</p>
    */
   KeyCertificateChain: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Parameter information for key material import using asymmetric RSA wrap and unwrap key exchange method.</p>
+ */
+export interface ImportKeyCryptogram {
+  /**
+   * @public
+   * <p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.</p>
+   */
+  KeyAttributes: KeyAttributes | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether the key is exportable from the service.</p>
+   */
+  Exportable: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The RSA wrapped key cryptogram under import.</p>
+   */
+  WrappedKeyCryptogram: string | undefined;
+
+  /**
+   * @public
+   * <p>The import token that initiates key import using the asymmetric RSA wrap and unwrap key exchange method into AWS Payment Cryptography. It expires after 7 days. You can use the same import token to import multiple keys to the same service account.</p>
+   */
+  ImportToken: string | undefined;
+
+  /**
+   * @public
+   * <p>The wrapping spec for the wrapped key cryptogram.</p>
+   */
+  WrappingSpec?: WrappingKeySpec;
 }
 
 /**
@@ -1236,9 +1329,10 @@ export interface TrustedCertificatePublicKey {
 
 /**
  * @public
- * <p>Parameter information for key material import into Amazon Web Services Payment Cryptography using TR-31 or TR-34 key exchange method.</p>
+ * <p>Parameter information for key material import into Amazon Web Services Payment Cryptography using TR-31 or TR-34 or RSA wrap and unwrap key exchange method.</p>
  */
 export type ImportKeyMaterial =
+  | ImportKeyMaterial.KeyCryptogramMember
   | ImportKeyMaterial.RootCertificatePublicKeyMember
   | ImportKeyMaterial.Tr31KeyBlockMember
   | ImportKeyMaterial.Tr34KeyBlockMember
@@ -1258,6 +1352,7 @@ export namespace ImportKeyMaterial {
     TrustedCertificatePublicKey?: never;
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -1270,6 +1365,7 @@ export namespace ImportKeyMaterial {
     TrustedCertificatePublicKey: TrustedCertificatePublicKey;
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -1282,6 +1378,7 @@ export namespace ImportKeyMaterial {
     TrustedCertificatePublicKey?: never;
     Tr31KeyBlock: ImportTr31KeyBlock;
     Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
     $unknown?: never;
   }
 
@@ -1294,6 +1391,20 @@ export namespace ImportKeyMaterial {
     TrustedCertificatePublicKey?: never;
     Tr31KeyBlock?: never;
     Tr34KeyBlock: ImportTr34KeyBlock;
+    KeyCryptogram?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Parameter information for key material import using asymmetric RSA wrap and unwrap key exchange method.</p>
+   */
+  export interface KeyCryptogramMember {
+    RootCertificatePublicKey?: never;
+    TrustedCertificatePublicKey?: never;
+    Tr31KeyBlock?: never;
+    Tr34KeyBlock?: never;
+    KeyCryptogram: ImportKeyCryptogram;
     $unknown?: never;
   }
 
@@ -1305,6 +1416,7 @@ export namespace ImportKeyMaterial {
     TrustedCertificatePublicKey?: never;
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
     $unknown: [string, any];
   }
 
@@ -1313,6 +1425,7 @@ export namespace ImportKeyMaterial {
     TrustedCertificatePublicKey: (value: TrustedCertificatePublicKey) => T;
     Tr31KeyBlock: (value: ImportTr31KeyBlock) => T;
     Tr34KeyBlock: (value: ImportTr34KeyBlock) => T;
+    KeyCryptogram: (value: ImportKeyCryptogram) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1323,6 +1436,7 @@ export namespace ImportKeyMaterial {
       return visitor.TrustedCertificatePublicKey(value.TrustedCertificatePublicKey);
     if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
     if (value.Tr34KeyBlock !== undefined) return visitor.Tr34KeyBlock(value.Tr34KeyBlock);
+    if (value.KeyCryptogram !== undefined) return visitor.KeyCryptogram(value.KeyCryptogram);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1620,6 +1734,14 @@ export interface UntagResourceOutput {}
 /**
  * @internal
  */
+export const ExportKeyCryptogramFilterSensitiveLog = (obj: ExportKeyCryptogram): any => ({
+  ...obj,
+  ...(obj.WrappingKeyCertificate && { WrappingKeyCertificate: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ExportTr34KeyBlockFilterSensitiveLog = (obj: ExportTr34KeyBlock): any => ({
   ...obj,
   ...(obj.WrappingKeyCertificate && { WrappingKeyCertificate: SENSITIVE_STRING }),
@@ -1631,6 +1753,8 @@ export const ExportTr34KeyBlockFilterSensitiveLog = (obj: ExportTr34KeyBlock): a
 export const ExportKeyMaterialFilterSensitiveLog = (obj: ExportKeyMaterial): any => {
   if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: obj.Tr31KeyBlock };
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ExportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
+  if (obj.KeyCryptogram !== undefined)
+    return { KeyCryptogram: ExportKeyCryptogramFilterSensitiveLog(obj.KeyCryptogram) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -1721,6 +1845,7 @@ export const ImportKeyMaterialFilterSensitiveLog = (obj: ImportKeyMaterial): any
     };
   if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: obj.Tr31KeyBlock };
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ImportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
+  if (obj.KeyCryptogram !== undefined) return { KeyCryptogram: obj.KeyCryptogram };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

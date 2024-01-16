@@ -62,6 +62,7 @@ import {
   DeleteKeyOutput,
   ExportAttributes,
   ExportDukptInitialKey,
+  ExportKeyCryptogram,
   ExportKeyInput,
   ExportKeyMaterial,
   ExportTr31KeyBlock,
@@ -74,6 +75,7 @@ import {
   GetParametersForImportInput,
   GetParametersForImportOutput,
   GetPublicKeyCertificateInput,
+  ImportKeyCryptogram,
   ImportKeyInput,
   ImportKeyMaterial,
   ImportKeyOutput,
@@ -1780,6 +1782,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ExportDukptInitialKey omitted.
 
+// se_ExportKeyCryptogram omitted.
+
 // se_ExportKeyInput omitted.
 
 // se_ExportKeyMaterial omitted.
@@ -1797,6 +1801,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_GetParametersForImportInput omitted.
 
 // se_GetPublicKeyCertificateInput omitted.
+
+// se_ImportKeyCryptogram omitted.
 
 // se_ImportKeyInput omitted.
 
