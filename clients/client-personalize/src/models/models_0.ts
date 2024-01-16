@@ -641,7 +641,8 @@ export interface CampaignConfig {
   /**
    * @public
    * <p>Whether metadata with recommendations is enabled for the campaign.
-   *       If enabled, you can specify the columns from your Items dataset in your request for recommendations. Amazon Personalize returns this data for each item in the recommendation response. </p>
+   *       If enabled, you can specify the columns from your Items dataset in your request for recommendations. Amazon Personalize returns this data for each item in the recommendation response.
+   *     For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-return-metadata">Enabling metadata in recommendations for a campaign</a>.</p>
    *          <p>
    *       If you enable metadata in recommendations, you will incur additional costs. For more information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.
    *     </p>
@@ -1243,7 +1244,8 @@ export interface RecommenderConfig {
   /**
    * @public
    * <p>Whether metadata with recommendations is enabled for the recommender.
-   *       If enabled, you can specify the columns from your Items dataset in your request for recommendations. Amazon Personalize returns this data for each item in the recommendation response. </p>
+   *       If enabled, you can specify the columns from your Items dataset in your request for recommendations. Amazon Personalize returns this data for each item in the recommendation response.
+   *       For information about enabling metadata for a recommender, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-recommenders.html#create-recommender-return-metadata">Enabling metadata in recommendations for a recommender</a>.</p>
    *          <p>
    *       If you enable metadata in recommendations, you will incur additional costs. For more information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.
    *     </p>
@@ -1641,8 +1643,7 @@ export interface CreateSolutionRequest {
    * @public
    * <important>
    *             <p>We don't recommend enabling automated machine learning. Instead, match your use case to the available Amazon Personalize
-   *         recipes. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html">Determining your use case.</a>
-   *             </p>
+   *         recipes. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html">Choosing a recipe</a>.</p>
    *          </important>
    *          <p>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
    *       For this case, you must specify <code>recipeArn</code>.</p>
@@ -1656,8 +1657,11 @@ export interface CreateSolutionRequest {
 
   /**
    * @public
-   * <p>The ARN of the recipe to use for model training. This is required when
-   *       <code>performAutoML</code> is false.</p>
+   * <p>The Amazon Resource Name (ARN) of the recipe to use for model training. This is required when
+   *       <code>performAutoML</code> is false. For information about different Amazon Personalize recipes and their ARNs,
+   *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html">Choosing a recipe</a>.
+   *
+   *     </p>
    */
   recipeArn?: string;
 
