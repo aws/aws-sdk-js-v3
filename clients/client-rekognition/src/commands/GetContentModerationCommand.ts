@@ -89,6 +89,7 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * //         Confidence: Number("float"),
  * //         Name: "STRING_VALUE",
  * //         ParentName: "STRING_VALUE",
+ * //         TaxonomyLevel: Number("int"),
  * //       },
  * //       StartTimestampMillis: Number("long"),
  * //       EndTimestampMillis: Number("long"),

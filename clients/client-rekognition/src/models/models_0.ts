@@ -241,8 +241,8 @@ export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus];
 export interface AssociateFacesResponse {
   /**
    * @public
-   * <p>An array of AssociatedFace objects containing FaceIDs that are successfully associated
-   *       with the UserID is returned. Returned if the AssociateFaces action is successful.</p>
+   * <p>An array of AssociatedFace objects containing FaceIDs that have been successfully associated
+   *       with the UserID. Returned if the AssociateFaces action is successful.</p>
    */
   AssociatedFaces?: AssociatedFace[];
 
@@ -1975,6 +1975,12 @@ export interface ModerationLabel {
    *       label <code>""</code>.</p>
    */
   ParentName?: string;
+
+  /**
+   * @public
+   * <p>The level of the moderation label with regard to its taxonomy, from 1 to 3.</p>
+   */
+  TaxonomyLevel?: number;
 }
 
 /**
@@ -2030,6 +2036,24 @@ export const ContentModerationSortBy = {
  * @public
  */
 export type ContentModerationSortBy = (typeof ContentModerationSortBy)[keyof typeof ContentModerationSortBy];
+
+/**
+ * @public
+ * <p>Contains information regarding the confidence and name of a detected content type.</p>
+ */
+export interface ContentType {
+  /**
+   * @public
+   * <p>The confidence level of the label given</p>
+   */
+  Confidence?: number;
+
+  /**
+   * @public
+   * <p>The name of the label</p>
+   */
+  Name?: string;
+}
 
 /**
  * @public
@@ -5006,6 +5030,13 @@ export interface DetectModerationLabelsResponse {
    *          indicating that a base moderation detection project version was used.</p>
    */
   ProjectVersion?: string;
+
+  /**
+   * @public
+   * <p>A list of predicted results for the type of content an image contains. For example,
+   *       the image content might be from animation, sports, or a video game.</p>
+   */
+  ContentTypes?: ContentType[];
 }
 
 /**
@@ -6656,6 +6687,18 @@ export interface MediaAnalysisOutputConfig {
 
 /**
  * @public
+ * <p>Object containing information about the model versions of selected features in a given job.</p>
+ */
+export interface MediaAnalysisModelVersions {
+  /**
+   * @public
+   * <p>The Moderation base model version.</p>
+   */
+  Moderation?: string;
+}
+
+/**
+ * @public
  * <p>Contains the results for a media analysis job created with StartMediaAnalysisJob.</p>
  */
 export interface MediaAnalysisResults {
@@ -6669,6 +6712,12 @@ export interface MediaAnalysisResults {
    *       Amazon Rekognition Developer Guide. </p>
    */
   S3Object?: S3Object;
+
+  /**
+   * @public
+   * <p>Information about the model versions for the features selected in a given job.</p>
+   */
+  ModelVersions?: MediaAnalysisModelVersions;
 }
 
 /**
@@ -8179,44 +8228,6 @@ export class MalformedPolicyDocumentException extends __BaseException {
     this.Code = opts.Code;
     this.Logref = opts.Logref;
   }
-}
-
-/**
- * @public
- * <p>Contains metadata for a UserID matched with a given face.</p>
- */
-export interface MatchedUser {
-  /**
-   * @public
-   * <p>A provided ID for the UserID. Unique within the collection.</p>
-   */
-  UserId?: string;
-
-  /**
-   * @public
-   * <p>The status of the user matched to a provided FaceID.</p>
-   */
-  UserStatus?: UserStatus;
-}
-
-/**
- * @public
- * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
- *           <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video.html">Calling Amazon Rekognition Video operations</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
- *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
- */
-export interface NotificationChannel {
-  /**
-   * @public
-   * <p>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</p>
-   */
-  SNSTopicArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. </p>
-   */
-  RoleArn: string | undefined;
 }
 
 /**

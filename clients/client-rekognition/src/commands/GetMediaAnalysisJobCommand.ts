@@ -75,6 +75,9 @@ export interface GetMediaAnalysisJobCommandOutput extends GetMediaAnalysisJobRes
  * //       Name: "STRING_VALUE",
  * //       Version: "STRING_VALUE",
  * //     },
+ * //     ModelVersions: { // MediaAnalysisModelVersions
+ * //       Moderation: "STRING_VALUE",
+ * //     },
  * //   },
  * //   ManifestSummary: { // MediaAnalysisManifestSummary
  * //     S3Object: {

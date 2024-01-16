@@ -219,6 +219,7 @@ import {
   ConnectedHomeSettingsForUpdate,
   ContentClassifier,
   ContentModerationDetection,
+  ContentType,
   CopyProjectVersionRequest,
   CoversBodyPart,
   CreateCollectionRequest,
@@ -367,7 +368,6 @@ import {
   ModerationLabel,
   MouthOpen,
   Mustache,
-  NotificationChannel,
   OutputConfig,
   PersonDetail,
   PersonDetection,
@@ -413,6 +413,7 @@ import {
   VideoMetadata,
 } from "../models/models_0";
 import {
+  NotificationChannel,
   PutProjectPolicyRequest,
   RecognizeCelebritiesRequest,
   RecognizeCelebritiesResponse,
@@ -7792,6 +7793,28 @@ const de_ContentModerationDetections = (output: any, context: __SerdeContext): C
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1ContentType
+ */
+const de_ContentType = (output: any, context: __SerdeContext): ContentType => {
+  return take(output, {
+    Confidence: __limitedParseFloat32,
+    Name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ContentTypes
+ */
+const de_ContentTypes = (output: any, context: __SerdeContext): ContentType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ContentType(entry, context);
+    });
+  return retVal;
+};
+
 // de_CopyProjectVersionResponse omitted.
 
 /**
@@ -8071,6 +8094,7 @@ const de_DetectLabelsResponse = (output: any, context: __SerdeContext): DetectLa
  */
 const de_DetectModerationLabelsResponse = (output: any, context: __SerdeContext): DetectModerationLabelsResponse => {
   return take(output, {
+    ContentTypes: (_: any) => de_ContentTypes(_, context),
     HumanLoopActivationOutput: (_: any) => de_HumanLoopActivationOutput(_, context),
     ModerationLabels: (_: any) => de_ModerationLabels(_, context),
     ModerationModelVersion: __expectString,
@@ -8843,6 +8867,8 @@ const de_MediaAnalysisJobDescriptions = (output: any, context: __SerdeContext): 
 
 // de_MediaAnalysisManifestSummary omitted.
 
+// de_MediaAnalysisModelVersions omitted.
+
 /**
  * deserializeAws_json1_1MediaAnalysisOperationsConfig
  */
@@ -8864,6 +8890,7 @@ const de_ModerationLabel = (output: any, context: __SerdeContext): ModerationLab
     Confidence: __limitedParseFloat32,
     Name: __expectString,
     ParentName: __expectString,
+    TaxonomyLevel: __expectInt32,
   }) as any;
 };
 

@@ -78,6 +78,7 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * //       Confidence: Number("float"),
  * //       Name: "STRING_VALUE",
  * //       ParentName: "STRING_VALUE",
+ * //       TaxonomyLevel: Number("int"),
  * //     },
  * //   ],
  * //   ModerationModelVersion: "STRING_VALUE",
@@ -89,6 +90,12 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * //     HumanLoopActivationConditionsEvaluationResults: "STRING_VALUE",
  * //   },
  * //   ProjectVersion: "STRING_VALUE",
+ * //   ContentTypes: [ // ContentTypes
+ * //     { // ContentType
+ * //       Confidence: Number("float"),
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
