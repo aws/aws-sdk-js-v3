@@ -5581,6 +5581,7 @@ const de_vehicleSummaries = (output: any, context: __SerdeContext): VehicleSumma
 const de_VehicleSummary = (output: any, context: __SerdeContext): VehicleSummary => {
   return take(output, {
     arn: __expectString,
+    attributes: _json,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     decoderManifestArn: __expectString,
     lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

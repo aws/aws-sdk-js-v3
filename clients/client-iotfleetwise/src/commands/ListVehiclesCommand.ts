@@ -54,6 +54,9 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  * //       decoderManifestArn: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       lastModificationTime: new Date("TIMESTAMP"), // required
+ * //       attributes: { // attributesMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

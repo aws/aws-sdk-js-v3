@@ -42,6 +42,7 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  *   name: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   signalNodeType: "SENSOR" || "ACTUATOR" || "ATTRIBUTE" || "BRANCH" || "CUSTOM_STRUCT" || "CUSTOM_PROPERTY",
  * };
  * const command = new ListSignalCatalogNodesCommand(input);
  * const response = await client.send(command);

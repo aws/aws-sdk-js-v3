@@ -824,7 +824,7 @@ export interface ConditionBasedCollectionScheme {
   /**
    * @public
    * <p>The logical expression used to recognize what data to collect. For example,
-   *                 <code>$variable.Vehicle.OutsideAirTemperature &gt;= 105.0</code>.</p>
+   *             <code>$variable.`Vehicle.OutsideAirTemperature` &gt;= 105.0</code>.</p>
    */
   expression: string | undefined;
 
@@ -4719,6 +4719,24 @@ export interface RegisterAccountResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const SignalNodeType = {
+  ACTUATOR: "ACTUATOR",
+  ATTRIBUTE: "ATTRIBUTE",
+  BRANCH: "BRANCH",
+  CUSTOM_PROPERTY: "CUSTOM_PROPERTY",
+  CUSTOM_STRUCT: "CUSTOM_STRUCT",
+  SENSOR: "SENSOR",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalNodeType = (typeof SignalNodeType)[keyof typeof SignalNodeType];
+
+/**
+ * @public
  */
 export interface ListSignalCatalogNodesRequest {
   /**
@@ -4739,6 +4757,12 @@ export interface ListSignalCatalogNodesRequest {
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
+
+  /**
+   * @public
+   * <p>The type of node in the signal catalog.</p>
+   */
+  signalNodeType?: SignalNodeType;
 }
 
 /**
@@ -4987,6 +5011,15 @@ export interface VehicleSummary {
    * <p>The time the vehicle was last updated in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    */
   lastModificationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Static information about a vehicle in a key-value pair. For example:</p>
+   *          <p>
+   *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
+   *          </p>
+   */
+  attributes?: Record<string, string>;
 }
 
 /**
