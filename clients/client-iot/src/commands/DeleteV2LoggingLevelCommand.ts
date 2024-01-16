@@ -37,7 +37,7 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * // const { IoTClient, DeleteV2LoggingLevelCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // DeleteV2LoggingLevelRequest
- *   targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID" || "EVENT_TYPE" || "DEVICE_DEFENDER", // required
+ *   targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID", // required
  *   targetName: "STRING_VALUE", // required
  * };
  * const command = new DeleteV2LoggingLevelCommand(input);

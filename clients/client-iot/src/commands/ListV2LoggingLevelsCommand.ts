@@ -37,7 +37,7 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * // const { IoTClient, ListV2LoggingLevelsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const input = { // ListV2LoggingLevelsRequest
- *   targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID" || "EVENT_TYPE" || "DEVICE_DEFENDER",
+ *   targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -47,7 +47,7 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * //   logTargetConfigurations: [ // LogTargetConfigurations
  * //     { // LogTargetConfiguration
  * //       logTarget: { // LogTarget
- * //         targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID" || "EVENT_TYPE" || "DEVICE_DEFENDER", // required
+ * //         targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID", // required
  * //         targetName: "STRING_VALUE",
  * //       },
  * //       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",

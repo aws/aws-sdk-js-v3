@@ -604,8 +604,6 @@ export interface DeleteTopicRuleDestinationResponse {}
 export const LogTargetType = {
   CLIENT_ID: "CLIENT_ID",
   DEFAULT: "DEFAULT",
-  DEVICE_DEFENDER: "DEVICE_DEFENDER",
-  EVENT_TYPE: "EVENT_TYPE",
   PRINCIPAL_ID: "PRINCIPAL_ID",
   SOURCE_IP: "SOURCE_IP",
   THING_GROUP: "THING_GROUP",
