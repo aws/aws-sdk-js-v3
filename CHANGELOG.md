@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.493.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.492.0...v3.493.0) (2024-01-16)
+
+
+### Bug Fixes
+
+* **client-cloudfront-keyvaluestore:** use sigv4a signer by default ([#5684](https://github.com/aws/aws-sdk-js-v3/issues/5684)) ([a54f8c4](https://github.com/aws/aws-sdk-js-v3/commit/a54f8c4456152ff5e8978d78ea19e100ea1b3e38))
+
+
+### Features
+
+* **client-iotfleetwise:** Updated APIs: SignalNodeType query parameter has been added to ListSignalCatalogNodesRequest and ListVehiclesResponse has been extended with attributes field. ([7877ded](https://github.com/aws/aws-sdk-js-v3/commit/7877ded56c261a596c18511e2b5131adbf4538c0))
+* **client-iot:** Revert release of LogTargetTypes ([1acc301](https://github.com/aws/aws-sdk-js-v3/commit/1acc30137adbcf4d14da14e6e0df6dc1610a3628))
+* **client-macie2:** This release adds support for analyzing Amazon S3 objects that are encrypted using dual-layer server-side encryption with AWS KMS keys (DSSE-KMS). It also adds support for reporting DSSE-KMS details in statistics and metadata about encryption settings for S3 buckets and objects. ([cb18084](https://github.com/aws/aws-sdk-js-v3/commit/cb180847e658ec74369d093b7583fdc76cb4ab5b))
+* **client-payment-cryptography:** Provide an additional option for key exchange using RSA wrap/unwrap in addition to tr-34/tr-31 in ImportKey and ExportKey operations. Added new key usage (type) TR31_M1_ISO_9797_1_MAC_KEY, for use with Generate/VerifyMac dataplane operations  with ISO9797 Algorithm 1 MAC calculations. ([f7acac4](https://github.com/aws/aws-sdk-js-v3/commit/f7acac4f71ed43b3a0bb88240e7950ecc654efc1))
+* **client-rekognition:** This release adds ContentType and TaxonomyLevel attributes to DetectModerationLabels and GetMediaAnalysisJob API responses. ([daf640b](https://github.com/aws/aws-sdk-js-v3/commit/daf640b297c8aa058e8744bffe75da4b4456061b))
+* **clients:** update client endpoints as of 2024-01-16 ([a67ef23](https://github.com/aws/aws-sdk-js-v3/commit/a67ef23ee1c81f6571e5fcbd778c24b52a700b7d))
+
+
+
+
+
 # [3.492.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.491.0...v3.492.0) (2024-01-14)
 
 

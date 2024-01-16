@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.493.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.492.0...v3.493.0) (2024-01-16)
+
+
+### Features
+
+* **client-payment-cryptography:** Provide an additional option for key exchange using RSA wrap/unwrap in addition to tr-34/tr-31 in ImportKey and ExportKey operations. Added new key usage (type) TR31_M1_ISO_9797_1_MAC_KEY, for use with Generate/VerifyMac dataplane operations  with ISO9797 Algorithm 1 MAC calculations. ([f7acac4](https://github.com/aws/aws-sdk-js-v3/commit/f7acac4f71ed43b3a0bb88240e7950ecc654efc1))
+
+
+
+
+
 # [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography

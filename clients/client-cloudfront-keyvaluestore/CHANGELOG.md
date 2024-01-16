@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.493.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.492.0...v3.493.0) (2024-01-16)
+
+
+### Bug Fixes
+
+* **client-cloudfront-keyvaluestore:** use sigv4a signer by default ([#5684](https://github.com/aws/aws-sdk-js-v3/issues/5684)) ([a54f8c4](https://github.com/aws/aws-sdk-js-v3/commit/a54f8c4456152ff5e8978d78ea19e100ea1b3e38))
+
+
+
+
+
 # [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront-keyvaluestore
