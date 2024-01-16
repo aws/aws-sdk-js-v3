@@ -128,7 +128,7 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * //       sensitivityScore: Number("int"),
  * //       serverSideEncryption: { // BucketServerSideEncryption
  * //         kmsMasterKeyId: "STRING_VALUE",
- * //         type: "NONE" || "AES256" || "aws:kms",
+ * //         type: "NONE" || "AES256" || "aws:kms" || "aws:kms:dsse",
  * //       },
  * //       sharedAccess: "EXTERNAL" || "INTERNAL" || "NOT_SHARED" || "UNKNOWN",
  * //       sizeInBytes: Number("long"),

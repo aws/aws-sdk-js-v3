@@ -274,7 +274,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           arn: "STRING_VALUE",
  * //           createdAt: new Date("TIMESTAMP"),
  * //           defaultServerSideEncryption: { // ServerSideEncryption
- * //             encryptionType: "NONE" || "AES256" || "aws:kms" || "UNKNOWN",
+ * //             encryptionType: "NONE" || "AES256" || "aws:kms" || "UNKNOWN" || "aws:kms:dsse",
  * //             kmsMasterKeyId: "STRING_VALUE",
  * //           },
  * //           name: "STRING_VALUE",
@@ -327,7 +327,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           path: "STRING_VALUE",
  * //           publicAccess: true || false,
  * //           serverSideEncryption: {
- * //             encryptionType: "NONE" || "AES256" || "aws:kms" || "UNKNOWN",
+ * //             encryptionType: "NONE" || "AES256" || "aws:kms" || "UNKNOWN" || "aws:kms:dsse",
  * //             kmsMasterKeyId: "STRING_VALUE",
  * //           },
  * //           size: Number("long"),

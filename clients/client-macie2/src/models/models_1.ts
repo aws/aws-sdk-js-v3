@@ -880,7 +880,7 @@ export interface UpdateResourceProfileDetectionsResponse {}
 
 /**
  * @public
- * <p>Specifies the access method and settings to use when retrieving occurrences of sensitive data reported by findings. If your request specifies an Identity and Access Management (IAM) role to assume when retrieving the sensitive data, Amazon Macie verifies that the role exists and the attached policies are configured correctly. If there's an issue, Macie returns an error. For information about addressing the issue, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-retrieve-sd.html">Retrieving sensitive data samples with findings</a> in the <i>Amazon Macie User Guide</i>.</p>
+ * <p>Specifies the access method and settings to use when retrieving occurrences of sensitive data reported by findings. If your request specifies an Identity and Access Management (IAM) role to assume, Amazon Macie verifies that the role exists and the attached policies are configured correctly. If there's an issue, Macie returns an error. For information about addressing the issue, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-retrieve-sd-options.html">Configuration options and requirements for retrieving sensitive data samples</a> in the <i>Amazon Macie User Guide</i>.</p>
  */
 export interface UpdateRetrievalConfiguration {
   /**
@@ -908,7 +908,7 @@ export interface UpdateRevealConfigurationRequest {
 
   /**
    * @public
-   * <p>The access method and settings to use to retrieve the sensitive data.</p>
+   * <p>The access method and settings to use when retrieving the sensitive data.</p>
    */
   retrievalConfiguration?: UpdateRetrievalConfiguration;
 }
@@ -925,7 +925,7 @@ export interface UpdateRevealConfigurationResponse {
 
   /**
    * @public
-   * <p>The access method and settings to use to retrieve the sensitive data.</p>
+   * <p>The access method and settings to use when retrieving the sensitive data.</p>
    */
   retrievalConfiguration?: RetrievalConfiguration;
 }
