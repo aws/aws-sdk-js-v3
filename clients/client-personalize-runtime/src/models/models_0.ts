@@ -191,7 +191,7 @@ export interface GetPersonalizedRankingRequest {
    *       The map key is <code>ITEMS</code> and the value is a list of column names from your Items dataset.
    *       The maximum number of columns you can provide is 10.</p>
    *          <p>
-   *       For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling metadata in recommendations for a campaign</a>.
+   *       For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-return-metadata">Enabling metadata in recommendations for a campaign</a>.
    *     </p>
    */
   metadataColumns?: Record<string, string[]>;
@@ -369,8 +369,8 @@ export interface GetRecommendationsRequest {
    *       The map key is <code>ITEMS</code> and the value is a list of column names from your Items dataset.
    *     The maximum number of columns you can provide is 10.</p>
    *          <p>
-   *       For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-campaign-return-metadata.html">Enabling metadata in recommendations for a campaign</a>.
-   *       For information about enabling metadata for a recommender, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/create-recommender-return-metadata.html">Enabling metadata in recommendations for a recommender</a>.
+   *       For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-return-metadata">Enabling metadata in recommendations for a campaign</a>.
+   *       For information about enabling metadata for a recommender, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-recommenders.html#create-recommender-return-metadata">Enabling metadata in recommendations for a recommender</a>.
    *     </p>
    */
   metadataColumns?: Record<string, string[]>;
