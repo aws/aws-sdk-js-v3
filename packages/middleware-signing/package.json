@@ -24,10 +24,10 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@smithy/property-provider": "^2.0.0",
-    "@smithy/protocol-http": "^3.0.12",
+    "@smithy/protocol-http": "^3.1.0",
     "@smithy/signature-v4": "^2.0.0",
-    "@smithy/types": "^2.8.0",
-    "@smithy/util-middleware": "^2.0.9",
+    "@smithy/types": "^2.9.0",
+    "@smithy/util-middleware": "^2.1.0",
     "tslib": "^2.5.0"
   },
   "engines": {

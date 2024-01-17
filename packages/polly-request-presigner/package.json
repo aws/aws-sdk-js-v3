@@ -24,9 +24,9 @@
     "@aws-sdk/client-polly": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/protocol-http": "^3.0.12",
+    "@smithy/protocol-http": "^3.1.0",
     "@smithy/signature-v4": "^2.0.0",
-    "@smithy/types": "^2.8.0",
+    "@smithy/types": "^2.9.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
