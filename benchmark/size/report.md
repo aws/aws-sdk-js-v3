@@ -16,7 +16,7 @@
 |@aws-sdk/client-cognito-identity|3.489.0|455.5 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-identity-provider|3.489.0|2.3 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-sync|3.489.0|393.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-dynamodb|3.489.0|1.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-dynamodb|3.490.0|1.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-ec2|3.489.0|13.7 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-efs|3.489.0|719.9 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-eventbridge|3.489.0|968.3 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
@@ -45,7 +45,7 @@
 |@aws-sdk/credential-provider-web-identity|3.485.0|28 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/credential-providers|3.489.0|84.3 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/fetch-http-handler|3.370.0|14.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/lib-dynamodb|3.489.0|165.7 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/lib-dynamodb|3.490.0|165.7 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/lib-storage|3.489.0|53.6 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/node-http-handler|3.370.0|14.4 KB|N/A|N/A|N/A|
 |@aws-sdk/polly-request-presigner|3.489.0|23.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|

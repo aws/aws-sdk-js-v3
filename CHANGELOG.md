@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.494.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.493.0...v3.494.0) (2024-01-17)
+
+
+### Features
+
+* **client-keyspaces:** This release adds support for Multi-Region Replication with provisioned tables, and Keyspaces auto scaling APIs ([629feaf](https://github.com/aws/aws-sdk-js-v3/commit/629feafbe4a31e5a0cadad6b0823bfa3344899e7))
+
+
+
+
+
 # [3.493.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.492.0...v3.493.0) (2024-01-16)
 
 
