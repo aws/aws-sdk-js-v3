@@ -158,7 +158,7 @@ module.exports = class Inliner {
       outfile: this.outfile,
       keepNames: true,
       packages: "external",
-      external: [...this.variantExternalsForEsBuild],
+      external: ["@smithy/*", "@aws-sdk/*", "node_modules/*", ...this.variantExternalsForEsBuild],
     });
     return this;
   }

@@ -17,8 +17,8 @@ link-smithy:
 	ln -s ../../smithy-typescript/packages/ ./node_modules/\@smithy
 
 unlink-smithy:
-	rm -rf ./node_modules/\@smithy
-	yarn
+	rm ./node_modules/\@smithy
+	yarn --check-files
 
 # Runs build for all packages using Turborepo
 turbo-build:
