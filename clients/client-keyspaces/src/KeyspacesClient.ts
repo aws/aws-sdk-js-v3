@@ -53,6 +53,10 @@ import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/Cr
 import { DeleteKeyspaceCommandInput, DeleteKeyspaceCommandOutput } from "./commands/DeleteKeyspaceCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import { GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "./commands/GetKeyspaceCommand";
+import {
+  GetTableAutoScalingSettingsCommandInput,
+  GetTableAutoScalingSettingsCommandOutput,
+} from "./commands/GetTableAutoScalingSettingsCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import { ListKeyspacesCommandInput, ListKeyspacesCommandOutput } from "./commands/ListKeyspacesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
@@ -84,6 +88,7 @@ export type ServiceInputTypes =
   | DeleteKeyspaceCommandInput
   | DeleteTableCommandInput
   | GetKeyspaceCommandInput
+  | GetTableAutoScalingSettingsCommandInput
   | GetTableCommandInput
   | ListKeyspacesCommandInput
   | ListTablesCommandInput
@@ -102,6 +107,7 @@ export type ServiceOutputTypes =
   | DeleteKeyspaceCommandOutput
   | DeleteTableCommandOutput
   | GetKeyspaceCommandOutput
+  | GetTableAutoScalingSettingsCommandOutput
   | GetTableCommandOutput
   | ListKeyspacesCommandOutput
   | ListTablesCommandOutput

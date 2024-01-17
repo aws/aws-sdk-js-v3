@@ -28,7 +28,7 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
 
 /**
  * @public
- * <p>Restores the specified table to the specified point in time within the
+ * <p>Restores the table to the specified point in time within the
  *          <code>earliest_restorable_timestamp</code> and the current time. For more information about restore points, see
  *          <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window">
  *             Time window for PITR continuous backups</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
@@ -38,7 +38,7 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  *          based on the selected timestamp <code>(day:hour:minute:second)</code> to a new table. The Time to Live (TTL) settings
  *       are also restored to the state based on the selected timestamp.</p>
  *          <p>In addition to the table's schema, data, and TTL settings,
- *          <code>RestoreTable</code> restores the capacity mode, encryption, and
+ *          <code>RestoreTable</code> restores the capacity mode, auto scaling settings, encryption settings, and
  *          point-in-time recovery settings from the source table.
  *          Unlike the table's schema data and TTL settings, which are restored based on the selected timestamp,
  *          these settings are always restored based on the table's settings as of the current time or when the table was deleted.</p>
@@ -49,7 +49,10 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  *                <p>Read/write capacity mode</p>
  *             </li>
  *             <li>
- *                <p>Provisioned throughput capacity settings</p>
+ *                <p>Provisioned throughput capacity units</p>
+ *             </li>
+ *             <li>
+ *                <p>Auto scaling settings</p>
  *             </li>
  *             <li>
  *                <p>Point-in-time (PITR) settings</p>
@@ -64,10 +67,6 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  *          <p>Note that the following settings are not restored, and you must configure them manually for
  *          the new table:</p>
  *          <ul>
- *             <li>
- *                <p>Automatic scaling policies (for tables that use provisioned capacity
- *             mode)</p>
- *             </li>
  *             <li>
  *                <p>Identity and Access Management (IAM) policies</p>
  *             </li>
@@ -105,6 +104,53 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   autoScalingSpecification: { // AutoScalingSpecification
+ *     writeCapacityAutoScaling: { // AutoScalingSettings
+ *       autoScalingDisabled: true || false,
+ *       minimumUnits: Number("long"),
+ *       maximumUnits: Number("long"),
+ *       scalingPolicy: { // AutoScalingPolicy
+ *         targetTrackingScalingPolicyConfiguration: { // TargetTrackingScalingPolicyConfiguration
+ *           disableScaleIn: true || false,
+ *           scaleInCooldown: Number("int"),
+ *           scaleOutCooldown: Number("int"),
+ *           targetValue: Number("double"), // required
+ *         },
+ *       },
+ *     },
+ *     readCapacityAutoScaling: {
+ *       autoScalingDisabled: true || false,
+ *       minimumUnits: Number("long"),
+ *       maximumUnits: Number("long"),
+ *       scalingPolicy: {
+ *         targetTrackingScalingPolicyConfiguration: {
+ *           disableScaleIn: true || false,
+ *           scaleInCooldown: Number("int"),
+ *           scaleOutCooldown: Number("int"),
+ *           targetValue: Number("double"), // required
+ *         },
+ *       },
+ *     },
+ *   },
+ *   replicaSpecifications: [ // ReplicaSpecificationList
+ *     { // ReplicaSpecification
+ *       region: "STRING_VALUE", // required
+ *       readCapacityUnits: Number("long"),
+ *       readCapacityAutoScaling: {
+ *         autoScalingDisabled: true || false,
+ *         minimumUnits: Number("long"),
+ *         maximumUnits: Number("long"),
+ *         scalingPolicy: {
+ *           targetTrackingScalingPolicyConfiguration: {
+ *             disableScaleIn: true || false,
+ *             scaleInCooldown: Number("int"),
+ *             scaleOutCooldown: Number("int"),
+ *             targetValue: Number("double"), // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new RestoreTableCommand(input);
  * const response = await client.send(command);
@@ -121,10 +167,10 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *  <p>You don't have sufficient access permissions to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Amazon Keyspaces could not complete the requested action. This error may occur if you try to
+ *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to
  *          perform an action and the same or a different action is already
  *          in progress, or if you try to create a resource that already exists. </p>
  *

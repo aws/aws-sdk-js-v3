@@ -97,6 +97,53 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *   clientSideTimestamps: { // ClientSideTimestamps
  *     status: "STRING_VALUE", // required
  *   },
+ *   autoScalingSpecification: { // AutoScalingSpecification
+ *     writeCapacityAutoScaling: { // AutoScalingSettings
+ *       autoScalingDisabled: true || false,
+ *       minimumUnits: Number("long"),
+ *       maximumUnits: Number("long"),
+ *       scalingPolicy: { // AutoScalingPolicy
+ *         targetTrackingScalingPolicyConfiguration: { // TargetTrackingScalingPolicyConfiguration
+ *           disableScaleIn: true || false,
+ *           scaleInCooldown: Number("int"),
+ *           scaleOutCooldown: Number("int"),
+ *           targetValue: Number("double"), // required
+ *         },
+ *       },
+ *     },
+ *     readCapacityAutoScaling: {
+ *       autoScalingDisabled: true || false,
+ *       minimumUnits: Number("long"),
+ *       maximumUnits: Number("long"),
+ *       scalingPolicy: {
+ *         targetTrackingScalingPolicyConfiguration: {
+ *           disableScaleIn: true || false,
+ *           scaleInCooldown: Number("int"),
+ *           scaleOutCooldown: Number("int"),
+ *           targetValue: Number("double"), // required
+ *         },
+ *       },
+ *     },
+ *   },
+ *   replicaSpecifications: [ // ReplicaSpecificationList
+ *     { // ReplicaSpecification
+ *       region: "STRING_VALUE", // required
+ *       readCapacityUnits: Number("long"),
+ *       readCapacityAutoScaling: {
+ *         autoScalingDisabled: true || false,
+ *         minimumUnits: Number("long"),
+ *         maximumUnits: Number("long"),
+ *         scalingPolicy: {
+ *           targetTrackingScalingPolicyConfiguration: {
+ *             disableScaleIn: true || false,
+ *             scaleInCooldown: Number("int"),
+ *             scaleOutCooldown: Number("int"),
+ *             targetValue: Number("double"), // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
@@ -113,10 +160,10 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *  <p>You don't have sufficient access permissions to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Amazon Keyspaces could not complete the requested action. This error may occur if you try to
+ *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to
  *          perform an action and the same or a different action is already
  *          in progress, or if you try to create a resource that already exists. </p>
  *

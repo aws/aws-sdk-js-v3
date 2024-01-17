@@ -266,6 +266,14 @@ GetTable
 </details>
 <details>
 <summary>
+GetTableAutoScalingSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/keyspaces/command/GetTableAutoScalingSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/GetTableAutoScalingSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/GetTableAutoScalingSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListKeyspaces
 </summary>
 

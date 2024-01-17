@@ -4,12 +4,15 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -25,6 +28,10 @@ import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/C
 import { DeleteKeyspaceCommandInput, DeleteKeyspaceCommandOutput } from "../commands/DeleteKeyspaceCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/DeleteTableCommand";
 import { GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "../commands/GetKeyspaceCommand";
+import {
+  GetTableAutoScalingSettingsCommandInput,
+  GetTableAutoScalingSettingsCommandOutput,
+} from "../commands/GetTableAutoScalingSettingsCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "../commands/GetTableCommand";
 import { ListKeyspacesCommandInput, ListKeyspacesCommandOutput } from "../commands/ListKeyspacesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
@@ -39,6 +46,9 @@ import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/U
 import { KeyspacesServiceException as __BaseException } from "../models/KeyspacesServiceException";
 import {
   AccessDeniedException,
+  AutoScalingPolicy,
+  AutoScalingSettings,
+  AutoScalingSpecification,
   CapacitySpecification,
   CapacitySpecificationSummary,
   ClientSideTimestamps,
@@ -52,6 +62,8 @@ import {
   DeleteTableRequest,
   EncryptionSpecification,
   GetKeyspaceRequest,
+  GetTableAutoScalingSettingsRequest,
+  GetTableAutoScalingSettingsResponse,
   GetTableRequest,
   GetTableResponse,
   InternalServerException,
@@ -61,6 +73,9 @@ import {
   PartitionKey,
   PointInTimeRecovery,
   PointInTimeRecoverySummary,
+  ReplicaAutoScalingSpecification,
+  ReplicaSpecification,
+  ReplicaSpecificationSummary,
   ReplicationSpecification,
   ResourceNotFoundException,
   RestoreTableRequest,
@@ -69,6 +84,7 @@ import {
   StaticColumn,
   Tag,
   TagResourceRequest,
+  TargetTrackingScalingPolicyConfiguration,
   TimeToLive,
   UntagResourceRequest,
   UpdateTableRequest,
@@ -97,7 +113,7 @@ export const se_CreateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateTable");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -148,6 +164,19 @@ export const se_GetTableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetTable");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetTableAutoScalingSettingsCommand
+ */
+export const se_GetTableAutoScalingSettingsCommand = async (
+  input: GetTableAutoScalingSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetTableAutoScalingSettings");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -240,7 +269,7 @@ export const se_UpdateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateTable");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateTableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -570,6 +599,64 @@ const de_GetTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.keyspaces#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.keyspaces#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.keyspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.keyspaces#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.keyspaces#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0GetTableAutoScalingSettingsCommand
+ */
+export const de_GetTableAutoScalingSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTableAutoScalingSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetTableAutoScalingSettingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTableAutoScalingSettingsResponse(data, context);
+  const response: GetTableAutoScalingSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetTableAutoScalingSettingsCommandError
+ */
+const de_GetTableAutoScalingSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTableAutoScalingSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1106,6 +1193,37 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * serializeAws_json1_0AutoScalingPolicy
+ */
+const se_AutoScalingPolicy = (input: AutoScalingPolicy, context: __SerdeContext): any => {
+  return take(input, {
+    targetTrackingScalingPolicyConfiguration: (_) => se_TargetTrackingScalingPolicyConfiguration(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_0AutoScalingSettings
+ */
+const se_AutoScalingSettings = (input: AutoScalingSettings, context: __SerdeContext): any => {
+  return take(input, {
+    autoScalingDisabled: [],
+    maximumUnits: [],
+    minimumUnits: [],
+    scalingPolicy: (_) => se_AutoScalingPolicy(_, context),
+  });
+};
+
+/**
+ * serializeAws_json1_0AutoScalingSpecification
+ */
+const se_AutoScalingSpecification = (input: AutoScalingSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    readCapacityAutoScaling: (_) => se_AutoScalingSettings(_, context),
+    writeCapacityAutoScaling: (_) => se_AutoScalingSettings(_, context),
+  });
+};
+
 // se_CapacitySpecification omitted.
 
 // se_ClientSideTimestamps omitted.
@@ -1122,7 +1240,26 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateKeyspaceRequest omitted.
 
-// se_CreateTableRequest omitted.
+/**
+ * serializeAws_json1_0CreateTableRequest
+ */
+const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContext): any => {
+  return take(input, {
+    autoScalingSpecification: (_) => se_AutoScalingSpecification(_, context),
+    capacitySpecification: _json,
+    clientSideTimestamps: _json,
+    comment: _json,
+    defaultTimeToLive: [],
+    encryptionSpecification: _json,
+    keyspaceName: [],
+    pointInTimeRecovery: _json,
+    replicaSpecifications: (_) => se_ReplicaSpecificationList(_, context),
+    schemaDefinition: _json,
+    tableName: [],
+    tags: _json,
+    ttl: _json,
+  });
+};
 
 // se_DeleteKeyspaceRequest omitted.
 
@@ -1131,6 +1268,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_EncryptionSpecification omitted.
 
 // se_GetKeyspaceRequest omitted.
+
+// se_GetTableAutoScalingSettingsRequest omitted.
 
 // se_GetTableRequest omitted.
 
@@ -1148,6 +1287,28 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_RegionList omitted.
 
+/**
+ * serializeAws_json1_0ReplicaSpecification
+ */
+const se_ReplicaSpecification = (input: ReplicaSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    readCapacityAutoScaling: (_) => se_AutoScalingSettings(_, context),
+    readCapacityUnits: [],
+    region: [],
+  });
+};
+
+/**
+ * serializeAws_json1_0ReplicaSpecificationList
+ */
+const se_ReplicaSpecificationList = (input: ReplicaSpecification[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ReplicaSpecification(entry, context);
+    });
+};
+
 // se_ReplicationSpecification omitted.
 
 /**
@@ -1155,9 +1316,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_RestoreTableRequest = (input: RestoreTableRequest, context: __SerdeContext): any => {
   return take(input, {
+    autoScalingSpecification: (_) => se_AutoScalingSpecification(_, context),
     capacitySpecificationOverride: _json,
     encryptionSpecificationOverride: _json,
     pointInTimeRecoveryOverride: _json,
+    replicaSpecifications: (_) => se_ReplicaSpecificationList(_, context),
     restoreTimestamp: (_) => Math.round(_.getTime() / 1000),
     sourceKeyspaceName: [],
     sourceTableName: [],
@@ -1179,13 +1342,76 @@ const se_RestoreTableRequest = (input: RestoreTableRequest, context: __SerdeCont
 
 // se_TagResourceRequest omitted.
 
+/**
+ * serializeAws_json1_0TargetTrackingScalingPolicyConfiguration
+ */
+const se_TargetTrackingScalingPolicyConfiguration = (
+  input: TargetTrackingScalingPolicyConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    disableScaleIn: [],
+    scaleInCooldown: [],
+    scaleOutCooldown: [],
+    targetValue: __serializeFloat,
+  });
+};
+
 // se_TimeToLive omitted.
 
 // se_UntagResourceRequest omitted.
 
-// se_UpdateTableRequest omitted.
+/**
+ * serializeAws_json1_0UpdateTableRequest
+ */
+const se_UpdateTableRequest = (input: UpdateTableRequest, context: __SerdeContext): any => {
+  return take(input, {
+    addColumns: _json,
+    autoScalingSpecification: (_) => se_AutoScalingSpecification(_, context),
+    capacitySpecification: _json,
+    clientSideTimestamps: _json,
+    defaultTimeToLive: [],
+    encryptionSpecification: _json,
+    keyspaceName: [],
+    pointInTimeRecovery: _json,
+    replicaSpecifications: (_) => se_ReplicaSpecificationList(_, context),
+    tableName: [],
+    ttl: _json,
+  });
+};
 
 // de_AccessDeniedException omitted.
+
+/**
+ * deserializeAws_json1_0AutoScalingPolicy
+ */
+const de_AutoScalingPolicy = (output: any, context: __SerdeContext): AutoScalingPolicy => {
+  return take(output, {
+    targetTrackingScalingPolicyConfiguration: (_: any) => de_TargetTrackingScalingPolicyConfiguration(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0AutoScalingSettings
+ */
+const de_AutoScalingSettings = (output: any, context: __SerdeContext): AutoScalingSettings => {
+  return take(output, {
+    autoScalingDisabled: __expectBoolean,
+    maximumUnits: __expectLong,
+    minimumUnits: __expectLong,
+    scalingPolicy: (_: any) => de_AutoScalingPolicy(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0AutoScalingSpecification
+ */
+const de_AutoScalingSpecification = (output: any, context: __SerdeContext): AutoScalingSpecification => {
+  return take(output, {
+    readCapacityAutoScaling: (_: any) => de_AutoScalingSettings(_, context),
+    writeCapacityAutoScaling: (_: any) => de_AutoScalingSettings(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0CapacitySpecificationSummary
@@ -1226,6 +1452,22 @@ const de_CapacitySpecificationSummary = (output: any, context: __SerdeContext): 
 // de_GetKeyspaceResponse omitted.
 
 /**
+ * deserializeAws_json1_0GetTableAutoScalingSettingsResponse
+ */
+const de_GetTableAutoScalingSettingsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetTableAutoScalingSettingsResponse => {
+  return take(output, {
+    autoScalingSpecification: (_: any) => de_AutoScalingSpecification(_, context),
+    keyspaceName: __expectString,
+    replicaSpecifications: (_: any) => de_ReplicaAutoScalingSpecificationList(_, context),
+    resourceArn: __expectString,
+    tableName: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0GetTableResponse
  */
 const de_GetTableResponse = (output: any, context: __SerdeContext): GetTableResponse => {
@@ -1238,6 +1480,7 @@ const de_GetTableResponse = (output: any, context: __SerdeContext): GetTableResp
     encryptionSpecification: _json,
     keyspaceName: __expectString,
     pointInTimeRecovery: (_: any) => de_PointInTimeRecoverySummary(_, context),
+    replicaSpecifications: (_: any) => de_ReplicaSpecificationSummaryList(_, context),
     resourceArn: __expectString,
     schemaDefinition: _json,
     status: __expectString,
@@ -1274,6 +1517,54 @@ const de_PointInTimeRecoverySummary = (output: any, context: __SerdeContext): Po
 
 // de_RegionList omitted.
 
+/**
+ * deserializeAws_json1_0ReplicaAutoScalingSpecification
+ */
+const de_ReplicaAutoScalingSpecification = (output: any, context: __SerdeContext): ReplicaAutoScalingSpecification => {
+  return take(output, {
+    autoScalingSpecification: (_: any) => de_AutoScalingSpecification(_, context),
+    region: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ReplicaAutoScalingSpecificationList
+ */
+const de_ReplicaAutoScalingSpecificationList = (
+  output: any,
+  context: __SerdeContext
+): ReplicaAutoScalingSpecification[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReplicaAutoScalingSpecification(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0ReplicaSpecificationSummary
+ */
+const de_ReplicaSpecificationSummary = (output: any, context: __SerdeContext): ReplicaSpecificationSummary => {
+  return take(output, {
+    capacitySpecification: (_: any) => de_CapacitySpecificationSummary(_, context),
+    region: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ReplicaSpecificationSummaryList
+ */
+const de_ReplicaSpecificationSummaryList = (output: any, context: __SerdeContext): ReplicaSpecificationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReplicaSpecificationSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_ResourceNotFoundException omitted.
 
 // de_RestoreTableResponse omitted.
@@ -1295,6 +1586,21 @@ const de_PointInTimeRecoverySummary = (output: any, context: __SerdeContext): Po
 // de_TagList omitted.
 
 // de_TagResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_0TargetTrackingScalingPolicyConfiguration
+ */
+const de_TargetTrackingScalingPolicyConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingScalingPolicyConfiguration => {
+  return take(output, {
+    disableScaleIn: __expectBoolean,
+    scaleInCooldown: __expectInt32,
+    scaleOutCooldown: __expectInt32,
+    targetValue: __limitedParseDouble,
+  }) as any;
+};
 
 // de_TimeToLive omitted.
 

@@ -4,6 +4,7 @@ export * from "./CreateTableCommand";
 export * from "./DeleteKeyspaceCommand";
 export * from "./DeleteTableCommand";
 export * from "./GetKeyspaceCommand";
+export * from "./GetTableAutoScalingSettingsCommand";
 export * from "./GetTableCommand";
 export * from "./ListKeyspacesCommand";
 export * from "./ListTablesCommand";

@@ -64,7 +64,7 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *  <p>You don't have sufficient access permissions to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>

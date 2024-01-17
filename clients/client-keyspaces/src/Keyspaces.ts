@@ -15,6 +15,11 @@ import {
 } from "./commands/DeleteKeyspaceCommand";
 import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import { GetKeyspaceCommand, GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "./commands/GetKeyspaceCommand";
+import {
+  GetTableAutoScalingSettingsCommand,
+  GetTableAutoScalingSettingsCommandInput,
+  GetTableAutoScalingSettingsCommandOutput,
+} from "./commands/GetTableAutoScalingSettingsCommand";
 import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import {
   ListKeyspacesCommand,
@@ -48,6 +53,7 @@ const commands = {
   DeleteTableCommand,
   GetKeyspaceCommand,
   GetTableCommand,
+  GetTableAutoScalingSettingsCommand,
   ListKeyspacesCommand,
   ListTablesCommand,
   ListTagsForResourceCommand,
@@ -128,6 +134,23 @@ export interface Keyspaces {
     args: GetTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTableAutoScalingSettingsCommand}
+   */
+  getTableAutoScalingSettings(
+    args: GetTableAutoScalingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableAutoScalingSettingsCommandOutput>;
+  getTableAutoScalingSettings(
+    args: GetTableAutoScalingSettingsCommandInput,
+    cb: (err: any, data?: GetTableAutoScalingSettingsCommandOutput) => void
+  ): void;
+  getTableAutoScalingSettings(
+    args: GetTableAutoScalingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableAutoScalingSettingsCommandOutput) => void
   ): void;
 
   /**
