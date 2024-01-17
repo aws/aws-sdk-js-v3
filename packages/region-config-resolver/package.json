@@ -24,7 +24,7 @@
     "@aws-sdk/types": "*",
     "@smithy/node-config-provider": "^2.2.0",
     "@smithy/types": "^2.9.0",
-    "@smithy/util-config-provider": "^2.1.0",
+    "@smithy/util-config-provider": "^2.2.0",
     "@smithy/util-middleware": "^2.1.0",
     "tslib": "^2.5.0"
   },

@@ -30,6 +30,9 @@ const lib = fs.readdirSync(path.join(root, "lib"));
 const packages = fs.readdirSync(path.join(root, "packages"));
 const _private = fs.readdirSync(path.join(root, "private"));
 
+const setCanonicalVersion = process.argv.includes("--set-smithy-version");
+const colocatedSmithy = fs.existsSync(path.join(root, "..", "smithy-typescript", "packages"));
+
 const clientPackages = [
   ...clients.map((c) => path.join(root, "clients", c)),
   ..._private.filter((p) => !p.endsWith("-test")).map((p) => path.join(root, "private", p)),
@@ -64,6 +67,22 @@ for (const pkg of nonClientPackages) {
         console.log("set", pkgJson.name, "dependencies", name, "to", newVersion);
         pkgJson.dependencies[name] = newVersion;
       }
+    } else if (name.startsWith("@smithy")) {
+      if (colocatedSmithy && setCanonicalVersion) {
+        const pkgFolderName = name.replace("@smithy/", "");
+        const canonicalVersion = require(path.join(
+          root,
+          "..",
+          "smithy-typescript",
+          "packages",
+          pkgFolderName,
+          "package.json"
+        )).version;
+        if (pkgJson.dependencies[name] !== `^${canonicalVersion}`) {
+          pkgJson.dependencies[name] = `^${canonicalVersion}`;
+          console.log("[--set-smithy-version=true] set", pkgJson.name, "dependencies", name, "to", canonicalVersion);
+        }
+      }
     }
   }
 
@@ -76,6 +95,22 @@ for (const pkg of nonClientPackages) {
       if (newVersion && pkgJson.devDependencies[name] !== newVersion) {
         console.log("set", pkgJson.name, "devDependencies", name, "to", newVersion);
         pkgJson.devDependencies[name] = newVersion;
+      }
+    } else if (name.startsWith("@smithy")) {
+      if (colocatedSmithy && setCanonicalVersion) {
+        const pkgFolderName = name.replace("@smithy/", "");
+        const canonicalVersion = require(path.join(
+          root,
+          "..",
+          "smithy-typescript",
+          "packages",
+          pkgFolderName,
+          "package.json"
+        )).version;
+        if (pkgJson.devDependencies[name] !== `^${canonicalVersion}`) {
+          pkgJson.devDependencies[name] = `^${canonicalVersion}`;
+          console.log("[--set-smithy-version=true] set", pkgJson.name, "dependencies", name, "to", canonicalVersion);
+        }
       }
     }
   }
