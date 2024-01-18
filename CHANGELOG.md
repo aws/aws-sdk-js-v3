@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
+
+
+### Features
+
+* **client-b2bi:** Increasing TestMapping inputFileContent file size limit to 5MB and adding file size limit 250KB for TestParsing input file. This release also includes exposing InternalServerException for Tag APIs. ([255a7b4](https://github.com/aws/aws-sdk-js-v3/commit/255a7b49958f2445927b61bb1687a24a888e676f))
+* **client-cloudtrail:** This release adds a new API ListInsightsMetricData to retrieve metric data from CloudTrail Insights. ([8bd69ca](https://github.com/aws/aws-sdk-js-v3/commit/8bd69cad45f2df42ac424a6dcb4efcf12e464feb))
+* **client-connect:** GetMetricDataV2 now supports 3 groupings ([9f1a143](https://github.com/aws/aws-sdk-js-v3/commit/9f1a143c0df0728d47742b999cb427fa35175e98))
+* **client-drs:** Removed invalid and unnecessary default values. ([d7c4d31](https://github.com/aws/aws-sdk-js-v3/commit/d7c4d310f4f9612b831662c8231ee435a372d8a7))
+* **client-firehose:** Allow support for Snowflake as a Kinesis Data Firehose delivery destination. ([bdf431e](https://github.com/aws/aws-sdk-js-v3/commit/bdf431ebba4ea97310af7212799b1c8b2f92d8cc))
+* **client-sagemaker-featurestore-runtime:** Increase BatchGetRecord limits from 10 items to 100 items ([f12c0b5](https://github.com/aws/aws-sdk-js-v3/commit/f12c0b510d2c661a3df3e87f2c8d17abb407deec))
+* **clients:** update client endpoints as of 2024-01-18 ([cfe6ad9](https://github.com/aws/aws-sdk-js-v3/commit/cfe6ad98e022168babf6c5714af9172c7e7c32af))
+* use bundled dist-cjs build ([#5687](https://github.com/aws/aws-sdk-js-v3/issues/5687)) ([5f79e22](https://github.com/aws/aws-sdk-js-v3/commit/5f79e225e32f0b2ed5b432ae4e4108663eb0acfb))
+
+
+
+
+
 # [3.494.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.493.0...v3.494.0) (2024-01-17)
 
 
