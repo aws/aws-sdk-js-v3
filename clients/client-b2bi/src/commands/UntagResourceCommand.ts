@@ -53,6 +53,9 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link B2biClientResolvedConfig | config} for B2biClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.</p>
  *

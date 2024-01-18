@@ -28,7 +28,7 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
 
 /**
  * @public
- * <p>Parses the input EDI (electronic data interchange) file.</p>
+ * <p>Parses the input EDI (electronic data interchange) file. The input file has a file size limit of 250 KB.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
