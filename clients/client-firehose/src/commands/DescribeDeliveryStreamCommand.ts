@@ -462,6 +462,31 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //           S3BackupMode: "FailedDataOnly" || "AllData",
  * //           S3DestinationDescription: "<S3DestinationDescription>",
  * //         },
+ * //         SnowflakeDestinationDescription: { // SnowflakeDestinationDescription
+ * //           AccountUrl: "STRING_VALUE",
+ * //           User: "STRING_VALUE",
+ * //           Database: "STRING_VALUE",
+ * //           Schema: "STRING_VALUE",
+ * //           Table: "STRING_VALUE",
+ * //           SnowflakeRoleConfiguration: { // SnowflakeRoleConfiguration
+ * //             Enabled: true || false,
+ * //             SnowflakeRole: "STRING_VALUE",
+ * //           },
+ * //           DataLoadingOption: "JSON_MAPPING" || "VARIANT_CONTENT_MAPPING" || "VARIANT_CONTENT_AND_METADATA_MAPPING",
+ * //           MetaDataColumnName: "STRING_VALUE",
+ * //           ContentColumnName: "STRING_VALUE",
+ * //           SnowflakeVpcConfiguration: { // SnowflakeVpcConfiguration
+ * //             PrivateLinkVpceId: "STRING_VALUE", // required
+ * //           },
+ * //           CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ * //           ProcessingConfiguration: "<ProcessingConfiguration>",
+ * //           RoleARN: "STRING_VALUE",
+ * //           RetryOptions: { // SnowflakeRetryOptions
+ * //             DurationInSeconds: Number("int"),
+ * //           },
+ * //           S3BackupMode: "FailedDataOnly" || "AllData",
+ * //           S3DestinationDescription: "<S3DestinationDescription>",
+ * //         },
  * //         AmazonOpenSearchServerlessDestinationDescription: { // AmazonOpenSearchServerlessDestinationDescription
  * //           RoleARN: "STRING_VALUE",
  * //           CollectionEndpoint: "STRING_VALUE",

@@ -526,6 +526,33 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Connectivity: "PUBLIC" || "PRIVATE", // required
  *     },
  *   },
+ *   SnowflakeDestinationConfiguration: { // SnowflakeDestinationConfiguration
+ *     AccountUrl: "STRING_VALUE", // required
+ *     PrivateKey: "STRING_VALUE", // required
+ *     KeyPassphrase: "STRING_VALUE",
+ *     User: "STRING_VALUE", // required
+ *     Database: "STRING_VALUE", // required
+ *     Schema: "STRING_VALUE", // required
+ *     Table: "STRING_VALUE", // required
+ *     SnowflakeRoleConfiguration: { // SnowflakeRoleConfiguration
+ *       Enabled: true || false,
+ *       SnowflakeRole: "STRING_VALUE",
+ *     },
+ *     DataLoadingOption: "JSON_MAPPING" || "VARIANT_CONTENT_MAPPING" || "VARIANT_CONTENT_AND_METADATA_MAPPING",
+ *     MetaDataColumnName: "STRING_VALUE",
+ *     ContentColumnName: "STRING_VALUE",
+ *     SnowflakeVpcConfiguration: { // SnowflakeVpcConfiguration
+ *       PrivateLinkVpceId: "STRING_VALUE", // required
+ *     },
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     ProcessingConfiguration: "<ProcessingConfiguration>",
+ *     RoleARN: "STRING_VALUE", // required
+ *     RetryOptions: { // SnowflakeRetryOptions
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     S3BackupMode: "FailedDataOnly" || "AllData",
+ *     S3Configuration: "<S3DestinationConfiguration>", // required
+ *   },
  * };
  * const command = new CreateDeliveryStreamCommand(input);
  * const response = await client.send(command);

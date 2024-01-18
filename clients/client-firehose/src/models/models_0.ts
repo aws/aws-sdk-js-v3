@@ -2598,6 +2598,204 @@ export interface RedshiftDestinationConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const SnowflakeDataLoadingOption = {
+  JSON_MAPPING: "JSON_MAPPING",
+  VARIANT_CONTENT_AND_METADATA_MAPPING: "VARIANT_CONTENT_AND_METADATA_MAPPING",
+  VARIANT_CONTENT_MAPPING: "VARIANT_CONTENT_MAPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type SnowflakeDataLoadingOption = (typeof SnowflakeDataLoadingOption)[keyof typeof SnowflakeDataLoadingOption];
+
+/**
+ * @public
+ * <p>Specify how long Kinesis Data Firehose retries sending data to the New Relic HTTP endpoint.
+ *
+ *          After sending data, Kinesis Data Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Kinesis Data Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Kinesis Data Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket.
+ *
+ *          Every time that Kinesis Data Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint.
+ *
+ *          Even if the retry duration expires, Kinesis Data Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Kinesis Data Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired.
+ *
+ *          If you don't want Kinesis Data Firehose to retry sending data, set this value to 0.</p>
+ */
+export interface SnowflakeRetryOptions {
+  /**
+   * @public
+   * <p>the time period where Kinesis Data Firehose will retry sending data to the chosen HTTP endpoint.</p>
+   */
+  DurationInSeconds?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SnowflakeS3BackupMode = {
+  AllData: "AllData",
+  FailedDataOnly: "FailedDataOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type SnowflakeS3BackupMode = (typeof SnowflakeS3BackupMode)[keyof typeof SnowflakeS3BackupMode];
+
+/**
+ * @public
+ * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+ */
+export interface SnowflakeRoleConfiguration {
+  /**
+   * @public
+   * <p>Enable Snowflake role</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>The Snowflake role you wish to configure</p>
+   */
+  SnowflakeRole?: string;
+}
+
+/**
+ * @public
+ * <p>Configure a Snowflake VPC</p>
+ */
+export interface SnowflakeVpcConfiguration {
+  /**
+   * @public
+   * <p>The VPCE ID for Firehose to privately connect with Snowflake. The ID format is
+   *          com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see <a href="https://docs.snowflake.com/en/user-guide/admin-security-privatelink">Amazon PrivateLink & Snowflake</a>
+   *          </p>
+   */
+  PrivateLinkVpceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Configure Snowflake destination</p>
+ */
+export interface SnowflakeDestinationConfiguration {
+  /**
+   * @public
+   * <p>URL for accessing your Snowflake account. This URL must include your <a href="https://docs.snowflake.com/en/user-guide/admin-account-identifier">account identifier</a>.
+   *          Note that the protocol (https://) and port number are optional.</p>
+   */
+  AccountUrl: string | undefined;
+
+  /**
+   * @public
+   * <p>The private key used to encrypt your Snowflake client. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
+   */
+  PrivateKey: string | undefined;
+
+  /**
+   * @public
+   * <p>Passphrase to decrypt the private key when the key is encrypted. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
+   */
+  KeyPassphrase?: string;
+
+  /**
+   * @public
+   * <p>User login name for the Snowflake account.</p>
+   */
+  User: string | undefined;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is maintained in databases.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * @public
+   * <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
+   */
+  Schema: string | undefined;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * @public
+   * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+   */
+  SnowflakeRoleConfiguration?: SnowflakeRoleConfiguration;
+
+  /**
+   * @public
+   * <p>Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.</p>
+   */
+  DataLoadingOption?: SnowflakeDataLoadingOption;
+
+  /**
+   * @public
+   * <p>The name of the record metadata column</p>
+   */
+  MetaDataColumnName?: string;
+
+  /**
+   * @public
+   * <p>The name of the record content column</p>
+   */
+  ContentColumnName?: string;
+
+  /**
+   * @public
+   * <p>The VPCE ID for Firehose to privately connect with Snowflake. The ID format is
+   *          com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see <a href="https://docs.snowflake.com/en/user-guide/admin-security-privatelink">Amazon PrivateLink & Snowflake</a>
+   *          </p>
+   */
+  SnowflakeVpcConfiguration?: SnowflakeVpcConfiguration;
+
+  /**
+   * @public
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Snowflake role</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
+   * @public
+   * <p>The time period where Kinesis Data Firehose will retry sending data to the chosen HTTP endpoint.</p>
+   */
+  RetryOptions?: SnowflakeRetryOptions;
+
+  /**
+   * @public
+   * <p>Choose an S3 backup mode</p>
+   */
+  S3BackupMode?: SnowflakeS3BackupMode;
+
+  /**
+   * @public
+   * <p>Describes the configuration of a destination in Amazon S3.</p>
+   */
+  S3Configuration: S3DestinationConfiguration | undefined;
+}
+
+/**
+ * @public
  * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
  */
 export interface SplunkBufferingHints {
@@ -2879,6 +3077,12 @@ export interface CreateDeliveryStreamInput {
    *          stream.</p>
    */
   MSKSourceConfiguration?: MSKSourceConfiguration;
+
+  /**
+   * @public
+   * <p>Configure Snowflake destination</p>
+   */
+  SnowflakeDestinationConfiguration?: SnowflakeDestinationConfiguration;
 }
 
 /**
@@ -3510,6 +3714,111 @@ export interface RedshiftDestinationDescription {
 
 /**
  * @public
+ * <p>Optional Snowflake destination description</p>
+ */
+export interface SnowflakeDestinationDescription {
+  /**
+   * @public
+   * <p>URL for accessing your Snowflake account. This URL must include your <a href="https://docs.snowflake.com/en/user-guide/admin-account-identifier">account identifier</a>.
+   *          Note that the protocol (https://) and port number are optional.</p>
+   */
+  AccountUrl?: string;
+
+  /**
+   * @public
+   * <p>User login name for the Snowflake account.</p>
+   */
+  User?: string;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is maintained in databases.</p>
+   */
+  Database?: string;
+
+  /**
+   * @public
+   * <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
+   */
+  Schema?: string;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.</p>
+   */
+  Table?: string;
+
+  /**
+   * @public
+   * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+   */
+  SnowflakeRoleConfiguration?: SnowflakeRoleConfiguration;
+
+  /**
+   * @public
+   * <p>Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.</p>
+   */
+  DataLoadingOption?: SnowflakeDataLoadingOption;
+
+  /**
+   * @public
+   * <p>The name of the record metadata column</p>
+   */
+  MetaDataColumnName?: string;
+
+  /**
+   * @public
+   * <p>The name of the record content column</p>
+   */
+  ContentColumnName?: string;
+
+  /**
+   * @public
+   * <p>The VPCE ID for Firehose to privately connect with Snowflake. The ID format is
+   *          com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see <a href="https://docs.snowflake.com/en/user-guide/admin-security-privatelink">Amazon PrivateLink & Snowflake</a>
+   *          </p>
+   */
+  SnowflakeVpcConfiguration?: SnowflakeVpcConfiguration;
+
+  /**
+   * @public
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Snowflake role</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * @public
+   * <p>The time period where Kinesis Data Firehose will retry sending data to the chosen HTTP endpoint.</p>
+   */
+  RetryOptions?: SnowflakeRetryOptions;
+
+  /**
+   * @public
+   * <p>Choose an S3 backup mode</p>
+   */
+  S3BackupMode?: SnowflakeS3BackupMode;
+
+  /**
+   * @public
+   * <p>Describes a destination in Amazon S3.</p>
+   */
+  S3DestinationDescription?: S3DestinationDescription;
+}
+
+/**
+ * @public
  * <p>Describes a destination in Splunk.</p>
  */
 export interface SplunkDestinationDescription {
@@ -3636,6 +3945,12 @@ export interface DestinationDescription {
    * <p>Describes the specified HTTP endpoint destination.</p>
    */
   HttpEndpointDestinationDescription?: HttpEndpointDestinationDescription;
+
+  /**
+   * @public
+   * <p>Optional description for the destination</p>
+   */
+  SnowflakeDestinationDescription?: SnowflakeDestinationDescription;
 
   /**
    * @public
@@ -4571,6 +4886,123 @@ export interface RedshiftDestinationUpdate {
 
 /**
  * @public
+ * <p>Update to configuration settings</p>
+ */
+export interface SnowflakeDestinationUpdate {
+  /**
+   * @public
+   * <p>URL for accessing your Snowflake account. This URL must include your <a href="https://docs.snowflake.com/en/user-guide/admin-account-identifier">account identifier</a>.
+   *          Note that the protocol (https://) and port number are optional.</p>
+   */
+  AccountUrl?: string;
+
+  /**
+   * @public
+   * <p>The private key used to encrypt your Snowflake client. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
+   */
+  PrivateKey?: string;
+
+  /**
+   * @public
+   * <p>Passphrase to decrypt the private key when the key is encrypted. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
+   */
+  KeyPassphrase?: string;
+
+  /**
+   * @public
+   * <p>User login name for the Snowflake account.</p>
+   */
+  User?: string;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is maintained in databases.</p>
+   */
+  Database?: string;
+
+  /**
+   * @public
+   * <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
+   */
+  Schema?: string;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.</p>
+   */
+  Table?: string;
+
+  /**
+   * @public
+   * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+   */
+  SnowflakeRoleConfiguration?: SnowflakeRoleConfiguration;
+
+  /**
+   * @public
+   * <p> JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.</p>
+   */
+  DataLoadingOption?: SnowflakeDataLoadingOption;
+
+  /**
+   * @public
+   * <p>The name of the record metadata column</p>
+   */
+  MetaDataColumnName?: string;
+
+  /**
+   * @public
+   * <p>The name of the content metadata column</p>
+   */
+  ContentColumnName?: string;
+
+  /**
+   * @public
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Snowflake role</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * @public
+   * <p>Specify how long Kinesis Data Firehose retries sending data to the New Relic HTTP endpoint.
+   *
+   *          After sending data, Kinesis Data Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Kinesis Data Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Kinesis Data Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket.
+   *
+   *          Every time that Kinesis Data Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint.
+   *
+   *          Even if the retry duration expires, Kinesis Data Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Kinesis Data Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired.
+   *
+   *          If you don't want Kinesis Data Firehose to retry sending data, set this value to 0.</p>
+   */
+  RetryOptions?: SnowflakeRetryOptions;
+
+  /**
+   * @public
+   * <p>Choose an S3 backup mode</p>
+   */
+  S3BackupMode?: SnowflakeS3BackupMode;
+
+  /**
+   * @public
+   * <p>Describes an update for a destination in Amazon S3.</p>
+   */
+  S3Update?: S3DestinationUpdate;
+}
+
+/**
+ * @public
  * <p>Describes an update for a destination in Splunk.</p>
  */
 export interface SplunkDestinationUpdate {
@@ -4724,6 +5156,12 @@ export interface UpdateDestinationInput {
    *          Service.</p>
    */
   AmazonOpenSearchServerlessDestinationUpdate?: AmazonOpenSearchServerlessDestinationUpdate;
+
+  /**
+   * @public
+   * <p>Update to the Snowflake destination condiguration settings</p>
+   */
+  SnowflakeDestinationUpdate?: SnowflakeDestinationUpdate;
 }
 
 /**
@@ -4786,6 +5224,44 @@ export const RedshiftDestinationConfigurationFilterSensitiveLog = (obj: Redshift
 /**
  * @internal
  */
+export const SnowflakeRoleConfigurationFilterSensitiveLog = (obj: SnowflakeRoleConfiguration): any => ({
+  ...obj,
+  ...(obj.SnowflakeRole && { SnowflakeRole: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeVpcConfigurationFilterSensitiveLog = (obj: SnowflakeVpcConfiguration): any => ({
+  ...obj,
+  ...(obj.PrivateLinkVpceId && { PrivateLinkVpceId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeDestinationConfigurationFilterSensitiveLog = (obj: SnowflakeDestinationConfiguration): any => ({
+  ...obj,
+  ...(obj.AccountUrl && { AccountUrl: SENSITIVE_STRING }),
+  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+  ...(obj.KeyPassphrase && { KeyPassphrase: SENSITIVE_STRING }),
+  ...(obj.User && { User: SENSITIVE_STRING }),
+  ...(obj.Database && { Database: SENSITIVE_STRING }),
+  ...(obj.Schema && { Schema: SENSITIVE_STRING }),
+  ...(obj.Table && { Table: SENSITIVE_STRING }),
+  ...(obj.SnowflakeRoleConfiguration && {
+    SnowflakeRoleConfiguration: SnowflakeRoleConfigurationFilterSensitiveLog(obj.SnowflakeRoleConfiguration),
+  }),
+  ...(obj.MetaDataColumnName && { MetaDataColumnName: SENSITIVE_STRING }),
+  ...(obj.ContentColumnName && { ContentColumnName: SENSITIVE_STRING }),
+  ...(obj.SnowflakeVpcConfiguration && {
+    SnowflakeVpcConfiguration: SnowflakeVpcConfigurationFilterSensitiveLog(obj.SnowflakeVpcConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const CreateDeliveryStreamInputFilterSensitiveLog = (obj: CreateDeliveryStreamInput): any => ({
   ...obj,
   ...(obj.RedshiftDestinationConfiguration && {
@@ -4796,6 +5272,11 @@ export const CreateDeliveryStreamInputFilterSensitiveLog = (obj: CreateDeliveryS
   ...(obj.HttpEndpointDestinationConfiguration && {
     HttpEndpointDestinationConfiguration: HttpEndpointDestinationConfigurationFilterSensitiveLog(
       obj.HttpEndpointDestinationConfiguration
+    ),
+  }),
+  ...(obj.SnowflakeDestinationConfiguration && {
+    SnowflakeDestinationConfiguration: SnowflakeDestinationConfigurationFilterSensitiveLog(
+      obj.SnowflakeDestinationConfiguration
     ),
   }),
 });
@@ -4832,6 +5313,26 @@ export const RedshiftDestinationDescriptionFilterSensitiveLog = (obj: RedshiftDe
 /**
  * @internal
  */
+export const SnowflakeDestinationDescriptionFilterSensitiveLog = (obj: SnowflakeDestinationDescription): any => ({
+  ...obj,
+  ...(obj.AccountUrl && { AccountUrl: SENSITIVE_STRING }),
+  ...(obj.User && { User: SENSITIVE_STRING }),
+  ...(obj.Database && { Database: SENSITIVE_STRING }),
+  ...(obj.Schema && { Schema: SENSITIVE_STRING }),
+  ...(obj.Table && { Table: SENSITIVE_STRING }),
+  ...(obj.SnowflakeRoleConfiguration && {
+    SnowflakeRoleConfiguration: SnowflakeRoleConfigurationFilterSensitiveLog(obj.SnowflakeRoleConfiguration),
+  }),
+  ...(obj.MetaDataColumnName && { MetaDataColumnName: SENSITIVE_STRING }),
+  ...(obj.ContentColumnName && { ContentColumnName: SENSITIVE_STRING }),
+  ...(obj.SnowflakeVpcConfiguration && {
+    SnowflakeVpcConfiguration: SnowflakeVpcConfigurationFilterSensitiveLog(obj.SnowflakeVpcConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescription): any => ({
   ...obj,
   ...(obj.RedshiftDestinationDescription && {
@@ -4842,6 +5343,11 @@ export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescrip
   ...(obj.HttpEndpointDestinationDescription && {
     HttpEndpointDestinationDescription: HttpEndpointDestinationDescriptionFilterSensitiveLog(
       obj.HttpEndpointDestinationDescription
+    ),
+  }),
+  ...(obj.SnowflakeDestinationDescription && {
+    SnowflakeDestinationDescription: SnowflakeDestinationDescriptionFilterSensitiveLog(
+      obj.SnowflakeDestinationDescription
     ),
   }),
 });
@@ -4891,6 +5397,25 @@ export const RedshiftDestinationUpdateFilterSensitiveLog = (obj: RedshiftDestina
 /**
  * @internal
  */
+export const SnowflakeDestinationUpdateFilterSensitiveLog = (obj: SnowflakeDestinationUpdate): any => ({
+  ...obj,
+  ...(obj.AccountUrl && { AccountUrl: SENSITIVE_STRING }),
+  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+  ...(obj.KeyPassphrase && { KeyPassphrase: SENSITIVE_STRING }),
+  ...(obj.User && { User: SENSITIVE_STRING }),
+  ...(obj.Database && { Database: SENSITIVE_STRING }),
+  ...(obj.Schema && { Schema: SENSITIVE_STRING }),
+  ...(obj.Table && { Table: SENSITIVE_STRING }),
+  ...(obj.SnowflakeRoleConfiguration && {
+    SnowflakeRoleConfiguration: SnowflakeRoleConfigurationFilterSensitiveLog(obj.SnowflakeRoleConfiguration),
+  }),
+  ...(obj.MetaDataColumnName && { MetaDataColumnName: SENSITIVE_STRING }),
+  ...(obj.ContentColumnName && { ContentColumnName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationInput): any => ({
   ...obj,
   ...(obj.RedshiftDestinationUpdate && {
@@ -4898,5 +5423,8 @@ export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationI
   }),
   ...(obj.HttpEndpointDestinationUpdate && {
     HttpEndpointDestinationUpdate: HttpEndpointDestinationUpdateFilterSensitiveLog(obj.HttpEndpointDestinationUpdate),
+  }),
+  ...(obj.SnowflakeDestinationUpdate && {
+    SnowflakeDestinationUpdate: SnowflakeDestinationUpdateFilterSensitiveLog(obj.SnowflakeDestinationUpdate),
   }),
 });

@@ -429,6 +429,30 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *     ProcessingConfiguration: "<ProcessingConfiguration>",
  *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
  *   },
+ *   SnowflakeDestinationUpdate: { // SnowflakeDestinationUpdate
+ *     AccountUrl: "STRING_VALUE",
+ *     PrivateKey: "STRING_VALUE",
+ *     KeyPassphrase: "STRING_VALUE",
+ *     User: "STRING_VALUE",
+ *     Database: "STRING_VALUE",
+ *     Schema: "STRING_VALUE",
+ *     Table: "STRING_VALUE",
+ *     SnowflakeRoleConfiguration: { // SnowflakeRoleConfiguration
+ *       Enabled: true || false,
+ *       SnowflakeRole: "STRING_VALUE",
+ *     },
+ *     DataLoadingOption: "JSON_MAPPING" || "VARIANT_CONTENT_MAPPING" || "VARIANT_CONTENT_AND_METADATA_MAPPING",
+ *     MetaDataColumnName: "STRING_VALUE",
+ *     ContentColumnName: "STRING_VALUE",
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     ProcessingConfiguration: "<ProcessingConfiguration>",
+ *     RoleARN: "STRING_VALUE",
+ *     RetryOptions: { // SnowflakeRetryOptions
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     S3BackupMode: "FailedDataOnly" || "AllData",
+ *     S3Update: "<S3DestinationUpdate>",
+ *   },
  * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);

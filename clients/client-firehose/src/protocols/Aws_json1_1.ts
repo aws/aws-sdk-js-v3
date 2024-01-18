@@ -133,6 +133,11 @@ import {
   SchemaConfiguration,
   Serializer,
   ServiceUnavailableException,
+  SnowflakeDestinationConfiguration,
+  SnowflakeDestinationUpdate,
+  SnowflakeRetryOptions,
+  SnowflakeRoleConfiguration,
+  SnowflakeVpcConfiguration,
   SourceDescription,
   SplunkBufferingHints,
   SplunkDestinationConfiguration,
@@ -1110,6 +1115,7 @@ const se_CreateDeliveryStreamInput = (input: CreateDeliveryStreamInput, context:
     MSKSourceConfiguration: _json,
     RedshiftDestinationConfiguration: _json,
     S3DestinationConfiguration: _json,
+    SnowflakeDestinationConfiguration: _json,
     SplunkDestinationConfiguration: _json,
     Tags: _json,
   });
@@ -1338,6 +1344,16 @@ const se_Serializer = (input: Serializer, context: __SerdeContext): any => {
   });
 };
 
+// se_SnowflakeDestinationConfiguration omitted.
+
+// se_SnowflakeDestinationUpdate omitted.
+
+// se_SnowflakeRetryOptions omitted.
+
+// se_SnowflakeRoleConfiguration omitted.
+
+// se_SnowflakeVpcConfiguration omitted.
+
 // se_SplunkBufferingHints omitted.
 
 // se_SplunkDestinationConfiguration omitted.
@@ -1377,6 +1393,7 @@ const se_UpdateDestinationInput = (input: UpdateDestinationInput, context: __Ser
     HttpEndpointDestinationUpdate: _json,
     RedshiftDestinationUpdate: _json,
     S3DestinationUpdate: _json,
+    SnowflakeDestinationUpdate: _json,
     SplunkDestinationUpdate: _json,
   });
 };
@@ -1474,6 +1491,7 @@ const de_DestinationDescription = (output: any, context: __SerdeContext): Destin
     HttpEndpointDestinationDescription: _json,
     RedshiftDestinationDescription: _json,
     S3DestinationDescription: _json,
+    SnowflakeDestinationDescription: _json,
     SplunkDestinationDescription: _json,
   }) as any;
 };
@@ -1665,6 +1683,14 @@ const de_Serializer = (output: any, context: __SerdeContext): Serializer => {
 };
 
 // de_ServiceUnavailableException omitted.
+
+// de_SnowflakeDestinationDescription omitted.
+
+// de_SnowflakeRetryOptions omitted.
+
+// de_SnowflakeRoleConfiguration omitted.
+
+// de_SnowflakeVpcConfiguration omitted.
 
 /**
  * deserializeAws_json1_1SourceDescription
