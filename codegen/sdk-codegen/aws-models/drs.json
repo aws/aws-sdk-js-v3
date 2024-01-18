@@ -1522,7 +1522,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum number of Job log items to retrieve.</p>"
           }
         },
@@ -1601,7 +1600,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum number of Jobs to retrieve.</p>"
           }
         },
@@ -1721,7 +1719,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>"
           }
         },
@@ -1807,7 +1804,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum number of Recovery Instances to retrieve.</p>"
           }
         },
@@ -1922,7 +1918,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum number of Recovery Snapshots to retrieve.</p>"
           }
         },
@@ -2024,7 +2019,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum number of Replication Configuration Templates to retrieve.</p>"
           }
         },
@@ -2103,7 +2097,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum number of Source Networks to retrieve.</p>"
           }
         },
@@ -2226,7 +2219,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum number of Source Servers to retrieve.</p>"
           }
         },
@@ -4469,10 +4461,7 @@
           }
         },
         "order": {
-          "target": "com.amazonaws.drs#LaunchActionOrder",
-          "traits": {
-            "smithy.api#default": 0
-          }
+          "target": "com.amazonaws.drs#LaunchActionOrder"
         },
         "actionVersion": {
           "target": "com.amazonaws.drs#LaunchActionVersion"
@@ -4573,7 +4562,6 @@
     "com.amazonaws.drs#LaunchActionOrder": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#documentation": "<p>Launch action order.</p>",
         "smithy.api#range": {
           "min": 2,
@@ -5204,7 +5192,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#MaxResultsReplicatingSourceServers",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of extensible source servers to retrieve.</p>"
           }
         },
@@ -5292,7 +5279,6 @@
         "maxResults": {
           "target": "com.amazonaws.drs#MaxResultsType",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum amount of items to return when listing resource launch actions.</p>"
           }
         },
@@ -5374,6 +5360,7 @@
         "maxResults": {
           "target": "smithy.api#Integer",
           "traits": {
+            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The maximum number of staging Accounts to retrieve.</p>",
             "smithy.api#httpQuery": "maxResults",
             "smithy.api#range": {
@@ -5469,7 +5456,6 @@
     "com.amazonaws.drs#MaxResultsReplicatingSourceServers": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 300
@@ -5479,7 +5465,6 @@
     "com.amazonaws.drs#MaxResultsType": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -5585,7 +5570,6 @@
         "interval": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>How often, in the chosen units, a snapshot should be taken.</p>",
             "smithy.api#required": {}
           }
@@ -5593,7 +5577,6 @@
         "retentionDuration": {
           "target": "com.amazonaws.drs#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The duration to retain a snapshot for, in the chosen units.</p>",
             "smithy.api#required": {}
           }
@@ -5780,7 +5763,6 @@
         "order": {
           "target": "com.amazonaws.drs#LaunchActionOrder",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#required": {}
           }
         },
@@ -5867,10 +5849,7 @@
           }
         },
         "order": {
-          "target": "com.amazonaws.drs#LaunchActionOrder",
-          "traits": {
-            "smithy.api#default": 0
-          }
+          "target": "com.amazonaws.drs#LaunchActionOrder"
         },
         "actionVersion": {
           "target": "com.amazonaws.drs#LaunchActionVersion"
@@ -8542,7 +8521,6 @@
     "com.amazonaws.drs#StrictlyPositiveInteger": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1
         }
