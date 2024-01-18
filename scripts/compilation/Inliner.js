@@ -149,6 +149,7 @@ module.exports = class Inliner {
 
     await esbuild.build({
       platform: this.platform,
+      target: ["node14"],
       bundle: true,
       format: "cjs",
       mainFields: ["main"],
@@ -157,7 +158,7 @@ module.exports = class Inliner {
       outfile: this.outfile,
       keepNames: true,
       packages: "external",
-      external: [...this.variantExternalsForEsBuild],
+      external: ["@smithy/*", "@aws-sdk/*", "node_modules/*", ...this.variantExternalsForEsBuild],
     });
     return this;
   }

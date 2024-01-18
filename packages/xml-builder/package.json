@@ -3,12 +3,12 @@
   "version": "3.485.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
-    "@smithy/types": "^2.8.0",
+    "@smithy/types": "^2.9.0",
     "tslib": "^2.5.0"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline xml-builder",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",

@@ -29,11 +29,10 @@ if (!package) {
     }))
   );
 
-  const sampleClients = ["s3", "dynamodb", "lambda", "sqs", "sts", "ec2", "sso"];
   packages.push(
-    ...sampleClients.map((c) => ({
-      pkgJsonFilePath: path.join(root, "clients", `client-${c}`, "package.json"),
-      pkg: `client-${c}`,
+    ...fs.readdirSync(path.join(root, "clients")).map((pkg) => ({
+      pkgJsonFilePath: path.join(root, "clients", pkg, "package.json"),
+      pkg,
     }))
   );
 

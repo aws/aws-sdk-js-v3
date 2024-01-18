@@ -9,7 +9,7 @@
   "module": "./dist-es/index.js",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline credential-provider-node",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -33,10 +33,10 @@
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^2.0.0",
-    "@smithy/property-provider": "^2.0.0",
-    "@smithy/shared-ini-file-loader": "^2.0.6",
-    "@smithy/types": "^2.8.0",
+    "@smithy/credential-provider-imds": "^2.2.0",
+    "@smithy/property-provider": "^2.1.0",
+    "@smithy/shared-ini-file-loader": "^2.3.0",
+    "@smithy/types": "^2.9.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

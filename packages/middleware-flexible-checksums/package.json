@@ -3,7 +3,7 @@
   "version": "3.489.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline middleware-flexible-checksums",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -31,14 +31,14 @@
     "@aws-crypto/crc32": "3.0.0",
     "@aws-crypto/crc32c": "3.0.0",
     "@aws-sdk/types": "*",
-    "@smithy/is-array-buffer": "^2.0.0",
-    "@smithy/protocol-http": "^3.0.12",
-    "@smithy/types": "^2.8.0",
-    "@smithy/util-utf8": "^2.0.2",
+    "@smithy/is-array-buffer": "^2.1.0",
+    "@smithy/protocol-http": "^3.1.0",
+    "@smithy/types": "^2.9.0",
+    "@smithy/util-utf8": "^2.1.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@smithy/node-http-handler": "^2.2.2",
+    "@smithy/node-http-handler": "^2.3.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
