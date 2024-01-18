@@ -1,3 +1,12 @@
+jest.mock("@aws-sdk/credential-provider-node", () => ({
+  defaultProvider: async () => {
+    return {
+      secretAccessKey: "integration-test",
+      accessKeyId: "integration-test",
+      sessionToken: "integration-test",
+    };
+  },
+}));
 import { Route53 } from "@aws-sdk/client-route-53";
 import { XMLParser } from "fast-xml-parser";
 

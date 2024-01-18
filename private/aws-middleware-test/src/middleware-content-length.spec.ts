@@ -1,8 +1,17 @@
+jest.mock("@aws-sdk/credential-provider-node", () => ({
+  defaultProvider: async () => {
+    return {
+      secretAccessKey: "unit-test",
+      accessKeyId: "unit-test",
+      sessionToken: "unit-test",
+    };
+  },
+}));
 import { AccessAnalyzer } from "@aws-sdk/client-accessanalyzer";
 import { S3 } from "@aws-sdk/client-s3";
 import { XRay } from "@aws-sdk/client-xray";
 
-import { requireRequestsFrom } from "../../aws-util-test/src";
+import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-content-length", () => {
   describe(AccessAnalyzer.name, () => {

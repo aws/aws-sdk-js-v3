@@ -46,9 +46,7 @@ export class TestHttpHandler implements HttpHandler {
   private client?: Client<any, any, any>;
   private assertions = 0;
 
-  public constructor(public readonly matcher: HttpRequestMatcher) {
-    jest.mock("@aws-sdk/credential-provider-node");
-  }
+  public constructor(public readonly matcher: HttpRequestMatcher) {}
 
   /**
    * @param client - to watch for requests.

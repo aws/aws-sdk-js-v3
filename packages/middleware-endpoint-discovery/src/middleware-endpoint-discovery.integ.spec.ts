@@ -1,3 +1,12 @@
+jest.mock("@aws-sdk/credential-provider-node", () => ({
+  defaultProvider: async () => {
+    return {
+      secretAccessKey: "integration-test",
+      accessKeyId: "integration-test",
+      sessionToken: "integration-test",
+    };
+  },
+}));
 import { TimestreamQuery } from "@aws-sdk/client-timestream-query";
 import { TimestreamWrite } from "@aws-sdk/client-timestream-write";
 import { EndpointCache } from "@aws-sdk/endpoint-cache";

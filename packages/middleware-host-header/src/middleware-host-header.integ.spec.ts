@@ -1,3 +1,12 @@
+jest.mock("@aws-sdk/credential-provider-node", () => ({
+  defaultProvider: async () => {
+    return {
+      secretAccessKey: "integration-test",
+      accessKeyId: "integration-test",
+      sessionToken: "integration-test",
+    };
+  },
+}));
 import { SageMaker } from "@aws-sdk/client-sagemaker";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
