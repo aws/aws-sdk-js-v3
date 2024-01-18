@@ -4117,7 +4117,7 @@ export interface UpdateTrafficDistributionRequest {
    * @public
    * <p>The identifier of the traffic distribution group.
    * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
+   * The ARN must be provided if the call is from the replicated Region. </p>
    */
   Id: string | undefined;
 

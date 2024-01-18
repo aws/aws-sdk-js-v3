@@ -2056,8 +2056,10 @@ export interface GetCurrentMetricDataRequest {
    *          <p>Metric data is retrieved only for the resources associated with the queues or routing
    *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND
    *    routing profile.) You can include both resource IDs and resource ARNs in the same request.</p>
-   *          <p>When using <code>RoutingStepExpression</code>, you need to pass exactly one
-   *     <code>QueueId</code>.</p>
+   *          <p>When using the <code>RoutingStepExpression</code> filter, you need to pass exactly one
+   *     <code>QueueId</code>. The filter is also case sensitive so when using the
+   *     <code>RoutingStepExpression</code> filter, grouping by <code>ROUTING_STEP_EXPRESSION</code> is
+   *    required.</p>
    *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
    */
   Filters: Filters | undefined;
@@ -3451,8 +3453,10 @@ export interface GetMetricDataV2Request {
    *                   <code>connect:Chat</code>, <code>connect:SMS</code>, <code>connect:Telephony</code>, and
    *       <code>connect:WebRTC</code> are valid <code>filterValue</code> examples (not exhaustive) for
    *      the <code>contact/segmentAttributes/connect:Subtype filter</code> key.</p>
-   *                <p>ROUTING_STEP_EXPRESSION is a valid filter key with a filter value up to 3000
-   *      length.</p>
+   *                <p>
+   *                   <code>ROUTING_STEP_EXPRESSION</code> is a valid filter key with a filter value up to 3000 length. This
+   *      filter is case and order sensitive. JSON string fields must be sorted in ascending order and
+   *      JSON array order should be kept as is.</p>
    *             </li>
    *          </ul>
    */
@@ -3735,6 +3739,14 @@ export interface GetMetricDataV2Request {
    *                   <p>Feature is a valid filter but not a valid grouping.</p>
    *                </note>
    *             </dd>
+   *             <dt>CONTACTS_HANDLED_BY_CONNECTED_TO_AGENT</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid metric filter key: <code>INITIATION_METHOD</code>
+   *                </p>
+   *                <p>Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy,
+   *       contact/segmentAttributes/connect:Subtype</p>
+   *             </dd>
    *             <dt>CONTACTS_HOLD_ABANDONS</dt>
    *             <dd>
    *                <p>Unit: Count</p>
@@ -3770,6 +3782,12 @@ export interface GetMetricDataV2Request {
    *             <dd>
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+   *       contact/segmentAttributes/connect:Subtype</p>
+   *             </dd>
+   *             <dt>CONTACTS_QUEUED_BY_ENQUEUE</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Agent, Agent Hierarchy,
    *       contact/segmentAttributes/connect:Subtype</p>
    *             </dd>
    *             <dt>CONTACTS_RESOLVED_IN_X</dt>
@@ -4227,7 +4245,9 @@ export interface GetTaskTemplateResponse {
 export interface GetTrafficDistributionRequest {
   /**
    * @public
-   * <p>The identifier of the traffic distribution group.</p>
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
    */
   Id: string | undefined;
 }
@@ -8617,7 +8637,8 @@ export interface MonitorContactRequest {
   /**
    * @public
    * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user
-   *    is allowed to escalate from silent monitoring to barge.  AllowedMonitorCapabilities is required if barge is enabled.</p>
+   *    is allowed to escalate from silent monitoring to barge. AllowedMonitorCapabilities is required if
+   *    barge is enabled.</p>
    */
   AllowedMonitorCapabilities?: MonitorCapability[];
 
