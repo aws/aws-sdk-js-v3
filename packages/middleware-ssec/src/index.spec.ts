@@ -6,6 +6,7 @@ import { ssecMiddleware } from "./";
 describe("ssecMiddleware", () => {
   const next = jest.fn();
   const decoder = jest.fn().mockResolvedValue(new Uint8Array(0));
+  const base64Decoder = jest.fn();
   const encoder1 = jest.fn();
   const encoder2 = jest.fn();
   const mockHashUpdate = jest.fn();
@@ -45,6 +46,7 @@ describe("ssecMiddleware", () => {
       base64Encoder: encoder1,
       utf8Decoder: decoder,
       md5: MockHash,
+      base64Decoder: base64Decoder,
     })(next, {} as any);
 
     await handler(args);
@@ -77,6 +79,7 @@ describe("ssecMiddleware", () => {
       base64Encoder: encoder2,
       utf8Decoder: decoder,
       md5: MockHash,
+      base64Decoder: base64Decoder,
     })(next, {} as any);
 
     await handler(args);
