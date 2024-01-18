@@ -93,6 +93,10 @@ import {
 } from "./commands/ListEventDataStoresCommand";
 import { ListImportFailuresCommandInput, ListImportFailuresCommandOutput } from "./commands/ListImportFailuresCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import {
+  ListInsightsMetricDataCommandInput,
+  ListInsightsMetricDataCommandOutput,
+} from "./commands/ListInsightsMetricDataCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
 import { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
@@ -174,6 +178,7 @@ export type ServiceInputTypes =
   | ListEventDataStoresCommandInput
   | ListImportFailuresCommandInput
   | ListImportsCommandInput
+  | ListInsightsMetricDataCommandInput
   | ListPublicKeysCommandInput
   | ListQueriesCommandInput
   | ListTagsCommandInput
@@ -227,6 +232,7 @@ export type ServiceOutputTypes =
   | ListEventDataStoresCommandOutput
   | ListImportFailuresCommandOutput
   | ListImportsCommandOutput
+  | ListInsightsMetricDataCommandOutput
   | ListPublicKeysCommandOutput
   | ListQueriesCommandOutput
   | ListTagsCommandOutput

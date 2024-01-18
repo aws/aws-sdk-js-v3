@@ -655,12 +655,13 @@ export interface AdvancedFieldSelector {
   /**
    * @public
    * <p> A field in a CloudTrail event record on which to filter events to be logged. For
-   *          event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events, the field is used only for
-   *          selecting events as filtering is not supported. </p>
-   *          <p> For CloudTrail event records, supported fields include <code>readOnly</code>,
-   *             <code>eventCategory</code>, <code>eventSource</code> (for management events),
-   *             <code>eventName</code>, <code>resources.type</code>, and <code>resources.ARN</code>. </p>
-   *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events, the only supported field is
+   *          event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the field is used only for
+   *          selecting events as filtering is not supported.</p>
+   *          <p>For CloudTrail management events, supported fields include <code>readOnly</code>,
+   *             <code>eventCategory</code>, and <code>eventSource</code>.</p>
+   *          <p>For CloudTrail data events, supported fields include <code>readOnly</code>,
+   *          <code>eventCategory</code>, <code>eventName</code>, <code>resources.type</code>, and <code>resources.ARN</code>.</p>
+   *          <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the only supported field is
    *             <code>eventCategory</code>. </p>
    *          <ul>
    *             <li>
@@ -702,13 +703,22 @@ export interface AdvancedFieldSelector {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                      For CloudTrail event records, the value
-   *                      must be <code>Management</code> or <code>Data</code>.
+   *                      For CloudTrail management events, the value
+   *                      must be <code>Management</code>.
    *                   </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                      For CloudTrail Insights event records, the value
+   *                      For CloudTrail data events, the value
+   *                      must be <code>Data</code>.
+   *                   </p>
+   *                   </li>
+   *                </ul>
+   *                <p>The following are used only for event data stores:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                      For CloudTrail Insights events, the value
    *                      must be <code>Insight</code>.
    *                   </p>
    *                   </li>
@@ -752,6 +762,31 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::S3::Object</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::B2BI::Transformer</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Bedrock::AgentAlias</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Bedrock::KnowledgeBase</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Cassandra::Table</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::CloudFront::KeyValueStore</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -806,6 +841,16 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::IoTTwinMaker::Entity</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::IoTTwinMaker::Workspace</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::KendraRanking::ExecutionPlan</code>
    *                      </p>
    *                   </li>
@@ -831,7 +876,37 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::NeptuneGraph::Graph</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::PCAConnectorAD::Connector</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::QBusiness::Application</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::QBusiness::DataSource</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::QBusiness::Index</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::QBusiness::WebExperience</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::RDS::DBCluster</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -851,12 +926,32 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::ServiceDiscovery::Namespace </code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::ServiceDiscovery::Service</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SCN::Instance</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::SNS::PlatformEndpoint</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>AWS::SNS::Topic</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SQS::Queue</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -877,6 +972,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::SSMMessages::ControlChannel</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::ThinClient::Device</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::ThinClient::Environment</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -941,6 +1046,56 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:lambda:<region>:<account_ID>:function:<function_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::B2BI::Transformer</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:b2bi:<region>:<account_ID>:transformer/<transformer_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::Bedrock::AgentAlias</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:bedrock:<region>:<account_ID>:agent-alias/<agent_ID>/<alias_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::Bedrock::KnowledgeBase</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:bedrock:<region>:<account_ID>:knowledge-base/<knowledge_base_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::Cassandra::Table</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:cassandra:<region>:<account_ID>:/keyspace/<keyspace_name>/table/<table_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::CloudFront::KeyValueStore</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:cloudfront:<region>:<account_ID>:key-value-store/<KVS_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1010,7 +1165,7 @@ export interface AdvancedFieldSelector {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>arn:<partition>:emrwal:<region>::workspace/<workspace_name></code>
+   *                         <code>arn:<partition>:emrwal:<region>:<account_ID>:workspace/<workspace_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1044,6 +1199,26 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::IoTTwinMaker::Entity</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID>/entity/<entity_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::IoTTwinMaker::Workspace</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::KendraRanking::ExecutionPlan</code>, and the
    *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
    *                the following format:</p>
@@ -1060,7 +1235,7 @@ export interface AdvancedFieldSelector {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name/<creation_time></code>
+   *                         <code>arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name>/<creation_time></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1094,6 +1269,16 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::NeptuneGraph::Graph</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:neptune-graph:<region>:<account_ID>:graph/<graph_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::PCAConnectorAD::Connector</code>,
    *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
    *                must be in the following format:</p>
@@ -1101,6 +1286,56 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Application</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::DataSource</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID>/data-source/<datasource_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Index</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::WebExperience</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/web-experience/<web_experience_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::RDS::DBCluster</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:rds:<region>:<account_ID>:cluster/<cluster_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1131,6 +1366,33 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SCN::Instance</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:scn:<region>:<account_ID>:instance/<instance_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ServiceDiscovery::Namespace</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:servicediscovery:<region>:<account_ID>:namespace/<namespace_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ServiceDiscovery::Service</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:servicediscovery:<region>:<account_ID>:service/<service_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::SNS::PlatformEndpoint</code>,
    *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
    *                must be in the following format:</p>
@@ -1148,6 +1410,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:sns:<region>:<account_ID>:<topic_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SQS::Queue</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:sqs:<region>:<account_ID>:<queue_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1196,6 +1468,26 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ThinClient::Device</code>, and
+   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
+   *                in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:thinclient:<region>:<account_ID>:device/<device_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ThinClient::Environment</code>, and
+   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
+   *                in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:thinclient:<region>:<account_ID>:environment/<environment_ID></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1636,7 +1928,7 @@ export type DestinationType = (typeof DestinationType)[keyof typeof DestinationT
 export interface Destination {
   /**
    * @public
-   * <p>The type of destination for events arriving from a channel. For channels used for a CloudTrail Lake integration, the value is <code>EventDataStore</code>. For service-linked channels,
+   * <p>The type of destination for events arriving from a channel. For channels used for a CloudTrail Lake integration, the value is <code>EVENT_DATA_STORE</code>. For service-linked channels,
    *          the value is <code>AWS_SERVICE</code>. </p>
    */
   Type: DestinationType | undefined;
@@ -2490,9 +2782,6 @@ export interface CreateTrailRequest {
    *          represents the log group to which CloudTrail logs will be delivered. You must use a
    *          log group that exists in your account.</p>
    *          <p>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</p>
-   *          <note>
-   *             <p>Only the management account can configure a CloudWatch Logs log group for an organization trail. </p>
-   *          </note>
    */
   CloudWatchLogsLogGroupArn?: string;
 
@@ -4146,152 +4435,9 @@ export interface DataResource {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>The following resource types are also available through <i>advanced</i>
-   *          event selectors. Basic event selector resource types are valid in advanced event selectors,
-   *          but advanced event selector resource types are not valid in basic event selectors. For more
-   *          information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::CloudTrail::Channel</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::CodeWhisperer::Customization</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::CodeWhisperer::Profile</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::Cognito::IdentityPool</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::DynamoDB::Stream</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::EC2::Snapshot</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::EMRWAL::Workspace</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::FinSpace::Environment</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::Glue::Table</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::GuardDuty::Detector</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::KendraRanking::ExecutionPlan</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::KinesisVideo::Stream</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::ManagedBlockchain::Network</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::ManagedBlockchain::Node</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::MedicalImaging::Datastore</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::PCAConnectorAD::Connector</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SageMaker::Endpoint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SageMaker::ExperimentTrialComponent</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SageMaker::FeatureGroup</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SNS::PlatformEndpoint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SNS::Topic</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::S3::AccessPoint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::S3ObjectLambda::AccessPoint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::S3Outposts::Object</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SSMMessages::ControlChannel</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::Timestream::Database</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::Timestream::Table</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::VerifiedPermissions::PolicyStore</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          <p>Additional resource types are available through <i>advanced</i>
+   *          event selectors. For more
+   *          information about these additional resource types, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.</p>
    */
   Type?: string;
 
@@ -5471,6 +5617,146 @@ export interface ListImportsResponse {
   /**
    * @public
    * <p> A token you can use to get the next page of import results. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightsMetricDataType = {
+  FILL_WITH_ZEROS: "FillWithZeros",
+  NON_ZERO_DATA: "NonZeroData",
+} as const;
+
+/**
+ * @public
+ */
+export type InsightsMetricDataType = (typeof InsightsMetricDataType)[keyof typeof InsightsMetricDataType];
+
+/**
+ * @public
+ */
+export interface ListInsightsMetricDataRequest {
+  /**
+   * @public
+   * <p>The Amazon Web Services service to which the request was made, such as <code>iam.amazonaws.com</code> or <code>s3.amazonaws.com</code>.</p>
+   */
+  EventSource: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the event, typically the Amazon Web Services API on which unusual levels of activity were recorded.</p>
+   */
+  EventName: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of CloudTrail Insights event, which is either <code>ApiCallRateInsight</code> or <code>ApiErrorRateInsight</code>.
+   *          The <code>ApiCallRateInsight</code> Insights type analyzes write-only management API calls that are aggregated per minute against a baseline API call volume.
+   *          The <code>ApiErrorRateInsight</code> Insights type analyzes management API calls that result in error codes.</p>
+   */
+  InsightType: InsightType | undefined;
+
+  /**
+   * @public
+   * <p>Conditionally required if the <code>InsightType</code> parameter is set to <code>ApiErrorRateInsight</code>.</p>
+   *          <p>If returning metrics for the <code>ApiErrorRateInsight</code> Insights type, this is the error to retrieve data for. For example, <code>AccessDenied</code>.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>Specifies, in UTC, the start time for time-series data. The value specified is inclusive; results include data points with the specified time stamp.</p>
+   *          <p>The default is 90 days before the time of request.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>Specifies, in UTC, the end time for time-series data. The value specified is exclusive;
+   *          results include data points up to the specified time stamp.</p>
+   *          <p>The default is the time of request.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>Granularity of data to retrieve, in seconds. Valid values are <code>60</code>, <code>300</code>, and <code>3600</code>.
+   *          If you specify any other value, you will get an error. The default is 3600 seconds.</p>
+   */
+  Period?: number;
+
+  /**
+   * @public
+   * <p>Type of datapoints to return. Valid values are <code>NonZeroData</code> and
+   *          <code>FillWithZeros</code>. The default is <code>NonZeroData</code>.</p>
+   */
+  DataType?: InsightsMetricDataType;
+
+  /**
+   * @public
+   * <p>The maximum number of datapoints to return. Valid values are integers from 1 to 21600.
+   *          The default value is 21600.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Returned if all datapoints can't be returned in a single call. For example, due to reaching <code>MaxResults</code>.</p>
+   *          <p>Add this parameter to the request to continue retrieving results starting from the last evaluated point.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListInsightsMetricDataResponse {
+  /**
+   * @public
+   * <p>The Amazon Web Services service to which the request was made, such as <code>iam.amazonaws.com</code> or <code>s3.amazonaws.com</code>.</p>
+   */
+  EventSource?: string;
+
+  /**
+   * @public
+   * <p>The name of the event, typically the Amazon Web Services API on which unusual levels of activity were recorded.</p>
+   */
+  EventName?: string;
+
+  /**
+   * @public
+   * <p>The type of CloudTrail Insights event, which is either <code>ApiCallRateInsight</code> or <code>ApiErrorRateInsight</code>.
+   *          The <code>ApiCallRateInsight</code> Insights type analyzes write-only management API calls that are aggregated per minute against a baseline API call volume.
+   *          The <code>ApiErrorRateInsight</code> Insights type analyzes management API calls that result in error codes.</p>
+   */
+  InsightType?: InsightType;
+
+  /**
+   * @public
+   * <p>Only returned if <code>InsightType</code> parameter was set to <code>ApiErrorRateInsight</code>.</p>
+   *          <p>If returning metrics for the <code>ApiErrorRateInsight</code> Insights type, this is the error to retrieve data for. For example, <code>AccessDenied</code>.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>List of timestamps at intervals corresponding to the specified time period.</p>
+   */
+  Timestamps?: Date[];
+
+  /**
+   * @public
+   * <p>List of values representing the API call rate or error rate at each timestamp. The number of values is equal to the number of timestamps.</p>
+   */
+  Values?: number[];
+
+  /**
+   * @public
+   * <p>Only returned if the full results could not be returned in a single query. You can set the <code>NextToken</code> parameter
+   *          in the next request to this value to continue retrieval.</p>
    */
   NextToken?: string;
 }
@@ -7427,9 +7713,6 @@ export interface UpdateTrailRequest {
    *          represents the log group to which CloudTrail logs are delivered. You must use a log
    *          group that exists in your account.</p>
    *          <p>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</p>
-   *          <note>
-   *             <p>Only the management account can configure a CloudWatch Logs log group for an organization trail. </p>
-   *          </note>
    */
   CloudWatchLogsLogGroupArn?: string;
 

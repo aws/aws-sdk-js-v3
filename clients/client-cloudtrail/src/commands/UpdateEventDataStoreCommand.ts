@@ -34,9 +34,9 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  *             <code>RetentionPeriod</code> is in days, and valid values are integers between 7 and
  *          3653 if the <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, or between 7 and 2557 if <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>. By default, <code>TerminationProtection</code> is enabled.</p>
  *          <p>For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code>
- *          includes or excludes management, data, or Insights events in your event data store. For more
+ *          includes or excludes management or data events in your event data store. For more
  *          information about <code>AdvancedEventSelectors</code>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.</p>
- *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
+ *          <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or non-Amazon Web Services events,
  *             <code>AdvancedEventSelectors</code> includes events of that type in your event data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

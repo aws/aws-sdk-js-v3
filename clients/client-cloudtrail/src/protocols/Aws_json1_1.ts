@@ -10,6 +10,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
@@ -66,6 +67,10 @@ import {
 } from "../commands/ListEventDataStoresCommand";
 import { ListImportFailuresCommandInput, ListImportFailuresCommandOutput } from "../commands/ListImportFailuresCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
+import {
+  ListInsightsMetricDataCommandInput,
+  ListInsightsMetricDataCommandOutput,
+} from "../commands/ListInsightsMetricDataCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "../commands/ListPublicKeysCommand";
 import { ListQueriesCommandInput, ListQueriesCommandOutput } from "../commands/ListQueriesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
@@ -217,6 +222,8 @@ import {
   ListImportFailuresResponse,
   ListImportsRequest,
   ListImportsResponse,
+  ListInsightsMetricDataRequest,
+  ListInsightsMetricDataResponse,
   ListPublicKeysRequest,
   ListPublicKeysResponse,
   ListQueriesRequest,
@@ -622,6 +629,19 @@ export const se_ListImportsCommand = async (
   const headers: __HeaderBag = sharedHeaders("ListImports");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListInsightsMetricDataCommand
+ */
+export const se_ListInsightsMetricDataCommand = async (
+  input: ListInsightsMetricDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListInsightsMetricData");
+  let body: any;
+  body = JSON.stringify(se_ListInsightsMetricDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2784,6 +2804,58 @@ const de_ListImportsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.cloudtrail#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudtrail#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListInsightsMetricDataCommand
+ */
+export const de_ListInsightsMetricDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInsightsMetricDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListInsightsMetricDataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListInsightsMetricDataResponse(data, context);
+  const response: ListInsightsMetricDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListInsightsMetricDataCommandError
+ */
+const de_ListInsightsMetricDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInsightsMetricDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
@@ -5847,6 +5919,24 @@ const de_UnsupportedOperationExceptionRes = async (
 // se_ListImportsRequest omitted.
 
 /**
+ * serializeAws_json1_1ListInsightsMetricDataRequest
+ */
+const se_ListInsightsMetricDataRequest = (input: ListInsightsMetricDataRequest, context: __SerdeContext): any => {
+  return take(input, {
+    DataType: [],
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    ErrorCode: [],
+    EventName: [],
+    EventSource: [],
+    InsightType: [],
+    MaxResults: [],
+    NextToken: [],
+    Period: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+/**
  * serializeAws_json1_1ListPublicKeysRequest
  */
 const se_ListPublicKeysRequest = (input: ListPublicKeysRequest, context: __SerdeContext): any => {
@@ -6316,6 +6406,18 @@ const de_IngestionStatus = (output: any, context: __SerdeContext): IngestionStat
 
 // de_InsightSelectors omitted.
 
+/**
+ * deserializeAws_json1_1InsightsMetricValues
+ */
+const de_InsightsMetricValues = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __limitedParseDouble(entry) as any;
+    });
+  return retVal;
+};
+
 // de_InsufficientDependencyServiceAccessPermissionException omitted.
 
 // de_InsufficientEncryptionPolicyException omitted.
@@ -6411,6 +6513,21 @@ const de_ListImportsResponse = (output: any, context: __SerdeContext): ListImpor
   return take(output, {
     Imports: (_: any) => de_ImportsList(_, context),
     NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListInsightsMetricDataResponse
+ */
+const de_ListInsightsMetricDataResponse = (output: any, context: __SerdeContext): ListInsightsMetricDataResponse => {
+  return take(output, {
+    ErrorCode: __expectString,
+    EventName: __expectString,
+    EventSource: __expectString,
+    InsightType: __expectString,
+    NextToken: __expectString,
+    Timestamps: (_: any) => de_Timestamps(_, context),
+    Values: (_: any) => de_InsightsMetricValues(_, context),
   }) as any;
 };
 
@@ -6640,6 +6757,18 @@ const de_StopImportResponse = (output: any, context: __SerdeContext): StopImport
 // de_TagsList omitted.
 
 // de_ThrottlingException omitted.
+
+/**
+ * deserializeAws_json1_1Timestamps
+ */
+const de_Timestamps = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
 
 // de_Trail omitted.
 

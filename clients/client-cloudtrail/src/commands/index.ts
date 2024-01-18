@@ -26,6 +26,7 @@ export * from "./ListChannelsCommand";
 export * from "./ListEventDataStoresCommand";
 export * from "./ListImportFailuresCommand";
 export * from "./ListImportsCommand";
+export * from "./ListInsightsMetricDataCommand";
 export * from "./ListPublicKeysCommand";
 export * from "./ListQueriesCommand";
 export * from "./ListTagsCommand";
