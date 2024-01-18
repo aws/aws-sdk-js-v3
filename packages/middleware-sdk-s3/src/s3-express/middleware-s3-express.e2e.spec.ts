@@ -8,10 +8,7 @@ const region = "us-east-1";
 const zone = "use1-az6";
 const suffix = `${zone}--x-s3`;
 
-/**
- * TODO(s3-express): test accounts can only run this when GA.
- */
-describe.skip("s3 express CRUD test suite", () => {
+describe("s3 express CRUD test suite", () => {
   jest.setTimeout(30000);
 
   let s3: S3; // test subject.
