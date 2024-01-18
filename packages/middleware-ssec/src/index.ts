@@ -66,13 +66,18 @@ export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddlewar
 }
 
 function base64ToUint8Array(base64String: string) {
-  const binaryString = atob(base64String);
-  const len = binaryString.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
+  if (typeof Buffer !== "undefined") {
+    const buffer = Buffer.from(base64String, "base64");
+    return new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength);
+  } else {
+    const binaryString = atob(base64String);
+    const len = binaryString.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+    return bytes;
   }
-  return bytes;
 }
 
 export const ssecMiddlewareOptions: InitializeHandlerOptions = {
