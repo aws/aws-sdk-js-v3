@@ -54,16 +54,19 @@ import {
   BatchGetBuildBatchesCommandOutput,
 } from "./commands/BatchGetBuildBatchesCommand";
 import { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "./commands/BatchGetBuildsCommand";
+import { BatchGetFleetsCommandInput, BatchGetFleetsCommandOutput } from "./commands/BatchGetFleetsCommand";
 import { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "./commands/BatchGetProjectsCommand";
 import {
   BatchGetReportGroupsCommandInput,
   BatchGetReportGroupsCommandOutput,
 } from "./commands/BatchGetReportGroupsCommand";
 import { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "./commands/BatchGetReportsCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import { CreateReportGroupCommandInput, CreateReportGroupCommandOutput } from "./commands/CreateReportGroupCommand";
 import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand";
 import { DeleteBuildBatchCommandInput, DeleteBuildBatchCommandOutput } from "./commands/DeleteBuildBatchCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import { DeleteReportCommandInput, DeleteReportCommandOutput } from "./commands/DeleteReportCommand";
 import { DeleteReportGroupCommandInput, DeleteReportGroupCommandOutput } from "./commands/DeleteReportGroupCommand";
@@ -108,6 +111,7 @@ import {
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput,
 } from "./commands/ListCuratedEnvironmentImagesCommand";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import { ListReportGroupsCommandInput, ListReportGroupsCommandOutput } from "./commands/ListReportGroupsCommand";
 import { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
@@ -131,6 +135,7 @@ import { StartBuildBatchCommandInput, StartBuildBatchCommandOutput } from "./com
 import { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
 import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "./commands/StopBuildBatchCommand";
 import { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
+import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import {
   UpdateProjectVisibilityCommandInput,
@@ -156,13 +161,16 @@ export type ServiceInputTypes =
   | BatchDeleteBuildsCommandInput
   | BatchGetBuildBatchesCommandInput
   | BatchGetBuildsCommandInput
+  | BatchGetFleetsCommandInput
   | BatchGetProjectsCommandInput
   | BatchGetReportGroupsCommandInput
   | BatchGetReportsCommandInput
+  | CreateFleetCommandInput
   | CreateProjectCommandInput
   | CreateReportGroupCommandInput
   | CreateWebhookCommandInput
   | DeleteBuildBatchCommandInput
+  | DeleteFleetCommandInput
   | DeleteProjectCommandInput
   | DeleteReportCommandInput
   | DeleteReportGroupCommandInput
@@ -180,6 +188,7 @@ export type ServiceInputTypes =
   | ListBuildsCommandInput
   | ListBuildsForProjectCommandInput
   | ListCuratedEnvironmentImagesCommandInput
+  | ListFleetsCommandInput
   | ListProjectsCommandInput
   | ListReportGroupsCommandInput
   | ListReportsCommandInput
@@ -194,6 +203,7 @@ export type ServiceInputTypes =
   | StartBuildCommandInput
   | StopBuildBatchCommandInput
   | StopBuildCommandInput
+  | UpdateFleetCommandInput
   | UpdateProjectCommandInput
   | UpdateProjectVisibilityCommandInput
   | UpdateReportGroupCommandInput
@@ -206,13 +216,16 @@ export type ServiceOutputTypes =
   | BatchDeleteBuildsCommandOutput
   | BatchGetBuildBatchesCommandOutput
   | BatchGetBuildsCommandOutput
+  | BatchGetFleetsCommandOutput
   | BatchGetProjectsCommandOutput
   | BatchGetReportGroupsCommandOutput
   | BatchGetReportsCommandOutput
+  | CreateFleetCommandOutput
   | CreateProjectCommandOutput
   | CreateReportGroupCommandOutput
   | CreateWebhookCommandOutput
   | DeleteBuildBatchCommandOutput
+  | DeleteFleetCommandOutput
   | DeleteProjectCommandOutput
   | DeleteReportCommandOutput
   | DeleteReportGroupCommandOutput
@@ -230,6 +243,7 @@ export type ServiceOutputTypes =
   | ListBuildsCommandOutput
   | ListBuildsForProjectCommandOutput
   | ListCuratedEnvironmentImagesCommandOutput
+  | ListFleetsCommandOutput
   | ListProjectsCommandOutput
   | ListReportGroupsCommandOutput
   | ListReportsCommandOutput
@@ -244,6 +258,7 @@ export type ServiceOutputTypes =
   | StartBuildCommandOutput
   | StopBuildBatchCommandOutput
   | StopBuildCommandOutput
+  | UpdateFleetCommandOutput
   | UpdateProjectCommandOutput
   | UpdateProjectVisibilityCommandOutput
   | UpdateReportGroupCommandOutput

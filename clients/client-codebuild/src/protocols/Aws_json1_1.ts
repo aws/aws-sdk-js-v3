@@ -29,16 +29,19 @@ import {
   BatchGetBuildBatchesCommandOutput,
 } from "../commands/BatchGetBuildBatchesCommand";
 import { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "../commands/BatchGetBuildsCommand";
+import { BatchGetFleetsCommandInput, BatchGetFleetsCommandOutput } from "../commands/BatchGetFleetsCommand";
 import { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "../commands/BatchGetProjectsCommand";
 import {
   BatchGetReportGroupsCommandInput,
   BatchGetReportGroupsCommandOutput,
 } from "../commands/BatchGetReportGroupsCommand";
 import { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "../commands/BatchGetReportsCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/CreateFleetCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
 import { CreateReportGroupCommandInput, CreateReportGroupCommandOutput } from "../commands/CreateReportGroupCommand";
 import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "../commands/CreateWebhookCommand";
 import { DeleteBuildBatchCommandInput, DeleteBuildBatchCommandOutput } from "../commands/DeleteBuildBatchCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "../commands/DeleteFleetCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
 import { DeleteReportCommandInput, DeleteReportCommandOutput } from "../commands/DeleteReportCommand";
 import { DeleteReportGroupCommandInput, DeleteReportGroupCommandOutput } from "../commands/DeleteReportGroupCommand";
@@ -83,6 +86,7 @@ import {
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput,
 } from "../commands/ListCuratedEnvironmentImagesCommand";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
 import { ListReportGroupsCommandInput, ListReportGroupsCommandOutput } from "../commands/ListReportGroupsCommand";
 import { ListReportsCommandInput, ListReportsCommandOutput } from "../commands/ListReportsCommand";
@@ -106,6 +110,7 @@ import { StartBuildBatchCommandInput, StartBuildBatchCommandOutput } from "../co
 import { StartBuildCommandInput, StartBuildCommandOutput } from "../commands/StartBuildCommand";
 import { StopBuildBatchCommandInput, StopBuildBatchCommandOutput } from "../commands/StopBuildBatchCommand";
 import { StopBuildCommandInput, StopBuildCommandOutput } from "../commands/StopBuildCommand";
+import { UpdateFleetCommandInput, UpdateFleetCommandOutput } from "../commands/UpdateFleetCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
 import {
   UpdateProjectVisibilityCommandInput,
@@ -121,6 +126,8 @@ import {
   BatchGetBuildBatchesOutput,
   BatchGetBuildsInput,
   BatchGetBuildsOutput,
+  BatchGetFleetsInput,
+  BatchGetFleetsOutput,
   BatchGetProjectsInput,
   BatchGetProjectsOutput,
   BatchGetReportGroupsInput,
@@ -140,6 +147,8 @@ import {
   CloudWatchLogsConfig,
   CodeCoverage,
   CodeCoverageReportSummary,
+  CreateFleetInput,
+  CreateFleetOutput,
   CreateProjectInput,
   CreateProjectOutput,
   CreateReportGroupInput,
@@ -147,6 +156,7 @@ import {
   CreateWebhookInput,
   CreateWebhookOutput,
   DeleteBuildBatchInput,
+  DeleteFleetInput,
   DeleteProjectInput,
   DeleteReportGroupInput,
   DeleteReportInput,
@@ -158,6 +168,7 @@ import {
   DescribeTestCasesInput,
   DescribeTestCasesOutput,
   EnvironmentVariable,
+  Fleet,
   GetReportGroupTrendInput,
   GetResourcePolicyInput,
   GitSubmodulesConfig,
@@ -169,6 +180,7 @@ import {
   ListBuildsForProjectInput,
   ListBuildsInput,
   ListCuratedEnvironmentImagesInput,
+  ListFleetsInput,
   ListProjectsInput,
   ListReportGroupsInput,
   ListReportsForReportGroupInput,
@@ -184,6 +196,7 @@ import {
   ProjectCache,
   ProjectEnvironment,
   ProjectFileSystemLocation,
+  ProjectFleet,
   ProjectSource,
   ProjectSourceVersion,
   PutResourcePolicyInput,
@@ -200,6 +213,8 @@ import {
   RetryBuildOutput,
   S3LogsConfig,
   S3ReportExportConfig,
+  ScalingConfigurationInput,
+  ScalingConfigurationOutput,
   SourceAuth,
   StartBuildBatchInput,
   StartBuildBatchOutput,
@@ -210,8 +225,11 @@ import {
   StopBuildInput,
   StopBuildOutput,
   Tag,
+  TargetTrackingScalingConfiguration,
   TestCase,
   TestCaseFilter,
+  UpdateFleetInput,
+  UpdateFleetOutput,
   UpdateProjectInput,
   UpdateProjectOutput,
   UpdateProjectVisibilityInput,
@@ -264,6 +282,19 @@ export const se_BatchGetBuildsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1BatchGetFleetsCommand
+ */
+export const se_BatchGetFleetsCommand = async (
+  input: BatchGetFleetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetFleets");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1BatchGetProjectsCommand
  */
 export const se_BatchGetProjectsCommand = async (
@@ -299,6 +330,19 @@ export const se_BatchGetReportsCommand = async (
   const headers: __HeaderBag = sharedHeaders("BatchGetReports");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateFleetCommand
+ */
+export const se_CreateFleetCommand = async (
+  input: CreateFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateFleet");
+  let body: any;
+  body = JSON.stringify(se_CreateFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -349,6 +393,19 @@ export const se_DeleteBuildBatchCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBuildBatch");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteFleetCommand
+ */
+export const se_DeleteFleetCommand = async (
+  input: DeleteFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteFleet");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -576,6 +633,19 @@ export const se_ListCuratedEnvironmentImagesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListFleetsCommand
+ */
+export const se_ListFleetsCommand = async (
+  input: ListFleetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListFleets");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListProjectsCommand
  */
 export const se_ListProjectsCommand = async (
@@ -754,6 +824,19 @@ export const se_StopBuildBatchCommand = async (
   const headers: __HeaderBag = sharedHeaders("StopBuildBatch");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateFleetCommand
+ */
+export const se_UpdateFleetCommand = async (
+  input: UpdateFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateFleet");
+  let body: any;
+  body = JSON.stringify(se_UpdateFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -948,6 +1031,52 @@ const de_BatchGetBuildsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1BatchGetFleetsCommand
+ */
+export const de_BatchGetFleetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetFleetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_BatchGetFleetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetFleetsOutput(data, context);
+  const response: BatchGetFleetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetFleetsCommandError
+ */
+const de_BatchGetFleetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetFleetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1BatchGetProjectsCommand
  */
 export const de_BatchGetProjectsCommand = async (
@@ -1075,6 +1204,58 @@ const de_BatchGetReportsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateFleetCommand
+ */
+export const de_CreateFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateFleetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateFleetOutput(data, context);
+  const response: CreateFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateFleetCommandError
+ */
+const de_CreateFleetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFleetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccountLimitExceededException":
+    case "com.amazonaws.codebuild#AccountLimitExceededException":
+      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1271,6 +1452,52 @@ const de_DeleteBuildBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBuildBatchCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteFleetCommand
+ */
+export const de_DeleteFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteFleetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteFleetCommandError
+ */
+const de_DeleteFleetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2100,6 +2327,52 @@ const de_ListCuratedEnvironmentImagesCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListFleetsCommand
+ */
+export const de_ListFleetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFleetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListFleetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListFleetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListFleetsCommandError
+ */
+const de_ListFleetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFleetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListProjectsCommand
  */
 export const de_ListProjectsCommand = async (
@@ -2774,6 +3047,58 @@ const de_StopBuildBatchCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateFleetCommand
+ */
+export const de_UpdateFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateFleetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateFleetOutput(data, context);
+  const response: UpdateFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateFleetCommandError
+ */
+const de_UpdateFleetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFleetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccountLimitExceededException":
+    case "com.amazonaws.codebuild#AccountLimitExceededException":
+      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.codebuild#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codebuild#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateProjectCommand
  */
 export const de_UpdateProjectCommand = async (
@@ -3058,6 +3383,8 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_BatchGetBuildsInput omitted.
 
+// se_BatchGetFleetsInput omitted.
+
 // se_BatchGetProjectsInput omitted.
 
 // se_BatchGetReportGroupsInput omitted.
@@ -3078,6 +3405,20 @@ const de_ResourceNotFoundExceptionRes = async (
 
 // se_ComputeTypesAllowed omitted.
 
+/**
+ * serializeAws_json1_1CreateFleetInput
+ */
+const se_CreateFleetInput = (input: CreateFleetInput, context: __SerdeContext): any => {
+  return take(input, {
+    baseCapacity: [],
+    computeType: [],
+    environmentType: [],
+    name: [],
+    scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
+    tags: _json,
+  });
+};
+
 // se_CreateProjectInput omitted.
 
 // se_CreateReportGroupInput omitted.
@@ -3085,6 +3426,8 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_CreateWebhookInput omitted.
 
 // se_DeleteBuildBatchInput omitted.
+
+// se_DeleteFleetInput omitted.
 
 // se_DeleteProjectInput omitted.
 
@@ -3123,6 +3466,8 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 
 // se_FilterGroups omitted.
 
+// se_FleetNames omitted.
+
 // se_GetReportGroupTrendInput omitted.
 
 // se_GetResourcePolicyInput omitted.
@@ -3142,6 +3487,8 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 // se_ListBuildsInput omitted.
 
 // se_ListCuratedEnvironmentImagesInput omitted.
+
+// se_ListFleetsInput omitted.
 
 // se_ListProjectsInput omitted.
 
@@ -3175,6 +3522,8 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 
 // se_ProjectFileSystemLocations omitted.
 
+// se_ProjectFleet omitted.
+
 // se_ProjectNames omitted.
 
 // se_ProjectSecondarySourceVersions omitted.
@@ -3205,6 +3554,17 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 
 // se_S3ReportExportConfig omitted.
 
+/**
+ * serializeAws_json1_1ScalingConfigurationInput
+ */
+const se_ScalingConfigurationInput = (input: ScalingConfigurationInput, context: __SerdeContext): any => {
+  return take(input, {
+    maxCapacity: [],
+    scalingType: [],
+    targetTrackingScalingConfigs: (_) => se_TargetTrackingScalingConfigurations(_, context),
+  });
+};
+
 // se_SecurityGroupIds omitted.
 
 // se_SourceAuth omitted.
@@ -3223,7 +3583,48 @@ const se_DescribeCodeCoveragesInput = (input: DescribeCodeCoveragesInput, contex
 
 // se_TagList omitted.
 
+/**
+ * serializeAws_json1_1TargetTrackingScalingConfiguration
+ */
+const se_TargetTrackingScalingConfiguration = (
+  input: TargetTrackingScalingConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    metricType: [],
+    targetValue: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_json1_1TargetTrackingScalingConfigurations
+ */
+const se_TargetTrackingScalingConfigurations = (
+  input: TargetTrackingScalingConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_TargetTrackingScalingConfiguration(entry, context);
+    });
+};
+
 // se_TestCaseFilter omitted.
+
+/**
+ * serializeAws_json1_1UpdateFleetInput
+ */
+const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): any => {
+  return take(input, {
+    arn: [],
+    baseCapacity: [],
+    computeType: [],
+    environmentType: [],
+    scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
+    tags: _json,
+  });
+};
 
 // se_UpdateProjectInput omitted.
 
@@ -3258,6 +3659,16 @@ const de_BatchGetBuildsOutput = (output: any, context: __SerdeContext): BatchGet
   return take(output, {
     builds: (_: any) => de_Builds(_, context),
     buildsNotFound: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetFleetsOutput
+ */
+const de_BatchGetFleetsOutput = (output: any, context: __SerdeContext): BatchGetFleetsOutput => {
+  return take(output, {
+    fleets: (_: any) => de_Fleets(_, context),
+    fleetsNotFound: _json,
   }) as any;
 };
 
@@ -3562,6 +3973,15 @@ const de_CodeCoverages = (output: any, context: __SerdeContext): CodeCoverage[] 
 // de_ComputeTypesAllowed omitted.
 
 /**
+ * deserializeAws_json1_1CreateFleetOutput
+ */
+const de_CreateFleetOutput = (output: any, context: __SerdeContext): CreateFleetOutput => {
+  return take(output, {
+    fleet: (_: any) => de_Fleet(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateProjectOutput
  */
 const de_CreateProjectOutput = (output: any, context: __SerdeContext): CreateProjectOutput => {
@@ -3591,6 +4011,8 @@ const de_CreateWebhookOutput = (output: any, context: __SerdeContext): CreateWeb
 // de_DebugSession omitted.
 
 // de_DeleteBuildBatchOutput omitted.
+
+// de_DeleteFleetOutput omitted.
 
 // de_DeleteProjectOutput omitted.
 
@@ -3648,6 +4070,43 @@ const de_DescribeTestCasesOutput = (output: any, context: __SerdeContext): Descr
 
 // de_FilterGroups omitted.
 
+/**
+ * deserializeAws_json1_1Fleet
+ */
+const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
+  return take(output, {
+    arn: __expectString,
+    baseCapacity: __expectInt32,
+    computeType: __expectString,
+    created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    environmentType: __expectString,
+    id: __expectString,
+    lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    scalingConfiguration: (_: any) => de_ScalingConfigurationOutput(_, context),
+    status: _json,
+    tags: _json,
+  }) as any;
+};
+
+// de_FleetArns omitted.
+
+// de_FleetNames omitted.
+
+/**
+ * deserializeAws_json1_1Fleets
+ */
+const de_Fleets = (output: any, context: __SerdeContext): Fleet[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Fleet(entry, context);
+    });
+  return retVal;
+};
+
+// de_FleetStatus omitted.
+
 // de_GetReportGroupTrendOutput omitted.
 
 // de_GetResourcePolicyOutput omitted.
@@ -3673,6 +4132,8 @@ const de_DescribeTestCasesOutput = (output: any, context: __SerdeContext): Descr
 // de_ListBuildsOutput omitted.
 
 // de_ListCuratedEnvironmentImagesOutput omitted.
+
+// de_ListFleetsOutput omitted.
 
 // de_ListProjectsOutput omitted.
 
@@ -3755,6 +4216,8 @@ const de_Project = (output: any, context: __SerdeContext): Project => {
 // de_ProjectFileSystemLocation omitted.
 
 // de_ProjectFileSystemLocations omitted.
+
+// de_ProjectFleet omitted.
 
 // de_ProjectNames omitted.
 
@@ -3886,6 +4349,18 @@ const de_RetryBuildOutput = (output: any, context: __SerdeContext): RetryBuildOu
 
 // de_S3ReportExportConfig omitted.
 
+/**
+ * deserializeAws_json1_1ScalingConfigurationOutput
+ */
+const de_ScalingConfigurationOutput = (output: any, context: __SerdeContext): ScalingConfigurationOutput => {
+  return take(output, {
+    desiredCapacity: __expectInt32,
+    maxCapacity: __expectInt32,
+    scalingType: __expectString,
+    targetTrackingScalingConfigs: (_: any) => de_TargetTrackingScalingConfigurations(_, context),
+  }) as any;
+};
+
 // de_SecurityGroupIds omitted.
 
 // de_SourceAuth omitted.
@@ -3937,6 +4412,34 @@ const de_StopBuildOutput = (output: any, context: __SerdeContext): StopBuildOutp
 // de_TagList omitted.
 
 /**
+ * deserializeAws_json1_1TargetTrackingScalingConfiguration
+ */
+const de_TargetTrackingScalingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingScalingConfiguration => {
+  return take(output, {
+    metricType: __expectString,
+    targetValue: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TargetTrackingScalingConfigurations
+ */
+const de_TargetTrackingScalingConfigurations = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingScalingConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TargetTrackingScalingConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1TestCase
  */
 const de_TestCase = (output: any, context: __SerdeContext): TestCase => {
@@ -3965,6 +4468,15 @@ const de_TestCases = (output: any, context: __SerdeContext): TestCase[] => {
 };
 
 // de_TestReportSummary omitted.
+
+/**
+ * deserializeAws_json1_1UpdateFleetOutput
+ */
+const de_UpdateFleetOutput = (output: any, context: __SerdeContext): UpdateFleetOutput => {
+  return take(output, {
+    fleet: (_: any) => de_Fleet(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1UpdateProjectOutput

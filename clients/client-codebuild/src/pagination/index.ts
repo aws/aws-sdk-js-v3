@@ -7,6 +7,7 @@ export * from "./ListBuildBatchesForProjectPaginator";
 export * from "./ListBuildBatchesPaginator";
 export * from "./ListBuildsForProjectPaginator";
 export * from "./ListBuildsPaginator";
+export * from "./ListFleetsPaginator";
 export * from "./ListProjectsPaginator";
 export * from "./ListReportGroupsPaginator";
 export * from "./ListReportsForReportGroupPaginator";

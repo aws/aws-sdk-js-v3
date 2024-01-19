@@ -134,6 +134,9 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER", // required
  * //         image: "STRING_VALUE", // required
  * //         computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB", // required
+ * //         fleet: { // ProjectFleet
+ * //           fleetArn: "STRING_VALUE",
+ * //         },
  * //         environmentVariables: [ // EnvironmentVariables
  * //           { // EnvironmentVariable
  * //             name: "STRING_VALUE", // required
