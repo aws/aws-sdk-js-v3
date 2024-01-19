@@ -1,6 +1,6 @@
 import { HeadObjectCommand, S3, S3Client, S3ServiceException } from "@aws-sdk/client-s3";
 import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
-import { RequestHandlerOutput } from "@smithy/types";
+import { AwsCredentialIdentity, RequestHandlerOutput } from "@smithy/types";
 import { ConfiguredRetryStrategy, StandardRetryStrategy } from "@smithy/util-retry";
 import { Readable } from "stream";
 
@@ -22,6 +22,12 @@ class MockRequestHandler implements HttpHandler {
 }
 
 describe("util-retry integration tests", () => {
+  const credentials: AwsCredentialIdentity = {
+    accessKeyId: "test",
+    secretAccessKey: "test",
+    sessionToken: "test",
+  };
+
   const mockThrottled: RequestHandlerOutput<HttpResponse> = {
     response: new HttpResponse({
       statusCode: 429,
@@ -48,6 +54,7 @@ describe("util-retry integration tests", () => {
         httpHandlerConfigs: () => ({}),
       },
       region: MOCK_REGION,
+      credentials,
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
     const response = await client.send(headObjectCommand);
@@ -69,6 +76,7 @@ describe("util-retry integration tests", () => {
         updateHttpClientConfig: () => {},
       },
       region: MOCK_REGION,
+      credentials,
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
     const response = await client.send(headObjectCommand);
@@ -97,6 +105,7 @@ describe("util-retry integration tests", () => {
         updateHttpClientConfig: () => {},
       },
       region: MOCK_REGION,
+      credentials,
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
     try {
@@ -125,6 +134,7 @@ describe("util-retry integration tests", () => {
       requestHandler: new MockRequestHandler(),
       retryStrategy,
       region: MOCK_REGION,
+      credentials,
     });
 
     expect(retryStrategy.getCapacity()).toEqual(expectedInitialCapacity);
