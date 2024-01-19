@@ -608,7 +608,8 @@ export interface QueryExecutionStatistics {
 
   /**
    * @public
-   * <p>The number of milliseconds that Athena took to preprocess the query before submitting the query to the query engine.</p>
+   * <p>The number of milliseconds that Athena took to preprocess the query before
+   *             submitting the query to the query engine.</p>
    */
   ServicePreProcessingTimeInMillis?: number;
 
@@ -1422,9 +1423,10 @@ export interface WorkGroupConfiguration {
 
   /**
    * @public
-   * <p>The ARN of the execution role used to access user resources for Spark sessions and Identity Center
-   *             enabled workgroups. This property applies only to Spark enabled workgroups and Identity
-   *             Center enabled workgroups.</p>
+   * <p>The ARN of the execution role used to access user resources for Spark sessions and
+   *                 IAM Identity Center enabled workgroups. This property applies only to Spark enabled
+   *             workgroups and IAM Identity Center enabled workgroups. The property is required for
+   *                 IAM Identity Center enabled workgroups.</p>
    */
   ExecutionRole?: string;
 
@@ -2673,9 +2675,8 @@ export interface QueryRuntimeStatisticsTimeline {
 
   /**
    * @public
-   * <p>
-   *             The number of milliseconds that Athena spends on preprocessing before it submits the query to the engine.
-   *         </p>
+   * <p> The number of milliseconds that Athena spends on preprocessing before it
+   *             submits the query to the engine. </p>
    */
   ServicePreProcessingTimeInMillis?: number;
 
@@ -2772,9 +2773,9 @@ export interface EngineConfiguration {
 export interface SessionConfiguration {
   /**
    * @public
-   * <p>The ARN of the execution role used to access user resources for Spark sessions and Identity Center
-   *             enabled workgroups. This property applies only to Spark enabled workgroups and Identity
-   *             Center enabled workgroups.</p>
+   * <p>The ARN of the execution role used to access user resources for Spark sessions and
+   *             Identity Center enabled workgroups. This property applies only to Spark enabled
+   *             workgroups and Identity Center enabled workgroups.</p>
    */
   ExecutionRole?: string;
 
@@ -3207,9 +3208,9 @@ export interface ImportNotebookInput {
 
   /**
    * @public
-   * <p>The notebook content to be imported.</p>
+   * <p>The notebook content to be imported. The payload must be in <code>ipynb</code> format.</p>
    */
-  Payload: string | undefined;
+  Payload?: string;
 
   /**
    * @public
@@ -3217,6 +3218,12 @@ export interface ImportNotebookInput {
    *             <code>IPYNB</code>.</p>
    */
   Type: NotebookType | undefined;
+
+  /**
+   * @public
+   * <p>A URI that specifies the Amazon S3 location of a notebook file in <code>ipynb</code> format.</p>
+   */
+  NotebookS3LocationUri?: string;
 
   /**
    * @public
@@ -3500,8 +3507,7 @@ export interface ListDataCatalogsInput {
 
   /**
    * @public
-   * <p>The name of the workgroup. Required if
-   *             making an IAM Identity Center request.</p>
+   * <p>The name of the workgroup. Required if making an IAM Identity Center request.</p>
    */
   WorkGroup?: string;
 }
@@ -5185,9 +5191,9 @@ export interface WorkGroupConfigurationUpdates {
 
   /**
    * @public
-   * <p>The ARN of the execution role used to access user resources for Spark sessions and Identity Center
-   *             enabled workgroups. This property applies only to Spark enabled workgroups and Identity
-   *             Center enabled workgroups.</p>
+   * <p>The ARN of the execution role used to access user resources for Spark sessions and
+   *             Identity Center enabled workgroups. This property applies only to Spark enabled
+   *             workgroups and Identity Center enabled workgroups.</p>
    */
   ExecutionRole?: string;
 
