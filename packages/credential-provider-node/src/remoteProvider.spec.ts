@@ -42,7 +42,7 @@ describe(remoteProvider.name, () => {
     "returns fromContainerMetadata if env['%s'] is set",
     async (key) => {
       process.env[key] = "defined";
-      const receivedCreds = await remoteProvider(mockInit)();
+      const receivedCreds = await (await remoteProvider(mockInit))();
       expect(receivedCreds).toStrictEqual(mockCredsFromContainer);
       expect(fromContainerMetadata).toHaveBeenCalledWith(mockInit);
       expect(fromInstanceMetadata).not.toHaveBeenCalled();
@@ -53,7 +53,9 @@ describe(remoteProvider.name, () => {
     process.env[ENV_IMDS_DISABLED] = "1";
     const expectedError = new CredentialsProviderError("EC2 Instance Metadata Service access disabled");
     try {
-      await remoteProvider(mockInit)();
+      await (
+        await remoteProvider(mockInit)
+      )();
       fail(`expectedError ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
@@ -63,7 +65,7 @@ describe(remoteProvider.name, () => {
   });
 
   it("returns fromInstanceMetadata if environment variables are not set", async () => {
-    const receivedCreds = await remoteProvider(mockInit)();
+    const receivedCreds = await (await remoteProvider(mockInit))();
     expect(receivedCreds).toStrictEqual(mockSourceCredsFromInstanceMetadata);
     expect(fromInstanceMetadata).toHaveBeenCalledWith(mockInit);
     expect(fromContainerMetadata).not.toHaveBeenCalled();

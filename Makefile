@@ -20,6 +20,9 @@ unlink-smithy:
 	rm ./node_modules/\@smithy
 	yarn --check-files
 
+copy-smithy:
+	node ./scripts/copy-smithy-dist-files
+
 # Runs build for all packages using Turborepo
 turbo-build:
 	(cd scripts/remote-cache && yarn)
