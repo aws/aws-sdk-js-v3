@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* get full list of exports for esm compat in dist-cjs ([#5694](https://github.com/aws/aws-sdk-js-v3/issues/5694)) ([5d26da6](https://github.com/aws/aws-sdk-js-v3/commit/5d26da6d07b593ae286ca674fb3cbff7c833cbb0))
+* revert "feat(credential-provider-node): use dynamic import for credential providers ([#5677](https://github.com/aws/aws-sdk-js-v3/issues/5677))" ([4cea583](https://github.com/aws/aws-sdk-js-v3/commit/4cea5837eea17e0b75dd272af60f3069f94d962e))
+
+
+### Features
+
+* **credential-provider-node:** use dynamic import for credential providers ([#5677](https://github.com/aws/aws-sdk-js-v3/issues/5677)) ([7841411](https://github.com/aws/aws-sdk-js-v3/commit/7841411ed9c941f3150b02d232e947c3984cfdd9))
+
+
+
+
+
 # [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
 
 

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* get full list of exports for esm compat in dist-cjs ([#5694](https://github.com/aws/aws-sdk-js-v3/issues/5694)) ([5d26da6](https://github.com/aws/aws-sdk-js-v3/commit/5d26da6d07b593ae286ca674fb3cbff7c833cbb0))
+* revert "feat(credential-provider-node): use dynamic import for credential providers ([#5677](https://github.com/aws/aws-sdk-js-v3/issues/5677))" ([4cea583](https://github.com/aws/aws-sdk-js-v3/commit/4cea5837eea17e0b75dd272af60f3069f94d962e))
+
+
+### Features
+
+* **client-athena:** Introducing new NotebookS3LocationUri parameter to Athena ImportNotebook API. Payload is no longer required and either Payload or NotebookS3LocationUri needs to be provided (not both) for a successful ImportNotebook API call. If both are provided, an InvalidRequestException will be thrown. ([a8ed592](https://github.com/aws/aws-sdk-js-v3/commit/a8ed5925449e8baf93ee01dc5b1ff1cb61bd1157))
+* **client-codebuild:** Release CodeBuild Reserved Capacity feature ([c0c445d](https://github.com/aws/aws-sdk-js-v3/commit/c0c445dee916b80bcb7683e9d32b536a8de15017))
+* **client-dynamodb:** This release adds support for including ApproximateCreationDateTimePrecision configurations in EnableKinesisStreamingDestination API, adds the same as an optional field in the response of DescribeKinesisStreamingDestination, and adds support for a new UpdateKinesisStreamingDestination API. ([2be6625](https://github.com/aws/aws-sdk-js-v3/commit/2be6625e23dcdb91c018fdd5ef48a29d3de16ca6))
+* **client-qconnect:** Increased Quick Response name max length to 100 ([b02d4af](https://github.com/aws/aws-sdk-js-v3/commit/b02d4afd815c0c463c75685b979f539dddb0f582))
+* **clients:** update client endpoints as of 2024-01-19 ([cb1bc4e](https://github.com/aws/aws-sdk-js-v3/commit/cb1bc4ea6901b458d6e0b20f915df00649da1169))
+* **credential-provider-node:** use dynamic import for credential providers ([#5677](https://github.com/aws/aws-sdk-js-v3/issues/5677)) ([7841411](https://github.com/aws/aws-sdk-js-v3/commit/7841411ed9c941f3150b02d232e947c3984cfdd9))
+
+
+
+
+
 # [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
 
 
