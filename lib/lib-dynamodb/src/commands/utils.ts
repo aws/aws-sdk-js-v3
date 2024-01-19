@@ -64,10 +64,18 @@ const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodeChil
   if (Array.isArray(obj)) {
     accumulator = [...obj];
   } else {
-    accumulator = { ...obj };
+    accumulator = {};
+    for (const [k, v] of Object.entries(obj)) {
+      if (typeof v !== "function") {
+        accumulator[k] = v;
+      }
+    }
   }
 
   for (const [nodeKey, nodes] of Object.entries(keyNodes)) {
+    if (typeof obj[nodeKey] === "function") {
+      continue;
+    }
     const processedValue = processObj(obj[nodeKey], processFunc, nodes);
     if (processedValue !== undefined) {
       accumulator[nodeKey] = processedValue;
@@ -82,6 +90,9 @@ const processAllKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodes
     return obj.map((item) => processObj(item, processFunc, keyNodes));
   }
   return Object.entries(obj).reduce((acc, [key, value]) => {
+    if (typeof value === "function") {
+      return acc;
+    }
     const processedValue = processObj(value, processFunc, keyNodes);
     if (processedValue !== undefined) {
       acc[key] = processedValue;
