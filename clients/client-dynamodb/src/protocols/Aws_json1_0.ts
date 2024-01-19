@@ -123,6 +123,10 @@ import {
   UpdateGlobalTableSettingsCommandOutput,
 } from "../commands/UpdateGlobalTableSettingsCommand";
 import { UpdateItemCommandInput, UpdateItemCommandOutput } from "../commands/UpdateItemCommand";
+import {
+  UpdateKinesisStreamingDestinationCommandInput,
+  UpdateKinesisStreamingDestinationCommandOutput,
+} from "../commands/UpdateKinesisStreamingDestinationCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/UpdateTableCommand";
 import {
   UpdateTableReplicaAutoScalingCommandInput,
@@ -208,6 +212,7 @@ import {
   DescribeTableReplicaAutoScalingOutput,
   DescribeTimeToLiveInput,
   DuplicateItemException,
+  EnableKinesisStreamingConfiguration,
   ExecuteStatementInput,
   ExecuteStatementOutput,
   ExecuteTransactionInput,
@@ -337,6 +342,8 @@ import {
   UpdateGlobalTableSettingsOutput,
   UpdateItemInput,
   UpdateItemOutput,
+  UpdateKinesisStreamingConfiguration,
+  UpdateKinesisStreamingDestinationInput,
   UpdateReplicationGroupMemberAction,
   UpdateTableInput,
   UpdateTableOutput,
@@ -987,6 +994,19 @@ export const se_UpdateItemCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateItem");
   let body: any;
   body = JSON.stringify(se_UpdateItemInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateKinesisStreamingDestinationCommand
+ */
+export const se_UpdateKinesisStreamingDestinationCommand = async (
+  input: UpdateKinesisStreamingDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateKinesisStreamingDestination");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3804,6 +3824,64 @@ const de_UpdateItemCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateKinesisStreamingDestinationCommand
+ */
+export const de_UpdateKinesisStreamingDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKinesisStreamingDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateKinesisStreamingDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateKinesisStreamingDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateKinesisStreamingDestinationCommandError
+ */
+const de_UpdateKinesisStreamingDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKinesisStreamingDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0UpdateTableCommand
  */
 export const de_UpdateTableCommand = async (
@@ -4776,6 +4854,8 @@ const se_DeleteRequest = (input: DeleteRequest, context: __SerdeContext): any =>
 
 // se_DescribeTimeToLiveInput omitted.
 
+// se_EnableKinesisStreamingConfiguration omitted.
+
 /**
  * serializeAws_json1_0ExecuteStatementInput
  */
@@ -5544,6 +5624,10 @@ const se_UpdateItemInput = (input: UpdateItemInput, context: __SerdeContext): an
   });
 };
 
+// se_UpdateKinesisStreamingConfiguration omitted.
+
+// se_UpdateKinesisStreamingDestinationInput omitted.
+
 // se_UpdateReplicationGroupMemberAction omitted.
 
 // se_UpdateTableInput omitted.
@@ -6160,6 +6244,8 @@ const de_DescribeTableReplicaAutoScalingOutput = (
 // de_DescribeTimeToLiveOutput omitted.
 
 // de_DuplicateItemException omitted.
+
+// de_EnableKinesisStreamingConfiguration omitted.
 
 // de_Endpoint omitted.
 
@@ -7127,6 +7213,10 @@ const de_UpdateItemOutput = (output: any, context: __SerdeContext): UpdateItemOu
     ItemCollectionMetrics: (_: any) => de_ItemCollectionMetrics(_, context),
   }) as any;
 };
+
+// de_UpdateKinesisStreamingConfiguration omitted.
+
+// de_UpdateKinesisStreamingDestinationOutput omitted.
 
 /**
  * deserializeAws_json1_0UpdateTableOutput

@@ -6,10 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput } from "../models/models_0";
+import { UpdateKinesisStreamingDestinationInput, UpdateKinesisStreamingDestinationOutput } from "../models/models_0";
 import {
-  de_DisableKinesisStreamingDestinationCommand,
-  se_DisableKinesisStreamingDestinationCommand,
+  de_UpdateKinesisStreamingDestinationCommand,
+  se_UpdateKinesisStreamingDestinationCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
@@ -19,52 +19,51 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DisableKinesisStreamingDestinationCommand}.
+ * The input for {@link UpdateKinesisStreamingDestinationCommand}.
  */
-export interface DisableKinesisStreamingDestinationCommandInput extends KinesisStreamingDestinationInput {}
+export interface UpdateKinesisStreamingDestinationCommandInput extends UpdateKinesisStreamingDestinationInput {}
 /**
  * @public
  *
- * The output of {@link DisableKinesisStreamingDestinationCommand}.
+ * The output of {@link UpdateKinesisStreamingDestinationCommand}.
  */
-export interface DisableKinesisStreamingDestinationCommandOutput
-  extends KinesisStreamingDestinationOutput,
+export interface UpdateKinesisStreamingDestinationCommandOutput
+  extends UpdateKinesisStreamingDestinationOutput,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
- *             without deleting either of the resources.</p>
+ * <p>The command to update the Kinesis stream destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DynamoDBClient, DisableKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
- * // const { DynamoDBClient, DisableKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * import { DynamoDBClient, UpdateKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, UpdateKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
- * const input = { // KinesisStreamingDestinationInput
+ * const input = { // UpdateKinesisStreamingDestinationInput
  *   TableName: "STRING_VALUE", // required
  *   StreamArn: "STRING_VALUE", // required
- *   EnableKinesisStreamingConfiguration: { // EnableKinesisStreamingConfiguration
+ *   UpdateKinesisStreamingConfiguration: { // UpdateKinesisStreamingConfiguration
  *     ApproximateCreationDateTimePrecision: "MILLISECOND" || "MICROSECOND",
  *   },
  * };
- * const command = new DisableKinesisStreamingDestinationCommand(input);
+ * const command = new UpdateKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
- * // { // KinesisStreamingDestinationOutput
+ * // { // UpdateKinesisStreamingDestinationOutput
  * //   TableName: "STRING_VALUE",
  * //   StreamArn: "STRING_VALUE",
  * //   DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED" || "UPDATING",
- * //   EnableKinesisStreamingConfiguration: { // EnableKinesisStreamingConfiguration
+ * //   UpdateKinesisStreamingConfiguration: { // UpdateKinesisStreamingConfiguration
  * //     ApproximateCreationDateTimePrecision: "MILLISECOND" || "MICROSECOND",
  * //   },
  * // };
  *
  * ```
  *
- * @param DisableKinesisStreamingDestinationCommandInput - {@link DisableKinesisStreamingDestinationCommandInput}
- * @returns {@link DisableKinesisStreamingDestinationCommandOutput}
- * @see {@link DisableKinesisStreamingDestinationCommandInput} for command's `input` shape.
- * @see {@link DisableKinesisStreamingDestinationCommandOutput} for command's `response` shape.
+ * @param UpdateKinesisStreamingDestinationCommandInput - {@link UpdateKinesisStreamingDestinationCommandInput}
+ * @returns {@link UpdateKinesisStreamingDestinationCommandOutput}
+ * @see {@link UpdateKinesisStreamingDestinationCommandInput} for command's `input` shape.
+ * @see {@link UpdateKinesisStreamingDestinationCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
@@ -101,10 +100,10 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
-export class DisableKinesisStreamingDestinationCommand extends $Command
+export class UpdateKinesisStreamingDestinationCommand extends $Command
   .classBuilder<
-    DisableKinesisStreamingDestinationCommandInput,
-    DisableKinesisStreamingDestinationCommandOutput,
+    UpdateKinesisStreamingDestinationCommandInput,
+    UpdateKinesisStreamingDestinationCommandOutput,
     DynamoDBClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,9 +117,9 @@ export class DisableKinesisStreamingDestinationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DynamoDB_20120810", "DisableKinesisStreamingDestination", {})
-  .n("DynamoDBClient", "DisableKinesisStreamingDestinationCommand")
+  .s("DynamoDB_20120810", "UpdateKinesisStreamingDestination", {})
+  .n("DynamoDBClient", "UpdateKinesisStreamingDestinationCommand")
   .f(void 0, void 0)
-  .ser(se_DisableKinesisStreamingDestinationCommand)
-  .de(de_DisableKinesisStreamingDestinationCommand)
+  .ser(se_UpdateKinesisStreamingDestinationCommand)
+  .de(de_UpdateKinesisStreamingDestinationCommand)
   .build() {}

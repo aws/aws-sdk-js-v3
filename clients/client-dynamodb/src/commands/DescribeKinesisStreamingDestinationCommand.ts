@@ -53,8 +53,9 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
  * //   KinesisDataStreamDestinations: [ // KinesisDataStreamDestinations
  * //     { // KinesisDataStreamDestination
  * //       StreamArn: "STRING_VALUE",
- * //       DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED",
+ * //       DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED" || "UPDATING",
  * //       DestinationStatusDescription: "STRING_VALUE",
+ * //       ApproximateCreationDateTimePrecision: "MILLISECOND" || "MICROSECOND",
  * //     },
  * //   ],
  * // };

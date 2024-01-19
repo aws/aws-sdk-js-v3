@@ -160,6 +160,10 @@ import {
   UpdateGlobalTableSettingsCommandOutput,
 } from "./commands/UpdateGlobalTableSettingsCommand";
 import { UpdateItemCommandInput, UpdateItemCommandOutput } from "./commands/UpdateItemCommand";
+import {
+  UpdateKinesisStreamingDestinationCommandInput,
+  UpdateKinesisStreamingDestinationCommandOutput,
+} from "./commands/UpdateKinesisStreamingDestinationCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTableReplicaAutoScalingCommandInput,
@@ -231,6 +235,7 @@ export type ServiceInputTypes =
   | UpdateGlobalTableCommandInput
   | UpdateGlobalTableSettingsCommandInput
   | UpdateItemCommandInput
+  | UpdateKinesisStreamingDestinationCommandInput
   | UpdateTableCommandInput
   | UpdateTableReplicaAutoScalingCommandInput
   | UpdateTimeToLiveCommandInput;
@@ -289,6 +294,7 @@ export type ServiceOutputTypes =
   | UpdateGlobalTableCommandOutput
   | UpdateGlobalTableSettingsCommandOutput
   | UpdateItemCommandOutput
+  | UpdateKinesisStreamingDestinationCommandOutput
   | UpdateTableCommandOutput
   | UpdateTableReplicaAutoScalingCommandOutput
   | UpdateTimeToLiveCommandOutput;

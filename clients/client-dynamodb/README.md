@@ -622,6 +622,14 @@ UpdateItem
 </details>
 <details>
 <summary>
+UpdateKinesisStreamingDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateKinesisStreamingDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb/Interface/UpdateKinesisStreamingDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb/Interface/UpdateKinesisStreamingDestinationCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateTable
 </summary>
 

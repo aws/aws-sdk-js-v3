@@ -46,13 +46,19 @@ export interface EnableKinesisStreamingDestinationCommandOutput
  * const input = { // KinesisStreamingDestinationInput
  *   TableName: "STRING_VALUE", // required
  *   StreamArn: "STRING_VALUE", // required
+ *   EnableKinesisStreamingConfiguration: { // EnableKinesisStreamingConfiguration
+ *     ApproximateCreationDateTimePrecision: "MILLISECOND" || "MICROSECOND",
+ *   },
  * };
  * const command = new EnableKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
  * // { // KinesisStreamingDestinationOutput
  * //   TableName: "STRING_VALUE",
  * //   StreamArn: "STRING_VALUE",
- * //   DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED",
+ * //   DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED" || "UPDATING",
+ * //   EnableKinesisStreamingConfiguration: { // EnableKinesisStreamingConfiguration
+ * //     ApproximateCreationDateTimePrecision: "MILLISECOND" || "MICROSECOND",
+ * //   },
  * // };
  *
  * ```

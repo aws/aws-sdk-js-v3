@@ -5,6 +5,21 @@ import { DynamoDBServiceException as __BaseException } from "./DynamoDBServiceEx
 
 /**
  * @public
+ * @enum
+ */
+export const ApproximateCreationDateTimePrecision = {
+  MICROSECOND: "MICROSECOND",
+  MILLISECOND: "MILLISECOND",
+} as const;
+
+/**
+ * @public
+ */
+export type ApproximateCreationDateTimePrecision =
+  (typeof ApproximateCreationDateTimePrecision)[keyof typeof ApproximateCreationDateTimePrecision];
+
+/**
+ * @public
  * <p>Contains details of a table archival operation.</p>
  */
 export interface ArchivalSummary {
@@ -4566,6 +4581,7 @@ export const DestinationStatus = {
   DISABLING: "DISABLING",
   ENABLE_FAILED: "ENABLE_FAILED",
   ENABLING: "ENABLING",
+  UPDATING: "UPDATING",
 } as const;
 
 /**
@@ -4595,6 +4611,12 @@ export interface KinesisDataStreamDestination {
    * <p>The human-readable string that corresponds to the replica status.</p>
    */
   DestinationStatusDescription?: string;
+
+  /**
+   * @public
+   * <p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+   */
+  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision;
 }
 
 /**
@@ -4878,6 +4900,18 @@ export interface DescribeTimeToLiveOutput {
 
 /**
  * @public
+ * <p>Enables setting the configuration for Kinesis Streaming.</p>
+ */
+export interface EnableKinesisStreamingConfiguration {
+  /**
+   * @public
+   * <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+   */
+  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision;
+}
+
+/**
+ * @public
  */
 export interface KinesisStreamingDestinationInput {
   /**
@@ -4891,6 +4925,12 @@ export interface KinesisStreamingDestinationInput {
    * <p>The ARN for a Kinesis data stream.</p>
    */
   StreamArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The source for the Kinesis streaming information that is being enabled.</p>
+   */
+  EnableKinesisStreamingConfiguration?: EnableKinesisStreamingConfiguration;
 }
 
 /**
@@ -4914,6 +4954,12 @@ export interface KinesisStreamingDestinationOutput {
    * <p>The current status of the replication.</p>
    */
   DestinationStatus?: DestinationStatus;
+
+  /**
+   * @public
+   * <p>The destination for the Kinesis streaming information that is being enabled.</p>
+   */
+  EnableKinesisStreamingConfiguration?: EnableKinesisStreamingConfiguration;
 }
 
 /**
@@ -6374,6 +6420,70 @@ export interface UpdateGlobalTableSettingsOutput {
 
 /**
  * @public
+ * <p>Enables updating the configuration for Kinesis Streaming.</p>
+ */
+export interface UpdateKinesisStreamingConfiguration {
+  /**
+   * @public
+   * <p>Enables updating the precision of Kinesis data stream timestamp. </p>
+   */
+  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKinesisStreamingDestinationInput {
+  /**
+   * @public
+   * <p>The table name for the Kinesis streaming destination input.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN for the Kinesis stream input.</p>
+   */
+  StreamArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The command to update the Kinesis stream configuration.</p>
+   */
+  UpdateKinesisStreamingConfiguration?: UpdateKinesisStreamingConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKinesisStreamingDestinationOutput {
+  /**
+   * @public
+   * <p>The table name for the Kinesis streaming destination output.</p>
+   */
+  TableName?: string;
+
+  /**
+   * @public
+   * <p>The ARN for the Kinesis stream input.</p>
+   */
+  StreamArn?: string;
+
+  /**
+   * @public
+   * <p>The status of the attempt to update the Kinesis streaming destination output.</p>
+   */
+  DestinationStatus?: DestinationStatus;
+
+  /**
+   * @public
+   * <p>The command to update the Kinesis streaming destination configuration.</p>
+   */
+  UpdateKinesisStreamingConfiguration?: UpdateKinesisStreamingConfiguration;
+}
+
+/**
+ * @public
  * <p>Represents the new provisioned throughput settings to be applied to a global secondary
  *             index.</p>
  */
@@ -6626,8 +6736,8 @@ export interface UpdateTableInput {
    * @public
    * <p>Represents the DynamoDB Streams configuration for the table.</p>
    *          <note>
-   *             <p>You receive a <code>ValidationException</code> if you try to enable a stream on a
-   *                 table that already has a stream, or if you try to disable a stream on a table that
+   *             <p>You receive a <code>ResourceInUseException</code> if you try to enable a stream on
+   *                 a table that already has a stream, or if you try to disable a stream on a table that
    *                 doesn't have a stream.</p>
    *          </note>
    */
@@ -7924,12 +8034,12 @@ export interface ItemResponse {
 
 /**
  * @public
- * <p> Represents a PartiQL statment that uses parameters. </p>
+ * <p> Represents a PartiQL statement that uses parameters. </p>
  */
 export interface ParameterizedStatement {
   /**
    * @public
-   * <p> A PartiQL statment that uses parameters. </p>
+   * <p> A PartiQL statement that uses parameters. </p>
    */
   Statement: string | undefined;
 
