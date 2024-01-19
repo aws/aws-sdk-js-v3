@@ -1,12 +1,3 @@
-jest.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: async () => {
-    return {
-      secretAccessKey: "integration-test",
-      accessKeyId: "integration-test",
-      sessionToken: "integration-test",
-    };
-  },
-}));
 import { APIGateway } from "@aws-sdk/client-api-gateway";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";

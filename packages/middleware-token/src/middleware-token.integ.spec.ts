@@ -1,12 +1,3 @@
-jest.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: async () => {
-    return {
-      secretAccessKey: "integration-test",
-      accessKeyId: "integration-test",
-      sessionToken: "integration-test",
-    };
-  },
-}));
 import { CodeCatalyst } from "@aws-sdk/client-codecatalyst";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";

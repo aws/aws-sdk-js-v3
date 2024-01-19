@@ -1,13 +1,7 @@
-jest.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: async () => {
-    return {
-      secretAccessKey: "integration-test",
-      accessKeyId: "integration-test",
-      sessionToken: "integration-test",
-    };
-  },
-}));
-import { S3 } from "@aws-sdk/client-s3";
+import { GetObjectCommand, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { NoOpLogger } from "@smithy/smithy-client";
+import { parseUrl } from "@smithy/url-parser";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

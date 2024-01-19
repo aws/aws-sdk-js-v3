@@ -14,17 +14,12 @@ jest.mock("@aws-sdk/util-format-url", () => ({
   formatUrl: (url: any) => url,
 }));
 
-import { AwsCredentialIdentity, RequestPresigningArguments } from "@smithy/types";
+import { RequestPresigningArguments } from "@smithy/types";
 
 import { getSignedUrl } from "./getSignedUrls";
 
 describe("getSignedUrl", () => {
-  const credentials: AwsCredentialIdentity = {
-    secretAccessKey: "unit-test",
-    accessKeyId: "unit-test",
-    sessionToken: "unit-test",
-  };
-  const clientParams = { region: "us-foo-1", credentials };
+  const clientParams = { region: "us-foo-1" };
 
   beforeEach(() => {
     mockPresign.mockReset();
