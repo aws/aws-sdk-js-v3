@@ -25,11 +25,11 @@
     "@aws-sdk/client-s3": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/middleware-endpoint": "^2.4.0",
-    "@smithy/signature-v4": "^2.1.0",
-    "@smithy/types": "^2.9.0",
-    "@smithy/util-hex-encoding": "^2.1.0",
-    "@smithy/util-utf8": "^2.1.0",
+    "@smithy/middleware-endpoint": "^2.4.1",
+    "@smithy/signature-v4": "^2.1.1",
+    "@smithy/types": "^2.9.1",
+    "@smithy/util-hex-encoding": "^2.1.1",
+    "@smithy/util-utf8": "^2.1.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

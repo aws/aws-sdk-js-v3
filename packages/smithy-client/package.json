@@ -22,7 +22,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/smithy-client": "^2.3.0",
+    "@smithy/smithy-client": "^2.3.1",
     "tslib": "^2.5.0"
   },
   "engines": {

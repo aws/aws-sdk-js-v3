@@ -80,6 +80,32 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @example Sample TestParsing call
+ * ```javascript
+ * //
+ * const input = {
+ *   "ediType": {
+ *     "x12Details": {
+ *       "version": "VERSION_4010",
+ *       "transactionSet": "X12_110"
+ *     }
+ *   },
+ *   "fileFormat": "JSON",
+ *   "inputFile": {
+ *     "key": "sampleFile.txt",
+ *     "bucketName": "test-bucket"
+ *   }
+ * };
+ * const command = new TestParsingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "parsedFileContent": "Sample parsed file content"
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class TestParsingCommand extends $Command
   .classBuilder<
