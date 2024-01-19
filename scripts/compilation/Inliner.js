@@ -276,7 +276,33 @@ module.exports = class Inliner {
   }
 
   /**
-   * step 6: we validate that the index.js file has a require statement
+   * Step 6: "Annotate the CommonJS export names for ESM import in node",
+   * except, correctly.
+   */
+  async annotateCjsExportNames() {
+    if (this.bailout) {
+      return this;
+    }
+    const exportNames = Object.keys(require(this.outfile));
+    /* (find and replace the following)
+    0 && (module.exports = {
+      ...
+    });
+    */
+    this.indexContents = this.indexContents.replace(
+      /0 && \(module\.exports = \{((.|\n)*?)\}\);/,
+      `
+0 && (module.exports = {
+  ${exportNames.join(",\n  ")}
+});
+`
+    );
+    fs.writeFileSync(this.outfile, this.indexContents, "utf-8");
+    return this;
+  }
+
+  /**
+   * step 7: we validate that the index.js file has a require statement
    * for any variant files, to ensure they are not in the inlined (bundled) index.
    */
   async validate() {
