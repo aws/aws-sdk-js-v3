@@ -138,6 +138,84 @@ export interface CreateCapabilityCommandOutput extends CreateCapabilityResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @example Sample CreateCapability call
+ * ```javascript
+ * //
+ * const input = {
+ *   "name": "b2biexample",
+ *   "type": "edi",
+ *   "clientToken": "foo",
+ *   "configuration": {
+ *     "edi": {
+ *       "type": {
+ *         "x12Details": {
+ *           "version": "VERSION_4010",
+ *           "transactionSet": "X12_110"
+ *         }
+ *       },
+ *       "inputLocation": {
+ *         "key": "input/",
+ *         "bucketName": "test-bucket"
+ *       },
+ *       "outputLocation": {
+ *         "key": "output/",
+ *         "bucketName": "test-bucket"
+ *       },
+ *       "transformerId": "tr-9a893cf536df4658b"
+ *     }
+ *   },
+ *   "instructionsDocuments": [
+ *     {
+ *       "key": "instructiondoc.txt",
+ *       "bucketName": "test-bucket"
+ *     }
+ *   ],
+ *   "tags": [
+ *     {
+ *       "Key": "capabilityKey1",
+ *       "Value": "capabilityValue1"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateCapabilityCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "name": "b2biexample",
+ *   "type": "edi",
+ *   "capabilityArn": "arn:aws:b2bi:us-west-2:123456789012:capability/ca-963a8121e4fc4e348",
+ *   "capabilityId": "ca-963a8121e4fc4e348",
+ *   "configuration": {
+ *     "edi": {
+ *       "type": {
+ *         "x12Details": {
+ *           "version": "VERSION_4010",
+ *           "transactionSet": "X12_110"
+ *         }
+ *       },
+ *       "inputLocation": {
+ *         "key": "input/",
+ *         "bucketName": "test-bucket"
+ *       },
+ *       "outputLocation": {
+ *         "key": "output/",
+ *         "bucketName": "test-bucket"
+ *       },
+ *       "transformerId": "tr-9a893cf536df4658b"
+ *     }
+ *   },
+ *   "createdAt": "2023-11-01T21:51:05.504Z",
+ *   "instructionsDocuments": [
+ *     {
+ *       "key": "instructiondoc.txt",
+ *       "bucketName": "test-bucket"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreateCapabilityCommand extends $Command
   .classBuilder<
