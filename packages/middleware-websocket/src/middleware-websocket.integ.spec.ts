@@ -1,12 +1,3 @@
-jest.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: async () => {
-    return {
-      secretAccessKey: "integration-test",
-      accessKeyId: "integration-test",
-      sessionToken: "integration-test",
-    };
-  },
-}));
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";

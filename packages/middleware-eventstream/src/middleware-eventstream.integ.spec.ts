@@ -1,12 +1,3 @@
-jest.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: async () => {
-    return {
-      secretAccessKey: "integration-test",
-      accessKeyId: "integration-test",
-      sessionToken: "integration-test",
-    };
-  },
-}));
 import { LexRuntimeV2 } from "@aws-sdk/client-lex-runtime-v2";
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
 import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";

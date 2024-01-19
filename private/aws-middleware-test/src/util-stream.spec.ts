@@ -1,12 +1,3 @@
-jest.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: async () => {
-    return {
-      secretAccessKey: "unit-test",
-      accessKeyId: "unit-test",
-      sessionToken: "unit-test",
-    };
-  },
-}));
 import { Lambda } from "@aws-sdk/client-lambda";
 import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import { HttpRequest as IHttpRequest } from "@smithy/types";

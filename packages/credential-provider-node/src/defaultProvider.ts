@@ -1,8 +1,9 @@
-import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
-import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
-import type { FromSSOInit } from "@aws-sdk/credential-provider-sso";
-import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
-import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
+import { fromEnv } from "@aws-sdk/credential-provider-env";
+import { fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
+import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
+import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
+import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
+import { RemoteProviderInit } from "@smithy/credential-provider-imds";
 import { chain, CredentialsProviderError, memoize } from "@smithy/property-provider";
 import { ENV_PROFILE } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentity, MemoizedProvider } from "@smithy/types";
@@ -48,52 +49,16 @@ export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcess
 export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> =>
   memoize(
     chain(
-      ...(init.profile || process.env[ENV_PROFILE]
-        ? []
-        : [
-            async () => {
-              const { fromEnv } = await import("@aws-sdk/credential-provider-env");
-              return fromEnv()();
-            },
-          ]),
-      async () => {
-        const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
-        return fromSSO(init)();
-      },
-      async () => {
-        const { fromIni } = await import("@aws-sdk/credential-provider-ini");
-        return fromIni(init)();
-      },
-      async () => {
-        const { fromProcess } = await import("@aws-sdk/credential-provider-process");
-        return fromProcess(init)();
-      },
-      async () => {
-        const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
-        return fromTokenFile(init)();
-      },
-      async () => {
-        return (await remoteProvider(init))();
-      },
+      ...(init.profile || process.env[ENV_PROFILE] ? [] : [fromEnv()]),
+      fromSSO(init),
+      fromIni(init),
+      fromProcess(init),
+      fromTokenFile(init),
+      remoteProvider(init),
       async () => {
         throw new CredentialsProviderError("Could not load credentials from any providers", false);
       }
     ),
-    credentialsTreatedAsExpired,
-    credentialsWillNeedRefresh
+    (credentials) => credentials.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000,
+    (credentials) => credentials.expiration !== undefined
   );
-
-/**
- * @internal
- *
- * @returns credentials have expiration.
- */
-export const credentialsWillNeedRefresh = (credentials: AwsCredentialIdentity) => credentials?.expiration !== undefined;
-
-/**
- * @internal
- *
- * @returns credentials with less than 5 minutes left.
- */
-export const credentialsTreatedAsExpired = (credentials: AwsCredentialIdentity) =>
-  credentials?.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000;

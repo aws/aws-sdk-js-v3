@@ -1,12 +1,3 @@
-jest.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: async () => {
-    return {
-      secretAccessKey: "unit-test",
-      accessKeyId: "unit-test",
-      sessionToken: "unit-test",
-    };
-  },
-}));
 import { EC2 } from "@aws-sdk/client-ec2";
 import { S3 } from "@aws-sdk/client-s3";
 import { SageMaker } from "@aws-sdk/client-sagemaker";

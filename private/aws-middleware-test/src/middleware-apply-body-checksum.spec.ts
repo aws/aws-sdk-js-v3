@@ -1,12 +1,3 @@
-jest.mock("@aws-sdk/credential-provider-node", () => ({
-  defaultProvider: async () => {
-    return {
-      secretAccessKey: "unit-test",
-      accessKeyId: "unit-test",
-      sessionToken: "unit-test",
-    };
-  },
-}));
 import { S3Control } from "@aws-sdk/client-s3-control";
 
 import { requireRequestsFrom } from "../../aws-util-test/src";
