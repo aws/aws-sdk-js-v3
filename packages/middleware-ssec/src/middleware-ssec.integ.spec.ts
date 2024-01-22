@@ -49,7 +49,6 @@ describe("middleware-ssec", () => {
         path: "/foo",
       });
       const exampleKey = crypto.createHash("sha256").update("example").digest();
-      console.log(exampleKey.toString("base64"));
       await client.putObject({
         Bucket: "testbucket",
         Body: "This is a test",
