@@ -55,13 +55,12 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You can close only 10% of member accounts, between 10 and 200, within a
+ *                   <p>You can close only 10% of member accounts, between 10 and 1000, within a
  *                         rolling 30 day period. This quota is not bound by a calendar month, but
  *                         starts when you close an account. After you reach this limit, you can close
  *                         additional accounts. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
- *                             account in your organization</a> in the
- *                             <i>Organizations User Guide</i>.
- *                     </p>
+ *                             account in your organization</a> and <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for
+ *                             Organizations</a>in the <i>Organizations User Guide</i>. </p>
  *                </li>
  *                <li>
  *                   <p>To reinstate a closed account, contact Amazon Web Services Support within the 90-day
@@ -236,7 +235,7 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
  *                     in China. To create an organization, the master must have a valid business
  *                     license. For more information, contact customer support.</p>
  *             </li>

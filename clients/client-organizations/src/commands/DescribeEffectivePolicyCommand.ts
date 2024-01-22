@@ -34,8 +34,9 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  *             account.</p>
  *          <p>This operation applies only to policy types <i>other</i> than service
  *             control policies (SCPs).</p>
- *          <p>For more information about policy inheritance, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html">Understanding management policy
- *                 inheritance</a> in the <i>Organizations User Guide</i>.</p>
+ *          <p>For more information about policy inheritance, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html">Understanding
+ *                 management policy inheritance</a> in the
+ *             <i>Organizations User Guide</i>.</p>
  *          <p>This operation can be called from any account in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -189,7 +190,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
  *                     in China. To create an organization, the master must have a valid business
  *                     license. For more information, contact customer support.</p>
  *             </li>

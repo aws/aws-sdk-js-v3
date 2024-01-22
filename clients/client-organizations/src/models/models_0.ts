@@ -1035,7 +1035,7 @@ export type ConstraintViolationExceptionReason =
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
  *                     in China. To create an organization, the master must have a valid business
  *                     license. For more information, contact customer support.</p>
  *             </li>
@@ -2146,7 +2146,10 @@ export interface CreatePolicyRequest {
   /**
    * @public
    * <p>The policy text content to add to the new policy. The text that you supply must adhere
-   *             to the rules of the policy type you specify in the <code>Type</code> parameter.</p>
+   *             to the rules of the policy type you specify in the <code>Type</code> parameter. </p>
+   *          <p>The maximum size of a policy document depends on the policy's type. For more
+   *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values">Maximum and minimum values</a> in the
+   *             <i>Organizations User Guide</i>.</p>
    */
   Content: string | undefined;
 
@@ -4916,6 +4919,9 @@ export interface UpdatePolicyRequest {
    * <p>If provided, the new content for the policy. The text must be correctly formatted JSON
    *             that complies with the syntax for the policy's type. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP
    *                 syntax</a> in the <i>Organizations User Guide</i>.</p>
+   *          <p>The maximum size of a policy document depends on the policy's type. For more
+   *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values">Maximum and minimum values</a> in the
+   *             <i>Organizations User Guide</i>.</p>
    */
   Content?: string;
 }

@@ -74,8 +74,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                </li>
  *                <li>
  *                   <p>You can leave an organization only after you enable IAM user access to
- *                         billing in your account. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">About IAM
- *                             access to the Billing and Cost Management console</a> in the
+ *                         billing in your account. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">About IAM access to the Billing and Cost Management console</a> in the
  *                             <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
  *                </li>
  *                <li>
@@ -246,7 +245,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
  *                     in China. To create an organization, the master must have a valid business
  *                     license. For more information, contact customer support.</p>
  *             </li>

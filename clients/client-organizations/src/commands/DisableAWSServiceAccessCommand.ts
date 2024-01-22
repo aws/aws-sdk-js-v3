@@ -80,8 +80,8 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *          <p>After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
  *             service can no longer perform operations in your organization's accounts </p>
  *          <p>For more information about integrating other services with Organizations, including the
- *             list of services that work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Using Organizations with other
- *                 Amazon Web Services services</a> in the <i>Organizations User Guide</i>.</p>
+ *             list of services that work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Using Organizations with other Amazon Web Services
+ *                 services</a> in the <i>Organizations User Guide</i>.</p>
  *          <p>This operation can be called only from the organization's management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -231,7 +231,7 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
  *                     in China. To create an organization, the master must have a valid business
  *                     license. For more information, contact customer support.</p>
  *             </li>

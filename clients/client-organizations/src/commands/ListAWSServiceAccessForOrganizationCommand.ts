@@ -40,8 +40,8 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *             organization. After a service on this list creates the resources that it requires for
  *             the integration, it can perform operations on your organization and its accounts.</p>
  *          <p>For more information about integrating other services with Organizations, including the
- *             list of services that currently work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Using Organizations with other
- *                 Amazon Web Services services</a> in the <i>Organizations User Guide</i>.</p>
+ *             list of services that currently work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Using Organizations with other Amazon Web Services
+ *                 services</a> in the <i>Organizations User Guide</i>.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
@@ -197,7 +197,7 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
  *                     in China. To create an organization, the master must have a valid business
  *                     license. For more information, contact customer support.</p>
  *             </li>
