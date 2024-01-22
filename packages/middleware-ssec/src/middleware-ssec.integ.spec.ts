@@ -1,6 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
 import * as crypto from "crypto";
-import { isMainThread } from "worker_threads";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
