@@ -1965,6 +1965,74 @@ export interface ServiceConnectClientAlias {
 
 /**
  * @public
+ * <p>An object that represents the timeout configurations for Service Connect.</p>
+ *          <note>
+ *             <p>If <code>idleTimeout</code> is set to a time that is less than
+ * 				<code>perRequestTimeout</code>, the connection will close when the
+ * 				<code>idleTimeout</code> is reached and not the
+ * 				<code>perRequestTimeout</code>.</p>
+ *          </note>
+ */
+export interface TimeoutConfiguration {
+  /**
+   * @public
+   * <p>The amount of time in seconds a connection will stay active while idle. A
+   * 			value of <code>0</code> can be set to disable <code>idleTimeout</code>.</p>
+   *          <p>The <code>idleTimeout</code> default for
+   * 			<code>HTTP</code>/<code>HTTP2</code>/<code>GRPC</code> is 5 minutes.</p>
+   *          <p>The <code>idleTimeout</code> default for <code>TCP</code> is 1 hour.</p>
+   */
+  idleTimeoutSeconds?: number;
+
+  /**
+   * @public
+   * <p>The amount of time waiting for the upstream to respond with a complete response
+   * 			per request. A value of <code>0</code> can be set to disable <code>perRequestTimeout</code>.
+   * 			<code>perRequestTimeout</code> can only be set if Service Connect <code>appProtocol</code>
+   * 			isn't <code>TCP</code>. Only <code>idleTimeout</code> is allowed for <code>TCP</code>
+   *             <code>appProtocol</code>.</p>
+   */
+  perRequestTimeoutSeconds?: number;
+}
+
+/**
+ * @public
+ * <p>An object that represents the Amazon Web Services Private Certificate Authority certificate.</p>
+ */
+export interface ServiceConnectTlsCertificateAuthority {
+  /**
+   * @public
+   * <p>The ARN of the Amazon Web Services Private Certificate Authority certificate.</p>
+   */
+  awsPcaAuthorityArn?: string;
+}
+
+/**
+ * @public
+ * <p>An object that represents the configuration for Service Connect TLS.</p>
+ */
+export interface ServiceConnectTlsConfiguration {
+  /**
+   * @public
+   * <p>The signer certificate authority.</p>
+   */
+  issuerCertificateAuthority: ServiceConnectTlsCertificateAuthority | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Key Management Service key.</p>
+   */
+  kmsKey?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.</p>
+   */
+  roleArn?: string;
+}
+
+/**
+ * @public
  * <p>The Service Connect service object configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface ServiceConnectService {
@@ -2010,6 +2078,18 @@ export interface ServiceConnectService {
    * 			Service Connect proxy.</p>
    */
   ingressPortOverride?: number;
+
+  /**
+   * @public
+   * <p>A reference to an object that represents the configured timeouts for Service Connect.</p>
+   */
+  timeout?: TimeoutConfiguration;
+
+  /**
+   * @public
+   * <p>An object that represents the configuration for Service Connect TLS.</p>
+   */
+  tls?: ServiceConnectTlsConfiguration;
 }
 
 /**
@@ -6752,9 +6832,9 @@ export interface Volume {
    * 			task definition revision may only have one volume configured at launch in the volume
    * 			configuration.</p>
    *          <p>To configure a volume at launch time, use this task definition revision and specify a
-   * 				<code>volumeConfigurations</code> object when calling the
+   * 			<code>volumeConfigurations</code> object when calling the
    * 			<code>CreateService</code>, <code>UpdateService</code>, <code>RunTask</code> or
-   * 				<code>StartTask</code> APIs.</p>
+   * 			<code>StartTask</code> APIs.</p>
    */
   configuredAtLaunch?: boolean;
 }

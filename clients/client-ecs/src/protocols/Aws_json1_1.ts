@@ -315,6 +315,8 @@ import {
   ServiceConnectClientAlias,
   ServiceConnectConfiguration,
   ServiceConnectService,
+  ServiceConnectTlsCertificateAuthority,
+  ServiceConnectTlsConfiguration,
   ServiceEvent,
   ServiceField,
   ServiceManagedEBSVolumeConfiguration,
@@ -346,6 +348,7 @@ import {
   TaskSetField,
   TaskSetNotFoundException,
   TaskVolumeConfiguration,
+  TimeoutConfiguration,
   Tmpfs,
   Ulimit,
   UnsupportedFeatureException,
@@ -5082,6 +5085,10 @@ const se_Scale = (input: Scale, context: __SerdeContext): any => {
 
 // se_ServiceConnectServiceList omitted.
 
+// se_ServiceConnectTlsCertificateAuthority omitted.
+
+// se_ServiceConnectTlsConfiguration omitted.
+
 // se_ServiceFieldList omitted.
 
 // se_ServiceManagedEBSVolumeConfiguration omitted.
@@ -5155,6 +5162,8 @@ const se_SubmitTaskStateChangeRequest = (input: SubmitTaskStateChangeRequest, co
 // se_TaskVolumeConfiguration omitted.
 
 // se_TaskVolumeConfigurations omitted.
+
+// se_TimeoutConfiguration omitted.
 
 // se_Tmpfs omitted.
 
@@ -5917,6 +5926,10 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
 
 // de_ServiceConnectServiceResourceList omitted.
 
+// de_ServiceConnectTlsCertificateAuthority omitted.
+
+// de_ServiceConnectTlsConfiguration omitted.
+
 /**
  * deserializeAws_json1_1ServiceEvent
  */
@@ -6168,6 +6181,8 @@ const de_TaskSets = (output: any, context: __SerdeContext): TaskSet[] => {
     });
   return retVal;
 };
+
+// de_TimeoutConfiguration omitted.
 
 // de_Tmpfs omitted.
 

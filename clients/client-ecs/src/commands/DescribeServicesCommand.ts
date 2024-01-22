@@ -212,6 +212,17 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //                   },
  * //                 ],
  * //                 ingressPortOverride: Number("int"),
+ * //                 timeout: { // TimeoutConfiguration
+ * //                   idleTimeoutSeconds: Number("int"),
+ * //                   perRequestTimeoutSeconds: Number("int"),
+ * //                 },
+ * //                 tls: { // ServiceConnectTlsConfiguration
+ * //                   issuerCertificateAuthority: { // ServiceConnectTlsCertificateAuthority
+ * //                     awsPcaAuthorityArn: "STRING_VALUE",
+ * //                   },
+ * //                   kmsKey: "STRING_VALUE",
+ * //                   roleArn: "STRING_VALUE",
+ * //                 },
  * //               },
  * //             ],
  * //             logConfiguration: { // LogConfiguration
