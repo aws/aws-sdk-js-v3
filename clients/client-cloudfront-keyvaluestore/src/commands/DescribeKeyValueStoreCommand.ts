@@ -51,6 +51,8 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  * //   Created: new Date("TIMESTAMP"), // required
  * //   ETag: "STRING_VALUE", // required
  * //   LastModified: new Date("TIMESTAMP"),
+ * //   Status: "STRING_VALUE",
+ * //   FailureReason: "STRING_VALUE",
  * // };
  *
  * ```

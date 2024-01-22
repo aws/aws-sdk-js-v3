@@ -242,9 +242,11 @@ export const de_DescribeKeyValueStoreCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Created: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
     ItemCount: __expectInt32,
     KvsARN: __expectString,
     LastModified: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
     TotalSizeInBytes: __expectLong,
   });
   Object.assign(contents, doc);

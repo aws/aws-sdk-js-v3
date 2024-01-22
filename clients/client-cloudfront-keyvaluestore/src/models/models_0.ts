@@ -233,6 +233,18 @@ export interface DescribeKeyValueStoreResponse {
    * <p>Date and time when the key value pairs in the Key Value Store was last modified.</p>
    */
   LastModified?: Date;
+
+  /**
+   * @public
+   * <p>The current status of the Key Value Store.</p>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>The reason for Key Value Store creation failure.</p>
+   */
+  FailureReason?: string;
 }
 
 /**
