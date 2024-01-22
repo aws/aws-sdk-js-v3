@@ -246,7 +246,7 @@ export interface ListHandshakesForOrganizationCommandOutput
  * @example To retrieve a list of the handshakes associated with an organization
  * ```javascript
  * // The following example shows you how to get a list of handshakes associated with the current organization:
- * const input = undefined;
+ * const input = {};
  * const command = new ListHandshakesForOrganizationCommand(input);
  * const response = await client.send(command);
  * /* response ==

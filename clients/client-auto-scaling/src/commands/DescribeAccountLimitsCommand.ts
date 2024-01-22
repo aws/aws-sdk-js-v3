@@ -67,7 +67,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @example To describe your Auto Scaling account limits
  * ```javascript
  * // This example describes the Amazon EC2 Auto Scaling service quotas for your account.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
  * /* response ==

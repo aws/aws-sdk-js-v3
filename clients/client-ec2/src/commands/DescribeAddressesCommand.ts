@@ -94,7 +94,7 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @example To describe your Elastic IP addresses
  * ```javascript
  * // This example describes your Elastic IP addresses.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
  * /* response ==

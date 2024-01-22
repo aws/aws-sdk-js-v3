@@ -71,7 +71,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * @example To list all buckets
  * ```javascript
  * // The following example returns all the buckets owned by the sender of this request.
- * const input = undefined;
+ * const input = {};
  * const command = new ListBucketsCommand(input);
  * const response = await client.send(command);
  * /* response ==

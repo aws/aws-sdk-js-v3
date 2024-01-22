@@ -31,9 +31,7 @@ import {
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
-
 import { DiskImageFormat, InstanceRequirementsRequest, IpamResourceTag, Subnet, VolumeType, Vpc } from "./models_1";
-
 import {
   ConnectionNotification,
   DnsEntry,
@@ -63,7 +61,6 @@ import {
   VpnConnectionFilterSensitiveLog,
   VpnGateway,
 } from "./models_2";
-
 import {
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
@@ -79,7 +76,6 @@ import {
   StatisticType,
   VirtualizationType,
 } from "./models_3";
-
 import { ArchitectureType, AttributeBooleanValue } from "./models_4";
 
 /**

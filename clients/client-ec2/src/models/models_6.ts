@@ -37,7 +37,6 @@ import {
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
-
 import {
   AttributeValue,
   BlockDeviceMapping,
@@ -74,7 +73,6 @@ import {
   TargetCapacityUnitType,
   VolumeType,
 } from "./models_1";
-
 import {
   AutoAcceptSharedAttachmentsValue,
   DefaultRouteTableAssociationValue,
@@ -109,7 +107,6 @@ import {
   VpnEcmpSupportValue,
   VpnTunnelLogOptionsSpecification,
 } from "./models_2";
-
 import {
   ArchitectureValues,
   BootModeValues,
@@ -130,7 +127,6 @@ import {
   TpmSupportValues,
   VirtualizationType,
 } from "./models_3";
-
 import {
   AnalysisStatus,
   ArchitectureType,
@@ -155,7 +151,6 @@ import {
   SnapshotTaskDetail,
   SnapshotTaskDetailFilterSensitiveLog,
 } from "./models_4";
-
 import {
   InstanceFamilyCreditSpecification,
   IpamComplianceStatus,

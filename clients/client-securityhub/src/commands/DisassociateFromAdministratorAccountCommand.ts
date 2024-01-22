@@ -83,7 +83,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * @example To disassociate requesting account from administrator account
  * ```javascript
  * // The following example dissociates the requesting account from its associated administrator account.
- * const input = undefined;
+ * const input = {};
  * const command = new DisassociateFromAdministratorAccountCommand(input);
  * await client.send(command);
  * // example id: to-disassociate-requesting-account-from-administrator-account-1676584168509

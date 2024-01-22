@@ -59,7 +59,7 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  * @example To cancel a Spot Instance data feed subscription
  * ```javascript
  * // This example deletes a Spot data feed subscription for the account.
- * const input = undefined;
+ * const input = {};
  * const command = new DeleteSpotDatafeedSubscriptionCommand(input);
  * await client.send(command);
  * // example id: ec2-delete-spot-datafeed-subscription-1

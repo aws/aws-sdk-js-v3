@@ -67,7 +67,7 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * @example Describte cross account access role
  * ```javascript
  * // Describes the IAM role that enables Amazon Inspector to access your AWS account.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeCrossAccountAccessRoleCommand(input);
  * const response = await client.send(command);
  * /* response ==

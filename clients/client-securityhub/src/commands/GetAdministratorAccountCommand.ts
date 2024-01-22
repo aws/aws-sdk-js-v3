@@ -80,7 +80,7 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @example To get details about the Security Hub administrator account
  * ```javascript
  * // The following example provides details about the Security Hub administrator account for the requesting member account.
- * const input = undefined;
+ * const input = {};
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * /* response ==

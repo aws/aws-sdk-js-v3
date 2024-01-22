@@ -110,7 +110,7 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @example To list KMS keys
  * ```javascript
  * // The following example lists KMS keys.
- * const input = undefined;
+ * const input = {};
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
  * /* response ==

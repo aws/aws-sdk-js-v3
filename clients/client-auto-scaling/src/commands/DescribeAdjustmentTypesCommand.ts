@@ -83,7 +83,7 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * @example To describe the Amazon EC2 Auto Scaling adjustment types
  * ```javascript
  * // This example describes the available adjustment types.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeAdjustmentTypesCommand(input);
  * const response = await client.send(command);
  * /* response ==

@@ -65,7 +65,7 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * @example To get information about IAM entity quotas and usage in the current account
  * ```javascript
  * // The following command returns information about the IAM entity quotas and usage in the current AWS account.
- * const input = undefined;
+ * const input = {};
  * const command = new GetAccountSummaryCommand(input);
  * const response = await client.send(command);
  * /* response ==

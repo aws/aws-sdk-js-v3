@@ -88,7 +88,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @example To list member account details
  * ```javascript
  * // The following example returns details about member accounts for the calling Security Hub administrator account. The response includes member accounts that are managed through AWS Organizations and those that were invited manually.
- * const input = undefined;
+ * const input = {};
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
  * /* response ==

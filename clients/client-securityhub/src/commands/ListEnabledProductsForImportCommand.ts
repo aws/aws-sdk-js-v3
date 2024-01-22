@@ -78,7 +78,7 @@ export interface ListEnabledProductsForImportCommandOutput
  * @example To list ARNs for enabled integrations
  * ```javascript
  * // The following example returns a list of subscription Amazon Resource Names (ARNs) for the product integrations that you have currently enabled in Security Hub.
- * const input = undefined;
+ * const input = {};
  * const command = new ListEnabledProductsForImportCommand(input);
  * const response = await client.send(command);
  * /* response ==

@@ -96,7 +96,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @example To describe your Availability Zones
  * ```javascript
  * // This example describes the Availability Zones that are available to you. The response includes Availability Zones only for the current region.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
  * /* response ==

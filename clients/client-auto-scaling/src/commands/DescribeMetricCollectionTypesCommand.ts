@@ -74,7 +74,7 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * @example To describe the Auto Scaling metric collection types
  * ```javascript
  * // This example describes the available metric collection types.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeMetricCollectionTypesCommand(input);
  * const response = await client.send(command);
  * /* response ==

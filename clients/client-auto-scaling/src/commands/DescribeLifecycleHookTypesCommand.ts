@@ -75,7 +75,7 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * @example To describe the available types of lifecycle hooks
  * ```javascript
  * // This example describes the available lifecycle hook types.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeLifecycleHookTypesCommand(input);
  * const response = await client.send(command);
  * /* response ==

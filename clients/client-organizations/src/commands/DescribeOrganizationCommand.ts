@@ -100,7 +100,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @example To get information about an organization
  * ```javascript
  * // The following example shows how to request information about the current user's organization:/n/n
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
  * /* response ==

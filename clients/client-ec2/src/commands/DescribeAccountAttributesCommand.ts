@@ -130,7 +130,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @example To describe all attributes for your AWS account
  * ```javascript
  * // This example describes the attributes for your AWS account.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
  * /* response ==

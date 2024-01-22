@@ -455,7 +455,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * @example To leave an organization as a member account
  * ```javascript
  * // TThe following example shows how to remove your member account from an organization:
- * const input = undefined;
+ * const input = {};
  * const command = new LeaveOrganizationCommand(input);
  * await client.send(command);
  * // example id: to-leave-an-organization-as-a-member-account-1472508784736
