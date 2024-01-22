@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.497.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.496.0...v3.497.0) (2024-01-22)
+
+
+### Features
+
+* **client-appconfigdata:** Fix FIPS Endpoints in aws-us-gov. ([a0ab577](https://github.com/aws/aws-sdk-js-v3/commit/a0ab57731727ab322f3cc21148af0165a8840fbd))
+* **client-cloudfront-keyvaluestore:** This release improves upon the DescribeKeyValueStore API by returning two additional fields, Status of the KeyValueStore and the FailureReason in case of failures during creation of KeyValueStore. ([43407f7](https://github.com/aws/aws-sdk-js-v3/commit/43407f781e10ff7ded1e98da55addaa696865aac))
+* **client-connectcases:** This release adds the ability to view audit history on a case and introduces a new parameter, performedBy, for CreateCase and UpdateCase API's. ([8e7361b](https://github.com/aws/aws-sdk-js-v3/commit/8e7361bdd470b7c3a01e81d31327ac24323a19ab))
+* **client-ecs:** This release adds support for Transport Layer Security (TLS) and Configurable Timeout to ECS Service Connect. TLS facilitates privacy and data security for inter-service communications, while Configurable Timeout allows customized per-request timeout and idle timeout for Service Connect services. ([1bb9677](https://github.com/aws/aws-sdk-js-v3/commit/1bb967759eab2658a7db6a88b9dd2b9e181f4a53))
+* **client-finspace:** Allow customer to set zip default through command line arguments. ([8ceeeff](https://github.com/aws/aws-sdk-js-v3/commit/8ceeeffcec54a7ada6ab4ec5fcf676815bf18b0c))
+* **client-rds:** Introduced support for the InsufficientDBInstanceCapacityFault error in the RDS CreateDBCluster API method. This provides enhanced error handling, ensuring a more robust experience when creating database clusters with insufficient instance capacity. ([549616d](https://github.com/aws/aws-sdk-js-v3/commit/549616d002860ce9b3c3a8b9741a23ec2e094a73))
+
+
+
+
+
 # [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
 
 
