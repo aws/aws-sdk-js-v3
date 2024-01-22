@@ -6988,7 +6988,7 @@ export interface VpnTunnelOptionsSpecification {
    *             of the rekey is randomly selected based on the value for
    *                 <code>RekeyFuzzPercentage</code>.</p>
    *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>540</code>
+   *          <p>Default: <code>270</code>
    *          </p>
    */
   RekeyMarginTimeSeconds?: number;

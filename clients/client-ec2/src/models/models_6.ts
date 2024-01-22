@@ -6192,6 +6192,8 @@ export interface ModifySubnetAttributeRequest {
    * @public
    * <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the
    *             specified subnet should be assigned a public IPv4 address.</p>
+   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   MapPublicIpOnLaunch?: AttributeBooleanValue;
 
@@ -8240,7 +8242,7 @@ export interface ModifyVpnTunnelOptionsSpecification {
    *             of the rekey is randomly selected based on the value for
    *                 <code>RekeyFuzzPercentage</code>.</p>
    *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>540</code>
+   *          <p>Default: <code>270</code>
    *          </p>
    */
   RekeyMarginTimeSeconds?: number;

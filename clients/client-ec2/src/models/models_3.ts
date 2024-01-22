@@ -2353,12 +2353,12 @@ export interface DescribeAvailabilityZonesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>parent-zoneID</code> - The ID of the zone that handles some of the Local Zone
+   *                   <code>parent-zone-id</code> - The ID of the zone that handles some of the Local Zone
    *           and Wavelength Zone control plane operations, such as API calls.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>parent-zoneName</code> - The ID of the zone that handles some of the Local Zone
+   *                   <code>parent-zone-name</code> - The ID of the zone that handles some of the Local Zone
    *           and Wavelength Zone control plane operations, such as API calls.</p>
    *             </li>
    *             <li>
@@ -5136,7 +5136,12 @@ export type ElasticGpuStatus = (typeof ElasticGpuStatus)[keyof typeof ElasticGpu
 
 /**
  * @public
- * <p>Describes the status of an Elastic Graphics accelerator.</p>
+ * <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
+ *          </note>
+ *          <p>Describes the status of an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuHealth {
   /**
@@ -5161,7 +5166,12 @@ export type ElasticGpuState = (typeof ElasticGpuState)[keyof typeof ElasticGpuSt
 
 /**
  * @public
- * <p>Describes an Elastic Graphics accelerator.</p>
+ * <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
+ *          </note>
+ *          <p>Describes an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpus {
   /**

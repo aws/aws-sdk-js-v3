@@ -2476,10 +2476,12 @@ export interface RunInstancesRequest {
 
   /**
    * @public
-   * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that
-   *             you can attach to your Windows instance to accelerate the graphics performance of your
-   *             applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon EC2 Elastic GPUs</a> in
-   *             the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    */
   ElasticGpuSpecification?: ElasticGpuSpecification[];
 
@@ -2511,9 +2513,6 @@ export interface RunInstancesRequest {
    *             </li>
    *             <li>
    *                <p>Volumes</p>
-   *             </li>
-   *             <li>
-   *                <p>Elastic graphics</p>
    *             </li>
    *             <li>
    *                <p>Spot Instance requests</p>

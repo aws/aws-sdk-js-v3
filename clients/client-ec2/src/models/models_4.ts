@@ -1635,7 +1635,12 @@ export type InstanceBootModeValues = (typeof InstanceBootModeValues)[keyof typeo
 
 /**
  * @public
- * <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
+ * <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
+ *          </note>
+ *          <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuAssociation {
   /**
@@ -2582,7 +2587,12 @@ export interface Instance {
 
   /**
    * @public
-   * <p>The Elastic GPU associated with the instance.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    */
   ElasticGpuAssociations?: ElasticGpuAssociation[];
 
@@ -9127,6 +9137,11 @@ export interface DescribeRouteTablesRequest {
    * @public
    * <p>The filters.</p>
    *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>association.gateway-id</code> - The ID of the gateway involved in the
+   * 		                association.</p>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>association.route-table-association-id</code> - The ID of an association

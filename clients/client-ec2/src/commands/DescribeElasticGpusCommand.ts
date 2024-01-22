@@ -28,7 +28,12 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
 
 /**
  * @public
- * <p>Describes the Elastic Graphics accelerator associated with your instances. For more information
+ * <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
+ *          </note>
+ *          <p>Describes the Elastic Graphics accelerator associated with your instances. For more information
  *             about Elastic Graphics, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon Elastic Graphics</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

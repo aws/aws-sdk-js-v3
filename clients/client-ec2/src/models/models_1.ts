@@ -1070,6 +1070,8 @@ export interface Subnet {
   /**
    * @public
    * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
+   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   MapPublicIpOnLaunch?: boolean;
 
@@ -6413,7 +6415,12 @@ export interface CreditSpecificationRequest {
 
 /**
  * @public
- * <p>A specification for an Elastic Graphics accelerator.</p>
+ * <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
+ *          </note>
+ *          <p>A specification for an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuSpecification {
   /**
@@ -7202,10 +7209,10 @@ export interface LaunchTemplateTagSpecificationRequest {
    * <p>The type of resource to tag.</p>
    *          <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When
    *             you create a launch template, you can specify tags for the following resource types
-   *             only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> |
+   *             only: <code>instance</code> | <code>volume</code> |
    *                 <code>network-interface</code> | <code>spot-instances-request</code>.
    *             If the instance does not include the resource type that you specify, the instance
-   *             launch fails. For example, not all instance types include an Elastic GPU.</p>
+   *             launch fails. For example, not all instance types include a volume.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
   ResourceType?: ResourceType;
@@ -7387,7 +7394,12 @@ export interface RequestLaunchTemplateData {
 
   /**
    * @public
-   * <p>An elastic GPU to associate with the instance.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    */
   ElasticGpuSpecifications?: ElasticGpuSpecification[];
 
@@ -7943,12 +7955,22 @@ export interface CreditSpecification {
 
 /**
  * @public
- * <p>Describes an elastic GPU.</p>
+ * <p>Deprecated.</p>
+ *          <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
+ *          </note>
  */
 export interface ElasticGpuSpecificationResponse {
   /**
    * @public
-   * <p>The elastic GPU type.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    */
   Type?: string;
 }
@@ -8707,7 +8729,12 @@ export interface ResponseLaunchTemplateData {
 
   /**
    * @public
-   * <p>The elastic GPU specification.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    */
   ElasticGpuSpecifications?: ElasticGpuSpecificationResponse[];
 
