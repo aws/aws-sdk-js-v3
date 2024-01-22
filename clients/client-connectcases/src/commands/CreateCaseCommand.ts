@@ -28,15 +28,20 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
 
 /**
  * @public
- * <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
+ * <note>
+ *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
+ *          </note>
+ *
+ *          <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
  *       as an array id/value pairs with a declared data types.</p>
- *           <p>The following fields are required when creating a case:</p>
+ *          <p>The following fields are required when creating a case:</p>
  *
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>customer_id</code> - You must provide the full customer profile ARN in this
- *             format: <code>arn:aws:profile:your_AWS_Region:your_AWS_account ID:domains/your_profiles_domain_name/profiles/profile_ID</code>
+ *                   <code>customer_id</code> - You must provide the full customer profile ARN in this format:
+ *             <code>arn:aws:profile:your_AWS_Region:your_AWS_account
+ *             ID:domains/your_profiles_domain_name/profiles/profile_ID</code>
  *                </p>
  *             </li>
  *             <li>
@@ -62,10 +67,14 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *         doubleValue: Number("double"),
  *         booleanValue: true || false,
  *         emptyValue: {},
+ *         userArnValue: "STRING_VALUE",
  *       },
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
+ *   performedBy: { // UserUnion Union: only one key present
+ *     userArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);

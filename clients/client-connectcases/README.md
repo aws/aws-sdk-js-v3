@@ -289,6 +289,14 @@ GetCase
 </details>
 <details>
 <summary>
+GetCaseAuditEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetCaseAuditEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetCaseAuditEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetCaseAuditEventsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCaseEventConfiguration
 </summary>
 

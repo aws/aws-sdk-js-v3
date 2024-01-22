@@ -57,12 +57,17 @@ export interface EmptyFieldValue {}
 /**
  * @public
  * <p>Object to store union of Field values.</p>
+ *          <note>
+ *             <p>The <code>Summary</code> system field accepts 1500 characters while all other fields
+ *         accept 500 characters.</p>
+ *          </note>
  */
 export type FieldValueUnion =
   | FieldValueUnion.BooleanValueMember
   | FieldValueUnion.DoubleValueMember
   | FieldValueUnion.EmptyValueMember
   | FieldValueUnion.StringValueMember
+  | FieldValueUnion.UserArnValueMember
   | FieldValueUnion.$UnknownMember;
 
 /**
@@ -78,6 +83,7 @@ export namespace FieldValueUnion {
     doubleValue?: never;
     booleanValue?: never;
     emptyValue?: never;
+    userArnValue?: never;
     $unknown?: never;
   }
 
@@ -91,6 +97,7 @@ export namespace FieldValueUnion {
     doubleValue: number;
     booleanValue?: never;
     emptyValue?: never;
+    userArnValue?: never;
     $unknown?: never;
   }
 
@@ -103,6 +110,7 @@ export namespace FieldValueUnion {
     doubleValue?: never;
     booleanValue: boolean;
     emptyValue?: never;
+    userArnValue?: never;
     $unknown?: never;
   }
 
@@ -115,6 +123,20 @@ export namespace FieldValueUnion {
     doubleValue?: never;
     booleanValue?: never;
     emptyValue: EmptyFieldValue;
+    userArnValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Represents the user that performed the audit.</p>
+   */
+  export interface UserArnValueMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    emptyValue?: never;
+    userArnValue: string;
     $unknown?: never;
   }
 
@@ -126,6 +148,7 @@ export namespace FieldValueUnion {
     doubleValue?: never;
     booleanValue?: never;
     emptyValue?: never;
+    userArnValue?: never;
     $unknown: [string, any];
   }
 
@@ -134,6 +157,7 @@ export namespace FieldValueUnion {
     doubleValue: (value: number) => T;
     booleanValue: (value: boolean) => T;
     emptyValue: (value: EmptyFieldValue) => T;
+    userArnValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -142,6 +166,7 @@ export namespace FieldValueUnion {
     if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
     if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
     if (value.emptyValue !== undefined) return visitor.emptyValue(value.emptyValue);
+    if (value.userArnValue !== undefined) return visitor.userArnValue(value.userArnValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -162,6 +187,44 @@ export interface FieldValue {
    * <p>Union of potential field value types.</p>
    */
   value: FieldValueUnion | undefined;
+}
+
+/**
+ * @public
+ * <p>Represents the identity of the person who performed the action.</p>
+ */
+export type UserUnion = UserUnion.UserArnMember | UserUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UserUnion {
+  /**
+   * @public
+   * <p>Represents the Amazon Connect ARN of the user.</p>
+   */
+  export interface UserArnMember {
+    userArn: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    userArn?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    userArn: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UserUnion, visitor: Visitor<T>): T => {
+    if (value.userArn !== undefined) return visitor.userArn(value.userArn);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
 }
 
 /**
@@ -195,6 +258,12 @@ export interface CreateCaseRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   clientToken?: string;
+
+  /**
+   * @public
+   * <p>Represents the identity of the person who performed the action.</p>
+   */
+  performedBy?: UserUnion;
 }
 
 /**
@@ -393,6 +462,288 @@ export interface GetCaseResponse {
 /**
  * @public
  */
+export interface GetCaseAuditEventsRequest {
+  /**
+   * @public
+   * <p>A unique identifier of the case.</p>
+   */
+  caseId: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the Cases domain.</p>
+   */
+  domainId: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of audit events to return. The current maximum supported value is 25.
+   *       This is also the default when no other value is provided.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *       the next request to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Object to store union of Field values.</p>
+ *          <important>
+ *             <p>This data type is a UNION, so only one of the following members can be specified when
+ *         used or returned.</p>
+ *          </important>
+ */
+export type AuditEventFieldValueUnion =
+  | AuditEventFieldValueUnion.BooleanValueMember
+  | AuditEventFieldValueUnion.DoubleValueMember
+  | AuditEventFieldValueUnion.EmptyValueMember
+  | AuditEventFieldValueUnion.StringValueMember
+  | AuditEventFieldValueUnion.UserArnValueMember
+  | AuditEventFieldValueUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AuditEventFieldValueUnion {
+  /**
+   * @public
+   * <p>Can be either null, or have a String value type. Only one value can be provided.</p>
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    doubleValue?: never;
+    booleanValue?: never;
+    emptyValue?: never;
+    userArnValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Can be either null, or have a Double value type. Only one value can be provided.</p>
+   */
+  export interface DoubleValueMember {
+    stringValue?: never;
+    doubleValue: number;
+    booleanValue?: never;
+    emptyValue?: never;
+    userArnValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Can be either null, or have a Boolean value type. Only one value can be provided.</p>
+   */
+  export interface BooleanValueMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue: boolean;
+    emptyValue?: never;
+    userArnValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>An empty value. You cannot set <code>EmptyFieldValue</code> on a field that is required on
+   *       a case template.</p>
+   *          <p>This structure will never have any data members. It signifies an empty value on a case
+   *       field.</p>
+   */
+  export interface EmptyValueMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    emptyValue: EmptyFieldValue;
+    userArnValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Can be either null, or have a String value type formatted as an ARN. Only one value can be
+   *       provided.</p>
+   */
+  export interface UserArnValueMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    emptyValue?: never;
+    userArnValue: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    emptyValue?: never;
+    userArnValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    doubleValue: (value: number) => T;
+    booleanValue: (value: boolean) => T;
+    emptyValue: (value: EmptyFieldValue) => T;
+    userArnValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AuditEventFieldValueUnion, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.emptyValue !== undefined) return visitor.emptyValue(value.emptyValue);
+    if (value.userArnValue !== undefined) return visitor.userArnValue(value.userArnValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Fields for audit event.</p>
+ */
+export interface AuditEventField {
+  /**
+   * @public
+   * <p>Unique identifier of field in an Audit History entry.</p>
+   */
+  eventFieldId: string | undefined;
+
+  /**
+   * @public
+   * <p>Union of potential field value types.</p>
+   */
+  oldValue?: AuditEventFieldValueUnion;
+
+  /**
+   * @public
+   * <p>Union of potential field value types.</p>
+   */
+  newValue: AuditEventFieldValueUnion | undefined;
+}
+
+/**
+ * @public
+ * <p>Information of the user which performed the audit.</p>
+ */
+export interface AuditEventPerformedBy {
+  /**
+   * @public
+   * <p>Represents the identity of the person who performed the action.</p>
+   */
+  user?: UserUnion;
+
+  /**
+   * @public
+   * <p>Unique identifier of an IAM role.</p>
+   */
+  iamPrincipalArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RelatedItemType = {
+  COMMENT: "Comment",
+  CONTACT: "Contact",
+} as const;
+
+/**
+ * @public
+ */
+export type RelatedItemType = (typeof RelatedItemType)[keyof typeof RelatedItemType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuditEventType = {
+  CASE_CREATED: "Case.Created",
+  CASE_UPDATED: "Case.Updated",
+  RELATED_ITEM_CREATED: "RelatedItem.Created",
+} as const;
+
+/**
+ * @public
+ */
+export type AuditEventType = (typeof AuditEventType)[keyof typeof AuditEventType];
+
+/**
+ * @public
+ * <p>Represents the content of a particular audit event.</p>
+ */
+export interface AuditEvent {
+  /**
+   * @public
+   * <p>Unique identifier of a case audit history event.</p>
+   */
+  eventId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Type of an audit history event.</p>
+   */
+  type: AuditEventType | undefined;
+
+  /**
+   * @public
+   * <p>The Type of the related item.</p>
+   */
+  relatedItemType?: RelatedItemType;
+
+  /**
+   * @public
+   * <p>Time at which an Audit History event took place.</p>
+   */
+  performedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>A list of Case Audit History event fields.</p>
+   */
+  fields: AuditEventField[] | undefined;
+
+  /**
+   * @public
+   * <p>Information of the user which performed the audit.</p>
+   */
+  performedBy?: AuditEventPerformedBy;
+}
+
+/**
+ * @public
+ */
+export interface GetCaseAuditEventsResponse {
+  /**
+   * @public
+   * <p>The token for the next set of results. This is null if there are no more results to
+   *       return.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>A list of case audits where each represents a particular edit of the case.</p>
+   */
+  auditEvents: AuditEvent[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListCasesForContactRequest {
   /**
    * @public
@@ -552,58 +903,6 @@ export namespace RelatedItemInputContent {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
-
-/**
- * @public
- * <p>Represents the identity of the person who performed the action.</p>
- */
-export type UserUnion = UserUnion.UserArnMember | UserUnion.$UnknownMember;
-
-/**
- * @public
- */
-export namespace UserUnion {
-  /**
-   * @public
-   * <p>Represents the Amazon Connect ARN of the user.</p>
-   */
-  export interface UserArnMember {
-    userArn: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    userArn?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    userArn: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: UserUnion, visitor: Visitor<T>): T => {
-    if (value.userArn !== undefined) return visitor.userArn(value.userArn);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * @enum
- */
-export const RelatedItemType = {
-  COMMENT: "Comment",
-  CONTACT: "Contact",
-} as const;
-
-/**
- * @public
- */
-export type RelatedItemType = (typeof RelatedItemType)[keyof typeof RelatedItemType];
 
 /**
  * @public
@@ -1169,6 +1468,12 @@ export interface UpdateCaseRequest {
    *       value union data, structured identical to <code>CreateCase</code>.</p>
    */
   fields: FieldValue[] | undefined;
+
+  /**
+   * @public
+   * <p>Represents the identity of the person who performed the action.</p>
+   */
+  performedBy?: UserUnion;
 }
 
 /**
@@ -1528,6 +1833,7 @@ export const FieldType = {
   SINGLE_SELECT: "SingleSelect",
   TEXT: "Text",
   URL: "Url",
+  USER: "User",
 } as const;
 
 /**
@@ -2218,7 +2524,8 @@ export interface UpdateLayoutRequest {
 
   /**
    * @public
-   * <p>Information about which fields will be present in the layout, the order of the fields.</p>
+   * <p>Information about which fields will be present in the layout, the order of the
+   *       fields.</p>
    */
   content?: LayoutContent;
 }

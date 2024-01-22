@@ -56,6 +56,7 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * //         doubleValue: Number("double"),
  * //         booleanValue: true || false,
  * //         emptyValue: {},
+ * //         userArnValue: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

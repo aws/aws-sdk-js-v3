@@ -8,6 +8,7 @@ export * from "./CreateLayoutCommand";
 export * from "./CreateRelatedItemCommand";
 export * from "./CreateTemplateCommand";
 export * from "./DeleteDomainCommand";
+export * from "./GetCaseAuditEventsCommand";
 export * from "./GetCaseCommand";
 export * from "./GetCaseEventConfigurationCommand";
 export * from "./GetDomainCommand";

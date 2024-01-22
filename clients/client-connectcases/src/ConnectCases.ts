@@ -39,6 +39,11 @@ import {
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
+import {
+  GetCaseAuditEventsCommand,
+  GetCaseAuditEventsCommandInput,
+  GetCaseAuditEventsCommandOutput,
+} from "./commands/GetCaseAuditEventsCommand";
 import { GetCaseCommand, GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
 import {
   GetCaseEventConfigurationCommand,
@@ -113,6 +118,7 @@ const commands = {
   CreateTemplateCommand,
   DeleteDomainCommand,
   GetCaseCommand,
+  GetCaseAuditEventsCommand,
   GetCaseEventConfigurationCommand,
   GetDomainCommand,
   GetLayoutCommand,
@@ -259,6 +265,23 @@ export interface ConnectCases {
     args: GetCaseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCaseAuditEventsCommand}
+   */
+  getCaseAuditEvents(
+    args: GetCaseAuditEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCaseAuditEventsCommandOutput>;
+  getCaseAuditEvents(
+    args: GetCaseAuditEventsCommandInput,
+    cb: (err: any, data?: GetCaseAuditEventsCommandOutput) => void
+  ): void;
+  getCaseAuditEvents(
+    args: GetCaseAuditEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCaseAuditEventsCommandOutput) => void
   ): void;
 
   /**

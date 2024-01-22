@@ -60,6 +60,7 @@ import { CreateLayoutCommandInput, CreateLayoutCommandOutput } from "./commands/
 import { CreateRelatedItemCommandInput, CreateRelatedItemCommandOutput } from "./commands/CreateRelatedItemCommand";
 import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import { GetCaseAuditEventsCommandInput, GetCaseAuditEventsCommandOutput } from "./commands/GetCaseAuditEventsCommand";
 import { GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
 import {
   GetCaseEventConfigurationCommandInput,
@@ -117,6 +118,7 @@ export type ServiceInputTypes =
   | CreateRelatedItemCommandInput
   | CreateTemplateCommandInput
   | DeleteDomainCommandInput
+  | GetCaseAuditEventsCommandInput
   | GetCaseCommandInput
   | GetCaseEventConfigurationCommandInput
   | GetDomainCommandInput
@@ -152,6 +154,7 @@ export type ServiceOutputTypes =
   | CreateRelatedItemCommandOutput
   | CreateTemplateCommandOutput
   | DeleteDomainCommandOutput
+  | GetCaseAuditEventsCommandOutput
   | GetCaseCommandOutput
   | GetCaseEventConfigurationCommandOutput
   | GetDomainCommandOutput

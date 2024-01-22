@@ -39,6 +39,7 @@ import { CreateLayoutCommandInput, CreateLayoutCommandOutput } from "../commands
 import { CreateRelatedItemCommandInput, CreateRelatedItemCommandOutput } from "../commands/CreateRelatedItemCommand";
 import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "../commands/CreateTemplateCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
+import { GetCaseAuditEventsCommandInput, GetCaseAuditEventsCommandOutput } from "../commands/GetCaseAuditEventsCommand";
 import { GetCaseCommandInput, GetCaseCommandOutput } from "../commands/GetCaseCommand";
 import {
   GetCaseEventConfigurationCommandInput,
@@ -75,6 +76,9 @@ import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "../comm
 import { ConnectCasesServiceException as __BaseException } from "../models/ConnectCasesServiceException";
 import {
   AccessDeniedException,
+  AuditEvent,
+  AuditEventField,
+  AuditEventFieldValueUnion,
   BasicLayout,
   CaseEventIncludedData,
   CaseFilter,
@@ -180,6 +184,7 @@ export const se_CreateCaseCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       fields: (_) => se_FieldValueList(_, context),
+      performedBy: (_) => _json(_),
       templateId: [],
     })
   );
@@ -345,6 +350,31 @@ export const se_GetCaseCommand = async (
   body = JSON.stringify(
     take(input, {
       fields: (_) => _json(_),
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCaseAuditEventsCommand
+ */
+export const se_GetCaseAuditEventsCommand = async (
+  input: GetCaseAuditEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domains/{domainId}/cases/{caseId}/audit-history");
+  b.p("caseId", () => input.caseId!, "{caseId}", false);
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
       nextToken: [],
     })
   );
@@ -701,6 +731,7 @@ export const se_UpdateCaseCommand = async (
   body = JSON.stringify(
     take(input, {
       fields: (_) => se_FieldValueList(_, context),
+      performedBy: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1384,6 +1415,66 @@ const de_GetCaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCaseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connectcases#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.connectcases#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connectcases#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connectcases#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.connectcases#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetCaseAuditEventsCommand
+ */
+export const de_GetCaseAuditEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCaseAuditEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetCaseAuditEventsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    auditEvents: (_) => de_AuditEventsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCaseAuditEventsCommandError
+ */
+const de_GetCaseAuditEventsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCaseAuditEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2841,6 +2932,7 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
     doubleValue: (value) => ({ doubleValue: __serializeFloat(value) }),
     emptyValue: (value) => ({ emptyValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
+    userArnValue: (value) => ({ userArnValue: value }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -2886,6 +2978,83 @@ const se_Tags = (input: Record<string, string>, context: __SerdeContext): any =>
 };
 
 // se_UserUnion omitted.
+
+/**
+ * deserializeAws_restJson1AuditEvent
+ */
+const de_AuditEvent = (output: any, context: __SerdeContext): AuditEvent => {
+  return take(output, {
+    eventId: __expectString,
+    fields: (_: any) => de_AuditEventFieldList(_, context),
+    performedBy: _json,
+    performedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    relatedItemType: __expectString,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AuditEventField
+ */
+const de_AuditEventField = (output: any, context: __SerdeContext): AuditEventField => {
+  return take(output, {
+    eventFieldId: __expectString,
+    newValue: (_: any) => de_AuditEventFieldValueUnion(__expectUnion(_), context),
+    oldValue: (_: any) => de_AuditEventFieldValueUnion(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AuditEventFieldList
+ */
+const de_AuditEventFieldList = (output: any, context: __SerdeContext): AuditEventField[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return de_AuditEventField(entry, context);
+  });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AuditEventFieldValueUnion
+ */
+const de_AuditEventFieldValueUnion = (output: any, context: __SerdeContext): AuditEventFieldValueUnion => {
+  if (__expectBoolean(output.booleanValue) !== undefined) {
+    return { booleanValue: __expectBoolean(output.booleanValue) as any };
+  }
+  if (__limitedParseDouble(output.doubleValue) !== undefined) {
+    return { doubleValue: __limitedParseDouble(output.doubleValue) as any };
+  }
+  if (output.emptyValue != null) {
+    return {
+      emptyValue: _json(output.emptyValue),
+    };
+  }
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
+  }
+  if (__expectString(output.userArnValue) !== undefined) {
+    return { userArnValue: __expectString(output.userArnValue) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_AuditEventPerformedBy omitted.
+
+/**
+ * deserializeAws_restJson1AuditEventsList
+ */
+const de_AuditEventsList = (output: any, context: __SerdeContext): AuditEvent[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return de_AuditEvent(entry, context);
+  });
+  return retVal;
+};
 
 // de_BasicLayout omitted.
 
@@ -2995,6 +3164,9 @@ const de_FieldValueUnion = (output: any, context: __SerdeContext): FieldValueUni
   }
   if (__expectString(output.stringValue) !== undefined) {
     return { stringValue: __expectString(output.stringValue) as any };
+  }
+  if (__expectString(output.userArnValue) !== undefined) {
+    return { userArnValue: __expectString(output.userArnValue) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };

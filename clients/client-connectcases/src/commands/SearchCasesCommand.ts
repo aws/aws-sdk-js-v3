@@ -55,6 +55,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
  *           emptyValue: {},
+ *           userArnValue: "STRING_VALUE",
  *         },
  *       },
  *       contains: {
@@ -64,6 +65,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
  *           emptyValue: {},
+ *           userArnValue: "STRING_VALUE",
  *         },
  *       },
  *       greaterThan: {
@@ -73,6 +75,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
  *           emptyValue: {},
+ *           userArnValue: "STRING_VALUE",
  *         },
  *       },
  *       greaterThanOrEqualTo: {
@@ -82,6 +85,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
  *           emptyValue: {},
+ *           userArnValue: "STRING_VALUE",
  *         },
  *       },
  *       lessThan: {
@@ -91,6 +95,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
  *           emptyValue: {},
+ *           userArnValue: "STRING_VALUE",
  *         },
  *       },
  *       lessThanOrEqualTo: "<FieldValue>",
@@ -147,6 +152,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * //             doubleValue: Number("double"),
  * //             booleanValue: true || false,
  * //             emptyValue: {},
+ * //             userArnValue: "STRING_VALUE",
  * //           },
  * //         },
  * //       ],
