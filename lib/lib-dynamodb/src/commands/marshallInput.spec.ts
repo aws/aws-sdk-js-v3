@@ -10,6 +10,15 @@ describe("marshallInput and processObj", () => {
       }
     );
   });
+
+  it("marshallInput should ignore function properties", () => {
+    const input = { Items: [() => {}, 1, "test"] };
+    const inputKeyNodes = { Items: null };
+    const output = { Items: { L: [{ N: "1" }, { S: "test" }] } };
+    expect(
+      marshallInput(input, inputKeyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
+    ).toEqual(output);
+  });
 });
 
 describe("marshallInput for commands", () => {

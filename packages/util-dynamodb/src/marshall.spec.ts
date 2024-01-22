@@ -62,4 +62,12 @@ describe("marshall", () => {
     expect(convertToAttr).toHaveBeenCalledTimes(1);
     expect(convertToAttr).toHaveBeenCalledWith(input, undefined);
   });
+
+  it("with function properties in input object", () => {
+    const input = { a: "A", b: "B", func: () => {}, func2: () => {} };
+    // const expectedOutput = { a: { M: mockOutput }, b: { M: mockOutput } };
+    expect(marshall(input)).toEqual(mockOutput);
+    expect(convertToAttr).toHaveBeenCalledTimes(1);
+    expect(convertToAttr).toHaveBeenCalledWith(input, undefined);
+  });
 });

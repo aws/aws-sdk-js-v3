@@ -146,3 +146,14 @@ describe("utils", () => {
     });
   });
 });
+
+describe("object with function property", () => {
+  const notAttrValue = { NotAttrValue: "NotAttrValue" };
+  const keyNodes = { Item: {} };
+  const nativeAttrObj = { Item: { id: 1, func: () => {} }, ...notAttrValue };
+  const attrObj = { Item: { id: { N: "1" } }, ...notAttrValue };
+
+  it(marshallInput.name, () => {
+    expect(marshallInput(nativeAttrObj, keyNodes, { convertTopLevelContainer: true })).toEqual(attrObj);
+  });
+});
