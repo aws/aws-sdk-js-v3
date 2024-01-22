@@ -347,6 +347,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
  *
+ * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
+ *  <p>The specified DB instance class isn't available in the specified Availability
+ *             Zone.</p>
+ *
  * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
  *  <p>There is insufficient storage available for the current action. You might be able to
  *             resolve this error by updating your subnet group to use different Availability Zones

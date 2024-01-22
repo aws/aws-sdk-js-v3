@@ -4631,6 +4631,9 @@ const de_CreateDBClusterCommandError = async (
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
       throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
+    case "InsufficientDBInstanceCapacity":
+    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
+      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
     case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);

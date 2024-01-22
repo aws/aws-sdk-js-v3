@@ -6246,6 +6246,27 @@ export class GlobalClusterNotFoundFault extends __BaseException {
 
 /**
  * @public
+ * <p>The specified DB instance class isn't available in the specified Availability
+ *             Zone.</p>
+ */
+export class InsufficientDBInstanceCapacityFault extends __BaseException {
+  readonly name: "InsufficientDBInstanceCapacityFault" = "InsufficientDBInstanceCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientDBInstanceCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientDBInstanceCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientDBInstanceCapacityFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>There is insufficient storage available for the current action. You might be able to
  *             resolve this error by updating your subnet group to use different Availability Zones
  *             that have more storage available.</p>
@@ -9419,27 +9440,6 @@ export class DBInstanceAlreadyExistsFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DBInstanceAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The specified DB instance class isn't available in the specified Availability
- *             Zone.</p>
- */
-export class InsufficientDBInstanceCapacityFault extends __BaseException {
-  readonly name: "InsufficientDBInstanceCapacityFault" = "InsufficientDBInstanceCapacityFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientDBInstanceCapacityFault, __BaseException>) {
-    super({
-      name: "InsufficientDBInstanceCapacityFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientDBInstanceCapacityFault.prototype);
   }
 }
 
