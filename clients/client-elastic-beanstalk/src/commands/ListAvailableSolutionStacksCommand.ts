@@ -69,7 +69,7 @@ export interface ListAvailableSolutionStacksCommandOutput
  * @example To view solution stacks
  * ```javascript
  * // The following operation lists solution stacks for all currently available platform configurations and any that you have used in the past:
- * const input = undefined;
+ * const input = {};
  * const command = new ListAvailableSolutionStacksCommand(input);
  * const response = await client.send(command);
  * /* response ==

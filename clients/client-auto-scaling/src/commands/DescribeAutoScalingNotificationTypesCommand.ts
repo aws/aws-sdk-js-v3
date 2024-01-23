@@ -67,7 +67,7 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  * @example To describe the Auto Scaling notification types
  * ```javascript
  * // This example describes the available notification types.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeAutoScalingNotificationTypesCommand(input);
  * const response = await client.send(command);
  * /* response ==

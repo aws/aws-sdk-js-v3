@@ -83,7 +83,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @example To list membership invitations to calling account
  * ```javascript
  * // The following example returns a list of Security Hub member invitations sent to the calling AWS account. Only accounts that are invited manually use this operation. It's not for use by accounts that are managed through AWS Organizations.
- * const input = undefined;
+ * const input = {};
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
  * /* response ==

@@ -68,7 +68,7 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * @example ListReceiptFilters
  * ```javascript
  * // The following example lists the IP address filters that are associated with an AWS account:
- * const input = undefined;
+ * const input = {};
  * const command = new ListReceiptFiltersCommand(input);
  * const response = await client.send(command);
  * /* response ==

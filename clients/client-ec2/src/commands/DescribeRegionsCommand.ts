@@ -79,7 +79,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @example To describe your regions
  * ```javascript
  * // This example describes all the regions that are available to you.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
  * /* response ==

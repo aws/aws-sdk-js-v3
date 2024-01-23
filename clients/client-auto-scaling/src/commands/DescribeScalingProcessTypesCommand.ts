@@ -65,7 +65,7 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * @example To describe the Auto Scaling process types
  * ```javascript
  * // This example describes the Auto Scaling process types.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeScalingProcessTypesCommand(input);
  * const response = await client.send(command);
  * /* response ==

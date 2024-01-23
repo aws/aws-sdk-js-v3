@@ -65,7 +65,7 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @example To delete the current account password policy
  * ```javascript
  * // The following command removes the password policy from the current AWS account:
- * const input = undefined;
+ * const input = {};
  * const command = new DeleteAccountPasswordPolicyCommand(input);
  * await client.send(command);
  * // example id: 9ddf755e-495c-49bc-ae3b-ea6cc9b8ebcf

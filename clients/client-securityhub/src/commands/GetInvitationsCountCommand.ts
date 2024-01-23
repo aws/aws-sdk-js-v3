@@ -73,7 +73,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * // The following example returns a count of invitations that the Security Hub administrator sent to the current member account, not including the currently accepted invitation.
  * //
  * //
- * const input = undefined;
+ * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
  * /* response ==

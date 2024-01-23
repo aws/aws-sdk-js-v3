@@ -85,7 +85,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @example To list administrator acccounts for an organization
  * ```javascript
  * // The following example lists the Security  Hub administrator accounts for an organization. Only the organization management account can call this operation.
- * const input = undefined;
+ * const input = {};
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
  * /* response ==

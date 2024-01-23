@@ -73,7 +73,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * @example To describe the datafeed for your AWS account
  * ```javascript
  * // This example describes the Spot Instance datafeed subscription for your AWS account.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
  * /* response ==

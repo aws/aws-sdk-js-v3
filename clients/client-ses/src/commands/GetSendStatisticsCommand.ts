@@ -67,7 +67,7 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * @example GetSendStatistics
  * ```javascript
  * // The following example returns Amazon SES sending statistics:
- * const input = undefined;
+ * const input = {};
  * const command = new GetSendStatisticsCommand(input);
  * const response = await client.send(command);
  * /* response ==

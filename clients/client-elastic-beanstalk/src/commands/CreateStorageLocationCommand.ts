@@ -70,7 +70,7 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * @example To create a new environment for an application
  * ```javascript
  * // The following operation creates a new environment for version v1 of a java application named my-app:
- * const input = undefined;
+ * const input = {};
  * const command = new CreateStorageLocationCommand(input);
  * const response = await client.send(command);
  * /* response ==

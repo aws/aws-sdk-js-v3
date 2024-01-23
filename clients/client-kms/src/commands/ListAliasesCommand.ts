@@ -133,7 +133,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * @example To list aliases
  * ```javascript
  * // The following example lists aliases.
- * const input = undefined;
+ * const input = {};
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * /* response ==

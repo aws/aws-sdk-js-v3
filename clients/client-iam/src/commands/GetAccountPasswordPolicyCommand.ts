@@ -78,7 +78,7 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * @example To see the current account password policy
  * ```javascript
  * // The following command displays details about the password policy for the current AWS account.
- * const input = undefined;
+ * const input = {};
  * const command = new GetAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
  * /* response ==

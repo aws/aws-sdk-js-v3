@@ -234,7 +234,7 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * @example To retrieve a list of the handshakes sent to an account
  * ```javascript
  * // The following example shows you how to get a list of handshakes that are associated with the account of the credentials used to call the operation:
- * const input = undefined;
+ * const input = {};
  * const command = new ListHandshakesForAccountCommand(input);
  * const response = await client.send(command);
  * /* response ==

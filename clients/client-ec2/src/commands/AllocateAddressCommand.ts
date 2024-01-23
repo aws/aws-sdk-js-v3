@@ -92,7 +92,7 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * @example To allocate an Elastic IP address
  * ```javascript
  * // This example allocates an Elastic IP address.
- * const input = undefined;
+ * const input = {};
  * const command = new AllocateAddressCommand(input);
  * const response = await client.send(command);
  * /* response ==

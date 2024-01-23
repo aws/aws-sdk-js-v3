@@ -70,7 +70,7 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * @example To describe termination policy types
  * ```javascript
  * // This example describes the available termination policy types.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeTerminationPolicyTypesCommand(input);
  * const response = await client.send(command);
  * /* response ==

@@ -87,7 +87,7 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  * @example To create an Internet gateway
  * ```javascript
  * // This example creates an Internet gateway.
- * const input = undefined;
+ * const input = {};
  * const command = new CreateInternetGatewayCommand(input);
  * const response = await client.send(command);
  * /* response ==

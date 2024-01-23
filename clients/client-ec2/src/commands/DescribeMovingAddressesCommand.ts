@@ -81,7 +81,7 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @example To describe your moving addresses
  * ```javascript
  * // This example describes all of your moving Elastic IP addresses.
- * const input = undefined;
+ * const input = {};
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
  * /* response ==
