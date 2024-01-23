@@ -452,6 +452,10 @@ In v3, [`@aws-sdk/s3-request-presigner` package](https://github.com/aws/aws-sdk-
 is available. You don't have to differentiate `getSignedUrl()` and `getSignedUrlPromise()` any more. We also have [a blog](https://aws.amazon.com/blogs/developer/generate-presigned-url-modular-aws-sdk-javascript/)
 discussing the details of this package.
 
+## S3 Global Client (Region Redirects)
+
+S3 client in v3 supports S3 global client, or following region redirects, if an incorrect region is passed and a subsequent `PermanentRedirect` (status 301) error is thrown. You can use the [`followRegionRedirects`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-middleware-sdk-s3/Interface/S3InputConfig/) flag in the client config to make the S3 client follow region redirects and support its function as a global client. Note that this can result in additional latency as failed requests are retried with a corrected region when receiving a `PermanentRedirect` error with status 301. This feature should only be used as a last resort if you do not know the region of your bucket(s) ahead of time.
+
 ## DynamoDB Document Client
 
 In v2, you can use the [`AWS.DynamoDB.DocumentClient` class](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html)
@@ -576,4 +580,3 @@ const region = "...";
   console.log("Invoke response object", payloadObject);
 }
 ```
-
