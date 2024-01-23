@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { UpdateFilterRequest, UpdateFilterResponse } from "../models/models_0";
+import { UpdateFilterRequest, UpdateFilterResponse } from "../models/models_1";
 import { de_UpdateFilterCommand, se_UpdateFilterCommand } from "../protocols/Aws_restJson1";
 
 /**

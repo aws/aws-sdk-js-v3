@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { ListUsageTotalsRequest, ListUsageTotalsResponse } from "../models/models_1";
-import { de_ListUsageTotalsCommand, se_ListUsageTotalsCommand } from "../protocols/Aws_restJson1";
+import { SendCisSessionHealthRequest, SendCisSessionHealthResponse } from "../models/models_1";
+import { de_SendCisSessionHealthCommand, se_SendCisSessionHealthCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,61 +16,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListUsageTotalsCommand}.
+ * The input for {@link SendCisSessionHealthCommand}.
  */
-export interface ListUsageTotalsCommandInput extends ListUsageTotalsRequest {}
+export interface SendCisSessionHealthCommandInput extends SendCisSessionHealthRequest {}
 /**
  * @public
  *
- * The output of {@link ListUsageTotalsCommand}.
+ * The output of {@link SendCisSessionHealthCommand}.
  */
-export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, __MetadataBearer {}
+export interface SendCisSessionHealthCommandOutput extends SendCisSessionHealthResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the Amazon Inspector usage totals over the last 30 days.</p>
+ * <p>
+ *          Sends a CIS session health.
+ *          This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service.
+ *          The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, ListUsageTotalsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, ListUsageTotalsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, SendCisSessionHealthCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
+ * // const { Inspector2Client, SendCisSessionHealthCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = { // ListUsageTotalsRequest
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
- *   accountIds: [ // UsageAccountIdList
- *     "STRING_VALUE",
- *   ],
+ * const input = { // SendCisSessionHealthRequest
+ *   scanJobId: "STRING_VALUE", // required
+ *   sessionToken: "STRING_VALUE", // required
  * };
- * const command = new ListUsageTotalsCommand(input);
+ * const command = new SendCisSessionHealthCommand(input);
  * const response = await client.send(command);
- * // { // ListUsageTotalsResponse
- * //   nextToken: "STRING_VALUE",
- * //   totals: [ // UsageTotalList
- * //     { // UsageTotal
- * //       accountId: "STRING_VALUE",
- * //       usage: [ // UsageList
- * //         { // Usage
- * //           type: "STRING_VALUE",
- * //           total: Number("double"),
- * //           estimatedMonthlyCost: Number("double"),
- * //           currency: "STRING_VALUE",
- * //         },
- * //       ],
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListUsageTotalsCommandInput - {@link ListUsageTotalsCommandInput}
- * @returns {@link ListUsageTotalsCommandOutput}
- * @see {@link ListUsageTotalsCommandInput} for command's `input` shape.
- * @see {@link ListUsageTotalsCommandOutput} for command's `response` shape.
+ * @param SendCisSessionHealthCommandInput - {@link SendCisSessionHealthCommandInput}
+ * @returns {@link SendCisSessionHealthCommandOutput}
+ * @see {@link SendCisSessionHealthCommandInput} for command's `input` shape.
+ * @see {@link SendCisSessionHealthCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -86,10 +75,10 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
-export class ListUsageTotalsCommand extends $Command
+export class SendCisSessionHealthCommand extends $Command
   .classBuilder<
-    ListUsageTotalsCommandInput,
-    ListUsageTotalsCommandOutput,
+    SendCisSessionHealthCommandInput,
+    SendCisSessionHealthCommandOutput,
     Inspector2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,9 +92,9 @@ export class ListUsageTotalsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Inspector2", "ListUsageTotals", {})
-  .n("Inspector2Client", "ListUsageTotalsCommand")
+  .s("Inspector2", "SendCisSessionHealth", {})
+  .n("Inspector2Client", "SendCisSessionHealthCommand")
   .f(void 0, void 0)
-  .ser(se_ListUsageTotalsCommand)
-  .de(de_ListUsageTotalsCommand)
+  .ser(se_SendCisSessionHealthCommand)
+  .de(de_SendCisSessionHealthCommand)
   .build() {}

@@ -78,12 +78,20 @@ import {
   CancelFindingsReportCommandOutput,
 } from "./commands/CancelFindingsReportCommand";
 import { CancelSbomExportCommandInput, CancelSbomExportCommandOutput } from "./commands/CancelSbomExportCommand";
+import {
+  CreateCisScanConfigurationCommandInput,
+  CreateCisScanConfigurationCommandOutput,
+} from "./commands/CreateCisScanConfigurationCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
 import {
   CreateFindingsReportCommandInput,
   CreateFindingsReportCommandOutput,
 } from "./commands/CreateFindingsReportCommand";
 import { CreateSbomExportCommandInput, CreateSbomExportCommandOutput } from "./commands/CreateSbomExportCommand";
+import {
+  DeleteCisScanConfigurationCommandInput,
+  DeleteCisScanConfigurationCommandOutput,
+} from "./commands/DeleteCisScanConfigurationCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
 import {
   DescribeOrganizationConfigurationCommandInput,
@@ -100,6 +108,11 @@ import {
   EnableDelegatedAdminAccountCommandInput,
   EnableDelegatedAdminAccountCommandOutput,
 } from "./commands/EnableDelegatedAdminAccountCommand";
+import { GetCisScanReportCommandInput, GetCisScanReportCommandOutput } from "./commands/GetCisScanReportCommand";
+import {
+  GetCisScanResultDetailsCommandInput,
+  GetCisScanResultDetailsCommandOutput,
+} from "./commands/GetCisScanResultDetailsCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
@@ -120,6 +133,19 @@ import {
   ListAccountPermissionsCommandInput,
   ListAccountPermissionsCommandOutput,
 } from "./commands/ListAccountPermissionsCommand";
+import {
+  ListCisScanConfigurationsCommandInput,
+  ListCisScanConfigurationsCommandOutput,
+} from "./commands/ListCisScanConfigurationsCommand";
+import {
+  ListCisScanResultsAggregatedByChecksCommandInput,
+  ListCisScanResultsAggregatedByChecksCommandOutput,
+} from "./commands/ListCisScanResultsAggregatedByChecksCommand";
+import {
+  ListCisScanResultsAggregatedByTargetResourceCommandInput,
+  ListCisScanResultsAggregatedByTargetResourceCommandOutput,
+} from "./commands/ListCisScanResultsAggregatedByTargetResourceCommand";
+import { ListCisScansCommandInput, ListCisScansCommandOutput } from "./commands/ListCisScansCommand";
 import { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
 import {
   ListCoverageStatisticsCommandInput,
@@ -146,8 +172,22 @@ import {
   SearchVulnerabilitiesCommandInput,
   SearchVulnerabilitiesCommandOutput,
 } from "./commands/SearchVulnerabilitiesCommand";
+import {
+  SendCisSessionHealthCommandInput,
+  SendCisSessionHealthCommandOutput,
+} from "./commands/SendCisSessionHealthCommand";
+import {
+  SendCisSessionTelemetryCommandInput,
+  SendCisSessionTelemetryCommandOutput,
+} from "./commands/SendCisSessionTelemetryCommand";
+import { StartCisSessionCommandInput, StartCisSessionCommandOutput } from "./commands/StartCisSessionCommand";
+import { StopCisSessionCommandInput, StopCisSessionCommandOutput } from "./commands/StopCisSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateCisScanConfigurationCommandInput,
+  UpdateCisScanConfigurationCommandOutput,
+} from "./commands/UpdateCisScanConfigurationCommand";
 import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
@@ -193,9 +233,11 @@ export type ServiceInputTypes =
   | BatchUpdateMemberEc2DeepInspectionStatusCommandInput
   | CancelFindingsReportCommandInput
   | CancelSbomExportCommandInput
+  | CreateCisScanConfigurationCommandInput
   | CreateFilterCommandInput
   | CreateFindingsReportCommandInput
   | CreateSbomExportCommandInput
+  | DeleteCisScanConfigurationCommandInput
   | DeleteFilterCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DisableCommandInput
@@ -203,6 +245,8 @@ export type ServiceInputTypes =
   | DisassociateMemberCommandInput
   | EnableCommandInput
   | EnableDelegatedAdminAccountCommandInput
+  | GetCisScanReportCommandInput
+  | GetCisScanResultDetailsCommandInput
   | GetConfigurationCommandInput
   | GetDelegatedAdminAccountCommandInput
   | GetEc2DeepInspectionConfigurationCommandInput
@@ -211,6 +255,10 @@ export type ServiceInputTypes =
   | GetMemberCommandInput
   | GetSbomExportCommandInput
   | ListAccountPermissionsCommandInput
+  | ListCisScanConfigurationsCommandInput
+  | ListCisScanResultsAggregatedByChecksCommandInput
+  | ListCisScanResultsAggregatedByTargetResourceCommandInput
+  | ListCisScansCommandInput
   | ListCoverageCommandInput
   | ListCoverageStatisticsCommandInput
   | ListDelegatedAdminAccountsCommandInput
@@ -222,8 +270,13 @@ export type ServiceInputTypes =
   | ListUsageTotalsCommandInput
   | ResetEncryptionKeyCommandInput
   | SearchVulnerabilitiesCommandInput
+  | SendCisSessionHealthCommandInput
+  | SendCisSessionTelemetryCommandInput
+  | StartCisSessionCommandInput
+  | StopCisSessionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateCisScanConfigurationCommandInput
   | UpdateConfigurationCommandInput
   | UpdateEc2DeepInspectionConfigurationCommandInput
   | UpdateEncryptionKeyCommandInput
@@ -244,9 +297,11 @@ export type ServiceOutputTypes =
   | BatchUpdateMemberEc2DeepInspectionStatusCommandOutput
   | CancelFindingsReportCommandOutput
   | CancelSbomExportCommandOutput
+  | CreateCisScanConfigurationCommandOutput
   | CreateFilterCommandOutput
   | CreateFindingsReportCommandOutput
   | CreateSbomExportCommandOutput
+  | DeleteCisScanConfigurationCommandOutput
   | DeleteFilterCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DisableCommandOutput
@@ -254,6 +309,8 @@ export type ServiceOutputTypes =
   | DisassociateMemberCommandOutput
   | EnableCommandOutput
   | EnableDelegatedAdminAccountCommandOutput
+  | GetCisScanReportCommandOutput
+  | GetCisScanResultDetailsCommandOutput
   | GetConfigurationCommandOutput
   | GetDelegatedAdminAccountCommandOutput
   | GetEc2DeepInspectionConfigurationCommandOutput
@@ -262,6 +319,10 @@ export type ServiceOutputTypes =
   | GetMemberCommandOutput
   | GetSbomExportCommandOutput
   | ListAccountPermissionsCommandOutput
+  | ListCisScanConfigurationsCommandOutput
+  | ListCisScanResultsAggregatedByChecksCommandOutput
+  | ListCisScanResultsAggregatedByTargetResourceCommandOutput
+  | ListCisScansCommandOutput
   | ListCoverageCommandOutput
   | ListCoverageStatisticsCommandOutput
   | ListDelegatedAdminAccountsCommandOutput
@@ -273,8 +334,13 @@ export type ServiceOutputTypes =
   | ListUsageTotalsCommandOutput
   | ResetEncryptionKeyCommandOutput
   | SearchVulnerabilitiesCommandOutput
+  | SendCisSessionHealthCommandOutput
+  | SendCisSessionTelemetryCommandOutput
+  | StartCisSessionCommandOutput
+  | StopCisSessionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCisScanConfigurationCommandOutput
   | UpdateConfigurationCommandOutput
   | UpdateEc2DeepInspectionConfigurationCommandOutput
   | UpdateEncryptionKeyCommandOutput

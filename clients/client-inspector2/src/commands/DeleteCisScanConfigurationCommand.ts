@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1";
-import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
+import { DeleteCisScanConfigurationRequest, DeleteCisScanConfigurationResponse } from "../models/models_0";
+import { de_DeleteCisScanConfigurationCommand, se_DeleteCisScanConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,42 +16,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UntagResourceCommand}.
+ * The input for {@link DeleteCisScanConfigurationCommand}.
  */
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
+export interface DeleteCisScanConfigurationCommandInput extends DeleteCisScanConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link UntagResourceCommand}.
+ * The output of {@link DeleteCisScanConfigurationCommand}.
  */
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface DeleteCisScanConfigurationCommandOutput extends DeleteCisScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Removes tags from a resource.</p>
+ * <p>Deletes a CIS scan configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, UntagResourceCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, UntagResourceCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, DeleteCisScanConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
+ * // const { Inspector2Client, DeleteCisScanConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
- * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
- *   ],
+ * const input = { // DeleteCisScanConfigurationRequest
+ *   scanConfigurationArn: "STRING_VALUE", // required
  * };
- * const command = new UntagResourceCommand(input);
+ * const command = new DeleteCisScanConfigurationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteCisScanConfigurationResponse
+ * //   scanConfigurationArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @param DeleteCisScanConfigurationCommandInput - {@link DeleteCisScanConfigurationCommandInput}
+ * @returns {@link DeleteCisScanConfigurationCommandOutput}
+ * @see {@link DeleteCisScanConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteCisScanConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -70,10 +72,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
-export class UntagResourceCommand extends $Command
+export class DeleteCisScanConfigurationCommand extends $Command
   .classBuilder<
-    UntagResourceCommandInput,
-    UntagResourceCommandOutput,
+    DeleteCisScanConfigurationCommandInput,
+    DeleteCisScanConfigurationCommandOutput,
     Inspector2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -87,9 +89,9 @@ export class UntagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Inspector2", "UntagResource", {})
-  .n("Inspector2Client", "UntagResourceCommand")
+  .s("Inspector2", "DeleteCisScanConfiguration", {})
+  .n("Inspector2Client", "DeleteCisScanConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_UntagResourceCommand)
-  .de(de_UntagResourceCommand)
+  .ser(se_DeleteCisScanConfigurationCommand)
+  .de(de_DeleteCisScanConfigurationCommand)
   .build() {}

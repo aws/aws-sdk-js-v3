@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { ListFindingAggregationsRequest, ListFindingAggregationsResponse } from "../models/models_0";
+import { ListFindingAggregationsRequest, ListFindingAggregationsResponse } from "../models/models_1";
 import { de_ListFindingAggregationsCommand, se_ListFindingAggregationsCommand } from "../protocols/Aws_restJson1";
 
 /**

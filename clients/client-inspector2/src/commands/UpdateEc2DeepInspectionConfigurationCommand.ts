@@ -9,7 +9,7 @@ import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   UpdateEc2DeepInspectionConfigurationRequest,
   UpdateEc2DeepInspectionConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_UpdateEc2DeepInspectionConfigurationCommand,
   se_UpdateEc2DeepInspectionConfigurationCommand,

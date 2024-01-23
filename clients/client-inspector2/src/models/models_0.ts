@@ -238,6 +238,39 @@ export interface AccountAggregationResponse {
  * @public
  * @enum
  */
+export const CisStringComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+  PREFIX: "PREFIX",
+} as const;
+
+/**
+ * @public
+ */
+export type CisStringComparison = (typeof CisStringComparison)[keyof typeof CisStringComparison];
+
+/**
+ * @public
+ * <p>The CIS string filter.</p>
+ */
+export interface CisStringFilter {
+  /**
+   * @public
+   * <p>The comparison value of the CIS string filter.</p>
+   */
+  comparison: CisStringComparison | undefined;
+
+  /**
+   * @public
+   * <p>The value of the CIS string filter.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   ACCESS_DENIED: "ACCESS_DENIED",
   ACCOUNT_IS_ISOLATED: "ACCOUNT_IS_ISOLATED",
@@ -3123,6 +3156,1151 @@ export interface CancelSbomExportResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const CisSecurityLevel = {
+  LEVEL_1: "LEVEL_1",
+  LEVEL_2: "LEVEL_2",
+} as const;
+
+/**
+ * @public
+ */
+export type CisSecurityLevel = (typeof CisSecurityLevel)[keyof typeof CisSecurityLevel];
+
+/**
+ * @public
+ * <p>The status counts.</p>
+ */
+export interface StatusCounts {
+  /**
+   * @public
+   * <p>The number of checks that failed.</p>
+   */
+  failed?: number;
+
+  /**
+   * @public
+   * <p>The number of checks that were skipped.</p>
+   */
+  skipped?: number;
+
+  /**
+   * @public
+   * <p>The number of checks that passed.</p>
+   */
+  passed?: number;
+}
+
+/**
+ * @public
+ * <p>A CIS check.</p>
+ */
+export interface CisCheckAggregation {
+  /**
+   * @public
+   * <p>The scan ARN for the CIS check scan ARN.</p>
+   */
+  scanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The check ID for the CIS check.</p>
+   */
+  checkId?: string;
+
+  /**
+   * @public
+   * <p>The CIS check title.</p>
+   */
+  title?: string;
+
+  /**
+   * @public
+   * <p>The description for the CIS check.</p>
+   */
+  checkDescription?: string;
+
+  /**
+   * @public
+   * <p>The CIS check level.</p>
+   */
+  level?: CisSecurityLevel;
+
+  /**
+   * @public
+   * <p>The account ID for the CIS check.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>The CIS check status counts.</p>
+   */
+  statusCounts?: StatusCounts;
+
+  /**
+   * @public
+   * <p>The CIS check platform.</p>
+   */
+  platform?: string;
+}
+
+/**
+ * @public
+ * <p>The CIS date filter.</p>
+ */
+export interface CisDateFilter {
+  /**
+   * @public
+   * <p>The CIS date filter's earliest scan start time.</p>
+   */
+  earliestScanStartTime?: Date;
+
+  /**
+   * @public
+   * <p>The CIS date filter's latest scan start time.</p>
+   */
+  latestScanStartTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisFindingStatus = {
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type CisFindingStatus = (typeof CisFindingStatus)[keyof typeof CisFindingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CisFindingStatusComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type CisFindingStatusComparison = (typeof CisFindingStatusComparison)[keyof typeof CisFindingStatusComparison];
+
+/**
+ * @public
+ * <p>The CIS finding status filter.</p>
+ */
+export interface CisFindingStatusFilter {
+  /**
+   * @public
+   * <p>The comparison value of the CIS finding status filter.</p>
+   */
+  comparison: CisFindingStatusComparison | undefined;
+
+  /**
+   * @public
+   * <p>The value of the CIS finding status filter.</p>
+   */
+  value: CisFindingStatus | undefined;
+}
+
+/**
+ * @public
+ * <p>The CIS number filter.</p>
+ */
+export interface CisNumberFilter {
+  /**
+   * @public
+   * <p>The CIS number filter's upper inclusive.</p>
+   */
+  upperInclusive?: number;
+
+  /**
+   * @public
+   * <p>The CIS number filter's lower inclusive.</p>
+   */
+  lowerInclusive?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisReportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type CisReportStatus = (typeof CisReportStatus)[keyof typeof CisReportStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CisResultStatus = {
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  SKIPPED: "SKIPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type CisResultStatus = (typeof CisResultStatus)[keyof typeof CisResultStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CisResultStatusComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type CisResultStatusComparison = (typeof CisResultStatusComparison)[keyof typeof CisResultStatusComparison];
+
+/**
+ * @public
+ * <p>The CIS result status filter.</p>
+ */
+export interface CisResultStatusFilter {
+  /**
+   * @public
+   * <p>The comparison value of the CIS result status filter.</p>
+   */
+  comparison: CisResultStatusComparison | undefined;
+
+  /**
+   * @public
+   * <p>The value of the CIS result status filter.</p>
+   */
+  value: CisResultStatus | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisRuleStatus = {
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  INFORMATIONAL: "INFORMATIONAL",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  NOT_EVALUATED: "NOT_EVALUATED",
+  PASSED: "PASSED",
+  UNKNOWN: "UNKNOWN",
+} as const;
+
+/**
+ * @public
+ */
+export type CisRuleStatus = (typeof CisRuleStatus)[keyof typeof CisRuleStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CisScanStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type CisScanStatus = (typeof CisScanStatus)[keyof typeof CisScanStatus];
+
+/**
+ * @public
+ * <p>The CIS targets.</p>
+ */
+export interface CisTargets {
+  /**
+   * @public
+   * <p>The CIS target account ids.</p>
+   */
+  accountIds?: string[];
+
+  /**
+   * @public
+   * <p>The CIS target resource tags.</p>
+   */
+  targetResourceTags?: Record<string, string[]>;
+}
+
+/**
+ * @public
+ * <p>The CIS scan.</p>
+ */
+export interface CisScan {
+  /**
+   * @public
+   * <p>The CIS scan's ARN.</p>
+   */
+  scanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The CIS scan's configuration ARN.</p>
+   */
+  scanConfigurationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The CIS scan's status.</p>
+   */
+  status?: CisScanStatus;
+
+  /**
+   * @public
+   * <p>The the name of the scan configuration that's associated with this scan.</p>
+   */
+  scanName?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan's date.</p>
+   */
+  scanDate?: Date;
+
+  /**
+   * @public
+   * <p>The CIS scan's failed checks.</p>
+   */
+  failedChecks?: number;
+
+  /**
+   * @public
+   * <p>The CIS scan's total checks.</p>
+   */
+  totalChecks?: number;
+
+  /**
+   * @public
+   * <p>The CIS scan's targets.</p>
+   */
+  targets?: CisTargets;
+
+  /**
+   * @public
+   * <p>The account or organization that schedules the CIS scan.</p>
+   */
+  scheduledBy?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The security level for the CIS scan.
+   *          Security level refers to the Benchmark levels that CIS assigns to a profile.
+   *       </p>
+   */
+  securityLevel?: CisSecurityLevel;
+}
+
+/**
+ * @public
+ * <p>The time.</p>
+ */
+export interface Time {
+  /**
+   * @public
+   * <p>The time of day in 24-hour format (00:00).</p>
+   */
+  timeOfDay: string | undefined;
+
+  /**
+   * @public
+   * <p>The timezone.</p>
+   */
+  timezone: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A daily schedule.</p>
+ */
+export interface DailySchedule {
+  /**
+   * @public
+   * <p>The schedule start time.</p>
+   */
+  startTime: Time | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Day = {
+  FRI: "FRI",
+  MON: "MON",
+  SAT: "SAT",
+  SUN: "SUN",
+  THU: "THU",
+  TUE: "TUE",
+  WED: "WED",
+} as const;
+
+/**
+ * @public
+ */
+export type Day = (typeof Day)[keyof typeof Day];
+
+/**
+ * @public
+ * <p>A monthly schedule.</p>
+ */
+export interface MonthlySchedule {
+  /**
+   * @public
+   * <p>The monthly schedule's start time.</p>
+   */
+  startTime: Time | undefined;
+
+  /**
+   * @public
+   * <p>The monthly schedule's day.</p>
+   */
+  day: Day | undefined;
+}
+
+/**
+ * @public
+ * <p>A one time schedule.</p>
+ */
+export interface OneTimeSchedule {}
+
+/**
+ * @public
+ * <p>A weekly schedule.</p>
+ */
+export interface WeeklySchedule {
+  /**
+   * @public
+   * <p>The weekly schedule's start time.</p>
+   */
+  startTime: Time | undefined;
+
+  /**
+   * @public
+   * <p>The weekly schedule's days.</p>
+   */
+  days: Day[] | undefined;
+}
+
+/**
+ * @public
+ * <p>A schedule.</p>
+ */
+export type Schedule =
+  | Schedule.DailyMember
+  | Schedule.MonthlyMember
+  | Schedule.OneTimeMember
+  | Schedule.WeeklyMember
+  | Schedule.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Schedule {
+  /**
+   * @public
+   * <p>The schedule's one time.</p>
+   */
+  export interface OneTimeMember {
+    oneTime: OneTimeSchedule;
+    daily?: never;
+    weekly?: never;
+    monthly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The schedule's daily.</p>
+   */
+  export interface DailyMember {
+    oneTime?: never;
+    daily: DailySchedule;
+    weekly?: never;
+    monthly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The schedule's weekly.</p>
+   */
+  export interface WeeklyMember {
+    oneTime?: never;
+    daily?: never;
+    weekly: WeeklySchedule;
+    monthly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The schedule's monthly.</p>
+   */
+  export interface MonthlyMember {
+    oneTime?: never;
+    daily?: never;
+    weekly?: never;
+    monthly: MonthlySchedule;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    oneTime?: never;
+    daily?: never;
+    weekly?: never;
+    monthly?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    oneTime: (value: OneTimeSchedule) => T;
+    daily: (value: DailySchedule) => T;
+    weekly: (value: WeeklySchedule) => T;
+    monthly: (value: MonthlySchedule) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Schedule, visitor: Visitor<T>): T => {
+    if (value.oneTime !== undefined) return visitor.oneTime(value.oneTime);
+    if (value.daily !== undefined) return visitor.daily(value.daily);
+    if (value.weekly !== undefined) return visitor.weekly(value.weekly);
+    if (value.monthly !== undefined) return visitor.monthly(value.monthly);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>The CIS scan configuration.</p>
+ */
+export interface CisScanConfiguration {
+  /**
+   * @public
+   * <p>The CIS scan configuration's scan configuration ARN.</p>
+   */
+  scanConfigurationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The CIS scan configuration's owner ID.</p>
+   */
+  ownerId?: string;
+
+  /**
+   * @public
+   * <p>The name of the CIS scan configuration.</p>
+   */
+  scanName?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan configuration's security level.</p>
+   */
+  securityLevel?: CisSecurityLevel;
+
+  /**
+   * @public
+   * <p>The CIS scan configuration's schedule.</p>
+   */
+  schedule?: Schedule;
+
+  /**
+   * @public
+   * <p>The CIS scan configuration's targets.</p>
+   */
+  targets?: CisTargets;
+
+  /**
+   * @public
+   * <p>The CIS scan configuration's tags.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisScanConfigurationsSortBy = {
+  SCAN_CONFIGURATION_ARN: "SCAN_CONFIGURATION_ARN",
+  SCAN_NAME: "SCAN_NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type CisScanConfigurationsSortBy =
+  (typeof CisScanConfigurationsSortBy)[keyof typeof CisScanConfigurationsSortBy];
+
+/**
+ * @public
+ * <p>The CIS scan result details.</p>
+ */
+export interface CisScanResultDetails {
+  /**
+   * @public
+   * <p>The CIS scan result details' scan ARN.</p>
+   */
+  scanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' account ID.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' target resource ID.</p>
+   */
+  targetResourceId?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' platform.</p>
+   */
+  platform?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' status.</p>
+   */
+  status?: CisFindingStatus;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' status reason.</p>
+   */
+  statusReason?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' check ID.</p>
+   */
+  checkId?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' title.</p>
+   */
+  title?: string;
+
+  /**
+   * @public
+   * <p>The account ID that's associated with the CIS scan result details.</p>
+   */
+  checkDescription?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' remediation.</p>
+   */
+  remediation?: string;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' level.</p>
+   */
+  level?: CisSecurityLevel;
+
+  /**
+   * @public
+   * <p>The CIS scan result details' finding ARN.</p>
+   */
+  findingArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisSecurityLevelComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type CisSecurityLevelComparison = (typeof CisSecurityLevelComparison)[keyof typeof CisSecurityLevelComparison];
+
+/**
+ * @public
+ * <p>
+ *          The CIS security level filter.
+ *          Security level refers to the Benchmark levels that CIS assigns to a profile.
+ *       </p>
+ */
+export interface CisSecurityLevelFilter {
+  /**
+   * @public
+   * <p>The CIS security filter comparison value.</p>
+   */
+  comparison: CisSecurityLevelComparison | undefined;
+
+  /**
+   * @public
+   * <p>The CIS security filter value.</p>
+   */
+  value: CisSecurityLevel | undefined;
+}
+
+/**
+ * @public
+ * <p>The CIS scan result details filter criteria.</p>
+ */
+export interface CisScanResultDetailsFilterCriteria {
+  /**
+   * @public
+   * <p>The criteria's finding status filters.</p>
+   */
+  findingStatusFilters?: CisFindingStatusFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's check ID filters.</p>
+   */
+  checkIdFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's title filters.</p>
+   */
+  titleFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *          The criteria's security level filters. .
+   *          Security level refers to the Benchmark levels that CIS assigns to a profile.
+   *       </p>
+   */
+  securityLevelFilters?: CisSecurityLevelFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's finding ARN filters.</p>
+   */
+  findingArnFilters?: CisStringFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisScanResultDetailsSortBy = {
+  CHECK_ID: "CHECK_ID",
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type CisScanResultDetailsSortBy = (typeof CisScanResultDetailsSortBy)[keyof typeof CisScanResultDetailsSortBy];
+
+/**
+ * @public
+ * <p>The scan results aggregated by checks filter criteria.</p>
+ */
+export interface CisScanResultsAggregatedByChecksFilterCriteria {
+  /**
+   * @public
+   * <p>The criteria's account ID filters.</p>
+   */
+  accountIdFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's check ID filters.</p>
+   */
+  checkIdFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's title filters.</p>
+   */
+  titleFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's platform filters.</p>
+   */
+  platformFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's failed resources filters.</p>
+   */
+  failedResourcesFilters?: CisNumberFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's security level filters.</p>
+   */
+  securityLevelFilters?: CisSecurityLevelFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisScanResultsAggregatedByChecksSortBy = {
+  CHECK_ID: "CHECK_ID",
+  FAILED_COUNTS: "FAILED_COUNTS",
+  PLATFORM: "PLATFORM",
+  SECURITY_LEVEL: "SECURITY_LEVEL",
+  TITLE: "TITLE",
+} as const;
+
+/**
+ * @public
+ */
+export type CisScanResultsAggregatedByChecksSortBy =
+  (typeof CisScanResultsAggregatedByChecksSortBy)[keyof typeof CisScanResultsAggregatedByChecksSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const TagComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type TagComparison = (typeof TagComparison)[keyof typeof TagComparison];
+
+/**
+ * @public
+ * <p>The tag filter.</p>
+ */
+export interface TagFilter {
+  /**
+   * @public
+   * <p>The tag filter comparison value.</p>
+   */
+  comparison: TagComparison | undefined;
+
+  /**
+   * @public
+   * <p>The tag filter key.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * @public
+   * <p>The tag filter value.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisTargetStatusComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type CisTargetStatusComparison = (typeof CisTargetStatusComparison)[keyof typeof CisTargetStatusComparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const CisTargetStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type CisTargetStatus = (typeof CisTargetStatus)[keyof typeof CisTargetStatus];
+
+/**
+ * @public
+ * <p>The CIS target status filter.</p>
+ */
+export interface CisTargetStatusFilter {
+  /**
+   * @public
+   * <p>The comparison value of the CIS target status filter.</p>
+   */
+  comparison: CisTargetStatusComparison | undefined;
+
+  /**
+   * @public
+   * <p>The value of the CIS target status filter.</p>
+   */
+  value: CisTargetStatus | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisTargetStatusReason = {
+  SCAN_IN_PROGRESS: "SCAN_IN_PROGRESS",
+  SSM_UNMANAGED: "SSM_UNMANAGED",
+  UNSUPPORTED_OS: "UNSUPPORTED_OS",
+} as const;
+
+/**
+ * @public
+ */
+export type CisTargetStatusReason = (typeof CisTargetStatusReason)[keyof typeof CisTargetStatusReason];
+
+/**
+ * @public
+ * <p>The CIS target status reason filter.</p>
+ */
+export interface CisTargetStatusReasonFilter {
+  /**
+   * @public
+   * <p>The comparison value of the CIS target status reason filter.</p>
+   */
+  comparison: CisTargetStatusComparison | undefined;
+
+  /**
+   * @public
+   * <p>The value of the CIS target status reason filter.</p>
+   */
+  value: CisTargetStatusReason | undefined;
+}
+
+/**
+ * @public
+ * <p>The scan results aggregated by target resource filter criteria.</p>
+ */
+export interface CisScanResultsAggregatedByTargetResourceFilterCriteria {
+  /**
+   * @public
+   * <p>The criteria's account ID filters.</p>
+   */
+  accountIdFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's status filter.</p>
+   */
+  statusFilters?: CisResultStatusFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's check ID filters.</p>
+   */
+  checkIdFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's target resource ID filters.</p>
+   */
+  targetResourceIdFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's target resource tag filters.</p>
+   */
+  targetResourceTagFilters?: TagFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's platform filters.</p>
+   */
+  platformFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's target status filters.</p>
+   */
+  targetStatusFilters?: CisTargetStatusFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's target status reason filters.</p>
+   */
+  targetStatusReasonFilters?: CisTargetStatusReasonFilter[];
+
+  /**
+   * @public
+   * <p>The criteria's failed checks filters.</p>
+   */
+  failedChecksFilters?: CisNumberFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisScanResultsAggregatedByTargetResourceSortBy = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  FAILED_COUNTS: "FAILED_COUNTS",
+  PLATFORM: "PLATFORM",
+  RESOURCE_ID: "RESOURCE_ID",
+  TARGET_STATUS: "TARGET_STATUS",
+  TARGET_STATUS_REASON: "TARGET_STATUS_REASON",
+} as const;
+
+/**
+ * @public
+ */
+export type CisScanResultsAggregatedByTargetResourceSortBy =
+  (typeof CisScanResultsAggregatedByTargetResourceSortBy)[keyof typeof CisScanResultsAggregatedByTargetResourceSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const CisScanStatusComparison = {
+  EQUALS: "EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type CisScanStatusComparison = (typeof CisScanStatusComparison)[keyof typeof CisScanStatusComparison];
+
+/**
+ * @public
+ * <p>The CIS scan status filter.</p>
+ */
+export interface CisScanStatusFilter {
+  /**
+   * @public
+   * <p>The filter comparison value.</p>
+   */
+  comparison: CisScanStatusComparison | undefined;
+
+  /**
+   * @public
+   * <p>The filter value.</p>
+   */
+  value: CisScanStatus | undefined;
+}
+
+/**
+ * @public
+ * <p>The CIS session message.</p>
+ */
+export interface CisSessionMessage {
+  /**
+   * @public
+   * <p>The rule ID for the CIS session message.</p>
+   */
+  ruleId: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the CIS session message.</p>
+   */
+  status: CisRuleStatus | undefined;
+
+  /**
+   * @public
+   * <p>The CIS rule details for the CIS session message.</p>
+   */
+  cisRuleDetails: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CisSortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type CisSortOrder = (typeof CisSortOrder)[keyof typeof CisSortOrder];
+
+/**
+ * @public
+ * <p>The CIS target resource aggregation.</p>
+ */
+export interface CisTargetResourceAggregation {
+  /**
+   * @public
+   * <p>The scan ARN for the CIS target resource.</p>
+   */
+  scanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the target resource.</p>
+   */
+  targetResourceId?: string;
+
+  /**
+   * @public
+   * <p>The account ID for the CIS target resource.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>The tag for the target resource.</p>
+   */
+  targetResourceTags?: Record<string, string[]>;
+
+  /**
+   * @public
+   * <p>The target resource status counts.</p>
+   */
+  statusCounts?: StatusCounts;
+
+  /**
+   * @public
+   * <p>The platform for the CIS target resource.</p>
+   */
+  platform?: string;
+
+  /**
+   * @public
+   * <p>The status of the target resource.</p>
+   */
+  targetStatus?: CisTargetStatus;
+
+  /**
+   * @public
+   * <p>The reason for the target resource.</p>
+   */
+  targetStatusReason?: CisTargetStatusReason;
+}
+
+/**
+ * @public
  * <p>Contains information on where a code vulnerability is located in your Lambda function.</p>
  */
 export interface CodeFilePath {
@@ -3204,6 +4382,30 @@ export interface CodeVulnerabilityDetails {
    * <p>The Common Weakness Enumeration (CWE) item associated with the detected vulnerability.</p>
    */
   cwes: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>A compute platform.</p>
+ */
+export interface ComputePlatform {
+  /**
+   * @public
+   * <p>The compute platform vendor.</p>
+   */
+  vendor?: string;
+
+  /**
+   * @public
+   * <p>The compute platform product.</p>
+   */
+  product?: string;
+
+  /**
+   * @public
+   * <p>The compute platform version.</p>
+   */
+  version?: string;
 }
 
 /**
@@ -3393,7 +4595,7 @@ export interface CoverageFilterCriteria {
 
   /**
    * @public
-   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code> or <code>AWS_ECR_REPOSITORY</code>.</p>
+   * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>, <code>AWS_ECR_CONTAINER_IMAGE</code>,  <code>AWS_ECR_REPOSITORY</code> or <code>AWS_ACCOUNT</code>.</p>
    */
   resourceType?: CoverageStringFilter[];
 
@@ -3785,6 +4987,73 @@ export interface CoveredResource {
    * <p>The date and time the resource was last checked for vulnerabilities.</p>
    */
   lastScannedAt?: Date;
+}
+
+/**
+ * @public
+ * <p>Creates CIS targets.</p>
+ */
+export interface CreateCisTargets {
+  /**
+   * @public
+   * <p>The CIS target account ids.</p>
+   */
+  accountIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The CIS target resource tags.</p>
+   */
+  targetResourceTags: Record<string, string[]> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCisScanConfigurationRequest {
+  /**
+   * @public
+   * <p>The scan name for the CIS scan configuration.</p>
+   */
+  scanName: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The security level for the CIS scan configuration.
+   *          Security level refers to the Benchmark levels that CIS assigns to a profile.
+   *       </p>
+   */
+  securityLevel: CisSecurityLevel | undefined;
+
+  /**
+   * @public
+   * <p>The schedule for the CIS scan configuration.</p>
+   */
+  schedule: Schedule | undefined;
+
+  /**
+   * @public
+   * <p>The targets for the CIS scan configuration.</p>
+   */
+  targets: CreateCisTargets | undefined;
+
+  /**
+   * @public
+   * <p>The tags for the CIS scan configuration.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateCisScanConfigurationResponse {
+  /**
+   * @public
+   * <p>The scan configuration ARN for the CIS scan configuration.</p>
+   */
+  scanConfigurationArn?: string;
 }
 
 /**
@@ -4699,6 +5968,28 @@ export interface DelegatedAdminAccount {
    * <p>The status of the Amazon Inspector delegated administrator.</p>
    */
   status?: DelegatedAdminStatus;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCisScanConfigurationRequest {
+  /**
+   * @public
+   * <p>The ARN of the CIS scan configuration.</p>
+   */
+  scanConfigurationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCisScanConfigurationResponse {
+  /**
+   * @public
+   * <p>The ARN of the CIS scan configuration.</p>
+   */
+  scanConfigurationArn: string | undefined;
 }
 
 /**
@@ -5696,6 +6987,112 @@ export interface Finding {
 /**
  * @public
  */
+export interface GetCisScanReportRequest {
+  /**
+   * @public
+   * <p>The scan ARN.</p>
+   */
+  scanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The target accounts.</p>
+   */
+  targetAccounts?: string[];
+}
+
+/**
+ * @public
+ */
+export interface GetCisScanReportResponse {
+  /**
+   * @public
+   * <p>
+   *          The URL where the CIS scan report PDF can be downloaded.
+   *       </p>
+   */
+  url?: string;
+
+  /**
+   * @public
+   * <p>The status.</p>
+   */
+  status?: CisReportStatus;
+}
+
+/**
+ * @public
+ */
+export interface GetCisScanResultDetailsRequest {
+  /**
+   * @public
+   * <p>The scan ARN.</p>
+   */
+  scanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The target resource ID.</p>
+   */
+  targetResourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The account ID.</p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The filter criteria.</p>
+   */
+  filterCriteria?: CisScanResultDetailsFilterCriteria;
+
+  /**
+   * @public
+   * <p>The sort by order.</p>
+   */
+  sortBy?: CisScanResultDetailsSortBy;
+
+  /**
+   * @public
+   * <p>The sort order.</p>
+   */
+  sortOrder?: CisSortOrder;
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of CIS scan result details to be returned in a single page of results.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetCisScanResultDetailsResponse {
+  /**
+   * @public
+   * <p>The scan result details.</p>
+   */
+  scanResultDetails?: CisScanResultDetails[];
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetConfigurationRequest {}
 
 /**
@@ -6061,6 +7458,352 @@ export interface ListAccountPermissionsResponse {
 
 /**
  * @public
+ * <p>A list of CIS scan configurations filter criteria.</p>
+ */
+export interface ListCisScanConfigurationsFilterCriteria {
+  /**
+   * @public
+   * <p>The list of scan name filters.</p>
+   */
+  scanNameFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The list of target resource tag filters.</p>
+   */
+  targetResourceTagFilters?: TagFilter[];
+
+  /**
+   * @public
+   * <p>The list of scan configuration ARN filters.</p>
+   */
+  scanConfigurationArnFilters?: CisStringFilter[];
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanConfigurationsRequest {
+  /**
+   * @public
+   * <p>The CIS scan configuration filter criteria.</p>
+   */
+  filterCriteria?: ListCisScanConfigurationsFilterCriteria;
+
+  /**
+   * @public
+   * <p>The CIS scan configuration sort by order.</p>
+   */
+  sortBy?: CisScanConfigurationsSortBy;
+
+  /**
+   * @public
+   * <p>The CIS scan configuration sort order order.</p>
+   */
+  sortOrder?: CisSortOrder;
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of CIS scan configurations to be returned in a single page of results.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanConfigurationsResponse {
+  /**
+   * @public
+   * <p>The CIS scan configuration scan configurations.</p>
+   */
+  scanConfigurations?: CisScanConfiguration[];
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByChecksRequest {
+  /**
+   * @public
+   * <p>The scan ARN.</p>
+   */
+  scanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The filter criteria.</p>
+   */
+  filterCriteria?: CisScanResultsAggregatedByChecksFilterCriteria;
+
+  /**
+   * @public
+   * <p>The sort by order.</p>
+   */
+  sortBy?: CisScanResultsAggregatedByChecksSortBy;
+
+  /**
+   * @public
+   * <p>The sort order.</p>
+   */
+  sortOrder?: CisSortOrder;
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of scan results aggregated by checks to be returned in a single page of results.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByChecksResponse {
+  /**
+   * @public
+   * <p>The check aggregations.</p>
+   */
+  checkAggregations?: CisCheckAggregation[];
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByTargetResourceRequest {
+  /**
+   * @public
+   * <p>The scan ARN.</p>
+   */
+  scanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The filter criteria.</p>
+   */
+  filterCriteria?: CisScanResultsAggregatedByTargetResourceFilterCriteria;
+
+  /**
+   * @public
+   * <p>The sort by order.</p>
+   */
+  sortBy?: CisScanResultsAggregatedByTargetResourceSortBy;
+
+  /**
+   * @public
+   * <p>The sort order.</p>
+   */
+  sortOrder?: CisSortOrder;
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of scan results aggregated by a target resource to be returned in a single page of results.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScanResultsAggregatedByTargetResourceResponse {
+  /**
+   * @public
+   * <p>The resource aggregations.</p>
+   */
+  targetResourceAggregations?: CisTargetResourceAggregation[];
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListCisScansDetailLevel = {
+  MEMBER: "MEMBER",
+  ORGANIZATION: "ORGANIZATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ListCisScansDetailLevel = (typeof ListCisScansDetailLevel)[keyof typeof ListCisScansDetailLevel];
+
+/**
+ * @public
+ * <p>A list of CIS scans filter criteria.</p>
+ */
+export interface ListCisScansFilterCriteria {
+  /**
+   * @public
+   * <p>The list of scan name filters.</p>
+   */
+  scanNameFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The list of target resource tag filters.</p>
+   */
+  targetResourceTagFilters?: TagFilter[];
+
+  /**
+   * @public
+   * <p>The list of target resource ID filters.</p>
+   */
+  targetResourceIdFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The list of scan status filters.</p>
+   */
+  scanStatusFilters?: CisScanStatusFilter[];
+
+  /**
+   * @public
+   * <p>The list of scan at filters.</p>
+   */
+  scanAtFilters?: CisDateFilter[];
+
+  /**
+   * @public
+   * <p>The list of scan configuration ARN filters.</p>
+   */
+  scanConfigurationArnFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The list of scan ARN filters.</p>
+   */
+  scanArnFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The list of scheduled by filters.</p>
+   */
+  scheduledByFilters?: CisStringFilter[];
+
+  /**
+   * @public
+   * <p>The list of failed checks filters.</p>
+   */
+  failedChecksFilters?: CisNumberFilter[];
+
+  /**
+   * @public
+   * <p>The list of target account ID filters.</p>
+   */
+  targetAccountIdFilters?: CisStringFilter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListCisScansSortBy = {
+  FAILED_CHECKS: "FAILED_CHECKS",
+  SCAN_START_DATE: "SCAN_START_DATE",
+  SCHEDULED_BY: "SCHEDULED_BY",
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type ListCisScansSortBy = (typeof ListCisScansSortBy)[keyof typeof ListCisScansSortBy];
+
+/**
+ * @public
+ */
+export interface ListCisScansRequest {
+  /**
+   * @public
+   * <p>The CIS scan filter criteria.</p>
+   */
+  filterCriteria?: ListCisScansFilterCriteria;
+
+  /**
+   * @public
+   * <p>The detail applied to the CIS scan.</p>
+   */
+  detailLevel?: ListCisScansDetailLevel;
+
+  /**
+   * @public
+   * <p>The CIS scans sort by order.</p>
+   */
+  sortBy?: ListCisScansSortBy;
+
+  /**
+   * @public
+   * <p>The CIS scans sort order.</p>
+   */
+  sortOrder?: CisSortOrder;
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListCisScansResponse {
+  /**
+   * @public
+   * <p>The CIS scans.</p>
+   */
+  scans?: CisScan[];
+
+  /**
+   * @public
+   * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  */
 export interface ListCoverageRequest {
   /**
@@ -6082,905 +7825,3 @@ export interface ListCoverageRequest {
    */
   filterCriteria?: CoverageFilterCriteria;
 }
-
-/**
- * @public
- */
-export interface ListCoverageResponse {
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>An object that contains details on the covered resources in your environment.</p>
-   */
-  coveredResources?: CoveredResource[];
-}
-
-/**
- * @public
- */
-export interface ListCoverageStatisticsRequest {
-  /**
-   * @public
-   * <p>An object that contains details on the filters to apply to the coverage data for your
-   *          environment.</p>
-   */
-  filterCriteria?: CoverageFilterCriteria;
-
-  /**
-   * @public
-   * <p>The value to group the results by.</p>
-   */
-  groupBy?: GroupKey;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListCoverageStatisticsResponse {
-  /**
-   * @public
-   * <p>An array with the number for each group.</p>
-   */
-  countsByGroup?: Counts[];
-
-  /**
-   * @public
-   * <p>The total number for all groups.</p>
-   */
-  totalCounts: number | undefined;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListDelegatedAdminAccountsRequest {
-  /**
-   * @public
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListDelegatedAdminAccountsResponse {
-  /**
-   * @public
-   * <p>Details of the Amazon Inspector delegated administrator of your organization.</p>
-   */
-  delegatedAdminAccounts?: DelegatedAdminAccount[];
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFiltersRequest {
-  /**
-   * @public
-   * <p>The Amazon resource number (ARN) of the filter.</p>
-   */
-  arns?: string[];
-
-  /**
-   * @public
-   * <p>The action the filter applies to matched findings.</p>
-   */
-  action?: FilterAction;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   */
-  maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListFiltersResponse {
-  /**
-   * @public
-   * <p>Contains details on the filters associated with your account.</p>
-   */
-  filters: Filter[] | undefined;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFindingAggregationsRequest {
-  /**
-   * @public
-   * <p>The type of the aggregation request.</p>
-   */
-  aggregationType: AggregationType | undefined;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account IDs to retrieve finding aggregation data for.</p>
-   */
-  accountIds?: StringFilter[];
-
-  /**
-   * @public
-   * <p>Details of the aggregation request that is used to filter your aggregation results.</p>
-   */
-  aggregationRequest?: AggregationRequest;
-}
-
-/**
- * @public
- */
-export interface ListFindingAggregationsResponse {
-  /**
-   * @public
-   * <p>The type of aggregation to perform.</p>
-   */
-  aggregationType: AggregationType | undefined;
-
-  /**
-   * @public
-   * <p>Objects that contain the results of an aggregation operation.</p>
-   */
-  responses?: AggregationResponse[];
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const SortField = {
-  AWS_ACCOUNT_ID: "AWS_ACCOUNT_ID",
-  COMPONENT_TYPE: "COMPONENT_TYPE",
-  ECR_IMAGE_PUSHED_AT: "ECR_IMAGE_PUSHED_AT",
-  ECR_IMAGE_REGISTRY: "ECR_IMAGE_REGISTRY",
-  ECR_IMAGE_REPOSITORY_NAME: "ECR_IMAGE_REPOSITORY_NAME",
-  EPSS_SCORE: "EPSS_SCORE",
-  FINDING_STATUS: "FINDING_STATUS",
-  FINDING_TYPE: "FINDING_TYPE",
-  FIRST_OBSERVED_AT: "FIRST_OBSERVED_AT",
-  INSPECTOR_SCORE: "INSPECTOR_SCORE",
-  LAST_OBSERVED_AT: "LAST_OBSERVED_AT",
-  NETWORK_PROTOCOL: "NETWORK_PROTOCOL",
-  RESOURCE_TYPE: "RESOURCE_TYPE",
-  SEVERITY: "SEVERITY",
-  VENDOR_SEVERITY: "VENDOR_SEVERITY",
-  VULNERABILITY_ID: "VULNERABILITY_ID",
-  VULNERABILITY_SOURCE: "VULNERABILITY_SOURCE",
-} as const;
-
-/**
- * @public
- */
-export type SortField = (typeof SortField)[keyof typeof SortField];
-
-/**
- * @public
- * <p>Details about the criteria used to sort finding results.</p>
- */
-export interface SortCriteria {
-  /**
-   * @public
-   * <p>The finding detail field by which results are sorted.</p>
-   */
-  field: SortField | undefined;
-
-  /**
-   * @public
-   * <p>The order by which findings are sorted.</p>
-   */
-  sortOrder: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingsRequest {
-  /**
-   * @public
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>Details on the filters to apply to your finding results.</p>
-   */
-  filterCriteria?: FilterCriteria;
-
-  /**
-   * @public
-   * <p>Details on the sort criteria to apply to your finding results.</p>
-   */
-  sortCriteria?: SortCriteria;
-}
-
-/**
- * @public
- */
-export interface ListFindingsResponse {
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>Contains details on the findings in your environment.</p>
-   */
-  findings?: Finding[];
-}
-
-/**
- * @public
- */
-export interface ListMembersRequest {
-  /**
-   * @public
-   * <p>Specifies whether to list only currently associated members if <code>True</code> or to
-   *          list all members within the organization if <code>False</code>.</p>
-   */
-  onlyAssociated?: boolean;
-
-  /**
-   * @public
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListMembersResponse {
-  /**
-   * @public
-   * <p>An object that contains details for each member account.</p>
-   */
-  members?: Member[];
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *          items.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * @public
-   * <p>The Amazon resource number (ARN) of the resource to list tags of.</p>
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * @public
-   * <p>The tags associated with the resource.</p>
-   */
-  tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface ListUsageTotalsRequest {
-  /**
-   * @public
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account IDs to retrieve usage totals for.</p>
-   */
-  accountIds?: string[];
-}
-
-/**
- * @public
- * @enum
- */
-export const UsageType = {
-  EC2_INSTANCE_HOURS: "EC2_INSTANCE_HOURS",
-  ECR_INITIAL_SCAN: "ECR_INITIAL_SCAN",
-  ECR_RESCAN: "ECR_RESCAN",
-  LAMBDA_FUNCTION_CODE_HOURS: "LAMBDA_FUNCTION_CODE_HOURS",
-  LAMBDA_FUNCTION_HOURS: "LAMBDA_FUNCTION_HOURS",
-} as const;
-
-/**
- * @public
- */
-export type UsageType = (typeof UsageType)[keyof typeof UsageType];
-
-/**
- * @public
- * <p>Contains usage information about the cost of Amazon Inspector operation.</p>
- */
-export interface Usage {
-  /**
-   * @public
-   * <p>The type scan.</p>
-   */
-  type?: UsageType;
-
-  /**
-   * @public
-   * <p>The total of usage.</p>
-   */
-  total?: number;
-
-  /**
-   * @public
-   * <p>The estimated monthly cost of Amazon Inspector.</p>
-   */
-  estimatedMonthlyCost?: number;
-
-  /**
-   * @public
-   * <p>The currency type used when calculating usage data.</p>
-   */
-  currency?: Currency;
-}
-
-/**
- * @public
- * <p>The total of usage for an account ID.</p>
- */
-export interface UsageTotal {
-  /**
-   * @public
-   * <p>The account ID of the account that usage data was retrieved for.</p>
-   */
-  accountId?: string;
-
-  /**
-   * @public
-   * <p>An object representing the total usage for an account.</p>
-   */
-  usage?: Usage[];
-}
-
-/**
- * @public
- */
-export interface ListUsageTotalsResponse {
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>An object with details on the total usage for the requested account.</p>
-   */
-  totals?: UsageTotal[];
-}
-
-/**
- * @public
- */
-export interface ResetEncryptionKeyRequest {
-  /**
-   * @public
-   * <p>The scan type the key encrypts.</p>
-   */
-  scanType: ScanType | undefined;
-
-  /**
-   * @public
-   * <p>The resource type the key encrypts.</p>
-   */
-  resourceType: ResourceType | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetEncryptionKeyResponse {}
-
-/**
- * @public
- * <p>Details on the criteria used to define the filter for a vulnerability search.
- *       </p>
- */
-export interface SearchVulnerabilitiesFilterCriteria {
-  /**
-   * @public
-   * <p>The IDs for specific vulnerabilities.</p>
-   */
-  vulnerabilityIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchVulnerabilitiesRequest {
-  /**
-   * @public
-   * <p>The criteria used to filter the results of a vulnerability search.</p>
-   */
-  filterCriteria: SearchVulnerabilitiesFilterCriteria | undefined;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const VulnerabilitySource = {
-  NVD: "NVD",
-} as const;
-
-/**
- * @public
- */
-export type VulnerabilitySource = (typeof VulnerabilitySource)[keyof typeof VulnerabilitySource];
-
-/**
- * @public
- * <p>Contains details about a specific vulnerability Amazon Inspector can detect.</p>
- */
-export interface Vulnerability {
-  /**
-   * @public
-   * <p>The ID for the specific vulnerability.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * @public
-   * <p>The Common Weakness Enumeration (CWE) associated with the vulnerability.</p>
-   */
-  cwes?: string[];
-
-  /**
-   * @public
-   * <p>An object that contains the Cybersecurity and Infrastructure Security Agency (CISA) details for the vulnerability.</p>
-   */
-  cisaData?: CisaData;
-
-  /**
-   * @public
-   * <p>The source of the vulnerability information.  Possible results are <code>RHEL</code>, <code>AMAZON_CVE</code>, <code>DEBIAN</code> or <code>NVD</code>.</p>
-   */
-  source?: VulnerabilitySource;
-
-  /**
-   * @public
-   * <p>A description of the vulnerability.</p>
-   */
-  description?: string;
-
-  /**
-   * @public
-   * <p>An object that contains information about the Amazon Web Services Threat Intel Group (ATIG) details for the vulnerability.</p>
-   */
-  atigData?: AtigData;
-
-  /**
-   * @public
-   * <p>The severity assigned by the vendor.</p>
-   */
-  vendorSeverity?: string;
-
-  /**
-   * @public
-   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 3 details for the vulnerability.</p>
-   */
-  cvss3?: Cvss3;
-
-  /**
-   * @public
-   * <p>A list of related vulnerabilities.</p>
-   */
-  relatedVulnerabilities?: string[];
-
-  /**
-   * @public
-   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 2 details for the vulnerability.</p>
-   */
-  cvss2?: Cvss2;
-
-  /**
-   * @public
-   * <p>The date and time when the vendor created this vulnerability.</p>
-   */
-  vendorCreatedAt?: Date;
-
-  /**
-   * @public
-   * <p>The date and time when the vendor last updated this vulnerability.</p>
-   */
-  vendorUpdatedAt?: Date;
-
-  /**
-   * @public
-   * <p>A link to the official source material for this vulnerability.</p>
-   */
-  sourceUrl?: string;
-
-  /**
-   * @public
-   * <p>Links to various resources with more information on this vulnerability. </p>
-   */
-  referenceUrls?: string[];
-
-  /**
-   * @public
-   * <p>An object that contains details on when the exploit was observed.</p>
-   */
-  exploitObserved?: ExploitObserved;
-
-  /**
-   * @public
-   * <p>Platforms that the vulnerability can be detected on.</p>
-   */
-  detectionPlatforms?: string[];
-
-  /**
-   * @public
-   * <p>An object that contains the Exploit Prediction Scoring System (EPSS) score for a vulnerability.</p>
-   */
-  epss?: Epss;
-}
-
-/**
- * @public
- */
-export interface SearchVulnerabilitiesResponse {
-  /**
-   * @public
-   * <p>Details about the listed vulnerability.</p>
-   */
-  vulnerabilities: Vulnerability[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource to apply a tag to.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The tags to be added to a resource.</p>
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The tag keys to remove from the resource.</p>
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateConfigurationRequest {
-  /**
-   * @public
-   * <p>Specifies how the ECR automated re-scan will be updated for your environment.</p>
-   */
-  ecrConfiguration: EcrConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateConfigurationResponse {}
-
-/**
- * @public
- */
-export interface UpdateEc2DeepInspectionConfigurationRequest {
-  /**
-   * @public
-   * <p>Specify <code>TRUE</code> to activate Amazon Inspector deep inspection in your account, or <code>FALSE</code> to deactivate. Member accounts in an organization cannot deactivate deep inspection, instead the delegated administrator for the organization can deactivate a member account using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_BatchUpdateMemberEc2DeepInspectionStatus.html">BatchUpdateMemberEc2DeepInspectionStatus</a>.</p>
-   */
-  activateDeepInspection?: boolean;
-
-  /**
-   * @public
-   * <p>The Amazon Inspector deep inspection custom paths you are adding for your account.</p>
-   */
-  packagePaths?: string[];
-}
-
-/**
- * @public
- */
-export interface UpdateEc2DeepInspectionConfigurationResponse {
-  /**
-   * @public
-   * <p>The current Amazon Inspector deep inspection custom paths for your account.</p>
-   */
-  packagePaths?: string[];
-
-  /**
-   * @public
-   * <p>The current Amazon Inspector deep inspection custom paths for the organization.</p>
-   */
-  orgPackagePaths?: string[];
-
-  /**
-   * @public
-   * <p>The status of Amazon Inspector deep inspection in your account.</p>
-   */
-  status?: Ec2DeepInspectionStatus;
-
-  /**
-   * @public
-   * <p>An error message explaining why new Amazon Inspector deep inspection custom paths could not be added.</p>
-   */
-  errorMessage?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateEncryptionKeyRequest {
-  /**
-   * @public
-   * <p>A KMS key ID for the encryption key.</p>
-   */
-  kmsKeyId: string | undefined;
-
-  /**
-   * @public
-   * <p>The scan type for the encryption key.</p>
-   */
-  scanType: ScanType | undefined;
-
-  /**
-   * @public
-   * <p>The resource type for the encryption key.</p>
-   */
-  resourceType: ResourceType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEncryptionKeyResponse {}
-
-/**
- * @public
- */
-export interface UpdateFilterRequest {
-  /**
-   * @public
-   * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
-   */
-  action?: FilterAction;
-
-  /**
-   * @public
-   * <p>A description of the filter.</p>
-   */
-  description?: string;
-
-  /**
-   * @public
-   * <p>Defines the criteria to be update in the filter.</p>
-   */
-  filterCriteria?: FilterCriteria;
-
-  /**
-   * @public
-   * <p>The name of the filter.</p>
-   */
-  name?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Number (ARN) of the filter to update.</p>
-   */
-  filterArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The reason the filter was updated.</p>
-   */
-  reason?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateFilterResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Number (ARN) of the successfully updated filter.</p>
-   */
-  arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOrganizationConfigurationRequest {
-  /**
-   * @public
-   * <p>Defines which scan types are enabled automatically for new members of your Amazon Inspector organization.</p>
-   */
-  autoEnable: AutoEnable | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOrganizationConfigurationResponse {
-  /**
-   * @public
-   * <p>The updated status of scan types automatically enabled for new members of your Amazon Inspector organization.</p>
-   */
-  autoEnable: AutoEnable | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOrgEc2DeepInspectionConfigurationRequest {
-  /**
-   * @public
-   * <p>The Amazon Inspector deep inspection custom paths you are adding for your organization.</p>
-   */
-  orgPackagePaths: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateOrgEc2DeepInspectionConfigurationResponse {}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { ResetEncryptionKeyRequest, ResetEncryptionKeyResponse } from "../models/models_0";
+import { ResetEncryptionKeyRequest, ResetEncryptionKeyResponse } from "../models/models_1";
 import { de_ResetEncryptionKeyCommand, se_ResetEncryptionKeyCommand } from "../protocols/Aws_restJson1";
 
 /**

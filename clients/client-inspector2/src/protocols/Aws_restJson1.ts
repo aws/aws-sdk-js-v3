@@ -60,12 +60,20 @@ import {
   CancelFindingsReportCommandOutput,
 } from "../commands/CancelFindingsReportCommand";
 import { CancelSbomExportCommandInput, CancelSbomExportCommandOutput } from "../commands/CancelSbomExportCommand";
+import {
+  CreateCisScanConfigurationCommandInput,
+  CreateCisScanConfigurationCommandOutput,
+} from "../commands/CreateCisScanConfigurationCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "../commands/CreateFilterCommand";
 import {
   CreateFindingsReportCommandInput,
   CreateFindingsReportCommandOutput,
 } from "../commands/CreateFindingsReportCommand";
 import { CreateSbomExportCommandInput, CreateSbomExportCommandOutput } from "../commands/CreateSbomExportCommand";
+import {
+  DeleteCisScanConfigurationCommandInput,
+  DeleteCisScanConfigurationCommandOutput,
+} from "../commands/DeleteCisScanConfigurationCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "../commands/DeleteFilterCommand";
 import {
   DescribeOrganizationConfigurationCommandInput,
@@ -82,6 +90,11 @@ import {
   EnableDelegatedAdminAccountCommandInput,
   EnableDelegatedAdminAccountCommandOutput,
 } from "../commands/EnableDelegatedAdminAccountCommand";
+import { GetCisScanReportCommandInput, GetCisScanReportCommandOutput } from "../commands/GetCisScanReportCommand";
+import {
+  GetCisScanResultDetailsCommandInput,
+  GetCisScanResultDetailsCommandOutput,
+} from "../commands/GetCisScanResultDetailsCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "../commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
@@ -102,6 +115,19 @@ import {
   ListAccountPermissionsCommandInput,
   ListAccountPermissionsCommandOutput,
 } from "../commands/ListAccountPermissionsCommand";
+import {
+  ListCisScanConfigurationsCommandInput,
+  ListCisScanConfigurationsCommandOutput,
+} from "../commands/ListCisScanConfigurationsCommand";
+import {
+  ListCisScanResultsAggregatedByChecksCommandInput,
+  ListCisScanResultsAggregatedByChecksCommandOutput,
+} from "../commands/ListCisScanResultsAggregatedByChecksCommand";
+import {
+  ListCisScanResultsAggregatedByTargetResourceCommandInput,
+  ListCisScanResultsAggregatedByTargetResourceCommandOutput,
+} from "../commands/ListCisScanResultsAggregatedByTargetResourceCommand";
+import { ListCisScansCommandInput, ListCisScansCommandOutput } from "../commands/ListCisScansCommand";
 import { ListCoverageCommandInput, ListCoverageCommandOutput } from "../commands/ListCoverageCommand";
 import {
   ListCoverageStatisticsCommandInput,
@@ -128,8 +154,22 @@ import {
   SearchVulnerabilitiesCommandInput,
   SearchVulnerabilitiesCommandOutput,
 } from "../commands/SearchVulnerabilitiesCommand";
+import {
+  SendCisSessionHealthCommandInput,
+  SendCisSessionHealthCommandOutput,
+} from "../commands/SendCisSessionHealthCommand";
+import {
+  SendCisSessionTelemetryCommandInput,
+  SendCisSessionTelemetryCommandOutput,
+} from "../commands/SendCisSessionTelemetryCommand";
+import { StartCisSessionCommandInput, StartCisSessionCommandOutput } from "../commands/StartCisSessionCommand";
+import { StopCisSessionCommandInput, StopCisSessionCommandOutput } from "../commands/StopCisSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateCisScanConfigurationCommandInput,
+  UpdateCisScanConfigurationCommandOutput,
+} from "../commands/UpdateCisScanConfigurationCommand";
 import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
@@ -166,17 +206,35 @@ import {
   AwsLambdaFunctionDetails,
   BadRequestException,
   CisaData,
+  CisDateFilter,
+  CisFindingStatusFilter,
+  CisNumberFilter,
+  CisResultStatusFilter,
+  CisScan,
+  CisScanResultDetailsFilterCriteria,
+  CisScanResultsAggregatedByChecksFilterCriteria,
+  CisScanResultsAggregatedByTargetResourceFilterCriteria,
+  CisScanStatusFilter,
+  CisSecurityLevelFilter,
+  CisSessionMessage,
+  CisStringFilter,
+  CisTargetStatusFilter,
+  CisTargetStatusReasonFilter,
+  ComputePlatform,
   ConflictException,
   CoverageDateFilter,
   CoverageFilterCriteria,
   CoverageMapFilter,
   CoverageStringFilter,
   CoveredResource,
+  CreateCisTargets,
   Cvss2,
   Cvss3,
   CvssScore,
   CvssScoreDetails,
+  DailySchedule,
   DateFilter,
+  Day,
   Destination,
   Ec2InstanceAggregation,
   EcrConfiguration,
@@ -199,10 +257,14 @@ import {
   LambdaFunctionAggregation,
   LambdaFunctionAggregationResponse,
   LambdaLayerAggregation,
+  ListCisScanConfigurationsFilterCriteria,
+  ListCisScansFilterCriteria,
   MapFilter,
   Member,
   MemberAccountEc2DeepInspectionStatus,
+  MonthlySchedule,
   NumberFilter,
+  OneTimeSchedule,
   PackageAggregation,
   PackageFilter,
   PackageVulnerabilityDetails,
@@ -215,17 +277,27 @@ import {
   ResourceNotFoundException,
   ResourceScanType,
   ResourceStringFilter,
-  SearchVulnerabilitiesFilterCriteria,
+  Schedule,
   ServiceQuotaExceededException,
-  SortCriteria,
   StringFilter,
+  TagFilter,
   ThrottlingException,
+  Time,
   TitleAggregation,
+  ValidationException,
+  WeeklySchedule,
+} from "../models/models_0";
+import {
+  SearchVulnerabilitiesFilterCriteria,
+  SortCriteria,
+  StartCisSessionMessage,
+  StopCisMessageProgress,
+  StopCisSessionMessage,
+  UpdateCisTargets,
   Usage,
   UsageTotal,
-  ValidationException,
   Vulnerability,
-} from "../models/models_0";
+} from "../models/models_1";
 
 /**
  * serializeAws_restJson1AssociateMemberCommand
@@ -426,6 +498,32 @@ export const se_CancelSbomExportCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateCisScanConfigurationCommand
+ */
+export const se_CreateCisScanConfigurationCommand = async (
+  input: CreateCisScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan-configuration/create");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      scanName: [],
+      schedule: (_) => _json(_),
+      securityLevel: [],
+      tags: (_) => _json(_),
+      targets: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateFilterCommand
  */
 export const se_CreateFilterCommand = async (
@@ -494,6 +592,28 @@ export const se_CreateSbomExportCommand = async (
       reportFormat: [],
       resourceFilterCriteria: (_) => _json(_),
       s3Destination: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCisScanConfigurationCommand
+ */
+export const se_DeleteCisScanConfigurationCommand = async (
+  input: DeleteCisScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan-configuration/delete");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      scanConfigurationArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -645,6 +765,58 @@ export const se_EnableDelegatedAdminAccountCommand = async (
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       delegatedAdminAccountId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCisScanReportCommand
+ */
+export const se_GetCisScanReportCommand = async (
+  input: GetCisScanReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan/report/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      scanArn: [],
+      targetAccounts: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCisScanResultDetailsCommand
+ */
+export const se_GetCisScanResultDetailsCommand = async (
+  input: GetCisScanResultDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan-result/details/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountId: [],
+      filterCriteria: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      scanArn: [],
+      sortBy: [],
+      sortOrder: [],
+      targetResourceId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -808,6 +980,113 @@ export const se_ListAccountPermissionsCommand = async (
       maxResults: [],
       nextToken: [],
       service: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCisScanConfigurationsCommand
+ */
+export const se_ListCisScanConfigurationsCommand = async (
+  input: ListCisScanConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan-configuration/list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filterCriteria: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sortBy: [],
+      sortOrder: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCisScanResultsAggregatedByChecksCommand
+ */
+export const se_ListCisScanResultsAggregatedByChecksCommand = async (
+  input: ListCisScanResultsAggregatedByChecksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan-result/check/list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filterCriteria: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      scanArn: [],
+      sortBy: [],
+      sortOrder: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCisScanResultsAggregatedByTargetResourceCommand
+ */
+export const se_ListCisScanResultsAggregatedByTargetResourceCommand = async (
+  input: ListCisScanResultsAggregatedByTargetResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan-result/resource/list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filterCriteria: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      scanArn: [],
+      sortBy: [],
+      sortOrder: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCisScansCommand
+ */
+export const se_ListCisScansCommand = async (
+  input: ListCisScansCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan/list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      detailLevel: [],
+      filterCriteria: (_) => se_ListCisScansFilterCriteria(_, context),
+      maxResults: [],
+      nextToken: [],
+      sortBy: [],
+      sortOrder: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1072,6 +1351,100 @@ export const se_SearchVulnerabilitiesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SendCisSessionHealthCommand
+ */
+export const se_SendCisSessionHealthCommand = async (
+  input: SendCisSessionHealthCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cissession/health/send");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      scanJobId: [],
+      sessionToken: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SendCisSessionTelemetryCommand
+ */
+export const se_SendCisSessionTelemetryCommand = async (
+  input: SendCisSessionTelemetryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cissession/telemetry/send");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      messages: (_) => se_CisSessionMessages(_, context),
+      scanJobId: [],
+      sessionToken: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartCisSessionCommand
+ */
+export const se_StartCisSessionCommand = async (
+  input: StartCisSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cissession/start");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      message: (_) => _json(_),
+      scanJobId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopCisSessionCommand
+ */
+export const se_StopCisSessionCommand = async (
+  input: StopCisSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cissession/stop");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      message: (_) => _json(_),
+      scanJobId: [],
+      sessionToken: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -1113,6 +1486,32 @@ export const se_UntagResourceCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateCisScanConfigurationCommand
+ */
+export const se_UpdateCisScanConfigurationCommand = async (
+  input: UpdateCisScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cis/scan-configuration/update");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      scanConfigurationArn: [],
+      scanName: [],
+      schedule: (_) => _json(_),
+      securityLevel: [],
+      targets: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1776,6 +2175,62 @@ const de_CancelSbomExportCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateCisScanConfigurationCommand
+ */
+export const de_CreateCisScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCisScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateCisScanConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scanConfigurationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCisScanConfigurationCommandError
+ */
+const de_CreateCisScanConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCisScanConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateFilterCommand
  */
 export const de_CreateFilterCommand = async (
@@ -1924,6 +2379,65 @@ const de_CreateSbomExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSbomExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.inspector2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteCisScanConfigurationCommand
+ */
+export const de_DeleteCisScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCisScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteCisScanConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scanConfigurationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCisScanConfigurationCommandError
+ */
+const de_DeleteCisScanConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCisScanConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2352,6 +2866,120 @@ const de_EnableDelegatedAdminAccountCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.inspector2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetCisScanReportCommand
+ */
+export const de_GetCisScanReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCisScanReportCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetCisScanReportCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: __expectString,
+    url: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCisScanReportCommandError
+ */
+const de_GetCisScanReportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCisScanReportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetCisScanResultDetailsCommand
+ */
+export const de_GetCisScanResultDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCisScanResultDetailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetCisScanResultDetailsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    scanResultDetails: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCisScanResultDetailsCommandError
+ */
+const de_GetCisScanResultDetailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCisScanResultDetailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.inspector2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2815,6 +3443,234 @@ const de_ListAccountPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountPermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCisScanConfigurationsCommand
+ */
+export const de_ListCisScanConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCisScanConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCisScanConfigurationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    scanConfigurations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCisScanConfigurationsCommandError
+ */
+const de_ListCisScanConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCisScanConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCisScanResultsAggregatedByChecksCommand
+ */
+export const de_ListCisScanResultsAggregatedByChecksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCisScanResultsAggregatedByChecksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCisScanResultsAggregatedByChecksCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    checkAggregations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCisScanResultsAggregatedByChecksCommandError
+ */
+const de_ListCisScanResultsAggregatedByChecksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCisScanResultsAggregatedByChecksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCisScanResultsAggregatedByTargetResourceCommand
+ */
+export const de_ListCisScanResultsAggregatedByTargetResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCisScanResultsAggregatedByTargetResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCisScanResultsAggregatedByTargetResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    targetResourceAggregations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCisScanResultsAggregatedByTargetResourceCommandError
+ */
+const de_ListCisScanResultsAggregatedByTargetResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCisScanResultsAggregatedByTargetResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCisScansCommand
+ */
+export const de_ListCisScansCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCisScansCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCisScansCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    scans: (_) => de_CisScanList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCisScansCommandError
+ */
+const de_ListCisScansCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCisScansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3458,6 +4314,226 @@ const de_SearchVulnerabilitiesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SendCisSessionHealthCommand
+ */
+export const de_SendCisSessionHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendCisSessionHealthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SendCisSessionHealthCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SendCisSessionHealthCommandError
+ */
+const de_SendCisSessionHealthCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendCisSessionHealthCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.inspector2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SendCisSessionTelemetryCommand
+ */
+export const de_SendCisSessionTelemetryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendCisSessionTelemetryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SendCisSessionTelemetryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SendCisSessionTelemetryCommandError
+ */
+const de_SendCisSessionTelemetryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendCisSessionTelemetryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.inspector2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartCisSessionCommand
+ */
+export const de_StartCisSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCisSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartCisSessionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartCisSessionCommandError
+ */
+const de_StartCisSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCisSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.inspector2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StopCisSessionCommand
+ */
+export const de_StopCisSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopCisSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StopCisSessionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopCisSessionCommandError
+ */
+const de_StopCisSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopCisSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.inspector2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3542,6 +4618,65 @@ const de_UntagResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.inspector2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateCisScanConfigurationCommand
+ */
+export const de_UpdateCisScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCisScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateCisScanConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scanConfigurationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCisScanConfigurationCommandError
+ */
+const de_UpdateCisScanConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCisScanConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.inspector2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -4057,6 +5192,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccountAggregation omitted.
 
+// se_AccountIdFilterList omitted.
+
 // se_AccountIdSet omitted.
 
 // se_AggregationRequest omitted.
@@ -4066,6 +5203,97 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_AutoEnable omitted.
 
 // se_AwsEcrContainerAggregation omitted.
+
+// se_CheckIdFilterList omitted.
+
+/**
+ * serializeAws_restJson1CisDateFilter
+ */
+const se_CisDateFilter = (input: CisDateFilter, context: __SerdeContext): any => {
+  return take(input, {
+    earliestScanStartTime: (_) => Math.round(_.getTime() / 1000),
+    latestScanStartTime: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+// se_CisFindingArnFilterList omitted.
+
+// se_CisFindingStatusFilter omitted.
+
+// se_CisFindingStatusFilterList omitted.
+
+// se_CisNumberFilter omitted.
+
+// se_CisNumberFilterList omitted.
+
+// se_CisResultStatusFilter omitted.
+
+// se_CisResultStatusFilterList omitted.
+
+// se_CisScanArnFilterList omitted.
+
+// se_CisScanConfigurationArnFilterList omitted.
+
+/**
+ * serializeAws_restJson1CisScanDateFilterList
+ */
+const se_CisScanDateFilterList = (input: CisDateFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CisDateFilter(entry, context);
+    });
+};
+
+// se_CisScanNameFilterList omitted.
+
+// se_CisScanResultDetailsFilterCriteria omitted.
+
+// se_CisScanResultsAggregatedByChecksFilterCriteria omitted.
+
+// se_CisScanResultsAggregatedByTargetResourceFilterCriteria omitted.
+
+// se_CisScanStatusFilter omitted.
+
+// se_CisScanStatusFilterList omitted.
+
+// se_CisScheduledByFilterList omitted.
+
+// se_CisSecurityLevelFilter omitted.
+
+// se_CisSecurityLevelFilterList omitted.
+
+/**
+ * serializeAws_restJson1CisSessionMessage
+ */
+const se_CisSessionMessage = (input: CisSessionMessage, context: __SerdeContext): any => {
+  return take(input, {
+    cisRuleDetails: context.base64Encoder,
+    ruleId: [],
+    status: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1CisSessionMessages
+ */
+const se_CisSessionMessages = (input: CisSessionMessage[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CisSessionMessage(entry, context);
+    });
+};
+
+// se_CisStringFilter omitted.
+
+// se_CisTagMap omitted.
+
+// se_CisTargetStatusFilter omitted.
+
+// se_CisTargetStatusReasonFilter omitted.
+
+// se_ComputePlatform omitted.
 
 /**
  * serializeAws_restJson1CoverageDateFilter
@@ -4117,6 +5345,10 @@ const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __Ser
 
 // se_CoverageStringFilterList omitted.
 
+// se_CreateCisTargets omitted.
+
+// se_DailySchedule omitted.
+
 /**
  * serializeAws_restJson1DateFilter
  */
@@ -4137,6 +5369,8 @@ const se_DateFilterList = (input: DateFilter[], context: __SerdeContext): any =>
       return se_DateFilter(entry, context);
     });
 };
+
+// se_DaysList omitted.
 
 // se_Destination omitted.
 
@@ -4212,6 +5446,26 @@ const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any 
 
 // se_LambdaLayerAggregation omitted.
 
+// se_ListCisScanConfigurationsFilterCriteria omitted.
+
+/**
+ * serializeAws_restJson1ListCisScansFilterCriteria
+ */
+const se_ListCisScansFilterCriteria = (input: ListCisScansFilterCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    failedChecksFilters: _json,
+    scanArnFilters: _json,
+    scanAtFilters: (_) => se_CisScanDateFilterList(_, context),
+    scanConfigurationArnFilters: _json,
+    scanNameFilters: _json,
+    scanStatusFilters: _json,
+    scheduledByFilters: _json,
+    targetAccountIdFilters: _json,
+    targetResourceIdFilters: _json,
+    targetResourceTagFilters: _json,
+  });
+};
+
 // se_MapFilter omitted.
 
 // se_MapFilterList omitted.
@@ -4221,6 +5475,8 @@ const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any 
 // se_MemberAccountEc2DeepInspectionStatusList omitted.
 
 // se_MeteringAccountIdList omitted.
+
+// se_MonthlySchedule omitted.
 
 /**
  * serializeAws_restJson1NumberFilter
@@ -4242,6 +5498,10 @@ const se_NumberFilterList = (input: NumberFilter[], context: __SerdeContext): an
       return se_NumberFilter(entry, context);
     });
 };
+
+// se_OneAccountIdFilterList omitted.
+
+// se_OneTimeSchedule omitted.
 
 // se_PackageAggregation omitted.
 
@@ -4273,13 +5533,19 @@ const se_PackageFilterList = (input: PackageFilter[], context: __SerdeContext): 
 
 // se_PathList omitted.
 
+// se_PlatformFilterList omitted.
+
 // se_PortRangeFilter omitted.
 
 // se_PortRangeFilterList omitted.
 
+// se_ReportTargetAccounts omitted.
+
 // se_RepositoryAggregation omitted.
 
 // se_ResourceFilterCriteria omitted.
+
+// se_ResourceIdFilterList omitted.
 
 // se_ResourceMapFilter omitted.
 
@@ -4289,21 +5555,51 @@ const se_PackageFilterList = (input: PackageFilter[], context: __SerdeContext): 
 
 // se_ResourceStringFilterList omitted.
 
+// se_ResourceTagFilterList omitted.
+
+// se_Schedule omitted.
+
 // se_SearchVulnerabilitiesFilterCriteria omitted.
 
 // se_SortCriteria omitted.
+
+// se_StartCisSessionMessage omitted.
+
+// se_StopCisMessageProgress omitted.
+
+// se_StopCisSessionMessage omitted.
 
 // se_StringFilter omitted.
 
 // se_StringFilterList omitted.
 
+// se_TagFilter omitted.
+
 // se_TagMap omitted.
 
+// se_TagValueList omitted.
+
+// se_TargetAccountList omitted.
+
+// se_TargetResourceTags omitted.
+
+// se_TargetStatusFilterList omitted.
+
+// se_TargetStatusReasonFilterList omitted.
+
+// se_Time omitted.
+
 // se_TitleAggregation omitted.
+
+// se_TitleFilterList omitted.
+
+// se_UpdateCisTargets omitted.
 
 // se_UsageAccountIdList omitted.
 
 // se_VulnIdList omitted.
+
+// se_WeeklySchedule omitted.
 
 // de_Account omitted.
 
@@ -4461,6 +5757,8 @@ const de_AwsLambdaFunctionDetails = (output: any, context: __SerdeContext): AwsL
   }) as any;
 };
 
+// de_CisAccountIdList omitted.
+
 /**
  * deserializeAws_restJson1CisaData
  */
@@ -4471,6 +5769,56 @@ const de_CisaData = (output: any, context: __SerdeContext): CisaData => {
     dateDue: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_CisCheckAggregation omitted.
+
+// de_CisCheckAggregationList omitted.
+
+/**
+ * deserializeAws_restJson1CisScan
+ */
+const de_CisScan = (output: any, context: __SerdeContext): CisScan => {
+  return take(output, {
+    failedChecks: __expectInt32,
+    scanArn: __expectString,
+    scanConfigurationArn: __expectString,
+    scanDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    scanName: __expectString,
+    scheduledBy: __expectString,
+    securityLevel: __expectString,
+    status: __expectString,
+    targets: _json,
+    totalChecks: __expectInt32,
+  }) as any;
+};
+
+// de_CisScanConfiguration omitted.
+
+// de_CisScanConfigurationList omitted.
+
+/**
+ * deserializeAws_restJson1CisScanList
+ */
+const de_CisScanList = (output: any, context: __SerdeContext): CisScan[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CisScan(entry, context);
+    });
+  return retVal;
+};
+
+// de_CisScanResultDetails omitted.
+
+// de_CisScanResultDetailsList omitted.
+
+// de_CisTagMap omitted.
+
+// de_CisTargetResourceAggregation omitted.
+
+// de_CisTargetResourceAggregationList omitted.
+
+// de_CisTargets omitted.
 
 // de_CodeFilePath omitted.
 
@@ -4585,6 +5933,8 @@ const de_CvssScoreList = (output: any, context: __SerdeContext): CvssScore[] => 
 
 // de_Cwes omitted.
 
+// de_DailySchedule omitted.
+
 /**
  * deserializeAws_restJson1DateFilter
  */
@@ -4606,6 +5956,8 @@ const de_DateFilterList = (output: any, context: __SerdeContext): DateFilter[] =
     });
   return retVal;
 };
+
+// de_DaysList omitted.
 
 // de_DelegatedAdmin omitted.
 
@@ -4980,6 +6332,8 @@ const de_MemberList = (output: any, context: __SerdeContext): Member[] => {
   return retVal;
 };
 
+// de_MonthlySchedule omitted.
+
 // de_NetworkPath omitted.
 
 // de_NetworkReachabilityDetails omitted.
@@ -5007,6 +6361,8 @@ const de_NumberFilterList = (output: any, context: __SerdeContext): NumberFilter
     });
   return retVal;
 };
+
+// de_OneTimeSchedule omitted.
 
 // de_PackageAggregationResponse omitted.
 
@@ -5132,11 +6488,15 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
 
 // de_ScanStatus omitted.
 
+// de_Schedule omitted.
+
 // de_SecurityGroupIdList omitted.
 
 // de_SeverityCounts omitted.
 
 // de_State omitted.
+
+// de_StatusCounts omitted.
 
 // de_Step omitted.
 
@@ -5158,7 +6518,13 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
 
 // de_TagMap omitted.
 
+// de_TagValueList omitted.
+
+// de_TargetResourceTags omitted.
+
 // de_Targets omitted.
+
+// de_Time omitted.
 
 // de_TitleAggregationResponse omitted.
 
@@ -5260,6 +6626,8 @@ const de_Vulnerability = (output: any, context: __SerdeContext): Vulnerability =
 // de_VulnerablePackage omitted.
 
 // de_VulnerablePackageList omitted.
+
+// de_WeeklySchedule omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
