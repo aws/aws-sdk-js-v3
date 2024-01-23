@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getS3ExpiresMiddlewarePlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
@@ -215,6 +216,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * //   ContentLanguage: "STRING_VALUE",
  * //   ContentType: "STRING_VALUE",
  * //   Expires: new Date("TIMESTAMP"),
+ * //   ExpiresString: "STRING_VALUE",
  * //   WebsiteRedirectLocation: "STRING_VALUE",
  * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  * //   Metadata: { // Metadata
@@ -289,6 +291,7 @@ export class HeadObjectCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getSsecPlugin(config),
+      getS3ExpiresMiddlewarePlugin(config),
     ];
   })
   .s("AmazonS3", "HeadObject", {})

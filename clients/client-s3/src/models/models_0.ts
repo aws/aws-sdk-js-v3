@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
@@ -9037,9 +9036,17 @@ export interface GetObjectOutput {
 
   /**
    * @public
-   * <p>The date and time at which the object is no longer cacheable.</p>
+   * @deprecated
+   *
+   * Deprecated in favor of ExpiresString.
    */
   Expires?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the object is no longer cacheable.</p>
+   */
+  ExpiresString?: string;
 
   /**
    * @public
@@ -10772,9 +10779,17 @@ export interface HeadObjectOutput {
 
   /**
    * @public
-   * <p>The date and time at which the object is no longer cacheable.</p>
+   * @deprecated
+   *
+   * Deprecated in favor of ExpiresString.
    */
   Expires?: Date;
+
+  /**
+   * @public
+   * <p>The date and time at which the object is no longer cacheable.</p>
+   */
+  ExpiresString?: string;
 
   /**
    * @public

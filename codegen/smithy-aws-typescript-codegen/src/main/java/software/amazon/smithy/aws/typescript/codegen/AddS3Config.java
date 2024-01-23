@@ -270,6 +270,11 @@ public final class AddS3Config implements TypeScriptIntegration {
                 .servicePredicate((m, s) -> isS3(s))
                 .build(),
             RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3ExpiresMiddleware",
+                    HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> containsExpiresOutput(m, o))
+                .build(),
+            RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3Express",
                     HAS_MIDDLEWARE)
                 .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
@@ -285,6 +290,16 @@ public final class AddS3Config implements TypeScriptIntegration {
         OperationIndex operationIndex = OperationIndex.of(model);
         return operationIndex.getInput(operationShape)
             .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
+            .isPresent();
+    }
+
+    private static boolean containsExpiresOutput(
+        Model model,
+        OperationShape operationShape
+    ) {
+        OperationIndex operationIndex = OperationIndex.of(model);
+        return operationIndex.getOutput(operationShape)
+            .filter(input -> input.getMemberNames().stream().anyMatch("Expires"::equals))
             .isPresent();
     }
 
