@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.498.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.497.0...v3.498.0) (2024-01-23)
+
+
+### Features
+
+* **client-inspector2:** This release adds support for CIS scans on EC2 instances. ([4f36493](https://github.com/aws/aws-sdk-js-v3/commit/4f364933be821345fa697a2b13540f2f9ee9e2c1))
+
+
+
+
+
 # [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
 
 

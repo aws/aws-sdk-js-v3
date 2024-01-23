@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.498.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.497.0...v3.498.0) (2024-01-23)
+
+
+### Bug Fixes
+
+* **middleware-ssec:** add logic to handle string input as specified b… ([#5676](https://github.com/aws/aws-sdk-js-v3/issues/5676)) ([5a19a33](https://github.com/aws/aws-sdk-js-v3/commit/5a19a33e03d1ba7db3e2da8d28269aa97776866a))
+
+
+### Features
+
+* **client-inspector2:** This release adds support for CIS scans on EC2 instances. ([4f36493](https://github.com/aws/aws-sdk-js-v3/commit/4f364933be821345fa697a2b13540f2f9ee9e2c1))
+
+
+
+
+
 # [3.497.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.496.0...v3.497.0) (2024-01-22)
 
 

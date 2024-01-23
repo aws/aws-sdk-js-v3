@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.498.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.497.0...v3.498.0) (2024-01-23)
+
+
+### Bug Fixes
+
+* **middleware-ssec:** add logic to handle string input as specified b… ([#5676](https://github.com/aws/aws-sdk-js-v3/issues/5676)) ([5a19a33](https://github.com/aws/aws-sdk-js-v3/commit/5a19a33e03d1ba7db3e2da8d28269aa97776866a))
+
+
+
+
+
 # [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
 
 
