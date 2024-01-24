@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+
+### Features
+
+* **client-outposts:** DeviceSerialNumber parameter is now optional in StartConnection API ([9e30002](https://github.com/aws/aws-sdk-js-v3/commit/9e30002000eab1682780a855811e51a8440631de))
+
+
+
+
+
 # [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
 
 

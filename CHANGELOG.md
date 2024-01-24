@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+
+### Features
+
+* **client-ec2:** Introduced a new clientToken request parameter on CreateNetworkAcl and CreateRouteTable APIs. The clientToken parameter allows idempotent operations on the APIs. ([65a1927](https://github.com/aws/aws-sdk-js-v3/commit/65a1927ac166f2aa7ff449b72256f900f1c8d104))
+* **client-outposts:** DeviceSerialNumber parameter is now optional in StartConnection API ([9e30002](https://github.com/aws/aws-sdk-js-v3/commit/9e30002000eab1682780a855811e51a8440631de))
+* **client-rds:** This release adds support for Aurora Limitless Database. ([ecd7fe6](https://github.com/aws/aws-sdk-js-v3/commit/ecd7fe6a2ca4aa7a30c7f6086c83b3da36f5ce50))
+* **client-storage-gateway:** Add DeprecationDate and SoftwareVersion to response of ListGateways. ([ee421ea](https://github.com/aws/aws-sdk-js-v3/commit/ee421eae77f20decd856f75776171cd16a1ac719))
+* **credential-provider-node:** use dynamic import for credential providers ([#5698](https://github.com/aws/aws-sdk-js-v3/issues/5698)) ([1452cd4](https://github.com/aws/aws-sdk-js-v3/commit/1452cd459467d2462610929d3f5f293d85e07306))
+
+
+
+
+
 # [3.498.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.497.0...v3.498.0) (2024-01-23)
 
 

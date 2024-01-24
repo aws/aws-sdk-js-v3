@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+
+### Features
+
+* **credential-provider-node:** use dynamic import for credential providers ([#5698](https://github.com/aws/aws-sdk-js-v3/issues/5698)) ([1452cd4](https://github.com/aws/aws-sdk-js-v3/commit/1452cd459467d2462610929d3f5f293d85e07306))
+
+
+
+
+
 # [3.498.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.497.0...v3.498.0) (2024-01-23)
 
 **Note:** Version bump only for package @aws-sdk/aws-client-retry-test

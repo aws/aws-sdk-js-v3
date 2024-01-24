@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "3.496.0",
+  "version": "3.499.0",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=14.0.0"

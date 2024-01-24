@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+
+### Features
+
+* **client-ec2:** Introduced a new clientToken request parameter on CreateNetworkAcl and CreateRouteTable APIs. The clientToken parameter allows idempotent operations on the APIs. ([65a1927](https://github.com/aws/aws-sdk-js-v3/commit/65a1927ac166f2aa7ff449b72256f900f1c8d104))
+
+
+
+
+
 # [3.498.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.497.0...v3.498.0) (2024-01-23)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

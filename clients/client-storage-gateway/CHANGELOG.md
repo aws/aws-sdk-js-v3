@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+
+### Features
+
+* **client-storage-gateway:** Add DeprecationDate and SoftwareVersion to response of ListGateways. ([ee421ea](https://github.com/aws/aws-sdk-js-v3/commit/ee421eae77f20decd856f75776171cd16a1ac719))
+
+
+
+
+
 # [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
 
 

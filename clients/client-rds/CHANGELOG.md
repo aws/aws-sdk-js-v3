@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+
+### Features
+
+* **client-rds:** This release adds support for Aurora Limitless Database. ([ecd7fe6](https://github.com/aws/aws-sdk-js-v3/commit/ecd7fe6a2ca4aa7a30c7f6086c83b3da36f5ce50))
+
+
+
+
+
 # [3.497.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.496.0...v3.497.0) (2024-01-22)
 
 
