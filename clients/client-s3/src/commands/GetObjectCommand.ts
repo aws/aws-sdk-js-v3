@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { getS3ExpiresMiddlewarePlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
@@ -240,6 +241,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * //   ContentRange: "STRING_VALUE",
  * //   ContentType: "STRING_VALUE",
  * //   Expires: new Date("TIMESTAMP"),
+ * //   ExpiresString: "STRING_VALUE",
  * //   WebsiteRedirectLocation: "STRING_VALUE",
  * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  * //   Metadata: { // Metadata
@@ -351,6 +353,7 @@ export class GetObjectCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getSsecPlugin(config),
+      getS3ExpiresMiddlewarePlugin(config),
       getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestChecksumRequired: false,

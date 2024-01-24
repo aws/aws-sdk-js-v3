@@ -4950,6 +4950,7 @@ export const de_GetObjectCommand = async (
     [_CR]: [, output.headers[_cr]],
     [_CT]: [, output.headers[_ct]],
     [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
+    [_ES]: [, output.headers[_ex]],
     [_WRL]: [, output.headers[_xawrl]],
     [_SSE]: [, output.headers[_xasse]],
     [_SSECA]: [, output.headers[_xasseca]],
@@ -5440,6 +5441,7 @@ export const de_HeadObjectCommand = async (
     [_CL]: [, output.headers[_cl]],
     [_CT]: [, output.headers[_ct]],
     [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
+    [_ES]: [, output.headers[_ex]],
     [_WRL]: [, output.headers[_xawrl]],
     [_SSE]: [, output.headers[_xasse]],
     [_SSECA]: [, output.headers[_xasseca]],
@@ -8359,7 +8361,7 @@ const se_LifecycleRule = (input: LifecycleRule, context: __SerdeContext): any =>
     bn.c(se_LifecycleRuleFilter(input[_F], context).n(_F));
   }
   if (input[_S] != null) {
-    bn.c(__XmlNode.of(_ES, input[_S]).n(_S));
+    bn.c(__XmlNode.of(_ESx, input[_S]).n(_S));
   }
   bn.l(input, "Transitions", "Transition", () => se_TransitionList(input[_Tr]!, context));
   bn.l(input, "NoncurrentVersionTransitions", "NoncurrentVersionTransition", () =>
@@ -11772,8 +11774,9 @@ const _EODM = "ExpiredObjectDeleteMarker";
 const _EOR = "ExistingObjectReplication";
 const _EORS = "ExistingObjectReplicationStatus";
 const _ERP = "EnableRequestProgress";
-const _ES = "ExpirationStatus";
+const _ES = "ExpiresString";
 const _ESBO = "ExpectedSourceBucketOwner";
+const _ESx = "ExpirationStatus";
 const _ET = "EncodingType";
 const _ETa = "ETag";
 const _ETn = "EncryptionType";
@@ -12116,6 +12119,7 @@ const _e = "expires";
 const _en = "encryption";
 const _et = "encoding-type";
 const _eta = "etag";
+const _ex = "expiresstring";
 const _fo = "fetch-owner";
 const _i = "id";
 const _im = "if-match";
