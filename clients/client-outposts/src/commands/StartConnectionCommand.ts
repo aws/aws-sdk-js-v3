@@ -46,7 +46,7 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * // const { OutpostsClient, StartConnectionCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
  * const input = { // StartConnectionRequest
- *   DeviceSerialNumber: "STRING_VALUE", // required
+ *   DeviceSerialNumber: "STRING_VALUE",
  *   AssetId: "STRING_VALUE", // required
  *   ClientPublicKey: "STRING_VALUE", // required
  *   NetworkInterfaceDeviceIndex: Number("int"), // required

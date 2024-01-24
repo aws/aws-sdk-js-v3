@@ -2006,7 +2006,7 @@ export interface StartConnectionRequest {
    * @public
    * <p> The serial number of the dongle. </p>
    */
-  DeviceSerialNumber: string | undefined;
+  DeviceSerialNumber?: string;
 
   /**
    * @public
