@@ -28,8 +28,12 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
 
 /**
  * @public
- * <p>Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource
- *          Name (ARN) of the gateway in the body of your request.</p>
+ * <p>Shuts down a Tape Gateway or Volume Gateway. To specify which gateway to shut down, use
+ *          the Amazon Resource Name (ARN) of the gateway in the body of your request.</p>
+ *          <note>
+ *             <p>This API action cannot be used to shut down S3 File Gateway or FSx File
+ *             Gateway.</p>
+ *          </note>
  *          <p>The operation shuts down the gateway service component running in the gateway's
  *          virtual machine (VM) and not the host VM.</p>
  *          <note>

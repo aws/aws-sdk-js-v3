@@ -61,6 +61,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * //       Ec2InstanceRegion: "STRING_VALUE",
  * //       HostEnvironment: "VMWARE" || "HYPER-V" || "EC2" || "KVM" || "OTHER" || "SNOWBALL",
  * //       HostEnvironmentId: "STRING_VALUE",
+ * //       DeprecationDate: "STRING_VALUE",
+ * //       SoftwareVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",

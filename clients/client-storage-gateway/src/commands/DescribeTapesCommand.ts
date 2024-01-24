@@ -28,10 +28,16 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
 
 /**
  * @public
- * <p>Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a
- *             <code>TapeARN</code> is not specified, returns a description of all virtual tapes
- *          associated with the specified gateway. This operation is only supported in the tape gateway
- *          type.</p>
+ * <p>Returns a description of virtual tapes that correspond to the specified Amazon Resource
+ *          Names (ARNs). If <code>TapeARN</code> is not specified, returns a description of the
+ *          virtual tapes associated with the specified gateway. This operation is only supported for
+ *          the tape gateway type.</p>
+ *          <p>The operation supports pagination. By default, the operation returns a maximum of up to
+ *          100 tapes. You can optionally specify the <code>Limit</code> field in the body to limit the
+ *          number of tapes in the response. If the number of tapes returned in the response is
+ *          truncated, the response includes a <code>Marker</code> field. You can use this
+ *             <code>Marker</code> value in your subsequent request to retrieve the next set of
+ *          tapes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

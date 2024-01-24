@@ -5432,6 +5432,19 @@ export interface GatewayInfo {
    *          host environment type.</p>
    */
   HostEnvironmentId?: string;
+
+  /**
+   * @public
+   * <p>Date after which this gateway will not receive software updates for new features and bug
+   *          fixes.</p>
+   */
+  DeprecationDate?: string;
+
+  /**
+   * @public
+   * <p>The version number of the software running on the gateway appliance.</p>
+   */
+  SoftwareVersion?: string;
 }
 
 /**
