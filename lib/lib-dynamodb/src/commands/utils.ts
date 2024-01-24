@@ -77,7 +77,7 @@ const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodeChil
       continue;
     }
     const processedValue = processObj(obj[nodeKey], processFunc, nodes);
-    if (processedValue !== undefined) {
+    if (processedValue !== undefined && typeof processedValue !== "function") {
       accumulator[nodeKey] = processedValue;
     }
   }
@@ -94,7 +94,7 @@ const processAllKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodes
       return acc;
     }
     const processedValue = processObj(value, processFunc, keyNodes);
-    if (processedValue !== undefined) {
+    if (processedValue !== undefined && typeof processedValue !== "function") {
       acc[key] = processedValue;
     }
     return acc;
