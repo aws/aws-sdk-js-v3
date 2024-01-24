@@ -51,6 +51,7 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  *       ],
  *     },
  *   ],
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new CreateNetworkAclCommand(input);
  * const response = await client.send(command);
@@ -92,6 +93,7 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
  * //   },
+ * //   ClientToken: "STRING_VALUE",
  * // };
  *
  * ```

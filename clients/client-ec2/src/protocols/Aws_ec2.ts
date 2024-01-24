@@ -42835,6 +42835,12 @@ const se_CreateNetworkAclRequest = (input: CreateNetworkAclRequest, context: __S
       entries[loc] = value;
     });
   }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
   return entries;
 };
 
@@ -43316,6 +43322,12 @@ const se_CreateRouteTableRequest = (input: CreateRouteTableRequest, context: __S
       const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
   }
   return entries;
 };
@@ -71346,6 +71358,9 @@ const de_CreateNetworkAclResult = (output: any, context: __SerdeContext): Create
   if (output[_nA] != null) {
     contents[_NA] = de_NetworkAcl(output[_nA], context);
   }
+  if (output[_cT] != null) {
+    contents[_CTl] = __expectString(output[_cT]);
+  }
   return contents;
 };
 
@@ -71486,6 +71501,9 @@ const de_CreateRouteTableResult = (output: any, context: __SerdeContext): Create
   const contents: any = {};
   if (output[_rTo] != null) {
     contents[_RTo] = de_RouteTable(output[_rTo], context);
+  }
+  if (output[_cT] != null) {
+    contents[_CTl] = __expectString(output[_cT]);
   }
   return contents;
 };

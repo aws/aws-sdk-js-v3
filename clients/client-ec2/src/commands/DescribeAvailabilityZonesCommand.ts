@@ -63,7 +63,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * // { // DescribeAvailabilityZonesResult
  * //   AvailabilityZones: [ // AvailabilityZoneList
  * //     { // AvailabilityZone
- * //       State: "available" || "information" || "impaired" || "unavailable",
+ * //       State: "available" || "information" || "impaired" || "unavailable" || "constrained",
  * //       OptInStatus: "opt-in-not-required" || "opted-in" || "not-opted-in",
  * //       Messages: [ // AvailabilityZoneMessageList
  * //         { // AvailabilityZoneMessage

@@ -68,7 +68,7 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * //       MapPublicIpOnLaunch: true || false,
  * //       MapCustomerOwnedIpOnLaunch: true || false,
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
- * //       State: "pending" || "available",
+ * //       State: "pending" || "available" || "unavailable",
  * //       SubnetId: "STRING_VALUE",
  * //       VpcId: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",

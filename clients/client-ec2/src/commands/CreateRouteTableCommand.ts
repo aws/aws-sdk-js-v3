@@ -51,6 +51,7 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  *       ],
  *     },
  *   ],
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new CreateRouteTableCommand(input);
  * const response = await client.send(command);
@@ -104,6 +105,7 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
  * //   },
+ * //   ClientToken: "STRING_VALUE",
  * // };
  *
  * ```

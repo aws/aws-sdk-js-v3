@@ -1014,6 +1014,7 @@ export interface PrivateDnsNameOptionsOnLaunch {
 export const SubnetState = {
   available: "available",
   pending: "pending",
+  unavailable: "unavailable",
 } as const;
 
 /**
@@ -1415,8 +1416,7 @@ export interface CreateEgressOnlyInternetGatewayRequest {
   /**
    * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-   * 				idempotency</a>.</p>
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -9676,8 +9676,7 @@ export interface CreateNatGatewayRequest {
   /**
    * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
-   * 				idempotency</a>.</p>
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    *          <p>Constraint: Maximum 64 ASCII characters.</p>
    */
   ClientToken?: string;
@@ -9959,6 +9958,13 @@ export interface CreateNetworkAclRequest {
    * <p>The tags to assign to the network ACL.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   */
+  ClientToken?: string;
 }
 
 /**
@@ -10128,6 +10134,12 @@ export interface CreateNetworkAclResult {
    * <p>Information about the network ACL.</p>
    */
   NetworkAcl?: NetworkAcl;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   */
+  ClientToken?: string;
 }
 
 /**

@@ -36,6 +36,7 @@ import {
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
+
 import {
   AttributeValue,
   BlockDeviceMapping,
@@ -70,6 +71,7 @@ import {
   TrafficType,
   TransportProtocol,
 } from "./models_1";
+
 import {
   FleetStateCode,
   SubnetCidrReservation,
@@ -2453,6 +2455,7 @@ export type AvailabilityZoneOptInStatus =
  */
 export const AvailabilityZoneState = {
   available: "available",
+  constrained: "constrained",
   impaired: "impaired",
   information: "information",
   unavailable: "unavailable",

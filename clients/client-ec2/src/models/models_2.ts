@@ -30,6 +30,7 @@ import {
   VpcAttachment,
   VpcPeeringConnection,
 } from "./models_0";
+
 import {
   CarrierGateway,
   ClientVpnEndpointStatus,
@@ -1121,6 +1122,13 @@ export interface CreateRouteTableRequest {
    * <p>The tags to assign to the route table.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   */
+  ClientToken?: string;
 }
 
 /**
@@ -1381,6 +1389,12 @@ export interface CreateRouteTableResult {
    * <p>Information about the route table.</p>
    */
   RouteTable?: RouteTable;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   */
+  ClientToken?: string;
 }
 
 /**
