@@ -117,6 +117,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   EnableLimitlessDatabase: true || false,
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
@@ -302,6 +303,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     LimitlessDatabase: { // LimitlessDatabase
+ * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
+ * //       MinRequiredACU: Number("double"),
+ * //     },
  * //   },
  * // };
  *

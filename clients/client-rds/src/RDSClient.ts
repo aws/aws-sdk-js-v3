@@ -126,6 +126,7 @@ import {
   CreateDBSecurityGroupCommandInput,
   CreateDBSecurityGroupCommandOutput,
 } from "./commands/CreateDBSecurityGroupCommand";
+import { CreateDBShardGroupCommandInput, CreateDBShardGroupCommandOutput } from "./commands/CreateDBShardGroupCommand";
 import { CreateDBSnapshotCommandInput, CreateDBSnapshotCommandOutput } from "./commands/CreateDBSnapshotCommand";
 import {
   CreateDBSubnetGroupCommandInput,
@@ -188,6 +189,7 @@ import {
   DeleteDBSecurityGroupCommandInput,
   DeleteDBSecurityGroupCommandOutput,
 } from "./commands/DeleteDBSecurityGroupCommand";
+import { DeleteDBShardGroupCommandInput, DeleteDBShardGroupCommandOutput } from "./commands/DeleteDBShardGroupCommand";
 import { DeleteDBSnapshotCommandInput, DeleteDBSnapshotCommandOutput } from "./commands/DeleteDBSnapshotCommand";
 import {
   DeleteDBSubnetGroupCommandInput,
@@ -294,6 +296,10 @@ import {
   DescribeDBSecurityGroupsCommandInput,
   DescribeDBSecurityGroupsCommandOutput,
 } from "./commands/DescribeDBSecurityGroupsCommand";
+import {
+  DescribeDBShardGroupsCommandInput,
+  DescribeDBShardGroupsCommandOutput,
+} from "./commands/DescribeDBShardGroupsCommand";
 import {
   DescribeDBSnapshotAttributesCommandInput,
   DescribeDBSnapshotAttributesCommandOutput,
@@ -437,6 +443,7 @@ import {
   ModifyDBRecommendationCommandInput,
   ModifyDBRecommendationCommandOutput,
 } from "./commands/ModifyDBRecommendationCommand";
+import { ModifyDBShardGroupCommandInput, ModifyDBShardGroupCommandOutput } from "./commands/ModifyDBShardGroupCommand";
 import {
   ModifyDBSnapshotAttributeCommandInput,
   ModifyDBSnapshotAttributeCommandOutput,
@@ -470,6 +477,7 @@ import {
 } from "./commands/PurchaseReservedDBInstancesOfferingCommand";
 import { RebootDBClusterCommandInput, RebootDBClusterCommandOutput } from "./commands/RebootDBClusterCommand";
 import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "./commands/RebootDBInstanceCommand";
+import { RebootDBShardGroupCommandInput, RebootDBShardGroupCommandOutput } from "./commands/RebootDBShardGroupCommand";
 import {
   RegisterDBProxyTargetsCommandInput,
   RegisterDBProxyTargetsCommandOutput,
@@ -600,6 +608,7 @@ export type ServiceInputTypes =
   | CreateDBProxyCommandInput
   | CreateDBProxyEndpointCommandInput
   | CreateDBSecurityGroupCommandInput
+  | CreateDBShardGroupCommandInput
   | CreateDBSnapshotCommandInput
   | CreateDBSubnetGroupCommandInput
   | CreateEventSubscriptionCommandInput
@@ -620,6 +629,7 @@ export type ServiceInputTypes =
   | DeleteDBProxyCommandInput
   | DeleteDBProxyEndpointCommandInput
   | DeleteDBSecurityGroupCommandInput
+  | DeleteDBShardGroupCommandInput
   | DeleteDBSnapshotCommandInput
   | DeleteDBSubnetGroupCommandInput
   | DeleteEventSubscriptionCommandInput
@@ -651,6 +661,7 @@ export type ServiceInputTypes =
   | DescribeDBProxyTargetsCommandInput
   | DescribeDBRecommendationsCommandInput
   | DescribeDBSecurityGroupsCommandInput
+  | DescribeDBShardGroupsCommandInput
   | DescribeDBSnapshotAttributesCommandInput
   | DescribeDBSnapshotTenantDatabasesCommandInput
   | DescribeDBSnapshotsCommandInput
@@ -692,6 +703,7 @@ export type ServiceInputTypes =
   | ModifyDBProxyEndpointCommandInput
   | ModifyDBProxyTargetGroupCommandInput
   | ModifyDBRecommendationCommandInput
+  | ModifyDBShardGroupCommandInput
   | ModifyDBSnapshotAttributeCommandInput
   | ModifyDBSnapshotCommandInput
   | ModifyDBSubnetGroupCommandInput
@@ -704,6 +716,7 @@ export type ServiceInputTypes =
   | PurchaseReservedDBInstancesOfferingCommandInput
   | RebootDBClusterCommandInput
   | RebootDBInstanceCommandInput
+  | RebootDBShardGroupCommandInput
   | RegisterDBProxyTargetsCommandInput
   | RemoveFromGlobalClusterCommandInput
   | RemoveRoleFromDBClusterCommandInput
@@ -761,6 +774,7 @@ export type ServiceOutputTypes =
   | CreateDBProxyCommandOutput
   | CreateDBProxyEndpointCommandOutput
   | CreateDBSecurityGroupCommandOutput
+  | CreateDBShardGroupCommandOutput
   | CreateDBSnapshotCommandOutput
   | CreateDBSubnetGroupCommandOutput
   | CreateEventSubscriptionCommandOutput
@@ -781,6 +795,7 @@ export type ServiceOutputTypes =
   | DeleteDBProxyCommandOutput
   | DeleteDBProxyEndpointCommandOutput
   | DeleteDBSecurityGroupCommandOutput
+  | DeleteDBShardGroupCommandOutput
   | DeleteDBSnapshotCommandOutput
   | DeleteDBSubnetGroupCommandOutput
   | DeleteEventSubscriptionCommandOutput
@@ -812,6 +827,7 @@ export type ServiceOutputTypes =
   | DescribeDBProxyTargetsCommandOutput
   | DescribeDBRecommendationsCommandOutput
   | DescribeDBSecurityGroupsCommandOutput
+  | DescribeDBShardGroupsCommandOutput
   | DescribeDBSnapshotAttributesCommandOutput
   | DescribeDBSnapshotTenantDatabasesCommandOutput
   | DescribeDBSnapshotsCommandOutput
@@ -853,6 +869,7 @@ export type ServiceOutputTypes =
   | ModifyDBProxyEndpointCommandOutput
   | ModifyDBProxyTargetGroupCommandOutput
   | ModifyDBRecommendationCommandOutput
+  | ModifyDBShardGroupCommandOutput
   | ModifyDBSnapshotAttributeCommandOutput
   | ModifyDBSnapshotCommandOutput
   | ModifyDBSubnetGroupCommandOutput
@@ -865,6 +882,7 @@ export type ServiceOutputTypes =
   | PurchaseReservedDBInstancesOfferingCommandOutput
   | RebootDBClusterCommandOutput
   | RebootDBInstanceCommandOutput
+  | RebootDBShardGroupCommandOutput
   | RegisterDBProxyTargetsCommandOutput
   | RemoveFromGlobalClusterCommandOutput
   | RemoveRoleFromDBClusterCommandOutput

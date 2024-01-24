@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeBlueGreenDeploymentsRequest, DescribeBlueGreenDeploymentsResponse } from "../models/models_0";
+import { DescribeBlueGreenDeploymentsRequest, DescribeBlueGreenDeploymentsResponse } from "../models/models_1";
 import { de_DescribeBlueGreenDeploymentsCommand, se_DescribeBlueGreenDeploymentsCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 

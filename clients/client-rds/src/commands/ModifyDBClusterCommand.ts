@@ -106,6 +106,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   AllowEngineModeChange: true || false,
  *   EnableLocalWriteForwarding: true || false,
  *   AwsBackupRecoveryPointArn: "STRING_VALUE",
+ *   EnableLimitlessDatabase: true || false,
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -282,6 +283,10 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     LimitlessDatabase: { // LimitlessDatabase
+ * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
+ * //       MinRequiredACU: Number("double"),
+ * //     },
  * //   },
  * // };
  *

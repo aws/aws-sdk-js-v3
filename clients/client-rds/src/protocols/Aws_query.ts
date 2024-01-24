@@ -97,6 +97,7 @@ import {
   CreateDBSecurityGroupCommandInput,
   CreateDBSecurityGroupCommandOutput,
 } from "../commands/CreateDBSecurityGroupCommand";
+import { CreateDBShardGroupCommandInput, CreateDBShardGroupCommandOutput } from "../commands/CreateDBShardGroupCommand";
 import { CreateDBSnapshotCommandInput, CreateDBSnapshotCommandOutput } from "../commands/CreateDBSnapshotCommand";
 import {
   CreateDBSubnetGroupCommandInput,
@@ -159,6 +160,7 @@ import {
   DeleteDBSecurityGroupCommandInput,
   DeleteDBSecurityGroupCommandOutput,
 } from "../commands/DeleteDBSecurityGroupCommand";
+import { DeleteDBShardGroupCommandInput, DeleteDBShardGroupCommandOutput } from "../commands/DeleteDBShardGroupCommand";
 import { DeleteDBSnapshotCommandInput, DeleteDBSnapshotCommandOutput } from "../commands/DeleteDBSnapshotCommand";
 import {
   DeleteDBSubnetGroupCommandInput,
@@ -265,6 +267,10 @@ import {
   DescribeDBSecurityGroupsCommandInput,
   DescribeDBSecurityGroupsCommandOutput,
 } from "../commands/DescribeDBSecurityGroupsCommand";
+import {
+  DescribeDBShardGroupsCommandInput,
+  DescribeDBShardGroupsCommandOutput,
+} from "../commands/DescribeDBShardGroupsCommand";
 import {
   DescribeDBSnapshotAttributesCommandInput,
   DescribeDBSnapshotAttributesCommandOutput,
@@ -408,6 +414,7 @@ import {
   ModifyDBRecommendationCommandInput,
   ModifyDBRecommendationCommandOutput,
 } from "../commands/ModifyDBRecommendationCommand";
+import { ModifyDBShardGroupCommandInput, ModifyDBShardGroupCommandOutput } from "../commands/ModifyDBShardGroupCommand";
 import {
   ModifyDBSnapshotAttributeCommandInput,
   ModifyDBSnapshotAttributeCommandOutput,
@@ -441,6 +448,7 @@ import {
 } from "../commands/PurchaseReservedDBInstancesOfferingCommand";
 import { RebootDBClusterCommandInput, RebootDBClusterCommandOutput } from "../commands/RebootDBClusterCommand";
 import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "../commands/RebootDBInstanceCommand";
+import { RebootDBShardGroupCommandInput, RebootDBShardGroupCommandOutput } from "../commands/RebootDBShardGroupCommand";
 import {
   RegisterDBProxyTargetsCommandInput,
   RegisterDBProxyTargetsCommandOutput,
@@ -554,9 +562,7 @@ import {
   BlueGreenDeploymentNotFoundFault,
   BlueGreenDeploymentTask,
   CancelExportTaskMessage,
-  Certificate,
   CertificateDetails,
-  CertificateMessage,
   CertificateNotFoundFault,
   CharacterSet,
   ClusterPendingModifiedValues,
@@ -593,6 +599,7 @@ import {
   CreateDBProxyResponse,
   CreateDBSecurityGroupMessage,
   CreateDBSecurityGroupResult,
+  CreateDBShardGroupMessage,
   CreateDBSnapshotMessage,
   CreateDBSnapshotResult,
   CreateDBSubnetGroupMessage,
@@ -660,13 +667,15 @@ import {
   DBProxyNotFoundFault,
   DBProxyQuotaExceededFault,
   DBProxyTargetGroupNotFoundFault,
-  DBProxyTargetNotFoundFault,
   DBSecurityGroup,
   DBSecurityGroupAlreadyExistsFault,
   DBSecurityGroupMembership,
   DBSecurityGroupNotFoundFault,
   DBSecurityGroupNotSupportedFault,
   DBSecurityGroupQuotaExceededFault,
+  DBShardGroup,
+  DBShardGroupAlreadyExistsFault,
+  DBShardGroupNotFoundFault,
   DBSnapshot,
   DBSnapshotAlreadyExistsFault,
   DBSnapshotNotFoundFault,
@@ -699,6 +708,7 @@ import {
   DeleteDBProxyRequest,
   DeleteDBProxyResponse,
   DeleteDBSecurityGroupMessage,
+  DeleteDBShardGroupMessage,
   DeleteDBSnapshotMessage,
   DeleteDBSnapshotResult,
   DeleteDBSubnetGroupMessage,
@@ -709,13 +719,6 @@ import {
   DeleteIntegrationMessage,
   DeleteOptionGroupMessage,
   DeleteTenantDatabaseMessage,
-  DeleteTenantDatabaseResult,
-  DeregisterDBProxyTargetsRequest,
-  DeregisterDBProxyTargetsResponse,
-  DescribeAccountAttributesMessage,
-  DescribeBlueGreenDeploymentsRequest,
-  DescribeBlueGreenDeploymentsResponse,
-  DescribeCertificatesMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -726,7 +729,6 @@ import {
   ExportTask,
   ExportTaskNotFoundFault,
   FailoverState,
-  Filter,
   GlobalCluster,
   GlobalClusterAlreadyExistsFault,
   GlobalClusterMember,
@@ -753,6 +755,7 @@ import {
   InvalidDBProxyEndpointStateFault,
   InvalidDBProxyStateFault,
   InvalidDBSecurityGroupStateFault,
+  InvalidDBShardGroupStateFault,
   InvalidDBSnapshotStateFault,
   InvalidDBSubnetGroupFault,
   InvalidDBSubnetGroupStateFault,
@@ -761,12 +764,15 @@ import {
   InvalidExportTaskStateFault,
   InvalidGlobalClusterStateFault,
   InvalidIntegrationStateFault,
+  InvalidMaxAcuFault,
   InvalidOptionGroupStateFault,
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
   IPRange,
   KMSKeyNotAccessibleFault,
+  LimitlessDatabase,
   MasterUserSecret,
+  MaxDBShardGroupLimitReached,
   NetworkTypeNotSupported,
   Option,
   OptionGroup,
@@ -810,6 +816,7 @@ import {
   TenantDatabasePendingModifiedValues,
   TenantDatabaseQuotaExceededFault,
   Timezone,
+  UnsupportedDBEngineVersionFault,
   UpgradeTarget,
   UserAuthConfig,
   UserAuthConfigInfo,
@@ -817,6 +824,8 @@ import {
 } from "../models/models_0";
 import {
   AvailableProcessorFeature,
+  Certificate,
+  CertificateMessage,
   CloudwatchLogsExportConfiguration,
   ConnectionPoolConfiguration,
   ConnectionPoolConfigurationInfo,
@@ -845,6 +854,7 @@ import {
   DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
   DBProxyTargetGroup,
+  DBProxyTargetNotFoundFault,
   DBRecommendation,
   DBRecommendationMessage,
   DBRecommendationsMessage,
@@ -856,6 +866,13 @@ import {
   DBSnapshotTenantDatabasesMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DeleteTenantDatabaseResult,
+  DeregisterDBProxyTargetsRequest,
+  DeregisterDBProxyTargetsResponse,
+  DescribeAccountAttributesMessage,
+  DescribeBlueGreenDeploymentsRequest,
+  DescribeBlueGreenDeploymentsResponse,
+  DescribeCertificatesMessage,
   DescribeDBClusterAutomatedBackupsMessage,
   DescribeDBClusterBacktracksMessage,
   DescribeDBClusterEndpointsMessage,
@@ -883,6 +900,8 @@ import {
   DescribeDBProxyTargetsResponse,
   DescribeDBRecommendationsMessage,
   DescribeDBSecurityGroupsMessage,
+  DescribeDBShardGroupsMessage,
+  DescribeDBShardGroupsResponse,
   DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
@@ -929,6 +948,7 @@ import {
   FailoverDBClusterResult,
   FailoverGlobalClusterMessage,
   FailoverGlobalClusterResult,
+  Filter,
   GlobalClustersMessage,
   IamRoleMissingPermissionsFault,
   IamRoleNotFoundFault,
@@ -968,6 +988,7 @@ import {
   ModifyDBProxyTargetGroupRequest,
   ModifyDBProxyTargetGroupResponse,
   ModifyDBRecommendationMessage,
+  ModifyDBShardGroupMessage,
   ModifyDBSnapshotAttributeMessage,
   ModifyDBSnapshotAttributeResult,
   ModifyDBSnapshotMessage,
@@ -1007,6 +1028,7 @@ import {
   RebootDBClusterResult,
   RebootDBInstanceMessage,
   RebootDBInstanceResult,
+  RebootDBShardGroupMessage,
   RecommendedAction,
   RecommendedActionParameter,
   RecommendedActionUpdate,
@@ -1508,6 +1530,23 @@ export const se_CreateDBSecurityGroupCommand = async (
 };
 
 /**
+ * serializeAws_queryCreateDBShardGroupCommand
+ */
+export const se_CreateDBShardGroupCommand = async (
+  input: CreateDBShardGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateDBShardGroupMessage(input, context),
+    [_A]: _CDBSGr,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryCreateDBSnapshotCommand
  */
 export const se_CreateDBSnapshotCommand = async (
@@ -1535,7 +1574,7 @@ export const se_CreateDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBSubnetGroupMessage(input, context),
-    [_A]: _CDBSGr,
+    [_A]: _CDBSGre,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1848,6 +1887,23 @@ export const se_DeleteDBSecurityGroupCommand = async (
 };
 
 /**
+ * serializeAws_queryDeleteDBShardGroupCommand
+ */
+export const se_DeleteDBShardGroupCommand = async (
+  input: DeleteDBShardGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteDBShardGroupMessage(input, context),
+    [_A]: _DDBSGe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDeleteDBSnapshotCommand
  */
 export const se_DeleteDBSnapshotCommand = async (
@@ -1875,7 +1931,7 @@ export const se_DeleteDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBSubnetGroupMessage(input, context),
-    [_A]: _DDBSGe,
+    [_A]: _DDBSGel,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2375,6 +2431,23 @@ export const se_DescribeDBSecurityGroupsCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeDBShardGroupsCommand
+ */
+export const se_DescribeDBShardGroupsCommand = async (
+  input: DescribeDBShardGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeDBShardGroupsMessage(input, context),
+    [_A]: _DDBSGesc,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDescribeDBSnapshotAttributesCommand
  */
 export const se_DescribeDBSnapshotAttributesCommand = async (
@@ -2436,7 +2509,7 @@ export const se_DescribeDBSubnetGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBSubnetGroupsMessage(input, context),
-    [_A]: _DDBSGesc,
+    [_A]: _DDBSGescr,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3072,6 +3145,23 @@ export const se_ModifyDBRecommendationCommand = async (
 };
 
 /**
+ * serializeAws_queryModifyDBShardGroupCommand
+ */
+export const se_ModifyDBShardGroupCommand = async (
+  input: ModifyDBShardGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyDBShardGroupMessage(input, context),
+    [_A]: _MDBSG,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryModifyDBSnapshotCommand
  */
 export const se_ModifyDBSnapshotCommand = async (
@@ -3116,7 +3206,7 @@ export const se_ModifyDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBSubnetGroupMessage(input, context),
-    [_A]: _MDBSG,
+    [_A]: _MDBSGo,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3270,6 +3360,23 @@ export const se_RebootDBInstanceCommand = async (
   body = buildFormUrlencodedString({
     ...se_RebootDBInstanceMessage(input, context),
     [_A]: _RDBI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryRebootDBShardGroupCommand
+ */
+export const se_RebootDBShardGroupCommand = async (
+  input: RebootDBShardGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_RebootDBShardGroupMessage(input, context),
+    [_A]: _RDBSG,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5278,6 +5385,70 @@ const de_CreateDBSecurityGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_queryCreateDBShardGroupCommand
+ */
+export const de_CreateDBShardGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBShardGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateDBShardGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBShardGroup(data.CreateDBShardGroupResult, context);
+  const response: CreateDBShardGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBShardGroupCommandError
+ */
+const de_CreateDBShardGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBShardGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
+    case "DBShardGroupAlreadyExists":
+    case "com.amazonaws.rds#DBShardGroupAlreadyExistsFault":
+      throw await de_DBShardGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
+    case "InvalidMaxAcu":
+    case "com.amazonaws.rds#InvalidMaxAcuFault":
+      throw await de_InvalidMaxAcuFaultRes(parsedOutput, context);
+    case "InvalidVPCNetworkStateFault":
+    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "MaxDBShardGroupLimitReached":
+    case "com.amazonaws.rds#MaxDBShardGroupLimitReached":
+      throw await de_MaxDBShardGroupLimitReachedRes(parsedOutput, context);
+    case "UnsupportedDBEngineVersion":
+    case "com.amazonaws.rds#UnsupportedDBEngineVersionFault":
+      throw await de_UnsupportedDBEngineVersionFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryCreateDBSnapshotCommand
  */
 export const de_CreateDBSnapshotCommand = async (
@@ -6319,6 +6490,58 @@ const de_DeleteDBSecurityGroupCommandError = async (
     case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteDBShardGroupCommand
+ */
+export const de_DeleteDBShardGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBShardGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteDBShardGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBShardGroup(data.DeleteDBShardGroupResult, context);
+  const response: DeleteDBShardGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBShardGroupCommandError
+ */
+const de_DeleteDBShardGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBShardGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBShardGroupNotFound":
+    case "com.amazonaws.rds#DBShardGroupNotFoundFault":
+      throw await de_DBShardGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
+    case "InvalidDBShardGroupState":
+    case "com.amazonaws.rds#InvalidDBShardGroupStateFault":
+      throw await de_InvalidDBShardGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7781,6 +8004,55 @@ const de_DescribeDBSecurityGroupsCommandError = async (
     case "DBSecurityGroupNotFound":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
       throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDescribeDBShardGroupsCommand
+ */
+export const de_DescribeDBShardGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBShardGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDBShardGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBShardGroupsResponse(data.DescribeDBShardGroupsResult, context);
+  const response: DescribeDBShardGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBShardGroupsCommandError
+ */
+const de_DescribeDBShardGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBShardGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
+    case "DBShardGroupNotFound":
+    case "com.amazonaws.rds#DBShardGroupNotFoundFault":
+      throw await de_DBShardGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9846,6 +10118,61 @@ const de_ModifyDBRecommendationCommandError = async (
 };
 
 /**
+ * deserializeAws_queryModifyDBShardGroupCommand
+ */
+export const de_ModifyDBShardGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBShardGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyDBShardGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBShardGroup(data.ModifyDBShardGroupResult, context);
+  const response: ModifyDBShardGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBShardGroupCommandError
+ */
+const de_ModifyDBShardGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBShardGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBShardGroupAlreadyExists":
+    case "com.amazonaws.rds#DBShardGroupAlreadyExistsFault":
+      throw await de_DBShardGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "DBShardGroupNotFound":
+    case "com.amazonaws.rds#DBShardGroupNotFoundFault":
+      throw await de_DBShardGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
+    case "InvalidMaxAcu":
+    case "com.amazonaws.rds#InvalidMaxAcuFault":
+      throw await de_InvalidMaxAcuFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryModifyDBSnapshotCommand
  */
 export const de_ModifyDBSnapshotCommand = async (
@@ -10462,6 +10789,55 @@ const de_RebootDBInstanceCommandError = async (
     case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryRebootDBShardGroupCommand
+ */
+export const de_RebootDBShardGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootDBShardGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_RebootDBShardGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBShardGroup(data.RebootDBShardGroupResult, context);
+  const response: RebootDBShardGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRebootDBShardGroupCommandError
+ */
+const de_RebootDBShardGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootDBShardGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBShardGroupNotFound":
+    case "com.amazonaws.rds#DBShardGroupNotFoundFault":
+      throw await de_DBShardGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidDBShardGroupState":
+    case "com.amazonaws.rds#InvalidDBShardGroupStateFault":
+      throw await de_InvalidDBShardGroupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -13086,6 +13462,38 @@ const de_DBSecurityGroupQuotaExceededFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryDBShardGroupAlreadyExistsFaultRes
+ */
+const de_DBShardGroupAlreadyExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBShardGroupAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DBShardGroupAlreadyExistsFault(body.Error, context);
+  const exception = new DBShardGroupAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryDBShardGroupNotFoundFaultRes
+ */
+const de_DBShardGroupNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBShardGroupNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DBShardGroupNotFoundFault(body.Error, context);
+  const exception = new DBShardGroupNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryDBSnapshotAlreadyExistsFaultRes
  */
 const de_DBSnapshotAlreadyExistsFaultRes = async (
@@ -13755,6 +14163,22 @@ const de_InvalidDBSecurityGroupStateFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryInvalidDBShardGroupStateFaultRes
+ */
+const de_InvalidDBShardGroupStateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidDBShardGroupStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidDBShardGroupStateFault(body.Error, context);
+  const exception = new InvalidDBShardGroupStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryInvalidDBSnapshotStateFaultRes
  */
 const de_InvalidDBSnapshotStateFaultRes = async (
@@ -13915,6 +14339,19 @@ const de_InvalidIntegrationStateFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryInvalidMaxAcuFaultRes
+ */
+const de_InvalidMaxAcuFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidMaxAcuFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidMaxAcuFault(body.Error, context);
+  const exception = new InvalidMaxAcuFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryInvalidOptionGroupStateFaultRes
  */
 const de_InvalidOptionGroupStateFaultRes = async (
@@ -14014,6 +14451,22 @@ const de_KMSKeyNotAccessibleFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_KMSKeyNotAccessibleFault(body.Error, context);
   const exception = new KMSKeyNotAccessibleFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryMaxDBShardGroupLimitReachedRes
+ */
+const de_MaxDBShardGroupLimitReachedRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MaxDBShardGroupLimitReached> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_MaxDBShardGroupLimitReached(body.Error, context);
+  const exception = new MaxDBShardGroupLimitReached({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -14472,6 +14925,22 @@ const de_TenantDatabaseQuotaExceededFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_TenantDatabaseQuotaExceededFault(body.Error, context);
   const exception = new TenantDatabaseQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryUnsupportedDBEngineVersionFaultRes
+ */
+const de_UnsupportedDBEngineVersionFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedDBEngineVersionFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_UnsupportedDBEngineVersionFault(body.Error, context);
+  const exception = new UnsupportedDBEngineVersionFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -15192,6 +15661,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_PIRP] != null) {
     entries[_PIRP] = input[_PIRP];
   }
+  if (input[_ELD] != null) {
+    entries[_ELD] = input[_ELD];
+  }
   if (input[_SVSC] != null) {
     const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15850,6 +16322,29 @@ const se_CreateDBSecurityGroupMessage = (input: CreateDBSecurityGroupMessage, co
 };
 
 /**
+ * serializeAws_queryCreateDBShardGroupMessage
+ */
+const se_CreateDBShardGroupMessage = (input: CreateDBShardGroupMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DBSGI] != null) {
+    entries[_DBSGI] = input[_DBSGI];
+  }
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
+  }
+  if (input[_CR] != null) {
+    entries[_CR] = input[_CR];
+  }
+  if (input[_MACU] != null) {
+    entries[_MACU] = __serializeFloat(input[_MACU]);
+  }
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCreateDBSnapshotMessage
  */
 const se_CreateDBSnapshotMessage = (input: CreateDBSnapshotMessage, context: __SerdeContext): any => {
@@ -16283,6 +16778,17 @@ const se_DeleteDBSecurityGroupMessage = (input: DeleteDBSecurityGroupMessage, co
   const entries: any = {};
   if (input[_DBSGN] != null) {
     entries[_DBSGN] = input[_DBSGN];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeleteDBShardGroupMessage
+ */
+const se_DeleteDBShardGroupMessage = (input: DeleteDBShardGroupMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DBSGI] != null) {
+    entries[_DBSGI] = input[_DBSGI];
   }
   return entries;
 };
@@ -17100,6 +17606,33 @@ const se_DescribeDBSecurityGroupsMessage = (input: DescribeDBSecurityGroupsMessa
   }
   if (input[_Ma] != null) {
     entries[_Ma] = input[_Ma];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeDBShardGroupsMessage
+ */
+const se_DescribeDBShardGroupsMessage = (input: DescribeDBShardGroupsMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DBSGI] != null) {
+    entries[_DBSGI] = input[_DBSGI];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -18275,6 +18808,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_ABRPA] != null) {
     entries[_ABRPA] = input[_ABRPA];
   }
+  if (input[_ELD] != null) {
+    entries[_ELD] = input[_ELD];
+  }
   return entries;
 };
 
@@ -18697,6 +19233,20 @@ const se_ModifyDBRecommendationMessage = (input: ModifyDBRecommendationMessage, 
       const loc = `RecommendedActionUpdates.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyDBShardGroupMessage
+ */
+const se_ModifyDBShardGroupMessage = (input: ModifyDBShardGroupMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DBSGI] != null) {
+    entries[_DBSGI] = input[_DBSGI];
+  }
+  if (input[_MACU] != null) {
+    entries[_MACU] = __serializeFloat(input[_MACU]);
   }
   return entries;
 };
@@ -19218,6 +19768,17 @@ const se_RebootDBInstanceMessage = (input: RebootDBInstanceMessage, context: __S
   }
   if (input[_FF] != null) {
     entries[_FF] = input[_FF];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRebootDBShardGroupMessage
+ */
+const se_RebootDBShardGroupMessage = (input: RebootDBShardGroupMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DBSGI] != null) {
+    entries[_DBSGI] = input[_DBSGI];
   }
   return entries;
 };
@@ -21887,6 +22448,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_ABRPA] != null) {
     contents[_ABRPA] = __expectString(output[_ABRPA]);
   }
+  if (output[_LD] != null) {
+    contents[_LD] = de_LimitlessDatabase(output[_LD], context);
+  }
   return contents;
 };
 
@@ -24191,6 +24755,71 @@ const de_DBSecurityGroups = (output: any, context: __SerdeContext): DBSecurityGr
 };
 
 /**
+ * deserializeAws_queryDBShardGroup
+ */
+const de_DBShardGroup = (output: any, context: __SerdeContext): DBShardGroup => {
+  const contents: any = {};
+  if (output[_DBSGRI] != null) {
+    contents[_DBSGRI] = __expectString(output[_DBSGRI]);
+  }
+  if (output[_DBSGI] != null) {
+    contents[_DBSGI] = __expectString(output[_DBSGI]);
+  }
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
+  }
+  if (output[_MACU] != null) {
+    contents[_MACU] = __strictParseFloat(output[_MACU]) as number;
+  }
+  if (output[_CR] != null) {
+    contents[_CR] = __strictParseInt32(output[_CR]) as number;
+  }
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output[_PA] != null) {
+    contents[_PA] = __parseBoolean(output[_PA]);
+  }
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBShardGroupAlreadyExistsFault
+ */
+const de_DBShardGroupAlreadyExistsFault = (output: any, context: __SerdeContext): DBShardGroupAlreadyExistsFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBShardGroupNotFoundFault
+ */
+const de_DBShardGroupNotFoundFault = (output: any, context: __SerdeContext): DBShardGroupNotFoundFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBShardGroupsList
+ */
+const de_DBShardGroupsList = (output: any, context: __SerdeContext): DBShardGroup[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DBShardGroup(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryDBSnapshot
  */
 const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
@@ -24927,6 +25556,22 @@ const de_DescribeDBProxyTargetsResponse = (output: any, context: __SerdeContext)
     contents[_Tar] = [];
   } else if (output[_Tar] != null && output[_Tar][_me] != null) {
     contents[_Tar] = de_TargetList(__getArrayIfSingleItem(output[_Tar][_me]), context);
+  }
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeDBShardGroupsResponse
+ */
+const de_DescribeDBShardGroupsResponse = (output: any, context: __SerdeContext): DescribeDBShardGroupsResponse => {
+  const contents: any = {};
+  if (output.DBShardGroups === "") {
+    contents[_DBSGh] = [];
+  } else if (output[_DBSGh] != null && output[_DBSGh][_DBSGha] != null) {
+    contents[_DBSGh] = de_DBShardGroupsList(__getArrayIfSingleItem(output[_DBSGh][_DBSGha]), context);
   }
   if (output[_Ma] != null) {
     contents[_Ma] = __expectString(output[_Ma]);
@@ -26134,6 +26779,17 @@ const de_InvalidDBSecurityGroupStateFault = (
 };
 
 /**
+ * deserializeAws_queryInvalidDBShardGroupStateFault
+ */
+const de_InvalidDBShardGroupStateFault = (output: any, context: __SerdeContext): InvalidDBShardGroupStateFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryInvalidDBSnapshotStateFault
  */
 const de_InvalidDBSnapshotStateFault = (output: any, context: __SerdeContext): InvalidDBSnapshotStateFault => {
@@ -26239,6 +26895,17 @@ const de_InvalidGlobalClusterStateFault = (output: any, context: __SerdeContext)
  * deserializeAws_queryInvalidIntegrationStateFault
  */
 const de_InvalidIntegrationStateFault = (output: any, context: __SerdeContext): InvalidIntegrationStateFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidMaxAcuFault
+ */
+const de_InvalidMaxAcuFault = (output: any, context: __SerdeContext): InvalidMaxAcuFault => {
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
@@ -26360,6 +27027,20 @@ const de_KMSKeyNotAccessibleFault = (output: any, context: __SerdeContext): KMSK
 };
 
 /**
+ * deserializeAws_queryLimitlessDatabase
+ */
+const de_LimitlessDatabase = (output: any, context: __SerdeContext): LimitlessDatabase => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output[_MRACU] != null) {
+    contents[_MRACU] = __strictParseFloat(output[_MRACU]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryLogTypeList
  */
 const de_LogTypeList = (output: any, context: __SerdeContext): string[] => {
@@ -26383,6 +27064,17 @@ const de_MasterUserSecret = (output: any, context: __SerdeContext): MasterUserSe
   }
   if (output[_KKI] != null) {
     contents[_KKI] = __expectString(output[_KKI]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryMaxDBShardGroupLimitReached
+ */
+const de_MaxDBShardGroupLimitReached = (output: any, context: __SerdeContext): MaxDBShardGroupLimitReached => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28984,6 +29676,17 @@ const de_Timezone = (output: any, context: __SerdeContext): Timezone => {
 };
 
 /**
+ * deserializeAws_queryUnsupportedDBEngineVersionFault
+ */
+const de_UnsupportedDBEngineVersionFault = (output: any, context: __SerdeContext): UnsupportedDBEngineVersionFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryUpgradeTarget
  */
 const de_UpgradeTarget = (output: any, context: __SerdeContext): UpgradeTarget => {
@@ -29314,7 +30017,8 @@ const _CDBPG = "CopyDBParameterGroup";
 const _CDBPGr = "CreateDBParameterGroup";
 const _CDBS = "CopyDBSnapshot";
 const _CDBSG = "CreateDBSecurityGroup";
-const _CDBSGr = "CreateDBSubnetGroup";
+const _CDBSGr = "CreateDBShardGroup";
+const _CDBSGre = "CreateDBSubnetGroup";
 const _CDBSr = "CreateDBSnapshot";
 const _CDr = "CreatedDate";
 const _CE = "CustomEndpoints";
@@ -29335,6 +30039,7 @@ const _COIE = "CustomerOwnedIpEnabled";
 const _COVT = "CustomerOverrideValidTill";
 const _CPAT = "ClientPasswordAuthType";
 const _CPC = "ConnectionPoolConfig";
+const _CR = "ComputeRedundancy";
 const _CRR = "CertificateRotationRestart";
 const _CS = "CharacterSet";
 const _CSD = "CharacterSetDescription";
@@ -29442,10 +30147,14 @@ const _DBSGA = "DBSecurityGroupArn";
 const _DBSGAu = "DBSubnetGroupArn";
 const _DBSGD = "DBSecurityGroupDescription";
 const _DBSGDu = "DBSubnetGroupDescription";
+const _DBSGI = "DBShardGroupIdentifier";
 const _DBSGM = "DBSecurityGroupMemberships";
 const _DBSGN = "DBSecurityGroupName";
 const _DBSGNu = "DBSubnetGroupName";
+const _DBSGRI = "DBShardGroupResourceId";
 const _DBSGe = "DBSecurityGroup";
+const _DBSGh = "DBShardGroups";
+const _DBSGha = "DBShardGroup";
 const _DBSGu = "DBSubnetGroup";
 const _DBSGub = "DBSubnetGroups";
 const _DBSI = "DBSystemId";
@@ -29496,9 +30205,11 @@ const _DDBR = "DescribeDBRecommendations";
 const _DDBS = "DeleteDBSnapshot";
 const _DDBSA = "DescribeDBSnapshotAttributes";
 const _DDBSG = "DeleteDBSecurityGroup";
-const _DDBSGe = "DeleteDBSubnetGroup";
+const _DDBSGe = "DeleteDBShardGroup";
+const _DDBSGel = "DeleteDBSubnetGroup";
 const _DDBSGes = "DescribeDBSecurityGroups";
-const _DDBSGesc = "DescribeDBSubnetGroups";
+const _DDBSGesc = "DescribeDBShardGroups";
+const _DDBSGescr = "DescribeDBSubnetGroups";
 const _DDBSTD = "DescribeDBSnapshotTenantDatabases";
 const _DDBSe = "DescribeDBSnapshots";
 const _DDI = "DomainDnsIps";
@@ -29573,6 +30284,7 @@ const _EF = "EngineFamily";
 const _EGWF = "EnableGlobalWriteForwarding";
 const _EHE = "EnableHttpEndpoint";
 const _EIAMDA = "EnableIAMDatabaseAuthentication";
+const _ELD = "EnableLimitlessDatabase";
 const _ELT = "EnableLogTypes";
 const _ELTx = "ExportableLogTypes";
 const _ELWF = "EnableLocalWriteForwarding";
@@ -29671,6 +30383,7 @@ const _KKI = "KmsKeyId";
 const _KMSKI = "KMSKeyId";
 const _KSN = "KinesisStreamName";
 const _L = "Locale";
+const _LD = "LimitlessDatabase";
 const _LE = "ListenerEndpoint";
 const _LFD = "LogFileData";
 const _LFN = "LogFileName";
@@ -29690,6 +30403,7 @@ const _LWFS = "LocalWriteForwardingStatus";
 const _Li = "Links";
 const _Lim = "Limit";
 const _M = "Manifest";
+const _MACU = "MaxACU";
 const _MAS = "ModifyActivityStream";
 const _MASa = "MaxAllocatedStorage";
 const _MAZ = "MultiAZ";
@@ -29712,7 +30426,8 @@ const _MDBPTG = "ModifyDBProxyTargetGroup";
 const _MDBR = "ModifyDBRecommendation";
 const _MDBS = "ModifyDBSnapshot";
 const _MDBSA = "ModifyDBSnapshotAttribute";
-const _MDBSG = "ModifyDBSubnetGroup";
+const _MDBSG = "ModifyDBShardGroup";
+const _MDBSGo = "ModifyDBSubnetGroup";
 const _MES = "ModifyEventSubscription";
 const _MEV = "MajorEngineVersion";
 const _MEVPAV = "MinimumEngineVersionPerAllowedValue";
@@ -29729,6 +30444,7 @@ const _MOG = "ModifyOptionGroup";
 const _MQ = "MetricQuery";
 const _MR = "MaxRecords";
 const _MRA = "MonitoringRoleArn";
+const _MRACU = "MinRequiredACU";
 const _MRMEV = "MinimumRequiredMinorEngineVersion";
 const _MSS = "MinStorageSize";
 const _MSSa = "MaxStorageSize";
@@ -29861,6 +30577,7 @@ const _RDBIe = "ReservedDBInstance";
 const _RDBIes = "ReservedDBInstances";
 const _RDBPG = "ResetDBParameterGroup";
 const _RDBPT = "RegisterDBProxyTargets";
+const _RDBSG = "RebootDBShardGroup";
 const _RDBSGI = "RevokeDBSecurityGroupIngress";
 const _RE = "ReaderEndpoint";
 const _RFAMM = "ResumeFullAutomationModeMinutes";

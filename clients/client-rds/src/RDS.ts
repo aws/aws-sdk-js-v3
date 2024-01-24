@@ -128,6 +128,11 @@ import {
   CreateDBSecurityGroupCommandOutput,
 } from "./commands/CreateDBSecurityGroupCommand";
 import {
+  CreateDBShardGroupCommand,
+  CreateDBShardGroupCommandInput,
+  CreateDBShardGroupCommandOutput,
+} from "./commands/CreateDBShardGroupCommand";
+import {
   CreateDBSnapshotCommand,
   CreateDBSnapshotCommandInput,
   CreateDBSnapshotCommandOutput,
@@ -227,6 +232,11 @@ import {
   DeleteDBSecurityGroupCommandInput,
   DeleteDBSecurityGroupCommandOutput,
 } from "./commands/DeleteDBSecurityGroupCommand";
+import {
+  DeleteDBShardGroupCommand,
+  DeleteDBShardGroupCommandInput,
+  DeleteDBShardGroupCommandOutput,
+} from "./commands/DeleteDBShardGroupCommand";
 import {
   DeleteDBSnapshotCommand,
   DeleteDBSnapshotCommandInput,
@@ -382,6 +392,11 @@ import {
   DescribeDBSecurityGroupsCommandInput,
   DescribeDBSecurityGroupsCommandOutput,
 } from "./commands/DescribeDBSecurityGroupsCommand";
+import {
+  DescribeDBShardGroupsCommand,
+  DescribeDBShardGroupsCommandInput,
+  DescribeDBShardGroupsCommandOutput,
+} from "./commands/DescribeDBShardGroupsCommand";
 import {
   DescribeDBSnapshotAttributesCommand,
   DescribeDBSnapshotAttributesCommandInput,
@@ -588,6 +603,11 @@ import {
   ModifyDBRecommendationCommandOutput,
 } from "./commands/ModifyDBRecommendationCommand";
 import {
+  ModifyDBShardGroupCommand,
+  ModifyDBShardGroupCommandInput,
+  ModifyDBShardGroupCommandOutput,
+} from "./commands/ModifyDBShardGroupCommand";
+import {
   ModifyDBSnapshotAttributeCommand,
   ModifyDBSnapshotAttributeCommandInput,
   ModifyDBSnapshotAttributeCommandOutput,
@@ -647,6 +667,11 @@ import {
   RebootDBInstanceCommandInput,
   RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand";
+import {
+  RebootDBShardGroupCommand,
+  RebootDBShardGroupCommandInput,
+  RebootDBShardGroupCommandOutput,
+} from "./commands/RebootDBShardGroupCommand";
 import {
   RegisterDBProxyTargetsCommand,
   RegisterDBProxyTargetsCommandInput,
@@ -810,6 +835,7 @@ const commands = {
   CreateDBProxyCommand,
   CreateDBProxyEndpointCommand,
   CreateDBSecurityGroupCommand,
+  CreateDBShardGroupCommand,
   CreateDBSnapshotCommand,
   CreateDBSubnetGroupCommand,
   CreateEventSubscriptionCommand,
@@ -830,6 +856,7 @@ const commands = {
   DeleteDBProxyCommand,
   DeleteDBProxyEndpointCommand,
   DeleteDBSecurityGroupCommand,
+  DeleteDBShardGroupCommand,
   DeleteDBSnapshotCommand,
   DeleteDBSubnetGroupCommand,
   DeleteEventSubscriptionCommand,
@@ -861,6 +888,7 @@ const commands = {
   DescribeDBProxyTargetsCommand,
   DescribeDBRecommendationsCommand,
   DescribeDBSecurityGroupsCommand,
+  DescribeDBShardGroupsCommand,
   DescribeDBSnapshotAttributesCommand,
   DescribeDBSnapshotsCommand,
   DescribeDBSnapshotTenantDatabasesCommand,
@@ -902,6 +930,7 @@ const commands = {
   ModifyDBProxyEndpointCommand,
   ModifyDBProxyTargetGroupCommand,
   ModifyDBRecommendationCommand,
+  ModifyDBShardGroupCommand,
   ModifyDBSnapshotCommand,
   ModifyDBSnapshotAttributeCommand,
   ModifyDBSubnetGroupCommand,
@@ -914,6 +943,7 @@ const commands = {
   PurchaseReservedDBInstancesOfferingCommand,
   RebootDBClusterCommand,
   RebootDBInstanceCommand,
+  RebootDBShardGroupCommand,
   RegisterDBProxyTargetsCommand,
   RemoveFromGlobalClusterCommand,
   RemoveRoleFromDBClusterCommand,
@@ -1355,6 +1385,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link CreateDBShardGroupCommand}
+   */
+  createDBShardGroup(
+    args: CreateDBShardGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDBShardGroupCommandOutput>;
+  createDBShardGroup(
+    args: CreateDBShardGroupCommandInput,
+    cb: (err: any, data?: CreateDBShardGroupCommandOutput) => void
+  ): void;
+  createDBShardGroup(
+    args: CreateDBShardGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDBShardGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDBSnapshotCommand}
    */
   createDBSnapshot(
@@ -1683,6 +1730,23 @@ export interface RDS {
     args: DeleteDBSecurityGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDBSecurityGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDBShardGroupCommand}
+   */
+  deleteDBShardGroup(
+    args: DeleteDBShardGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDBShardGroupCommandOutput>;
+  deleteDBShardGroup(
+    args: DeleteDBShardGroupCommandInput,
+    cb: (err: any, data?: DeleteDBShardGroupCommandOutput) => void
+  ): void;
+  deleteDBShardGroup(
+    args: DeleteDBShardGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDBShardGroupCommandOutput) => void
   ): void;
 
   /**
@@ -2210,6 +2274,23 @@ export interface RDS {
     args: DescribeDBSecurityGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDBSecurityGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDBShardGroupsCommand}
+   */
+  describeDBShardGroups(
+    args: DescribeDBShardGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBShardGroupsCommandOutput>;
+  describeDBShardGroups(
+    args: DescribeDBShardGroupsCommandInput,
+    cb: (err: any, data?: DescribeDBShardGroupsCommandOutput) => void
+  ): void;
+  describeDBShardGroups(
+    args: DescribeDBShardGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBShardGroupsCommandOutput) => void
   ): void;
 
   /**
@@ -2898,6 +2979,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link ModifyDBShardGroupCommand}
+   */
+  modifyDBShardGroup(
+    args: ModifyDBShardGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDBShardGroupCommandOutput>;
+  modifyDBShardGroup(
+    args: ModifyDBShardGroupCommandInput,
+    cb: (err: any, data?: ModifyDBShardGroupCommandOutput) => void
+  ): void;
+  modifyDBShardGroup(
+    args: ModifyDBShardGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDBShardGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyDBSnapshotCommand}
    */
   modifyDBSnapshot(
@@ -3096,6 +3194,23 @@ export interface RDS {
     args: RebootDBInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RebootDBInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RebootDBShardGroupCommand}
+   */
+  rebootDBShardGroup(
+    args: RebootDBShardGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootDBShardGroupCommandOutput>;
+  rebootDBShardGroup(
+    args: RebootDBShardGroupCommandInput,
+    cb: (err: any, data?: RebootDBShardGroupCommandOutput) => void
+  ): void;
+  rebootDBShardGroup(
+    args: RebootDBShardGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootDBShardGroupCommandOutput) => void
   ): void;
 
   /**

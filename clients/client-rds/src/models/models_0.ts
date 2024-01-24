@@ -3252,6 +3252,10 @@ export interface CreateBlueGreenDeploymentRequest {
   /**
    * @public
    * <p>Specify the DB instance class for the databases in the green environment.</p>
+   *          <p>This parameter only applies to RDS DB instances, because DB instances within an Aurora DB cluster can
+   *         have multiple different instance classes. If you're creating a blue/green deployment from an Aurora DB cluster,
+   *         don't specify this parameter. After the green environment is created, you can individually modify the instance classes
+   *         of the DB instances within the green DB cluster.</p>
    */
   TargetDBInstanceClass?: string;
 
@@ -5039,6 +5043,13 @@ export interface CreateDBClusterMessage {
 
   /**
    * @public
+   * <p>Specifies whether to enable Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   */
+  EnableLimitlessDatabase?: boolean;
+
+  /**
+   * @public
    * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
    *             <i>Amazon Aurora User Guide</i>.</p>
@@ -5269,6 +5280,44 @@ export const WriteForwardingStatus = {
  * @public
  */
 export type WriteForwardingStatus = (typeof WriteForwardingStatus)[keyof typeof WriteForwardingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LimitlessDatabaseStatus = {
+  ACTIVE: "active",
+  DISABLED: "disabled",
+  DISABLING: "disabling",
+  ENABLED: "enabled",
+  ENABLING: "enabling",
+  ERROR: "error",
+  MODIFYING_MAX_CAPACITY: "modifying-max-capacity",
+  NOT_IN_USE: "not-in-use",
+} as const;
+
+/**
+ * @public
+ */
+export type LimitlessDatabaseStatus = (typeof LimitlessDatabaseStatus)[keyof typeof LimitlessDatabaseStatus];
+
+/**
+ * @public
+ * <p>Contains details for Aurora Limitless Database.</p>
+ */
+export interface LimitlessDatabase {
+  /**
+   * @public
+   * <p>The status of Aurora Limitless Database.</p>
+   */
+  Status?: LimitlessDatabaseStatus;
+
+  /**
+   * @public
+   * <p>The minimum required capacity for Aurora Limitless Database in Aurora capacity units (ACUs).</p>
+   */
+  MinRequiredACU?: number;
+}
 
 /**
  * @public
@@ -6112,6 +6161,12 @@ export interface DBCluster {
    * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
    */
   AwsBackupRecoveryPointArn?: string;
+
+  /**
+   * @public
+   * <p>The details for Aurora Limitless Database.</p>
+   */
+  LimitlessDatabase?: LimitlessDatabase;
 }
 
 /**
@@ -11110,6 +11165,229 @@ export class DBSecurityGroupQuotaExceededFault extends __BaseException {
 
 /**
  * @public
+ */
+export interface CreateDBShardGroupMessage {
+  /**
+   * @public
+   * <p>The name of the DB shard group.</p>
+   */
+  DBShardGroupIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the primary DB cluster for the DB shard group.</p>
+   */
+  DBClusterIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to create standby instances for the DB shard group. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>0 - Creates a single, primary DB instance for each physical shard. This is the default value, and the only one supported for the preview.</p>
+   *             </li>
+   *             <li>
+   *                <p>1 - Creates a primary DB instance and a standby instance in a different Availability Zone (AZ) for each physical shard.</p>
+   *             </li>
+   *             <li>
+   *                <p>2 - Creates a primary DB instance and two standby instances in different AZs for each physical shard.</p>
+   *             </li>
+   *          </ul>
+   */
+  ComputeRedundancy?: number;
+
+  /**
+   * @public
+   * <p>The maximum capacity of the DB shard group in Aurora capacity units (ACUs).</p>
+   */
+  MaxACU: number | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether the DB shard group is publicly accessible.</p>
+   *          <p>When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from
+   *             within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC.
+   *             Access to the DB shard group is ultimately controlled by the security group it uses.
+   *             That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.</p>
+   *          <p>When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.</p>
+   *          <p>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code> is specified.</p>
+   *          <p>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code> isn't specified, the following applies:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public.</p>
+   *             </li>
+   *          </ul>
+   */
+  PubliclyAccessible?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DBShardGroup {
+  /**
+   * @public
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the DB shard group.</p>
+   */
+  DBShardGroupResourceId?: string;
+
+  /**
+   * @public
+   * <p>The name of the DB shard group.</p>
+   */
+  DBShardGroupIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The name of the primary DB cluster for the DB shard group.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The maximum capacity of the DB shard group in Aurora capacity units (ACUs).</p>
+   */
+  MaxACU?: number;
+
+  /**
+   * @public
+   * <p>Specifies whether to create standby instances for the DB shard group. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>0 - Creates a single, primary DB instance for each physical shard. This is the default value, and the only one supported for the preview.</p>
+   *             </li>
+   *             <li>
+   *                <p>1 - Creates a primary DB instance and a standby instance in a different Availability Zone (AZ) for each physical shard.</p>
+   *             </li>
+   *             <li>
+   *                <p>2 - Creates a primary DB instance and two standby instances in different AZs for each physical shard.</p>
+   *             </li>
+   *          </ul>
+   */
+  ComputeRedundancy?: number;
+
+  /**
+   * @public
+   * <p>The status of the DB shard group.</p>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the DB shard group is publicly accessible.</p>
+   *          <p>When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint
+   *             resolves to the private IP address from within the DB shard group's virtual private cloud
+   *             (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access
+   *             to the DB shard group is ultimately controlled by the security group it uses. That public
+   *             access isn't permitted if the security group assigned to the DB shard group doesn't permit
+   *             it.</p>
+   *          <p>When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.</p>
+   *          <p>For more information, see <a>CreateDBShardGroup</a>.</p>
+   *          <p>This setting is only for Aurora Limitless Database.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * @public
+   * <p>The connection endpoint for the DB shard group.</p>
+   */
+  Endpoint?: string;
+}
+
+/**
+ * @public
+ * <p>The specified DB shard group name must be unique in your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ */
+export class DBShardGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "DBShardGroupAlreadyExistsFault" = "DBShardGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBShardGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBShardGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBShardGroupAlreadyExistsFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The maximum capacity of the DB shard group must be 48-7168 Aurora capacity units (ACUs).</p>
+ */
+export class InvalidMaxAcuFault extends __BaseException {
+  readonly name: "InvalidMaxAcuFault" = "InvalidMaxAcuFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidMaxAcuFault, __BaseException>) {
+    super({
+      name: "InvalidMaxAcuFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMaxAcuFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The maximum number of DB shard groups for your Amazon Web Services account in the specified Amazon Web Services Region has been reached.</p>
+ */
+export class MaxDBShardGroupLimitReached extends __BaseException {
+  readonly name: "MaxDBShardGroupLimitReached" = "MaxDBShardGroupLimitReached";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxDBShardGroupLimitReached, __BaseException>) {
+    super({
+      name: "MaxDBShardGroupLimitReached",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxDBShardGroupLimitReached.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The specified DB engine version isn't supported for Aurora Limitless Database.</p>
+ */
+export class UnsupportedDBEngineVersionFault extends __BaseException {
+  readonly name: "UnsupportedDBEngineVersionFault" = "UnsupportedDBEngineVersionFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedDBEngineVersionFault, __BaseException>) {
+    super({
+      name: "UnsupportedDBEngineVersionFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedDBEngineVersionFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface CreateDBSnapshotMessage {
@@ -11304,7 +11582,14 @@ export interface CreateEventSubscriptionMessage {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>
+   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. SNS
+   *             automatically creates the ARN when you create a topic and subscribe to it.</p>
+   *          <note>
+   *             <p>RDS doesn't support FIFO (first in, first out) topics. For more information, see
+   *                     <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">Message
+   *                     ordering and deduplication (FIFO topics)</a> in the <i>Amazon Simple
+   *                     Notification Service Developer Guide</i>.</p>
+   *          </note>
    */
   SnsTopicArn: string | undefined;
 
@@ -13569,6 +13854,57 @@ export interface DeleteDBSecurityGroupMessage {
 
 /**
  * @public
+ * <p>The specified DB shard group name wasn't found.</p>
+ */
+export class DBShardGroupNotFoundFault extends __BaseException {
+  readonly name: "DBShardGroupNotFoundFault" = "DBShardGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBShardGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBShardGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBShardGroupNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteDBShardGroupMessage {
+  /**
+   * @public
+   * <p>Teh name of the DB shard group to delete.</p>
+   */
+  DBShardGroupIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The DB shard group must be in the available state.</p>
+ */
+export class InvalidDBShardGroupStateFault extends __BaseException {
+  readonly name: "InvalidDBShardGroupStateFault" = "InvalidDBShardGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBShardGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBShardGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBShardGroupStateFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface DeleteDBSnapshotMessage {
@@ -13805,367 +14141,6 @@ export interface DeleteTenantDatabaseMessage {
 }
 
 /**
- * @public
- */
-export interface DeleteTenantDatabaseResult {
-  /**
-   * @public
-   * <p>A tenant database in the DB instance. This data type is an element in the response to
-   *             the <code>DescribeTenantDatabases</code> action.</p>
-   */
-  TenantDatabase?: TenantDatabase;
-}
-
-/**
- * @public
- * <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
- */
-export class DBProxyTargetNotFoundFault extends __BaseException {
-  readonly name: "DBProxyTargetNotFoundFault" = "DBProxyTargetNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBProxyTargetNotFoundFault, __BaseException>) {
-    super({
-      name: "DBProxyTargetNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBProxyTargetNotFoundFault.prototype);
-  }
-}
-
-/**
- * @public
- */
-export interface DeregisterDBProxyTargetsRequest {
-  /**
-   * @public
-   * <p>The identifier of the <code>DBProxy</code> that is associated with the <code>DBProxyTargetGroup</code>.</p>
-   */
-  DBProxyName: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
-   */
-  TargetGroupName?: string;
-
-  /**
-   * @public
-   * <p>One or more DB instance identifiers.</p>
-   */
-  DBInstanceIdentifiers?: string[];
-
-  /**
-   * @public
-   * <p>One or more DB cluster identifiers.</p>
-   */
-  DBClusterIdentifiers?: string[];
-}
-
-/**
- * @public
- */
-export interface DeregisterDBProxyTargetsResponse {}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeAccountAttributesMessage {}
-
-/**
- * @public
- * <p>A filter name and value pair that is used to return a more specific list of results
- *             from a describe operation. Filters can be used to match a set of resources by specific
- *             criteria, such as IDs. The filters supported by a describe operation are documented
- *             with the describe operation.</p>
- *          <note>
- *             <p>Currently, wildcards are not supported in filters.</p>
- *          </note>
- *          <p>The following actions can be filtered:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>DescribeDBClusterBacktracks</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DescribeDBClusterEndpoints</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DescribeDBClusters</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DescribeDBInstances</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DescribeDBRecommendations</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DescribePendingMaintenanceActions</code>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface Filter {
-  /**
-   * @public
-   * <p>The name of the filter. Filter names are case-sensitive.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>One or more filter values. Filter values are case-sensitive.</p>
-   */
-  Values: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBlueGreenDeploymentsRequest {
-  /**
-   * @public
-   * <p>The blue/green deployment identifier. If you specify this parameter, the response only
-   *             includes information about the specific blue/green deployment. This parameter isn't
-   *             case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match an existing blue/green deployment identifier.</p>
-   *             </li>
-   *          </ul>
-   */
-  BlueGreenDeploymentIdentifier?: string;
-
-  /**
-   * @public
-   * <p>A filter that specifies one or more blue/green deployments to describe.</p>
-   *          <p>Valid Values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>blue-green-deployment-identifier</code> - Accepts system-generated
-   *                     identifiers for blue/green deployments. The results list only includes
-   *                     information about the blue/green deployments with the specified
-   *                     identifiers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>blue-green-deployment-name</code> - Accepts user-supplied names for blue/green deployments.
-   *                     The results list only includes information about the blue/green deployments with the
-   *                     specified names.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>source</code> - Accepts source databases for a blue/green deployment.
-   *                     The results list only includes information about the blue/green deployments with
-   *                     the specified source databases.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target</code> - Accepts target databases for a blue/green deployment.
-   *                     The results list only includes information about the blue/green deployments with
-   *                     the specified target databases.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *                 <code>DescribeBlueGreenDeployments</code> request. If you specify this parameter,
-   *             the response only includes records beyond the marker, up to the value specified by
-   *                 <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *             If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be a minimum of 20.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't exceed 100.</p>
-   *             </li>
-   *          </ul>
-   */
-  MaxRecords?: number;
-}
-
-/**
- * @public
- */
-export interface DescribeBlueGreenDeploymentsResponse {
-  /**
-   * @public
-   * <p>A list of blue/green deployments in the current account and Amazon Web Services Region.</p>
-   */
-  BlueGreenDeployments?: BlueGreenDeployment[];
-
-  /**
-   * @public
-   * <p>A pagination token that can be used in a later
-   *                 <code>DescribeBlueGreenDeployments</code> request.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p>A CA certificate for an Amazon Web Services account.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
- *             instance</a> in the <i>Amazon RDS User Guide</i> and
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
- *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
- *             User Guide</i>.</p>
- */
-export interface Certificate {
-  /**
-   * @public
-   * <p>The unique key that identifies a certificate.</p>
-   */
-  CertificateIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The type of the certificate.</p>
-   */
-  CertificateType?: string;
-
-  /**
-   * @public
-   * <p>The thumbprint of the certificate.</p>
-   */
-  Thumbprint?: string;
-
-  /**
-   * @public
-   * <p>The starting date from which the certificate is valid.</p>
-   */
-  ValidFrom?: Date;
-
-  /**
-   * @public
-   * <p>The final date that the certificate continues to be valid.</p>
-   */
-  ValidTill?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the certificate.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether there is an override for the default certificate identifier.</p>
-   */
-  CustomerOverride?: boolean;
-
-  /**
-   * @public
-   * <p>If there is an override for the default certificate identifier, when the override
-   *             expires.</p>
-   */
-  CustomerOverrideValidTill?: Date;
-}
-
-/**
- * @public
- * <p>Data returned by the <b>DescribeCertificates</b> action.</p>
- */
-export interface CertificateMessage {
-  /**
-   * @public
-   * <p>The default root CA for new databases created by your Amazon Web Services account. This is either the root CA override
-   *             set on your Amazon Web Services account or the system default CA for the Region if no override exists. To override the default CA, use the
-   *             <code>ModifyCertificates</code> operation.</p>
-   */
-  DefaultCertificateForNewLaunches?: string;
-
-  /**
-   * @public
-   * <p>The list of <code>Certificate</code> objects for the Amazon Web Services account.</p>
-   */
-  Certificates?: Certificate[];
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeCertificates</code> request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code> .</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeCertificatesMessage {
-  /**
-   * @public
-   * <p>The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match an existing CertificateIdentifier.</p>
-   *             </li>
-   *          </ul>
-   */
-  CertificateIdentifier?: string;
-
-  /**
-   * @public
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *         <code>DescribeCertificates</code> request.
-   *         If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-/**
  * @internal
  */
 export const CreateTenantDatabaseMessageFilterSensitiveLog = (obj: CreateTenantDatabaseMessage): any => ({
@@ -14197,14 +14172,6 @@ export const TenantDatabaseFilterSensitiveLog = (obj: TenantDatabase): any => ({
  * @internal
  */
 export const CreateTenantDatabaseResultFilterSensitiveLog = (obj: CreateTenantDatabaseResult): any => ({
-  ...obj,
-  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
-});
-
-/**
- * @internal
- */
-export const DeleteTenantDatabaseResultFilterSensitiveLog = (obj: DeleteTenantDatabaseResult): any => ({
   ...obj,
   ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
 });

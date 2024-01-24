@@ -8,7 +8,6 @@ import {
   AutomationMode,
   AvailabilityZone,
   BlueGreenDeployment,
-  Certificate,
   DBCluster,
   DBClusterAutomatedBackup,
   DBClusterBacktrack,
@@ -22,12 +21,12 @@ import {
   DBProxy,
   DBProxyEndpoint,
   DBSecurityGroup,
+  DBShardGroup,
   DBSnapshot,
   DBSubnetGroup,
   EventSubscription,
   ExportSourceType,
   ExportTask,
-  Filter,
   GlobalCluster,
   Integration,
   OptionGroup,
@@ -45,6 +44,367 @@ import {
 } from "./models_0";
 
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * @public
+ */
+export interface DeleteTenantDatabaseResult {
+  /**
+   * @public
+   * <p>A tenant database in the DB instance. This data type is an element in the response to
+   *             the <code>DescribeTenantDatabases</code> action.</p>
+   */
+  TenantDatabase?: TenantDatabase;
+}
+
+/**
+ * @public
+ * <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ */
+export class DBProxyTargetNotFoundFault extends __BaseException {
+  readonly name: "DBProxyTargetNotFoundFault" = "DBProxyTargetNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyTargetNotFoundFault, __BaseException>) {
+    super({
+      name: "DBProxyTargetNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyTargetNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeregisterDBProxyTargetsRequest {
+  /**
+   * @public
+   * <p>The identifier of the <code>DBProxy</code> that is associated with the <code>DBProxyTargetGroup</code>.</p>
+   */
+  DBProxyName: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the <code>DBProxyTargetGroup</code>.</p>
+   */
+  TargetGroupName?: string;
+
+  /**
+   * @public
+   * <p>One or more DB instance identifiers.</p>
+   */
+  DBInstanceIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>One or more DB cluster identifiers.</p>
+   */
+  DBClusterIdentifiers?: string[];
+}
+
+/**
+ * @public
+ */
+export interface DeregisterDBProxyTargetsResponse {}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeAccountAttributesMessage {}
+
+/**
+ * @public
+ * <p>A filter name and value pair that is used to return a more specific list of results
+ *             from a describe operation. Filters can be used to match a set of resources by specific
+ *             criteria, such as IDs. The filters supported by a describe operation are documented
+ *             with the describe operation.</p>
+ *          <note>
+ *             <p>Currently, wildcards are not supported in filters.</p>
+ *          </note>
+ *          <p>The following actions can be filtered:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusterBacktracks</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusterEndpoints</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusters</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBInstances</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBRecommendations</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribePendingMaintenanceActions</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface Filter {
+  /**
+   * @public
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>One or more filter values. Filter values are case-sensitive.</p>
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBlueGreenDeploymentsRequest {
+  /**
+   * @public
+   * <p>The blue/green deployment identifier. If you specify this parameter, the response only
+   *             includes information about the specific blue/green deployment. This parameter isn't
+   *             case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match an existing blue/green deployment identifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  BlueGreenDeploymentIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies one or more blue/green deployments to describe.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>blue-green-deployment-identifier</code> - Accepts system-generated
+   *                     identifiers for blue/green deployments. The results list only includes
+   *                     information about the blue/green deployments with the specified
+   *                     identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>blue-green-deployment-name</code> - Accepts user-supplied names for blue/green deployments.
+   *                     The results list only includes information about the blue/green deployments with the
+   *                     specified names.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source</code> - Accepts source databases for a blue/green deployment.
+   *                     The results list only includes information about the blue/green deployments with
+   *                     the specified source databases.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target</code> - Accepts target databases for a blue/green deployment.
+   *                     The results list only includes information about the blue/green deployments with
+   *                     the specified target databases.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeBlueGreenDeployments</code> request. If you specify this parameter,
+   *             the response only includes records beyond the marker, up to the value specified by
+   *                 <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a minimum of 20.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't exceed 100.</p>
+   *             </li>
+   *          </ul>
+   */
+  MaxRecords?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBlueGreenDeploymentsResponse {
+  /**
+   * @public
+   * <p>A list of blue/green deployments in the current account and Amazon Web Services Region.</p>
+   */
+  BlueGreenDeployments?: BlueGreenDeployment[];
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a later
+   *                 <code>DescribeBlueGreenDeployments</code> request.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p>A CA certificate for an Amazon Web Services account.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+ *             instance</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+ *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
+ */
+export interface Certificate {
+  /**
+   * @public
+   * <p>The unique key that identifies a certificate.</p>
+   */
+  CertificateIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The type of the certificate.</p>
+   */
+  CertificateType?: string;
+
+  /**
+   * @public
+   * <p>The thumbprint of the certificate.</p>
+   */
+  Thumbprint?: string;
+
+  /**
+   * @public
+   * <p>The starting date from which the certificate is valid.</p>
+   */
+  ValidFrom?: Date;
+
+  /**
+   * @public
+   * <p>The final date that the certificate continues to be valid.</p>
+   */
+  ValidTill?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the certificate.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether there is an override for the default certificate identifier.</p>
+   */
+  CustomerOverride?: boolean;
+
+  /**
+   * @public
+   * <p>If there is an override for the default certificate identifier, when the override
+   *             expires.</p>
+   */
+  CustomerOverrideValidTill?: Date;
+}
+
+/**
+ * @public
+ * <p>Data returned by the <b>DescribeCertificates</b> action.</p>
+ */
+export interface CertificateMessage {
+  /**
+   * @public
+   * <p>The default root CA for new databases created by your Amazon Web Services account. This is either the root CA override
+   *             set on your Amazon Web Services account or the system default CA for the Region if no override exists. To override the default CA, use the
+   *             <code>ModifyCertificates</code> operation.</p>
+   */
+  DefaultCertificateForNewLaunches?: string;
+
+  /**
+   * @public
+   * <p>The list of <code>Certificate</code> objects for the Amazon Web Services account.</p>
+   */
+  Certificates?: Certificate[];
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *             <code>DescribeCertificates</code> request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code> .</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeCertificatesMessage {
+  /**
+   * @public
+   * <p>The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match an existing CertificateIdentifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  CertificateIdentifier?: string;
+
+  /**
+   * @public
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeCertificates</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
 
 /**
  * @public
@@ -674,7 +1034,7 @@ export interface DescribeDBClustersMessage {
    *             If more records exist than the specified <code>MaxRecords</code> value,
    *           a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
    *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints: Minimum 20, maximum 100</p>
    */
   MaxRecords?: number;
 
@@ -2982,6 +3342,63 @@ export interface DescribeDBSecurityGroupsMessage {
    *         If this parameter is specified, the response includes
    *         only records beyond the marker,
    *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBShardGroupsMessage {
+  /**
+   * @public
+   * <p>The user-supplied DB shard group identifier or the Amazon Resource Name (ARN) of the DB shard group. If this parameter is specified,
+   *             information for only the specific DB shard group is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DB shard group identifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBShardGroupIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies one or more DB shard groups to describe.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous <code>DescribeDBShardGroups</code> request. If this parameter is
+   *             specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code>
+   *             value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100</p>
+   */
+  MaxRecords?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBShardGroupsResponse {
+  /**
+   * @public
+   * <p>Contains a list of DB shard groups for the user.</p>
+   */
+  DBShardGroups?: DBShardGroup[];
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a later <code>DescribeDBClusters</code> request.</p>
    */
   Marker?: string;
 }
@@ -7505,6 +7922,13 @@ export interface ModifyDBClusterMessage {
    * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
    */
   AwsBackupRecoveryPointArn?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether to enable Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   */
+  EnableLimitlessDatabase?: boolean;
 }
 
 /**
@@ -9186,6 +9610,23 @@ export interface ModifyDBRecommendationMessage {
 /**
  * @public
  */
+export interface ModifyDBShardGroupMessage {
+  /**
+   * @public
+   * <p>The name of the DB shard group to modify.</p>
+   */
+  DBShardGroupIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum capacity of the DB shard group in Aurora capacity units (ACUs).</p>
+   */
+  MaxACU?: number;
+}
+
+/**
+ * @public
+ */
 export interface ModifyDBSnapshotMessage {
   /**
    * @public
@@ -9996,6 +10437,17 @@ export interface RebootDBInstanceResult {
    *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.</p>
    */
   DBInstance?: DBInstance;
+}
+
+/**
+ * @public
+ */
+export interface RebootDBShardGroupMessage {
+  /**
+   * @public
+   * <p>The name of the DB shard group to reboot.</p>
+   */
+  DBShardGroupIdentifier: string | undefined;
 }
 
 /**
@@ -14312,6 +14764,14 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance;
 }
+
+/**
+ * @internal
+ */
+export const DeleteTenantDatabaseResultFilterSensitiveLog = (obj: DeleteTenantDatabaseResult): any => ({
+  ...obj,
+  ...(obj.TenantDatabase && { TenantDatabase: TenantDatabaseFilterSensitiveLog(obj.TenantDatabase) }),
+});
 
 /**
  * @internal
