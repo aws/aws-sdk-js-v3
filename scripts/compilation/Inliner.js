@@ -157,6 +157,9 @@ module.exports = class Inliner {
       mainFields: ["main"],
       allowOverwrite: true,
       entryPoints: [path.join(root, this.subfolder, this.package, "src", "index.ts")],
+      supported: {
+        "dynamic-import": false,
+      },
       outfile: this.outfile,
       keepNames: true,
       packages: "external",
