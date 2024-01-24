@@ -1432,8 +1432,8 @@ export interface DeploymentConfiguration {
    * 					the container health check settings. </p>
    *             </li>
    *          </ul>
-   *          <p>For services are that <i>do</i> use a load balancer, the following
-   * 			should be noted:</p>
+   *          <p>For services that <i>do</i> use a load balancer, the following should be
+   * 			noted:</p>
    *          <ul>
    *             <li>
    *                <p>If a task has no essential containers with a health check defined, the service
@@ -1610,7 +1610,9 @@ export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp
 
 /**
  * @public
- * <p>An object representing the networking details for a task or service.</p>
+ * <p>An object representing the networking details for a task or service. For example
+ * 				<code>awsvpcConfiguration=\{subnets=["subnet-12344321"],securityGroups=["sg-12344321"]\}</code>
+ *          </p>
  */
 export interface AwsVpcConfiguration {
   /**
@@ -2087,7 +2089,7 @@ export interface ServiceConnectService {
 
   /**
    * @public
-   * <p>An object that represents the configuration for Service Connect TLS.</p>
+   * <p>A reference to an object that represents a Transport Layer Security (TLS) configuration.</p>
    */
   tls?: ServiceConnectTlsConfiguration;
 }
@@ -4401,6 +4403,7 @@ export type ContainerCondition = (typeof ContainerCondition)[keyof typeof Contai
  *                </li>
  *             </ul>
  *          </note>
+ *          <p>For more information about how to create a container dependency, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/example_task_definitions.html#example_task_definition-containerdependency">Container dependency</a> in the  <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface ContainerDependency {
   /**
@@ -5388,7 +5391,7 @@ export type UlimitName = (typeof UlimitName)[keyof typeof UlimitName];
  * 							overrides. The <code>nofile</code> resource limit sets a restriction on
  * 							the number of open files that a container can use. The default
  * 								<code>nofile</code> soft limit is <code>1024</code> and the default hard limit
- * 							is <code>4096</code>.</p>
+ * 							is <code>65535</code>.</p>
  *          <p>You can specify the <code>ulimit</code> settings for a container in a task
  * 			definition.</p>
  */
@@ -6074,7 +6077,7 @@ export interface ContainerDefinition {
    * 							overrides. The <code>nofile</code> resource limit sets a restriction on
    * 							the number of open files that a container can use. The default
    * 								<code>nofile</code> soft limit is <code>1024</code> and the default hard limit
-   * 							is <code>4096</code>.</p>
+   * 							is <code>65535</code>.</p>
    *          <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '\{\{.Server.APIVersion\}\}'</code>
    *          </p>
    *          <note>
@@ -8846,41 +8849,7 @@ export interface Task {
    * @public
    * <p>The stop code indicating why a task was stopped. The <code>stoppedReason</code> might
    * 			contain additional details. </p>
-   *          <p>For more information about stop code, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/stopped-task-error-codes.html">Stopped tasks error
-   * 				codes</a> in the <i>Amazon ECS User Guide</i>.</p>
-   *          <p>The following are valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TaskFailedToStart</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EssentialContainerExited</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UserInitiated</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TerminationNotice</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ServiceSchedulerInitiated</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SpotInterruption</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information about stop code, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/stopped-task-error-codes.html">Stopped tasks error codes</a> in the <i>Amazon ECS User Guide</i>.</p>
    */
   stopCode?: TaskStopCode;
 
@@ -11652,10 +11621,10 @@ export interface StopTaskRequest {
 
   /**
    * @public
-   * <p>An optional message specified when a task is stopped. For example, if you're using a
-   * 			custom scheduler, you can use this parameter to specify the reason for stopping the task
-   * 			here, and the message appears in subsequent <a>DescribeTasks</a> API
-   * 			operations on this task. Up to 255 characters are allowed in this message.</p>
+   * <p>An optional message specified when a task is stopped. For example, if you're using a custom
+   * 			scheduler, you can use this parameter to specify the reason for stopping the task here,
+   * 			and the message appears in subsequent <a>DescribeTasks</a> API operations on
+   * 			this task.</p>
    */
   reason?: string;
 }

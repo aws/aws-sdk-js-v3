@@ -32,7 +32,7 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * 			uses the <code>EXTERNAL</code> deployment controller type. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment
  * 				types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>You can create a maximum of 5 tasks sets for a deployment.</p>
+ *          <p>For information about the maximum number of task sets and otther quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service quotas</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
