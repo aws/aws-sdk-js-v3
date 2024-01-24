@@ -152,8 +152,61 @@ describe("object with function property", () => {
   const keyNodes = { Item: {} };
   const nativeAttrObj = { Item: { id: 1, func: () => {} }, ...notAttrValue };
   const attrObj = { Item: { id: { N: "1" } }, ...notAttrValue };
-
   it(marshallInput.name, () => {
     expect(marshallInput(nativeAttrObj, keyNodes, { convertTopLevelContainer: true })).toEqual(attrObj);
+  });
+
+  // List of functions
+  const listOfFunctions = { Item: { id: 1, funcs: [() => {}, () => {}] }, ...notAttrValue };
+  it(marshallInput.name, () => {
+    expect(
+      marshallInput(listOfFunctions, keyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
+    ).toEqual(attrObj);
+  });
+
+  // Nested list of functions
+  const nestedListOfFunctions = {
+    Item: {
+      id: 1,
+      funcs: [
+        [() => {}, () => {}],
+        [() => {}, () => {}],
+      ],
+    },
+    ...notAttrValue,
+  };
+  it(marshallInput.name, () => {
+    expect(
+      marshallInput(nestedListOfFunctions, keyNodes, {
+        convertTopLevelContainer: true,
+        convertClassInstanceToMap: true,
+      })
+    ).toEqual(attrObj);
+  });
+
+  // Nested list of functions 3 levels down
+  const nestedListOfFunctions3Levels = {
+    Item: {
+      id: 1,
+      funcs: [
+        [
+          [() => {}, () => {}],
+          [() => {}, () => {}],
+        ],
+        [
+          [() => {}, () => {}],
+          [() => {}, () => {}],
+        ],
+      ],
+    },
+    ...notAttrValue,
+  };
+  it(marshallInput.name, () => {
+    expect(
+      marshallInput(nestedListOfFunctions3Levels, keyNodes, {
+        convertTopLevelContainer: true,
+        convertClassInstanceToMap: true,
+      })
+    ).toEqual(attrObj);
   });
 });
