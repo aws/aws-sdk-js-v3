@@ -127,5 +127,5 @@ export const resolveAssumeRoleCredentials = async (
   }
 
   const sourceCreds = await sourceCredsProvider;
-  return options.roleAssumer(sourceCreds, params);
+  return options.roleAssumer!(sourceCreds, params);
 };

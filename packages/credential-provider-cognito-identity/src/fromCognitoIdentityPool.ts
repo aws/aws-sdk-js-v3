@@ -34,7 +34,7 @@ export function fromCognitoIdentityPool({
     const { GetIdCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
     const _client = client ?? new CognitoIdentityClient(clientConfig ?? {});
 
-    let identityId = cacheKey && (await cache.getItem(cacheKey));
+    let identityId: string | undefined = (cacheKey && (await cache.getItem(cacheKey))) as string | undefined;
     if (!identityId) {
       const { IdentityId = throwOnMissingId() } = await _client.send(
         new GetIdCommand({
@@ -43,7 +43,7 @@ export function fromCognitoIdentityPool({
           Logins: logins ? await resolveLogins(logins) : undefined,
         })
       );
-      identityId = IdentityId;
+      identityId = IdentityId as string;
       if (cacheKey) {
         Promise.resolve(cache.setItem(cacheKey, identityId)).catch(() => {});
       }

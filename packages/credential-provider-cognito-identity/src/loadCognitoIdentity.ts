@@ -1,3 +1,4 @@
+// @ts-nocheck (peerDep client)
 import {
   CognitoIdentityClient,
   GetCredentialsForIdentityCommand,
@@ -6,3 +7,4 @@ import {
 
 // This file must be loaded dynamically.
 export { CognitoIdentityClient, GetCredentialsForIdentityCommand, GetIdCommand };
+export type { CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";

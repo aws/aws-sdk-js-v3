@@ -9,7 +9,7 @@
     "build:cjs": "node ../../scripts/compilation/inline credential-provider-ini",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
-    "build:types": "tsc -p tsconfig.types.json",
+    "build:types": "tsc -p tsconfig.types.json && node ../../scripts/compilation/set-nocheck credential-provider-ini",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "jest"
@@ -24,7 +24,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-sts": "*",
     "@aws-sdk/credential-provider-env": "*",
     "@aws-sdk/credential-provider-process": "*",
     "@aws-sdk/credential-provider-sso": "*",
@@ -35,6 +34,9 @@
     "@smithy/shared-ini-file-loader": "^2.3.1",
     "@smithy/types": "^2.9.1",
     "tslib": "^2.5.0"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-sts": "*"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

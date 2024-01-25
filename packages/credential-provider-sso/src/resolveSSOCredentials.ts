@@ -1,10 +1,10 @@
-import type { GetRoleCredentialsCommandOutput } from "@aws-sdk/client-sso";
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getSSOTokenFromFile, SSOToken } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentity } from "@smithy/types";
 
 import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
+import type { GetRoleCredentialsCommandOutput } from "./loadSso";
 
 const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
 
@@ -69,10 +69,16 @@ export const resolveSSOCredentials = async ({
     throw CredentialsProviderError.from(e, SHOULD_FAIL_CREDENTIAL_CHAIN);
   }
 
-  const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration } = {} } = ssoResp;
-  // TODO(credentialScope): Extract from ssoResp object with other credential fields
-  // TODO(credentialScope): when this field becomes defined on the shape.
-  const credentialScope = (ssoResp?.roleCredentials as any)?.credentialScope;
+  const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration, credentialScope } = {} } =
+    ssoResp as unknown as {
+      roleCredentials: {
+        accessKeyId?: string;
+        secretAccessKey?: string;
+        sessionToken?: string;
+        expiration?: Date | string;
+        credentialScope?: string;
+      };
+    };
 
   if (!accessKeyId || !secretAccessKey || !sessionToken || !expiration) {
     throw new CredentialsProviderError("SSO returns an invalid temporary credential.", SHOULD_FAIL_CREDENTIAL_CHAIN);

@@ -1,5 +1,6 @@
-import type { STSClientConfig } from "@aws-sdk/client-sts";
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
+
+import type { STSClientConfig } from "./loadSts";
 
 /**
  * @public
@@ -159,7 +160,7 @@ export const fromWebToken =
       roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins);
     }
 
-    return roleAssumerWithWebIdentity({
+    return roleAssumerWithWebIdentity!({
       RoleArn: roleArn,
       RoleSessionName: roleSessionName ?? `aws-sdk-js-session-${Date.now()}`,
       WebIdentityToken: webIdentityToken,

@@ -1,5 +1,4 @@
-import type { CognitoIdentityClient, CognitoIdentityClientConfig } from "@aws-sdk/client-cognito-identity";
-
+import type { CognitoIdentityClient, CognitoIdentityClientConfig } from "./loadCognitoIdentity";
 import { Logins } from "./Logins";
 
 /**

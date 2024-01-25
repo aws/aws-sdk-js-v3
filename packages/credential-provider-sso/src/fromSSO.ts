@@ -1,9 +1,9 @@
-import type { SSOClient, SSOClientConfig } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { isSsoProfile } from "./isSsoProfile";
+import type { SSOClient, SSOClientConfig } from "./loadSso";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
