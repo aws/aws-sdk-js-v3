@@ -20,12 +20,12 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "3.0.0",
     "@aws-crypto/sha256-js": "3.0.0",
-    "@aws-sdk/client-sts": "*",
     "@aws-sdk/core": "*",
     "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
     "@aws-sdk/middleware-recursion-detection": "*",
+    "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/middleware-user-agent": "*",
     "@aws-sdk/region-config-resolver": "*",

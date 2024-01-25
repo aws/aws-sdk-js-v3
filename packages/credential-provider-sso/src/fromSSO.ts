@@ -1,3 +1,4 @@
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
@@ -41,7 +42,7 @@ export interface SsoCredentialsParameters {
 /**
  * @internal
  */
-export interface FromSSOInit extends SourceProfileInit {
+export interface FromSSOInit extends SourceProfileInit, CredentialProviderOptions {
   ssoClient?: SSOClient;
   clientConfig?: SSOClientConfig;
 }
@@ -80,6 +81,7 @@ export interface FromSSOInit extends SourceProfileInit {
 export const fromSSO =
   (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): AwsCredentialIdentityProvider =>
   async () => {
+    init.logger?.debug("@aws-sdk/credential-provider-sso", "fromSSO");
     const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
     let { ssoClient } = init;
     if (!ssoClient) {

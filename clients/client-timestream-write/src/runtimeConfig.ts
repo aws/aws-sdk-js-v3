@@ -2,7 +2,6 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
 import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS } from "@aws-sdk/middleware-endpoint-discovery";
@@ -40,8 +39,7 @@ export const getRuntimeConfig = (config: TimestreamWriteClientConfig) => {
     runtime: "node",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    credentialDefaultProvider:
-      config?.credentialDefaultProvider ?? decorateDefaultCredentialProvider(credentialDefaultProvider),
+    credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),

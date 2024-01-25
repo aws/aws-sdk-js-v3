@@ -1,3 +1,4 @@
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
 import type { STSClientConfig } from "./loadSts";
@@ -120,7 +121,9 @@ type LowerCaseKey<T> = { [K in keyof T as `${Uncapitalize<string & K>}`]: T[K] }
 /**
  * @public
  */
-export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIdentityParams>, "roleSessionName"> {
+export interface FromWebTokenInit
+  extends Omit<LowerCaseKey<AssumeRoleWithWebIdentityParams>, "roleSessionName">,
+    CredentialProviderOptions {
   /**
    * The IAM session name used to distinguish sessions.
    */
@@ -151,6 +154,7 @@ export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIde
 export const fromWebToken =
   (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
   async () => {
+    init.logger?.debug("@aws-sdk/credential-provider-web-identity", "fromWebToken");
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
 
     let { roleAssumerWithWebIdentity } = init;

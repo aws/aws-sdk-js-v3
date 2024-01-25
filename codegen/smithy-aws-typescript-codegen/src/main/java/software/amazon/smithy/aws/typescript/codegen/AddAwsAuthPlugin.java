@@ -38,6 +38,7 @@ import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -211,13 +212,19 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                             writer
                                 .addRelativeImport("decorateDefaultCredentialProvider", null,
                                     Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE))
-                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
+                                .addRelativeImport("defaultProvider", "credentialDefaultProvider",
+                                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
                                 .write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
+
+                        } else if (isCredentialService(service)) {
+                            writer
+                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
+                                .addRelativeImport("defaultProvider", "credentialDefaultProvider",
+                                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
+                                .write("credentialDefaultProvider");
                         } else {
                             writer
-                                .addDependency(AwsDependency.STS_CLIENT)
                                 .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
                                 .addImport("defaultProvider", "credentialDefaultProvider",
                                     AwsDependency.CREDENTIAL_PROVIDER_NODE)
@@ -241,6 +248,22 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "index.ts").toString(), writer -> {
             writeAdditionalExports(settings, model, writer);
         });
+
+        if (isCredentialService(settings.getService(model))) {
+            writerFactory.accept(CodegenUtils.SOURCE_FOLDER + "/credentialDefaultProvider.ts", writer -> {
+                writer
+                    .write("""
+                            /**
+                             * @internal
+                             */
+                            export const defaultProvider = (async (input: any) => {
+                                // @ts-ignore
+                                const nodeCredentials: any = await import("@aws-sdk/credential-provider-node");
+                                return nodeCredentials.defaultProvider(input);
+                            }) as any;
+                        """);
+            });
+        }
     }
 
     private void writeAdditionalFiles(
@@ -328,5 +351,15 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             }
         }
         return true;
+    }
+
+    /**
+     * Some services with circular dependencies to credential providers.
+     */
+    private boolean isCredentialService(ServiceShape service) {
+        return List.of(
+            ShapeId.from("com.amazonaws.ssooidc#AWSSSOOIDCService"),
+            ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615")
+        ).stream().anyMatch(service.getId()::equals);
     }
 }

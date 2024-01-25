@@ -1,4 +1,5 @@
 import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { getProfileName, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
@@ -9,7 +10,7 @@ import { resolveProfileData } from "./resolveProfileData";
 /**
  * @public
  */
-export interface FromIniInit extends SourceProfileInit {
+export interface FromIniInit extends SourceProfileInit, CredentialProviderOptions {
   /**
    * A function that returns a promise fulfilled with an MFA token code for
    * the provided MFA Serial code. If a profile requires an MFA code and
@@ -51,6 +52,7 @@ export interface FromIniInit extends SourceProfileInit {
 export const fromIni =
   (init: FromIniInit = {}): AwsCredentialIdentityProvider =>
   async () => {
+    init.logger?.debug("@aws-sdk/credential-provider-ini", "fromIni");
     const profiles = await parseKnownFiles(init);
     return resolveProfileData(getProfileName(init), profiles, init);
   };

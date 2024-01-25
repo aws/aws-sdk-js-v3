@@ -112,9 +112,9 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                         writer
                             .addRelativeImport("decorateDefaultCredentialProvider", null,
                                 Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE))
-                            .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                            .addImport("defaultProvider", "credentialDefaultProvider",
-                                AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                            .addRelativeImport("defaultProvider", "credentialDefaultProvider",
+                                Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
+                            .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
                             .write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
                     }
                 );
@@ -222,9 +222,6 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                 .putDefaultIdentityProvider(LanguageTarget.NODE, w -> w
                     .addRelativeImport("decorateDefaultCredentialProvider", null,
                         Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE))
-                    .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                    .addImport("defaultProvider", "credentialDefaultProvider",
-                        AwsDependency.CREDENTIAL_PROVIDER_NODE)
                     .write("""
                         async (idProps) => await \
                         decorateDefaultCredentialProvider(credentialDefaultProvider)(idProps?.__config || {})()"""))

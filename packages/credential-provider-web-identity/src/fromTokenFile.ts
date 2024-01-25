@@ -1,5 +1,6 @@
+import { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 import { readFileSync } from "fs";
 
 import { fromWebToken, FromWebTokenInit } from "./fromWebToken";
@@ -11,7 +12,9 @@ const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 /**
  * @public
  */
-export interface FromTokenFileInit extends Partial<Omit<FromWebTokenInit, "webIdentityToken">> {
+export interface FromTokenFileInit
+  extends Partial<Omit<FromWebTokenInit, "webIdentityToken">>,
+    CredentialProviderOptions {
   /**
    * File location of where the `OIDC` token is stored.
    */
@@ -26,6 +29,7 @@ export interface FromTokenFileInit extends Partial<Omit<FromWebTokenInit, "webId
 export const fromTokenFile =
   (init: FromTokenFileInit = {}): AwsCredentialIdentityProvider =>
   async () => {
+    init.logger?.debug("@aws-sdk/credential-provider-web-identity", "fromTokenFile");
     const webIdentityTokenFile = init?.webIdentityTokenFile ?? process.env[ENV_TOKEN_FILE];
     const roleArn = init?.roleArn ?? process.env[ENV_ROLE_ARN];
     const roleSessionName = init?.roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME];

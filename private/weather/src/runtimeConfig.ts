@@ -2,7 +2,6 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
-import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { Hash } from "@smithy/hash-node";
@@ -31,8 +30,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     runtime: "node",
     defaultsMode,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    credentialDefaultProvider:
-      config?.credentialDefaultProvider ?? decorateDefaultCredentialProvider(credentialDefaultProvider),
+    credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ?? defaultUserAgent({ clientVersion: packageInfo.version }),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),

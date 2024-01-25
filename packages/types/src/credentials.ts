@@ -1,3 +1,5 @@
+import { Logger } from "@smithy/types";
+
 import { AwsCredentialIdentity } from "./identity";
 import { Provider } from "./util";
 
@@ -16,3 +18,12 @@ export interface Credentials extends AwsCredentialIdentity {}
  * @deprecated Use {@link AwsCredentialIdentityProvider}
  */
 export type CredentialProvider = Provider<Credentials>;
+
+/**
+ * @public
+ *
+ * Common options for credential providers.
+ */
+export type CredentialProviderOptions = {
+  logger?: Logger;
+};

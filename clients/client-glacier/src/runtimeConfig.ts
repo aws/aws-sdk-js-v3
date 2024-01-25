@@ -3,7 +3,6 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-node";
-import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
 import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
@@ -41,8 +40,7 @@ export const getRuntimeConfig = (config: GlacierClientConfig) => {
     defaultsMode,
     bodyChecksumGenerator: config?.bodyChecksumGenerator ?? bodyChecksumGenerator,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
-    credentialDefaultProvider:
-      config?.credentialDefaultProvider ?? decorateDefaultCredentialProvider(credentialDefaultProvider),
+    credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
