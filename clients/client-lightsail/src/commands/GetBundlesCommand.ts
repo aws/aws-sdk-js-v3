@@ -69,6 +69,7 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * //       supportedAppCategories: [ // AppCategoryList
  * //         "LfR",
  * //       ],
+ * //       publicIpv4AddressCount: Number("int"),
  * //     },
  * //   ],
  * //   nextPageToken: "STRING_VALUE",

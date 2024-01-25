@@ -1354,6 +1354,12 @@ export interface InstanceAccessDetails {
 
   /**
    * @public
+   * <p>The IPv6 address of the Amazon Lightsail instance.</p>
+   */
+  ipv6Addresses?: string[];
+
+  /**
+   * @public
    * <p>For RDP access, the password for your Amazon Lightsail instance. Password will be an empty
    *       string if the password for your new instance is not ready yet. When you create an instance, it
    *       can take up to 15 minutes for the instance to be ready.</p>

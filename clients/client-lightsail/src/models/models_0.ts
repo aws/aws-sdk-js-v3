@@ -2217,6 +2217,12 @@ export interface Bundle {
    *          </important>
    */
   supportedAppCategories?: AppCategory[];
+
+  /**
+   * @public
+   * <p>An integer that indicates the public ipv4 address count included in the bundle, the value is either 0 or 1.</p>
+   */
+  publicIpv4AddressCount?: number;
 }
 
 /**

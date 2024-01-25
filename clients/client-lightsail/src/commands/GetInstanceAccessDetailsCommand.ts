@@ -50,6 +50,9 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * //     certKey: "STRING_VALUE",
  * //     expiresAt: new Date("TIMESTAMP"),
  * //     ipAddress: "STRING_VALUE",
+ * //     ipv6Addresses: [ // Ipv6AddressList
+ * //       "STRING_VALUE",
+ * //     ],
  * //     password: "STRING_VALUE",
  * //     passwordData: { // PasswordData
  * //       ciphertext: "STRING_VALUE",
