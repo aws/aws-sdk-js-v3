@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.500.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.499.0...v3.500.0) (2024-01-25)
+
+
+### Features
+
+* **client-acm-pca:** AWS Private CA now supports an option to omit the CDP extension from issued certificates, when CRL revocation is enabled. ([bcb0669](https://github.com/aws/aws-sdk-js-v3/commit/bcb06697d462ca5923a6496772a58f431fec6da2))
+* **client-lightsail:** This release adds support for IPv6-only instance plans. ([49db96c](https://github.com/aws/aws-sdk-js-v3/commit/49db96c9633a4ae556d47332e04266f8f8fd010b))
+* **clients:** update command documentation examples as of 2024-01-25 ([922a7c9](https://github.com/aws/aws-sdk-js-v3/commit/922a7c9c70d1be441f22a88f4ee3a7d7fa47bbd0))
+
+
+
+
+
 # [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
 
 

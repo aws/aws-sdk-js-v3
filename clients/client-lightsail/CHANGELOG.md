@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.500.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.499.0...v3.500.0) (2024-01-25)
+
+
+### Features
+
+* **client-lightsail:** This release adds support for IPv6-only instance plans. ([49db96c](https://github.com/aws/aws-sdk-js-v3/commit/49db96c9633a4ae556d47332e04266f8f8fd010b))
+
+
+
+
+
 # [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

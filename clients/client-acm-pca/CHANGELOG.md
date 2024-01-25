@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.500.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.499.0...v3.500.0) (2024-01-25)
+
+
+### Features
+
+* **client-acm-pca:** AWS Private CA now supports an option to omit the CDP extension from issued certificates, when CRL revocation is enabled. ([bcb0669](https://github.com/aws/aws-sdk-js-v3/commit/bcb06697d462ca5923a6496772a58f431fec6da2))
+
+
+
+
+
 # [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
 
 **Note:** Version bump only for package @aws-sdk/client-acm-pca
