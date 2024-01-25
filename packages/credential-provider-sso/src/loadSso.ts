@@ -1,4 +1,3 @@
-// @ts-nocheck (peerDep client)
 import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/client-sso";
 
 // This file must be loaded dynamically.

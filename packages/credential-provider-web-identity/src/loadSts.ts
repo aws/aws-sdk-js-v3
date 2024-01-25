@@ -1,4 +1,3 @@
-// @ts-nocheck (peerDep client)
 import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 
 // This file must be loaded dynamically.
