@@ -488,6 +488,25 @@ export type KeyStorageSecurityStandard = (typeof KeyStorageSecurityStandard)[key
 
 /**
  * @public
+ * <p>Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension
+ * 			contains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension
+ * 			omitted or not in certificates issued by your CA, you can set the <b>OmitExtension</b> parameter.</p>
+ */
+export interface CrlDistributionPointExtensionConfiguration {
+  /**
+   * @public
+   * <p>Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to <code>true</code>, then the CDP extension will
+   * 			not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.</p>
+   *          <note>
+   *             <p>Only set this if you have another way to distribute the CRL Distribution Points ffor certificates issued by your CA, such as the Matter Distributed Compliance Ledger</p>
+   *             <p>This configuration cannot be enabled with a custom CNAME set.</p>
+   *          </note>
+   */
+  OmitExtension: boolean | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const S3ObjectAcl = {
@@ -507,8 +526,10 @@ export type S3ObjectAcl = (typeof S3ObjectAcl)[keyof typeof S3ObjectAcl];
  * 			can enable CRLs for your new or an existing private CA by setting the <b>Enabled</b> parameter to <code>true</code>. Your private CA
  * 			writes CRLs to an S3 bucket that you specify in the <b>S3BucketName</b> parameter. You can hide the name of your bucket by
  * 			specifying a value for the <b>CustomCname</b> parameter. Your
- * 			private CA copies the CNAME or the S3 bucket name to the <b>CRL
- * 				Distribution Points</b> extension of each certificate it issues. Your S3
+ * 			private CA by default copies the CNAME or the S3 bucket name to the <b>CRL
+ * 				Distribution Points</b> extension of each certificate it issues. If you want to configure
+ * 				this default behavior to be something different, you can set the <b>CrlDistributionPointExtensionConfiguration</b>
+ * 				parameter. Your S3
  * 			bucket policy must give write permission to Amazon Web Services Private CA. </p>
  *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
@@ -678,6 +699,12 @@ export interface CrlConfiguration {
    * 				bucket</a>.</p>
    */
   S3ObjectAcl?: S3ObjectAcl;
+
+  /**
+   * @public
+   * <p>Configures the behavior of the CRL Distribution Point extension for certificates issued by your certificate authority. If this field is not provided, then the CRl Distribution Point Extension will be present and contain the default CRL URL.</p>
+   */
+  CrlDistributionPointExtensionConfiguration?: CrlDistributionPointExtensionConfiguration;
 }
 
 /**
@@ -2311,6 +2338,7 @@ export interface ListCertificateAuthoritiesRequest {
    * 			specify, the <code>NextToken</code> element is sent in the response. Use this
    * 				<code>NextToken</code> value in a subsequent request to retrieve additional
    * 			items.</p>
+   *          <p>Although the maximum value is 1000, the action only returns a maximum of 100 items.</p>
    */
   MaxResults?: number;
 

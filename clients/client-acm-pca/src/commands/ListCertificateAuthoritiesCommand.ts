@@ -146,6 +146,9 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  * //           CustomCname: "STRING_VALUE",
  * //           S3BucketName: "STRING_VALUE",
  * //           S3ObjectAcl: "PUBLIC_READ" || "BUCKET_OWNER_FULL_CONTROL",
+ * //           CrlDistributionPointExtensionConfiguration: { // CrlDistributionPointExtensionConfiguration
+ * //             OmitExtension: true || false, // required
+ * //           },
  * //         },
  * //         OcspConfiguration: { // OcspConfiguration
  * //           Enabled: true || false, // required
