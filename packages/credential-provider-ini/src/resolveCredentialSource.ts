@@ -1,4 +1,5 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { fromContainerMetadata, fromInstanceMetadata } from "@smithy/credential-provider-imds";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
@@ -15,14 +16,14 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
 export const resolveCredentialSource = (
   credentialSource: string,
   profileName: string
-): AwsCredentialIdentityProvider => {
-  const sourceProvidersMap: Record<string, () => AwsCredentialIdentityProvider> = {
+): ((options?: CredentialProviderOptions) => AwsCredentialIdentityProvider) => {
+  const sourceProvidersMap: Record<string, (options?: CredentialProviderOptions) => AwsCredentialIdentityProvider> = {
     EcsContainer: fromContainerMetadata,
     Ec2InstanceMetadata: fromInstanceMetadata,
     Environment: fromEnv,
   };
   if (credentialSource in sourceProvidersMap) {
-    return sourceProvidersMap[credentialSource]();
+    return sourceProvidersMap[credentialSource];
   } else {
     throw new CredentialsProviderError(
       `Unsupported credential source in profile ${profileName}. Got ${credentialSource}, ` +

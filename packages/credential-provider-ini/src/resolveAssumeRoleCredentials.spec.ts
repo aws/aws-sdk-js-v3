@@ -120,7 +120,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
   beforeEach(() => {
     (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
     (resolveProfileData as jest.Mock).mockResolvedValue(mockSourceCredsFromProfile);
-    (resolveCredentialSource as jest.Mock).mockReturnValue(() => Promise.resolve(mockSourceCredsFromCredential));
+    (resolveCredentialSource as jest.Mock).mockReturnValue(() => () => Promise.resolve(mockSourceCredsFromCredential));
   });
 
   afterEach(() => {

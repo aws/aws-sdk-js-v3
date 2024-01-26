@@ -1,6 +1,6 @@
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
-import type { FromSSOInit } from "@aws-sdk/credential-provider-sso";
+import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
 import { chain, CredentialsProviderError, memoize } from "@smithy/property-provider";
@@ -12,7 +12,11 @@ import { remoteProvider } from "./remoteProvider";
 /**
  * @public
  */
-export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit;
+export type DefaultProviderInit = FromIniInit &
+  RemoteProviderInit &
+  FromProcessInit &
+  (FromSSOInit & Partial<SsoCredentialsParameters>) &
+  FromTokenFileInit;
 
 /**
  * Creates a credential provider that will attempt to find credentials from the
@@ -55,27 +59,39 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
         ? []
         : [
             async () => {
+              init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromEnv");
               const { fromEnv } = await import("@aws-sdk/credential-provider-env");
               return fromEnv()();
             },
           ]),
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromSSO");
+        const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName } = init;
+        if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
+          throw new CredentialsProviderError(
+            "Skipping SSO provider in default chain (inputs do not include SSO fields)."
+          );
+        }
         const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
         return fromSSO(init)();
       },
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromIni");
         const { fromIni } = await import("@aws-sdk/credential-provider-ini");
         return fromIni(init)();
       },
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromProcess");
         const { fromProcess } = await import("@aws-sdk/credential-provider-process");
         return fromProcess(init)();
       },
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromTokenFile");
         const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
         return fromTokenFile(init)();
       },
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::remoteProvider");
         return (await remoteProvider(init))();
       },
       async () => {

@@ -1,5 +1,8 @@
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
+
+export interface FromEnvInit extends CredentialProviderOptions {}
 
 /**
  * @internal
@@ -29,22 +32,25 @@ export const ENV_CREDENTIAL_SCOPE = "AWS_CREDENTIAL_SCOPE";
  * `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` environment variable is not
  * set in this process, the provider will return a rejected promise.
  */
-export const fromEnv = (): AwsCredentialIdentityProvider => async () => {
-  const accessKeyId: string | undefined = process.env[ENV_KEY];
-  const secretAccessKey: string | undefined = process.env[ENV_SECRET];
-  const sessionToken: string | undefined = process.env[ENV_SESSION];
-  const expiry: string | undefined = process.env[ENV_EXPIRATION];
-  const credentialScope: string | undefined = process.env[ENV_CREDENTIAL_SCOPE];
+export const fromEnv =
+  (init?: FromEnvInit): AwsCredentialIdentityProvider =>
+  async () => {
+    init?.logger?.debug("@aws-sdk/credential-provider-env", "fromEnv");
+    const accessKeyId: string | undefined = process.env[ENV_KEY];
+    const secretAccessKey: string | undefined = process.env[ENV_SECRET];
+    const sessionToken: string | undefined = process.env[ENV_SESSION];
+    const expiry: string | undefined = process.env[ENV_EXPIRATION];
+    const credentialScope: string | undefined = process.env[ENV_CREDENTIAL_SCOPE];
 
-  if (accessKeyId && secretAccessKey) {
-    return {
-      accessKeyId,
-      secretAccessKey,
-      ...(sessionToken && { sessionToken }),
-      ...(expiry && { expiration: new Date(expiry) }),
-      ...(credentialScope && { credentialScope }),
-    };
-  }
+    if (accessKeyId && secretAccessKey) {
+      return {
+        accessKeyId,
+        secretAccessKey,
+        ...(sessionToken && { sessionToken }),
+        ...(expiry && { expiration: new Date(expiry) }),
+        ...(credentialScope && { credentialScope }),
+      };
+    }
 
-  throw new CredentialsProviderError("Unable to find environment variable credentials.");
-};
+    throw new CredentialsProviderError("Unable to find environment variable credentials.");
+  };

@@ -1,3 +1,4 @@
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, Provider } from "@smithy/types";
 
@@ -29,6 +30,7 @@ export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredenti
  */
 export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider {
   return async (): Promise<CognitoIdentityCredentials> => {
+    parameters.logger?.debug("@aws-sdk/credential-provider-cognito-identity", "fromCognitoIdentity");
     const { GetCredentialsForIdentityCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
 
     const {
@@ -59,7 +61,7 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
 /**
  * @internal
  */
-export interface FromCognitoIdentityParameters extends CognitoProviderParameters {
+export interface FromCognitoIdentityParameters extends CognitoProviderParameters, CredentialProviderOptions {
   /**
    * The unique identifier for the identity against which credentials will be
    * issued.

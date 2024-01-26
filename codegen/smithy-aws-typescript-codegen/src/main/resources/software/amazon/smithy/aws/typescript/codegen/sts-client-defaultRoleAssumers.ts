@@ -49,6 +49,9 @@ export const getDefaultRoleAssumerWithWebIdentity = (
  * dependencies.
  *
  * @internal
+ *
+ * @deprecated this is no longer needed. Use the defaultProvider directly,
+ * which will load STS if needed.
  */
 export const decorateDefaultCredentialProvider =
   (provider: DefaultCredentialProvider): DefaultCredentialProvider =>

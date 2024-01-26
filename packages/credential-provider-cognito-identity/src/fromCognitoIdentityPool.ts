@@ -1,3 +1,4 @@
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
@@ -25,7 +26,9 @@ export function fromCognitoIdentityPool({
   identityPoolId,
   logins,
   userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined,
+  logger,
 }: FromCognitoIdentityPoolParameters): CognitoIdentityCredentialProvider {
+  logger?.debug("@aws-sdk/credential-provider-cognito-identity", "fromCognitoIdentity");
   const cacheKey: string | undefined = userIdentifier
     ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
     : undefined;
@@ -72,7 +75,7 @@ export function fromCognitoIdentityPool({
 /**
  * @internal
  */
-export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters {
+export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters, CredentialProviderOptions {
   /**
    * A standard AWS account ID (9+ digits).
    */

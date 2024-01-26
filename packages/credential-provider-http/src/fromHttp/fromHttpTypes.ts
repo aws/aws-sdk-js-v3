@@ -1,9 +1,11 @@
+import type { CredentialProviderOptions } from "@aws-sdk/types";
+
 /**
  * @public
  *
  * Input for the fromHttp function in the HTTP Credentials Provider for Node.js.
  */
-export interface FromHttpOptions {
+export interface FromHttpOptions extends CredentialProviderOptions {
   /**
    * If this value is provided, it will be used as-is.
    *

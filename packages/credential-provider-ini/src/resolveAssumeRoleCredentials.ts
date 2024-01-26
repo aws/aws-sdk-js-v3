@@ -83,6 +83,7 @@ export const resolveAssumeRoleCredentials = async (
   options: FromIniInit,
   visitedProfiles: Record<string, true> = {}
 ) => {
+  options.logger?.debug("@aws-sdk/credential-provider-ini", "resolveAssumeRoleCredentials (STS)");
   const data = profiles[profileName];
 
   if (!options.roleAssumer) {
@@ -105,7 +106,7 @@ export const resolveAssumeRoleCredentials = async (
         ...visitedProfiles,
         [source_profile]: true,
       })
-    : resolveCredentialSource(data.credential_source!, profileName)();
+    : resolveCredentialSource(data.credential_source!, profileName)(options)();
 
   const params: AssumeRoleParams = {
     RoleArn: data.role_arn!,

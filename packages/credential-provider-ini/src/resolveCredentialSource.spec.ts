@@ -36,7 +36,7 @@ describe(resolveCredentialSource.name, () => {
     ["Environment", fromEnv],
   ])("when credentialSource=%s, calls %p", async (credentialSource, fromFn) => {
     (fromFn as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
-    const receivedCreds = await resolveCredentialSource(credentialSource, mockProfileName)();
+    const receivedCreds = await resolveCredentialSource(credentialSource, mockProfileName)()();
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(fromFn).toHaveBeenCalledWith();
     [fromContainerMetadata, fromInstanceMetadata, fromEnv]
@@ -53,7 +53,7 @@ describe(resolveCredentialSource.name, () => {
         `expected EcsContainer or Ec2InstanceMetadata or Environment.`
     );
     try {
-      await resolveCredentialSource(mockCredentialSource, mockProfileName)();
+      await resolveCredentialSource(mockCredentialSource, mockProfileName)()();
       fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);

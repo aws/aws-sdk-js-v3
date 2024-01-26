@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
+import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
@@ -23,7 +23,7 @@ export const resolveProfileData = async (
   // preferred over role assumption metadata. This special treatment of
   // second and subsequent hops is to ensure compatibility with the AWS CLI.
   if (Object.keys(visitedProfiles).length > 0 && isStaticCredsProfile(data)) {
-    return resolveStaticCredentials(data);
+    return resolveStaticCredentials(data, options);
   }
 
   // If this is the first profile visited, role assumption keys should be
@@ -35,7 +35,7 @@ export const resolveProfileData = async (
   // If no role assumption metadata is present, attempt to load static
   // credentials from the selected profile.
   if (isStaticCredsProfile(data)) {
-    return resolveStaticCredentials(data);
+    return resolveStaticCredentials(data, options);
   }
 
   // If no static credentials are present, attempt to assume role with
@@ -51,7 +51,7 @@ export const resolveProfileData = async (
   }
 
   if (isSsoProfile(data)) {
-    return resolveSsoCredentials(data);
+    return await resolveSsoCredentials(data);
   }
 
   // If the profile cannot be parsed or contains neither static credentials

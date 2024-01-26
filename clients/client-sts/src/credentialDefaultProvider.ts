@@ -2,8 +2,7 @@
 /**
  * @internal
  */
-export const defaultProvider = (async (input: any) => {
+export const defaultProvider = ((input: any) => {
   // @ts-ignore
-  const nodeCredentials: any = await import("@aws-sdk/credential-provider-node");
-  return nodeCredentials.defaultProvider(input);
+  return () => import("@aws-sdk/credential-provider-node").then(({ defaultProvider }) => defaultProvider(input)());
 }) as any;

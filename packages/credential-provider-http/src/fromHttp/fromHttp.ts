@@ -18,6 +18,7 @@ const AWS_CONTAINER_AUTHORIZATION_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
  * Creates a provider that gets credentials via HTTP request.
  */
 export const fromHttp = (options: FromHttpOptions): AwsCredentialIdentityProvider => {
+  options.logger?.debug("@aws-sdk/credential-provider-http", "fromHttp");
   let host: string;
 
   const relative = options.awsContainerCredentialsRelativeUri ?? process.env[AWS_CONTAINER_CREDENTIALS_RELATIVE_URI];

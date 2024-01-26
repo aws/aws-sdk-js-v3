@@ -110,12 +110,10 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
                         writer
-                            .addRelativeImport("decorateDefaultCredentialProvider", null,
-                                Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE))
                             .addRelativeImport("defaultProvider", "credentialDefaultProvider",
                                 Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
                             .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
-                            .write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
+                            .write("credentialDefaultProvider");
                     }
                 );
             default:
@@ -220,11 +218,9 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                 // Use `@aws-sdk/credential-provider-node` with `@aws-sdk/client-sts` as the
                 // default identity provider chain for Node.js
                 .putDefaultIdentityProvider(LanguageTarget.NODE, w -> w
-                    .addRelativeImport("decorateDefaultCredentialProvider", null,
-                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE))
                     .write("""
                         async (idProps) => await \
-                        decorateDefaultCredentialProvider(credentialDefaultProvider)(idProps?.__config || {})()"""))
+                        credentialDefaultProvider(idProps?.__config || {})()"""))
                 .addResolveConfigFunction(ResolveConfigFunction.builder()
                     .resolveConfigFunction(Symbol.builder()
                         .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")

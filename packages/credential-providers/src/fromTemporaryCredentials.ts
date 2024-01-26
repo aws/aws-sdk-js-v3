@@ -1,8 +1,9 @@
 import type { AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/client-sts";
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
 
-export interface FromTemporaryCredentialsOptions {
+export interface FromTemporaryCredentialsOptions extends CredentialProviderOptions {
   params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string };
   masterCredentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   clientConfig?: STSClientConfig;
@@ -53,6 +54,7 @@ export interface FromTemporaryCredentialsOptions {
 export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): AwsCredentialIdentityProvider => {
   let stsClient: STSClient;
   return async (): Promise<AwsCredentialIdentity> => {
+    options.logger?.debug("@aws-sdk/credential-providers", "fromTemporaryCredentials (STS)");
     const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
     if (params?.SerialNumber) {
       if (!options.mfaCodeProvider) {
