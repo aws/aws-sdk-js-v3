@@ -62,22 +62,14 @@ const processObj = (obj: any, processFunc: Function, keyNodes?: KeyNodes): any =
 const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodeChildren) => {
   let accumulator: any;
   if (Array.isArray(obj)) {
-    accumulator = obj.filter((item) => typeof item !== "function");
+    accumulator = [...obj];
   } else {
-    accumulator = {};
-    for (const [k, v] of Object.entries(obj)) {
-      if (typeof v !== "function") {
-        accumulator[k] = v;
-      }
-    }
+    accumulator = { ...obj };
   }
 
   for (const [nodeKey, nodes] of Object.entries(keyNodes)) {
-    if (typeof obj[nodeKey] === "function") {
-      continue;
-    }
     const processedValue = processObj(obj[nodeKey], processFunc, nodes);
-    if (processedValue !== undefined && typeof processedValue !== "function") {
+    if (processedValue !== undefined) {
       accumulator[nodeKey] = processedValue;
     }
   }
@@ -90,23 +82,49 @@ const processAllKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodes
     return obj.map((item) => processObj(item, processFunc, keyNodes));
   }
   return Object.entries(obj).reduce((acc, [key, value]) => {
-    if (typeof value === "function") {
-      return acc;
-    }
     const processedValue = processObj(value, processFunc, keyNodes);
-    if (processedValue !== undefined && typeof processedValue !== "function") {
+    if (processedValue !== undefined) {
       acc[key] = processedValue;
     }
     return acc;
   }, {} as any);
 };
 
+function copyWithoutFunctions(o: any, depth = 0): any {
+  if (depth > 1000) {
+    throw new Error(
+      "Recursive copy depth exceeded 1000. Please set options.convertClassInstanceToMap to false and manually remove functions from your data object."
+    );
+  }
+  if (typeof o === "object" || typeof o === "function") {
+    if (Array.isArray(o)) {
+      return o.filter((item) => typeof item !== "function").map((item) => copyWithoutFunctions(item, depth + 1));
+    }
+    if (o === null) {
+      return null;
+    }
+    const copy = {} as any;
+    for (const [key, value] of Object.entries(o)) {
+      if (typeof value !== "function") {
+        copy[key] = copyWithoutFunctions(value, depth + 1);
+      }
+    }
+    return copy;
+  } else {
+    return o;
+  }
+}
+
 /**
  * @internal
  */
 export const marshallInput = (obj: any, keyNodes: KeyNodeChildren, options?: marshallOptions) => {
+  let _obj = obj;
+  if (options?.convertClassInstanceToMap) {
+    _obj = copyWithoutFunctions(obj);
+  }
   const marshallFunc = (toMarshall: any) => marshall(toMarshall, options);
-  return processKeysInObj(obj, marshallFunc, keyNodes);
+  return processKeysInObj(_obj, marshallFunc, keyNodes);
 };
 
 /**
