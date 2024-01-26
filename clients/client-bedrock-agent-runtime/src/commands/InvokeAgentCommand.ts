@@ -66,14 +66,13 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * const response = await client.send(command);
  * 
  * for await (const chunkEvent of response.completion) {
-      if(chunkEvent.chunk) {
-        const chunk = chunkEvent.chunk;
-        let decoded = new TextDecoder("utf-8").decode(chunk.bytes);
-        completion += decoded;
-      }
-    }
-
-    console.log(completion);
+ *    if(chunkEvent.chunk) {
+ *       const chunk = chunkEvent.chunk;
+ *       let decoded = new TextDecoder("utf-8").decode(chunk.bytes);
+ *       completion += decoded;
+ *    }
+ * }
+ 
  * // { // InvokeAgentResponse
  * //   completion: { // ResponseStream Union: only one key present
  * //     chunk: { // PayloadPart
