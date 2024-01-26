@@ -152,16 +152,18 @@ describe("object with function property", () => {
   const keyNodes = { Item: {} };
   const nativeAttrObj = { Item: { id: 1, func: () => {} }, ...notAttrValue };
   const attrObj = { Item: { id: { N: "1" } }, ...notAttrValue };
-  it(marshallInput.name, () => {
-    expect(marshallInput(nativeAttrObj, keyNodes, { convertTopLevelContainer: true })).toEqual(attrObj);
+  it("should remove functions", () => {
+    expect(
+      marshallInput(nativeAttrObj, keyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
+    ).toEqual(attrObj);
   });
 
   // List of functions
   const listOfFunctions = { Item: { id: 1, funcs: [() => {}, () => {}] }, ...notAttrValue };
-  it(marshallInput.name, () => {
+  it("should remove functions from lists", () => {
     expect(
       marshallInput(listOfFunctions, keyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
-    ).toEqual(attrObj);
+    ).toEqual({ Item: { id: { N: "1" }, funcs: { L: [] } }, ...notAttrValue });
   });
 
   // Nested list of functions
@@ -175,13 +177,13 @@ describe("object with function property", () => {
     },
     ...notAttrValue,
   };
-  it(marshallInput.name, () => {
+  it("should remove functions from nested lists", () => {
     expect(
       marshallInput(nestedListOfFunctions, keyNodes, {
         convertTopLevelContainer: true,
         convertClassInstanceToMap: true,
       })
-    ).toEqual(attrObj);
+    ).toEqual({ Item: { id: { N: "1" }, funcs: { L: [{ L: [] }, { L: [] }] } }, ...notAttrValue });
   });
 
   // Nested list of functions 3 levels down
@@ -201,12 +203,37 @@ describe("object with function property", () => {
     },
     ...notAttrValue,
   };
-  it(marshallInput.name, () => {
+
+  it("should remove functions from a nested list of depth 3", () => {
     expect(
       marshallInput(nestedListOfFunctions3Levels, keyNodes, {
         convertTopLevelContainer: true,
         convertClassInstanceToMap: true,
       })
-    ).toEqual(attrObj);
+    ).toEqual({
+      Item: {
+        id: { N: "1" },
+        funcs: {
+          L: [
+            {
+              L: [{ L: [] }, { L: [] }],
+            },
+            {
+              L: [{ L: [] }, { L: [] }],
+            },
+          ],
+        },
+      },
+      ...notAttrValue,
+    });
+  });
+  it("should throw when recursion depth has exceeded", () => {
+    const obj = {} as any;
+    obj.SELF = obj;
+    expect(() => marshallInput(obj, {}, { convertClassInstanceToMap: true })).toThrow(
+      new Error(
+        "Recursive copy depth exceeded 1000. Please set options.convertClassInstanceToMap to false and manually remove functions from your data object."
+      )
+    );
   });
 });
