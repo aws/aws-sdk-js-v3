@@ -1344,28 +1344,27 @@ export interface RStudioServerProDomainSettings {
 
 /**
  * @public
- * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These
- *             settings are specified through the <code>CreateDomain</code> API call.</p>
+ * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These settings
+ *       are specified through the <code>CreateDomain</code> API call.</p>
  */
 export interface DomainSettings {
   /**
    * @public
-   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
-   *             communication between Domain-level apps and user apps.</p>
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for communication
+   *       between Domain-level apps and user apps.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
    * @public
    * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
-   *             app.</p>
+   *       app.</p>
    */
   RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
 
   /**
    * @public
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
    */
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig;
 
@@ -1394,12 +1393,12 @@ export interface CreateDomainRequest {
 
   /**
    * @public
-   * <p>The default settings to use to create a user profile when <code>UserSettings</code> isn't specified
-   *          in the call to the <code>CreateUserProfile</code> API.</p>
+   * <p>The default settings to use to create a user profile when <code>UserSettings</code> isn't
+   *       specified in the call to the <code>CreateUserProfile</code> API.</p>
    *          <p>
    *             <code>SecurityGroups</code> is aggregated when specified in both calls. For all other
-   *          settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
-   *          take precedence over those specified in <code>CreateDomain</code>.</p>
+   *       settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
+   *       take precedence over those specified in <code>CreateDomain</code>.</p>
    */
   DefaultUserSettings: UserSettings | undefined;
 
@@ -1423,11 +1422,11 @@ export interface CreateDomainRequest {
 
   /**
    * @public
-   * <p>Tags to associated with the Domain. Each tag consists of a key and an optional value.
-   *          Tag keys must be unique per resource. Tags are searchable using the
-   *          <code>Search</code> API.</p>
-   *          <p>Tags that you specify for the Domain are also added to all Apps that the
-   *           Domain launches.</p>
+   * <p>Tags to associated with the Domain. Each tag consists of a key and an optional value. Tag
+   *       keys must be unique per resource. Tags are searchable using the <code>Search</code>
+   *       API.</p>
+   *          <p>Tags that you specify for the Domain are also added to all Apps that the Domain
+   *       launches.</p>
    */
   Tags?: Tag[];
 
@@ -1439,7 +1438,7 @@ export interface CreateDomainRequest {
    *             <li>
    *                <p>
    *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by
-   *             Amazon SageMaker, which allows direct internet access</p>
+   *           Amazon SageMaker, which allows direct internet access</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1459,19 +1458,20 @@ export interface CreateDomainRequest {
 
   /**
    * @public
-   * <p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an Amazon Web Services managed
-   *          key by default. For more control, specify a customer managed key.</p>
+   * <p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an
+   *         Amazon Web Services managed key by default. For more control, specify a customer managed
+   *       key.</p>
    */
   KmsKeyId?: string;
 
   /**
    * @public
    * <p>The entity that creates and manages the required security groups for inter-app
-   *             communication in <code>VPCOnly</code> mode. Required when
-   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided. If setting up the domain for use with RStudio, this value must be set to
-   *                 <code>Service</code>.</p>
+   *       communication in <code>VPCOnly</code> mode. Required when
+   *         <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *         <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *       provided. If setting up the domain for use with RStudio, this value must be set to
+   *         <code>Service</code>.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
 

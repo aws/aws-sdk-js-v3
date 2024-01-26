@@ -73,6 +73,7 @@ import {
   RecommendationJobType,
   ResourceLimits,
   RetryStrategy,
+  StudioLifecycleConfigAppType,
   UserSettings,
 } from "./models_1";
 
@@ -137,6 +138,47 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeStudioLifecycleConfigResponse {
+  /**
+   * @public
+   * <p>The ARN of the Lifecycle Configuration to describe.</p>
+   */
+  StudioLifecycleConfigArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration that is described.</p>
+   */
+  StudioLifecycleConfigName?: string;
+
+  /**
+   * @public
+   * <p>The creation time of the Amazon SageMaker Studio Lifecycle Configuration.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>This value is equivalent to CreationTime because Amazon SageMaker Studio Lifecycle Configurations are immutable.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script.</p>
+   */
+  StudioLifecycleConfigContent?: string;
+
+  /**
+   * @public
+   * <p>The App type that the Lifecycle Configuration is attached to.</p>
+   */
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType;
+}
 
 /**
  * @public
@@ -2405,22 +2447,21 @@ export interface DomainSettingsForUpdate {
   /**
    * @public
    * <p>A collection of <code>RStudioServerPro</code> Domain-level app settings to update. A
-   *             single <code>RStudioServerPro</code> application is created for a domain.</p>
+   *       single <code>RStudioServerPro</code> application is created for a domain.</p>
    */
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
 
   /**
    * @public
-   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there
-   *             are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
+   * <p>The configuration for attaching a SageMaker user profile name to the execution role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there are no
+   *       apps in the <code>InService</code> or <code>Pending</code> state.</p>
    */
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig;
 
   /**
    * @public
-   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
-   *             communication between Domain-level apps and user apps.</p>
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for communication
+   *       between Domain-level apps and user apps.</p>
    */
   SecurityGroupIds?: string[];
 
@@ -6861,17 +6902,17 @@ export interface ListDevicesResponse {
 export interface ListDomainsRequest {
   /**
    * @public
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next
+   *       request to receive the next set of results.</p>
    */
   NextToken?: string;
 
   /**
    * @public
-   * <p>The total number of items to return in the response. If the total
-   *           number of items available is more than the value specified, a <code>NextToken</code>
-   *           is provided in the response. To resume pagination, provide the <code>NextToken</code>
-   *           value in the as part of a subsequent call. The default value is 10.</p>
+   * <p>The total number of items to return in the response. If the total number of items
+   *       available is more than the value specified, a <code>NextToken</code> is provided in the
+   *       response. To resume pagination, provide the <code>NextToken</code> value in the as part of a
+   *       subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 }
@@ -6888,8 +6929,8 @@ export interface ListDomainsResponse {
 
   /**
    * @public
-   * <p>If the previous response was truncated, you will receive this token.
-   *         Use it in your next request to receive the next set of results.</p>
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next
+   *       request to receive the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -11070,77 +11111,4 @@ export interface ProcessingJobStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the processing job.</p>
    */
   Arn?: string;
-}
-
-/**
- * @public
- * <p>Container for the metadata for a Quality check step. For more information, see
- *          the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-quality-check">QualityCheck step</a> in the <i>Amazon SageMaker Developer Guide</i>.
- *       </p>
- */
-export interface QualityCheckStepMetadata {
-  /**
-   * @public
-   * <p>The type of the Quality check step.</p>
-   */
-  CheckType?: string;
-
-  /**
-   * @public
-   * <p>The Amazon S3 URI of the baseline statistics file used for the drift check.</p>
-   */
-  BaselineUsedForDriftCheckStatistics?: string;
-
-  /**
-   * @public
-   * <p>The Amazon S3 URI of the baseline constraints file used for the drift check.</p>
-   */
-  BaselineUsedForDriftCheckConstraints?: string;
-
-  /**
-   * @public
-   * <p>The Amazon S3 URI of the newly calculated baseline statistics file.</p>
-   */
-  CalculatedBaselineStatistics?: string;
-
-  /**
-   * @public
-   * <p>The Amazon S3 URI of the newly calculated baseline constraints file.</p>
-   */
-  CalculatedBaselineConstraints?: string;
-
-  /**
-   * @public
-   * <p>The model package group name.</p>
-   */
-  ModelPackageGroupName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon S3 URI of violation report if violations are detected.</p>
-   */
-  ViolationReport?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the Quality check processing job that was run by this step execution.</p>
-   */
-  CheckJobArn?: string;
-
-  /**
-   * @public
-   * <p>This flag indicates if the drift check against the previous baseline will be skipped or not.
-   *          If it is set to <code>False</code>, the previous baseline of the configured check type must be available.</p>
-   */
-  SkipCheck?: boolean;
-
-  /**
-   * @public
-   * <p>This flag indicates if a newly calculated baseline can be accessed through step properties
-   *          <code>BaselineUsedForDriftCheckConstraints</code> and <code>BaselineUsedForDriftCheckStatistics</code>.
-   *          If it is set to <code>False</code>, the previous baseline of the configured check type must also be available.
-   *          These can be accessed through the <code>BaselineUsedForDriftCheckConstraints</code> and <code>
-   *             BaselineUsedForDriftCheckStatistics</code> properties. </p>
-   */
-  RegisterNewBaseline?: boolean;
 }

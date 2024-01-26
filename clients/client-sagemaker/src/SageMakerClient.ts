@@ -239,6 +239,10 @@ import {
 import { DeleteHubCommandInput, DeleteHubCommandOutput } from "./commands/DeleteHubCommand";
 import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "./commands/DeleteHubContentCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "./commands/DeleteHumanTaskUiCommand";
+import {
+  DeleteHyperParameterTuningJobCommandInput,
+  DeleteHyperParameterTuningJobCommandOutput,
+} from "./commands/DeleteHyperParameterTuningJobCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "./commands/DeleteImageVersionCommand";
 import {
@@ -950,6 +954,7 @@ export type ServiceInputTypes =
   | DeleteHubCommandInput
   | DeleteHubContentCommandInput
   | DeleteHumanTaskUiCommandInput
+  | DeleteHyperParameterTuningJobCommandInput
   | DeleteImageCommandInput
   | DeleteImageVersionCommandInput
   | DeleteInferenceComponentCommandInput
@@ -1273,6 +1278,7 @@ export type ServiceOutputTypes =
   | DeleteHubCommandOutput
   | DeleteHubContentCommandOutput
   | DeleteHumanTaskUiCommandOutput
+  | DeleteHyperParameterTuningJobCommandOutput
   | DeleteImageCommandOutput
   | DeleteImageVersionCommandOutput
   | DeleteInferenceComponentCommandOutput

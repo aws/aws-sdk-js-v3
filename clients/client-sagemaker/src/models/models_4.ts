@@ -152,7 +152,6 @@ import {
   ModelStepMetadata,
   MonitoringAlertSummary,
   ProcessingJobStepMetadata,
-  QualityCheckStepMetadata,
   ResourceType,
   SecondaryStatus,
   SecondaryStatusTransition,
@@ -169,6 +168,79 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Container for the metadata for a Quality check step. For more information, see
+ *          the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/build-and-manage-steps.html#step-type-quality-check">QualityCheck step</a> in the <i>Amazon SageMaker Developer Guide</i>.
+ *       </p>
+ */
+export interface QualityCheckStepMetadata {
+  /**
+   * @public
+   * <p>The type of the Quality check step.</p>
+   */
+  CheckType?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 URI of the baseline statistics file used for the drift check.</p>
+   */
+  BaselineUsedForDriftCheckStatistics?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 URI of the baseline constraints file used for the drift check.</p>
+   */
+  BaselineUsedForDriftCheckConstraints?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 URI of the newly calculated baseline statistics file.</p>
+   */
+  CalculatedBaselineStatistics?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 URI of the newly calculated baseline constraints file.</p>
+   */
+  CalculatedBaselineConstraints?: string;
+
+  /**
+   * @public
+   * <p>The model package group name.</p>
+   */
+  ModelPackageGroupName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 URI of violation report if violations are detected.</p>
+   */
+  ViolationReport?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Quality check processing job that was run by this step execution.</p>
+   */
+  CheckJobArn?: string;
+
+  /**
+   * @public
+   * <p>This flag indicates if the drift check against the previous baseline will be skipped or not.
+   *          If it is set to <code>False</code>, the previous baseline of the configured check type must be available.</p>
+   */
+  SkipCheck?: boolean;
+
+  /**
+   * @public
+   * <p>This flag indicates if a newly calculated baseline can be accessed through step properties
+   *          <code>BaselineUsedForDriftCheckConstraints</code> and <code>BaselineUsedForDriftCheckStatistics</code>.
+   *          If it is set to <code>False</code>, the previous baseline of the configured check type must also be available.
+   *          These can be accessed through the <code>BaselineUsedForDriftCheckConstraints</code> and <code>
+   *             BaselineUsedForDriftCheckStatistics</code> properties. </p>
+   */
+  RegisterNewBaseline?: boolean;
+}
 
 /**
  * @public
@@ -5931,11 +6003,11 @@ export interface UpdateDomainRequest {
   /**
    * @public
    * <p>The entity that creates and manages the required security groups for inter-app
-   *             communication in <code>VPCOnly</code> mode. Required when
-   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided. If setting up the domain for use with RStudio, this value must be set to
-   *                 <code>Service</code>.</p>
+   *       communication in <code>VPCOnly</code> mode. Required when
+   *       <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *       <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *       provided. If setting up the domain for use with RStudio, this value must be set to
+   *       <code>Service</code>.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
 
@@ -5949,7 +6021,7 @@ export interface UpdateDomainRequest {
    * @public
    * <p>The VPC subnets that Studio uses for communication.</p>
    *          <p>If removing subnets, ensure there are no apps in the <code>InService</code>,
-   *     <code>Pending</code>, or <code>Deleting</code> state.</p>
+   *       <code>Pending</code>, or <code>Deleting</code> state.</p>
    */
   SubnetIds?: string[];
 
@@ -5959,19 +6031,21 @@ export interface UpdateDomainRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker,
-   *      which allows direct internet access.</p>
+   *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by
+   *           Amazon SageMaker, which allows direct internet access.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.</p>
+   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and
+   *           subnets.</p>
    *             </li>
    *          </ul>
-   *          <p>This configuration can only be modified if there are no apps in the <code>InService</code>,
-   *     <code>Pending</code>, or <code>Deleting</code> state. The configuration cannot be updated if
-   *     <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is already set
-   *    or <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided
-   *    as part of the same request.</p>
+   *          <p>This configuration can only be modified if there are no apps in the
+   *       <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state. The
+   *       configuration cannot be updated if
+   *       <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is already
+   *       set or <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *       provided as part of the same request.</p>
    */
   AppNetworkAccessType?: AppNetworkAccessType;
 }

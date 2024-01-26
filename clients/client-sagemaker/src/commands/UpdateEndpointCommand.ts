@@ -28,9 +28,13 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
 
 /**
  * @public
- * <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
- *             using newly created endpoint, and then deletes resources provisioned for the endpoint
- *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
+ * <p>Deploys the <code>EndpointConfig</code> specified in the request
+ *             to a new fleet of instances. SageMaker shifts endpoint traffic to the new instances
+ *             with the updated endpoint configuration and then deletes the old instances
+ *             using the previous <code>EndpointConfig</code> (there is no availability loss).
+ *         For more information about how to control the update and traffic shifting process, see
+ *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html">
+ *                 Update models in production</a>.</p>
  *          <p>When SageMaker receives the request, it sets the endpoint status to
  *                 <code>Updating</code>. After updating the endpoint, it sets the status to
  *                 <code>InService</code>. To check the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API.

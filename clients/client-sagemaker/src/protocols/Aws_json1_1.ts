@@ -218,6 +218,10 @@ import {
 import { DeleteHubCommandInput, DeleteHubCommandOutput } from "../commands/DeleteHubCommand";
 import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "../commands/DeleteHubContentCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "../commands/DeleteHumanTaskUiCommand";
+import {
+  DeleteHyperParameterTuningJobCommandInput,
+  DeleteHyperParameterTuningJobCommandOutput,
+} from "../commands/DeleteHyperParameterTuningJobCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "../commands/DeleteImageCommand";
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "../commands/DeleteImageVersionCommand";
 import {
@@ -1357,6 +1361,7 @@ import {
   DeleteHubRequest,
   DeleteHumanTaskUiRequest,
   DeleteHumanTaskUiResponse,
+  DeleteHyperParameterTuningJobRequest,
   DeleteImageRequest,
   DeleteImageResponse,
   DeleteImageVersionRequest,
@@ -1501,7 +1506,6 @@ import {
   DescribeSpaceRequest,
   DescribeSpaceResponse,
   DescribeStudioLifecycleConfigRequest,
-  DescribeStudioLifecycleConfigResponse,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1567,6 +1571,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeStudioLifecycleConfigResponse,
   DescribeSubscribedWorkteamRequest,
   DescribeSubscribedWorkteamResponse,
   DescribeTrainingJobRequest,
@@ -1789,7 +1794,6 @@ import {
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
   PropertyNameSuggestion,
-  QualityCheckStepMetadata,
   RecommendationJobInferenceBenchmark,
   RStudioServerProDomainSettingsForUpdate,
   ScalingPolicy,
@@ -1871,6 +1875,7 @@ import {
   ProjectSummary,
   PutModelPackageGroupPolicyInput,
   PutModelPackageGroupPolicyOutput,
+  QualityCheckStepMetadata,
   QueryFilters,
   QueryLineageRequest,
   QueryLineageResponse,
@@ -3086,6 +3091,19 @@ export const se_DeleteHumanTaskUiCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteHumanTaskUi");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteHyperParameterTuningJobCommand
+ */
+export const se_DeleteHyperParameterTuningJobCommand = async (
+  input: DeleteHyperParameterTuningJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteHyperParameterTuningJob");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9992,6 +10010,43 @@ const de_DeleteHumanTaskUiCommandError = async (
         errorCode,
       });
   }
+};
+
+/**
+ * deserializeAws_json1_1DeleteHyperParameterTuningJobCommand
+ */
+export const de_DeleteHyperParameterTuningJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHyperParameterTuningJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteHyperParameterTuningJobCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHyperParameterTuningJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteHyperParameterTuningJobCommandError
+ */
+const de_DeleteHyperParameterTuningJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHyperParameterTuningJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
 /**
@@ -21097,6 +21152,8 @@ const se_DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeCont
 // se_DeleteHubRequest omitted.
 
 // se_DeleteHumanTaskUiRequest omitted.
+
+// se_DeleteHyperParameterTuningJobRequest omitted.
 
 // se_DeleteImageRequest omitted.
 

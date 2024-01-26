@@ -381,6 +381,11 @@ import {
   DeleteHumanTaskUiCommandInput,
   DeleteHumanTaskUiCommandOutput,
 } from "./commands/DeleteHumanTaskUiCommand";
+import {
+  DeleteHyperParameterTuningJobCommand,
+  DeleteHyperParameterTuningJobCommandInput,
+  DeleteHyperParameterTuningJobCommandOutput,
+} from "./commands/DeleteHyperParameterTuningJobCommand";
 import { DeleteImageCommand, DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import {
   DeleteImageVersionCommand,
@@ -1550,6 +1555,7 @@ const commands = {
   DeleteHubCommand,
   DeleteHubContentCommand,
   DeleteHumanTaskUiCommand,
+  DeleteHyperParameterTuningJobCommand,
   DeleteImageCommand,
   DeleteImageVersionCommand,
   DeleteInferenceComponentCommand,
@@ -3053,6 +3059,23 @@ export interface SageMaker {
     args: DeleteHumanTaskUiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteHumanTaskUiCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteHyperParameterTuningJobCommand}
+   */
+  deleteHyperParameterTuningJob(
+    args: DeleteHyperParameterTuningJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHyperParameterTuningJobCommandOutput>;
+  deleteHyperParameterTuningJob(
+    args: DeleteHyperParameterTuningJobCommandInput,
+    cb: (err: any, data?: DeleteHyperParameterTuningJobCommandOutput) => void
+  ): void;
+  deleteHyperParameterTuningJob(
+    args: DeleteHyperParameterTuningJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHyperParameterTuningJobCommandOutput) => void
   ): void;
 
   /**

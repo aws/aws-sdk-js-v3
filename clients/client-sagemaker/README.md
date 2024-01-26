@@ -884,6 +884,14 @@ DeleteHumanTaskUi
 </details>
 <details>
 <summary>
+DeleteHyperParameterTuningJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DeleteHyperParameterTuningJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DeleteHyperParameterTuningJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DeleteHyperParameterTuningJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteImage
 </summary>
 

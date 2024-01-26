@@ -168,7 +168,6 @@ import {
   SourceAlgorithmSpecification,
   SpaceSettings,
   SpaceSharingSettings,
-  StudioLifecycleConfigAppType,
   ThroughputMode,
   UserSettings,
   VendorGuidance,
@@ -1901,9 +1900,9 @@ export interface DeleteDomainRequest {
 
   /**
    * @public
-   * <p>The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted.
-   *            By default, all resources are retained (not automatically deleted).
-   *        </p>
+   * <p>The retention policy for this domain, which specifies whether resources will be retained
+   *       after the Domain is deleted. By default, all resources are retained (not automatically
+   *       deleted). </p>
    */
   RetentionPolicy?: RetentionPolicy;
 }
@@ -2077,6 +2076,17 @@ export interface DeleteHumanTaskUiRequest {
  * @public
  */
 export interface DeleteHumanTaskUiResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteHyperParameterTuningJobRequest {
+  /**
+   * @public
+   * <p>The name of the hyperparameter tuning job that you want to delete.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+}
 
 /**
  * @public
@@ -4179,7 +4189,7 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>The ID of the Amazon Elastic File System (EFS) managed by this Domain.</p>
+   * <p>The ID of the Amazon Elastic File System managed by this Domain.</p>
    */
   HomeEfsFileSystemId?: string;
 
@@ -4191,7 +4201,8 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.</p>
+   * <p>The ARN of the application managed by SageMaker in IAM Identity Center. This value is
+   *       only returned for domains created after October 1, 2023.</p>
    */
   SingleSignOnApplicationArn?: string;
 
@@ -4222,7 +4233,7 @@ export interface DescribeDomainResponse {
   /**
    * @public
    * <p>The ID of the security group that authorizes traffic between the
-   *                 <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
+   *         <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
    */
   SecurityGroupIdForDomainBoundary?: string;
 
@@ -4234,9 +4245,8 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>Settings which are applied to UserProfiles in this domain if settings are not explicitly specified
-   *            in a given UserProfile.
-   *        </p>
+   * <p>Settings which are applied to UserProfiles in this domain if settings are not explicitly
+   *       specified in a given UserProfile. </p>
    */
   DefaultUserSettings?: UserSettings;
 
@@ -4254,7 +4264,7 @@ export interface DescribeDomainResponse {
    *             <li>
    *                <p>
    *                   <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by
-   *             Amazon SageMaker, which allows direct internet access</p>
+   *           Amazon SageMaker, which allows direct internet access</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4292,18 +4302,18 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>The Amazon Web Services KMS customer managed key used to encrypt
-   *          the EFS volume attached to the domain.</p>
+   * <p>The Amazon Web Services KMS customer managed key used to encrypt the EFS volume attached to
+   *       the domain.</p>
    */
   KmsKeyId?: string;
 
   /**
    * @public
    * <p>The entity that creates and manages the required security groups for inter-app
-   *             communication in <code>VPCOnly</code> mode. Required when
-   *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
-   *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
-   *             provided.</p>
+   *       communication in <code>VPCOnly</code> mode. Required when
+   *         <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *         <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *       provided.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
 
@@ -5335,15 +5345,15 @@ export interface OfflineStoreStatus {
 
 /**
  * @public
- * <p>Active throughput configuration of the feature group. Used to set feature group
- *          throughput configuration. There are two modes: <code>ON_DEMAND</code> and
- *             <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes
- *          that your application performs on your feature group. You do not need to specify read and
- *          write throughput because Feature Store accommodates your workloads as they ramp up and
- *          down. You can switch a feature group to on-demand only once in a 24 hour period. With
- *          provisioned throughput mode, you specify the read and write capacity per second that you
- *          expect your application to require, and you are billed based on those limits. Exceeding
- *          provisioned throughput will result in your requests being throttled. </p>
+ * <p>Active throughput configuration of the feature group. There are two modes:
+ *             <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are
+ *          charged for data reads and writes that your application performs on your feature group. You
+ *          do not need to specify read and write throughput because Feature Store accommodates your
+ *          workloads as they ramp up and down. You can switch a feature group to on-demand only once
+ *          in a 24 hour period. With provisioned throughput mode, you specify the read and write
+ *          capacity per second that you expect your application to require, and you are billed based
+ *          on those limits. Exceeding provisioned throughput will result in your requests being
+ *          throttled. </p>
  *          <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that
  *          are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType">
  *                <code>Standard</code>
@@ -5459,15 +5469,15 @@ export interface DescribeFeatureGroupResponse {
 
   /**
    * @public
-   * <p>Active throughput configuration of the feature group. Used to set feature group
-   *          throughput configuration. There are two modes: <code>ON_DEMAND</code> and
-   *             <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes
-   *          that your application performs on your feature group. You do not need to specify read and
-   *          write throughput because Feature Store accommodates your workloads as they ramp up and
-   *          down. You can switch a feature group to on-demand only once in a 24 hour period. With
-   *          provisioned throughput mode, you specify the read and write capacity per second that you
-   *          expect your application to require, and you are billed based on those limits. Exceeding
-   *          provisioned throughput will result in your requests being throttled. </p>
+   * <p>Active throughput configuration of the feature group. There are two modes:
+   *             <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are
+   *          charged for data reads and writes that your application performs on your feature group. You
+   *          do not need to specify read and write throughput because Feature Store accommodates your
+   *          workloads as they ramp up and down. You can switch a feature group to on-demand only once
+   *          in a 24 hour period. With provisioned throughput mode, you specify the read and write
+   *          capacity per second that you expect your application to require, and you are billed based
+   *          on those limits. Exceeding provisioned throughput will result in your requests being
+   *          throttled. </p>
    *          <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that
    *          are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType">
    *                <code>Standard</code>
@@ -6406,8 +6416,7 @@ export interface DescribeHyperParameterTuningJobResponse {
 
   /**
    * @public
-   * <p>The status of the tuning job: InProgress, Completed, Failed, Stopping, or
-   *             Stopped.</p>
+   * <p>The status of the tuning job.</p>
    */
   HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | undefined;
 
@@ -8705,7 +8714,7 @@ export interface DescribeModelPackageOutput {
 export interface DescribeModelPackageGroupInput {
   /**
    * @public
-   * <p>The name of gthe model group to describe.</p>
+   * <p>The name of the model group to describe.</p>
    */
   ModelPackageGroupName: string | undefined;
 }
@@ -10071,47 +10080,6 @@ export interface DescribeStudioLifecycleConfigRequest {
    * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to describe.</p>
    */
   StudioLifecycleConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeStudioLifecycleConfigResponse {
-  /**
-   * @public
-   * <p>The ARN of the Lifecycle Configuration to describe.</p>
-   */
-  StudioLifecycleConfigArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration that is described.</p>
-   */
-  StudioLifecycleConfigName?: string;
-
-  /**
-   * @public
-   * <p>The creation time of the Amazon SageMaker Studio Lifecycle Configuration.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>This value is equivalent to CreationTime because Amazon SageMaker Studio Lifecycle Configurations are immutable.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The content of your Amazon SageMaker Studio Lifecycle Configuration script.</p>
-   */
-  StudioLifecycleConfigContent?: string;
-
-  /**
-   * @public
-   * <p>The App type that the Lifecycle Configuration is attached to.</p>
-   */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType;
 }
 
 /**

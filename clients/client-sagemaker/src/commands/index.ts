@@ -82,6 +82,7 @@ export * from "./DeleteFlowDefinitionCommand";
 export * from "./DeleteHubCommand";
 export * from "./DeleteHubContentCommand";
 export * from "./DeleteHumanTaskUiCommand";
+export * from "./DeleteHyperParameterTuningJobCommand";
 export * from "./DeleteImageCommand";
 export * from "./DeleteImageVersionCommand";
 export * from "./DeleteInferenceComponentCommand";

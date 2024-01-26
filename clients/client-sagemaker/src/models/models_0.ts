@@ -1249,7 +1249,7 @@ export interface S3DataSource {
    *          <ul>
    *             <li>
    *                <p> A key name prefix might look like this:
-   *                         <code>s3://bucketname/exampleprefix</code>
+   * 		<code>s3://bucketname/exampleprefix/</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1829,7 +1829,8 @@ export interface StoppingCondition {
 
   /**
    * @public
-   * <p>The maximum length of time, in seconds, that a training or compilation job can be pending before it is stopped.</p>
+   * <p>The maximum length of time, in seconds, that a training or compilation job can be
+   *          pending before it is stopped.</p>
    */
   MaxPendingTimeInSeconds?: number;
 }
@@ -1957,7 +1958,7 @@ export interface TransformS3DataSource {
    *          <ul>
    *             <li>
    *                <p> A key name prefix might look like this:
-   *                         <code>s3://bucketname/exampleprefix</code>. </p>
+   * 		<code>s3://bucketname/exampleprefix/</code>. </p>
    *             </li>
    *             <li>
    *                <p> A manifest might look like this:
@@ -6210,16 +6211,26 @@ export interface TextClassificationJobConfig {
 
 /**
  * @public
- * <p>The access configuration file for the ML model. You can explicitly accept the model
- *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. For more
- *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a>.</p>
+ * <p>The access configuration file to control access to the ML model. You can explicitly accept the model
+ *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If you are a Jumpstart user, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a> section for more details on accepting the EULA.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you are an AutoML user, see the  <i>Optional Parameters</i> section of
+ *                <i>Create an AutoML job to fine-tune text generation models using the
+ *                   API</i> for details on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-finetune-llms.html#autopilot-llms-finetuning-api-optional-params">How to set the EULA acceptance when fine-tuning a model using the AutoML
+ *                   API</a>.</p>
+ *             </li>
+ *          </ul>
  */
 export interface ModelAccessConfig {
   /**
    * @public
    * <p>Specifies agreement to the model end-user license agreement (EULA). The
-   *          <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in
-   *          order to accept the EULA that this model requires. You are responsible for reviewing and
+   *             <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order
+   *          to accept the EULA that this model requires. You are responsible for reviewing and
    *          complying with any applicable license terms and making sure they are acceptable for your
    *          use case before downloading or using a model.</p>
    */
@@ -6240,8 +6251,8 @@ export interface TextGenerationJobConfig {
   /**
    * @public
    * <p>How long a fine-tuning job is allowed to run. For <code>TextGenerationJobConfig</code>
-   *          problem types, the <code>MaxRuntimePerTrainingJobInSeconds</code> attribute of <code>AutoMLJobCompletionCriteria</code> defaults to 72h
-   *          (259200s).</p>
+   *          problem types, the <code>MaxRuntimePerTrainingJobInSeconds</code> attribute of
+   *             <code>AutoMLJobCompletionCriteria</code> defaults to 72h (259200s).</p>
    */
   CompletionCriteria?: AutoMLJobCompletionCriteria;
 
@@ -6296,9 +6307,19 @@ export interface TextGenerationJobConfig {
 
   /**
    * @public
-   * <p>The access configuration file for the ML model. You can explicitly accept the model
-   *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. For more
-   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a>.</p>
+   * <p>The access configuration file to control access to the ML model. You can explicitly accept the model
+   *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are a Jumpstart user, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a> section for more details on accepting the EULA.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are an AutoML user, see the  <i>Optional Parameters</i> section of
+   *                <i>Create an AutoML job to fine-tune text generation models using the
+   *                   API</i> for details on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-finetune-llms.html#autopilot-llms-finetuning-api-optional-params">How to set the EULA acceptance when fine-tuning a model using the AutoML
+   *                   API</a>.</p>
+   *             </li>
+   *          </ul>
    */
   ModelAccessConfig?: ModelAccessConfig;
 }
@@ -9549,11 +9570,10 @@ export interface S3ModelDataSource {
 
   /**
    * @public
-   * <p>Specifies the access configuration file for the ML model. You can explicitly accept
-   *          the model end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.
-   *          You are responsible for reviewing and complying with any applicable license terms and
-   *          making sure they are acceptable for your use case before downloading or using a
-   *          model.</p>
+   * <p>Specifies the access configuration file for the ML model. You can explicitly accept the
+   *          model end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. You are
+   *          responsible for reviewing and complying with any applicable license terms and making sure
+   *          they are acceptable for your use case before downloading or using a model.</p>
    */
   ModelAccessConfig?: ModelAccessConfig;
 }
