@@ -1015,7 +1015,7 @@ class CreateTokenCommand extends $Command {
    */
   resolveMiddleware(clientStack, configuration, options) {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, _CreateTokenCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateTokenCommand.getEndpointParameterInstructions()));
     const stack = clientStack.concat(this.middlewareStack);
     const { logger } = configuration;
     const clientName = "SSOOIDCClient";
