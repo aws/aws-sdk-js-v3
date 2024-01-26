@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now provides an API to programmatically delete tuning jobs. ([1462147](https://github.com/aws/aws-sdk-js-v3/commit/146214780655ca705aead47920395ea170a53aec))
+
+
+
+
+
 # [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

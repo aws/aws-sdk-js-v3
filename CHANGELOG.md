@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
+
+
+### Bug Fixes
+
+* **token-providers:** use correct CreateTokenCommand ([#5724](https://github.com/aws/aws-sdk-js-v3/issues/5724)) ([be36543](https://github.com/aws/aws-sdk-js-v3/commit/be36543dd04f485a5f35893585572798c0803e8f))
+
+
+### Features
+
+* **client-connect:** Update list and string length limits for predefined attributes. ([8f7e28a](https://github.com/aws/aws-sdk-js-v3/commit/8f7e28ad8d071c2567f8b8983c04dec0eaf33cd4))
+* **client-inspector2:** This release adds ECR container image scanning based on their lastRecordedPullTime. ([b46ae7f](https://github.com/aws/aws-sdk-js-v3/commit/b46ae7fda60e99e5ac2be679a6663ab8cea432c1))
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now provides an API to programmatically delete tuning jobs. ([1462147](https://github.com/aws/aws-sdk-js-v3/commit/146214780655ca705aead47920395ea170a53aec))
+
+
+
+
+
 # [3.500.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.499.0...v3.500.0) (2024-01-25)
 
 

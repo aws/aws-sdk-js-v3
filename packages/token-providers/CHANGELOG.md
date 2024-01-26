@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
+
+
+### Bug Fixes
+
+* **token-providers:** use correct CreateTokenCommand ([#5724](https://github.com/aws/aws-sdk-js-v3/issues/5724)) ([be36543](https://github.com/aws/aws-sdk-js-v3/commit/be36543dd04f485a5f35893585572798c0803e8f))
+
+
+
+
+
 # [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
+
+
+### Features
+
+* **client-inspector2:** This release adds ECR container image scanning based on their lastRecordedPullTime. ([b46ae7f](https://github.com/aws/aws-sdk-js-v3/commit/b46ae7fda60e99e5ac2be679a6663ab8cea432c1))
+
+
+
+
+
 # [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2
