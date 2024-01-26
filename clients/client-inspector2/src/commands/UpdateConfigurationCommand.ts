@@ -38,6 +38,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * const input = { // UpdateConfigurationRequest
  *   ecrConfiguration: { // EcrConfiguration
  *     rescanDuration: "STRING_VALUE", // required
+ *     pullDateRescanDuration: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateConfigurationCommand(input);

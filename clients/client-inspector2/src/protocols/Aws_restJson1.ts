@@ -239,6 +239,7 @@ import {
   Ec2InstanceAggregation,
   EcrConfiguration,
   EcrConfigurationState,
+  EcrContainerImageMetadata,
   EcrRescanDurationState,
   Epss,
   EpssDetails,
@@ -275,6 +276,7 @@ import {
   ResourceFilterCriteria,
   ResourceMapFilter,
   ResourceNotFoundException,
+  ResourceScanMetadata,
   ResourceScanType,
   ResourceStringFilter,
   Schedule,
@@ -5325,6 +5327,7 @@ const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __Ser
     ec2InstanceTags: _json,
     ecrImageTags: _json,
     ecrRepositoryName: _json,
+    imagePulledAt: (_) => se_CoverageDateFilterList(_, context),
     lambdaFunctionName: _json,
     lambdaFunctionRuntime: _json,
     lambdaFunctionTags: _json,
@@ -5848,7 +5851,7 @@ const de_CoveredResource = (output: any, context: __SerdeContext): CoveredResour
     accountId: __expectString,
     lastScannedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     resourceId: __expectString,
-    resourceMetadata: _json,
+    resourceMetadata: (_: any) => de_ResourceScanMetadata(_, context),
     resourceType: __expectString,
     scanStatus: _json,
     scanType: __expectString,
@@ -5984,7 +5987,15 @@ const de_EcrConfigurationState = (output: any, context: __SerdeContext): EcrConf
   }) as any;
 };
 
-// de_EcrContainerImageMetadata omitted.
+/**
+ * deserializeAws_restJson1EcrContainerImageMetadata
+ */
+const de_EcrContainerImageMetadata = (output: any, context: __SerdeContext): EcrContainerImageMetadata => {
+  return take(output, {
+    imagePulledAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    tags: _json,
+  }) as any;
+};
 
 // de_EcrRepositoryMetadata omitted.
 
@@ -5993,6 +6004,7 @@ const de_EcrConfigurationState = (output: any, context: __SerdeContext): EcrConf
  */
 const de_EcrRescanDurationState = (output: any, context: __SerdeContext): EcrRescanDurationState => {
   return take(output, {
+    pullDateRescanDuration: __expectString,
     rescanDuration: __expectString,
     status: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -6476,7 +6488,17 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
 
 // de_ResourceMapFilterList omitted.
 
-// de_ResourceScanMetadata omitted.
+/**
+ * deserializeAws_restJson1ResourceScanMetadata
+ */
+const de_ResourceScanMetadata = (output: any, context: __SerdeContext): ResourceScanMetadata => {
+  return take(output, {
+    ec2: _json,
+    ecrImage: (_: any) => de_EcrContainerImageMetadata(_, context),
+    ecrRepository: _json,
+    lambdaFunction: _json,
+  }) as any;
+};
 
 // de_ResourceState omitted.
 

@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { ListCoverageRequest } from "../models/models_0";
-import { ListCoverageResponse } from "../models/models_1";
+import { ListCoverageRequest, ListCoverageResponse } from "../models/models_1";
 import { de_ListCoverageCommand, se_ListCoverageCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -95,6 +94,12 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *         endInclusive: new Date("TIMESTAMP"),
  *       },
  *     ],
+ *     imagePulledAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
  *   },
  * };
  * const command = new ListCoverageCommand(input);
@@ -120,6 +125,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //           tags: [ // TagList
  * //             "STRING_VALUE",
  * //           ],
+ * //           imagePulledAt: new Date("TIMESTAMP"),
  * //         },
  * //         ec2: { // Ec2Metadata
  * //           tags: { // TagMap

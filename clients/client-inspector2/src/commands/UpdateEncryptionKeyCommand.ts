@@ -28,7 +28,7 @@ export interface UpdateEncryptionKeyCommandOutput extends UpdateEncryptionKeyRes
 
 /**
  * @public
- * <p>Updates an encryption key. A <code>ResourceNotFoundException</code> means that an AWS owned key is being used for encryption.</p>
+ * <p>Updates an encryption key. A <code>ResourceNotFoundException</code> means that an Amazon Web Services owned key is being used for encryption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

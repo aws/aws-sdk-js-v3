@@ -60,7 +60,7 @@ export interface ResourceStatus {
 
   /**
    * @public
-   * <p>The status of Amazon Inspector scanning for AWS Lambda function.</p>
+   * <p>The status of Amazon Inspector scanning for Amazon Web Services Lambda function.</p>
    */
   lambda?: Status;
 
@@ -717,7 +717,7 @@ export type LambdaFunctionSortBy = (typeof LambdaFunctionSortBy)[keyof typeof La
 
 /**
  * @public
- * <p>The details that define a findings aggregation based on AWS Lambda functions.</p>
+ * <p>The details that define a findings aggregation based on Amazon Web Services Lambda functions.</p>
  */
 export interface LambdaFunctionAggregation {
   /**
@@ -728,13 +728,13 @@ export interface LambdaFunctionAggregation {
 
   /**
    * @public
-   * <p>The AWS Lambda function names to include in the aggregation results.</p>
+   * <p>The Amazon Web Services Lambda function names to include in the aggregation results.</p>
    */
   functionNames?: StringFilter[];
 
   /**
    * @public
-   * <p>Returns findings aggregated by AWS Lambda function runtime environments.</p>
+   * <p>Returns findings aggregated by Amazon Web Services Lambda function runtime environments.</p>
    */
   runtimes?: StringFilter[];
 
@@ -774,24 +774,24 @@ export type LambdaLayerSortBy = (typeof LambdaLayerSortBy)[keyof typeof LambdaLa
 
 /**
  * @public
- * <p>The details that define a findings aggregation based on an AWS Lambda function's layers.</p>
+ * <p>The details that define a findings aggregation based on an Amazon Web Services Lambda function's layers.</p>
  */
 export interface LambdaLayerAggregation {
   /**
    * @public
-   * <p>The names of the AWS Lambda functions associated with the layers.</p>
+   * <p>The names of the Amazon Web Services Lambda functions associated with the layers.</p>
    */
   functionNames?: StringFilter[];
 
   /**
    * @public
-   * <p>The resource IDs for the AWS Lambda function layers.</p>
+   * <p>The resource IDs for the Amazon Web Services Lambda function layers.</p>
    */
   resourceIds?: StringFilter[];
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function layer.
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Lambda function layer.
    *       </p>
    */
   layerArns?: StringFilter[];
@@ -1146,7 +1146,7 @@ export namespace AggregationRequest {
 
   /**
    * @public
-   * <p>Returns an object with findings aggregated by AWS Lambda layer.</p>
+   * <p>Returns an object with findings aggregated by Amazon Web Services Lambda layer.</p>
    */
   export interface LambdaLayerAggregationMember {
     accountAggregation?: never;
@@ -1165,7 +1165,7 @@ export namespace AggregationRequest {
 
   /**
    * @public
-   * <p>Returns an object with findings aggregated by AWS Lambda function.</p>
+   * <p>Returns an object with findings aggregated by Amazon Web Services Lambda function.</p>
    */
   export interface LambdaFunctionAggregationMember {
     accountAggregation?: never;
@@ -1415,7 +1415,7 @@ export interface ImageLayerAggregationResponse {
 
 /**
  * @public
- * <p>A response that contains the results of an AWS Lambda function finding aggregation.</p>
+ * <p>A response that contains the results of an Amazon Web Services Lambda function finding aggregation.</p>
  */
 export interface LambdaFunctionAggregationResponse {
   /**
@@ -1426,7 +1426,7 @@ export interface LambdaFunctionAggregationResponse {
 
   /**
    * @public
-   * <p>The AWS Lambda function names included in the aggregation results.</p>
+   * <p>The Amazon Web Services Lambda function names included in the aggregation results.</p>
    */
   functionName?: string;
 
@@ -1444,7 +1444,7 @@ export interface LambdaFunctionAggregationResponse {
 
   /**
    * @public
-   * <p>The ID of the AWS account that owns the AWS Lambda function.
+   * <p>The ID of the Amazon Web Services account that owns the Amazon Web Services Lambda function.
    *       </p>
    */
   accountId?: string;
@@ -1457,37 +1457,37 @@ export interface LambdaFunctionAggregationResponse {
 
   /**
    * @public
-   * <p>The date that the AWS Lambda function included in the aggregation results was last changed.</p>
+   * <p>The date that the Amazon Web Services Lambda function included in the aggregation results was last changed.</p>
    */
   lastModifiedAt?: Date;
 }
 
 /**
  * @public
- * <p>A response that contains the results of an AWS Lambda function layer finding aggregation.</p>
+ * <p>A response that contains the results of an Amazon Web Services Lambda function layer finding aggregation.</p>
  */
 export interface LambdaLayerAggregationResponse {
   /**
    * @public
-   * <p>The names of the AWS Lambda functions associated with the layers.</p>
+   * <p>The names of the Amazon Web Services Lambda functions associated with the layers.</p>
    */
   functionName: string | undefined;
 
   /**
    * @public
-   * <p>The Resource ID of the AWS Lambda function layer.</p>
+   * <p>The Resource ID of the Amazon Web Services Lambda function layer.</p>
    */
   resourceId: string | undefined;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function layer.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Lambda function layer.</p>
    */
   layerArn: string | undefined;
 
   /**
    * @public
-   * <p>The account ID of the AWS Lambda function layer.</p>
+   * <p>The account ID of the Amazon Web Services Lambda function layer.</p>
    */
   accountId: string | undefined;
 
@@ -1784,7 +1784,7 @@ export namespace AggregationResponse {
 
   /**
    * @public
-   * <p>An aggregation of findings by AWS Lambda layer.</p>
+   * <p>An aggregation of findings by Amazon Web Services Lambda layer.</p>
    */
   export interface LambdaLayerAggregationMember {
     accountAggregation?: never;
@@ -1803,7 +1803,7 @@ export namespace AggregationResponse {
 
   /**
    * @public
-   * <p>An aggregation of findings by AWS Lambda function.</p>
+   * <p>An aggregation of findings by Amazon Web Services Lambda function.</p>
    */
   export interface LambdaFunctionAggregationMember {
     accountAggregation?: never;
@@ -2107,14 +2107,14 @@ export interface AutoEnable {
 
   /**
    * @public
-   * <p>Represents whether AWS Lambda standard scans are automatically enabled for new members of your Amazon Inspector organization.
+   * <p>Represents whether Amazon Web Services Lambda standard scans are automatically enabled for new members of your Amazon Inspector organization.
    *       </p>
    */
   lambda?: boolean;
 
   /**
    * @public
-   * <p>Represents whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization.
+   * <p>Represents whether Lambda code scans are automatically enabled for new members of your Amazon Inspector organization.
    *
    *       </p>
    */
@@ -2284,7 +2284,7 @@ export type Runtime = (typeof Runtime)[keyof typeof Runtime];
 
 /**
  * @public
- * <p>The VPC security groups and subnets that are attached to an AWS Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 export interface LambdaVpcConfig {
   /**
@@ -2295,7 +2295,7 @@ export interface LambdaVpcConfig {
 
   /**
    * @public
-   * <p>The VPC security groups and subnets that are attached to an AWS Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+   * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
    */
   securityGroupIds?: string[];
 
@@ -2308,49 +2308,49 @@ export interface LambdaVpcConfig {
 
 /**
  * @public
- * <p> A summary of information about the AWS Lambda function.</p>
+ * <p> A summary of information about the Amazon Web Services Lambda function.</p>
  */
 export interface AwsLambdaFunctionDetails {
   /**
    * @public
-   * <p>The name of the AWS Lambda function.</p>
+   * <p>The name of the Amazon Web Services Lambda function.</p>
    */
   functionName: string | undefined;
 
   /**
    * @public
-   * <p>The runtime environment for the AWS Lambda function.</p>
+   * <p>The runtime environment for the Amazon Web Services Lambda function.</p>
    */
   runtime: Runtime | undefined;
 
   /**
    * @public
-   * <p>The SHA256 hash of the AWS Lambda function's deployment package.</p>
+   * <p>The SHA256 hash of the Amazon Web Services Lambda function's deployment package.</p>
    */
   codeSha256: string | undefined;
 
   /**
    * @public
-   * <p>The version of the AWS Lambda function.</p>
+   * <p>The version of the Amazon Web Services Lambda function.</p>
    */
   version: string | undefined;
 
   /**
    * @public
-   * <p>The AWS Lambda function's execution role.</p>
+   * <p>The Amazon Web Services Lambda function's execution role.</p>
    */
   executionRoleArn: string | undefined;
 
   /**
    * @public
-   * <p>The AWS Lambda function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
+   * <p>The Amazon Web Services Lambda function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
    *          layers</a>. A Lambda function can have up to five layers.</p>
    */
   layers?: string[];
 
   /**
    * @public
-   * <p>The AWS Lambda function's networking configuration.</p>
+   * <p>The Amazon Web Services Lambda function's networking configuration.</p>
    */
   vpcConfig?: LambdaVpcConfig;
 
@@ -2362,7 +2362,7 @@ export interface AwsLambdaFunctionDetails {
 
   /**
    * @public
-   * <p>The instruction set architecture that the AWS Lambda function supports. Architecture is a string array with one of the
+   * <p>The instruction set architecture that the Amazon Web Services Lambda function supports. Architecture is a string array with one of the
    *          valid values. The default architecture value is <code>x86_64</code>.</p>
    */
   architectures?: Architecture[];
@@ -4625,19 +4625,19 @@ export interface CoverageFilterCriteria {
 
   /**
    * @public
-   * <p>Returns coverage statistics for AWS Lambda functions filtered by function names.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by function names.</p>
    */
   lambdaFunctionName?: CoverageStringFilter[];
 
   /**
    * @public
-   * <p>Returns coverage statistics for AWS Lambda functions filtered by tag.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by tag.</p>
    */
   lambdaFunctionTags?: CoverageMapFilter[];
 
   /**
    * @public
-   * <p>Returns coverage statistics for AWS Lambda functions filtered by runtime.</p>
+   * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by runtime.</p>
    */
   lambdaFunctionRuntime?: CoverageStringFilter[];
 
@@ -4646,6 +4646,12 @@ export interface CoverageFilterCriteria {
    * <p>Filters Amazon Web Services resources based on whether Amazon Inspector has checked them for vulnerabilities within the specified time range.</p>
    */
   lastScannedAt?: CoverageDateFilter[];
+
+  /**
+   * @public
+   * <p>The date an image was last pulled at.</p>
+   */
+  imagePulledAt?: CoverageDateFilter[];
 }
 
 /**
@@ -4714,6 +4720,12 @@ export interface EcrContainerImageMetadata {
    * <p>Tags associated with the Amazon ECR image metadata.</p>
    */
   tags?: string[];
+
+  /**
+   * @public
+   * <p>The date an image was last pulled at.</p>
+   */
+  imagePulledAt?: Date;
 }
 
 /**
@@ -4751,18 +4763,18 @@ export interface EcrRepositoryMetadata {
 
 /**
  * @public
- * <p>The AWS Lambda function metadata.</p>
+ * <p>The Amazon Web Services Lambda function metadata.</p>
  */
 export interface LambdaFunctionMetadata {
   /**
    * @public
-   * <p>The resource tags on an AWS Lambda function.</p>
+   * <p>The resource tags on an Amazon Web Services Lambda function.</p>
    */
   functionTags?: Record<string, string>;
 
   /**
    * @public
-   * <p>The layers for an AWS Lambda function. A Lambda function can have up to five layers.</p>
+   * <p>The layers for an Amazon Web Services Lambda function. A Lambda function can have up to five layers.</p>
    */
   layers?: string[];
 
@@ -4774,7 +4786,7 @@ export interface LambdaFunctionMetadata {
 
   /**
    * @public
-   * <p>An AWS Lambda function's runtime.</p>
+   * <p>An Amazon Web Services Lambda function's runtime.</p>
    */
   runtime?: Runtime;
 }
@@ -4804,7 +4816,7 @@ export interface ResourceScanMetadata {
 
   /**
    * @public
-   * <p>An object that contains metadata details for an AWS Lambda function.</p>
+   * <p>An object that contains metadata details for an Amazon Web Services Lambda function.</p>
    */
   lambdaFunction?: LambdaFunctionMetadata;
 }
@@ -5371,39 +5383,39 @@ export interface FilterCriteria {
 
   /**
    * @public
-   * <p>Filters the list of AWS Lambda functions by the name of the function.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the name of the function.</p>
    */
   lambdaFunctionName?: StringFilter[];
 
   /**
    * @public
-   * <p>Filters the list of AWS Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
+   * <p>Filters the list of Amazon Web Services Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
    *          layers</a>. A Lambda function can have up to five layers.</p>
    */
   lambdaFunctionLayers?: StringFilter[];
 
   /**
    * @public
-   * <p>Filters the list of AWS Lambda functions by the runtime environment for the Lambda function.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the runtime environment for the Lambda function.</p>
    */
   lambdaFunctionRuntime?: StringFilter[];
 
   /**
    * @public
-   * <p>Filters the list of AWS Lambda functions by the date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
+   * <p>Filters the list of Amazon Web Services Lambda functions by the date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
    *          </p>
    */
   lambdaFunctionLastModifiedAt?: DateFilter[];
 
   /**
    * @public
-   * <p>Filters the list of AWS Lambda functions by execution role.</p>
+   * <p>Filters the list of Amazon Web Services Lambda functions by execution role.</p>
    */
   lambdaFunctionExecutionRoleArn?: StringFilter[];
 
   /**
    * @public
-   * <p>Filters the list of AWS Lambda findings by the availability of exploits.</p>
+   * <p>Filters the list of Amazon Web Services Lambda findings by the availability of exploits.</p>
    */
   exploitAvailable?: StringFilter[];
 
@@ -5700,7 +5712,7 @@ export interface ResourceFilterCriteria {
 
   /**
    * @public
-   * <p>The AWS Lambda function name used as resource filter criteria.</p>
+   * <p>The Amazon Web Services Lambda function name used as resource filter criteria.</p>
    */
   lambdaFunctionName?: ResourceStringFilter[];
 
@@ -5718,7 +5730,7 @@ export interface ResourceFilterCriteria {
 
   /**
    * @public
-   * <p>The AWS Lambda function tags used as resource filter criteria.</p>
+   * <p>The Amazon Web Services Lambda function tags used as resource filter criteria.</p>
    */
   lambdaFunctionTags?: ResourceMapFilter[];
 }
@@ -6136,9 +6148,29 @@ export interface DisassociateMemberResponse {
  * @public
  * @enum
  */
-export const EcrRescanDuration = {
+export const EcrPullDateRescanDuration = {
+  DAYS_14: "DAYS_14",
   DAYS_180: "DAYS_180",
   DAYS_30: "DAYS_30",
+  DAYS_60: "DAYS_60",
+  DAYS_90: "DAYS_90",
+} as const;
+
+/**
+ * @public
+ */
+export type EcrPullDateRescanDuration = (typeof EcrPullDateRescanDuration)[keyof typeof EcrPullDateRescanDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const EcrRescanDuration = {
+  DAYS_14: "DAYS_14",
+  DAYS_180: "DAYS_180",
+  DAYS_30: "DAYS_30",
+  DAYS_60: "DAYS_60",
+  DAYS_90: "DAYS_90",
   LIFETIME: "LIFETIME",
 } as const;
 
@@ -6154,9 +6186,15 @@ export type EcrRescanDuration = (typeof EcrRescanDuration)[keyof typeof EcrResca
 export interface EcrConfiguration {
   /**
    * @public
-   * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
+   * <p>The rescan duration configured for image push date.</p>
    */
   rescanDuration: EcrRescanDuration | undefined;
+
+  /**
+   * @public
+   * <p>The rescan duration configured for image pull date.</p>
+   */
+  pullDateRescanDuration?: EcrPullDateRescanDuration;
 }
 
 /**
@@ -6176,12 +6214,14 @@ export type EcrRescanDurationStatus = (typeof EcrRescanDurationStatus)[keyof typ
 
 /**
  * @public
- * <p>Details about the state of any changes to the ECR automated re-scan duration setting.</p>
+ * <p>Details about the state of your ECR re-scan duration settings. The ECR re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the duration configured for image pull date, and the duration configured for image pull date, the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
  */
 export interface EcrRescanDurationState {
   /**
    * @public
-   * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
+   * <p>The rescan duration configured for image push date.
+   *
+   *          </p>
    */
   rescanDuration?: EcrRescanDuration;
 
@@ -6196,6 +6236,12 @@ export interface EcrRescanDurationState {
    * <p>A timestamp representing when the last time the ECR scan duration setting was changed.</p>
    */
   updatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The rescan duration configured for image pull date.</p>
+   */
+  pullDateRescanDuration?: EcrPullDateRescanDuration;
 }
 
 /**
@@ -6205,7 +6251,7 @@ export interface EcrRescanDurationState {
 export interface EcrConfigurationState {
   /**
    * @public
-   * <p>An object that contains details about the state of the ECR automated re-scan setting.</p>
+   * <p>An object that contains details about the state of the ECR re-scan settings.</p>
    */
   rescanDurationState?: EcrRescanDurationState;
 }
@@ -6621,7 +6667,7 @@ export interface VulnerablePackage {
 
   /**
    * @public
-   * <p>The Amazon Resource Number (ARN) of the AWS Lambda function affected by a finding.</p>
+   * <p>The Amazon Resource Number (ARN) of the Amazon Web Services Lambda function affected by a finding.</p>
    */
   sourceLambdaLayerArn?: string;
 }
@@ -6741,7 +6787,7 @@ export interface ResourceDetails {
 
   /**
    * @public
-   * <p>A summary of the information about an AWS Lambda function affected by a finding.</p>
+   * <p>A summary of the information about an Amazon Web Services Lambda function affected by a finding.</p>
    */
   awsLambdaFunction?: AwsLambdaFunctionDetails;
 }
@@ -7800,28 +7846,4 @@ export interface ListCisScansResponse {
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    */
   nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListCoverageRequest {
-  /**
-   * @public
-   * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>An object that contains details on the filters to apply to the coverage data for your
-   *          environment.</p>
-   */
-  filterCriteria?: CoverageFilterCriteria;
 }

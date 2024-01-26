@@ -92,6 +92,12 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  *         endInclusive: new Date("TIMESTAMP"),
  *       },
  *     ],
+ *     imagePulledAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
  *   },
  *   groupBy: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

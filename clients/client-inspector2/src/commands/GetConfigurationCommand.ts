@@ -44,6 +44,7 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * //       rescanDuration: "STRING_VALUE",
  * //       status: "STRING_VALUE",
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       pullDateRescanDuration: "STRING_VALUE",
  * //     },
  * //   },
  * // };
