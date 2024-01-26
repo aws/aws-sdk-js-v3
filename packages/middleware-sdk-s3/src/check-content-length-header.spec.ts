@@ -35,6 +35,24 @@ describe("checkContentLengthHeaderMiddleware", () => {
     );
   });
 
+  it("does not warn if uploading a payload of content-length 0", async () => {
+    const handler = checkContentLengthHeader()(mockNextHandler, {});
+
+    await handler({
+      request: {
+        method: null,
+        protocol: null,
+        hostname: null,
+        path: null,
+        query: {},
+        headers: { "content-length": 0 },
+      },
+      input: {},
+    });
+
+    expect(spy).not.toHaveBeenCalled();
+  });
+
   it("warns with console if logger is the default NoOpLogger", async () => {
     const handler = checkContentLengthHeader()(mockNextHandler, {
       logger: new NoOpLogger(),
