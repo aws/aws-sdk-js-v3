@@ -272,7 +272,7 @@ public final class AddS3Config implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3ExpiresMiddleware",
                     HAS_MIDDLEWARE)
-                .operationPredicate((m, s, o) -> containsExpiresOutput(m, o))
+                .operationPredicate((m, s, o) -> isS3(s) && containsExpiresOutput(m, o))
                 .build(),
             RuntimeClientPlugin.builder()
                 .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3Express",
