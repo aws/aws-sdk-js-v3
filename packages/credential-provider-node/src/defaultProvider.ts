@@ -61,7 +61,7 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
             async () => {
               init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromEnv");
               const { fromEnv } = await import("@aws-sdk/credential-provider-env");
-              return fromEnv()();
+              return fromEnv(init)();
             },
           ]),
       async () => {
