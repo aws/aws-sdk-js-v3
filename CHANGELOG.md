@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.502.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.501.0...v3.502.0) (2024-01-29)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** do not warn when content-length is 0 ([#5733](https://github.com/aws/aws-sdk-js-v3/issues/5733)) ([0b29652](https://github.com/aws/aws-sdk-js-v3/commit/0b29652616c4c5b0fed896157538432d502e31a8))
+* sts build script ([#5740](https://github.com/aws/aws-sdk-js-v3/issues/5740)) ([2a06a1b](https://github.com/aws/aws-sdk-js-v3/commit/2a06a1bd98bb557978fd1e8175f23b77b85fa900))
+
+
+### Features
+
+* **client-auto-scaling:** EC2 Auto Scaling customers who use attribute based instance-type selection can now intuitively define their Spot instances price protection limit as a percentage of the lowest priced On-Demand instance type. ([4769d4c](https://github.com/aws/aws-sdk-js-v3/commit/4769d4cb9784d2c32afab8a49951c084cd84bb03))
+* **client-ec2:** EC2 Fleet customers who use attribute based instance-type selection can now intuitively define their Spot instances price protection limit as a percentage of the lowest priced On-Demand instance type. ([5465534](https://github.com/aws/aws-sdk-js-v3/commit/5465534c6854f6c797940fa6eea57709a985c46c))
+* **client-mwaa:** This release adds MAINTENANCE environment status for Amazon MWAA environments. ([0fae62e](https://github.com/aws/aws-sdk-js-v3/commit/0fae62e4e47657b217295b38e500a106f9de0f11))
+* **client-rds:** Introduced support for the InsufficientDBInstanceCapacityFault error in the RDS RestoreDBClusterFromSnapshot and RestoreDBClusterToPointInTime API methods. This provides enhanced error handling, ensuring a more robust experience. ([3e47615](https://github.com/aws/aws-sdk-js-v3/commit/3e4761566af1c44437fd56984327b3d889b4fbee))
+* **clients:** update client endpoints as of 2024-01-29 ([adc6069](https://github.com/aws/aws-sdk-js-v3/commit/adc6069e97b947d8e4bc6ecf290d2ca02f985b05))
+* **credential-providers:** lazy load STS & SSO clients in credential providers ([#5681](https://github.com/aws/aws-sdk-js-v3/issues/5681)) ([d27301d](https://github.com/aws/aws-sdk-js-v3/commit/d27301d48f3e75fdaccabf58f779f0b33a70664e))
+
+
+
+
+
 # [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
 
 

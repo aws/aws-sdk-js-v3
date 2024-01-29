@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.502.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.501.0...v3.502.0) (2024-01-29)
+
+
+### Features
+
+* **client-ec2:** EC2 Fleet customers who use attribute based instance-type selection can now intuitively define their Spot instances price protection limit as a percentage of the lowest priced On-Demand instance type. ([5465534](https://github.com/aws/aws-sdk-js-v3/commit/5465534c6854f6c797940fa6eea57709a985c46c))
+* **credential-providers:** lazy load STS & SSO clients in credential providers ([#5681](https://github.com/aws/aws-sdk-js-v3/issues/5681)) ([d27301d](https://github.com/aws/aws-sdk-js-v3/commit/d27301d48f3e75fdaccabf58f779f0b33a70664e))
+
+
+
+
+
 # [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
