@@ -11433,6 +11433,9 @@ const de_RestoreDBClusterFromSnapshotCommandError = async (
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
       throw await de_InsufficientDBClusterCapacityFaultRes(parsedOutput, context);
+    case "InsufficientDBInstanceCapacity":
+    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
+      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
     case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);
@@ -11533,6 +11536,9 @@ const de_RestoreDBClusterToPointInTimeCommandError = async (
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
       throw await de_InsufficientDBClusterCapacityFaultRes(parsedOutput, context);
+    case "InsufficientDBInstanceCapacity":
+    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
+      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
     case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);

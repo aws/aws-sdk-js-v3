@@ -337,6 +337,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @throws {@link InsufficientDBClusterCapacityFault} (client fault)
  *  <p>The DB cluster doesn't have enough capacity for the current operation.</p>
  *
+ * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
+ *  <p>The specified DB instance class isn't available in the specified Availability
+ *             Zone.</p>
+ *
  * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
  *  <p>There is insufficient storage available for the current action. You might be able to
  *             resolve this error by updating your subnet group to use different Availability Zones
