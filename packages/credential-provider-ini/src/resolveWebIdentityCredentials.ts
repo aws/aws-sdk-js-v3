@@ -1,4 +1,3 @@
-import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { AwsCredentialIdentity, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
@@ -29,9 +28,11 @@ export const resolveWebIdentityCredentials = async (
   profile: WebIdentityProfile,
   options: FromIniInit
 ): Promise<AwsCredentialIdentity> =>
-  fromTokenFile({
-    webIdentityTokenFile: profile.web_identity_token_file,
-    roleArn: profile.role_arn,
-    roleSessionName: profile.role_session_name,
-    roleAssumerWithWebIdentity: options.roleAssumerWithWebIdentity,
-  })();
+  import("@aws-sdk/credential-provider-web-identity").then(({ fromTokenFile }) =>
+    fromTokenFile({
+      webIdentityTokenFile: profile.web_identity_token_file,
+      roleArn: profile.role_arn,
+      roleSessionName: profile.role_session_name,
+      roleAssumerWithWebIdentity: options.roleAssumerWithWebIdentity,
+    })()
+  );

@@ -1,6 +1,4 @@
-import { fromEnv } from "@aws-sdk/credential-provider-env";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
-import { fromContainerMetadata, fromInstanceMetadata } from "@smithy/credential-provider-imds";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
 
@@ -16,14 +14,17 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
 export const resolveCredentialSource = (
   credentialSource: string,
   profileName: string
-): ((options?: CredentialProviderOptions) => AwsCredentialIdentityProvider) => {
-  const sourceProvidersMap: Record<string, (options?: CredentialProviderOptions) => AwsCredentialIdentityProvider> = {
-    EcsContainer: fromContainerMetadata,
-    Ec2InstanceMetadata: fromInstanceMetadata,
-    Environment: fromEnv,
+): ((options?: CredentialProviderOptions) => Promise<AwsCredentialIdentityProvider>) => {
+  const sourceProvidersMap = {
+    EcsContainer: (options?: CredentialProviderOptions) =>
+      import("@smithy/credential-provider-imds").then(({ fromContainerMetadata }) => fromContainerMetadata(options)),
+    Ec2InstanceMetadata: (options?: CredentialProviderOptions) =>
+      import("@smithy/credential-provider-imds").then(({ fromInstanceMetadata }) => fromInstanceMetadata(options)),
+    Environment: (options?: CredentialProviderOptions) =>
+      import("@aws-sdk/credential-provider-env").then(({ fromEnv }) => fromEnv(options)),
   };
   if (credentialSource in sourceProvidersMap) {
-    return sourceProvidersMap[credentialSource];
+    return sourceProvidersMap[credentialSource as keyof typeof sourceProvidersMap];
   } else {
     throw new CredentialsProviderError(
       `Unsupported credential source in profile ${profileName}. Got ${credentialSource}, ` +

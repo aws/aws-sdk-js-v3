@@ -1,23 +1,23 @@
+jest.mock("@aws-sdk/credential-provider-env");
+jest.mock("@smithy/credential-provider-imds");
+
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromContainerMetadata, fromInstanceMetadata } from "@smithy/credential-provider-imds";
 import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { resolveCredentialSource } from "./resolveCredentialSource";
 
-jest.mock("@aws-sdk/credential-provider-env");
-jest.mock("@smithy/credential-provider-imds");
-
 describe(resolveCredentialSource.name, () => {
   const mockProfileName = "mockProfileName";
-
-  const mockCreds = {
-    accessKeyId: "mockAccessKeyId",
-    secretAccessKey: "mockSecretAccessKey",
-  };
 
   const mockFakeCreds = {
     accessKeyId: "mockFakeAccessKeyId",
     secretAccessKey: "mockFakeSecretAccessKey",
+  };
+
+  const mockCreds = {
+    accessKeyId: "mockAccessKeyId",
+    secretAccessKey: "mockSecretAccessKey",
   };
 
   beforeEach(() => {
@@ -36,9 +36,16 @@ describe(resolveCredentialSource.name, () => {
     ["Environment", fromEnv],
   ])("when credentialSource=%s, calls %p", async (credentialSource, fromFn) => {
     (fromFn as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
-    const receivedCreds = await resolveCredentialSource(credentialSource, mockProfileName)()();
+    const providerFactory = resolveCredentialSource(credentialSource, mockProfileName);
+    expect(typeof providerFactory).toEqual("function");
+
+    const provider = await providerFactory();
+    expect(typeof provider).toEqual("function");
+
+    const receivedCreds = await provider();
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(fromFn).toHaveBeenCalledWith();
+
+    expect(fromFn).toHaveBeenCalled();
     [fromContainerMetadata, fromInstanceMetadata, fromEnv]
       .filter((fn) => fn !== fromFn)
       .forEach((fnNotCalled) => {
@@ -53,7 +60,9 @@ describe(resolveCredentialSource.name, () => {
         `expected EcsContainer or Ec2InstanceMetadata or Environment.`
     );
     try {
-      await resolveCredentialSource(mockCredentialSource, mockProfileName)()();
+      await (
+        await resolveCredentialSource(mockCredentialSource, mockProfileName)()
+      )();
       fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);

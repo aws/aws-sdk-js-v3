@@ -1,6 +1,6 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
-import { ParsedIniData, Profile } from "@smithy/types";
+import { AwsCredentialIdentity, ParsedIniData, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
@@ -101,12 +101,12 @@ export const resolveAssumeRoleCredentials = async (
     );
   }
 
-  const sourceCredsProvider = source_profile
+  const sourceCredsProvider: Promise<AwsCredentialIdentity> = source_profile
     ? resolveProfileData(source_profile, profiles, options, {
         ...visitedProfiles,
         [source_profile]: true,
       })
-    : resolveCredentialSource(data.credential_source!, profileName)(options)();
+    : (await resolveCredentialSource(data.credential_source!, profileName)(options))();
 
   const params: AssumeRoleParams = {
     RoleArn: data.role_arn!,
