@@ -1945,7 +1945,7 @@ export interface ContainsPiiEntitiesRequest {
 
   /**
    * @public
-   * <p>The language of the input documents. Currently, English is the only valid language.</p>
+   * <p>The language of the input documents.</p>
    */
   LanguageCode: LanguageCode | undefined;
 }
@@ -5550,7 +5550,7 @@ export interface PiiEntitiesDetectionJobProperties {
 
   /**
    * @public
-   * <p>The language code of the input documents</p>
+   * <p>The language code of the input documents.</p>
    */
   LanguageCode?: LanguageCode;
 
@@ -6210,7 +6210,8 @@ export interface DetectPiiEntitiesRequest {
 
   /**
    * @public
-   * <p>The language of the input documents. Currently, English is the only valid language.</p>
+   * <p>The language of the input text.
+   *       Enter the language code for English (en) or Spanish (es).</p>
    */
   LanguageCode: LanguageCode | undefined;
 }
@@ -8689,7 +8690,8 @@ export interface StartPiiEntitiesDetectionJobRequest {
 
   /**
    * @public
-   * <p>The language of the input documents. Currently, English is the only valid language.</p>
+   * <p>The language of the input documents.
+   *       Enter the language code for English (en) or Spanish (es).</p>
    */
   LanguageCode: LanguageCode | undefined;
 
