@@ -70,7 +70,7 @@ describe(resolveProfileData.name, () => {
     (resolveStaticCredentials as jest.Mock).mockImplementation(() => Promise.resolve(mockCreds));
     const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions, { testProfile: true });
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(resolveStaticCredentials).toHaveBeenCalledWith(mockProfiles[mockProfileName]);
+    expect(resolveStaticCredentials).toHaveBeenCalledWith(mockProfiles[mockProfileName], mockOptions);
   });
 
   describe("resolves with assumeRole", () => {
@@ -97,7 +97,7 @@ describe(resolveProfileData.name, () => {
     (resolveStaticCredentials as jest.Mock).mockImplementation(() => Promise.resolve(mockCreds));
     const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(resolveStaticCredentials).toHaveBeenCalledWith(mockProfiles[mockProfileName]);
+    expect(resolveStaticCredentials).toHaveBeenCalledWith(mockProfiles[mockProfileName], mockOptions);
   });
 
   it("resolves with web identity profile, when it's not static or assume role", async () => {

@@ -1,5 +1,4 @@
 import { S3Client } from "@aws-sdk/client-s3";
-import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
@@ -56,7 +55,7 @@ export const initializeWithMaximalConfiguration = () => {
     runtime: "node",
     defaultsMode,
     bodyLengthChecker: calculateBodyLength,
-    credentialDefaultProvider: decorateDefaultCredentialProvider(credentialDefaultProvider),
+    credentialDefaultProvider: credentialDefaultProvider,
     defaultUserAgentProvider: defaultUserAgent({ serviceId: "S3", clientVersion: "3.0.0-client-s3-interface-test" }),
     eventStreamSerdeProvider: eventStreamSerdeProvider,
     getAwsChunkedEncodingStream: getAwsChunkedEncodingStream,

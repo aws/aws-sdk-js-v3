@@ -20,16 +20,15 @@ describe("fromIni", () => {
     jest.clearAllMocks();
   });
 
-  it("should inject default role assumers", () => {
+  it("should not inject default role assumers", () => {
+    // these role assumers are now dynamically loaded.
     const profile = "profile";
     fromIni({ profile });
-    expect(coreProvider).toBeCalledWith({
+    expect(coreProvider).toHaveBeenCalledWith({
       profile,
-      roleAssumer: mockRoleAssumer,
-      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
     });
-    expect(getDefaultRoleAssumer).toBeCalled();
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalled();
+    expect(getDefaultRoleAssumer).not.toHaveBeenCalled();
+    expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
   it("should use supplied role assumers", () => {
@@ -37,23 +36,22 @@ describe("fromIni", () => {
     const roleAssumer = jest.fn();
     const roleAssumerWithWebIdentity = jest.fn();
     fromIni({ profile, roleAssumer, roleAssumerWithWebIdentity });
-    expect(coreProvider).toBeCalledWith({
+    expect(coreProvider).toHaveBeenCalledWith({
       profile,
       roleAssumer,
       roleAssumerWithWebIdentity,
     });
-    expect(getDefaultRoleAssumer).not.toBeCalled();
-    expect(getDefaultRoleAssumerWithWebIdentity).not.toBeCalled();
+    expect(getDefaultRoleAssumer).not.toHaveBeenCalled();
+    expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("should use supplied sts and plugins options", () => {
+  it("defers to @aws-sdk/credential-provider-ini", () => {
     const profile = "profile";
     const clientConfig = {
       region: "US_BAR_1",
     };
     const plugin = { applyToStack: () => {} };
     fromIni({ profile, clientConfig, clientPlugins: [plugin] });
-    expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig, [plugin]);
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig, [plugin]);
+    expect(coreProvider).toHaveBeenCalledWith({ profile, clientConfig, clientPlugins: [plugin] });
   });
 });

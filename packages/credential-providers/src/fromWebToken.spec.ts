@@ -21,20 +21,19 @@ describe("fromWebToken", () => {
     jest.clearAllMocks();
   });
 
-  it("should inject default role assumer", () => {
+  it("should not inject default role assumer", () => {
     fromWebToken({
       roleArn,
       webIdentityToken,
     });
-    expect(coreProvider).toBeCalledWith({
+    expect(coreProvider).toHaveBeenCalledWith({
       roleArn,
       webIdentityToken,
-      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
     });
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalled();
+    expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("should supply sts config and plugins to role assumer", () => {
+  it("defers to @aws-sdk/credential-provider-web-identity", () => {
     const clientConfig = {
       region: "US_FOO_0",
     };
@@ -45,9 +44,11 @@ describe("fromWebToken", () => {
       clientConfig,
       clientPlugins: [plugin],
     });
-    expect((coreProvider as jest.Mock).mock.calls[0][0]).toMatchObject({
-      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
+    expect(coreProvider).toHaveBeenCalledWith({
+      roleArn,
+      webIdentityToken,
+      clientConfig,
+      clientPlugins: [plugin],
     });
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig, [plugin]);
   });
 });

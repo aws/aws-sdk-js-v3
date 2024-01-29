@@ -1,11 +1,5 @@
-import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity, STSClientConfig } from "@aws-sdk/client-sts";
 import { defaultProvider, DefaultProviderInit } from "@aws-sdk/credential-provider-node";
-import { AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
-
-export interface fromNodeProviderChainInit extends DefaultProviderInit {
-  clientConfig?: STSClientConfig;
-  clientPlugins?: Pluggable<any, any>[];
-}
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * This is the same credential provider as {@link defaultProvider|the default provider for Node.js SDK},
@@ -32,10 +26,7 @@ export interface fromNodeProviderChainInit extends DefaultProviderInit {
  * })
  * ```
  */
-export const fromNodeProviderChain = (init: fromNodeProviderChainInit = {}): AwsCredentialIdentityProvider =>
+export const fromNodeProviderChain = (init: DefaultProviderInit = {}): AwsCredentialIdentityProvider =>
   defaultProvider({
     ...init,
-    roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.clientConfig, init.clientPlugins),
-    roleAssumerWithWebIdentity:
-      init.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins),
   });

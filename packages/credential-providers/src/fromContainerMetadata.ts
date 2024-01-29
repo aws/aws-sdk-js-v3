@@ -1,10 +1,11 @@
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import {
   fromContainerMetadata as _fromContainerMetadata,
   RemoteProviderInit as _RemoteProviderInit,
 } from "@smithy/credential-provider-imds";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
 
-export interface RemoteProviderInit extends _RemoteProviderInit {}
+export interface RemoteProviderInit extends _RemoteProviderInit, CredentialProviderOptions {}
 
 /**
  * Create a credential provider function that reads from ECS container metadata service.
@@ -25,5 +26,7 @@ export interface RemoteProviderInit extends _RemoteProviderInit {}
  * });
  * ```
  */
-export const fromContainerMetadata = (init?: RemoteProviderInit): AwsCredentialIdentityProvider =>
-  _fromContainerMetadata(init);
+export const fromContainerMetadata = (init?: RemoteProviderInit): AwsCredentialIdentityProvider => {
+  init?.logger?.debug("@smithy/credential-provider-imds", "fromContainerMetadata");
+  return _fromContainerMetadata(init);
+};

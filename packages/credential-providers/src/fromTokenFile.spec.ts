@@ -18,15 +18,13 @@ describe("fromTokenFile", () => {
     jest.clearAllMocks();
   });
 
-  it("should inject default role assumer", () => {
+  it("should not inject default role assumer", () => {
     fromTokenFile();
-    expect(coreProvider).toBeCalledWith({
-      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
-    });
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalled();
+    expect(coreProvider).toHaveBeenCalledWith({});
+    expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("should supply sts config and plugins to role assumer", () => {
+  it("defers to @aws-sdk/credential-provider-web-identity", () => {
     const clientConfig = {
       region: "US_FOO_0",
     };
@@ -35,9 +33,9 @@ describe("fromTokenFile", () => {
       clientConfig,
       clientPlugins: [plugin],
     });
-    expect((coreProvider as jest.Mock).mock.calls[0][0]).toMatchObject({
-      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
+    expect(coreProvider).toHaveBeenCalledWith({
+      clientConfig,
+      clientPlugins: [plugin],
     });
-    expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig, [plugin]);
   });
 });

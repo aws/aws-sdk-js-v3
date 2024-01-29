@@ -8,10 +8,12 @@ package software.amazon.smithy.aws.typescript.codegen.auth.http.integration;
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
 
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.aws.typescript.codegen.AwsDependency;
@@ -21,8 +23,11 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
+import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -108,18 +113,29 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                 }
             case NODE:
                 if (isAwsService(service)) {
-                    return MapUtils.of(
-                        "credentialDefaultProvider", writer -> {
-                            writer
-                                .addDependency(AwsDependency.STS_CLIENT)
-                                .addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
-                                        AwsDependency.STS_CLIENT)
-                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
-                                .write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
-                        }
-                    );
+                    if (isCredentialService(service)) {
+                        return MapUtils.of(
+                            "credentialDefaultProvider", writer -> {
+                                writer
+                                    .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
+                                    .addDependency(AwsDependency.STS_CLIENT)
+                                    .addRelativeImport("defaultProvider", "credentialDefaultProvider",
+                                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
+                                    .write("credentialDefaultProvider");
+                            }
+                        );
+                    } else {
+                        return MapUtils.of(
+                            "credentialDefaultProvider", writer -> {
+                                writer
+                                    .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                    .addDependency(AwsDependency.STS_CLIENT)
+                                    .addImport("defaultProvider", "credentialDefaultProvider",
+                                        AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                    .write("credentialDefaultProvider");
+                            }
+                        );
+                    }
                 }
             default:
                 return Collections.emptyMap();
@@ -183,6 +199,31 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
         }
     }
 
+    @Override
+    public void customize(TypeScriptCodegenContext codegenContext) {
+        TypeScriptSettings settings = codegenContext.settings();
+        Model model = codegenContext.model();
+
+        if (isCredentialService(settings.getService(model))) {
+            BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory =
+                codegenContext.writerDelegator()::useFileWriter;
+
+            writerFactory.accept(CodegenUtils.SOURCE_FOLDER + "/credentialDefaultProvider.ts", writer -> {
+                writer
+                    .write("""
+                        /**
+                         * @internal
+                         */
+                        export const defaultProvider = ((input: any) => {
+                          // @ts-ignore
+                          return () => import("@aws-sdk/credential-provider-node")
+                            .then(({ defaultProvider }) => defaultProvider(input)());
+                        }) as any;
+                        """);
+            });
+        }
+    }
+
     private boolean areAllOptionalAuthOperations(Model model, ServiceShape service) {
         TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
@@ -192,5 +233,15 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
             }
         }
         return true;
+    }
+
+    /**
+     * Some services with circular dependencies to credential providers.
+     */
+    private boolean isCredentialService(ServiceShape service) {
+        return List.of(
+            ShapeId.from("com.amazonaws.ssooidc#AWSSSOOIDCService"),
+            ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615")
+        ).stream().anyMatch(service.getId()::equals);
     }
 }

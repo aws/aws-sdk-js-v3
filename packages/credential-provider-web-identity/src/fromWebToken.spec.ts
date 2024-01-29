@@ -1,4 +1,4 @@
-import { CredentialsProviderError } from "@smithy/property-provider";
+import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 
 import { fromWebToken } from "./fromWebToken";
 
@@ -15,26 +15,22 @@ const MOCK_CREDS = {
   sessionToken: "sessionToken",
 };
 
+jest.mock("@aws-sdk/client-sts", () => ({
+  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockReturnValue(() => {}),
+}));
+
 describe("fromWebToken", () => {
   afterEach(() => {
     jest.clearAllMocks();
     jest.restoreAllMocks();
   });
-  it("throws if roleAssumerWithWebIdentity is not defined", async () => {
-    try {
-      await fromWebToken({
-        webIdentityToken: mockToken,
-        roleArn: mockRoleArn,
-      })();
-      fail(`Expected error to be thrown`);
-    } catch (error) {
-      expect(error).toEqual(
-        new CredentialsProviderError(
-          `Role Arn '${mockRoleArn}' needs to be assumed with web identity, but no role assumption callback was provided.`,
-          false
-        )
-      );
-    }
+  it("dynamically imports roleAssumerWithWebIdentity if not provided", async () => {
+    await fromWebToken({
+      webIdentityToken: mockToken,
+      roleArn: mockRoleArn,
+    })();
+
+    expect(getDefaultRoleAssumerWithWebIdentity).toHaveBeenCalled();
   });
 
   it("passes values to roleAssumerWithWebIdentity", async () => {

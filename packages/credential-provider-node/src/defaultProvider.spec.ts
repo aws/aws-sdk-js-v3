@@ -70,7 +70,7 @@ describe(defaultProvider.name, () => {
         expect(receivedCreds).toEqual(mockCreds);
 
         expect(fromEnv).not.toHaveBeenCalled();
-        expect(fromSSO).toHaveBeenCalledWith(mockInit);
+        expect(fromSSO).not.toHaveBeenCalled(); // skipped when direct input is not sso.
         expect(fromIni).toHaveBeenCalledWith(mockInit);
         expect(fromProcess).toHaveBeenCalledWith(mockInit);
         expect(fromTokenFile).toHaveBeenCalledWith(mockInit);
@@ -107,9 +107,10 @@ describe(defaultProvider.name, () => {
       expect(receivedCreds).toStrictEqual(mockCreds);
 
       expect(fromEnv).not.toHaveBeenCalled();
-      for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
+      for (const fromFn of [fromIni, fromProcess, fromTokenFile, remoteProvider]) {
         expect(fromFn).toHaveBeenCalledWith(mockInitWithoutProfile);
       }
+      expect(fromSSO).not.toHaveBeenCalled();
 
       process.env = ORIGINAL_ENV;
     });
@@ -121,9 +122,10 @@ describe(defaultProvider.name, () => {
     expect(receivedCreds).toStrictEqual(mockCreds);
 
     expect(fromEnv).toHaveBeenCalledTimes(1);
-    for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
+    for (const fromFn of [fromIni, fromProcess, fromTokenFile, remoteProvider]) {
       expect(fromFn).toHaveBeenCalledWith(mockInitWithoutProfile);
     }
+    expect(fromSSO).not.toHaveBeenCalled();
   });
 
   describe(credentialsTreatedAsExpired.name, () => {

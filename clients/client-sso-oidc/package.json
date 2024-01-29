@@ -22,7 +22,6 @@
     "@aws-crypto/sha256-js": "3.0.0",
     "@aws-sdk/client-sts": "*",
     "@aws-sdk/core": "*",
-    "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
     "@aws-sdk/middleware-recursion-detection": "*",
@@ -86,6 +85,9 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "peerDependencies": {
+    "@aws-sdk/credential-provider-node": "*"
+  },
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
   },

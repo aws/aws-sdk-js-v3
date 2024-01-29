@@ -61,17 +61,17 @@ describe("fromTemporaryCredentials", () => {
       secretAccessKey: "SECRET_ACCESS_KEY",
       sessionToken: "SESSION_TOKEN",
     });
-    expect(STSClient as jest.Mock).toBeCalledWith({
+    expect(STSClient as jest.Mock).toHaveBeenCalledWith({
       credentials: masterCredentials,
       region,
     });
-    expect(mockUsePlugin).toBeCalledTimes(1);
+    expect(mockUsePlugin).toHaveBeenCalledTimes(1);
     expect(mockUsePlugin).toHaveBeenNthCalledWith(1, plugin);
-    expect(AssumeRoleCommand as unknown as jest.Mock).toBeCalledWith({
+    expect(AssumeRoleCommand as unknown as jest.Mock).toHaveBeenCalledWith({
       RoleArn,
       RoleSessionName,
     });
-    expect(mockSend as jest.Mock).toBeCalledWith({ command: "ASSUME_ROLE", input: options.params });
+    expect(mockSend as jest.Mock).toHaveBeenCalledWith({ command: "ASSUME_ROLE", input: options.params });
   });
 
   it("should create STS client if not supplied", async () => {
@@ -85,10 +85,10 @@ describe("fromTemporaryCredentials", () => {
       clientPlugins: [plugin],
     });
     await provider();
-    expect(STSClient as jest.Mock).toBeCalledWith({
+    expect(STSClient as jest.Mock).toHaveBeenCalledWith({
       credentials: masterCredentials,
     });
-    expect(mockUsePlugin).toBeCalledTimes(1);
+    expect(mockUsePlugin).toHaveBeenCalledTimes(1);
     expect(mockUsePlugin).toHaveBeenNthCalledWith(1, plugin);
   });
 
@@ -100,7 +100,7 @@ describe("fromTemporaryCredentials", () => {
       },
     });
     await provider();
-    expect(STSClient as jest.Mock).toBeCalledWith({});
+    expect(STSClient as jest.Mock).toHaveBeenCalledWith({});
   });
 
   it("should create a role session name if none provided", async () => {
@@ -108,7 +108,7 @@ describe("fromTemporaryCredentials", () => {
       params: { RoleArn },
     });
     await provider();
-    expect(AssumeRoleCommand as unknown as jest.Mock).toBeCalledWith({
+    expect(AssumeRoleCommand as unknown as jest.Mock).toHaveBeenCalledWith({
       RoleArn,
       RoleSessionName: expect.stringMatching(/^aws-sdk-js-/),
     });
@@ -180,8 +180,8 @@ describe("fromTemporaryCredentials", () => {
       mfaCodeProvider,
     });
     await provider();
-    expect(mfaCodeProvider).toBeCalledWith(SerialNumber);
-    expect(mockSend).toBeCalledWith(
+    expect(mfaCodeProvider).toHaveBeenCalledWith(SerialNumber);
+    expect(mockSend).toHaveBeenCalledWith(
       expect.objectContaining({
         input: {
           RoleArn,

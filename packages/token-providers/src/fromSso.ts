@@ -1,4 +1,4 @@
-import { TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
+import { CredentialProviderOptions, TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
 import { TokenProviderError } from "@smithy/property-provider";
 import {
   getProfileName,
@@ -20,7 +20,7 @@ import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
  */
 const lastRefreshAttemptTime = new Date(0);
 
-export interface FromSsoInit extends SourceProfileInit {}
+export interface FromSsoInit extends SourceProfileInit, CredentialProviderOptions {}
 
 /**
  * Creates a token provider that will read from SSO token cache or ssoOidc.createToken() call.
@@ -28,6 +28,8 @@ export interface FromSsoInit extends SourceProfileInit {}
 export const fromSso =
   (init: FromSsoInit = {}): TokenIdentityProvider =>
   async () => {
+    init.logger?.debug("@aws-sdk/token-providers", "fromSso");
+
     const profiles = await parseKnownFiles(init);
     const profileName = getProfileName(init);
     const profile = profiles[profileName];

@@ -38,6 +38,7 @@ import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -207,19 +208,21 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
-                        if (!testServiceId(service, "STS")) {
-                            writer.addDependency(AwsDependency.STS_CLIENT);
-                            writer.addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
-                                    AwsDependency.STS_CLIENT);
+                        if (isCredentialService(service)) {
+                            writer
+                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE_PEER)
+                                .addDependency(AwsDependency.STS_CLIENT)
+                                .addRelativeImport("defaultProvider", "credentialDefaultProvider",
+                                    Paths.get(".", CodegenUtils.SOURCE_FOLDER, "credentialDefaultProvider"))
+                                .write("credentialDefaultProvider");
                         } else {
-                            writer.addRelativeImport("decorateDefaultCredentialProvider",
-                                "decorateDefaultCredentialProvider", Paths.get(".", CodegenUtils.SOURCE_FOLDER,
-                                STS_ROLE_ASSUMERS_FILE));
+                            writer
+                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .addDependency(AwsDependency.STS_CLIENT)
+                                .addImport("defaultProvider", "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .write("credentialDefaultProvider");
                         }
-                        writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                        writer.addImport("defaultProvider", "credentialDefaultProvider",
-                                AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                        writer.write("decorateDefaultCredentialProvider(credentialDefaultProvider)");
                     }
                 );
             default:
@@ -238,6 +241,22 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "index.ts").toString(), writer -> {
             writeAdditionalExports(settings, model, writer);
         });
+
+        if (isCredentialService(settings.getService(model))) {
+            writerFactory.accept(CodegenUtils.SOURCE_FOLDER + "/credentialDefaultProvider.ts", writer -> {
+                writer
+                    .write("""
+                        /**
+                         * @internal
+                         */
+                        export const defaultProvider = ((input: any) => {
+                          // @ts-ignore
+                          return () => import("@aws-sdk/credential-provider-node")
+                            .then(({ defaultProvider }) => defaultProvider(input)());
+                        }) as any;
+                        """);
+            });
+        }
     }
 
     private void writeAdditionalFiles(
@@ -325,5 +344,15 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             }
         }
         return true;
+    }
+
+    /**
+     * Some services with circular dependencies to credential providers.
+     */
+    private boolean isCredentialService(ServiceShape service) {
+        return List.of(
+            ShapeId.from("com.amazonaws.ssooidc#AWSSSOOIDCService"),
+            ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615")
+        ).stream().anyMatch(service.getId()::equals);
     }
 }

@@ -1,4 +1,4 @@
-import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
@@ -21,31 +21,39 @@ export function fromCognitoIdentityPool({
   accountId,
   cache = localStorage(),
   client,
+  clientConfig,
   customRoleArn,
   identityPoolId,
   logins,
   userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined,
+  logger,
 }: FromCognitoIdentityPoolParameters): CognitoIdentityCredentialProvider {
-  const cacheKey = userIdentifier ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}` : undefined;
+  logger?.debug("@aws-sdk/credential-provider-cognito-identity", "fromCognitoIdentity");
+  const cacheKey: string | undefined = userIdentifier
+    ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
+    : undefined;
 
   let provider: CognitoIdentityCredentialProvider = async () => {
-    let identityId = cacheKey && (await cache.getItem(cacheKey));
+    const { GetIdCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
+    const _client = client ?? new CognitoIdentityClient(clientConfig ?? {});
+
+    let identityId: string | undefined = (cacheKey && (await cache.getItem(cacheKey))) as string | undefined;
     if (!identityId) {
-      const { IdentityId = throwOnMissingId() } = await client.send(
+      const { IdentityId = throwOnMissingId() } = await _client.send(
         new GetIdCommand({
           AccountId: accountId,
           IdentityPoolId: identityPoolId,
           Logins: logins ? await resolveLogins(logins) : undefined,
         })
       );
-      identityId = IdentityId;
+      identityId = IdentityId as string;
       if (cacheKey) {
         Promise.resolve(cache.setItem(cacheKey, identityId)).catch(() => {});
       }
     }
 
     provider = fromCognitoIdentity({
-      client,
+      client: _client,
       customRoleArn,
       logins,
       identityId,
@@ -67,7 +75,7 @@ export function fromCognitoIdentityPool({
 /**
  * @internal
  */
-export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters {
+export interface FromCognitoIdentityPoolParameters extends CognitoProviderParameters, CredentialProviderOptions {
   /**
    * A standard AWS account ID (9+ digits).
    */

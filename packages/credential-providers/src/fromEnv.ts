@@ -1,4 +1,4 @@
-import { fromEnv as _fromEnv } from "@aws-sdk/credential-provider-env";
+import { fromEnv as _fromEnv, FromEnvInit } from "@aws-sdk/credential-provider-env";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
@@ -25,4 +25,4 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
  * });
  * ```
  */
-export const fromEnv = (): AwsCredentialIdentityProvider => _fromEnv();
+export const fromEnv = (init?: FromEnvInit): AwsCredentialIdentityProvider => _fromEnv(init);

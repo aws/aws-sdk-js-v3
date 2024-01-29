@@ -5,6 +5,11 @@ import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssu
 import { resolveCredentialSource } from "./resolveCredentialSource";
 import { resolveProfileData } from "./resolveProfileData";
 
+jest.mock("@aws-sdk/client-sts", () => {
+  return {
+    getDefaultRoleAssumer: jest.fn().mockReturnValue(() => {}),
+  };
+});
 jest.mock("@smithy/shared-ini-file-loader");
 jest.mock("./resolveCredentialSource");
 jest.mock("./resolveProfileData");
@@ -115,24 +120,17 @@ describe(resolveAssumeRoleCredentials.name, () => {
   beforeEach(() => {
     (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
     (resolveProfileData as jest.Mock).mockResolvedValue(mockSourceCredsFromProfile);
-    (resolveCredentialSource as jest.Mock).mockReturnValue(() => Promise.resolve(mockSourceCredsFromCredential));
+    (resolveCredentialSource as jest.Mock).mockReturnValue(() => () => Promise.resolve(mockSourceCredsFromCredential));
   });
 
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it("throws error if roleAssumer is not available in options", async () => {
-    const expectedError = new CredentialsProviderError(
-      `Profile ${mockProfileName} requires a role to be assumed, but no role assumption callback was provided.`,
-      false
-    );
-    try {
-      await resolveAssumeRoleCredentials(mockProfileName, mockProfiles, { ...mockOptions, roleAssumer: undefined });
-      fail(`expected ${expectedError}`);
-    } catch (error) {
-      expect(error).toStrictEqual(expectedError);
-    }
+  it("dynamically loads STS if roleAssumer is not available in options", async () => {
+    const inputOptions = { ...mockOptions, roleAssumer: undefined };
+    await resolveAssumeRoleCredentials(mockProfileName, mockProfiles, inputOptions);
+    expect(inputOptions.roleAssumer).toBeDefined();
   });
 
   it("throws error if source_profile is in visited profiles", async () => {

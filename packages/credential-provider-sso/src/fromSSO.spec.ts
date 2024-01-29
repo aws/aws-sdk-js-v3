@@ -8,6 +8,9 @@ import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
 jest.mock("@smithy/shared-ini-file-loader");
+jest.mock("@aws-sdk/client-sso", () => ({
+  SSOClient: jest.fn(),
+}));
 jest.mock("./isSsoProfile");
 jest.mock("./resolveSSOCredentials");
 jest.mock("./validateSsoProfile");
@@ -116,6 +119,7 @@ describe(fromSSO.name, () => {
         ssoRoleName: mockValidatedSsoProfile.sso_role_name,
         profile: mockProfileName,
         ssoSession: undefined,
+        ssoClient: expect.any(SSOClient),
       });
     });
   });

@@ -57,7 +57,7 @@ describe(fromTokenFile.name, () => {
         roleAssumerWithWebIdentity,
       })();
       expect(creds).toEqual(MOCK_CREDS);
-      expect(fromWebToken as jest.Mock).toBeCalledTimes(1);
+      expect(fromWebToken as jest.Mock).toHaveBeenCalledTimes(1);
       const webTokenInit = (fromWebToken as jest.Mock).mock.calls[0][0];
       expect(webTokenInit.webIdentityToken).toBe(mockTokenValue);
       expect(webTokenInit.roleSessionName).toBe(mockRoleSessionName);
@@ -75,12 +75,12 @@ describe(fromTokenFile.name, () => {
       };
       const creds = await fromTokenFile(init)();
       expect(creds).toEqual(MOCK_CREDS);
-      expect(fromWebToken as jest.Mock).toBeCalledTimes(1);
+      expect(fromWebToken as jest.Mock).toHaveBeenCalledTimes(1);
       const webTokenInit = (fromWebToken as jest.Mock).mock.calls[0][0];
       expect(webTokenInit.roleSessionName).toBe(init.roleSessionName);
       expect(webTokenInit.roleArn).toBe(init.roleArn);
       expect(webTokenInit.roleAssumerWithWebIdentity).toBe(roleAssumerWithWebIdentity);
-      expect(readFileSync as jest.Mock).toBeCalledTimes(1);
+      expect(readFileSync as jest.Mock).toHaveBeenCalledTimes(1);
       expect((readFileSync as jest.Mock).mock.calls[0][0]).toBe(init.webIdentityTokenFile);
     });
 

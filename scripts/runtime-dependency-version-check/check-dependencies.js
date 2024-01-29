@@ -51,7 +51,11 @@ const walk = require("../utils/walk");
       );
 
       for (const dependency of importedDependencies) {
-        if (!(dependency in pkgJson.dependencies) && dependency !== pkgJson.name) {
+        if (
+          !(dependency in (pkgJson.dependencies ?? {})) &&
+          !(dependency in (pkgJson.peerDependencies ?? {})) &&
+          dependency !== pkgJson.name
+        ) {
           errors.push(`${dependency} undeclared but imported in ${pkgJson.name} ${file}}`);
         }
       }

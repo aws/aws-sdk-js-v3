@@ -1,4 +1,4 @@
-import { fromSSO, isSsoProfile as origIsSsoProfile, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
+import { fromSSO, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
 import { AwsCredentialIdentity } from "@smithy/types";
 
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
@@ -6,14 +6,16 @@ import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 jest.mock("@aws-sdk/credential-provider-sso");
 
 describe(isSsoProfile.name, () => {
-  afterEach(() => {
-    jest.clearAllMocks();
+  it("returns false for empty profile", () => {
+    expect(isSsoProfile({})).toEqual(false);
   });
 
-  it.each([false, true])("returns value returned by original isSsoProfile: %s", (value) => {
-    (origIsSsoProfile as unknown as jest.Mock).mockReturnValue(value);
-    expect(isSsoProfile({})).toEqual(value);
-  });
+  it.each(["sso_start_url", "sso_account_id", "sso_region", "sso_session", "sso_role_name"])(
+    "returns true if value at '%s' is of type string",
+    (key) => {
+      expect(isSsoProfile({ [key]: "string" })).toEqual(true);
+    }
+  );
 });
 
 describe(resolveSsoCredentials.name, () => {

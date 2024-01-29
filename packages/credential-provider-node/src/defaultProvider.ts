@@ -1,6 +1,6 @@
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
-import type { FromSSOInit } from "@aws-sdk/credential-provider-sso";
+import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import type { RemoteProviderInit } from "@smithy/credential-provider-imds";
 import { chain, CredentialsProviderError, memoize } from "@smithy/property-provider";
@@ -9,7 +9,14 @@ import { AwsCredentialIdentity, MemoizedProvider } from "@smithy/types";
 
 import { remoteProvider } from "./remoteProvider";
 
-export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit;
+/**
+ * @public
+ */
+export type DefaultProviderInit = FromIniInit &
+  RemoteProviderInit &
+  FromProcessInit &
+  (FromSSOInit & Partial<SsoCredentialsParameters>) &
+  FromTokenFileInit;
 
 /**
  * Creates a credential provider that will attempt to find credentials from the
@@ -30,20 +37,20 @@ export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcess
  * @param init                  Configuration that is passed to each individual
  *                              provider
  *
- * @see {@link fromEnv}                 The function used to source credentials from
- *                              environment variables
- * @see {@link fromSSO}                 The function used to source credentials from
- *                              resolved SSO token cache
- * @see {@link fromTokenFile}           The function used to source credentials from
- *                              token file
- * @see {@link fromIni}                The function used to source credentials from INI
- *                              files
- * @see {@link fromProcess}             The function used to sources credentials from
- *                              credential_process in INI files
+ * @see {@link fromEnv}         The function used to source credentials from
+ *                              environment variables.
+ * @see {@link fromSSO}         The function used to source credentials from
+ *                              resolved SSO token cache.
+ * @see {@link fromTokenFile}   The function used to source credentials from
+ *                              token file.
+ * @see {@link fromIni}         The function used to source credentials from INI
+ *                              files.
+ * @see {@link fromProcess}     The function used to sources credentials from
+ *                              credential_process in INI files.
  * @see {@link fromInstanceMetadata}    The function used to source credentials from the
- *                              EC2 Instance Metadata Service
+ *                                      EC2 Instance Metadata Service.
  * @see {@link fromContainerMetadata}   The function used to source credentials from the
- *                              ECS Container Metadata Service
+ *                                      ECS Container Metadata Service.
  */
 export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> =>
   memoize(
@@ -52,27 +59,39 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
         ? []
         : [
             async () => {
+              init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromEnv");
               const { fromEnv } = await import("@aws-sdk/credential-provider-env");
               return fromEnv()();
             },
           ]),
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromSSO");
+        const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName } = init;
+        if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
+          throw new CredentialsProviderError(
+            "Skipping SSO provider in default chain (inputs do not include SSO fields)."
+          );
+        }
         const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
         return fromSSO(init)();
       },
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromIni");
         const { fromIni } = await import("@aws-sdk/credential-provider-ini");
         return fromIni(init)();
       },
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromProcess");
         const { fromProcess } = await import("@aws-sdk/credential-provider-process");
         return fromProcess(init)();
       },
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromTokenFile");
         const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
         return fromTokenFile(init)();
       },
       async () => {
+        init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::remoteProvider");
         return (await remoteProvider(init))();
       },
       async () => {

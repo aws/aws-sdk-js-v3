@@ -1,6 +1,4 @@
-import { fromProcess } from "@aws-sdk/credential-provider-process";
-import { Credentials } from "@aws-sdk/types";
-import { Profile } from "@smithy/types";
+import { Credentials, Profile } from "@aws-sdk/types";
 
 import { FromIniInit } from "./fromIni";
 
@@ -21,7 +19,9 @@ export const isProcessProfile = (arg: any): arg is ProcessProfile =>
  * @internal
  */
 export const resolveProcessCredentials = async (options: FromIniInit, profile: string): Promise<Credentials> =>
-  fromProcess({
-    ...options,
-    profile,
-  })();
+  import("@aws-sdk/credential-provider-process").then(({ fromProcess }) =>
+    fromProcess({
+      ...options,
+      profile,
+    })()
+  );

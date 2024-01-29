@@ -1,6 +1,6 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName } from "@smithy/shared-ini-file-loader";
-import { ParsedIniData, Profile } from "@smithy/types";
+import { AwsCredentialIdentity, ParsedIniData, Profile } from "@smithy/types";
 
 import { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
@@ -83,13 +83,12 @@ export const resolveAssumeRoleCredentials = async (
   options: FromIniInit,
   visitedProfiles: Record<string, true> = {}
 ) => {
+  options.logger?.debug("@aws-sdk/credential-provider-ini", "resolveAssumeRoleCredentials (STS)");
   const data = profiles[profileName];
 
   if (!options.roleAssumer) {
-    throw new CredentialsProviderError(
-      `Profile ${profileName} requires a role to be assumed, but no role assumption callback was provided.`,
-      false
-    );
+    const { getDefaultRoleAssumer } = await import("./loadSts");
+    options.roleAssumer = getDefaultRoleAssumer(options.clientConfig, options.clientPlugins);
   }
 
   const { source_profile } = data;
@@ -102,12 +101,12 @@ export const resolveAssumeRoleCredentials = async (
     );
   }
 
-  const sourceCredsProvider = source_profile
+  const sourceCredsProvider: Promise<AwsCredentialIdentity> = source_profile
     ? resolveProfileData(source_profile, profiles, options, {
         ...visitedProfiles,
         [source_profile]: true,
       })
-    : resolveCredentialSource(data.credential_source!, profileName)();
+    : (await resolveCredentialSource(data.credential_source!, profileName)(options))();
 
   const params: AssumeRoleParams = {
     RoleArn: data.role_arn!,
@@ -129,5 +128,5 @@ export const resolveAssumeRoleCredentials = async (
   }
 
   const sourceCreds = await sourceCredsProvider;
-  return options.roleAssumer(sourceCreds, params);
+  return options.roleAssumer!(sourceCreds, params);
 };

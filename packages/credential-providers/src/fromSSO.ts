@@ -1,10 +1,5 @@
-import { SSOClient, SSOClientConfig } from "@aws-sdk/client-sso";
-import { fromSSO as _fromSSO, FromSSOInit as _FromSSOInit } from "@aws-sdk/credential-provider-sso";
+import { fromSSO as _fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
-
-export interface FromSSOInit extends Omit<_FromSSOInit, "client"> {
-  clientConfig?: SSOClientConfig;
-}
 
 /**
  * Creates a credential provider function that reads from the _resolved_ access token from local disk then requests
@@ -47,5 +42,6 @@ export interface FromSSOInit extends Omit<_FromSSOInit, "client"> {
  * });
  * ```
  */
-export const fromSSO = (init: FromSSOInit = {}): AwsCredentialIdentityProvider =>
-  _fromSSO({ ...{ ssoClient: init.clientConfig ? new SSOClient(init.clientConfig) : undefined }, ...init });
+export const fromSSO = (init: FromSSOInit = {}): AwsCredentialIdentityProvider => {
+  return _fromSSO({ ...init });
+};

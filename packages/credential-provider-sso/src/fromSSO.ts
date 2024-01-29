@@ -1,9 +1,10 @@
-import { SSOClient } from "@aws-sdk/client-sso";
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { isSsoProfile } from "./isSsoProfile";
+import type { SSOClient, SSOClientConfig } from "./loadSso";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
@@ -41,8 +42,9 @@ export interface SsoCredentialsParameters {
 /**
  * @internal
  */
-export interface FromSSOInit extends SourceProfileInit {
+export interface FromSSOInit extends SourceProfileInit, CredentialProviderOptions {
   ssoClient?: SSOClient;
+  clientConfig?: SSOClientConfig;
 }
 
 /**
@@ -79,7 +81,13 @@ export interface FromSSOInit extends SourceProfileInit {
 export const fromSSO =
   (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): AwsCredentialIdentityProvider =>
   async () => {
-    const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient, ssoSession } = init;
+    init.logger?.debug("@aws-sdk/credential-provider-sso", "fromSSO");
+    const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
+    let { ssoClient } = init;
+    if (!ssoClient) {
+      const { SSOClient } = await import("./loadSso");
+      ssoClient = new SSOClient(init.clientConfig ?? {});
+    }
     const profileName = getProfileName(init);
 
     if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
