@@ -616,6 +616,7 @@ export const EnvironmentStatus = {
   CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
   DELETED: "DELETED",
   DELETING: "DELETING",
+  MAINTENANCE: "MAINTENANCE",
   PENDING: "PENDING",
   ROLLING_BACK: "ROLLING_BACK",
   UNAVAILABLE: "UNAVAILABLE",
@@ -685,11 +686,17 @@ export interface Environment {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UNAVAILABLE</code> - Indicates the request failed, but the environment was unable to rollback and is not in a stable state.</p>
+   *                   <code>UNAVAILABLE</code> - Indicates the request failed, but the environment did not return to its previous state and is not stable.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_FAILED</code> - Indicates the request to update the environment failed, and the environment has rolled back successfully and is ready to use.</p>
+   *                   <code>UPDATE_FAILED</code> - Indicates the request to update the environment failed, and the environment was restored to its previous state successfully and is ready to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MAINTENANCE</code> - Indicates that the environment is undergoing maintenance. Depending on the type of work Amazon MWAA is performing,
+   *               your environment might become unavailable during this process. After all operations are done, your environment will return to its status prior to mainteneace operations.
+   *             </p>
    *             </li>
    *          </ul>
    *          <p>We recommend reviewing our troubleshooting guide for a list of common errors and their solutions. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html">Amazon MWAA troubleshooting</a>.</p>
@@ -710,7 +717,7 @@ export interface Environment {
 
   /**
    * @public
-   * <p>The Apache Airflow <i>Web server</i> host name for the Amazon MWAA environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html">Accessing the Apache Airflow UI</a>.</p>
+   * <p>The Apache Airflow <i>web server</i> host name for the Amazon MWAA environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html">Accessing the Apache Airflow UI</a>.</p>
    */
   WebserverUrl?: string;
 
@@ -728,7 +735,7 @@ export interface Environment {
 
   /**
    * @public
-   * <p>The Amazon Web Services Key Management Service (KMS) encryption key used to encrypt the data in your environment.</p>
+   * <p>The KMS encryption key used to encrypt the data in your environment.</p>
    */
   KmsKey?: string;
 
