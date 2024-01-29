@@ -95,6 +95,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *               "current" || "previous",
  *             ],
  *             SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *             OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
  *             BareMetal: "included" || "excluded" || "required",
  *             BurstablePerformance: "included" || "excluded" || "required",

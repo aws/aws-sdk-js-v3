@@ -6454,6 +6454,9 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   if (input[_SMPPOLP] != null) {
     entries[_SMPPOLP] = input[_SMPPOLP];
   }
+  if (input[_MSPAPOOODP] != null) {
+    entries[_MSPAPOOODP] = input[_MSPAPOOODP];
+  }
   if (input[_ODMPPOLP] != null) {
     entries[_ODMPPOLP] = input[_ODMPPOLP];
   }
@@ -9576,6 +9579,9 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   if (output[_SMPPOLP] != null) {
     contents[_SMPPOLP] = __strictParseInt32(output[_SMPPOLP]) as number;
   }
+  if (output[_MSPAPOOODP] != null) {
+    contents[_MSPAPOOODP] = __strictParseInt32(output[_MSPAPOOODP]) as number;
+  }
   if (output[_ODMPPOLP] != null) {
     contents[_ODMPPOLP] = __strictParseInt32(output[_ODMPPOLP]) as number;
   }
@@ -11415,6 +11421,7 @@ const _MNOLC = "MaxNumberOfLaunchConfigurations";
 const _MO = "MetadataOptions";
 const _MR = "MaxRecords";
 const _MS = "MinSize";
+const _MSPAPOOODP = "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _MSa = "MaxSize";
 const _MSe = "MetricStat";
 const _MSet = "MetricSpecifications";

@@ -28,7 +28,8 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
 
 /**
  * @public
- * <p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>
+ * <p>Gets information about the instance refreshes for the specified Auto Scaling group from the
+ *             previous six weeks.</p>
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
  *             after you make configuration changes.</p>
@@ -134,6 +135,7 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * //                     "current" || "previous",
  * //                   ],
  * //                   SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ * //                   MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //                   OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
  * //                   BareMetal: "included" || "excluded" || "required",
  * //                   BurstablePerformance: "included" || "excluded" || "required",

@@ -100,6 +100,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *                 "current" || "previous",
  *               ],
  *               SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ *               MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *               OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
  *               BareMetal: "included" || "excluded" || "required",
  *               BurstablePerformance: "included" || "excluded" || "required",
