@@ -21,6 +21,10 @@ describe(remoteProvider.name, () => {
     accessKeyId: "mockInstanceMetadataAccessKeyId",
     secretAccessKey: "mockInstanceMetadataSecretAccessKey",
   };
+  const mockFromHttp = jest.fn().mockReturnValue(async () => mockCredsFromContainer);
+
+  const sampleFullUri = "http://localhost";
+  const sampleRelativeUri = "/";
 
   beforeEach(() => {
     process.env = {
@@ -29,6 +33,10 @@ describe(remoteProvider.name, () => {
       [ENV_CMDS_FULL_URI]: undefined,
       [ENV_IMDS_DISABLED]: undefined,
     };
+
+    jest.mock("@aws-sdk/credential-provider-http", () => ({
+      fromHttp: mockFromHttp,
+    }));
     (fromContainerMetadata as jest.Mock).mockReturnValue(async () => mockCredsFromContainer);
     (fromInstanceMetadata as jest.Mock).mockReturnValue(async () => mockSourceCredsFromInstanceMetadata);
   });
@@ -38,16 +46,23 @@ describe(remoteProvider.name, () => {
     jest.clearAllMocks();
   });
 
-  it.each([ENV_CMDS_RELATIVE_URI, ENV_CMDS_FULL_URI])(
-    "returns fromContainerMetadata if env['%s'] is set",
-    async (key) => {
-      process.env[key] = "defined";
-      const receivedCreds = await (await remoteProvider(mockInit))();
-      expect(receivedCreds).toStrictEqual(mockCredsFromContainer);
-      expect(fromContainerMetadata).toHaveBeenCalledWith(mockInit);
-      expect(fromInstanceMetadata).not.toHaveBeenCalled();
-    }
-  );
+  it(`returns fromContainerMetadata if env[${ENV_CMDS_RELATIVE_URI}] is set`, async () => {
+    process.env[ENV_CMDS_RELATIVE_URI] = sampleRelativeUri;
+    const receivedCreds = await (await remoteProvider(mockInit))();
+    expect(receivedCreds).toStrictEqual(mockCredsFromContainer);
+    expect(mockFromHttp).toHaveBeenCalledWith(mockInit);
+    expect(fromContainerMetadata).toHaveBeenCalledWith(mockInit);
+    expect(fromInstanceMetadata).not.toHaveBeenCalled();
+  });
+
+  it(`returns fromContainerMetadata if env[${ENV_CMDS_FULL_URI}] is set`, async () => {
+    process.env[ENV_CMDS_FULL_URI] = sampleFullUri;
+    const receivedCreds = await (await remoteProvider(mockInit))();
+    expect(receivedCreds).toStrictEqual(mockCredsFromContainer);
+    expect(mockFromHttp).toHaveBeenCalledWith(mockInit);
+    expect(fromContainerMetadata).toHaveBeenCalledWith(mockInit);
+    expect(fromInstanceMetadata).not.toHaveBeenCalled();
+  });
 
   it(`throws if env['${ENV_IMDS_DISABLED}'] is set`, async () => {
     process.env[ENV_IMDS_DISABLED] = "1";
@@ -60,6 +75,7 @@ describe(remoteProvider.name, () => {
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
+    expect(mockFromHttp).not.toHaveBeenCalled();
     expect(fromContainerMetadata).not.toHaveBeenCalled();
     expect(fromInstanceMetadata).not.toHaveBeenCalled();
   });
@@ -69,5 +85,6 @@ describe(remoteProvider.name, () => {
     expect(receivedCreds).toStrictEqual(mockSourceCredsFromInstanceMetadata);
     expect(fromInstanceMetadata).toHaveBeenCalledWith(mockInit);
     expect(fromContainerMetadata).not.toHaveBeenCalled();
+    expect(mockFromHttp).not.toHaveBeenCalled();
   });
 });
