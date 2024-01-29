@@ -319,6 +319,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //           AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  * //             "STRING_VALUE",
  * //           ],
+ * //           MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //         },
  * //         PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptions
  * //           HostnameType: "ip-name" || "resource-name",

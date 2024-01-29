@@ -126,6 +126,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *       AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  *         "STRING_VALUE",
  *       ],
+ *       MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *     },
  *   },
  *   DryRun: true || false,

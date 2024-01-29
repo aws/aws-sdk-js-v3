@@ -143,6 +143,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *             AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  *               "STRING_VALUE",
  *             ],
+ *             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *           },
  *         },
  *       ],

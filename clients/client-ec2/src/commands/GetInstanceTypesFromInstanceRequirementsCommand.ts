@@ -128,6 +128,7 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *     AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  *       "STRING_VALUE",
  *     ],
+ *     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

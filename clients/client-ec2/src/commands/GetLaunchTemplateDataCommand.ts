@@ -291,6 +291,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //       AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  * //         "STRING_VALUE",
  * //       ],
+ * //       MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //     },
  * //     PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptions
  * //       HostnameType: "ip-name" || "resource-name",

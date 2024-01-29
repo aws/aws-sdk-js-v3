@@ -253,6 +253,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //               AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  * //                 "STRING_VALUE",
  * //               ],
+ * //               MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //             },
  * //           },
  * //         ],
@@ -338,6 +339,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //                   AllowedInstanceTypes: [
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                   MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //                 },
  * //               },
  * //             ],

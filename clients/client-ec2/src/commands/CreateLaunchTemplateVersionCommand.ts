@@ -292,6 +292,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *       AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  *         "STRING_VALUE",
  *       ],
+ *       MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *     },
  *     PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptionsRequest
  *       HostnameType: "ip-name" || "resource-name",
@@ -555,6 +556,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * //         AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  * //           "STRING_VALUE",
  * //         ],
+ * //         MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //       },
  * //       PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptions
  * //         HostnameType: "ip-name" || "resource-name",

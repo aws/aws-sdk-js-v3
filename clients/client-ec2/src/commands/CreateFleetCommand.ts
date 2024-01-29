@@ -161,6 +161,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *             AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  *               "STRING_VALUE",
  *             ],
+ *             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *           },
  *           ImageId: "STRING_VALUE",
  *         },
@@ -281,6 +282,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //             AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  * //               "STRING_VALUE",
  * //             ],
+ * //             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //           },
  * //           ImageId: "STRING_VALUE",
  * //         },
@@ -375,6 +377,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //             AllowedInstanceTypes: [
  * //               "STRING_VALUE",
  * //             ],
+ * //             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //           },
  * //           ImageId: "STRING_VALUE",
  * //         },

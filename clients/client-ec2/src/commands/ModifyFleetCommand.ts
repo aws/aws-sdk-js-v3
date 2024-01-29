@@ -152,6 +152,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *             AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  *               "STRING_VALUE",
  *             ],
+ *             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *           },
  *           ImageId: "STRING_VALUE",
  *         },

@@ -56473,6 +56473,9 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
       entries[loc] = value;
     });
   }
+  if (input[_MSPAPOOODP] != null) {
+    entries[_MSPAPOOODP] = input[_MSPAPOOODP];
+  }
   return entries;
 };
 
@@ -56641,6 +56644,9 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
       const loc = `AllowedInstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input[_MSPAPOOODP] != null) {
+    entries[_MSPAPOOODP] = input[_MSPAPOOODP];
   }
   return entries;
 };
@@ -81665,6 +81671,9 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   } else if (output[_aITS] != null && output[_aITS][_i] != null) {
     contents[_AIT] = de_AllowedInstanceTypeSet(__getArrayIfSingleItem(output[_aITS][_i]), context);
   }
+  if (output[_mSPAPOOODP] != null) {
+    contents[_MSPAPOOODP] = __strictParseInt32(output[_mSPAPOOODP]) as number;
+  }
   return contents;
 };
 
@@ -96866,6 +96875,7 @@ const _MSDIH = "MaxSlotDurationInHours";
 const _MSDIHi = "MinSlotDurationInHours";
 const _MSFR = "ModifySpotFleetRequest";
 const _MSGR = "ModifySecurityGroupRules";
+const _MSPAPOOODP = "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _MST = "ModifySnapshotTier";
 const _MSa = "ManagementState";
 const _MSo = "MoveStatus";
@@ -98712,6 +98722,7 @@ const _mPSa = "matchPathSet";
 const _mR = "maxResults";
 const _mRS = "modificationResultSet";
 const _mS = "messageSet";
+const _mSPAPOOODP = "maxSpotPriceAsPercentageOfOptimalOnDemandPrice";
 const _mSa = "managementState";
 const _mSai = "maintenanceStrategies";
 const _mSo = "moveStatus";

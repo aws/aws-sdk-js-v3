@@ -290,6 +290,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *       AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  *         "STRING_VALUE",
  *       ],
+ *       MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  *     },
  *     PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptionsRequest
  *       HostnameType: "ip-name" || "resource-name",

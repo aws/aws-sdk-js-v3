@@ -151,6 +151,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                 AllowedInstanceTypes: [ // AllowedInstanceTypeSet
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //               },
  * //               ImageId: "STRING_VALUE",
  * //             },
@@ -285,6 +286,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                 AllowedInstanceTypes: [
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //               },
  * //               ImageId: "STRING_VALUE",
  * //             },
@@ -379,6 +381,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //                 AllowedInstanceTypes: [
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //               },
  * //               ImageId: "STRING_VALUE",
  * //             },
