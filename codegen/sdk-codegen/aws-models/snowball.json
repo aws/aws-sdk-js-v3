@@ -1763,7 +1763,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an address for a Snow device to be shipped to. In most regions,\n      addresses are validated at the time of creation. The address you provide must be located\n      within the serviceable area of your region. If the address is invalid or unsupported, then an\n      exception is thrown.</p>",
+        "smithy.api#documentation": "<p>Creates an address for a Snow device to be shipped to. In most regions,\n      addresses are validated at the time of creation. The address you provide must be located\n      within the serviceable area of your region. If the address is invalid or unsupported, then an\n      exception is thrown. If providing an address as a JSON file through the <code>cli-input-json</code> option, include the full file path. For example, <code>--cli-input-json file://create-address.json</code>.</p>",
         "smithy.api#examples": [
           {
             "title": "To create an address for a job",
@@ -4570,7 +4570,7 @@
       "type": "double",
       "traits": {
         "smithy.api#range": {
-          "min": 0
+          "min": 0.0
         }
       }
     },
