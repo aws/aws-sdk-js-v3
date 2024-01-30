@@ -493,35 +493,34 @@ await ddbDocClient.send(
 );
 ```
 
-### Undefined Values in Marshalling
+### `undefined` values in when marshalling
 
 - In v2 `undefined` values in objects were automatically omitted during the marshalling process to DynamoDB.
 
-- In v3, using [`@aws-sdk/lib-dynamodb`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_lib_dynamodb.html), the default behavior has changed: `undefined` values in objects are now included during marshalling. Developers need to explicitly manage undefined values to exclude them using the `removeUndefinedValues` flag.
+- In v3, the default marshalling behavior in @aws-sdk/lib-dynamodb has changed: objects with `undefined` values are no longer omitted. To align with v2's functionality, developers must explicitly set the `removeUndefinedValues` to `true` in the `marshallOptions` of the DynamoDBDocumentClient.
 
 Example:
 
 ```js
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
-import { marshall } from "@aws-sdk/util-dynamodb";
 
 const client = new DynamoDBClient({});
 
-const ddbDocClient = DynamoDBDocumentClient.from(client);
+// The DynamoDBDocumentClient is configured to handle undefined values properly
+const ddbDocClient = DynamoDBDocumentClient.from(client, {
+  marshallOptions: {
+    removeUndefinedValues: true
+  }
+});
 
-const item = {
-  id: "123",
-  content: undefined,
-};
-
-const marshalledItem = marshall(item, { removeUndefinedValues: true });
-
-// procceed with making the API call as usual:
 await ddbDocClient.send(
   new PutCommand({
-    TableName: "YourTableName",
-    Item: marshalledItem,
+    TableName,
+    Item: {
+      id: "123",
+      content: undefined // This value will be automatically omitted
+    };
   })
 );
 ```
