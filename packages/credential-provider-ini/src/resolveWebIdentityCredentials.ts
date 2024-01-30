@@ -34,5 +34,6 @@ export const resolveWebIdentityCredentials = async (
       roleArn: profile.role_arn,
       roleSessionName: profile.role_session_name,
       roleAssumerWithWebIdentity: options.roleAssumerWithWebIdentity,
+      logger: options.logger,
     })()
   );

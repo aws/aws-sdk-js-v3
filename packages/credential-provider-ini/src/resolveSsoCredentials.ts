@@ -1,13 +1,15 @@
 import type { SsoProfile } from "@aws-sdk/credential-provider-sso";
+import type { CredentialProviderOptions } from "@aws-sdk/types";
 import type { Profile } from "@smithy/types";
 
 /**
  * @internal
  */
-export const resolveSsoCredentials = async (profile: string) => {
+export const resolveSsoCredentials = async (profile: string, options: CredentialProviderOptions = {}) => {
   const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
   return fromSSO({
     profile,
+    logger: options.logger,
   })();
 };
 
