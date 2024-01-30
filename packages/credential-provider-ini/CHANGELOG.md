@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.503.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.502.0...v3.503.0) (2024-01-30)
+
+
+### Bug Fixes
+
+* **credential-provider-ini:** support sso-session based profile as source_profile ([#4820](https://github.com/aws/aws-sdk-js-v3/issues/4820)) ([b87f5e0](https://github.com/aws/aws-sdk-js-v3/commit/b87f5e0cd061d5f7048e8f81974dc7d20ff768bb)), closes [#4757](https://github.com/aws/aws-sdk-js-v3/issues/4757)
+
+
+
+
+
 # [3.502.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.501.0...v3.502.0) (2024-01-29)
 
 

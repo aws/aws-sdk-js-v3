@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.503.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.502.0...v3.503.0) (2024-01-30)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** only skip sso init if all sso fields are not present ([#5746](https://github.com/aws/aws-sdk-js-v3/issues/5746)) ([b0b840a](https://github.com/aws/aws-sdk-js-v3/commit/b0b840a96938ab53030c3dc49719334fa4116b4e))
+
+
+
+
+
 # [3.502.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.501.0...v3.502.0) (2024-01-29)
 
 
