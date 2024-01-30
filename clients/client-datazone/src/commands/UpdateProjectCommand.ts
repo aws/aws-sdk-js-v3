@@ -56,6 +56,13 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
+ * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * //   failureReasons: [ // FailureReasons
+ * //     { // ProjectDeletionError
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
  * //   createdBy: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),

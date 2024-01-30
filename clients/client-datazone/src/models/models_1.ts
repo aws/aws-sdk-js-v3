@@ -26,6 +26,8 @@ import {
   Import,
   ImportFilterSensitiveLog,
   Model,
+  ProjectDeletionError,
+  ProjectStatus,
   ProvisioningProperties,
   Resource,
   SortOrder,
@@ -45,6 +47,53 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface RejectPredictionsOutput {
+  /**
+   * @public
+   * <p/>
+   */
+  domainId: string | undefined;
+
+  /**
+   * @public
+   * <p/>
+   */
+  assetId: string | undefined;
+
+  /**
+   * @public
+   * <p/>
+   */
+  assetRevision: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectSubscriptionRequestInput {
+  /**
+   * @public
+   * <p>The identifier of the Amazon DataZone domain in which the subscription request was
+   *          rejected.</p>
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the subscription request that was rejected.</p>
+   */
+  identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The decision comment of the rejected subscription request.</p>
+   */
+  decisionComment?: string;
+}
 
 /**
  * @public
@@ -1504,6 +1553,18 @@ export interface UpdateProjectOutput {
 
   /**
    * @public
+   * Status of the project
+   */
+  projectStatus?: ProjectStatus;
+
+  /**
+   * @public
+   * Reasons for failed project deletion
+   */
+  failureReasons?: ProjectDeletionError[];
+
+  /**
+   * @public
    * <p>The Amazon DataZone user who created the project.</p>
    */
   createdBy: string | undefined;
@@ -2259,6 +2320,14 @@ export interface SearchTypesInput {
    */
   managed: boolean | undefined;
 }
+
+/**
+ * @internal
+ */
+export const RejectSubscriptionRequestInputFilterSensitiveLog = (obj: RejectSubscriptionRequestInput): any => ({
+  ...obj,
+  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

@@ -38,6 +38,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainOutput, __Metadat
  * const input = { // DeleteDomainInput
  *   identifier: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   skipDeletionCheck: true || false,
  * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);

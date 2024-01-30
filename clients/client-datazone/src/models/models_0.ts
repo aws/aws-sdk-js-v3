@@ -4230,6 +4230,39 @@ export interface CreateProjectInput {
 
 /**
  * @public
+ * Error that occurred during project deletion
+ */
+export interface ProjectDeletionError {
+  /**
+   * @public
+   * Project Deletion Error Code
+   */
+  code?: string;
+
+  /**
+   * @public
+   * Project Deletion Error Message
+   */
+  message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProjectStatus = {
+  ACTIVE: "ACTIVE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
+/**
+ * @public
  */
 export interface CreateProjectOutput {
   /**
@@ -4255,6 +4288,18 @@ export interface CreateProjectOutput {
    * <p>The description of the project.</p>
    */
   description?: string;
+
+  /**
+   * @public
+   * Status of the project
+   */
+  projectStatus?: ProjectStatus;
+
+  /**
+   * @public
+   * Reasons for failed project deletion
+   */
+  failureReasons?: ProjectDeletionError[];
 
   /**
    * @public
@@ -6569,6 +6614,12 @@ export interface DeleteProjectInput {
    * <p>The identifier of the project that is to be deleted.</p>
    */
   identifier: string | undefined;
+
+  /**
+   * @public
+   * Optional flag to asynchronously delete child entities within the project
+   */
+  skipDeletionCheck?: boolean;
 }
 
 /**
@@ -6749,6 +6800,12 @@ export interface DeleteDomainInput {
    *          request.</p>
    */
   clientToken?: string;
+
+  /**
+   * @public
+   * Optional flag to delete all child entities within the domain
+   */
+  skipDeletionCheck?: boolean;
 }
 
 /**
@@ -7933,6 +7990,18 @@ export interface GetProjectOutput {
    * <p>The description of the project.</p>
    */
   description?: string;
+
+  /**
+   * @public
+   * Status of the project
+   */
+  projectStatus?: ProjectStatus;
+
+  /**
+   * @public
+   * Reasons for failed project deletion
+   */
+  failureReasons?: ProjectDeletionError[];
 
   /**
    * @public
@@ -10106,6 +10175,18 @@ export interface ProjectSummary {
 
   /**
    * @public
+   * Status of the project
+   */
+  projectStatus?: ProjectStatus;
+
+  /**
+   * @public
+   * Reasons for failed project deletion
+   */
+  failureReasons?: ProjectDeletionError[];
+
+  /**
+   * @public
    * <p>The Amazon DataZone user who created the project.</p>
    */
   createdBy: string | undefined;
@@ -10948,53 +11029,6 @@ export interface RejectPredictionsInput {
    *          request.</p>
    */
   clientToken?: string;
-}
-
-/**
- * @public
- */
-export interface RejectPredictionsOutput {
-  /**
-   * @public
-   * <p/>
-   */
-  domainId: string | undefined;
-
-  /**
-   * @public
-   * <p/>
-   */
-  assetId: string | undefined;
-
-  /**
-   * @public
-   * <p/>
-   */
-  assetRevision: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RejectSubscriptionRequestInput {
-  /**
-   * @public
-   * <p>The identifier of the Amazon DataZone domain in which the subscription request was
-   *          rejected.</p>
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the subscription request that was rejected.</p>
-   */
-  identifier: string | undefined;
-
-  /**
-   * @public
-   * <p>The decision comment of the rejected subscription request.</p>
-   */
-  decisionComment?: string;
 }
 
 /**
@@ -11979,12 +12013,4 @@ export const SubscriptionTargetSummaryFilterSensitiveLog = (obj: SubscriptionTar
 export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const RejectSubscriptionRequestInputFilterSensitiveLog = (obj: RejectSubscriptionRequestInput): any => ({
-  ...obj,
-  ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
 });

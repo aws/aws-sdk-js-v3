@@ -38,6 +38,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * const input = { // DeleteProjectInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
+ *   skipDeletionCheck: true || false,
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);

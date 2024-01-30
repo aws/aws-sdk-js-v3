@@ -954,6 +954,7 @@ export const se_DeleteDomainCommand = async (
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   const query: any = map({
     [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+    [_sDC]: [() => input.skipDeletionCheck !== void 0, () => input[_sDC]!.toString()],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1096,8 +1097,11 @@ export const se_DeleteProjectCommand = async (
   b.bp("/v2/domains/{domainIdentifier}/projects/{identifier}");
   b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
   b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_sDC]: [() => input.skipDeletionCheck !== void 0, () => input[_sDC]!.toString()],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3749,10 +3753,12 @@ export const de_CreateProjectCommand = async (
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectStatus: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -6289,10 +6295,12 @@ export const de_GetProjectCommand = async (
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectStatus: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -9119,10 +9127,12 @@ export const de_UpdateProjectCommand = async (
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    failureReasons: _json,
     glossaryTerms: _json,
     id: __expectString,
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    projectStatus: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -10195,6 +10205,8 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
 
 // de_FailureCause omitted.
 
+// de_FailureReasons omitted.
+
 // de_FilterExpression omitted.
 
 // de_FilterExpressions omitted.
@@ -10338,6 +10350,8 @@ const de_NotificationsList = (output: any, context: __SerdeContext): Notificatio
 
 // de_PredictionConfiguration omitted.
 
+// de_ProjectDeletionError omitted.
+
 // de_ProjectMember omitted.
 
 // de_ProjectMembers omitted.
@@ -10363,8 +10377,10 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
     createdBy: __expectString,
     description: __expectString,
     domainId: __expectString,
+    failureReasons: _json,
     id: __expectString,
     name: __expectString,
+    projectStatus: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
@@ -10724,6 +10740,7 @@ const _pI = "projectIdentifier";
 const _r = "revision";
 const _s = "status";
 const _sB = "sortBy";
+const _sDC = "skipDeletionCheck";
 const _sI = "subscriptionId";
 const _sLI = "subscribedListingId";
 const _sO = "sortOrder";
