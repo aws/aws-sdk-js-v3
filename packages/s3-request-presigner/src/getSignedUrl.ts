@@ -61,13 +61,9 @@ export const getSignedUrl = async <
       delete request.headers["x-amz-user-agent"];
 
       let presigned: IHttpRequest;
-      let effectiveSigningRegion = options.signingRegion;
-      if (!effectiveSigningRegion) {
-        effectiveSigningRegion = context["signing_region"] ?? region;
-      }
       const presignerOptions = {
         ...options,
-        signingRegion: effectiveSigningRegion,
+        signingRegion: options.signingRegion ?? context["signing_region"] ?? region,
         signingService: options.signingService ?? context["signing_service"],
       };
 
