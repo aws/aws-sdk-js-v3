@@ -4,15 +4,10 @@ import type { Profile } from "@smithy/types";
 /**
  * @internal
  */
-export const resolveSsoCredentials = async (data: Partial<SsoProfile>) => {
-  const { fromSSO, validateSsoProfile } = await import("@aws-sdk/credential-provider-sso");
-  const { sso_start_url, sso_account_id, sso_session, sso_region, sso_role_name } = validateSsoProfile(data);
+export const resolveSsoCredentials = async (profile: string) => {
+  const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
   return fromSSO({
-    ssoStartUrl: sso_start_url,
-    ssoAccountId: sso_account_id,
-    ssoSession: sso_session,
-    ssoRegion: sso_region,
-    ssoRoleName: sso_role_name,
+    profile,
   })();
 };
 
