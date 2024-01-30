@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.503.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.0...v3.503.1) (2024-01-30)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** add fromHttp credential provider to default chain ([#5739](https://github.com/aws/aws-sdk-js-v3/issues/5739)) ([6b99b0b](https://github.com/aws/aws-sdk-js-v3/commit/6b99b0b83a6c57072ceff169aabe96ee34e1cf05))
+
+
+
+
+
 # [3.503.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.502.0...v3.503.0) (2024-01-30)
 
 
