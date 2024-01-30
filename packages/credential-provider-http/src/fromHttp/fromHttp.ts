@@ -47,7 +47,10 @@ export const fromHttp = (options: FromHttpOptions): AwsCredentialIdentityProvide
   } else if (relative) {
     host = `${DEFAULT_LINK_LOCAL_HOST}${relative}`;
   } else {
-    throw new CredentialsProviderError("No HTTP credential provider host provided.");
+    throw new CredentialsProviderError(
+      `No HTTP credential provider host provided.
+Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI.`
+    );
   }
 
   // throws if invalid format.
@@ -56,7 +59,10 @@ export const fromHttp = (options: FromHttpOptions): AwsCredentialIdentityProvide
   // throws if not to spec for provider.
   checkUrl(url);
 
-  const requestHandler = new NodeHttpHandler();
+  const requestHandler = new NodeHttpHandler({
+    requestTimeout: options.timeout ?? 1000,
+    connectionTimeout: options.timeout ?? 1000,
+  });
 
   return retryWrapper(
     async (): Promise<AwsCredentialIdentity> => {
@@ -69,8 +75,12 @@ export const fromHttp = (options: FromHttpOptions): AwsCredentialIdentityProvide
         // to allow for updates to the file contents.
         request.headers.Authorization = (await fs.readFile(tokenFile)).toString();
       }
-      const result = await requestHandler.handle(request);
-      return getCredentials(result.response);
+      try {
+        const result = await requestHandler.handle(request);
+        return getCredentials(result.response);
+      } catch (e: unknown) {
+        throw new CredentialsProviderError(String(e));
+      }
     },
     options.maxRetries ?? 3,
     options.timeout ?? 1000

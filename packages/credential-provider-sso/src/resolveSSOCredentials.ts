@@ -18,6 +18,7 @@ export const resolveSSOCredentials = async ({
   ssoRegion,
   ssoRoleName,
   ssoClient,
+  clientConfig,
   profile,
 }: FromSSOInit & SsoCredentialsParameters): Promise<AwsCredentialIdentity> => {
   let token: SSOToken;
@@ -55,7 +56,13 @@ export const resolveSSOCredentials = async ({
 
   const { SSOClient, GetRoleCredentialsCommand } = await import("./loadSso");
 
-  const sso = ssoClient || new SSOClient({ region: ssoRegion });
+  const sso =
+    ssoClient ||
+    new SSOClient(
+      Object.assign({}, clientConfig ?? {}, {
+        region: clientConfig?.region ?? ssoRegion,
+      })
+    );
   let ssoResp: GetRoleCredentialsCommandOutput;
   try {
     ssoResp = await sso.send(
