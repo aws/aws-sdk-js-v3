@@ -128,6 +128,16 @@ describe(defaultProvider.name, () => {
     expect(fromSSO).not.toHaveBeenCalled();
   });
 
+  it("incomplete sso information should still engage the SSO provider", async () => {
+    await defaultProvider({})();
+    expect(fromSSO).not.toHaveBeenCalled();
+
+    await defaultProvider({
+      ssoRegion: "a-test-region",
+    })();
+    expect(fromSSO).toHaveBeenCalled();
+  });
+
   describe(credentialsTreatedAsExpired.name, () => {
     const mockDateNow = Date.now();
     beforeEach(async () => {

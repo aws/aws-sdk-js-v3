@@ -66,8 +66,8 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
           ]),
       async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node", "defaultProvider::fromSSO");
-        const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName } = init;
-        if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
+        const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
+        if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
           throw new CredentialsProviderError(
             "Skipping SSO provider in default chain (inputs do not include SSO fields)."
           );
