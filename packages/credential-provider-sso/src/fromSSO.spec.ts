@@ -101,7 +101,7 @@ describe(fromSSO.name, () => {
       expect(validateSsoProfile).toHaveBeenCalledWith(mockSsoProfile);
     });
 
-    it("calls resolveSSOCredentials with values from validated Sso profile", async () => {
+    it("calls resolveSSOCredentials with values from validated SSO profile", async () => {
       const mockValidatedSsoProfile = {
         sso_start_url: "mock_sso_start_url",
         sso_account_id: "mock_sso_account_id",
@@ -119,7 +119,8 @@ describe(fromSSO.name, () => {
         ssoRoleName: mockValidatedSsoProfile.sso_role_name,
         profile: mockProfileName,
         ssoSession: undefined,
-        ssoClient: expect.any(SSOClient),
+        ssoClient: undefined,
+        clientConfig: undefined,
       });
     });
   });

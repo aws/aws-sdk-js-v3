@@ -83,11 +83,7 @@ export const fromSSO =
   async () => {
     init.logger?.debug("@aws-sdk/credential-provider-sso", "fromSSO");
     const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
-    let { ssoClient } = init;
-    if (!ssoClient) {
-      const { SSOClient } = await import("./loadSso");
-      ssoClient = new SSOClient(init.clientConfig ?? {});
-    }
+    const { ssoClient } = init;
     const profileName = getProfileName(init);
 
     if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
@@ -125,6 +121,7 @@ export const fromSSO =
         ssoRegion: sso_region,
         ssoRoleName: sso_role_name,
         ssoClient: ssoClient,
+        clientConfig: init.clientConfig,
         profile: profileName,
       });
     } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
@@ -140,6 +137,7 @@ export const fromSSO =
         ssoRegion,
         ssoRoleName,
         ssoClient,
+        clientConfig: init.clientConfig,
         profile: profileName,
       });
     }
