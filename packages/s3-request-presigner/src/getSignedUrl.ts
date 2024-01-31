@@ -26,6 +26,7 @@ export const getSignedUrl = async <
 ): Promise<string> => {
   let s3Presigner: S3RequestPresigner;
 
+  let region: string | undefined;
   if (typeof client.config.endpointProvider === "function") {
     const endpointV2: EndpointV2 = await getEndpointFromInstructions(
       command.input as Record<string, unknown>,
@@ -33,11 +34,15 @@ export const getSignedUrl = async <
       client.config
     );
     const authScheme = endpointV2.properties?.authSchemes?.[0];
-
+    if (authScheme?.name === "sigv4a") {
+      region = authScheme?.signingRegionSet?.join(",");
+    } else {
+      region = authScheme?.signingRegion;
+    }
     s3Presigner = new S3RequestPresigner({
       ...client.config,
       signingName: authScheme?.signingName,
-      region: async () => authScheme?.signingRegion,
+      region: async () => region,
     });
   } else {
     s3Presigner = new S3RequestPresigner(client.config);
@@ -58,7 +63,7 @@ export const getSignedUrl = async <
       let presigned: IHttpRequest;
       const presignerOptions = {
         ...options,
-        signingRegion: options.signingRegion ?? context["signing_region"],
+        signingRegion: options.signingRegion ?? context["signing_region"] ?? region,
         signingService: options.signingService ?? context["signing_service"],
       };
 

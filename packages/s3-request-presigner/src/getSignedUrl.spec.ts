@@ -27,6 +27,20 @@ import { RequestPresigningArguments } from "@smithy/types";
 
 import { getSignedUrl } from "./getSignedUrl";
 
+jest.mock("@smithy/middleware-endpoint", () => {
+  const originalModule = jest.requireActual("@smithy/middleware-endpoint");
+  return {
+    ...originalModule,
+    getEndpointFromInstructions: jest.fn(() =>
+      Promise.resolve({
+        properties: {
+          authSchemes: [{ name: "sigv4a", signingRegionSet: ["*"] }],
+        },
+      })
+    ),
+  };
+});
+
 describe("getSignedUrl", () => {
   const clientParams = {
     region: "us-foo-1",
@@ -141,6 +155,23 @@ describe("getSignedUrl", () => {
       expect(mockPresign.mock.calls[0][0].headers[header]).toBeUndefined();
     }
   );
+  it("should set region to * when sigv4a is the auth scheme", async () => {
+    const mockPresigned = "a presigned url";
+    mockPresign.mockReturnValue(mockPresigned);
+
+    const client = new S3Client(clientParams);
+    const command = new GetObjectCommand({
+      Bucket: "Bucket",
+      Key: "Key",
+    });
+
+    await getSignedUrl(client, command);
+    const presignerArgs = mockPresigner.mock.calls[0][0];
+    const region = await presignerArgs.region();
+
+    expect(region).toBe("*");
+    expect(mockPresign).toBeCalled();
+  });
 
   // TODO(endpointsv2) fix this test
   it.skip("should presign request with MRAP ARN", async () => {
