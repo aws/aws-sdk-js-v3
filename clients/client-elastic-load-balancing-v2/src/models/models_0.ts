@@ -1734,7 +1734,7 @@ export interface CreateLoadBalancerInput {
 
   /**
    * @public
-   * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
+   * <p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You
    *       must specify either subnets or subnet mappings, but not both. To specify an Elastic IP
    *       address, specify subnet mappings instead of subnets.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
@@ -1751,7 +1751,7 @@ export interface CreateLoadBalancerInput {
 
   /**
    * @public
-   * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
+   * <p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You
    *       must specify either subnets or subnet mappings, but not both.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
    *       Zones. You cannot specify Elastic IP addresses for your subnets.</p>
@@ -2284,6 +2284,7 @@ export interface SourceIpConditionConfig {
    *       the request matches one of the CIDR blocks. This condition is not satisfied by the addresses
    *       in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use
    *         <a>HttpHeaderConditionConfig</a>.</p>
+   *          <p>The total number of values must be less than, or equal to five.</p>
    */
   Values?: string[];
 }
@@ -4151,6 +4152,15 @@ export interface TargetGroupAttribute {
    *           the load balancer terminates connections to unhealthy targets. The value is <code>true</code>
    *           or <code>false</code>. The default is <code>true</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_health_state.unhealthy.draining_interval_seconds</code> - The amount of time
+   *           for Elastic Load Balancing to wait before changing the state of an unhealthy target from
+   *           <code>unhealthy.draining</code> to <code>unhealthy</code>. The range is 0-360000 seconds.
+   *           The default value is 0 seconds.</p>
+   *                <p>Note: This attribute can only be configured when
+   *           <code>target_health_state.unhealthy.connection_termination.enabled</code> is <code>false</code>.</p>
+   *             </li>
    *          </ul>
    *          <p>The following attributes are supported only by Gateway Load Balancers:</p>
    *          <ul>
@@ -4322,6 +4332,7 @@ export const TargetHealthStateEnum = {
   INITIAL: "initial",
   UNAVAILABLE: "unavailable",
   UNHEALTHY: "unhealthy",
+  UNHEALTHY_DRAINING: "unhealthy.draining",
   UNUSED: "unused",
 } as const;
 

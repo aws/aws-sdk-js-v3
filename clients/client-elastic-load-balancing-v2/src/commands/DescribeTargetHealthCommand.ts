@@ -64,7 +64,7 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * //       },
  * //       HealthCheckPort: "STRING_VALUE",
  * //       TargetHealth: { // TargetHealth
- * //         State: "initial" || "healthy" || "unhealthy" || "unused" || "draining" || "unavailable",
+ * //         State: "initial" || "healthy" || "unhealthy" || "unhealthy.draining" || "unused" || "draining" || "unavailable",
  * //         Reason: "Elb.RegistrationInProgress" || "Elb.InitialHealthChecking" || "Target.ResponseCodeMismatch" || "Target.Timeout" || "Target.FailedHealthChecks" || "Target.NotRegistered" || "Target.NotInUse" || "Target.DeregistrationInProgress" || "Target.InvalidState" || "Target.IpUnusable" || "Target.HealthCheckDisabled" || "Elb.InternalError",
  * //         Description: "STRING_VALUE",
  * //       },
