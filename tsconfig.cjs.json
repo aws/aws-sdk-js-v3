@@ -3,7 +3,7 @@
   "compilerOptions": {
     "importHelpers": true,
     "module": "commonjs",
-    "noEmitHelpers": true,
+    "noEmitHelpers": false,
     "target": "ES2018",
     "strict": true
   }
