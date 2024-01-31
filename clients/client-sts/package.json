@@ -88,7 +88,7 @@
   },
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@aws-sdk/credential-provider-node": "*"
+    "@aws-sdk/credential-provider-node": "^3.503.1"
   },
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
