@@ -90,12 +90,41 @@ const processAllKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodes
   }, {} as any);
 };
 
+function copyWithoutFunctions(o: any, depth = 0): any {
+  if (depth > 1000) {
+    throw new Error(
+      "Recursive copy depth exceeded 1000. Please set options.convertClassInstanceToMap to false and manually remove functions from your data object."
+    );
+  }
+  if (typeof o === "object" || typeof o === "function") {
+    if (Array.isArray(o)) {
+      return o.filter((item) => typeof item !== "function").map((item) => copyWithoutFunctions(item, depth + 1));
+    }
+    if (o === null) {
+      return null;
+    }
+    const copy = {} as any;
+    for (const [key, value] of Object.entries(o)) {
+      if (typeof value !== "function") {
+        copy[key] = copyWithoutFunctions(value, depth + 1);
+      }
+    }
+    return copy;
+  } else {
+    return o;
+  }
+}
+
 /**
  * @internal
  */
 export const marshallInput = (obj: any, keyNodes: KeyNodeChildren, options?: marshallOptions) => {
+  let _obj = obj;
+  if (options?.convertClassInstanceToMap) {
+    _obj = copyWithoutFunctions(obj);
+  }
   const marshallFunc = (toMarshall: any) => marshall(toMarshall, options);
-  return processKeysInObj(obj, marshallFunc, keyNodes);
+  return processKeysInObj(_obj, marshallFunc, keyNodes);
 };
 
 /**
