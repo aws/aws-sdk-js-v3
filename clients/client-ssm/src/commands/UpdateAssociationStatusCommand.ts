@@ -133,6 +133,7 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  * //       },
  * //     ],
  * //     ScheduleOffset: Number("int"),
+ * //     Duration: Number("int"),
  * //     TargetMaps: [ // TargetMaps
  * //       { // TargetMap
  * //         "<keys>": [ // TargetMapValueList

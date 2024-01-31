@@ -106,6 +106,7 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *     },
  *   ],
  *   ScheduleOffset: Number("int"),
+ *   Duration: Number("int"),
  *   TargetMaps: [ // TargetMaps
  *     { // TargetMap
  *       "<keys>": [ // TargetMapValueList
@@ -207,6 +208,7 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * //       },
  * //     ],
  * //     ScheduleOffset: Number("int"),
+ * //     Duration: Number("int"),
  * //     TargetMaps: [ // TargetMaps
  * //       { // TargetMap
  * //         "<keys>": [ // TargetMapValueList

@@ -739,7 +739,8 @@ export interface ParameterMetadata {
 
   /**
    * @public
-   * <p>The ID of the query key used for this parameter.</p>
+   * <p>The alias of the Key Management Service (KMS) key used to encrypt the
+   *    parameter. Applies to <code>SecureString</code> parameters only.</p>
    */
   KeyId?: string;
 
@@ -2262,8 +2263,7 @@ export interface GetConnectionStatusResponse {
 
   /**
    * @public
-   * <p>The status of the connection to the managed node. For example, 'Connected' or 'Not
-   *    Connected'.</p>
+   * <p>The status of the connection to the managed node.</p>
    */
   Status?: ConnectionStatus;
 }
@@ -2461,7 +2461,7 @@ export interface GetDocumentRequest {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, "Release 12, Update 6". This value is unique across all versions of a document and can't
+   *    example, 12.6. This value is unique across all versions of a document and can't
    *    be changed.</p>
    */
   VersionName?: string;
@@ -2554,8 +2554,7 @@ export interface GetDocumentResult {
 
   /**
    * @public
-   * <p>The version of the artifact associated with the document. For example, "Release 12, Update
-   *    6". This value is unique across all versions of a document, and can't be changed.</p>
+   * <p>The version of the artifact associated with the document. For example, 12.6. This value is unique across all versions of a document, and can't be changed.</p>
    */
   VersionName?: string;
 
@@ -4434,7 +4433,8 @@ export interface ParameterHistory {
 
   /**
    * @public
-   * <p>The ID of the query key used for this parameter.</p>
+   * <p>The alias of the Key Management Service (KMS) key used to encrypt the
+   *    parameter. Applies to <code>SecureString</code> parameters only</p>
    */
   KeyId?: string;
 
@@ -5256,6 +5256,14 @@ export interface Association {
 
   /**
    * @public
+   * <p>The number of hours that an association can run on specified targets. After the resulting
+   *    cutoff time passes, associations that are currently running are cancelled, and no pending
+   *    executions are started on remaining targets.</p>
+   */
+  Duration?: number;
+
+  /**
+   * @public
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
@@ -5452,6 +5460,14 @@ export interface AssociationVersionInfo {
    * <p>Number of days to wait after the scheduled day to run an association.</p>
    */
   ScheduleOffset?: number;
+
+  /**
+   * @public
+   * <p>The number of hours that an association can run on specified targets. After the resulting
+   *    cutoff time passes, associations that are currently running are cancelled, and no pending
+   *    executions are started on remaining targets.</p>
+   */
+  Duration?: number;
 
   /**
    * @public
@@ -7225,7 +7241,7 @@ export interface DocumentIdentifier {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    example, 12.6. This value is unique across all versions of a document, and
    *    can't be changed.</p>
    */
   VersionName?: string;
@@ -7364,8 +7380,7 @@ export interface DocumentVersionInfo {
 
   /**
    * @public
-   * <p>The version of the artifact associated with the document. For example, "Release 12, Update
-   *    6". This value is unique across all versions of a document, and can't be changed.</p>
+   * <p>The version of the artifact associated with the document. For example, 12.6. This value is unique across all versions of a document, and can't be changed.</p>
    */
   VersionName?: string;
 

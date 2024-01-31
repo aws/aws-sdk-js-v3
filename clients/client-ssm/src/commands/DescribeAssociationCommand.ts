@@ -126,6 +126,7 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * //       },
  * //     ],
  * //     ScheduleOffset: Number("int"),
+ * //     Duration: Number("int"),
  * //     TargetMaps: [ // TargetMaps
  * //       { // TargetMap
  * //         "<keys>": [ // TargetMapValueList

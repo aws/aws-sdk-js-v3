@@ -1331,6 +1331,28 @@ export interface CreateAssociationRequest {
 
   /**
    * @public
+   * <p>The number of hours the association can run before it is canceled. Duration applies to
+   *    associations that are currently running, and any pending and in progress commands on all targets.
+   *    If a target was taken offline for the association to run, it is made available again immediately,
+   *    without a reboot. </p>
+   *          <p>The <code>Duration</code> parameter applies only when both these conditions are true:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The association for which you specify a duration is cancelable according to the parameters
+   *      of the SSM command document or Automation runbook associated with this execution. </p>
+   *             </li>
+   *             <li>
+   *                <p>The command specifies the <code>
+   *                      <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-ApplyOnlyAtCronInterval">ApplyOnlyAtCronInterval</a>
+   *                   </code> parameter, which means that the association doesn't
+   *      run immediately after it is created, but only according to the specified schedule.</p>
+   *             </li>
+   *          </ul>
+   */
+  Duration?: number;
+
+  /**
+   * @public
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
@@ -1612,6 +1634,14 @@ export interface AssociationDescription {
    * <p>Number of days to wait after the scheduled day to run an association.</p>
    */
   ScheduleOffset?: number;
+
+  /**
+   * @public
+   * <p>The number of hours that an association can run on specified targets. After the resulting
+   *    cutoff time passes, associations that are currently running are cancelled, and no pending
+   *    executions are started on remaining targets.</p>
+   */
+  Duration?: number;
 
   /**
    * @public
@@ -1995,6 +2025,28 @@ export interface CreateAssociationBatchRequestEntry {
 
   /**
    * @public
+   * <p>The number of hours the association can run before it is canceled. Duration applies to
+   *    associations that are currently running, and any pending and in progress commands on all targets.
+   *    If a target was taken offline for the association to run, it is made available again immediately,
+   *    without a reboot. </p>
+   *          <p>The <code>Duration</code> parameter applies only when both these conditions are true:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The association for which you specify a duration is cancelable according to the parameters
+   *      of the SSM command document or Automation runbook associated with this execution. </p>
+   *             </li>
+   *             <li>
+   *                <p>The command specifies the <code>
+   *                      <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociationBatchRequestEntry.html#systemsmanager-Type-CreateAssociationBatchRequestEntry-ApplyOnlyAtCronInterval">ApplyOnlyAtCronInterval</a>
+   *                   </code> parameter, which means that the association doesn't
+   *      run immediately after it is created, but only according to the specified schedule.</p>
+   *             </li>
+   *          </ul>
+   */
+  Duration?: number;
+
+  /**
+   * @public
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    */
@@ -2217,7 +2269,7 @@ export interface DocumentRequires {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    example, 12.6. This value is unique across all versions of a document, and
    *    can't be changed.</p>
    */
   VersionName?: string;
@@ -6810,7 +6862,7 @@ export interface DescribeDocumentRequest {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    example, 12.6. This value is unique across all versions of a document, and
    *    can't be changed.</p>
    */
   VersionName?: string;
@@ -7794,6 +7846,10 @@ export interface PatchComplianceData {
    * @public
    * <p>The IDs of one or more Common Vulnerabilities and Exposure (CVE) issues that are resolved by
    *    the patch.</p>
+   *          <note>
+   *             <p>Currently, CVE ID values are reported only for patches with a status of
+   *      <code>Missing</code> or <code>Failed</code>.</p>
+   *          </note>
    */
   CVEIds?: string;
 }

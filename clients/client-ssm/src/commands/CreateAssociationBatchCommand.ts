@@ -105,6 +105,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *         },
  *       ],
  *       ScheduleOffset: Number("int"),
+ *       Duration: Number("int"),
  *       TargetMaps: [ // TargetMaps
  *         { // TargetMap
  *           "<keys>": [ // TargetMapValueList
@@ -203,6 +204,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * //         },
  * //       ],
  * //       ScheduleOffset: Number("int"),
+ * //       Duration: Number("int"),
  * //       TargetMaps: [ // TargetMaps
  * //         { // TargetMap
  * //           "<keys>": [ // TargetMapValueList
@@ -278,6 +280,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * //           },
  * //         ],
  * //         ScheduleOffset: Number("int"),
+ * //         Duration: Number("int"),
  * //         TargetMaps: [
  * //           {
  * //             "<keys>": [

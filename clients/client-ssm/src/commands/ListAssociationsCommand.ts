@@ -76,6 +76,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * //       ScheduleExpression: "STRING_VALUE",
  * //       AssociationName: "STRING_VALUE",
  * //       ScheduleOffset: Number("int"),
+ * //       Duration: Number("int"),
  * //       TargetMaps: [ // TargetMaps
  * //         { // TargetMap
  * //           "<keys>": [ // TargetMapValueList

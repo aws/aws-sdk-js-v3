@@ -29,6 +29,10 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
 /**
  * @public
  * <p>Lists all patches eligible to be included in a patch baseline.</p>
+ *          <note>
+ *             <p>Currently, <code>DescribeAvailablePatches</code> supports only the Amazon Linux 1, Amazon
+ *     Linux 2, and Windows Server operating systems.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
