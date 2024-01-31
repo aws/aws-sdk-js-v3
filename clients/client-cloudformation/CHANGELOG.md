@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
+
+
+### Features
+
+* **client-cloudformation:** CloudFormation IaC generator allows you to scan existing resources in your account and select resources to generate a template for a new or existing CloudFormation stack. ([9aa726b](https://github.com/aws/aws-sdk-js-v3/commit/9aa726bcf56116505478e6c7b937e99fd75e93a1))
+
+
+
+
+
 ## [3.503.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.0...v3.503.1) (2024-01-30)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

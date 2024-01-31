@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
+
+
+### Features
+
+* **client-ssm:** This release adds an optional Duration parameter to StateManager Associations. This allows customers to specify how long an apply-only-on-cron association execution should run. Once the specified Duration is out all the ongoing cancellable commands or automations are cancelled. ([c587e27](https://github.com/aws/aws-sdk-js-v3/commit/c587e277524d7aa4393fdbf1e8eadd7e12fc8d86))
+
+
+
+
+
 ## [3.503.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.0...v3.503.1) (2024-01-30)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm

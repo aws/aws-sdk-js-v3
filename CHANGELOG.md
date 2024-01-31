@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** skip function properties in data objects for DynamoDB ([#5697](https://github.com/aws/aws-sdk-js-v3/issues/5697)) ([d054fe1](https://github.com/aws/aws-sdk-js-v3/commit/d054fe1b1df6b814938a5ba6920c3e1e17329c18))
+* **s3-request-presigner:** identify correct authscheme for mrap ([#5742](https://github.com/aws/aws-sdk-js-v3/issues/5742)) ([04df491](https://github.com/aws/aws-sdk-js-v3/commit/04df4919621e983dca5814aa7e78c1d573662c92))
+
+
+### Features
+
+* **client-cloudformation:** CloudFormation IaC generator allows you to scan existing resources in your account and select resources to generate a template for a new or existing CloudFormation stack. ([9aa726b](https://github.com/aws/aws-sdk-js-v3/commit/9aa726bcf56116505478e6c7b937e99fd75e93a1))
+* **client-elastic-load-balancing-v2:** This release enables unhealthy target draining intervals for Network Load Balancers. ([885e0b9](https://github.com/aws/aws-sdk-js-v3/commit/885e0b965308dae7d915c9304e60c79c86d5507b))
+* **client-glue:** Update page size limits for GetJobRuns and GetTriggers APIs. ([0b8c7d8](https://github.com/aws/aws-sdk-js-v3/commit/0b8c7d8ae3fde5c92b3160eafcc3c9f8cd5e4e0d))
+* **client-ssm:** This release adds an optional Duration parameter to StateManager Associations. This allows customers to specify how long an apply-only-on-cron association execution should run. Once the specified Duration is out all the ongoing cancellable commands or automations are cancelled. ([c587e27](https://github.com/aws/aws-sdk-js-v3/commit/c587e277524d7aa4393fdbf1e8eadd7e12fc8d86))
+* **clients:** update client endpoints as of 2024-01-31 ([36228bb](https://github.com/aws/aws-sdk-js-v3/commit/36228bb0ad9c732f8f8443e906bbc272235771bb))
+
+
+
+
+
 ## [3.503.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.0...v3.503.1) (2024-01-30)
 
 

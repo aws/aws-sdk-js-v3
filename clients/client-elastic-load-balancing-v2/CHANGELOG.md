@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** This release enables unhealthy target draining intervals for Network Load Balancers. ([885e0b9](https://github.com/aws/aws-sdk-js-v3/commit/885e0b965308dae7d915c9304e60c79c86d5507b))
+
+
+
+
+
 ## [3.503.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.0...v3.503.1) (2024-01-30)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

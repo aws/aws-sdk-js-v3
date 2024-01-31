@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** identify correct authscheme for mrap ([#5742](https://github.com/aws/aws-sdk-js-v3/issues/5742)) ([04df491](https://github.com/aws/aws-sdk-js-v3/commit/04df4919621e983dca5814aa7e78c1d573662c92))
+
+
+
+
+
 ## [3.503.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.0...v3.503.1) (2024-01-30)
 
 **Note:** Version bump only for package @aws-sdk/s3-request-presigner

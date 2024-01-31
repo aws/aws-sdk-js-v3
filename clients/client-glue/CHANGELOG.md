@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
+
+
+### Features
+
+* **client-glue:** Update page size limits for GetJobRuns and GetTriggers APIs. ([0b8c7d8](https://github.com/aws/aws-sdk-js-v3/commit/0b8c7d8ae3fde5c92b3160eafcc3c9f8cd5e4e0d))
+
+
+
+
+
 ## [3.503.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.0...v3.503.1) (2024-01-30)
 
 **Note:** Version bump only for package @aws-sdk/client-glue
