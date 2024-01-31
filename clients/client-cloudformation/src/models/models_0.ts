@@ -2033,6 +2033,181 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * <p>No more than 5 generated templates can be in an <code>InProgress</code> or <code>Pending</code> status at one
+ *    time. This error is also returned if a generated template that is in an <code>InProgress</code> or
+ *    <code>Pending</code> status is attempted to be updated or deleted.</p>
+ */
+export class ConcurrentResourcesLimitExceededException extends __BaseException {
+  readonly name: "ConcurrentResourcesLimitExceededException" = "ConcurrentResourcesLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentResourcesLimitExceededException, __BaseException>) {
+    super({
+      name: "ConcurrentResourcesLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentResourcesLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>A resource included in a generated template. This data type is used with the
+ *    <code>CreateGeneratedTemplate</code> and <code>UpdateGeneratedTemplate</code> API actions.</p>
+ */
+export interface ResourceDefinition {
+  /**
+   * @public
+   * <p>The type of the resource, such as <code>AWS::DynamoDB::Table</code>. For the list of supported resources, see
+   *       <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/generate-IaC-supported-resources.html">IaC
+   *       generator supported resource types</a> in the <i>CloudFormation User Guide</i>
+   *          </p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * @public
+   * <p>The logical resource id for this resource in the generated template.</p>
+   */
+  LogicalResourceId?: string;
+
+  /**
+   * @public
+   * <p>A list of up to 256 key-value pairs that identifies the scanned resource. The key is the name of one of the
+   *    primary identifiers for the resource. (Primary identifiers are specified in the <code>primaryIdentifier</code> list
+   *    in the resource schema.) The value is the value of that primary identifier. For example, for a
+   *    <code>AWS::DynamoDB::Table</code> resource, the primary identifiers is <code>TableName</code> so the key-value pair
+   *    could be <code>"TableName": "MyDDBTable"</code>. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-primaryidentifier">primaryIdentifier</a> in the <i>CloudFormation Command Line Interface User guide for extension
+   *    development</i>.</p>
+   */
+  ResourceIdentifier: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeneratedTemplateDeletionPolicy = {
+  DELETE: "DELETE",
+  RETAIN: "RETAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type GeneratedTemplateDeletionPolicy =
+  (typeof GeneratedTemplateDeletionPolicy)[keyof typeof GeneratedTemplateDeletionPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const GeneratedTemplateUpdateReplacePolicy = {
+  DELETE: "DELETE",
+  RETAIN: "RETAIN",
+} as const;
+
+/**
+ * @public
+ */
+export type GeneratedTemplateUpdateReplacePolicy =
+  (typeof GeneratedTemplateUpdateReplacePolicy)[keyof typeof GeneratedTemplateUpdateReplacePolicy];
+
+/**
+ * @public
+ * <p>The configuration details of a generated template.</p>
+ */
+export interface TemplateConfiguration {
+  /**
+   * @public
+   * <p>The <code>DeletionPolicy</code> assigned to resources in the generated template. Supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE</code> - delete all resources when the stack is deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RETAIN</code> - retain all resources when the stack is deleted.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+   *                <code>DeletionPolicy</code>
+   *    attribute</a> in the <i>CloudFormation User Guide</i>.</p>
+   */
+  DeletionPolicy?: GeneratedTemplateDeletionPolicy;
+
+  /**
+   * @public
+   * <p>The <code>UpdateReplacePolicy</code> assigned to resources in the generated template. Supported values
+   *    are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE</code> - delete all resources when the resource is replaced during an update operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RETAIN</code> - retain all resources when the resource is replaced during an update operation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html">
+   *                <code>UpdateReplacePolicy</code>
+   *    attribute</a> in the <i>CloudFormation User Guide</i>.</p>
+   */
+  UpdateReplacePolicy?: GeneratedTemplateUpdateReplacePolicy;
+}
+
+/**
+ * @public
+ */
+export interface CreateGeneratedTemplateInput {
+  /**
+   * @public
+   * <p>An optional list of resources to be included in the generated template.</p>
+   *          <p> If no resources are specified,the template will be created without any resources. Resources can be added to the
+   *    template using the <code>UpdateGeneratedTemplate</code> API action.</p>
+   */
+  Resources?: ResourceDefinition[];
+
+  /**
+   * @public
+   * <p>The name assigned to the generated template.</p>
+   */
+  GeneratedTemplateName: string | undefined;
+
+  /**
+   * @public
+   * <p>An optional name or ARN of a stack to use as the base stack for the generated template.</p>
+   */
+  StackName?: string;
+
+  /**
+   * @public
+   * <p>The configuration details of the generated template, including the <code>DeletionPolicy</code> and
+   *    <code>UpdateReplacePolicy</code>.</p>
+   */
+  TemplateConfiguration?: TemplateConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface CreateGeneratedTemplateOutput {
+  /**
+   * @public
+   * <p>The ID of the generated template.</p>
+   */
+  GeneratedTemplateId?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const OnFailure = {
@@ -2107,8 +2282,8 @@ export interface CreateStackInput {
 
   /**
    * @public
-   * <p>The amount of time that can pass before the stack status becomes CREATE_FAILED; if <code>DisableRollback</code>
-   *    is not set or is set to <code>false</code>, the stack will be rolled back.</p>
+   * <p>The amount of time that can pass before the stack status becomes <code>CREATE_FAILED</code>; if
+   *    <code>DisableRollback</code> is not set or is set to <code>false</code>, the stack will be rolled back.</p>
    */
   TimeoutInMinutes?: number;
 
@@ -2450,6 +2625,10 @@ export interface StackSetOperationPreferences {
   /**
    * @public
    * <p>The order of the Regions where you want to perform the stack operation.</p>
+   *          <note>
+   *             <p>
+   *                <code>RegionOrder</code> isn't followed if <code>AutoDeployment</code> is enabled.</p>
+   *          </note>
    */
   RegionOrder?: string[];
 
@@ -3162,6 +3341,39 @@ export class InvalidChangeSetStatusException extends __BaseException {
 
 /**
  * @public
+ */
+export interface DeleteGeneratedTemplateInput {
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) of a generated template.</p>
+   */
+  GeneratedTemplateName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The generated template was not found.</p>
+ */
+export class GeneratedTemplateNotFoundException extends __BaseException {
+  readonly name: "GeneratedTemplateNotFoundException" = "GeneratedTemplateNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GeneratedTemplateNotFoundException, __BaseException>) {
+    super({
+      name: "GeneratedTemplateNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GeneratedTemplateNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The input for <a>DeleteStack</a> action.</p>
  */
 export interface DeleteStackInput {
@@ -3715,6 +3927,346 @@ export interface DescribeChangeSetHooksOutput {
 /**
  * @public
  */
+export interface DescribeGeneratedTemplateInput {
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) of a generated template.</p>
+   */
+  GeneratedTemplateName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A summary of the progress of the template generation.</p>
+ */
+export interface TemplateProgress {
+  /**
+   * @public
+   * <p>The number of resources that succeeded the template generation.</p>
+   */
+  ResourcesSucceeded?: number;
+
+  /**
+   * @public
+   * <p>The number of resources that failed the template generation.</p>
+   */
+  ResourcesFailed?: number;
+
+  /**
+   * @public
+   * <p>The number of resources that are in-process for the template generation.</p>
+   */
+  ResourcesProcessing?: number;
+
+  /**
+   * @public
+   * <p>The number of resources that are still pending the template generation.</p>
+   */
+  ResourcesPending?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeneratedTemplateResourceStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type GeneratedTemplateResourceStatus =
+  (typeof GeneratedTemplateResourceStatus)[keyof typeof GeneratedTemplateResourceStatus];
+
+/**
+ * @public
+ * <p>A specific property that is impacted by a warning.</p>
+ */
+export interface WarningProperty {
+  /**
+   * @public
+   * <p>The path of the property. For example, if this is for the <code>S3Bucket</code> member of the <code>Code</code>
+   *    property, the property path would be <code>Code/S3Bucket</code>.</p>
+   */
+  PropertyPath?: string;
+
+  /**
+   * @public
+   * <p>If <code>true</code>, the specified property is required.</p>
+   */
+  Required?: boolean;
+
+  /**
+   * @public
+   * <p>The description of the property from the resource provider schema.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WarningType = {
+  MUTUALLY_EXCLUSIVE_PROPERTIES: "MUTUALLY_EXCLUSIVE_PROPERTIES",
+  MUTUALLY_EXCLUSIVE_TYPES: "MUTUALLY_EXCLUSIVE_TYPES",
+  UNSUPPORTED_PROPERTIES: "UNSUPPORTED_PROPERTIES",
+} as const;
+
+/**
+ * @public
+ */
+export type WarningType = (typeof WarningType)[keyof typeof WarningType];
+
+/**
+ * @public
+ * <p>The warnings generated for a specific resource for this generated template.</p>
+ */
+export interface WarningDetail {
+  /**
+   * @public
+   * <p>The type of this warning. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/generate-IaC-write-only-properties.html">IaC generator and write-only
+   *    properties</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MUTUALLY_EXCLUSIVE_PROPERTIES</code> - The resource requires mutually-exclusive write-only properties.
+   *      The IaC generator selects one set of mutually exclusive properties and converts the included properties into
+   *      parameters. The parameter names have a suffix <code>OneOf</code> and the parameter descriptions indicate that the
+   *      corresponding property can be replaced with other exclusive properties.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSUPPORTED_PROPERTIES</code> - Unsupported properties are present in the resource. One example of
+   *      unsupported properties would be a required write-only property that is an array, because a parameter cannot be an
+   *      array. Another example is an optional write-only property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MUTUALLY_EXCLUSIVE_TYPES</code> - One or more required write-only properties are found in the resource,
+   *      and the type of that property can be any of several types.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Currently the resource and property reference documentation does not indicate if a property uses a type of
+   *     <code>oneOf</code> or <code>anyOf</code>. You need to look at the resource provider schema.</p>
+   *          </note>
+   */
+  Type?: WarningType;
+
+  /**
+   * @public
+   * <p>The properties of the resource that are impacted by this warning.</p>
+   */
+  Properties?: WarningProperty[];
+}
+
+/**
+ * @public
+ * <p>Details about a resource in a generated template</p>
+ */
+export interface ResourceDetail {
+  /**
+   * @public
+   * <p>The type of the resource, such as <code>AWS::DynamoDB::Table</code>. For the list of supported resources, see
+   *       <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/generate-IaC-supported-resources.html">IaC
+   *       generator supported resource types</a> In the <i>CloudFormation User Guide</i>
+   *          </p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>The logical id for this resource in the final generated template.</p>
+   */
+  LogicalResourceId?: string;
+
+  /**
+   * @public
+   * <p>A list of up to 256 key-value pairs that identifies the resource in the generated template. The key is the name
+   *    of one of the primary identifiers for the resource. (Primary identifiers are specified in the
+   *    <code>primaryIdentifier</code> list in the resource schema.) The value is the value of that primary identifier. For
+   *    example, for a <code>AWS::DynamoDB::Table</code> resource, the primary identifiers is <code>TableName</code> so the
+   *    key-value pair could be <code>"TableName": "MyDDBTable"</code>. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-primaryidentifier">primaryIdentifier</a> in the <i>CloudFormation Command Line Interface User guide for extension
+   *    development</i>.</p>
+   */
+  ResourceIdentifier?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Status of the processing of a resource in a generated template.</p>
+   *          <dl>
+   *             <dt>InProgress</dt>
+   *             <dd>
+   *                <p>The resource processing is still in progress.</p>
+   *             </dd>
+   *             <dt>Complete</dt>
+   *             <dd>
+   *                <p>The resource processing is complete.</p>
+   *             </dd>
+   *             <dt>Pending</dt>
+   *             <dd>
+   *                <p>The resource processing is pending.</p>
+   *             </dd>
+   *             <dt>Failed</dt>
+   *             <dd>
+   *                <p>The resource processing has failed.</p>
+   *             </dd>
+   *          </dl>
+   */
+  ResourceStatus?: GeneratedTemplateResourceStatus;
+
+  /**
+   * @public
+   * <p>The reason for the resource detail, providing more information if a failure happened.</p>
+   */
+  ResourceStatusReason?: string;
+
+  /**
+   * @public
+   * <p>The warnings generated for this resource.</p>
+   */
+  Warnings?: WarningDetail[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeneratedTemplateStatus = {
+  COMPLETE: "COMPLETE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_PENDING: "DELETE_PENDING",
+  FAILED: "FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_PENDING: "UPDATE_PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type GeneratedTemplateStatus = (typeof GeneratedTemplateStatus)[keyof typeof GeneratedTemplateStatus];
+
+/**
+ * @public
+ */
+export interface DescribeGeneratedTemplateOutput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the generated template. The format is
+   *    <code>arn:$\{Partition\}:cloudformation:$\{Region\}:$\{Account\}:generatedtemplate/$\{Id\}</code>. For example,
+   *    <code>arn:aws:cloudformation:<i>us-east-1</i>:<i>123456789012</i>:generatedtemplate/<i>2e8465c1-9a80-43ea-a3a3-4f2d692fe6dc</i>
+   *             </code>.</p>
+   */
+  GeneratedTemplateId?: string;
+
+  /**
+   * @public
+   * <p>The name of the generated template.</p>
+   */
+  GeneratedTemplateName?: string;
+
+  /**
+   * @public
+   * <p>A list of objects describing the details of the resources in the template generation.</p>
+   */
+  Resources?: ResourceDetail[];
+
+  /**
+   * @public
+   * <p>The status of the template generation. Supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreatePending</code> - the creation of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateInProgress</code> - the creation of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeletePending</code> - the deletion of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteInProgress</code> - the deletion of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UpdatePending</code> - the update of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UpdateInProgress</code> - the update of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code> - the template operation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Complete</code> - the template operation is complete.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: GeneratedTemplateStatus;
+
+  /**
+   * @public
+   * <p>The reason for the current template generation status. This will provide more details if a failure
+   *    happened.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * @public
+   * <p>The time the generated template was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time the generated template was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>An object describing the progress of the template generation.</p>
+   */
+  Progress?: TemplateProgress;
+
+  /**
+   * @public
+   * <p>The stack ARN of the base stack if a base stack was provided when generating the template.</p>
+   */
+  StackId?: string;
+
+  /**
+   * @public
+   * <p>The configuration details of the generated template, including the <code>DeletionPolicy</code> and
+   *    <code>UpdateReplacePolicy</code>.</p>
+   */
+  TemplateConfiguration?: TemplateConfiguration;
+
+  /**
+   * @public
+   * <p>The number of warnings generated for this template. The warnings are found in the details of each of the
+   *    resources in the template.</p>
+   */
+  TotalWarnings?: number;
+}
+
+/**
+ * @public
+ */
 export interface DescribeOrganizationsAccessInput {
   /**
    * @public
@@ -3835,6 +4387,141 @@ export interface DescribePublisherOutput {
    * <p>The URL to the publisher's profile with the identity provider.</p>
    */
   PublisherProfile?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResourceScanInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource scan.</p>
+   */
+  ResourceScanId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceScanStatus = {
+  COMPLETE: "COMPLETE",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceScanStatus = (typeof ResourceScanStatus)[keyof typeof ResourceScanStatus];
+
+/**
+ * @public
+ */
+export interface DescribeResourceScanOutput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource scan. The format is
+   *    <code>arn:$\{Partition\}:cloudformation:$\{Region\}:$\{Account\}:resourceScan/$\{Id\}</code>. An example is
+   *    <code>arn:aws:cloudformation:<i>us-east-1</i>:<i>123456789012</i>:resourceScan/<i>f5b490f7-7ed4-428a-aa06-31ff25db0772</i>
+   *             </code>.</p>
+   */
+  ResourceScanId?: string;
+
+  /**
+   * @public
+   * <p>Status of the resource scan.</p>
+   *          <dl>
+   *             <dt>INPROGRESS</dt>
+   *             <dd>
+   *                <p>The resource scan is still in progress.</p>
+   *             </dd>
+   *             <dt>COMPLETE</dt>
+   *             <dd>
+   *                <p>The resource scan is complete.</p>
+   *             </dd>
+   *             <dt>EXPIRED</dt>
+   *             <dd>
+   *                <p>The resource scan has expired.</p>
+   *             </dd>
+   *             <dt>FAILED</dt>
+   *             <dd>
+   *                <p>The resource scan has failed.</p>
+   *             </dd>
+   *          </dl>
+   */
+  Status?: ResourceScanStatus;
+
+  /**
+   * @public
+   * <p>The reason for the resource scan status, providing more information if a failure happened.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * @public
+   * <p>The time that the resource scan was started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the resource scan was finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>The percentage of the resource scan that has been completed.</p>
+   */
+  PercentageCompleted?: number;
+
+  /**
+   * @public
+   * <p>The list of resource types for the specified scan. Resource types are only available for scans with a
+   *    <code>Status</code> set to <code>COMPLETE</code> or <code>FAILED </code>.</p>
+   */
+  ResourceTypes?: string[];
+
+  /**
+   * @public
+   * <p>The number of resources that were listed. This is only available for scans with a <code>Status</code> set to
+   *    <code>COMPLETE</code>, <code>EXPIRED</code>, or <code>FAILED </code>.</p>
+   */
+  ResourcesScanned?: number;
+
+  /**
+   * @public
+   * <p>The number of resources that were read. This is only available for scans with a <code>Status</code> set to
+   *    <code>COMPLETE</code>, <code>EXPIRED</code>, or <code>FAILED </code>.</p>
+   *          <note>
+   *             <p>This field may be 0 if the resource scan failed with a <code>ResourceScanLimitExceededException</code>.</p>
+   *          </note>
+   */
+  ResourcesRead?: number;
+}
+
+/**
+ * @public
+ * <p>The resource scan was not found.</p>
+ */
+export class ResourceScanNotFoundException extends __BaseException {
+  readonly name: "ResourceScanNotFoundException" = "ResourceScanNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceScanNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceScanNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceScanNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6747,6 +7434,104 @@ export interface ExecuteChangeSetOutput {}
 
 /**
  * @public
+ * @enum
+ */
+export const TemplateFormat = {
+  JSON: "JSON",
+  YAML: "YAML",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateFormat = (typeof TemplateFormat)[keyof typeof TemplateFormat];
+
+/**
+ * @public
+ */
+export interface GetGeneratedTemplateInput {
+  /**
+   * @public
+   * <p>The language to use to retrieve for the generated template. Supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>JSON</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YAML</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Format?: TemplateFormat;
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) of the generated template. The format is
+   *    <code>arn:$\{Partition\}:cloudformation:$\{Region\}:$\{Account\}:generatedtemplate/$\{Id\}</code>. For example,
+   *    <code>arn:aws:cloudformation:<i>us-east-1</i>:<i>123456789012</i>:generatedtemplate/<i>2e8465c1-9a80-43ea-a3a3-4f2d692fe6dc</i>
+   *             </code>.</p>
+   */
+  GeneratedTemplateName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGeneratedTemplateOutput {
+  /**
+   * @public
+   * <p>The status of the template generation. Supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreatePending</code> - the creation of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateInProgress</code> - the creation of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeletePending</code> - the deletion of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteInProgress</code> - the deletion of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UpdatePending</code> - the update of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UpdateInProgress</code> - the update of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code> - the template operation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Complete</code> - the template operation is complete.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: GeneratedTemplateStatus;
+
+  /**
+   * @public
+   * <p>The template body of the generated template, in the language specified by the <code>Language</code>
+   *    parameter.</p>
+   */
+  TemplateBody?: string;
+}
+
+/**
+ * @public
  * <p>The input for the <a>GetStackPolicy</a> action.</p>
  */
 export interface GetStackPolicyInput {
@@ -7292,6 +8077,133 @@ export interface ListExportsOutput {
 /**
  * @public
  */
+export interface ListGeneratedTemplatesInput {
+  /**
+   * @public
+   * <p>A string that identifies the next page of resource scan results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p> If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *    that you can use for the <code>NextToken</code> parameter to get the next set of results. By default the
+   *    <code>ListGeneratedTemplates</code> API action will return at most 50 results in each response. The maximum value is
+   *    100.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>The summary of a generated template.</p>
+ */
+export interface TemplateSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the generated template. The format is
+   *    <code>arn:$\{Partition\}:cloudformation:$\{Region\}:$\{Account\}:generatedtemplate/$\{Id\}</code>. For example,
+   *    <code>arn:aws:cloudformation:<i>us-east-1</i>:<i>123456789012</i>:generatedtemplate/<i>2e8465c1-9a80-43ea-a3a3-4f2d692fe6dc</i>
+   *             </code>.</p>
+   */
+  GeneratedTemplateId?: string;
+
+  /**
+   * @public
+   * <p>The name of the generated template.</p>
+   */
+  GeneratedTemplateName?: string;
+
+  /**
+   * @public
+   * <p>The status of the template generation. Supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreatePending</code> - the creation of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateInProgress</code> - the creation of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeletePending</code> - the deletion of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DeleteInProgress</code> - the deletion of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UpdatePending</code> - the update of the template is pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UpdateInProgress</code> - the update of the template is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code> - the template operation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Complete</code> - the template operation is complete.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: GeneratedTemplateStatus;
+
+  /**
+   * @public
+   * <p>The reason for the current template generation status. This will provide more details if a failure
+   *    happened.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * @public
+   * <p>The time the generated template was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time the generated template was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The number of resources in the generated template. This is a total of resources in pending, in-progress,
+   *    completed, and failed states.</p>
+   */
+  NumberOfResources?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListGeneratedTemplatesOutput {
+  /**
+   * @public
+   * <p>A list of summaries of the generated templates.</p>
+   */
+  Summaries?: TemplateSummary[];
+
+  /**
+   * @public
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
+   *    the next set of results, call <code>ListGeneratedTemplates</code> again and use that value for the
+   *    <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to an empty
+   *    string.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListImportsInput {
   /**
    * @public
@@ -7321,6 +8233,312 @@ export interface ListImportsOutput {
   /**
    * @public
    * <p>A string that identifies the next page of exports. If there is no additional page, this value is null.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Identifies a scanned resource. This is used with the <code>ListResourceScanRelatedResources</code> API
+ *    action.</p>
+ */
+export interface ScannedResourceIdentifier {
+  /**
+   * @public
+   * <p>The type of the resource, such as <code>AWS::DynamoDB::Table</code>. For the list of supported resources, see
+   *       <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/generate-IaC-supported-resources.html">IaC
+   *       generator supported resource types</a> In the <i>CloudFormation User Guide</i>
+   *          </p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of up to 256 key-value pairs that identifies the scanned resource. The key is the name of one of the
+   *    primary identifiers for the resource. (Primary identifiers are specified in the <code>primaryIdentifier</code> list
+   *    in the resource schema.) The value is the value of that primary identifier. For example, for a
+   *    <code>AWS::DynamoDB::Table</code> resource, the primary identifiers is <code>TableName</code> so the key-value pair
+   *    could be <code>"TableName": "MyDDBTable"</code>. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-primaryidentifier">primaryIdentifier</a> in the <i>CloudFormation Command Line Interface User guide for extension
+   *    development</i>.</p>
+   */
+  ResourceIdentifier: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceScanRelatedResourcesInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource scan.</p>
+   */
+  ResourceScanId: string | undefined;
+
+  /**
+   * @public
+   * <p>The list of resources for which you want to get the related resources. Up to 100 resources can be
+   *    provided.</p>
+   */
+  Resources: ScannedResourceIdentifier[] | undefined;
+
+  /**
+   * @public
+   * <p>A string that identifies the next page of resource scan results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p> If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *    that you can use for the <code>NextToken</code> parameter to get the next set of results. By default the
+   *    <code>ListResourceScanRelatedResources</code> API action will return up to 100 results in each response. The maximum
+   *    value is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A scanned resource returned by <code>ListResourceScanResources</code> or
+ *    <code>ListResourceScanRelatedResources</code>.</p>
+ */
+export interface ScannedResource {
+  /**
+   * @public
+   * <p>The type of the resource, such as <code>AWS::DynamoDB::Table</code>. For the list of supported resources, see
+   *       <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/generate-IaC-supported-resources.html">IaC
+   *       generator supported resource types</a> In the <i>CloudFormation User Guide</i>
+   *          </p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>A list of up to 256 key-value pairs that identifies for the scanned resource. The key is the name of one of the
+   *    primary identifiers for the resource. (Primary identifiers are specified in the <code>primaryIdentifier</code> list
+   *    in the resource schema.) The value is the value of that primary identifier. For example, for a
+   *    <code>AWS::DynamoDB::Table</code> resource, the primary identifiers is <code>TableName</code> so the key-value pair
+   *    could be <code>"TableName": "MyDDBTable"</code>. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-primaryidentifier">primaryIdentifier</a> in the <i>CloudFormation Command Line Interface User guide for extension
+   *    development</i>.</p>
+   */
+  ResourceIdentifier?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>If <code>true</code>, the resource is managed by a CloudFormation stack.</p>
+   */
+  ManagedByStack?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceScanRelatedResourcesOutput {
+  /**
+   * @public
+   * <p>List of up to <code>MaxResults</code> resources in the specified resource scan related to the specified
+   *    resources.</p>
+   */
+  RelatedResources?: ScannedResource[];
+
+  /**
+   * @public
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
+   *    the next set of results, call <code>ListResourceScanRelatedResources</code> again and use that value for the
+   *    <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to an empty
+   *    string.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A resource scan is currently in progress. Only one can be run at a time for an account in a Region.</p>
+ */
+export class ResourceScanInProgressException extends __BaseException {
+  readonly name: "ResourceScanInProgressException" = "ResourceScanInProgressException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceScanInProgressException, __BaseException>) {
+    super({
+      name: "ResourceScanInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceScanInProgressException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListResourceScanResourcesInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource scan.</p>
+   */
+  ResourceScanId: string | undefined;
+
+  /**
+   * @public
+   * <p>If specified, the returned resources will have the specified resource identifier (or one of them in the case
+   *    where the resource has multiple identifiers).</p>
+   */
+  ResourceIdentifier?: string;
+
+  /**
+   * @public
+   * <p>If specified, the returned resources will be of any of the resource types with the specified prefix.</p>
+   */
+  ResourceTypePrefix?: string;
+
+  /**
+   * @public
+   * <p>If specified, the returned resources will have a matching tag key.</p>
+   */
+  TagKey?: string;
+
+  /**
+   * @public
+   * <p>If specified, the returned resources will have a matching tag value.</p>
+   */
+  TagValue?: string;
+
+  /**
+   * @public
+   * <p>A string that identifies the next page of resource scan results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p> If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *    that you can use for the <code>NextToken</code> parameter to get the next set of results. By default the
+   *    <code>ListResourceScanResources</code> API action will return at most 100 results in each response. The maximum value
+   *    is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceScanResourcesOutput {
+  /**
+   * @public
+   * <p>List of up to <code>MaxResults</code> resources in the specified resource scan that match all of the specified
+   *    filters.</p>
+   */
+  Resources?: ScannedResource[];
+
+  /**
+   * @public
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
+   *    the next set of results, call <code>ListResourceScanResources</code> again and use that value for the
+   *    <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to an empty
+   *    string.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceScansInput {
+  /**
+   * @public
+   * <p>A string that identifies the next page of resource scan results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p> If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *    that you can use for the <code>NextToken</code> parameter to get the next set of results. The default value is 10.
+   *    The maximum value is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of the resource scan. This is returned by the <code>ListResourceScan</code> API action.</p>
+ */
+export interface ResourceScanSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource scan.</p>
+   */
+  ResourceScanId?: string;
+
+  /**
+   * @public
+   * <p>Status of the resource scan.</p>
+   *          <dl>
+   *             <dt>INPROGRESS</dt>
+   *             <dd>
+   *                <p>The resource scan is still in progress.</p>
+   *             </dd>
+   *             <dt>COMPLETE</dt>
+   *             <dd>
+   *                <p>The resource scan is complete.</p>
+   *             </dd>
+   *             <dt>EXPIRED</dt>
+   *             <dd>
+   *                <p>The resource scan has expired.</p>
+   *             </dd>
+   *             <dt>FAILED</dt>
+   *             <dd>
+   *                <p>The resource scan has failed.</p>
+   *             </dd>
+   *          </dl>
+   */
+  Status?: ResourceScanStatus;
+
+  /**
+   * @public
+   * <p>The reason for the resource scan status, providing more information if a failure happened.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * @public
+   * <p>The time that the resource scan was started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the resource scan was finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>The percentage of the resource scan that has been completed.</p>
+   */
+  PercentageCompleted?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceScansOutput {
+  /**
+   * @public
+   * <p>The list of scans returned.</p>
+   */
+  ResourceScanSummaries?: ResourceScanSummary[];
+
+  /**
+   * @public
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
+   *    the next set of results, call <code>ListResourceScans</code> again and use that value for the <code>NextToken</code>
+   *    parameter. If the request returns all results, <code>NextToken</code> is set to an empty string.</p>
    */
   NextToken?: string;
 }
@@ -9745,970 +10963,34 @@ export interface SignalResourceInput {
 
 /**
  * @public
+ * <p>The limit on resource scans has been exceeded. Reasons include:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Exceeded the daily quota for resource scans.</p>
+ *             </li>
+ *             <li>
+ *                <p>A resource scan recently failed. You must wait 10 minutes before starting a new resource scan.</p>
+ *             </li>
+ *             <li>
+ *                <p>The last resource scan failed after exceeding 100,000 resources. When this happens, you must wait 24 hours
+ *      before starting a new resource scan.</p>
+ *             </li>
+ *          </ul>
  */
-export interface StopStackSetOperationInput {
-  /**
-   * @public
-   * <p>The name or unique ID of the stack set that you want to stop the operation for.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the stack operation.</p>
-   */
-  OperationId: string | undefined;
-
-  /**
-   * @public
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
-   *    in the organization's management account or as a delegated administrator in a member
-   *    account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
-   *    self-managed permissions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you are signed in to the management account, specify
-   *      <code>SELF</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify
-   *       <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the
-   *       management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
-   *       delegated administrator</a> in the <i>CloudFormation User
-   *      Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   */
-  CallAs?: CallAs;
-}
-
-/**
- * @public
- */
-export interface StopStackSetOperationOutput {}
-
-/**
- * @public
- */
-export interface TestTypeInput {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the extension.</p>
-   *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The type of the extension to test.</p>
-   *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
-   */
-  Type?: ThirdPartyType;
-
-  /**
-   * @public
-   * <p>The name of the extension to test.</p>
-   *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>
-   */
-  TypeName?: string;
-
-  /**
-   * @public
-   * <p>The version of the extension to test.</p>
-   *          <p>You can specify the version id with either <code>Arn</code>, or with <code>TypeName</code> and
-   *    <code>Type</code>.</p>
-   *          <p>If you don't specify a version, CloudFormation uses the default version of the extension in this
-   *    account and Region for testing.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * @public
-   * <p>The S3 bucket to which CloudFormation delivers the contract test execution logs.</p>
-   *          <p>CloudFormation delivers the logs by the time contract testing has completed and the extension has been
-   *    assigned a test type status of <code>PASSED</code> or <code>FAILED</code>.</p>
-   *          <p>The user calling <code>TestType</code> must be able to access items in the specified S3 bucket. Specifically,
-   *    the user needs the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>GetObject</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PutObject</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html">Actions, Resources, and Condition Keys for Amazon S3</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
-   */
-  LogDeliveryBucket?: string;
-}
-
-/**
- * @public
- */
-export interface TestTypeOutput {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the extension.</p>
-   */
-  TypeVersionArn?: string;
-}
-
-/**
- * @public
- * <p>The input for an <a>UpdateStack</a> action.</p>
- */
-export interface UpdateStackInput {
-  /**
-   * @public
-   * <p>The name or unique stack ID of the stack to update.</p>
-   */
-  StackName: string | undefined;
-
-  /**
-   * @public
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
-   *    (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    <i>CloudFormation User Guide</i>.)</p>
-   *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>,
-   *     <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</p>
-   */
-  TemplateBody?: string;
-
-  /**
-   * @public
-   * <p>Location of file containing the template body. The URL must point to a template that's located in an Amazon S3 bucket or a Systems Manager document. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    <i>CloudFormation User Guide</i>.</p>
-   *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>,
-   *     <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</p>
-   */
-  TemplateURL?: string;
-
-  /**
-   * @public
-   * <p>Reuse the existing template that is associated with the stack that you are updating.</p>
-   *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>,
-   *     <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</p>
-   */
-  UsePreviousTemplate?: boolean;
-
-  /**
-   * @public
-   * <p>Structure containing the temporary overriding stack policy body. You can specify either the
-   *     <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code> parameter, but not
-   *    both.</p>
-   *          <p>If you want to update protected resources, specify a temporary overriding stack policy during this update. If
-   *    you don't specify a stack policy, the current policy that is associated with the stack will be used.</p>
-   */
-  StackPolicyDuringUpdateBody?: string;
-
-  /**
-   * @public
-   * <p>Location of a file containing the temporary overriding stack policy. The URL must point to a policy (max size:
-   *    16KB) located in an S3 bucket in the same Region as the stack. You can specify either the
-   *     <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code> parameter, but not
-   *    both.</p>
-   *          <p>If you want to update protected resources, specify a temporary overriding stack policy during this update. If
-   *    you don't specify a stack policy, the current policy that is associated with the stack will be used.</p>
-   */
-  StackPolicyDuringUpdateURL?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>Parameter</code> structures that specify input parameters for the stack. For more information,
-   *    see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a>
-   *    data type.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * @public
-   * <p>In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order
-   *    for CloudFormation to update the stack.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>
-   *                </p>
-   *                <p>Some stack templates might include resources that can affect permissions in your Amazon Web Services account;
-   *      for example, by creating new Identity and Access Management (IAM) users. For those stacks, you must
-   *      explicitly acknowledge this by specifying one of these capabilities.</p>
-   *                <p>The following IAM resources require you to specify either the <code>CAPABILITY_IAM</code> or
-   *       <code>CAPABILITY_NAMED_IAM</code> capability.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>If you have IAM resources, you can specify either capability.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>If you have IAM resources with custom names, you <i>must</i> specify
-   *         <code>CAPABILITY_NAMED_IAM</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>If you don't specify either of these capabilities, CloudFormation returns an
-   *         <code>InsufficientCapabilities</code> error.</p>
-   *                   </li>
-   *                </ul>
-   *                <p>If your stack template contains these resources, we suggest that you review all permissions associated with
-   *      them and edit their permissions if necessary.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *         AWS::IAM::AccessKey</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-   *         AWS::IAM::Group</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-   *         AWS::IAM::Policy</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-   *         AWS::IAM::Role</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-   *         AWS::IAM::User</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
-   *      Resources in CloudFormation Templates</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CAPABILITY_AUTO_EXPAND</code>
-   *                </p>
-   *                <p>Some template contain macros. Macros perform custom processing on templates; this can include simple actions
-   *      like find-and-replace operations, all the way to extensive transformations of entire templates. Because of this,
-   *      users typically create a change set from the processed template, so that they can review the changes resulting from
-   *      the macros before actually updating the stack. If your stack template contains one or more macros, and you choose
-   *      to update a stack directly from the processed template, without first reviewing the resulting changes in a change
-   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
-   *      are macros hosted by CloudFormation.</p>
-   *                <p>If you want to update a stack from a stack template that contains macros <i>and</i> nested
-   *      stacks, you must update the stack directly from the template using this capability.</p>
-   *                <important>
-   *                   <p>You should only update stacks directly from a stack template that contains macros if you know what processing
-   *       the macro performs.</p>
-   *                   <p>Each macro relies on an underlying Lambda service function for processing stack templates. Be
-   *       aware that the Lambda function owner can update the function operation without CloudFormation being
-   *       notified.</p>
-   *                </important>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to Perform Custom
-   *      Processing on Templates</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
-   *          </note>
-   */
-  Capabilities?: Capability[];
-
-  /**
-   * @public
-   * <p>The template resource types that you have permissions to work with for this update stack action, such as
-   *     <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or <code>Custom::MyCustomInstance</code>.</p>
-   *          <p>If the list of resource types doesn't include a resource that you're updating, the stack update fails. By
-   *    default, CloudFormation grants permissions to all resource types. Identity and Access Management (IAM)
-   *    uses this parameter for CloudFormation-specific condition keys in IAM policies. For more
-   *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with Identity and Access Management</a>.</p>
-   *          <note>
-   *             <p>Only one of the <code>Capabilities</code> and <code>ResourceType</code> parameters can be specified.</p>
-   *          </note>
-   */
-  ResourceTypes?: string[];
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that CloudFormation assumes to update the stack. CloudFormation uses the role's credentials to make calls on your behalf.
-   *     CloudFormation always uses this role for all future operations on the stack. Provided that users have
-   *    permission to operate on the stack, CloudFormation uses this role even if the users don't have permission to
-   *    pass it. Ensure that the role grants least privilege.</p>
-   *          <p>If you don't specify a value, CloudFormation uses the role that was previously associated with the
-   *    stack. If no role is available, CloudFormation uses a temporary session that is generated from your user
-   *    credentials.</p>
-   */
-  RoleARN?: string;
-
-  /**
-   * @public
-   * <p>The rollback triggers for CloudFormation to monitor during stack creation and updating operations, and
-   *    for the specified monitoring period afterwards.</p>
-   */
-  RollbackConfiguration?: RollbackConfiguration;
-
-  /**
-   * @public
-   * <p>Structure containing a new stack policy body. You can specify either the <code>StackPolicyBody</code> or the
-   *     <code>StackPolicyURL</code> parameter, but not both.</p>
-   *          <p>You might update the stack policy, for example, in order to protect a new resource that you created during a
-   *    stack update. If you don't specify a stack policy, the current policy that is associated with the stack is
-   *    unchanged.</p>
-   */
-  StackPolicyBody?: string;
-
-  /**
-   * @public
-   * <p>Location of a file containing the updated stack policy. The URL must point to a policy (max size: 16KB) located
-   *    in an S3 bucket in the same Region as the stack. You can specify either the <code>StackPolicyBody</code> or the
-   *     <code>StackPolicyURL</code> parameter, but not both.</p>
-   *          <p>You might update the stack policy, for example, in order to protect a new resource that you created during a
-   *    stack update. If you don't specify a stack policy, the current policy that is associated with the stack is
-   *    unchanged.</p>
-   */
-  StackPolicyURL?: string;
-
-  /**
-   * @public
-   * <p>Amazon Simple Notification Service topic Amazon Resource Names (ARNs) that CloudFormation associates
-   *    with the stack. Specify an empty list to remove all notification topics.</p>
-   */
-  NotificationARNs?: string[];
-
-  /**
-   * @public
-   * <p>Key-value pairs to associate with this stack. CloudFormation also propagates these tags to supported
-   *    resources in the stack. You can specify a maximum number of 50 tags.</p>
-   *          <p>If you don't specify this parameter, CloudFormation doesn't modify the stack's tags. If you specify an
-   *    empty value, CloudFormation removes all associated tags.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>Preserve the state of previously provisioned resources when an operation fails.</p>
-   *          <p>Default: <code>False</code>
-   *          </p>
-   */
-  DisableRollback?: boolean;
-
-  /**
-   * @public
-   * <p>A unique identifier for this <code>UpdateStack</code> request. Specify this token if you plan to retry requests
-   *    so that CloudFormation knows that you're not attempting to update a stack with the same name. You might retry
-   *     <code>UpdateStack</code> requests to ensure that CloudFormation successfully received them.</p>
-   *          <p>All events triggered by a given stack operation are assigned the same client request token, which you can use to
-   *    track operations. For example, if you execute a <code>CreateStack</code> operation with the token
-   *    <code>token1</code>, then all the <code>StackEvents</code> generated by that operation will have
-   *     <code>ClientRequestToken</code> set as <code>token1</code>.</p>
-   *          <p>In the console, stack operations display the client request token on the Events tab. Stack operations that are
-   *    initiated from the console use the token format <i>Console-StackOperation-ID</i>, which helps you
-   *    easily identify the stack operation . For example, if you create a stack using the console, each stack event would be
-   *    assigned the same token in the following format:
-   *     <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * @public
-   * <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls back. This includes newly
-   *      created resources marked with a deletion policy of <code>Retain</code>.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  RetainExceptOnCreate?: boolean;
-}
-
-/**
- * @public
- * <p>The output for an <a>UpdateStack</a> action.</p>
- */
-export interface UpdateStackOutput {
-  /**
-   * @public
-   * <p>Unique identifier of the stack.</p>
-   */
-  StackId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateStackInstancesInput {
-  /**
-   * @public
-   * <p>The name or unique ID of the stack set associated with the stack instances.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * @public
-   * <p>[Self-managed permissions] The names of one or more Amazon Web Services accounts for which you want to update
-   *    parameter values for stack instances. The overridden parameter values will be applied to all stack instances in the
-   *    specified accounts and Amazon Web Services Regions.</p>
-   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
-   */
-  Accounts?: string[];
-
-  /**
-   * @public
-   * <p>[Service-managed permissions] The Organizations accounts for which you want to update parameter values
-   *    for stack instances. If your update targets OUs, the overridden parameter values only apply to the accounts that are
-   *    currently in the target OUs and their child OUs. Accounts added to the target OUs and their child OUs in the future
-   *    won't use the overridden values.</p>
-   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
-   */
-  DeploymentTargets?: DeploymentTargets;
-
-  /**
-   * @public
-   * <p>The names of one or more Amazon Web Services Regions in which you want to update parameter values for stack
-   *    instances. The overridden parameter values will be applied to all stack instances in the specified accounts and
-   *     Amazon Web Services Regions.</p>
-   */
-  Regions: string[] | undefined;
-
-  /**
-   * @public
-   * <p>A list of input parameters whose values you want to update for the specified stack instances.</p>
-   *          <p>Any overridden parameter values will be applied to all stack instances in the specified accounts and Amazon Web Services Regions. When specifying parameters and their values, be aware of how CloudFormation sets
-   *    parameter values during stack instance update operations:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To override the current value for a parameter, include the parameter and specify its value.</p>
-   *             </li>
-   *             <li>
-   *                <p>To leave an overridden parameter set to its present value, include the parameter and specify
-   *       <code>UsePreviousValue</code> as <code>true</code>. (You can't specify both a value and set
-   *       <code>UsePreviousValue</code> to <code>true</code>.)</p>
-   *             </li>
-   *             <li>
-   *                <p>To set an overridden parameter back to the value specified in the stack set, specify a parameter list but
-   *      don't include the parameter in the list.</p>
-   *             </li>
-   *             <li>
-   *                <p>To leave all parameters set to their present values, don't specify this property at all.</p>
-   *             </li>
-   *          </ul>
-   *          <p>During stack set updates, any parameter values overridden for a stack instance aren't updated, but retain their
-   *    overridden value.</p>
-   *          <p>You can only override the parameter <i>values</i> that are specified in the stack set; to add or
-   *    delete a parameter itself, use <code>UpdateStackSet</code> to update the stack set template. If you add a parameter
-   *    to a template, before you can override the parameter value specified in the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to
-   *    update all stack instances with the updated template and parameter value specified in the stack set. Once a stack
-   *    instance has been updated with the new parameter, you can then override the parameter value using
-   *     <code>UpdateStackInstances</code>.</p>
-   */
-  ParameterOverrides?: Parameter[];
-
-  /**
-   * @public
-   * <p>Preferences for how CloudFormation performs this stack set operation.</p>
-   */
-  OperationPreferences?: StackSetOperationPreferences;
-
-  /**
-   * @public
-   * <p>The unique identifier for this stack set operation.</p>
-   *          <p>The operation ID also functions as an idempotency token, to ensure that CloudFormation performs the
-   *    stack set operation only once, even if you retry the request multiple times. You might retry stack set operation
-   *    requests to ensure that CloudFormation successfully received them.</p>
-   *          <p>If you don't specify an operation ID, the SDK generates one automatically.</p>
-   */
-  OperationId?: string;
-
-  /**
-   * @public
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *     management account or as a delegated administrator in a member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
-   *    permissions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you are signed in to the management account, specify <code>SELF</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   */
-  CallAs?: CallAs;
-}
-
-/**
- * @public
- */
-export interface UpdateStackInstancesOutput {
-  /**
-   * @public
-   * <p>The unique identifier for this stack set operation.</p>
-   */
-  OperationId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateStackSetInput {
-  /**
-   * @public
-   * <p>The name or unique ID of the stack set that you want to update.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * @public
-   * <p>A brief description of updates that you are making.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200
-   *    bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    CloudFormation User Guide.</p>
-   *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code> or
-   *     <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
-   */
-  TemplateBody?: string;
-
-  /**
-   * @public
-   * <p>The location of the file that contains the template body. The URL must point to a template (maximum size:
-   *    460,800 bytes) that is located in an Amazon S3 bucket or a Systems Manager document. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-   *     Anatomy</a> in the CloudFormation User Guide.</p>
-   *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code> or
-   *     <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
-   */
-  TemplateURL?: string;
-
-  /**
-   * @public
-   * <p>Use the existing template that's associated with the stack set that you're updating.</p>
-   *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code> or
-   *     <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
-   */
-  UsePreviousTemplate?: boolean;
-
-  /**
-   * @public
-   * <p>A list of input parameters for the stack set template.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * @public
-   * <p>In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order
-   *    for CloudFormation to update the stack set and its associated stack instances.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>
-   *                </p>
-   *                <p>Some stack templates might include resources that can affect permissions in your Amazon Web Services account;
-   *      for example, by creating new Identity and Access Management (IAM) users. For those stacks sets, you must
-   *      explicitly acknowledge this by specifying one of these capabilities.</p>
-   *                <p>The following IAM resources require you to specify either the <code>CAPABILITY_IAM</code> or
-   *       <code>CAPABILITY_NAMED_IAM</code> capability.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>If you have IAM resources, you can specify either capability.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>If you have IAM resources with custom names, you <i>must</i> specify
-   *         <code>CAPABILITY_NAMED_IAM</code>.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>If you don't specify either of these capabilities, CloudFormation returns an
-   *         <code>InsufficientCapabilities</code> error.</p>
-   *                   </li>
-   *                </ul>
-   *                <p>If your stack template contains these resources, we recommend that you review all permissions associated with
-   *      them and edit their permissions if necessary.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *         AWS::IAM::AccessKey</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-   *         AWS::IAM::Group</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">
-   *         AWS::IAM::InstanceProfile</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-   *         AWS::IAM::Policy</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-   *         AWS::IAM::Role</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-   *         AWS::IAM::User</a>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
-   *         AWS::IAM::UserToGroupAddition</a>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation Templates</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CAPABILITY_AUTO_EXPAND</code>
-   *                </p>
-   *                <p>Some templates reference macros. If your stack set template references one or more macros, you must update the
-   *      stack set directly from the processed template, without first reviewing the resulting changes in a change set. To
-   *      update the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to Perform
-   *      Custom Processing on Templates</a>.</p>
-   *                <important>
-   *                   <p>Stack sets with service-managed permissions do not currently support the use of macros in templates. (This
-   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a
-   *       stack set with service-managed permissions, if you reference a macro in your template the stack set operation will
-   *       fail.</p>
-   *                </important>
-   *             </li>
-   *          </ul>
-   */
-  Capabilities?: Capability[];
-
-  /**
-   * @public
-   * <p>The key-value pairs to associate with this stack set and the stacks created from it. CloudFormation also
-   *    propagates these tags to supported resources that are created in the stacks. You can specify a maximum number of 50
-   *    tags.</p>
-   *          <p>If you specify tags for this parameter, those tags replace any list of tags that are currently associated with
-   *    this stack set. This means:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you don't specify this parameter, CloudFormation doesn't modify the stack's tags.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <i>any</i> tags using this parameter, you must specify <i>all</i>
-   *      the tags that you want associated with this stack set, even tags you've specified before (for example, when
-   *      creating the stack set or during a previous update of the stack set.). Any tags that you don't include in the
-   *      updated list of tags are removed from the stack set, and therefore from the stacks and resources as well.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify an empty value, CloudFormation removes all currently associated tags.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify new tags as part of an <code>UpdateStackSet</code> action, CloudFormation checks to see if
-   *    you have the required IAM permission to tag resources. If you omit tags that are currently associated
-   *    with the stack set from the list of tags you specify, CloudFormation assumes that you want to remove those tags
-   *    from the stack set, and checks to see if you have permission to untag resources. If you don't have the necessary
-   *    permission(s), the entire <code>UpdateStackSet</code> action fails with an <code>access denied</code> error, and the
-   *    stack set is not updated.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>Preferences for how CloudFormation performs this stack set operation.</p>
-   */
-  OperationPreferences?: StackSetOperationPreferences;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM role to use to update this stack set.</p>
-   *          <p>Specify an IAM role only if you are using customized administrator roles to control which users
-   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Granting Permissions for Stack Set
-   *    Operations</a> in the <i>CloudFormation User Guide</i>.</p>
-   *          <p>If you specified a customized administrator role when you created the stack set, you must specify a customized
-   *    administrator role, even if it is the same customized administrator role used with this stack set previously.</p>
-   */
-  AdministrationRoleARN?: string;
-
-  /**
-   * @public
-   * <p>The name of the IAM execution role to use to update the stack set. If you do not specify an
-   *    execution role, CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code> role for the stack set
-   *    operation.</p>
-   *          <p>Specify an IAM role only if you are using customized execution roles to control which stack
-   *    resources users and groups can include in their stack sets.</p>
-   *          <p>If you specify a customized execution role, CloudFormation uses that role to update the stack. If you do not specify a
-   *    customized execution role, CloudFormation performs the update using the role previously associated with the stack set, so long
-   *    as you have permissions to perform operations on the stack set.</p>
-   */
-  ExecutionRoleName?: string;
-
-  /**
-   * @public
-   * <p>[Service-managed permissions] The Organizations accounts in which to update associated stack
-   *    instances.</p>
-   *          <p>To update all the stack instances associated with this stack set, do not specify <code>DeploymentTargets</code>
-   *    or <code>Regions</code>.</p>
-   *          <p>If the stack set update includes changes to the template (that is, if <code>TemplateBody</code> or
-   *     <code>TemplateURL</code> is specified), or the <code>Parameters</code>, CloudFormation marks all stack instances
-   *    with a status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and Amazon Web Services Regions. If the stack set update doesn't include changes to the template or parameters, CloudFormation updates the stack instances in the specified accounts and Regions, while leaving all other stack instances with
-   *    their existing stack instance status.</p>
-   */
-  DeploymentTargets?: DeploymentTargets;
-
-  /**
-   * @public
-   * <p>Describes how the IAM roles required for stack set operations are created. You cannot modify
-   *     <code>PermissionModel</code> if there are stack instances associated with your stack set.</p>
-   *          <ul>
-   *             <li>
-   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to
-   *      deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set
-   *       Permissions</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles
-   *      required to deploy to accounts managed by Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
-   *       Service-Managed Stack Set Permissions</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  PermissionModel?: PermissionModels;
-
-  /**
-   * @public
-   * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations
-   *    accounts that are added to a target organization or organizational unit (OU).</p>
-   *          <p>If you specify <code>AutoDeployment</code>, don't specify <code>DeploymentTargets</code> or
-   *    <code>Regions</code>.</p>
-   */
-  AutoDeployment?: AutoDeployment;
-
-  /**
-   * @public
-   * <p>The unique ID for this stack set operation.</p>
-   *          <p>The operation ID also functions as an idempotency token, to ensure that CloudFormation performs the
-   *    stack set operation only once, even if you retry the request multiple times. You might retry stack set operation
-   *    requests to ensure that CloudFormation successfully received them.</p>
-   *          <p>If you don't specify an operation ID, CloudFormation generates one automatically.</p>
-   *          <p>Repeating this stack set operation with a new operation ID retries all stack instances whose status is
-   *     <code>OUTDATED</code>.</p>
-   */
-  OperationId?: string;
-
-  /**
-   * @public
-   * <p>[Self-managed permissions] The accounts in which to update associated stack instances. If you specify accounts,
-   *    you must also specify the Amazon Web Services Regions in which to update stack set instances.</p>
-   *          <p>To update <i>all</i> the stack instances associated with this stack set, don't specify the
-   *     <code>Accounts</code> or <code>Regions</code> properties.</p>
-   *          <p>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code> or
-   *     <code>TemplateURL</code> properties are specified), or the <code>Parameters</code> property, CloudFormation marks all stack
-   *    instances with a status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and
-   *     Amazon Web Services Regions. If the stack set update does not include changes to the template or parameters, CloudFormation
-   *    updates the stack instances in the specified accounts and Amazon Web Services Regions, while leaving all other stack
-   *    instances with their existing stack instance status.</p>
-   */
-  Accounts?: string[];
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Regions in which to update associated stack instances. If you specify Regions, you must
-   *    also specify accounts in which to update stack set instances.</p>
-   *          <p>To update <i>all</i> the stack instances associated with this stack set, do not specify the
-   *     <code>Accounts</code> or <code>Regions</code> properties.</p>
-   *          <p>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code> or
-   *     <code>TemplateURL</code> properties are specified), or the <code>Parameters</code> property, CloudFormation marks all stack
-   *    instances with a status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and
-   *    Regions. If the stack set update does not include changes to the template or parameters, CloudFormation updates the stack
-   *    instances in the specified accounts and Regions, while leaving all other stack instances with their existing stack
-   *    instance status.</p>
-   */
-  Regions?: string[];
-
-  /**
-   * @public
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *     management account or as a delegated administrator in a member account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
-   *    permissions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you are signed in to the management account, specify <code>SELF</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   */
-  CallAs?: CallAs;
-
-  /**
-   * @public
-   * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting
-   *    operations.</p>
-   */
-  ManagedExecution?: ManagedExecution;
-}
-
-/**
- * @public
- */
-export interface UpdateStackSetOutput {
-  /**
-   * @public
-   * <p>The unique ID for this stack set operation.</p>
-   */
-  OperationId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateTerminationProtectionInput {
-  /**
-   * @public
-   * <p>Whether to enable termination protection on the specified stack.</p>
-   */
-  EnableTerminationProtection: boolean | undefined;
-
-  /**
-   * @public
-   * <p>The name or unique ID of the stack for which you want to set termination protection.</p>
-   */
-  StackName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTerminationProtectionOutput {
-  /**
-   * @public
-   * <p>The unique ID of the stack.</p>
-   */
-  StackId?: string;
-}
-
-/**
- * @public
- * <p>The input for <a>ValidateTemplate</a> action.</p>
- */
-export interface ValidateTemplateInput {
-  /**
-   * @public
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For
-   *    more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the <i>CloudFormation User Guide</i>.</p>
-   *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only
-   *     <code>TemplateBody</code> is used.</p>
-   */
-  TemplateBody?: string;
-
-  /**
-   * @public
-   * <p>Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that
-   *    is located in an Amazon S3 bucket or a Systems Manager document. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    <i>CloudFormation User Guide</i>.</p>
-   *          <p>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>. If both are passed, only
-   *     <code>TemplateBody</code> is used.</p>
-   */
-  TemplateURL?: string;
-}
-
-/**
- * @public
- * <p>The TemplateParameter data type.</p>
- */
-export interface TemplateParameter {
-  /**
-   * @public
-   * <p>The name associated with the parameter.</p>
-   */
-  ParameterKey?: string;
-
-  /**
-   * @public
-   * <p>The default value associated with the parameter.</p>
-   */
-  DefaultValue?: string;
-
-  /**
-   * @public
-   * <p>Flag indicating whether the parameter should be displayed as plain text in logs and UIs.</p>
-   */
-  NoEcho?: boolean;
-
-  /**
-   * @public
-   * <p>User defined description associated with the parameter.</p>
-   */
-  Description?: string;
-}
-
-/**
- * @public
- * <p>The output for <a>ValidateTemplate</a> action.</p>
- */
-export interface ValidateTemplateOutput {
-  /**
-   * @public
-   * <p>A list of <code>TemplateParameter</code> structures.</p>
-   */
-  Parameters?: TemplateParameter[];
-
-  /**
-   * @public
-   * <p>The description found within the template.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The capabilities found within the template. If your template contains IAM resources, you must
-   *    specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the <a>CreateStack</a> or <a>UpdateStack</a> actions with your template; otherwise, those actions return
-   *    an InsufficientCapabilities error.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
-   *     Resources in CloudFormation Templates</a>.</p>
-   */
-  Capabilities?: Capability[];
-
-  /**
-   * @public
-   * <p>The list of resources that generated the values in the <code>Capabilities</code> response element.</p>
-   */
-  CapabilitiesReason?: string;
-
-  /**
-   * @public
-   * <p>A list of the transforms that are declared in the template.</p>
-   */
-  DeclaredTransforms?: string[];
+export class ResourceScanLimitExceededException extends __BaseException {
+  readonly name: "ResourceScanLimitExceededException" = "ResourceScanLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceScanLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceScanLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceScanLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }

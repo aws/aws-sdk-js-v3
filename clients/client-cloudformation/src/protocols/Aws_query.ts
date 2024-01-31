@@ -10,6 +10,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -37,6 +38,10 @@ import {
   ContinueUpdateRollbackCommandOutput,
 } from "../commands/ContinueUpdateRollbackCommand";
 import { CreateChangeSetCommandInput, CreateChangeSetCommandOutput } from "../commands/CreateChangeSetCommand";
+import {
+  CreateGeneratedTemplateCommandInput,
+  CreateGeneratedTemplateCommandOutput,
+} from "../commands/CreateGeneratedTemplateCommand";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "../commands/CreateStackCommand";
 import {
   CreateStackInstancesCommandInput,
@@ -49,6 +54,10 @@ import {
 } from "../commands/DeactivateOrganizationsAccessCommand";
 import { DeactivateTypeCommandInput, DeactivateTypeCommandOutput } from "../commands/DeactivateTypeCommand";
 import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "../commands/DeleteChangeSetCommand";
+import {
+  DeleteGeneratedTemplateCommandInput,
+  DeleteGeneratedTemplateCommandOutput,
+} from "../commands/DeleteGeneratedTemplateCommand";
 import { DeleteStackCommandInput, DeleteStackCommandOutput } from "../commands/DeleteStackCommand";
 import {
   DeleteStackInstancesCommandInput,
@@ -66,10 +75,18 @@ import {
   DescribeChangeSetHooksCommandOutput,
 } from "../commands/DescribeChangeSetHooksCommand";
 import {
+  DescribeGeneratedTemplateCommandInput,
+  DescribeGeneratedTemplateCommandOutput,
+} from "../commands/DescribeGeneratedTemplateCommand";
+import {
   DescribeOrganizationsAccessCommandInput,
   DescribeOrganizationsAccessCommandOutput,
 } from "../commands/DescribeOrganizationsAccessCommand";
 import { DescribePublisherCommandInput, DescribePublisherCommandOutput } from "../commands/DescribePublisherCommand";
+import {
+  DescribeResourceScanCommandInput,
+  DescribeResourceScanCommandOutput,
+} from "../commands/DescribeResourceScanCommand";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
   DescribeStackDriftDetectionStatusCommandOutput,
@@ -119,6 +136,10 @@ import {
   EstimateTemplateCostCommandOutput,
 } from "../commands/EstimateTemplateCostCommand";
 import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "../commands/ExecuteChangeSetCommand";
+import {
+  GetGeneratedTemplateCommandInput,
+  GetGeneratedTemplateCommandOutput,
+} from "../commands/GetGeneratedTemplateCommand";
 import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "../commands/GetStackPolicyCommand";
 import { GetTemplateCommandInput, GetTemplateCommandOutput } from "../commands/GetTemplateCommand";
 import { GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput } from "../commands/GetTemplateSummaryCommand";
@@ -128,7 +149,20 @@ import {
 } from "../commands/ImportStacksToStackSetCommand";
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "../commands/ListChangeSetsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
+import {
+  ListGeneratedTemplatesCommandInput,
+  ListGeneratedTemplatesCommandOutput,
+} from "../commands/ListGeneratedTemplatesCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
+import {
+  ListResourceScanRelatedResourcesCommandInput,
+  ListResourceScanRelatedResourcesCommandOutput,
+} from "../commands/ListResourceScanRelatedResourcesCommand";
+import {
+  ListResourceScanResourcesCommandInput,
+  ListResourceScanResourcesCommandOutput,
+} from "../commands/ListResourceScanResourcesCommand";
+import { ListResourceScansCommandInput, ListResourceScansCommandOutput } from "../commands/ListResourceScansCommand";
 import {
   ListStackInstanceResourceDriftsCommandInput,
   ListStackInstanceResourceDriftsCommandOutput,
@@ -169,11 +203,16 @@ import {
   SetTypeDefaultVersionCommandOutput,
 } from "../commands/SetTypeDefaultVersionCommand";
 import { SignalResourceCommandInput, SignalResourceCommandOutput } from "../commands/SignalResourceCommand";
+import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "../commands/StartResourceScanCommand";
 import {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput,
 } from "../commands/StopStackSetOperationCommand";
 import { TestTypeCommandInput, TestTypeCommandOutput } from "../commands/TestTypeCommand";
+import {
+  UpdateGeneratedTemplateCommandInput,
+  UpdateGeneratedTemplateCommandOutput,
+} from "../commands/UpdateGeneratedTemplateCommand";
 import { UpdateStackCommandInput, UpdateStackCommandOutput } from "../commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommandInput,
@@ -207,11 +246,14 @@ import {
   ChangeSetHookTargetDetails,
   ChangeSetNotFoundException,
   ChangeSetSummary,
+  ConcurrentResourcesLimitExceededException,
   ContinueUpdateRollbackInput,
   ContinueUpdateRollbackOutput,
   CreateChangeSetInput,
   CreateChangeSetOutput,
   CreatedButModifiedException,
+  CreateGeneratedTemplateInput,
+  CreateGeneratedTemplateOutput,
   CreateStackInput,
   CreateStackInstancesInput,
   CreateStackInstancesOutput,
@@ -224,6 +266,7 @@ import {
   DeactivateTypeOutput,
   DeleteChangeSetInput,
   DeleteChangeSetOutput,
+  DeleteGeneratedTemplateInput,
   DeleteStackInput,
   DeleteStackInstancesInput,
   DeleteStackInstancesOutput,
@@ -238,10 +281,14 @@ import {
   DescribeChangeSetHooksOutput,
   DescribeChangeSetInput,
   DescribeChangeSetOutput,
+  DescribeGeneratedTemplateInput,
+  DescribeGeneratedTemplateOutput,
   DescribeOrganizationsAccessInput,
   DescribeOrganizationsAccessOutput,
   DescribePublisherInput,
   DescribePublisherOutput,
+  DescribeResourceScanInput,
+  DescribeResourceScanOutput,
   DescribeStackDriftDetectionStatusInput,
   DescribeStackDriftDetectionStatusOutput,
   DescribeStackEventsInput,
@@ -275,6 +322,9 @@ import {
   ExecuteChangeSetInput,
   ExecuteChangeSetOutput,
   Export,
+  GeneratedTemplateNotFoundException,
+  GetGeneratedTemplateInput,
+  GetGeneratedTemplateOutput,
   GetStackPolicyInput,
   GetStackPolicyOutput,
   GetTemplateInput,
@@ -292,8 +342,16 @@ import {
   ListChangeSetsOutput,
   ListExportsInput,
   ListExportsOutput,
+  ListGeneratedTemplatesInput,
+  ListGeneratedTemplatesOutput,
   ListImportsInput,
   ListImportsOutput,
+  ListResourceScanRelatedResourcesInput,
+  ListResourceScanRelatedResourcesOutput,
+  ListResourceScanResourcesInput,
+  ListResourceScanResourcesOutput,
+  ListResourceScansInput,
+  ListResourceScansOutput,
   ListStackInstanceResourceDriftsInput,
   ListStackInstanceResourceDriftsOutput,
   ListStackInstancesInput,
@@ -341,13 +399,21 @@ import {
   ResourceAttribute,
   ResourceChange,
   ResourceChangeDetail,
+  ResourceDefinition,
+  ResourceDetail,
   ResourceIdentifierSummary,
+  ResourceScanInProgressException,
+  ResourceScanLimitExceededException,
+  ResourceScanNotFoundException,
+  ResourceScanSummary,
   ResourceTargetDefinition,
   ResourceToImport,
   RollbackConfiguration,
   RollbackStackInput,
   RollbackStackOutput,
   RollbackTrigger,
+  ScannedResource,
+  ScannedResourceIdentifier,
   SetStackPolicyInput,
   SetTypeConfigurationInput,
   SetTypeConfigurationOutput,
@@ -385,14 +451,12 @@ import {
   StackStatus,
   StackSummary,
   StaleRequestException,
-  StopStackSetOperationInput,
-  StopStackSetOperationOutput,
   Tag,
-  TemplateParameter,
+  TemplateConfiguration,
+  TemplateProgress,
   TemplateStage,
+  TemplateSummary,
   TemplateSummaryConfig,
-  TestTypeInput,
-  TestTypeOutput,
   TokenAlreadyExistsException,
   TypeConfigurationDetails,
   TypeConfigurationIdentifier,
@@ -401,6 +465,20 @@ import {
   TypeNotFoundException,
   TypeSummary,
   TypeVersionSummary,
+  WarningDetail,
+  WarningProperty,
+  Warnings,
+} from "../models/models_0";
+import {
+  StartResourceScanInput,
+  StartResourceScanOutput,
+  StopStackSetOperationInput,
+  StopStackSetOperationOutput,
+  TemplateParameter,
+  TestTypeInput,
+  TestTypeOutput,
+  UpdateGeneratedTemplateInput,
+  UpdateGeneratedTemplateOutput,
   UpdateStackInput,
   UpdateStackInstancesInput,
   UpdateStackInstancesOutput,
@@ -411,8 +489,7 @@ import {
   UpdateTerminationProtectionOutput,
   ValidateTemplateInput,
   ValidateTemplateOutput,
-  Warnings,
-} from "../models/models_0";
+} from "../models/models_1";
 
 /**
  * serializeAws_queryActivateOrganizationsAccessCommand
@@ -517,6 +594,23 @@ export const se_CreateChangeSetCommand = async (
 };
 
 /**
+ * serializeAws_queryCreateGeneratedTemplateCommand
+ */
+export const se_CreateGeneratedTemplateCommand = async (
+  input: CreateGeneratedTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateGeneratedTemplateInput(input, context),
+    [_A]: _CGT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryCreateStackCommand
  */
 export const se_CreateStackCommand = async (
@@ -613,6 +707,23 @@ export const se_DeleteChangeSetCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteChangeSetInput(input, context),
     [_A]: _DCS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeleteGeneratedTemplateCommand
+ */
+export const se_DeleteGeneratedTemplateCommand = async (
+  input: DeleteGeneratedTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteGeneratedTemplateInput(input, context),
+    [_A]: _DGT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -738,6 +849,23 @@ export const se_DescribeChangeSetHooksCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeGeneratedTemplateCommand
+ */
+export const se_DescribeGeneratedTemplateCommand = async (
+  input: DescribeGeneratedTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeGeneratedTemplateInput(input, context),
+    [_A]: _DGTe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDescribeOrganizationsAccessCommand
  */
 export const se_DescribeOrganizationsAccessCommand = async (
@@ -766,6 +894,23 @@ export const se_DescribePublisherCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribePublisherInput(input, context),
     [_A]: _DP,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeResourceScanCommand
+ */
+export const se_DescribeResourceScanCommand = async (
+  input: DescribeResourceScanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeResourceScanInput(input, context),
+    [_A]: _DRS,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1044,6 +1189,23 @@ export const se_ExecuteChangeSetCommand = async (
 };
 
 /**
+ * serializeAws_queryGetGeneratedTemplateCommand
+ */
+export const se_GetGeneratedTemplateCommand = async (
+  input: GetGeneratedTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetGeneratedTemplateInput(input, context),
+    [_A]: _GGT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryGetStackPolicyCommand
  */
 export const se_GetStackPolicyCommand = async (
@@ -1146,6 +1308,23 @@ export const se_ListExportsCommand = async (
 };
 
 /**
+ * serializeAws_queryListGeneratedTemplatesCommand
+ */
+export const se_ListGeneratedTemplatesCommand = async (
+  input: ListGeneratedTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListGeneratedTemplatesInput(input, context),
+    [_A]: _LGT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryListImportsCommand
  */
 export const se_ListImportsCommand = async (
@@ -1157,6 +1336,57 @@ export const se_ListImportsCommand = async (
   body = buildFormUrlencodedString({
     ...se_ListImportsInput(input, context),
     [_A]: _LI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryListResourceScanRelatedResourcesCommand
+ */
+export const se_ListResourceScanRelatedResourcesCommand = async (
+  input: ListResourceScanRelatedResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListResourceScanRelatedResourcesInput(input, context),
+    [_A]: _LRSRR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryListResourceScanResourcesCommand
+ */
+export const se_ListResourceScanResourcesCommand = async (
+  input: ListResourceScanResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListResourceScanResourcesInput(input, context),
+    [_A]: _LRSR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryListResourceScansCommand
+ */
+export const se_ListResourceScansCommand = async (
+  input: ListResourceScansCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListResourceScansInput(input, context),
+    [_A]: _LRS,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1486,6 +1716,23 @@ export const se_SignalResourceCommand = async (
 };
 
 /**
+ * serializeAws_queryStartResourceScanCommand
+ */
+export const se_StartResourceScanCommand = async (
+  input: StartResourceScanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_StartResourceScanInput(input, context),
+    [_A]: _SRS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryStopStackSetOperationCommand
  */
 export const se_StopStackSetOperationCommand = async (
@@ -1514,6 +1761,23 @@ export const se_TestTypeCommand = async (
   body = buildFormUrlencodedString({
     ...se_TestTypeInput(input, context),
     [_A]: _TT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryUpdateGeneratedTemplateCommand
+ */
+export const se_UpdateGeneratedTemplateCommand = async (
+  input: UpdateGeneratedTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_UpdateGeneratedTemplateInput(input, context),
+    [_A]: _UGT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1893,6 +2157,58 @@ const de_CreateChangeSetCommandError = async (
 };
 
 /**
+ * deserializeAws_queryCreateGeneratedTemplateCommand
+ */
+export const de_CreateGeneratedTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGeneratedTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateGeneratedTemplateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateGeneratedTemplateOutput(data.CreateGeneratedTemplateResult, context);
+  const response: CreateGeneratedTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateGeneratedTemplateCommandError
+ */
+const de_CreateGeneratedTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGeneratedTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.cloudformation#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "ConcurrentResourcesLimitExceeded":
+    case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
+      throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudformation#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryCreateStackCommand
  */
 export const de_CreateStackCommand = async (
@@ -2194,6 +2510,52 @@ const de_DeleteChangeSetCommandError = async (
     case "InvalidChangeSetStatus":
     case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
       throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteGeneratedTemplateCommand
+ */
+export const de_DeleteGeneratedTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGeneratedTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteGeneratedTemplateCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteGeneratedTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteGeneratedTemplateCommandError
+ */
+const de_DeleteGeneratedTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGeneratedTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentResourcesLimitExceeded":
+    case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
+      throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput, context);
+    case "GeneratedTemplateNotFound":
+    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
+      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2536,6 +2898,52 @@ const de_DescribeChangeSetHooksCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDescribeGeneratedTemplateCommand
+ */
+export const de_DescribeGeneratedTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGeneratedTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeGeneratedTemplateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeGeneratedTemplateOutput(data.DescribeGeneratedTemplateResult, context);
+  const response: DescribeGeneratedTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeGeneratedTemplateCommandError
+ */
+const de_DescribeGeneratedTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGeneratedTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GeneratedTemplateNotFound":
+    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
+      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDescribeOrganizationsAccessCommand
  */
 export const de_DescribeOrganizationsAccessCommand = async (
@@ -2620,6 +3028,52 @@ const de_DescribePublisherCommandError = async (
     case "CFNRegistryException":
     case "com.amazonaws.cloudformation#CFNRegistryException":
       throw await de_CFNRegistryExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDescribeResourceScanCommand
+ */
+export const de_DescribeResourceScanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourceScanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeResourceScanCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeResourceScanOutput(data.DescribeResourceScanResult, context);
+  const response: DescribeResourceScanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeResourceScanCommandError
+ */
+const de_DescribeResourceScanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourceScanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceScanNotFound":
+    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
+      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3337,6 +3791,52 @@ const de_ExecuteChangeSetCommandError = async (
 };
 
 /**
+ * deserializeAws_queryGetGeneratedTemplateCommand
+ */
+export const de_GetGeneratedTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGeneratedTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetGeneratedTemplateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetGeneratedTemplateOutput(data.GetGeneratedTemplateResult, context);
+  const response: GetGeneratedTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetGeneratedTemplateCommandError
+ */
+const de_GetGeneratedTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGeneratedTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GeneratedTemplateNotFound":
+    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
+      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryGetStackPolicyCommand
  */
 export const de_GetStackPolicyCommand = async (
@@ -3613,6 +4113,46 @@ const de_ListExportsCommandError = async (
 };
 
 /**
+ * deserializeAws_queryListGeneratedTemplatesCommand
+ */
+export const de_ListGeneratedTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGeneratedTemplatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListGeneratedTemplatesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListGeneratedTemplatesOutput(data.ListGeneratedTemplatesResult, context);
+  const response: ListGeneratedTemplatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListGeneratedTemplatesCommandError
+ */
+const de_ListGeneratedTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGeneratedTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_queryListImportsCommand
  */
 export const de_ListImportsCommand = async (
@@ -3639,6 +4179,144 @@ const de_ListImportsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_queryListResourceScanRelatedResourcesCommand
+ */
+export const de_ListResourceScanRelatedResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceScanRelatedResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListResourceScanRelatedResourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListResourceScanRelatedResourcesOutput(data.ListResourceScanRelatedResourcesResult, context);
+  const response: ListResourceScanRelatedResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListResourceScanRelatedResourcesCommandError
+ */
+const de_ListResourceScanRelatedResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceScanRelatedResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceScanInProgress":
+    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
+      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
+    case "ResourceScanNotFound":
+    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
+      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryListResourceScanResourcesCommand
+ */
+export const de_ListResourceScanResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceScanResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListResourceScanResourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListResourceScanResourcesOutput(data.ListResourceScanResourcesResult, context);
+  const response: ListResourceScanResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListResourceScanResourcesCommandError
+ */
+const de_ListResourceScanResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceScanResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceScanInProgress":
+    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
+      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
+    case "ResourceScanNotFound":
+    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
+      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryListResourceScansCommand
+ */
+export const de_ListResourceScansCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceScansCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListResourceScansCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListResourceScansOutput(data.ListResourceScansResult, context);
+  const response: ListResourceScansCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListResourceScansCommandError
+ */
+const de_ListResourceScansCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceScansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4512,6 +5190,55 @@ const de_SignalResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_queryStartResourceScanCommand
+ */
+export const de_StartResourceScanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceScanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartResourceScanCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartResourceScanOutput(data.StartResourceScanResult, context);
+  const response: StartResourceScanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStartResourceScanCommandError
+ */
+const de_StartResourceScanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceScanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceScanInProgress":
+    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
+      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
+    case "ResourceScanLimitExceeded":
+    case "com.amazonaws.cloudformation#ResourceScanLimitExceededException":
+      throw await de_ResourceScanLimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryStopStackSetOperationCommand
  */
 export const de_StopStackSetOperationCommand = async (
@@ -4602,6 +5329,58 @@ const de_TestTypeCommandError = async (
     case "TypeNotFoundException":
     case "com.amazonaws.cloudformation#TypeNotFoundException":
       throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryUpdateGeneratedTemplateCommand
+ */
+export const de_UpdateGeneratedTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGeneratedTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateGeneratedTemplateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateGeneratedTemplateOutput(data.UpdateGeneratedTemplateResult, context);
+  const response: UpdateGeneratedTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryUpdateGeneratedTemplateCommandError
+ */
+const de_UpdateGeneratedTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGeneratedTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.cloudformation#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "GeneratedTemplateNotFound":
+    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
+      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudformation#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4912,6 +5691,22 @@ const de_ChangeSetNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryConcurrentResourcesLimitExceededExceptionRes
+ */
+const de_ConcurrentResourcesLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConcurrentResourcesLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ConcurrentResourcesLimitExceededException(body.Error, context);
+  const exception = new ConcurrentResourcesLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryCreatedButModifiedExceptionRes
  */
 const de_CreatedButModifiedExceptionRes = async (
@@ -4921,6 +5716,22 @@ const de_CreatedButModifiedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_CreatedButModifiedException(body.Error, context);
   const exception = new CreatedButModifiedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryGeneratedTemplateNotFoundExceptionRes
+ */
+const de_GeneratedTemplateNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GeneratedTemplateNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_GeneratedTemplateNotFoundException(body.Error, context);
+  const exception = new GeneratedTemplateNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5081,6 +5892,54 @@ const de_OperationStatusCheckFailedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_OperationStatusCheckFailedException(body.Error, context);
   const exception = new OperationStatusCheckFailedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryResourceScanInProgressExceptionRes
+ */
+const de_ResourceScanInProgressExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceScanInProgressException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ResourceScanInProgressException(body.Error, context);
+  const exception = new ResourceScanInProgressException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryResourceScanLimitExceededExceptionRes
+ */
+const de_ResourceScanLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceScanLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ResourceScanLimitExceededException(body.Error, context);
+  const exception = new ResourceScanLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryResourceScanNotFoundExceptionRes
+ */
+const de_ResourceScanNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceScanNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ResourceScanNotFoundException(body.Error, context);
+  const exception = new ResourceScanNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5485,6 +6344,37 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
 };
 
 /**
+ * serializeAws_queryCreateGeneratedTemplateInput
+ */
+const se_CreateGeneratedTemplateInput = (input: CreateGeneratedTemplateInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_R] != null) {
+    const memberEntries = se_ResourceDefinitions(input[_R], context);
+    if (input[_R]?.length === 0) {
+      entries.Resources = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Resources.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_GTN] != null) {
+    entries[_GTN] = input[_GTN];
+  }
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
+  }
+  if (input[_TC] != null) {
+    const memberEntries = se_TemplateConfiguration(input[_TC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TemplateConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCreateStackInput
  */
 const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): any => {
@@ -5610,9 +6500,9 @@ const se_CreateStackInstancesInput = (input: CreateStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input[_R] != null) {
-    const memberEntries = se_RegionList(input[_R], context);
-    if (input[_R]?.length === 0) {
+  if (input[_Re] != null) {
+    const memberEntries = se_RegionList(input[_Re], context);
+    if (input[_Re]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5777,6 +6667,17 @@ const se_DeleteChangeSetInput = (input: DeleteChangeSetInput, context: __SerdeCo
 };
 
 /**
+ * serializeAws_queryDeleteGeneratedTemplateInput
+ */
+const se_DeleteGeneratedTemplateInput = (input: DeleteGeneratedTemplateInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_GTN] != null) {
+    entries[_GTN] = input[_GTN];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDeleteStackInput
  */
 const se_DeleteStackInput = (input: DeleteStackInput, context: __SerdeContext): any => {
@@ -5828,9 +6729,9 @@ const se_DeleteStackInstancesInput = (input: DeleteStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input[_R] != null) {
-    const memberEntries = se_RegionList(input[_R], context);
-    if (input[_R]?.length === 0) {
+  if (input[_Re] != null) {
+    const memberEntries = se_RegionList(input[_Re], context);
+    if (input[_Re]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5977,6 +6878,17 @@ const se_DescribeChangeSetInput = (input: DescribeChangeSetInput, context: __Ser
 };
 
 /**
+ * serializeAws_queryDescribeGeneratedTemplateInput
+ */
+const se_DescribeGeneratedTemplateInput = (input: DescribeGeneratedTemplateInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_GTN] != null) {
+    entries[_GTN] = input[_GTN];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeOrganizationsAccessInput
  */
 const se_DescribeOrganizationsAccessInput = (input: DescribeOrganizationsAccessInput, context: __SerdeContext): any => {
@@ -5994,6 +6906,17 @@ const se_DescribePublisherInput = (input: DescribePublisherInput, context: __Ser
   const entries: any = {};
   if (input[_PI] != null) {
     entries[_PI] = input[_PI];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeResourceScanInput
+ */
+const se_DescribeResourceScanInput = (input: DescribeResourceScanInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSI] != null) {
+    entries[_RSI] = input[_RSI];
   }
   return entries;
 };
@@ -6296,6 +7219,20 @@ const se_ExecuteChangeSetInput = (input: ExecuteChangeSetInput, context: __Serde
 };
 
 /**
+ * serializeAws_queryGetGeneratedTemplateInput
+ */
+const se_GetGeneratedTemplateInput = (input: GetGeneratedTemplateInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_F] != null) {
+    entries[_F] = input[_F];
+  }
+  if (input[_GTN] != null) {
+    entries[_GTN] = input[_GTN];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryGetStackPolicyInput
  */
 const se_GetStackPolicyInput = (input: GetStackPolicyInput, context: __SerdeContext): any => {
@@ -6404,6 +7341,38 @@ const se_ImportStacksToStackSetInput = (input: ImportStacksToStackSetInput, cont
 };
 
 /**
+ * serializeAws_queryJazzLogicalResourceIds
+ */
+const se_JazzLogicalResourceIds = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryJazzResourceIdentifierProperties
+ */
+const se_JazzResourceIdentifierProperties = (input: Record<string, string>, context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
+      counter++;
+    });
+  return entries;
+};
+
+/**
  * serializeAws_queryListChangeSetsInput
  */
 const se_ListChangeSetsInput = (input: ListChangeSetsInput, context: __SerdeContext): any => {
@@ -6429,6 +7398,20 @@ const se_ListExportsInput = (input: ListExportsInput, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_queryListGeneratedTemplatesInput
+ */
+const se_ListGeneratedTemplatesInput = (input: ListGeneratedTemplatesInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryListImportsInput
  */
 const se_ListImportsInput = (input: ListImportsInput, context: __SerdeContext): any => {
@@ -6438,6 +7421,79 @@ const se_ListImportsInput = (input: ListImportsInput, context: __SerdeContext): 
   }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListResourceScanRelatedResourcesInput
+ */
+const se_ListResourceScanRelatedResourcesInput = (
+  input: ListResourceScanRelatedResourcesInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_RSI] != null) {
+    entries[_RSI] = input[_RSI];
+  }
+  if (input[_R] != null) {
+    const memberEntries = se_ScannedResourceIdentifiers(input[_R], context);
+    if (input[_R]?.length === 0) {
+      entries.Resources = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Resources.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListResourceScanResourcesInput
+ */
+const se_ListResourceScanResourcesInput = (input: ListResourceScanResourcesInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSI] != null) {
+    entries[_RSI] = input[_RSI];
+  }
+  if (input[_RI] != null) {
+    entries[_RI] = input[_RI];
+  }
+  if (input[_RTP] != null) {
+    entries[_RTP] = input[_RTP];
+  }
+  if (input[_TK] != null) {
+    entries[_TK] = input[_TK];
+  }
+  if (input[_TV] != null) {
+    entries[_TV] = input[_TV];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListResourceScansInput
+ */
+const se_ListResourceScansInput = (input: ListResourceScansInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -6498,9 +7554,9 @@ const se_ListStackInstancesInput = (input: ListStackInstancesInput, context: __S
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
   }
-  if (input[_F] != null) {
-    const memberEntries = se_StackInstanceFilters(input[_F], context);
-    if (input[_F]?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_StackInstanceFilters(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6557,9 +7613,9 @@ const se_ListStackSetOperationResultsInput = (
   if (input[_CA] != null) {
     entries[_CA] = input[_CA];
   }
-  if (input[_F] != null) {
-    const memberEntries = se_OperationResultFilters(input[_F], context);
-    if (input[_F]?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_OperationResultFilters(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6674,8 +7730,8 @@ const se_ListTypesInput = (input: ListTypesInput, context: __SerdeContext): any 
   if (input[_T] != null) {
     entries[_T] = input[_T];
   }
-  if (input[_F] != null) {
-    const memberEntries = se_TypeFilters(input[_F], context);
+  if (input[_Fi] != null) {
+    const memberEntries = se_TypeFilters(input[_Fi], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
@@ -6974,6 +8030,46 @@ const se_RegisterTypeInput = (input: RegisterTypeInput, context: __SerdeContext)
 };
 
 /**
+ * serializeAws_queryResourceDefinition
+ */
+const se_ResourceDefinition = (input: ResourceDefinition, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RTes] != null) {
+    entries[_RTes] = input[_RTes];
+  }
+  if (input[_LRI] != null) {
+    entries[_LRI] = input[_LRI];
+  }
+  if (input[_RI] != null) {
+    const memberEntries = se_ResourceIdentifierProperties(input[_RI], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceIdentifier.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryResourceDefinitions
+ */
+const se_ResourceDefinitions = (input: ResourceDefinition[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ResourceDefinition(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryResourceIdentifierProperties
  */
 const se_ResourceIdentifierProperties = (input: Record<string, string>, context: __SerdeContext): any => {
@@ -7143,6 +8239,43 @@ const se_RollbackTriggers = (input: RollbackTrigger[], context: __SerdeContext):
       continue;
     }
     const memberEntries = se_RollbackTrigger(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryScannedResourceIdentifier
+ */
+const se_ScannedResourceIdentifier = (input: ScannedResourceIdentifier, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RTes] != null) {
+    entries[_RTes] = input[_RTes];
+  }
+  if (input[_RI] != null) {
+    const memberEntries = se_JazzResourceIdentifierProperties(input[_RI], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceIdentifier.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryScannedResourceIdentifiers
+ */
+const se_ScannedResourceIdentifiers = (input: ScannedResourceIdentifier[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ScannedResourceIdentifier(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -7349,6 +8482,17 @@ const se_StackStatusFilter = (input: StackStatus[], context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_queryStartResourceScanInput
+ */
+const se_StartResourceScanInput = (input: StartResourceScanInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryStopStackSetOperationInput
  */
 const se_StopStackSetOperationInput = (input: StopStackSetOperationInput, context: __SerdeContext): any => {
@@ -7394,6 +8538,20 @@ const se_Tags = (input: Tag[], context: __SerdeContext): any => {
       entries[`member.${counter}.${key}`] = value;
     });
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryTemplateConfiguration
+ */
+const se_TemplateConfiguration = (input: TemplateConfiguration, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_DPe] != null) {
+    entries[_DPe] = input[_DPe];
+  }
+  if (input[_URP] != null) {
+    entries[_URP] = input[_URP];
   }
   return entries;
 };
@@ -7487,6 +8645,50 @@ const se_TypeFilters = (input: TypeFilters, context: __SerdeContext): any => {
   }
   if (input[_TNP] != null) {
     entries[_TNP] = input[_TNP];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryUpdateGeneratedTemplateInput
+ */
+const se_UpdateGeneratedTemplateInput = (input: UpdateGeneratedTemplateInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_GTN] != null) {
+    entries[_GTN] = input[_GTN];
+  }
+  if (input[_NGTN] != null) {
+    entries[_NGTN] = input[_NGTN];
+  }
+  if (input[_AR] != null) {
+    const memberEntries = se_ResourceDefinitions(input[_AR], context);
+    if (input[_AR]?.length === 0) {
+      entries.AddResources = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AddResources.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RRe] != null) {
+    const memberEntries = se_JazzLogicalResourceIds(input[_RRe], context);
+    if (input[_RRe]?.length === 0) {
+      entries.RemoveResources = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RemoveResources.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RAR] != null) {
+    entries[_RAR] = input[_RAR];
+  }
+  if (input[_TC] != null) {
+    const memberEntries = se_TemplateConfiguration(input[_TC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TemplateConfiguration.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -7617,9 +8819,9 @@ const se_UpdateStackInstancesInput = (input: UpdateStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input[_R] != null) {
-    const memberEntries = se_RegionList(input[_R], context);
-    if (input[_R]?.length === 0) {
+  if (input[_Re] != null) {
+    const memberEntries = se_RegionList(input[_Re], context);
+    if (input[_Re]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7752,9 +8954,9 @@ const se_UpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input[_R] != null) {
-    const memberEntries = se_RegionList(input[_R], context);
-    if (input[_R]?.length === 0) {
+  if (input[_Re] != null) {
+    const memberEntries = se_RegionList(input[_Re], context);
+    if (input[_Re]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7964,9 +9166,9 @@ const de_BatchDescribeTypeConfigurationsOutput = (
     contents[_UTC] = de_UnprocessedTypeConfigurations(__getArrayIfSingleItem(output[_UTC][_m]), context);
   }
   if (output.TypeConfigurations === "") {
-    contents[_TC] = [];
-  } else if (output[_TC] != null && output[_TC][_m] != null) {
-    contents[_TC] = de_TypeConfigurationDetailsList(__getArrayIfSingleItem(output[_TC][_m]), context);
+    contents[_TCy] = [];
+  } else if (output[_TCy] != null && output[_TCy][_m] != null) {
+    contents[_TCy] = de_TypeConfigurationDetailsList(__getArrayIfSingleItem(output[_TCy][_m]), context);
   }
   return contents;
 };
@@ -8162,6 +9364,20 @@ const de_ChangeSetSummary = (output: any, context: __SerdeContext): ChangeSetSum
 };
 
 /**
+ * deserializeAws_queryConcurrentResourcesLimitExceededException
+ */
+const de_ConcurrentResourcesLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ConcurrentResourcesLimitExceededException => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryContinueUpdateRollbackOutput
  */
 const de_ContinueUpdateRollbackOutput = (output: any, context: __SerdeContext): ContinueUpdateRollbackOutput => {
@@ -8190,6 +9406,17 @@ const de_CreatedButModifiedException = (output: any, context: __SerdeContext): C
   const contents: any = {};
   if (output[_M] != null) {
     contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCreateGeneratedTemplateOutput
+ */
+const de_CreateGeneratedTemplateOutput = (output: any, context: __SerdeContext): CreateGeneratedTemplateOutput => {
+  const contents: any = {};
+  if (output[_GTI] != null) {
+    contents[_GTI] = __expectString(output[_GTI]);
   }
   return contents;
 };
@@ -8434,6 +9661,49 @@ const de_DescribeChangeSetOutput = (output: any, context: __SerdeContext): Descr
 };
 
 /**
+ * deserializeAws_queryDescribeGeneratedTemplateOutput
+ */
+const de_DescribeGeneratedTemplateOutput = (output: any, context: __SerdeContext): DescribeGeneratedTemplateOutput => {
+  const contents: any = {};
+  if (output[_GTI] != null) {
+    contents[_GTI] = __expectString(output[_GTI]);
+  }
+  if (output[_GTN] != null) {
+    contents[_GTN] = __expectString(output[_GTN]);
+  }
+  if (output.Resources === "") {
+    contents[_R] = [];
+  } else if (output[_R] != null && output[_R][_m] != null) {
+    contents[_R] = de_ResourceDetails(__getArrayIfSingleItem(output[_R][_m]), context);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LUT] != null) {
+    contents[_LUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUT]));
+  }
+  if (output[_Pr] != null) {
+    contents[_Pr] = de_TemplateProgress(output[_Pr], context);
+  }
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
+  }
+  if (output[_TC] != null) {
+    contents[_TC] = de_TemplateConfiguration(output[_TC], context);
+  }
+  if (output[_TW] != null) {
+    contents[_TW] = __strictParseInt32(output[_TW]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDescribeOrganizationsAccessOutput
  */
 const de_DescribeOrganizationsAccessOutput = (
@@ -8463,6 +9733,43 @@ const de_DescribePublisherOutput = (output: any, context: __SerdeContext): Descr
   }
   if (output[_PP] != null) {
     contents[_PP] = __expectString(output[_PP]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeResourceScanOutput
+ */
+const de_DescribeResourceScanOutput = (output: any, context: __SerdeContext): DescribeResourceScanOutput => {
+  const contents: any = {};
+  if (output[_RSI] != null) {
+    contents[_RSI] = __expectString(output[_RSI]);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
+  }
+  if (output[_ST] != null) {
+    contents[_ST] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ST]));
+  }
+  if (output[_ET] != null) {
+    contents[_ET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ET]));
+  }
+  if (output[_PC] != null) {
+    contents[_PC] = __strictParseFloat(output[_PC]) as number;
+  }
+  if (output.ResourceTypes === "") {
+    contents[_RTe] = [];
+  } else if (output[_RTe] != null && output[_RTe][_m] != null) {
+    contents[_RTe] = de_ResourceTypes(__getArrayIfSingleItem(output[_RTe][_m]), context);
+  }
+  if (output[_RSes] != null) {
+    contents[_RSes] = __strictParseInt32(output[_RSes]) as number;
+  }
+  if (output[_RRes] != null) {
+    contents[_RRes] = __strictParseInt32(output[_RRes]) as number;
   }
   return contents;
 };
@@ -8799,6 +10106,34 @@ const de_Exports = (output: any, context: __SerdeContext): Export[] => {
 };
 
 /**
+ * deserializeAws_queryGeneratedTemplateNotFoundException
+ */
+const de_GeneratedTemplateNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): GeneratedTemplateNotFoundException => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryGetGeneratedTemplateOutput
+ */
+const de_GetGeneratedTemplateOutput = (output: any, context: __SerdeContext): GetGeneratedTemplateOutput => {
+  const contents: any = {};
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_TB] != null) {
+    contents[_TB] = __expectString(output[_TB]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryGetStackPolicyOutput
  */
 const de_GetStackPolicyOutput = (output: any, context: __SerdeContext): GetStackPolicyOutput => {
@@ -8943,6 +10278,19 @@ const de_InvalidStateTransitionException = (output: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_queryJazzResourceIdentifierProperties
+ */
+const de_JazzResourceIdentifierProperties = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
+  }, {});
+};
+
+/**
  * deserializeAws_queryLimitExceededException
  */
 const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -8986,6 +10334,22 @@ const de_ListExportsOutput = (output: any, context: __SerdeContext): ListExports
 };
 
 /**
+ * deserializeAws_queryListGeneratedTemplatesOutput
+ */
+const de_ListGeneratedTemplatesOutput = (output: any, context: __SerdeContext): ListGeneratedTemplatesOutput => {
+  const contents: any = {};
+  if (output.Summaries === "") {
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_TemplateSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryListImportsOutput
  */
 const de_ListImportsOutput = (output: any, context: __SerdeContext): ListImportsOutput => {
@@ -8994,6 +10358,57 @@ const de_ListImportsOutput = (output: any, context: __SerdeContext): ListImports
     contents[_Im] = [];
   } else if (output[_Im] != null && output[_Im][_m] != null) {
     contents[_Im] = de_Imports(__getArrayIfSingleItem(output[_Im][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryListResourceScanRelatedResourcesOutput
+ */
+const de_ListResourceScanRelatedResourcesOutput = (
+  output: any,
+  context: __SerdeContext
+): ListResourceScanRelatedResourcesOutput => {
+  const contents: any = {};
+  if (output.RelatedResources === "") {
+    contents[_RRel] = [];
+  } else if (output[_RRel] != null && output[_RRel][_m] != null) {
+    contents[_RRel] = de_RelatedResources(__getArrayIfSingleItem(output[_RRel][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryListResourceScanResourcesOutput
+ */
+const de_ListResourceScanResourcesOutput = (output: any, context: __SerdeContext): ListResourceScanResourcesOutput => {
+  const contents: any = {};
+  if (output.Resources === "") {
+    contents[_R] = [];
+  } else if (output[_R] != null && output[_R][_m] != null) {
+    contents[_R] = de_ScannedResources(__getArrayIfSingleItem(output[_R][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryListResourceScansOutput
+ */
+const de_ListResourceScansOutput = (output: any, context: __SerdeContext): ListResourceScansOutput => {
+  const contents: any = {};
+  if (output.ResourceScanSummaries === "") {
+    contents[_RSS] = [];
+  } else if (output[_RSS] != null && output[_RSS][_m] != null) {
+    contents[_RSS] = de_ResourceScanSummaries(__getArrayIfSingleItem(output[_RSS][_m]), context);
   }
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
@@ -9042,9 +10457,9 @@ const de_ListStackInstancesOutput = (output: any, context: __SerdeContext): List
 const de_ListStackResourcesOutput = (output: any, context: __SerdeContext): ListStackResourcesOutput => {
   const contents: any = {};
   if (output.StackResourceSummaries === "") {
-    contents[_SRS] = [];
-  } else if (output[_SRS] != null && output[_SRS][_m] != null) {
-    contents[_SRS] = de_StackResourceSummaries(__getArrayIfSingleItem(output[_SRS][_m]), context);
+    contents[_SRSt] = [];
+  } else if (output[_SRSt] != null && output[_SRSt][_m] != null) {
+    contents[_SRSt] = de_StackResourceSummaries(__getArrayIfSingleItem(output[_SRSt][_m]), context);
   }
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
@@ -9384,8 +10799,8 @@ const de_ParameterDeclaration = (output: any, context: __SerdeContext): Paramete
   if (output[_D] != null) {
     contents[_D] = __expectString(output[_D]);
   }
-  if (output[_PC] != null) {
-    contents[_PC] = de_ParameterConstraints(output[_PC], context);
+  if (output[_PCa] != null) {
+    contents[_PCa] = de_ParameterConstraints(output[_PCa], context);
   }
   return contents;
 };
@@ -9538,6 +10953,17 @@ const de_RegistrationTokenList = (output: any, context: __SerdeContext): string[
 };
 
 /**
+ * deserializeAws_queryRelatedResources
+ */
+const de_RelatedResources = (output: any, context: __SerdeContext): ScannedResource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ScannedResource(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryRequiredActivatedType
  */
 const de_RequiredActivatedType = (output: any, context: __SerdeContext): RequiredActivatedType => {
@@ -9587,8 +11013,8 @@ const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange
   if (output[_RTes] != null) {
     contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output[_Re] != null) {
-    contents[_Re] = __expectString(output[_Re]);
+  if (output[_Rep] != null) {
+    contents[_Rep] = __expectString(output[_Rep]);
   }
   if (output.Scope === "") {
     contents[_Sco] = [];
@@ -9641,6 +11067,60 @@ const de_ResourceChangeDetails = (output: any, context: __SerdeContext): Resourc
 };
 
 /**
+ * deserializeAws_queryResourceDetail
+ */
+const de_ResourceDetail = (output: any, context: __SerdeContext): ResourceDetail => {
+  const contents: any = {};
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
+  }
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
+  }
+  if (output.ResourceIdentifier === "") {
+    contents[_RI] = {};
+  } else if (output[_RI] != null && output[_RI][_e] != null) {
+    contents[_RI] = de_ResourceIdentifierProperties(__getArrayIfSingleItem(output[_RI][_e]), context);
+  }
+  if (output[_RSeso] != null) {
+    contents[_RSeso] = __expectString(output[_RSeso]);
+  }
+  if (output[_RSR] != null) {
+    contents[_RSR] = __expectString(output[_RSR]);
+  }
+  if (output.Warnings === "") {
+    contents[_W] = [];
+  } else if (output[_W] != null && output[_W][_m] != null) {
+    contents[_W] = de_WarningDetails(__getArrayIfSingleItem(output[_W][_m]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryResourceDetails
+ */
+const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceDetail(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryResourceIdentifierProperties
+ */
+const de_ResourceIdentifierProperties = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
+  }, {});
+};
+
+/**
  * deserializeAws_queryResourceIdentifiers
  */
 const de_ResourceIdentifiers = (output: any, context: __SerdeContext): string[] => {
@@ -9684,6 +11164,79 @@ const de_ResourceIdentifierSummary = (output: any, context: __SerdeContext): Res
 };
 
 /**
+ * deserializeAws_queryResourceScanInProgressException
+ */
+const de_ResourceScanInProgressException = (output: any, context: __SerdeContext): ResourceScanInProgressException => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryResourceScanLimitExceededException
+ */
+const de_ResourceScanLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ResourceScanLimitExceededException => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryResourceScanNotFoundException
+ */
+const de_ResourceScanNotFoundException = (output: any, context: __SerdeContext): ResourceScanNotFoundException => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryResourceScanSummaries
+ */
+const de_ResourceScanSummaries = (output: any, context: __SerdeContext): ResourceScanSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceScanSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryResourceScanSummary
+ */
+const de_ResourceScanSummary = (output: any, context: __SerdeContext): ResourceScanSummary => {
+  const contents: any = {};
+  if (output[_RSI] != null) {
+    contents[_RSI] = __expectString(output[_RSI]);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
+  }
+  if (output[_ST] != null) {
+    contents[_ST] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ST]));
+  }
+  if (output[_ET] != null) {
+    contents[_ET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ET]));
+  }
+  if (output[_PC] != null) {
+    contents[_PC] = __strictParseFloat(output[_PC]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryResourceTargetDefinition
  */
 const de_ResourceTargetDefinition = (output: any, context: __SerdeContext): ResourceTargetDefinition => {
@@ -9694,8 +11247,8 @@ const de_ResourceTargetDefinition = (output: any, context: __SerdeContext): Reso
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
   }
-  if (output[_RRe] != null) {
-    contents[_RRe] = __expectString(output[_RRe]);
+  if (output[_RReq] != null) {
+    contents[_RReq] = __expectString(output[_RReq]);
   }
   return contents;
 };
@@ -9760,6 +11313,36 @@ const de_RollbackTriggers = (output: any, context: __SerdeContext): RollbackTrig
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_RollbackTrigger(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryScannedResource
+ */
+const de_ScannedResource = (output: any, context: __SerdeContext): ScannedResource => {
+  const contents: any = {};
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
+  }
+  if (output.ResourceIdentifier === "") {
+    contents[_RI] = {};
+  } else if (output[_RI] != null && output[_RI][_e] != null) {
+    contents[_RI] = de_JazzResourceIdentifierProperties(__getArrayIfSingleItem(output[_RI][_e]), context);
+  }
+  if (output[_MBS] != null) {
+    contents[_MBS] = __parseBoolean(output[_MBS]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryScannedResources
+ */
+const de_ScannedResources = (output: any, context: __SerdeContext): ScannedResource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ScannedResource(entry, context);
     });
 };
 
@@ -9934,8 +11517,8 @@ const de_StackEvent = (output: any, context: __SerdeContext): StackEvent => {
   if (output[_Ti] != null) {
     contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output[_RSes] != null) {
-    contents[_RSes] = __expectString(output[_RSes]);
+  if (output[_RSeso] != null) {
+    contents[_RSeso] = __expectString(output[_RSeso]);
   }
   if (output[_RSR] != null) {
     contents[_RSR] = __expectString(output[_RSR]);
@@ -10185,8 +11768,8 @@ const de_StackResource = (output: any, context: __SerdeContext): StackResource =
   if (output[_Ti] != null) {
     contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output[_RSes] != null) {
-    contents[_RSes] = __expectString(output[_RSes]);
+  if (output[_RSeso] != null) {
+    contents[_RSeso] = __expectString(output[_RSeso]);
   }
   if (output[_RSR] != null) {
     contents[_RSR] = __expectString(output[_RSR]);
@@ -10226,8 +11809,8 @@ const de_StackResourceDetail = (output: any, context: __SerdeContext): StackReso
   if (output[_LUTa] != null) {
     contents[_LUTa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUTa]));
   }
-  if (output[_RSes] != null) {
-    contents[_RSes] = __expectString(output[_RSes]);
+  if (output[_RSeso] != null) {
+    contents[_RSeso] = __expectString(output[_RSeso]);
   }
   if (output[_RSR] != null) {
     contents[_RSR] = __expectString(output[_RSR]);
@@ -10373,8 +11956,8 @@ const de_StackResourceSummary = (output: any, context: __SerdeContext): StackRes
   if (output[_LUTa] != null) {
     contents[_LUTa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUTa]));
   }
-  if (output[_RSes] != null) {
-    contents[_RSes] = __expectString(output[_RSes]);
+  if (output[_RSeso] != null) {
+    contents[_RSeso] = __expectString(output[_RSeso]);
   }
   if (output[_RSR] != null) {
     contents[_RSR] = __expectString(output[_RSR]);
@@ -10461,9 +12044,9 @@ const de_StackSet = (output: any, context: __SerdeContext): StackSet => {
     contents[_ME] = de_ManagedExecution(output[_ME], context);
   }
   if (output.Regions === "") {
-    contents[_R] = [];
-  } else if (output[_R] != null && output[_R][_m] != null) {
-    contents[_R] = de_RegionList(__getArrayIfSingleItem(output[_R][_m]), context);
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_m] != null) {
+    contents[_Re] = de_RegionList(__getArrayIfSingleItem(output[_Re][_m]), context);
   }
   return contents;
 };
@@ -10554,8 +12137,8 @@ const de_StackSetOperation = (output: any, context: __SerdeContext): StackSetOpe
   if (output[_CTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTre]));
   }
-  if (output[_ET] != null) {
-    contents[_ET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ET]));
+  if (output[_ETn] != null) {
+    contents[_ETn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ETn]));
   }
   if (output[_DTep] != null) {
     contents[_DTep] = de_DeploymentTargets(output[_DTep], context);
@@ -10682,8 +12265,8 @@ const de_StackSetOperationSummary = (output: any, context: __SerdeContext): Stac
   if (output[_CTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTre]));
   }
-  if (output[_ET] != null) {
-    contents[_ET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ET]));
+  if (output[_ETn] != null) {
+    contents[_ETn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ETn]));
   }
   if (output[_SRt] != null) {
     contents[_SRt] = __expectString(output[_SRt]);
@@ -10818,6 +12401,17 @@ const de_StaleRequestException = (output: any, context: __SerdeContext): StaleRe
 };
 
 /**
+ * deserializeAws_queryStartResourceScanOutput
+ */
+const de_StartResourceScanOutput = (output: any, context: __SerdeContext): StartResourceScanOutput => {
+  const contents: any = {};
+  if (output[_RSI] != null) {
+    contents[_RSI] = __expectString(output[_RSI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryStopStackSetOperationOutput
  */
 const de_StopStackSetOperationOutput = (output: any, context: __SerdeContext): StopStackSetOperationOutput => {
@@ -10862,6 +12456,20 @@ const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
 };
 
 /**
+ * deserializeAws_queryTemplateConfiguration
+ */
+const de_TemplateConfiguration = (output: any, context: __SerdeContext): TemplateConfiguration => {
+  const contents: any = {};
+  if (output[_DPe] != null) {
+    contents[_DPe] = __expectString(output[_DPe]);
+  }
+  if (output[_URP] != null) {
+    contents[_URP] = __expectString(output[_URP]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryTemplateParameter
  */
 const de_TemplateParameter = (output: any, context: __SerdeContext): TemplateParameter => {
@@ -10890,6 +12498,66 @@ const de_TemplateParameters = (output: any, context: __SerdeContext): TemplatePa
     .map((entry: any) => {
       return de_TemplateParameter(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryTemplateProgress
+ */
+const de_TemplateProgress = (output: any, context: __SerdeContext): TemplateProgress => {
+  const contents: any = {};
+  if (output[_RSesou] != null) {
+    contents[_RSesou] = __strictParseInt32(output[_RSesou]) as number;
+  }
+  if (output[_RF] != null) {
+    contents[_RF] = __strictParseInt32(output[_RF]) as number;
+  }
+  if (output[_RPes] != null) {
+    contents[_RPes] = __strictParseInt32(output[_RPes]) as number;
+  }
+  if (output[_RPeso] != null) {
+    contents[_RPeso] = __strictParseInt32(output[_RPeso]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTemplateSummaries
+ */
+const de_TemplateSummaries = (output: any, context: __SerdeContext): TemplateSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TemplateSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryTemplateSummary
+ */
+const de_TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
+  const contents: any = {};
+  if (output[_GTI] != null) {
+    contents[_GTI] = __expectString(output[_GTI]);
+  }
+  if (output[_GTN] != null) {
+    contents[_GTN] = __expectString(output[_GTN]);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LUT] != null) {
+    contents[_LUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUT]));
+  }
+  if (output[_NOR] != null) {
+    contents[_NOR] = __strictParseInt32(output[_NOR]) as number;
+  }
+  return contents;
 };
 
 /**
@@ -11126,6 +12794,17 @@ const de_UnprocessedTypeConfigurations = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_queryUpdateGeneratedTemplateOutput
+ */
+const de_UpdateGeneratedTemplateOutput = (output: any, context: __SerdeContext): UpdateGeneratedTemplateOutput => {
+  const contents: any = {};
+  if (output[_GTI] != null) {
+    contents[_GTI] = __expectString(output[_GTI]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryUpdateStackInstancesOutput
  */
 const de_UpdateStackInstancesOutput = (output: any, context: __SerdeContext): UpdateStackInstancesOutput => {
@@ -11202,6 +12881,61 @@ const de_ValidateTemplateOutput = (output: any, context: __SerdeContext): Valida
 };
 
 /**
+ * deserializeAws_queryWarningDetail
+ */
+const de_WarningDetail = (output: any, context: __SerdeContext): WarningDetail => {
+  const contents: any = {};
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
+  }
+  if (output.Properties === "") {
+    contents[_Pro] = [];
+  } else if (output[_Pro] != null && output[_Pro][_m] != null) {
+    contents[_Pro] = de_WarningProperties(__getArrayIfSingleItem(output[_Pro][_m]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryWarningDetails
+ */
+const de_WarningDetails = (output: any, context: __SerdeContext): WarningDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WarningDetail(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryWarningProperties
+ */
+const de_WarningProperties = (output: any, context: __SerdeContext): WarningProperty[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WarningProperty(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryWarningProperty
+ */
+const de_WarningProperty = (output: any, context: __SerdeContext): WarningProperty => {
+  const contents: any = {};
+  if (output[_PPr] != null) {
+    contents[_PPr] = __expectString(output[_PPr]);
+  }
+  if (output[_Req] != null) {
+    contents[_Req] = __parseBoolean(output[_Req]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryWarnings
  */
 const de_Warnings = (output: any, context: __SerdeContext): Warnings => {
@@ -11263,6 +12997,7 @@ const _AGR = "AccountGateResult";
 const _AL = "AccountLimits";
 const _AOA = "ActivateOrganizationsAccess";
 const _AP = "ActualProperties";
+const _AR = "AddResources";
 const _ARARN = "AdministrationRoleARN";
 const _AT = "ActivateType";
 const _ATAC = "AcceptTermsAndConditions";
@@ -11285,6 +13020,7 @@ const _CAon = "ConfigurationAlias";
 const _CAonf = "ConfigurationArn";
 const _CCS = "CreateChangeSet";
 const _CE = "CausingEntity";
+const _CGT = "CreateGeneratedTemplate";
 const _CM = "ConcurrencyMode";
 const _COS = "CurrentOperationStatus";
 const _CR = "CapabilitiesReason";
@@ -11311,11 +13047,15 @@ const _DCS = "DeleteChangeSet";
 const _DCSH = "DescribeChangeSetHooks";
 const _DCSe = "DescribeChangeSet";
 const _DDS = "DriftDetectionStatus";
+const _DGT = "DeleteGeneratedTemplate";
+const _DGTe = "DescribeGeneratedTemplate";
 const _DI = "DriftInformation";
 const _DOA = "DeactivateOrganizationsAccess";
 const _DOAe = "DescribeOrganizationsAccess";
 const _DP = "DescribePublisher";
+const _DPe = "DeletionPolicy";
 const _DR = "DisableRollback";
+const _DRS = "DescribeResourceScan";
 const _DS = "DeleteStack";
 const _DSD = "DetectStackDrift";
 const _DSDDS = "DescribeStackDriftDetectionStatus";
@@ -11361,20 +13101,25 @@ const _ERA = "ExecutionRoleArn";
 const _ERN = "ExecutionRoleName";
 const _ES = "ExecutionStatus";
 const _ESI = "ExportingStackId";
-const _ET = "EndTimestamp";
+const _ET = "EndTime";
 const _ETC = "EstimateTemplateCost";
 const _ETP = "EnableTerminationProtection";
+const _ETn = "EndTimestamp";
 const _EV = "ExpectedValue";
 const _Er = "Errors";
 const _Ev = "Evaluation";
 const _Ex = "Exports";
-const _F = "Filters";
+const _F = "Format";
 const _FM = "FailureMode";
 const _FSIC = "FailedStackInstancesCount";
 const _FTC = "FailureToleranceCount";
 const _FTP = "FailureTolerancePercentage";
+const _Fi = "Filters";
+const _GGT = "GetGeneratedTemplate";
 const _GSP = "GetStackPolicy";
 const _GT = "GetTemplate";
+const _GTI = "GeneratedTemplateId";
+const _GTN = "GeneratedTemplateName";
 const _GTS = "GetTemplateSummary";
 const _H = "Hooks";
 const _HFM = "HookFailureMode";
@@ -11403,6 +13148,7 @@ const _LDB = "LogDeliveryBucket";
 const _LDCT = "LastDriftCheckTimestamp";
 const _LE = "ListExports";
 const _LGN = "LogGroupName";
+const _LGT = "ListGeneratedTemplates";
 const _LI = "ListImports";
 const _LIH = "LogicalIdHierarchy";
 const _LOI = "LastOperationId";
@@ -11410,6 +13156,9 @@ const _LPV = "LatestPublicVersion";
 const _LRA = "LogRoleArn";
 const _LRI = "LogicalResourceId";
 const _LRIo = "LogicalResourceIds";
+const _LRS = "ListResourceScans";
+const _LRSR = "ListResourceScanResources";
+const _LRSRR = "ListResourceScanRelatedResources";
 const _LS = "ListStacks";
 const _LSI = "ListStackInstances";
 const _LSIRD = "ListStackInstanceResourceDrifts";
@@ -11424,6 +13173,7 @@ const _LU = "LastUpdated";
 const _LUT = "LastUpdatedTime";
 const _LUTa = "LastUpdatedTimestamp";
 const _M = "Message";
+const _MBS = "ManagedByStack";
 const _MCC = "MaxConcurrentCount";
 const _MCP = "MaxConcurrentPercentage";
 const _ME = "ManagedExecution";
@@ -11435,6 +13185,8 @@ const _Me = "Metadata";
 const _N = "Name";
 const _NARN = "NotificationARNs";
 const _NE = "NoEcho";
+const _NGTN = "NewGeneratedTemplateName";
+const _NOR = "NumberOfResources";
 const _NT = "NextToken";
 const _O = "Outputs";
 const _OF = "OnFailure";
@@ -11449,8 +13201,9 @@ const _OUI = "OrganizationalUnitIds";
 const _OUIr = "OrganizationalUnitId";
 const _OV = "OutputValue";
 const _P = "Parameters";
-const _PC = "ParameterConstraints";
+const _PC = "PercentageCompleted";
 const _PCSI = "ParentChangeSetId";
+const _PCa = "ParameterConstraints";
 const _PD = "PropertyDifferences";
 const _PI = "PublisherId";
 const _PIa = "ParentId";
@@ -11471,8 +13224,11 @@ const _PTa = "ParameterType";
 const _PTr = "ProvisioningType";
 const _PV = "ParameterValue";
 const _PVN = "PublicVersionNumber";
-const _R = "Regions";
+const _Pr = "Progress";
+const _Pro = "Properties";
+const _R = "Resources";
 const _RA = "ResourceAction";
+const _RAR = "RefreshAllResources";
 const _RARN = "RoleARN";
 const _RAT = "RequiredActivatedTypes";
 const _RC = "RollbackConfiguration";
@@ -11480,6 +13236,7 @@ const _RCSI = "RootChangeSetId";
 const _RCT = "RegionConcurrencyType";
 const _RCe = "ResourceChange";
 const _REOC = "RetainExceptOnCreate";
+const _RF = "ResourcesFailed";
 const _RHP = "RecordHandlerProgress";
 const _RI = "ResourceIdentifier";
 const _RIS = "ResourceIdentifierSummaries";
@@ -11489,26 +13246,38 @@ const _RM = "ResourceModel";
 const _RO = "RegionOrder";
 const _RP = "RegisterPublisher";
 const _RPe = "ResourceProperties";
+const _RPes = "ResourcesProcessing";
+const _RPeso = "ResourcesPending";
 const _RR = "RetainResources";
-const _RRe = "RequiresRecreation";
+const _RRe = "RemoveResources";
+const _RRel = "RelatedResources";
+const _RReq = "RequiresRecreation";
+const _RRes = "ResourcesRead";
 const _RS = "RollbackStack";
 const _RSF = "RegistrationStatusFilter";
+const _RSI = "ResourceScanId";
 const _RSOAR = "RetainStacksOnAccountRemoval";
 const _RSR = "ResourceStatusReason";
+const _RSS = "ResourceScanSummaries";
 const _RSe = "RetainStacks";
-const _RSes = "ResourceStatus";
+const _RSes = "ResourcesScanned";
+const _RSeso = "ResourceStatus";
+const _RSesou = "ResourcesSucceeded";
 const _RT = "RegisterType";
 const _RTD = "ResourceTargetDetails";
 const _RTI = "ResourcesToImport";
 const _RTL = "RegistrationTokenList";
+const _RTP = "ResourceTypePrefix";
 const _RTS = "ResourcesToSkip";
 const _RTe = "ResourceTypes";
 const _RTeg = "RegistrationToken";
 const _RTes = "ResourceType";
 const _RTo = "RollbackTriggers";
 const _RV = "ResolvedValue";
-const _Re = "Replacement";
+const _Re = "Regions";
 const _Reg = "Region";
+const _Rep = "Replacement";
+const _Req = "Required";
 const _S = "Status";
 const _SA = "StagesAvailable";
 const _SD = "StatusDetails";
@@ -11537,7 +13306,8 @@ const _SRDS = "StackResourceDriftStatus";
 const _SRDSF = "StackResourceDriftStatusFilters";
 const _SRDt = "StackResourceDetail";
 const _SRDta = "StackResourceDrift";
-const _SRS = "StackResourceSummaries";
+const _SRS = "StartResourceScan";
+const _SRSt = "StackResourceSummaries";
 const _SRt = "StatusReason";
 const _SRta = "StackResources";
 const _SS = "StackSet";
@@ -11552,6 +13322,7 @@ const _SSR = "StackStatusReason";
 const _SSSO = "StopStackSetOperation";
 const _SSt = "StackSummaries";
 const _SSta = "StackStatus";
+const _ST = "StartTime";
 const _STC = "SetTypeConfiguration";
 const _STDV = "SetTypeDefaultVersion";
 const _SU = "SourceUrl";
@@ -11562,17 +13333,19 @@ const _Su = "Summaries";
 const _T = "Type";
 const _TA = "TypeArn";
 const _TB = "TemplateBody";
-const _TC = "TypeConfigurations";
+const _TC = "TemplateConfiguration";
 const _TCA = "TypeConfigurationAlias";
 const _TCAy = "TypeConfigurationArn";
 const _TCI = "TypeConfigurationIdentifiers";
 const _TCIy = "TypeConfigurationIdentifier";
 const _TCVI = "TypeConfigurationVersionId";
 const _TCi = "TimeCreated";
+const _TCy = "TypeConfigurations";
 const _TD = "TargetDetails";
 const _TDe = "TemplateDescription";
 const _TH = "TypeHierarchy";
 const _TIM = "TimeoutInMinutes";
+const _TK = "TagKey";
 const _TN = "TypeName";
 const _TNA = "TypeNameAlias";
 const _TNP = "TypeNamePrefix";
@@ -11586,16 +13359,20 @@ const _TTSD = "TypeTestsStatusDescription";
 const _TTa = "TargetType";
 const _TURL = "TemplateURL";
 const _TURTAW = "TreatUnrecognizedResourceTypesAsWarnings";
+const _TV = "TagValue";
 const _TVA = "TypeVersionArn";
 const _TVI = "TypeVersionId";
 const _TVS = "TypeVersionSummaries";
+const _TW = "TotalWarnings";
 const _Ta = "Tags";
 const _Tar = "Target";
 const _Ti = "Timestamp";
 const _U = "Url";
+const _UGT = "UpdateGeneratedTemplate";
 const _UI = "UniqueId";
 const _UPT = "UsePreviousTemplate";
 const _UPV = "UsePreviousValue";
+const _URP = "UpdateReplacePolicy";
 const _URT = "UnrecognizedResourceTypes";
 const _US = "UpdateStack";
 const _USI = "UpdateStackInstances";
@@ -11610,6 +13387,7 @@ const _Va = "Values";
 const _Val = "Value";
 const _Vi = "Visibility";
 const _W = "Warnings";
+const _e = "entry";
 const _m = "member";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

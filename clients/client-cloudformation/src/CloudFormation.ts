@@ -33,6 +33,11 @@ import {
   CreateChangeSetCommandInput,
   CreateChangeSetCommandOutput,
 } from "./commands/CreateChangeSetCommand";
+import {
+  CreateGeneratedTemplateCommand,
+  CreateGeneratedTemplateCommandInput,
+  CreateGeneratedTemplateCommandOutput,
+} from "./commands/CreateGeneratedTemplateCommand";
 import { CreateStackCommand, CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateStackInstancesCommand,
@@ -59,6 +64,11 @@ import {
   DeleteChangeSetCommandInput,
   DeleteChangeSetCommandOutput,
 } from "./commands/DeleteChangeSetCommand";
+import {
+  DeleteGeneratedTemplateCommand,
+  DeleteGeneratedTemplateCommandInput,
+  DeleteGeneratedTemplateCommandOutput,
+} from "./commands/DeleteGeneratedTemplateCommand";
 import { DeleteStackCommand, DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteStackInstancesCommand,
@@ -91,6 +101,11 @@ import {
   DescribeChangeSetHooksCommandOutput,
 } from "./commands/DescribeChangeSetHooksCommand";
 import {
+  DescribeGeneratedTemplateCommand,
+  DescribeGeneratedTemplateCommandInput,
+  DescribeGeneratedTemplateCommandOutput,
+} from "./commands/DescribeGeneratedTemplateCommand";
+import {
   DescribeOrganizationsAccessCommand,
   DescribeOrganizationsAccessCommandInput,
   DescribeOrganizationsAccessCommandOutput,
@@ -100,6 +115,11 @@ import {
   DescribePublisherCommandInput,
   DescribePublisherCommandOutput,
 } from "./commands/DescribePublisherCommand";
+import {
+  DescribeResourceScanCommand,
+  DescribeResourceScanCommandInput,
+  DescribeResourceScanCommandOutput,
+} from "./commands/DescribeResourceScanCommand";
 import {
   DescribeStackDriftDetectionStatusCommand,
   DescribeStackDriftDetectionStatusCommandInput,
@@ -181,6 +201,11 @@ import {
   ExecuteChangeSetCommandOutput,
 } from "./commands/ExecuteChangeSetCommand";
 import {
+  GetGeneratedTemplateCommand,
+  GetGeneratedTemplateCommandInput,
+  GetGeneratedTemplateCommandOutput,
+} from "./commands/GetGeneratedTemplateCommand";
+import {
   GetStackPolicyCommand,
   GetStackPolicyCommandInput,
   GetStackPolicyCommandOutput,
@@ -202,7 +227,27 @@ import {
   ListChangeSetsCommandOutput,
 } from "./commands/ListChangeSetsCommand";
 import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import {
+  ListGeneratedTemplatesCommand,
+  ListGeneratedTemplatesCommandInput,
+  ListGeneratedTemplatesCommandOutput,
+} from "./commands/ListGeneratedTemplatesCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import {
+  ListResourceScanRelatedResourcesCommand,
+  ListResourceScanRelatedResourcesCommandInput,
+  ListResourceScanRelatedResourcesCommandOutput,
+} from "./commands/ListResourceScanRelatedResourcesCommand";
+import {
+  ListResourceScanResourcesCommand,
+  ListResourceScanResourcesCommandInput,
+  ListResourceScanResourcesCommandOutput,
+} from "./commands/ListResourceScanResourcesCommand";
+import {
+  ListResourceScansCommand,
+  ListResourceScansCommandInput,
+  ListResourceScansCommandOutput,
+} from "./commands/ListResourceScansCommand";
 import {
   ListStackInstanceResourceDriftsCommand,
   ListStackInstanceResourceDriftsCommandInput,
@@ -287,11 +332,21 @@ import {
   SignalResourceCommandOutput,
 } from "./commands/SignalResourceCommand";
 import {
+  StartResourceScanCommand,
+  StartResourceScanCommandInput,
+  StartResourceScanCommandOutput,
+} from "./commands/StartResourceScanCommand";
+import {
   StopStackSetOperationCommand,
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput,
 } from "./commands/StopStackSetOperationCommand";
 import { TestTypeCommand, TestTypeCommandInput, TestTypeCommandOutput } from "./commands/TestTypeCommand";
+import {
+  UpdateGeneratedTemplateCommand,
+  UpdateGeneratedTemplateCommandInput,
+  UpdateGeneratedTemplateCommandOutput,
+} from "./commands/UpdateGeneratedTemplateCommand";
 import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommand,
@@ -321,12 +376,14 @@ const commands = {
   CancelUpdateStackCommand,
   ContinueUpdateRollbackCommand,
   CreateChangeSetCommand,
+  CreateGeneratedTemplateCommand,
   CreateStackCommand,
   CreateStackInstancesCommand,
   CreateStackSetCommand,
   DeactivateOrganizationsAccessCommand,
   DeactivateTypeCommand,
   DeleteChangeSetCommand,
+  DeleteGeneratedTemplateCommand,
   DeleteStackCommand,
   DeleteStackInstancesCommand,
   DeleteStackSetCommand,
@@ -334,8 +391,10 @@ const commands = {
   DescribeAccountLimitsCommand,
   DescribeChangeSetCommand,
   DescribeChangeSetHooksCommand,
+  DescribeGeneratedTemplateCommand,
   DescribeOrganizationsAccessCommand,
   DescribePublisherCommand,
+  DescribeResourceScanCommand,
   DescribeStackDriftDetectionStatusCommand,
   DescribeStackEventsCommand,
   DescribeStackInstanceCommand,
@@ -352,13 +411,18 @@ const commands = {
   DetectStackSetDriftCommand,
   EstimateTemplateCostCommand,
   ExecuteChangeSetCommand,
+  GetGeneratedTemplateCommand,
   GetStackPolicyCommand,
   GetTemplateCommand,
   GetTemplateSummaryCommand,
   ImportStacksToStackSetCommand,
   ListChangeSetsCommand,
   ListExportsCommand,
+  ListGeneratedTemplatesCommand,
   ListImportsCommand,
+  ListResourceScanRelatedResourcesCommand,
+  ListResourceScanResourcesCommand,
+  ListResourceScansCommand,
   ListStackInstanceResourceDriftsCommand,
   ListStackInstancesCommand,
   ListStackResourcesCommand,
@@ -378,8 +442,10 @@ const commands = {
   SetTypeConfigurationCommand,
   SetTypeDefaultVersionCommand,
   SignalResourceCommand,
+  StartResourceScanCommand,
   StopStackSetOperationCommand,
   TestTypeCommand,
+  UpdateGeneratedTemplateCommand,
   UpdateStackCommand,
   UpdateStackInstancesCommand,
   UpdateStackSetCommand,
@@ -482,6 +548,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link CreateGeneratedTemplateCommand}
+   */
+  createGeneratedTemplate(
+    args: CreateGeneratedTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGeneratedTemplateCommandOutput>;
+  createGeneratedTemplate(
+    args: CreateGeneratedTemplateCommandInput,
+    cb: (err: any, data?: CreateGeneratedTemplateCommandOutput) => void
+  ): void;
+  createGeneratedTemplate(
+    args: CreateGeneratedTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGeneratedTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateStackCommand}
    */
   createStack(args: CreateStackCommandInput, options?: __HttpHandlerOptions): Promise<CreateStackCommandOutput>;
@@ -566,6 +649,23 @@ export interface CloudFormation {
     args: DeleteChangeSetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteChangeSetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGeneratedTemplateCommand}
+   */
+  deleteGeneratedTemplate(
+    args: DeleteGeneratedTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGeneratedTemplateCommandOutput>;
+  deleteGeneratedTemplate(
+    args: DeleteGeneratedTemplateCommandInput,
+    cb: (err: any, data?: DeleteGeneratedTemplateCommandOutput) => void
+  ): void;
+  deleteGeneratedTemplate(
+    args: DeleteGeneratedTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGeneratedTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -676,6 +776,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link DescribeGeneratedTemplateCommand}
+   */
+  describeGeneratedTemplate(
+    args: DescribeGeneratedTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGeneratedTemplateCommandOutput>;
+  describeGeneratedTemplate(
+    args: DescribeGeneratedTemplateCommandInput,
+    cb: (err: any, data?: DescribeGeneratedTemplateCommandOutput) => void
+  ): void;
+  describeGeneratedTemplate(
+    args: DescribeGeneratedTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGeneratedTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeOrganizationsAccessCommand}
    */
   describeOrganizationsAccess(
@@ -707,6 +824,23 @@ export interface CloudFormation {
     args: DescribePublisherCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePublisherCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeResourceScanCommand}
+   */
+  describeResourceScan(
+    args: DescribeResourceScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResourceScanCommandOutput>;
+  describeResourceScan(
+    args: DescribeResourceScanCommandInput,
+    cb: (err: any, data?: DescribeResourceScanCommandOutput) => void
+  ): void;
+  describeResourceScan(
+    args: DescribeResourceScanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResourceScanCommandOutput) => void
   ): void;
 
   /**
@@ -973,6 +1107,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link GetGeneratedTemplateCommand}
+   */
+  getGeneratedTemplate(
+    args: GetGeneratedTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGeneratedTemplateCommandOutput>;
+  getGeneratedTemplate(
+    args: GetGeneratedTemplateCommandInput,
+    cb: (err: any, data?: GetGeneratedTemplateCommandOutput) => void
+  ): void;
+  getGeneratedTemplate(
+    args: GetGeneratedTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGeneratedTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetStackPolicyCommand}
    */
   getStackPolicy(
@@ -1057,6 +1208,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link ListGeneratedTemplatesCommand}
+   */
+  listGeneratedTemplates(
+    args: ListGeneratedTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGeneratedTemplatesCommandOutput>;
+  listGeneratedTemplates(
+    args: ListGeneratedTemplatesCommandInput,
+    cb: (err: any, data?: ListGeneratedTemplatesCommandOutput) => void
+  ): void;
+  listGeneratedTemplates(
+    args: ListGeneratedTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGeneratedTemplatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListImportsCommand}
    */
   listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
@@ -1065,6 +1233,57 @@ export interface CloudFormation {
     args: ListImportsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceScanRelatedResourcesCommand}
+   */
+  listResourceScanRelatedResources(
+    args: ListResourceScanRelatedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceScanRelatedResourcesCommandOutput>;
+  listResourceScanRelatedResources(
+    args: ListResourceScanRelatedResourcesCommandInput,
+    cb: (err: any, data?: ListResourceScanRelatedResourcesCommandOutput) => void
+  ): void;
+  listResourceScanRelatedResources(
+    args: ListResourceScanRelatedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceScanRelatedResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceScanResourcesCommand}
+   */
+  listResourceScanResources(
+    args: ListResourceScanResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceScanResourcesCommandOutput>;
+  listResourceScanResources(
+    args: ListResourceScanResourcesCommandInput,
+    cb: (err: any, data?: ListResourceScanResourcesCommandOutput) => void
+  ): void;
+  listResourceScanResources(
+    args: ListResourceScanResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceScanResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceScansCommand}
+   */
+  listResourceScans(
+    args: ListResourceScansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceScansCommandOutput>;
+  listResourceScans(
+    args: ListResourceScansCommandInput,
+    cb: (err: any, data?: ListResourceScansCommandOutput) => void
+  ): void;
+  listResourceScans(
+    args: ListResourceScansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceScansCommandOutput) => void
   ): void;
 
   /**
@@ -1349,6 +1568,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link StartResourceScanCommand}
+   */
+  startResourceScan(
+    args: StartResourceScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartResourceScanCommandOutput>;
+  startResourceScan(
+    args: StartResourceScanCommandInput,
+    cb: (err: any, data?: StartResourceScanCommandOutput) => void
+  ): void;
+  startResourceScan(
+    args: StartResourceScanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartResourceScanCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopStackSetOperationCommand}
    */
   stopStackSetOperation(
@@ -1374,6 +1610,23 @@ export interface CloudFormation {
     args: TestTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TestTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGeneratedTemplateCommand}
+   */
+  updateGeneratedTemplate(
+    args: UpdateGeneratedTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGeneratedTemplateCommandOutput>;
+  updateGeneratedTemplate(
+    args: UpdateGeneratedTemplateCommandInput,
+    cb: (err: any, data?: UpdateGeneratedTemplateCommandOutput) => void
+  ): void;
+  updateGeneratedTemplate(
+    args: UpdateGeneratedTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGeneratedTemplateCommandOutput) => void
   ): void;
 
   /**

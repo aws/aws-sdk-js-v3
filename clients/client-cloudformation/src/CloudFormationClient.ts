@@ -63,6 +63,10 @@ import {
   ContinueUpdateRollbackCommandOutput,
 } from "./commands/ContinueUpdateRollbackCommand";
 import { CreateChangeSetCommandInput, CreateChangeSetCommandOutput } from "./commands/CreateChangeSetCommand";
+import {
+  CreateGeneratedTemplateCommandInput,
+  CreateGeneratedTemplateCommandOutput,
+} from "./commands/CreateGeneratedTemplateCommand";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateStackInstancesCommandInput,
@@ -75,6 +79,10 @@ import {
 } from "./commands/DeactivateOrganizationsAccessCommand";
 import { DeactivateTypeCommandInput, DeactivateTypeCommandOutput } from "./commands/DeactivateTypeCommand";
 import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "./commands/DeleteChangeSetCommand";
+import {
+  DeleteGeneratedTemplateCommandInput,
+  DeleteGeneratedTemplateCommandOutput,
+} from "./commands/DeleteGeneratedTemplateCommand";
 import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteStackInstancesCommandInput,
@@ -92,10 +100,18 @@ import {
   DescribeChangeSetHooksCommandOutput,
 } from "./commands/DescribeChangeSetHooksCommand";
 import {
+  DescribeGeneratedTemplateCommandInput,
+  DescribeGeneratedTemplateCommandOutput,
+} from "./commands/DescribeGeneratedTemplateCommand";
+import {
   DescribeOrganizationsAccessCommandInput,
   DescribeOrganizationsAccessCommandOutput,
 } from "./commands/DescribeOrganizationsAccessCommand";
 import { DescribePublisherCommandInput, DescribePublisherCommandOutput } from "./commands/DescribePublisherCommand";
+import {
+  DescribeResourceScanCommandInput,
+  DescribeResourceScanCommandOutput,
+} from "./commands/DescribeResourceScanCommand";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
   DescribeStackDriftDetectionStatusCommandOutput,
@@ -145,6 +161,10 @@ import {
   EstimateTemplateCostCommandOutput,
 } from "./commands/EstimateTemplateCostCommand";
 import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand";
+import {
+  GetGeneratedTemplateCommandInput,
+  GetGeneratedTemplateCommandOutput,
+} from "./commands/GetGeneratedTemplateCommand";
 import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "./commands/GetStackPolicyCommand";
 import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import { GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput } from "./commands/GetTemplateSummaryCommand";
@@ -154,7 +174,20 @@ import {
 } from "./commands/ImportStacksToStackSetCommand";
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import {
+  ListGeneratedTemplatesCommandInput,
+  ListGeneratedTemplatesCommandOutput,
+} from "./commands/ListGeneratedTemplatesCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import {
+  ListResourceScanRelatedResourcesCommandInput,
+  ListResourceScanRelatedResourcesCommandOutput,
+} from "./commands/ListResourceScanRelatedResourcesCommand";
+import {
+  ListResourceScanResourcesCommandInput,
+  ListResourceScanResourcesCommandOutput,
+} from "./commands/ListResourceScanResourcesCommand";
+import { ListResourceScansCommandInput, ListResourceScansCommandOutput } from "./commands/ListResourceScansCommand";
 import {
   ListStackInstanceResourceDriftsCommandInput,
   ListStackInstanceResourceDriftsCommandOutput,
@@ -195,11 +228,16 @@ import {
   SetTypeDefaultVersionCommandOutput,
 } from "./commands/SetTypeDefaultVersionCommand";
 import { SignalResourceCommandInput, SignalResourceCommandOutput } from "./commands/SignalResourceCommand";
+import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "./commands/StartResourceScanCommand";
 import {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput,
 } from "./commands/StopStackSetOperationCommand";
 import { TestTypeCommandInput, TestTypeCommandOutput } from "./commands/TestTypeCommand";
+import {
+  UpdateGeneratedTemplateCommandInput,
+  UpdateGeneratedTemplateCommandOutput,
+} from "./commands/UpdateGeneratedTemplateCommand";
 import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommandInput,
@@ -232,12 +270,14 @@ export type ServiceInputTypes =
   | CancelUpdateStackCommandInput
   | ContinueUpdateRollbackCommandInput
   | CreateChangeSetCommandInput
+  | CreateGeneratedTemplateCommandInput
   | CreateStackCommandInput
   | CreateStackInstancesCommandInput
   | CreateStackSetCommandInput
   | DeactivateOrganizationsAccessCommandInput
   | DeactivateTypeCommandInput
   | DeleteChangeSetCommandInput
+  | DeleteGeneratedTemplateCommandInput
   | DeleteStackCommandInput
   | DeleteStackInstancesCommandInput
   | DeleteStackSetCommandInput
@@ -245,8 +285,10 @@ export type ServiceInputTypes =
   | DescribeAccountLimitsCommandInput
   | DescribeChangeSetCommandInput
   | DescribeChangeSetHooksCommandInput
+  | DescribeGeneratedTemplateCommandInput
   | DescribeOrganizationsAccessCommandInput
   | DescribePublisherCommandInput
+  | DescribeResourceScanCommandInput
   | DescribeStackDriftDetectionStatusCommandInput
   | DescribeStackEventsCommandInput
   | DescribeStackInstanceCommandInput
@@ -263,13 +305,18 @@ export type ServiceInputTypes =
   | DetectStackSetDriftCommandInput
   | EstimateTemplateCostCommandInput
   | ExecuteChangeSetCommandInput
+  | GetGeneratedTemplateCommandInput
   | GetStackPolicyCommandInput
   | GetTemplateCommandInput
   | GetTemplateSummaryCommandInput
   | ImportStacksToStackSetCommandInput
   | ListChangeSetsCommandInput
   | ListExportsCommandInput
+  | ListGeneratedTemplatesCommandInput
   | ListImportsCommandInput
+  | ListResourceScanRelatedResourcesCommandInput
+  | ListResourceScanResourcesCommandInput
+  | ListResourceScansCommandInput
   | ListStackInstanceResourceDriftsCommandInput
   | ListStackInstancesCommandInput
   | ListStackResourcesCommandInput
@@ -289,8 +336,10 @@ export type ServiceInputTypes =
   | SetTypeConfigurationCommandInput
   | SetTypeDefaultVersionCommandInput
   | SignalResourceCommandInput
+  | StartResourceScanCommandInput
   | StopStackSetOperationCommandInput
   | TestTypeCommandInput
+  | UpdateGeneratedTemplateCommandInput
   | UpdateStackCommandInput
   | UpdateStackInstancesCommandInput
   | UpdateStackSetCommandInput
@@ -307,12 +356,14 @@ export type ServiceOutputTypes =
   | CancelUpdateStackCommandOutput
   | ContinueUpdateRollbackCommandOutput
   | CreateChangeSetCommandOutput
+  | CreateGeneratedTemplateCommandOutput
   | CreateStackCommandOutput
   | CreateStackInstancesCommandOutput
   | CreateStackSetCommandOutput
   | DeactivateOrganizationsAccessCommandOutput
   | DeactivateTypeCommandOutput
   | DeleteChangeSetCommandOutput
+  | DeleteGeneratedTemplateCommandOutput
   | DeleteStackCommandOutput
   | DeleteStackInstancesCommandOutput
   | DeleteStackSetCommandOutput
@@ -320,8 +371,10 @@ export type ServiceOutputTypes =
   | DescribeAccountLimitsCommandOutput
   | DescribeChangeSetCommandOutput
   | DescribeChangeSetHooksCommandOutput
+  | DescribeGeneratedTemplateCommandOutput
   | DescribeOrganizationsAccessCommandOutput
   | DescribePublisherCommandOutput
+  | DescribeResourceScanCommandOutput
   | DescribeStackDriftDetectionStatusCommandOutput
   | DescribeStackEventsCommandOutput
   | DescribeStackInstanceCommandOutput
@@ -338,13 +391,18 @@ export type ServiceOutputTypes =
   | DetectStackSetDriftCommandOutput
   | EstimateTemplateCostCommandOutput
   | ExecuteChangeSetCommandOutput
+  | GetGeneratedTemplateCommandOutput
   | GetStackPolicyCommandOutput
   | GetTemplateCommandOutput
   | GetTemplateSummaryCommandOutput
   | ImportStacksToStackSetCommandOutput
   | ListChangeSetsCommandOutput
   | ListExportsCommandOutput
+  | ListGeneratedTemplatesCommandOutput
   | ListImportsCommandOutput
+  | ListResourceScanRelatedResourcesCommandOutput
+  | ListResourceScanResourcesCommandOutput
+  | ListResourceScansCommandOutput
   | ListStackInstanceResourceDriftsCommandOutput
   | ListStackInstancesCommandOutput
   | ListStackResourcesCommandOutput
@@ -364,8 +422,10 @@ export type ServiceOutputTypes =
   | SetTypeConfigurationCommandOutput
   | SetTypeDefaultVersionCommandOutput
   | SignalResourceCommandOutput
+  | StartResourceScanCommandOutput
   | StopStackSetOperationCommandOutput
   | TestTypeCommandOutput
+  | UpdateGeneratedTemplateCommandOutput
   | UpdateStackCommandOutput
   | UpdateStackInstancesCommandOutput
   | UpdateStackSetCommandOutput

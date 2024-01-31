@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/models_0";
+import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/models_1";
 import { de_ValidateTemplateCommand, se_ValidateTemplateCommand } from "../protocols/Aws_query";
 
 /**

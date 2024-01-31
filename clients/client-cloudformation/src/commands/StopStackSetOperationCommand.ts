@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/models_0";
+import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/models_1";
 import { de_StopStackSetOperationCommand, se_StopStackSetOperationCommand } from "../protocols/Aws_query";
 
 /**

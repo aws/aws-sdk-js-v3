@@ -263,6 +263,14 @@ CreateChangeSet
 </details>
 <details>
 <summary>
+CreateGeneratedTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/CreateGeneratedTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/CreateGeneratedTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/CreateGeneratedTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateStack
 </summary>
 
@@ -307,6 +315,14 @@ DeleteChangeSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/DeleteChangeSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DeleteChangeSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DeleteChangeSetCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteGeneratedTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/DeleteGeneratedTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DeleteGeneratedTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DeleteGeneratedTemplateCommandOutput/)
 
 </details>
 <details>
@@ -367,6 +383,14 @@ DescribeChangeSetHooks
 </details>
 <details>
 <summary>
+DescribeGeneratedTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/DescribeGeneratedTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DescribeGeneratedTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DescribeGeneratedTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeOrganizationsAccess
 </summary>
 
@@ -379,6 +403,14 @@ DescribePublisher
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/DescribePublisherCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DescribePublisherCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DescribePublisherCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeResourceScan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/DescribeResourceScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DescribeResourceScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DescribeResourceScanCommandOutput/)
 
 </details>
 <details>
@@ -511,6 +543,14 @@ ExecuteChangeSet
 </details>
 <details>
 <summary>
+GetGeneratedTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/GetGeneratedTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/GetGeneratedTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/GetGeneratedTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetStackPolicy
 </summary>
 
@@ -559,10 +599,42 @@ ListExports
 </details>
 <details>
 <summary>
+ListGeneratedTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListGeneratedTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListGeneratedTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListGeneratedTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListImports
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListImportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListImportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListImportsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListResourceScanRelatedResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListResourceScanRelatedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListResourceScanRelatedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListResourceScanRelatedResourcesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListResourceScanResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListResourceScanResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListResourceScanResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListResourceScanResourcesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListResourceScans
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListResourceScansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListResourceScansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListResourceScansCommandOutput/)
 
 </details>
 <details>
@@ -719,6 +791,14 @@ SignalResource
 </details>
 <details>
 <summary>
+StartResourceScan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/StartResourceScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/StartResourceScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/StartResourceScanCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopStackSetOperation
 </summary>
 
@@ -731,6 +811,14 @@ TestType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/TestTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/TestTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/TestTypeCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateGeneratedTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/UpdateGeneratedTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/UpdateGeneratedTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/UpdateGeneratedTemplateCommandOutput/)
 
 </details>
 <details>
