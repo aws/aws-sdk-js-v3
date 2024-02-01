@@ -36,8 +36,8 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * <p>Creates a new group in the specified user pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *             this operation, you must use IAM credentials to authorize requests, and you must
- *             grant yourself the corresponding IAM permission in a policy.</p>
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
  *             <p class="title">
  *                <b>Learn more</b>
  *             </p>

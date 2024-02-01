@@ -36,8 +36,8 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * <p>Lists the user pools associated with an Amazon Web Services account.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *             this operation, you must use IAM credentials to authorize requests, and you must
- *             grant yourself the corresponding IAM permission in a policy.</p>
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
  *             <p class="title">
  *                <b>Learn more</b>
  *             </p>
@@ -81,11 +81,11 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * //         CreateAuthChallenge: "STRING_VALUE",
  * //         VerifyAuthChallengeResponse: "STRING_VALUE",
  * //         PreTokenGeneration: "STRING_VALUE",
+ * //         UserMigration: "STRING_VALUE",
  * //         PreTokenGenerationConfig: { // PreTokenGenerationVersionConfigType
  * //           LambdaVersion: "V1_0" || "V2_0", // required
  * //           LambdaArn: "STRING_VALUE", // required
  * //         },
- * //         UserMigration: "STRING_VALUE",
  * //         CustomSMSSender: { // CustomSMSLambdaVersionConfigType
  * //           LambdaVersion: "V1_0", // required
  * //           LambdaArn: "STRING_VALUE", // required

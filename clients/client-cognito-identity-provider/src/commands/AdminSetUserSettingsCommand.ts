@@ -43,8 +43,8 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  *             token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a> instead.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *             this operation, you must use IAM credentials to authorize requests, and you must
- *             grant yourself the corresponding IAM permission in a policy.</p>
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
  *             <p class="title">
  *                <b>Learn more</b>
  *             </p>

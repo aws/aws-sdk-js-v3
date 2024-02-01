@@ -832,13 +832,13 @@ export interface AdminCreateUserRequest {
   /**
    * @public
    * <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda
-   *             trigger. This set of key-value pairs are for custom validation of information that you
-   *             collect from your users but don't need to retain.</p>
+   *     trigger. This set of key-value pairs are for custom validation of information that you
+   *     collect from your users but don't need to retain.</p>
    *          <p>Your Lambda function can analyze this additional data and act on it. Your function
-   *             might perform external API operations like logging user attributes and validation data
-   *             to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns
-   *             to Amazon Cognito, like automatically confirming the user if they sign up from within your
-   *             network.</p>
+   *     might perform external API operations like logging user attributes and validation data
+   *     to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns
+   *     to Amazon Cognito, like automatically confirming the user if they sign up from within your
+   *     network.</p>
    *          <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
    */
   ValidationData?: AttributeType[];
@@ -2316,10 +2316,10 @@ export interface AdminListDevicesRequest {
   /**
    * @public
    * <p>This API operation returns a limited number of results. The pagination token is
-   *     an identifier that you can present in an additional API request with the same parameters. When
-   *     you include the pagination token, Amazon Cognito returns the next set of items after the current list.
-   *     Subsequent requests return a new pagination token. By use of this token, you can paginate
-   *     through the full list of items.</p>
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -2338,8 +2338,8 @@ export interface AdminListDevicesResponse {
   /**
    * @public
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
-   *     you include a pagination token in your request, Amazon Cognito returns the next set of items in
-   *     the list. By use of this token, you can paginate through the full list of items.</p>
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -2592,10 +2592,10 @@ export interface EventFeedbackType {
   /**
    * @public
    * <p>The authentication event feedback value. When you provide a <code>FeedbackValue</code>
-   *             value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
-   *             has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
-   *             <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
-   *             don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
+   * value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
+   * has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
+   * <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
+   * don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
    */
   FeedbackValue: FeedbackValueType | undefined;
 
@@ -2929,52 +2929,52 @@ export interface AdminRespondToAuthChallengeRequest {
   /**
    * @public
    * <p>The responses to the challenge that you received in the previous request. Each
-   *             challenge has its own required response parameters. The following examples are partial
-   *             JSON request bodies that highlight challenge-response parameters.</p>
+   *     challenge has its own required response parameters. The following examples are partial
+   *     JSON request bodies that highlight challenge-response parameters.</p>
    *          <important>
    *             <p>You must provide a SECRET_HASH parameter in all challenge responses to an app
-   *                 client that has a client secret.</p>
+   *         client that has a client secret.</p>
    *          </important>
    *          <dl>
    *             <dt>SMS_MFA</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "SMS_MFA", "ChallengeResponses": \{"SMS_MFA_CODE":
-   *                             "[SMS_code]", "USERNAME": "[username]"\}</code>
+   *                     "[SMS_code]", "USERNAME": "[username]"\}</code>
    *                </p>
    *             </dd>
    *             <dt>PASSWORD_VERIFIER</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses":
-   *                             \{"PASSWORD_CLAIM_SIGNATURE": "[claim_signature]",
-   *                             "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]", "TIMESTAMP":
-   *                             [timestamp], "USERNAME": "[username]"\}</code>
+   *                     \{"PASSWORD_CLAIM_SIGNATURE": "[claim_signature]",
+   *                     "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]", "TIMESTAMP":
+   *                     [timestamp], "USERNAME": "[username]"\}</code>
    *                </p>
    *                <p>Add <code>"DEVICE_KEY"</code> when you sign in with a remembered
-   *                         device.</p>
+   *                 device.</p>
    *             </dd>
    *             <dt>CUSTOM_CHALLENGE</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "CUSTOM_CHALLENGE", "ChallengeResponses":
-   *                             \{"USERNAME": "[username]", "ANSWER": "[challenge_answer]"\}</code>
+   *                     \{"USERNAME": "[username]", "ANSWER": "[challenge_answer]"\}</code>
    *                </p>
    *                <p>Add <code>"DEVICE_KEY"</code> when you sign in with a remembered
-   *                         device.</p>
+   *                 device.</p>
    *             </dd>
    *             <dt>NEW_PASSWORD_REQUIRED</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "NEW_PASSWORD_REQUIRED", "ChallengeResponses":
-   *                             \{"NEW_PASSWORD": "[new_password]", "USERNAME":
-   *                         "[username]"\}</code>
+   *                     \{"NEW_PASSWORD": "[new_password]", "USERNAME":
+   *                 "[username]"\}</code>
    *                </p>
    *                <p>To set any required attributes that <code>InitiateAuth</code> returned in
-   *                         an <code>requiredAttributes</code> parameter, add
-   *                             <code>"userAttributes.[attribute_name]": "[attribute_value]"</code>.
-   *                         This parameter can also set values for writable attributes that aren't
-   *                         required by your user pool.</p>
+   *                 an <code>requiredAttributes</code> parameter, add
+   *                     <code>"userAttributes.[attribute_name]": "[attribute_value]"</code>.
+   *                 This parameter can also set values for writable attributes that aren't
+   *                 required by your user pool.</p>
    *                <note>
    *                   <p>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required attribute that already has a value.
    * In <code>RespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter,
@@ -2985,45 +2985,45 @@ export interface AdminRespondToAuthChallengeRequest {
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "SOFTWARE_TOKEN_MFA", "ChallengeResponses":
-   *                             \{"USERNAME": "[username]", "SOFTWARE_TOKEN_MFA_CODE":
-   *                             [authenticator_code]\}</code>
+   *                     \{"USERNAME": "[username]", "SOFTWARE_TOKEN_MFA_CODE":
+   *                     [authenticator_code]\}</code>
    *                </p>
    *             </dd>
    *             <dt>DEVICE_SRP_AUTH</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "DEVICE_SRP_AUTH", "ChallengeResponses": \{"USERNAME":
-   *                         "[username]", "DEVICE_KEY": "[device_key]", "SRP_A":
-   *                         "[srp_a]"\}</code>
+   *                 "[username]", "DEVICE_KEY": "[device_key]", "SRP_A":
+   *                 "[srp_a]"\}</code>
    *                </p>
    *             </dd>
    *             <dt>DEVICE_PASSWORD_VERIFIER</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "DEVICE_PASSWORD_VERIFIER", "ChallengeResponses":
-   *                         \{"DEVICE_KEY": "[device_key]", "PASSWORD_CLAIM_SIGNATURE":
-   *                         "[claim_signature]", "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]",
-   *                         "TIMESTAMP": [timestamp], "USERNAME": "[username]"\}</code>
+   *                 \{"DEVICE_KEY": "[device_key]", "PASSWORD_CLAIM_SIGNATURE":
+   *                 "[claim_signature]", "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]",
+   *                 "TIMESTAMP": [timestamp], "USERNAME": "[username]"\}</code>
    *                </p>
    *             </dd>
    *             <dt>MFA_SETUP</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "MFA_SETUP", "ChallengeResponses": \{"USERNAME":
-   *                         "[username]"\}, "SESSION": "[Session ID from
-   *                         VerifySoftwareToken]"</code>
+   *                 "[username]"\}, "SESSION": "[Session ID from
+   *                 VerifySoftwareToken]"</code>
    *                </p>
    *             </dd>
    *             <dt>SELECT_MFA_TYPE</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "SELECT_MFA_TYPE", "ChallengeResponses": \{"USERNAME":
-   *                         "[username]", "ANSWER": "[SMS_MFA or SOFTWARE_TOKEN_MFA]"\}</code>
+   *                 "[username]", "ANSWER": "[SMS_MFA or SOFTWARE_TOKEN_MFA]"\}</code>
    *                </p>
    *             </dd>
    *          </dl>
    *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
-   *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+   *     <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
    */
   ChallengeResponses?: Record<string, string>;
 
@@ -3396,10 +3396,10 @@ export interface AdminUpdateAuthEventFeedbackRequest {
   /**
    * @public
    * <p>The authentication event feedback value. When you provide a <code>FeedbackValue</code>
-   *             value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
-   *             has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
-   *             <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
-   *             don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
+   * value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
+   * has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
+   * <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
+   * don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
    */
   FeedbackValue: FeedbackValueType | undefined;
 }
@@ -4176,120 +4176,125 @@ export interface CreateIdentityProviderRequest {
 
   /**
    * @public
-   * <p>The IdP details. The following list describes the provider detail keys for each IdP
-   *             type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For Google and Login with Amazon:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>client_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>client_secret</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>authorize_scopes</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For Facebook:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>client_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>client_secret</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>authorize_scopes</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>api_version</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For Sign in with Apple:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>client_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>team_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>key_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>private_key</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>authorize_scopes</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For OpenID Connect (OIDC) providers:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>client_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>client_secret</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>attributes_request_method</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>oidc_issuer</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>authorize_scopes</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The following keys are only present if Amazon Cognito didn't discover them at
-   *                             the <code>oidc_issuer</code> URL.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>authorize_url </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>token_url </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>attributes_url </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>jwks_uri </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>Amazon Cognito sets the value of the following keys automatically. They are
-   *                             read-only.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>attributes_url_add_attributes </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For SAML providers:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>MetadataFile or MetadataURL</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>IDPSignout <i>optional</i>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * <p>The scopes, URLs, and identifiers for your external identity provider. The following
+   * examples describe the provider detail keys for each IdP type. These values and their
+   * schema are subject to change. Social IdP <code>authorize_scopes</code> values must match
+   * the values listed here.</p>
+   *          <dl>
+   *             <dt>OpenID Connect (OIDC)</dt>
+   *             <dd>
+   *                <p>Amazon Cognito accepts the following elements when it can't discover endpoint
+   *                 URLs from <code>oidc_issuer</code>: <code>attributes_url</code>,
+   *                     <code>authorize_url</code>, <code>jwks_uri</code>,
+   *                     <code>token_url</code>.</p>
+   *                <p>Create or update request: <code>"ProviderDetails": \{
+   *                     "attributes_request_method": "GET", "attributes_url":
+   *                     "https://auth.example.com/userInfo", "authorize_scopes": "openid profile
+   *                     email", "authorize_url": "https://auth.example.com/authorize",
+   *                     "client_id": "1example23456789", "client_secret":
+   *                     "provider-app-client-secret", "jwks_uri":
+   *                     "https://auth.example.com/.well-known/jwks.json", "oidc_issuer":
+   *                     "https://auth.example.com", "token_url": "https://example.com/token"
+   *                     \}</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_request_method":
+   *                     "GET", "attributes_url": "https://auth.example.com/userInfo",
+   *                     "attributes_url_add_attributes": "false", "authorize_scopes": "openid
+   *                     profile email", "authorize_url": "https://auth.example.com/authorize",
+   *                     "client_id": "1example23456789", "client_secret":
+   *                     "provider-app-client-secret", "jwks_uri":
+   *                     "https://auth.example.com/.well-known/jwks.json", "oidc_issuer":
+   *                     "https://auth.example.com", "token_url": "https://example.com/token"
+   *                     \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>SAML</dt>
+   *             <dd>
+   *                <p>Create or update request with Metadata URL: <code>"ProviderDetails": \{ "IDPInit": "true",
+   *                     "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataURL":
+   *                     "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm":
+   *                     "rsa-sha256" \}</code>
+   *                </p>
+   *                <p>Create or update request with Metadata file: <code>"ProviderDetails": \{ "IDPInit": "true",
+   *                     "IDPSignout": "true", "EncryptedResponses" : "true",
+   *                     "MetadataFile": "[metadata XML]", "RequestSigningAlgorithm":
+   *                     "rsa-sha256" \}</code>
+   *                </p>
+   *                <p>The value of <code>MetadataFile</code> must be the plaintext metadata document with all
+   *                 quote (") characters escaped by backslashes.</p>
+   *                <p>Describe response: <code>"ProviderDetails": \{ "IDPInit": "true",
+   *                     "IDPSignout": "true", "EncryptedResponses" : "true", "ActiveEncryptionCertificate": "[certificate]",
+   *                     "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm":
+   *                     "rsa-sha256", "SLORedirectBindingURI":
+   *                     "https://auth.example.com/slo/saml", "SSORedirectBindingURI":
+   *                     "https://auth.example.com/sso/saml" \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>LoginWithAmazon</dt>
+   *             <dd>
+   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
+   *                     "profile postal_code", "client_id":
+   *                     "amzn1.application-oa2-client.1example23456789", "client_secret":
+   *                     "provider-app-client-secret"</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_url":
+   *                     "https://api.amazon.com/user/profile", "attributes_url_add_attributes":
+   *                     "false", "authorize_scopes": "profile postal_code", "authorize_url":
+   *                     "https://www.amazon.com/ap/oa", "client_id":
+   *                     "amzn1.application-oa2-client.1example23456789", "client_secret":
+   *                     "provider-app-client-secret", "token_request_method": "POST",
+   *                     "token_url": "https://api.amazon.com/auth/o2/token" \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>Google</dt>
+   *             <dd>
+   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
+   *                     "email profile openid", "client_id":
+   *                     "1example23456789.apps.googleusercontent.com", "client_secret":
+   *                     "provider-app-client-secret" \}</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_url":
+   *                     "https://people.googleapis.com/v1/people/me?personFields=",
+   *                     "attributes_url_add_attributes": "true", "authorize_scopes": "email
+   *                     profile openid", "authorize_url":
+   *                     "https://accounts.google.com/o/oauth2/v2/auth", "client_id":
+   *                     "1example23456789.apps.googleusercontent.com", "client_secret":
+   *                     "provider-app-client-secret", "oidc_issuer":
+   *                     "https://accounts.google.com", "token_request_method": "POST",
+   *                     "token_url": "https://www.googleapis.com/oauth2/v4/token"
+   *                 \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>SignInWithApple</dt>
+   *             <dd>
+   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
+   *                     "email name", "client_id": "com.example.cognito", "private_key": "1EXAMPLE",
+   *                     "key_id": "2EXAMPLE", "team_id": "3EXAMPLE" \}</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails": \{
+   *                     "attributes_url_add_attributes": "false", "authorize_scopes": "email
+   *                     name", "authorize_url": "https://appleid.apple.com/auth/authorize",
+   *                     "client_id": "com.example.cognito", "key_id": "1EXAMPLE", "oidc_issuer":
+   *                     "https://appleid.apple.com", "team_id": "2EXAMPLE",
+   *                     "token_request_method": "POST", "token_url":
+   *                     "https://appleid.apple.com/auth/token" \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>Facebook</dt>
+   *             <dd>
+   *                <p>Create or update request: <code>"ProviderDetails": \{ "api_version": "v17.0",
+   *             "authorize_scopes": "public_profile, email", "client_id": "1example23456789",
+   *             "client_secret": "provider-app-client-secret" \}</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails":
+   *             \{ "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=",
+   *             "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email",
+   *             "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id":
+   *             "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method":
+   *             "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" \}</code>
+   *                </p>
+   *             </dd>
+   *          </dl>
    */
   ProviderDetails: Record<string, string> | undefined;
 
@@ -4331,124 +4336,125 @@ export interface IdentityProviderType {
 
   /**
    * @public
-   * <p>The IdP details. The following list describes the provider detail keys for each IdP
-   *             type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For Google and Login with Amazon:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>client_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>client_secret</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>authorize_scopes</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For Facebook:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>client_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>client_secret</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>authorize_scopes</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>api_version</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For Sign in with Apple:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>client_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>team_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>key_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>private_key</p>
-   *                      <p>
-   *                         <i>You can submit a private_key when you add or update an IdP.
-   *                                 Describe operations don't return the private key.</i>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>authorize_scopes</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For OIDC providers:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>client_id</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>client_secret</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>attributes_request_method</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>oidc_issuer</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>authorize_scopes</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The following keys are only present if Amazon Cognito didn't discover them at
-   *                             the <code>oidc_issuer</code> URL.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>authorize_url </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>token_url </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>attributes_url </p>
-   *                         </li>
-   *                         <li>
-   *                            <p>jwks_uri </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                   <li>
-   *                      <p>Amazon Cognito sets the value of the following keys automatically. They are
-   *                             read-only.</p>
-   *                      <ul>
-   *                         <li>
-   *                            <p>attributes_url_add_attributes </p>
-   *                         </li>
-   *                      </ul>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>For SAML providers:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>MetadataFile or MetadataURL</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>IDPSignout <i>optional</i>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * <p>The scopes, URLs, and identifiers for your external identity provider. The following
+   * examples describe the provider detail keys for each IdP type. These values and their
+   * schema are subject to change. Social IdP <code>authorize_scopes</code> values must match
+   * the values listed here.</p>
+   *          <dl>
+   *             <dt>OpenID Connect (OIDC)</dt>
+   *             <dd>
+   *                <p>Amazon Cognito accepts the following elements when it can't discover endpoint
+   *                 URLs from <code>oidc_issuer</code>: <code>attributes_url</code>,
+   *                     <code>authorize_url</code>, <code>jwks_uri</code>,
+   *                     <code>token_url</code>.</p>
+   *                <p>Create or update request: <code>"ProviderDetails": \{
+   *                     "attributes_request_method": "GET", "attributes_url":
+   *                     "https://auth.example.com/userInfo", "authorize_scopes": "openid profile
+   *                     email", "authorize_url": "https://auth.example.com/authorize",
+   *                     "client_id": "1example23456789", "client_secret":
+   *                     "provider-app-client-secret", "jwks_uri":
+   *                     "https://auth.example.com/.well-known/jwks.json", "oidc_issuer":
+   *                     "https://auth.example.com", "token_url": "https://example.com/token"
+   *                     \}</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_request_method":
+   *                     "GET", "attributes_url": "https://auth.example.com/userInfo",
+   *                     "attributes_url_add_attributes": "false", "authorize_scopes": "openid
+   *                     profile email", "authorize_url": "https://auth.example.com/authorize",
+   *                     "client_id": "1example23456789", "client_secret":
+   *                     "provider-app-client-secret", "jwks_uri":
+   *                     "https://auth.example.com/.well-known/jwks.json", "oidc_issuer":
+   *                     "https://auth.example.com", "token_url": "https://example.com/token"
+   *                     \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>SAML</dt>
+   *             <dd>
+   *                <p>Create or update request with Metadata URL: <code>"ProviderDetails": \{ "IDPInit": "true",
+   *                     "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataURL":
+   *                     "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm":
+   *                     "rsa-sha256" \}</code>
+   *                </p>
+   *                <p>Create or update request with Metadata file: <code>"ProviderDetails": \{ "IDPInit": "true",
+   *                     "IDPSignout": "true", "EncryptedResponses" : "true",
+   *                     "MetadataFile": "[metadata XML]", "RequestSigningAlgorithm":
+   *                     "rsa-sha256" \}</code>
+   *                </p>
+   *                <p>The value of <code>MetadataFile</code> must be the plaintext metadata document with all
+   *                 quote (") characters escaped by backslashes.</p>
+   *                <p>Describe response: <code>"ProviderDetails": \{ "IDPInit": "true",
+   *                     "IDPSignout": "true", "EncryptedResponses" : "true", "ActiveEncryptionCertificate": "[certificate]",
+   *                     "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm":
+   *                     "rsa-sha256", "SLORedirectBindingURI":
+   *                     "https://auth.example.com/slo/saml", "SSORedirectBindingURI":
+   *                     "https://auth.example.com/sso/saml" \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>LoginWithAmazon</dt>
+   *             <dd>
+   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
+   *                     "profile postal_code", "client_id":
+   *                     "amzn1.application-oa2-client.1example23456789", "client_secret":
+   *                     "provider-app-client-secret"</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_url":
+   *                     "https://api.amazon.com/user/profile", "attributes_url_add_attributes":
+   *                     "false", "authorize_scopes": "profile postal_code", "authorize_url":
+   *                     "https://www.amazon.com/ap/oa", "client_id":
+   *                     "amzn1.application-oa2-client.1example23456789", "client_secret":
+   *                     "provider-app-client-secret", "token_request_method": "POST",
+   *                     "token_url": "https://api.amazon.com/auth/o2/token" \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>Google</dt>
+   *             <dd>
+   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
+   *                     "email profile openid", "client_id":
+   *                     "1example23456789.apps.googleusercontent.com", "client_secret":
+   *                     "provider-app-client-secret" \}</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails": \{ "attributes_url":
+   *                     "https://people.googleapis.com/v1/people/me?personFields=",
+   *                     "attributes_url_add_attributes": "true", "authorize_scopes": "email
+   *                     profile openid", "authorize_url":
+   *                     "https://accounts.google.com/o/oauth2/v2/auth", "client_id":
+   *                     "1example23456789.apps.googleusercontent.com", "client_secret":
+   *                     "provider-app-client-secret", "oidc_issuer":
+   *                     "https://accounts.google.com", "token_request_method": "POST",
+   *                     "token_url": "https://www.googleapis.com/oauth2/v4/token"
+   *                 \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>SignInWithApple</dt>
+   *             <dd>
+   *                <p>Create or update request: <code>"ProviderDetails": \{ "authorize_scopes":
+   *                     "email name", "client_id": "com.example.cognito", "private_key": "1EXAMPLE",
+   *                     "key_id": "2EXAMPLE", "team_id": "3EXAMPLE" \}</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails": \{
+   *                     "attributes_url_add_attributes": "false", "authorize_scopes": "email
+   *                     name", "authorize_url": "https://appleid.apple.com/auth/authorize",
+   *                     "client_id": "com.example.cognito", "key_id": "1EXAMPLE", "oidc_issuer":
+   *                     "https://appleid.apple.com", "team_id": "2EXAMPLE",
+   *                     "token_request_method": "POST", "token_url":
+   *                     "https://appleid.apple.com/auth/token" \}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>Facebook</dt>
+   *             <dd>
+   *                <p>Create or update request: <code>"ProviderDetails": \{ "api_version": "v17.0",
+   *             "authorize_scopes": "public_profile, email", "client_id": "1example23456789",
+   *             "client_secret": "provider-app-client-secret" \}</code>
+   *                </p>
+   *                <p>Describe response: <code>"ProviderDetails":
+   *             \{ "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=",
+   *             "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email",
+   *             "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id":
+   *             "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method":
+   *             "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" \}</code>
+   *                </p>
+   *             </dd>
+   *          </dl>
    */
   ProviderDetails?: Record<string, string>;
 
@@ -5140,8 +5146,10 @@ export interface LambdaConfigType {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
-   *          <p>Set this parameter for legacy purposes. If you also set an ARN in <code>PreTokenGenerationConfig</code>, its value must be identical to <code>PreTokenGeneration</code>. For new instances
-   *             of pre token generation triggers, set the <code>LambdaArn</code> of <code>PreTokenGenerationConfig</code>.</p>
+   *          <p>Set this parameter for legacy purposes. If you also set an ARN in
+   *                 <code>PreTokenGenerationConfig</code>, its value must be identical to
+   *                 <code>PreTokenGeneration</code>. For new instances of pre token generation triggers,
+   *             set the <code>LambdaArn</code> of <code>PreTokenGenerationConfig</code>.</p>
    *          <p>You can set <code></code>
    *          </p>
    */
@@ -5149,15 +5157,17 @@ export interface LambdaConfigType {
 
   /**
    * @public
-   * <p>The detailed configuration of a pre token generation trigger. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>
-   */
-  PreTokenGenerationConfig?: PreTokenGenerationVersionConfigType;
-
-  /**
-   * @public
    * <p>The user migration Lambda config type.</p>
    */
   UserMigration?: string;
+
+  /**
+   * @public
+   * <p>The detailed configuration of a pre token generation trigger. If you also set an ARN
+   *             in <code>PreTokenGeneration</code>, its value must be identical to
+   *                 <code>PreTokenGenerationConfig</code>.</p>
+   */
+  PreTokenGenerationConfig?: PreTokenGenerationVersionConfigType;
 
   /**
    * @public
@@ -5385,9 +5395,9 @@ export interface UsernameConfigurationType {
 /**
  * @public
  * <p>User pool add-ons. Contains settings for activation of advanced security features. To
- *             log user security information but take no action, set to <code>AUDIT</code>. To
- *             configure automatic security responses to risky traffic to your user pool, set to
- *                 <code>ENFORCED</code>.</p>
+ *     log user security information but take no action, set to <code>AUDIT</code>. To
+ *     configure automatic security responses to risky traffic to your user pool, set to
+ *         <code>ENFORCED</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
  */
 export interface UserPoolAddOnsType {
@@ -5483,12 +5493,12 @@ export interface CreateUserPoolRequest {
   /**
    * @public
    * <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user
-   *         pool. Before you can delete a user pool that you have protected against deletion, you
-   *         must deactivate this feature.</p>
+   * pool. Before you can delete a user pool that you have protected against deletion, you
+   * must deactivate this feature.</p>
    *          <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request,
-   *         Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
-   *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
-   *         <code>UpdateUserPool</code> API request.</p>
+   * Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
+   * send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
+   * <code>UpdateUserPool</code> API request.</p>
    */
   DeletionProtection?: DeletionProtectionType;
 
@@ -5626,9 +5636,9 @@ export interface CreateUserPoolRequest {
   /**
    * @public
    * <p>User pool add-ons. Contains settings for activation of advanced security features. To
-   *             log user security information but take no action, set to <code>AUDIT</code>. To
-   *             configure automatic security responses to risky traffic to your user pool, set to
-   *                 <code>ENFORCED</code>.</p>
+   *     log user security information but take no action, set to <code>AUDIT</code>. To
+   *     configure automatic security responses to risky traffic to your user pool, set to
+   *         <code>ENFORCED</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
    */
   UserPoolAddOns?: UserPoolAddOnsType;
@@ -5700,12 +5710,12 @@ export interface UserPoolType {
   /**
    * @public
    * <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user
-   *         pool. Before you can delete a user pool that you have protected against deletion, you
-   *         must deactivate this feature.</p>
+   * pool. Before you can delete a user pool that you have protected against deletion, you
+   * must deactivate this feature.</p>
    *          <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request,
-   *         Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
-   *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
-   *         <code>UpdateUserPool</code> API request.</p>
+   * Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
+   * send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
+   * <code>UpdateUserPool</code> API request.</p>
    */
   DeletionProtection?: DeletionProtectionType;
 
@@ -5927,9 +5937,9 @@ export interface UserPoolType {
   /**
    * @public
    * <p>User pool add-ons. Contains settings for activation of advanced security features. To
-   *             log user security information but take no action, set to <code>AUDIT</code>. To
-   *             configure automatic security responses to risky traffic to your user pool, set to
-   *                 <code>ENFORCED</code>.</p>
+   *     log user security information but take no action, set to <code>AUDIT</code>. To
+   *     configure automatic security responses to risky traffic to your user pool, set to
+   *         <code>ENFORCED</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
    */
   UserPoolAddOns?: UserPoolAddOnsType;
@@ -6123,50 +6133,50 @@ export interface CreateUserPoolClientRequest {
   /**
    * @public
    * <p>The refresh token time limit. After this limit expires, your user can't use
-   *         their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as
-   *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
-   *         set a <code>TokenValidityUnits</code> value in your API request.</p>
+   * their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as
+   * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
+   * set a <code>TokenValidityUnits</code> value in your API request.</p>
    *          <p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and
-   *         <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session
-   *         and retrieve new access and ID tokens for 10 days.</p>
+   * <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session
+   * and retrieve new access and ID tokens for 10 days.</p>
    *          <p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days.
-   *         You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the
-   *         value with the default value of 30 days. <i>Valid range</i> is displayed below
-   *         in seconds.</p>
+   * You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the
+   * value with the default value of 30 days. <i>Valid range</i> is displayed below
+   * in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your refresh
-   *         tokens are valid for 30 days.</p>
+   * tokens are valid for 30 days.</p>
    */
   RefreshTokenValidity?: number;
 
   /**
    * @public
    * <p>The access token time limit. After this limit expires, your user can't use
-   *         their access token. To specify the time unit for <code>AccessTokenValidity</code> as
-   *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
-   *         set a <code>TokenValidityUnits</code> value in your API request.</p>
+   * their access token. To specify the time unit for <code>AccessTokenValidity</code> as
+   * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
+   * set a <code>TokenValidityUnits</code> value in your API request.</p>
    *          <p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and
-   *         <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with
-   *         their access token for 10 hours.</p>
+   * <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with
+   * their access token for 10 hours.</p>
    *          <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
-   *         <i>Valid range</i> is displayed below in seconds.</p>
+   * <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your access
-   *         tokens are valid for one hour.</p>
+   * tokens are valid for one hour.</p>
    */
   AccessTokenValidity?: number;
 
   /**
    * @public
    * <p>The ID token time limit. After this limit expires, your user can't use
-   *         their ID token. To specify the time unit for <code>IdTokenValidity</code> as
-   *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
-   *         set a <code>TokenValidityUnits</code> value in your API request.</p>
+   * their ID token. To specify the time unit for <code>IdTokenValidity</code> as
+   * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
+   * set a <code>TokenValidityUnits</code> value in your API request.</p>
    *          <p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and
-   *         <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their
-   *         session with their ID token for 10 hours.</p>
+   * <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their
+   * session with their ID token for 10 hours.</p>
    *          <p>The default time unit for <code>IdTokenValidity</code> in an API request is hours.
-   *         <i>Valid range</i> is displayed below in seconds.</p>
+   * <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your ID
-   *         tokens are valid for one hour.</p>
+   * tokens are valid for one hour.</p>
    */
   IdTokenValidity?: number;
 
@@ -6180,41 +6190,41 @@ export interface CreateUserPoolClientRequest {
   /**
    * @public
    * <p>The list of user attributes that you want your app client to have read-only access to.
-   *             After your user authenticates in your app, their access token authorizes them to read
-   *             their own attribute value for any attribute in this list. An example of this kind of
-   *             activity is when your user selects a link to view their profile information. Your app
-   *             makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a> API request to retrieve and display your user's profile
-   *             data.</p>
+   *     After your user authenticates in your app, their access token authorizes them to read
+   *     their own attribute value for any attribute in this list. An example of this kind of
+   *     activity is when your user selects a link to view their profile information. Your app
+   *     makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a> API request to retrieve and display your user's profile
+   *     data.</p>
    *          <p>When you don't specify the <code>ReadAttributes</code> for your app client, your
-   *             app can read the values of <code>email_verified</code>,
-   *                 <code>phone_number_verified</code>, and the Standard attributes of your user pool.
-   *             When your user pool has read access to these default attributes,
-   *                 <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
-   *             populates <code>ReadAttributes</code> in the API response if you have specified your own
-   *             custom set of read attributes.</p>
+   *     app can read the values of <code>email_verified</code>,
+   *         <code>phone_number_verified</code>, and the Standard attributes of your user pool.
+   *     When your user pool has read access to these default attributes,
+   *         <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
+   *     populates <code>ReadAttributes</code> in the API response if you have specified your own
+   *     custom set of read attributes.</p>
    */
   ReadAttributes?: string[];
 
   /**
    * @public
    * <p>The list of user attributes that you want your app client to have write access to.
-   *             After your user authenticates in your app, their access token authorizes them to set or
-   *             modify their own attribute value for any attribute in this list. An example of this kind
-   *             of activity is when you present your user with a form to update their profile
-   *             information and they change their last name. Your app then makes an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> API request and sets <code>family_name</code> to the
-   *             new value. </p>
+   *     After your user authenticates in your app, their access token authorizes them to set or
+   *     modify their own attribute value for any attribute in this list. An example of this kind
+   *     of activity is when you present your user with a form to update their profile
+   *     information and they change their last name. Your app then makes an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> API request and sets <code>family_name</code> to the
+   *     new value. </p>
    *          <p>When you don't specify the <code>WriteAttributes</code> for your app client, your
-   *             app can write the values of the Standard attributes of your user pool. When your user
-   *             pool has write access to these default attributes, <code>WriteAttributes</code>
-   *             doesn't return any information. Amazon Cognito only populates
-   *                 <code>WriteAttributes</code> in the API response if you have specified your own
-   *             custom set of write attributes.</p>
+   *     app can write the values of the Standard attributes of your user pool. When your user
+   *     pool has write access to these default attributes, <code>WriteAttributes</code>
+   *     doesn't return any information. Amazon Cognito only populates
+   *         <code>WriteAttributes</code> in the API response if you have specified your own
+   *     custom set of write attributes.</p>
    *          <p>If your app client allows users to sign in through an IdP, this array must include all
-   *             attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when
-   *             users sign in to your application through an IdP. If your app client does not have write
-   *             access to a mapped attribute, Amazon Cognito throws an error when it tries to update the
-   *             attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user
-   *             pool</a>.</p>
+   *     attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when
+   *     users sign in to your application through an IdP. If your app client does not have write
+   *     access to a mapped attribute, Amazon Cognito throws an error when it tries to update the
+   *     attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user
+   *     pool</a>.</p>
    */
   WriteAttributes?: string[];
 
@@ -6327,7 +6337,9 @@ export interface CreateUserPoolClientRequest {
 
   /**
    * @public
-   * <p>The allowed OAuth flows.</p>
+   * <p>The OAuth grant types that you want your app client to generate. To create an app
+   *             client that generates client credentials grants, you must add
+   *                 <code>client_credentials</code> as the only allowed OAuth flow.</p>
    *          <dl>
    *             <dt>code</dt>
    *             <dd>
@@ -6364,7 +6376,7 @@ export interface CreateUserPoolClientRequest {
    * <p>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</p>
    *          <p>
    *             <code>AllowedOAuthFlowsUserPoolClient</code> must be <code>true</code> before you can configure
-   *         the following features in your app client.</p>
+   * the following features in your app client.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6384,10 +6396,10 @@ export interface CreateUserPoolClientRequest {
    *             </li>
    *          </ul>
    *          <p>To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set
-   *         <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or
-   *         <code>UpdateUserPoolClient</code> API request. If you don't set a value for
-   *         <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults
-   *         to <code>false</code>.</p>
+   * <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or
+   * <code>UpdateUserPoolClient</code> API request. If you don't set a value for
+   * <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults
+   * to <code>false</code>.</p>
    */
   AllowedOAuthFlowsUserPoolClient?: boolean;
 
@@ -6501,50 +6513,50 @@ export interface UserPoolClientType {
   /**
    * @public
    * <p>The refresh token time limit. After this limit expires, your user can't use
-   *         their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as
-   *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
-   *         set a <code>TokenValidityUnits</code> value in your API request.</p>
+   * their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as
+   * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
+   * set a <code>TokenValidityUnits</code> value in your API request.</p>
    *          <p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and
-   *         <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session
-   *         and retrieve new access and ID tokens for 10 days.</p>
+   * <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session
+   * and retrieve new access and ID tokens for 10 days.</p>
    *          <p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days.
-   *         You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the
-   *         value with the default value of 30 days. <i>Valid range</i> is displayed below
-   *         in seconds.</p>
+   * You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the
+   * value with the default value of 30 days. <i>Valid range</i> is displayed below
+   * in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your refresh
-   *         tokens are valid for 30 days.</p>
+   * tokens are valid for 30 days.</p>
    */
   RefreshTokenValidity?: number;
 
   /**
    * @public
    * <p>The access token time limit. After this limit expires, your user can't use
-   *         their access token. To specify the time unit for <code>AccessTokenValidity</code> as
-   *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
-   *         set a <code>TokenValidityUnits</code> value in your API request.</p>
+   * their access token. To specify the time unit for <code>AccessTokenValidity</code> as
+   * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
+   * set a <code>TokenValidityUnits</code> value in your API request.</p>
    *          <p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and
-   *         <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with
-   *         their access token for 10 hours.</p>
+   * <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with
+   * their access token for 10 hours.</p>
    *          <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
-   *         <i>Valid range</i> is displayed below in seconds.</p>
+   * <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your access
-   *         tokens are valid for one hour.</p>
+   * tokens are valid for one hour.</p>
    */
   AccessTokenValidity?: number;
 
   /**
    * @public
    * <p>The ID token time limit. After this limit expires, your user can't use
-   *         their ID token. To specify the time unit for <code>IdTokenValidity</code> as
-   *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
-   *         set a <code>TokenValidityUnits</code> value in your API request.</p>
+   * their ID token. To specify the time unit for <code>IdTokenValidity</code> as
+   * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
+   * set a <code>TokenValidityUnits</code> value in your API request.</p>
    *          <p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and
-   *         <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their
-   *         session with their ID token for 10 hours.</p>
+   * <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their
+   * session with their ID token for 10 hours.</p>
    *          <p>The default time unit for <code>IdTokenValidity</code> in an API request is hours.
-   *         <i>Valid range</i> is displayed below in seconds.</p>
+   * <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your ID
-   *         tokens are valid for one hour.</p>
+   * tokens are valid for one hour.</p>
    */
   IdTokenValidity?: number;
 
@@ -6558,41 +6570,41 @@ export interface UserPoolClientType {
   /**
    * @public
    * <p>The list of user attributes that you want your app client to have read-only access to.
-   *             After your user authenticates in your app, their access token authorizes them to read
-   *             their own attribute value for any attribute in this list. An example of this kind of
-   *             activity is when your user selects a link to view their profile information. Your app
-   *             makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a> API request to retrieve and display your user's profile
-   *             data.</p>
+   *     After your user authenticates in your app, their access token authorizes them to read
+   *     their own attribute value for any attribute in this list. An example of this kind of
+   *     activity is when your user selects a link to view their profile information. Your app
+   *     makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a> API request to retrieve and display your user's profile
+   *     data.</p>
    *          <p>When you don't specify the <code>ReadAttributes</code> for your app client, your
-   *             app can read the values of <code>email_verified</code>,
-   *                 <code>phone_number_verified</code>, and the Standard attributes of your user pool.
-   *             When your user pool has read access to these default attributes,
-   *                 <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
-   *             populates <code>ReadAttributes</code> in the API response if you have specified your own
-   *             custom set of read attributes.</p>
+   *     app can read the values of <code>email_verified</code>,
+   *         <code>phone_number_verified</code>, and the Standard attributes of your user pool.
+   *     When your user pool has read access to these default attributes,
+   *         <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
+   *     populates <code>ReadAttributes</code> in the API response if you have specified your own
+   *     custom set of read attributes.</p>
    */
   ReadAttributes?: string[];
 
   /**
    * @public
    * <p>The list of user attributes that you want your app client to have write access to.
-   *             After your user authenticates in your app, their access token authorizes them to set or
-   *             modify their own attribute value for any attribute in this list. An example of this kind
-   *             of activity is when you present your user with a form to update their profile
-   *             information and they change their last name. Your app then makes an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> API request and sets <code>family_name</code> to the
-   *             new value. </p>
+   *     After your user authenticates in your app, their access token authorizes them to set or
+   *     modify their own attribute value for any attribute in this list. An example of this kind
+   *     of activity is when you present your user with a form to update their profile
+   *     information and they change their last name. Your app then makes an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> API request and sets <code>family_name</code> to the
+   *     new value. </p>
    *          <p>When you don't specify the <code>WriteAttributes</code> for your app client, your
-   *             app can write the values of the Standard attributes of your user pool. When your user
-   *             pool has write access to these default attributes, <code>WriteAttributes</code>
-   *             doesn't return any information. Amazon Cognito only populates
-   *                 <code>WriteAttributes</code> in the API response if you have specified your own
-   *             custom set of write attributes.</p>
+   *     app can write the values of the Standard attributes of your user pool. When your user
+   *     pool has write access to these default attributes, <code>WriteAttributes</code>
+   *     doesn't return any information. Amazon Cognito only populates
+   *         <code>WriteAttributes</code> in the API response if you have specified your own
+   *     custom set of write attributes.</p>
    *          <p>If your app client allows users to sign in through an IdP, this array must include all
-   *             attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when
-   *             users sign in to your application through an IdP. If your app client does not have write
-   *             access to a mapped attribute, Amazon Cognito throws an error when it tries to update the
-   *             attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user
-   *             pool</a>.</p>
+   *     attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when
+   *     users sign in to your application through an IdP. If your app client does not have write
+   *     access to a mapped attribute, Amazon Cognito throws an error when it tries to update the
+   *     attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user
+   *     pool</a>.</p>
    */
   WriteAttributes?: string[];
 
@@ -6742,7 +6754,7 @@ export interface UserPoolClientType {
    * <p>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</p>
    *          <p>
    *             <code>AllowedOAuthFlowsUserPoolClient</code> must be <code>true</code> before you can configure
-   *         the following features in your app client.</p>
+   * the following features in your app client.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6762,10 +6774,10 @@ export interface UserPoolClientType {
    *             </li>
    *          </ul>
    *          <p>To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set
-   *         <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or
-   *         <code>UpdateUserPoolClient</code> API request. If you don't set a value for
-   *         <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults
-   *         to <code>false</code>.</p>
+   * <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or
+   * <code>UpdateUserPoolClient</code> API request. If you don't set a value for
+   * <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults
+   * to <code>false</code>.</p>
    */
   AllowedOAuthFlowsUserPoolClient?: boolean;
 
@@ -6944,7 +6956,9 @@ export interface CreateUserPoolDomainResponse {
   /**
    * @public
    * <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up with
-   *             your Domain Name Service (DNS) provider.</p>
+   *             your Domain Name Service (DNS) provider. Amazon Cognito returns this value if you set a custom
+   *             domain with <code>CustomDomainConfig</code>. If you set an Amazon Cognito prefix domain, this
+   *             operation returns a blank response.</p>
    */
   CloudFrontDomain?: string;
 }
@@ -8516,10 +8530,10 @@ export interface ListDevicesRequest {
   /**
    * @public
    * <p>This API operation returns a limited number of results. The pagination token is
-   *     an identifier that you can present in an additional API request with the same parameters. When
-   *     you include the pagination token, Amazon Cognito returns the next set of items after the current list.
-   *     Subsequent requests return a new pagination token. By use of this token, you can paginate
-   *     through the full list of items.</p>
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8538,8 +8552,8 @@ export interface ListDevicesResponse {
   /**
    * @public
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
-   *     you include a pagination token in your request, Amazon Cognito returns the next set of items in
-   *     the list. By use of this token, you can paginate through the full list of items.</p>
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8738,10 +8752,10 @@ export interface ListUserImportJobsRequest {
   /**
    * @public
    * <p>This API operation returns a limited number of results. The pagination token is
-   *     an identifier that you can present in an additional API request with the same parameters. When
-   *     you include the pagination token, Amazon Cognito returns the next set of items after the current list.
-   *     Subsequent requests return a new pagination token. By use of this token, you can paginate
-   *     through the full list of items.</p>
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8761,8 +8775,8 @@ export interface ListUserImportJobsResponse {
   /**
    * @public
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
-   *     you include a pagination token in your request, Amazon Cognito returns the next set of items in
-   *     the list. By use of this token, you can paginate through the full list of items.</p>
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8954,10 +8968,10 @@ export interface ListUsersRequest {
   /**
    * @public
    * <p>This API operation returns a limited number of results. The pagination token is
-   *     an identifier that you can present in an additional API request with the same parameters. When
-   *     you include the pagination token, Amazon Cognito returns the next set of items after the current list.
-   *     Subsequent requests return a new pagination token. By use of this token, you can paginate
-   *     through the full list of items.</p>
+   * an identifier that you can present in an additional API request with the same parameters. When
+   * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   * Subsequent requests return a new pagination token. By use of this token, you can paginate
+   * through the full list of items.</p>
    */
   PaginationToken?: string;
 
@@ -9079,8 +9093,8 @@ export interface ListUsersResponse {
   /**
    * @public
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
-   *     you include a pagination token in your request, Amazon Cognito returns the next set of items in
-   *     the list. By use of this token, you can paginate through the full list of items.</p>
+   * you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   * the list. By use of this token, you can paginate through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -9257,52 +9271,52 @@ export interface RespondToAuthChallengeRequest {
   /**
    * @public
    * <p>The responses to the challenge that you received in the previous request. Each
-   *             challenge has its own required response parameters. The following examples are partial
-   *             JSON request bodies that highlight challenge-response parameters.</p>
+   *     challenge has its own required response parameters. The following examples are partial
+   *     JSON request bodies that highlight challenge-response parameters.</p>
    *          <important>
    *             <p>You must provide a SECRET_HASH parameter in all challenge responses to an app
-   *                 client that has a client secret.</p>
+   *         client that has a client secret.</p>
    *          </important>
    *          <dl>
    *             <dt>SMS_MFA</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "SMS_MFA", "ChallengeResponses": \{"SMS_MFA_CODE":
-   *                             "[SMS_code]", "USERNAME": "[username]"\}</code>
+   *                     "[SMS_code]", "USERNAME": "[username]"\}</code>
    *                </p>
    *             </dd>
    *             <dt>PASSWORD_VERIFIER</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses":
-   *                             \{"PASSWORD_CLAIM_SIGNATURE": "[claim_signature]",
-   *                             "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]", "TIMESTAMP":
-   *                             [timestamp], "USERNAME": "[username]"\}</code>
+   *                     \{"PASSWORD_CLAIM_SIGNATURE": "[claim_signature]",
+   *                     "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]", "TIMESTAMP":
+   *                     [timestamp], "USERNAME": "[username]"\}</code>
    *                </p>
    *                <p>Add <code>"DEVICE_KEY"</code> when you sign in with a remembered
-   *                         device.</p>
+   *                 device.</p>
    *             </dd>
    *             <dt>CUSTOM_CHALLENGE</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "CUSTOM_CHALLENGE", "ChallengeResponses":
-   *                             \{"USERNAME": "[username]", "ANSWER": "[challenge_answer]"\}</code>
+   *                     \{"USERNAME": "[username]", "ANSWER": "[challenge_answer]"\}</code>
    *                </p>
    *                <p>Add <code>"DEVICE_KEY"</code> when you sign in with a remembered
-   *                         device.</p>
+   *                 device.</p>
    *             </dd>
    *             <dt>NEW_PASSWORD_REQUIRED</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "NEW_PASSWORD_REQUIRED", "ChallengeResponses":
-   *                             \{"NEW_PASSWORD": "[new_password]", "USERNAME":
-   *                         "[username]"\}</code>
+   *                     \{"NEW_PASSWORD": "[new_password]", "USERNAME":
+   *                 "[username]"\}</code>
    *                </p>
    *                <p>To set any required attributes that <code>InitiateAuth</code> returned in
-   *                         an <code>requiredAttributes</code> parameter, add
-   *                             <code>"userAttributes.[attribute_name]": "[attribute_value]"</code>.
-   *                         This parameter can also set values for writable attributes that aren't
-   *                         required by your user pool.</p>
+   *                 an <code>requiredAttributes</code> parameter, add
+   *                     <code>"userAttributes.[attribute_name]": "[attribute_value]"</code>.
+   *                 This parameter can also set values for writable attributes that aren't
+   *                 required by your user pool.</p>
    *                <note>
    *                   <p>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required attribute that already has a value.
    * In <code>RespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter,
@@ -9313,45 +9327,45 @@ export interface RespondToAuthChallengeRequest {
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "SOFTWARE_TOKEN_MFA", "ChallengeResponses":
-   *                             \{"USERNAME": "[username]", "SOFTWARE_TOKEN_MFA_CODE":
-   *                             [authenticator_code]\}</code>
+   *                     \{"USERNAME": "[username]", "SOFTWARE_TOKEN_MFA_CODE":
+   *                     [authenticator_code]\}</code>
    *                </p>
    *             </dd>
    *             <dt>DEVICE_SRP_AUTH</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "DEVICE_SRP_AUTH", "ChallengeResponses": \{"USERNAME":
-   *                         "[username]", "DEVICE_KEY": "[device_key]", "SRP_A":
-   *                         "[srp_a]"\}</code>
+   *                 "[username]", "DEVICE_KEY": "[device_key]", "SRP_A":
+   *                 "[srp_a]"\}</code>
    *                </p>
    *             </dd>
    *             <dt>DEVICE_PASSWORD_VERIFIER</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "DEVICE_PASSWORD_VERIFIER", "ChallengeResponses":
-   *                         \{"DEVICE_KEY": "[device_key]", "PASSWORD_CLAIM_SIGNATURE":
-   *                         "[claim_signature]", "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]",
-   *                         "TIMESTAMP": [timestamp], "USERNAME": "[username]"\}</code>
+   *                 \{"DEVICE_KEY": "[device_key]", "PASSWORD_CLAIM_SIGNATURE":
+   *                 "[claim_signature]", "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]",
+   *                 "TIMESTAMP": [timestamp], "USERNAME": "[username]"\}</code>
    *                </p>
    *             </dd>
    *             <dt>MFA_SETUP</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "MFA_SETUP", "ChallengeResponses": \{"USERNAME":
-   *                         "[username]"\}, "SESSION": "[Session ID from
-   *                         VerifySoftwareToken]"</code>
+   *                 "[username]"\}, "SESSION": "[Session ID from
+   *                 VerifySoftwareToken]"</code>
    *                </p>
    *             </dd>
    *             <dt>SELECT_MFA_TYPE</dt>
    *             <dd>
    *                <p>
    *                   <code>"ChallengeName": "SELECT_MFA_TYPE", "ChallengeResponses": \{"USERNAME":
-   *                         "[username]", "ANSWER": "[SMS_MFA or SOFTWARE_TOKEN_MFA]"\}</code>
+   *                 "[username]", "ANSWER": "[SMS_MFA or SOFTWARE_TOKEN_MFA]"\}</code>
    *                </p>
    *             </dd>
    *          </dl>
    *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
-   *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+   *     <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
    */
   ChallengeResponses?: Record<string, string>;
 

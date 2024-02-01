@@ -63,8 +63,8 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  *          <p>Other requests might be valid until your user's token expires.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *             this operation, you must use IAM credentials to authorize requests, and you must
- *             grant yourself the corresponding IAM permission in a policy.</p>
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
  *             <p class="title">
  *                <b>Learn more</b>
  *             </p>
