@@ -28,7 +28,7 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskOutput, _
 
 /**
  * @public
- * <p>Deletes the specified import task</p>
+ * <p>Deletes the specified import task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +70,7 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskOutput, _
  *  <p>The exception was interrupted by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated</p>
+ *  <p>A resource could not be validated.</p>
  *
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>

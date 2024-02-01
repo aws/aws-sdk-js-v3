@@ -2,6 +2,7 @@
 import { NoOpLogger } from "@smithy/smithy-client";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
+import { sdkStreamMixin } from "@smithy/util-stream";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
@@ -19,6 +20,7 @@ export const getRuntimeConfig = (config: NeptuneGraphClientConfig) => {
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     logger: config?.logger ?? new NoOpLogger(),
+    sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Neptune Graph",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

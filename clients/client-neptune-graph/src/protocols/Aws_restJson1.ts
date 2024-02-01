@@ -1,7 +1,11 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
@@ -16,6 +20,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   take,
   withBaseException,
@@ -23,10 +28,12 @@ import {
 import {
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
 import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "../commands/CancelImportTaskCommand";
+import { CancelQueryCommandInput, CancelQueryCommandOutput } from "../commands/CancelQueryCommand";
 import { CreateGraphCommandInput, CreateGraphCommandOutput } from "../commands/CreateGraphCommand";
 import {
   CreateGraphSnapshotCommandInput,
@@ -49,13 +56,16 @@ import {
   DeletePrivateGraphEndpointCommandInput,
   DeletePrivateGraphEndpointCommandOutput,
 } from "../commands/DeletePrivateGraphEndpointCommand";
+import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "../commands/ExecuteQueryCommand";
 import { GetGraphCommandInput, GetGraphCommandOutput } from "../commands/GetGraphCommand";
 import { GetGraphSnapshotCommandInput, GetGraphSnapshotCommandOutput } from "../commands/GetGraphSnapshotCommand";
+import { GetGraphSummaryCommandInput, GetGraphSummaryCommandOutput } from "../commands/GetGraphSummaryCommand";
 import { GetImportTaskCommandInput, GetImportTaskCommandOutput } from "../commands/GetImportTaskCommand";
 import {
   GetPrivateGraphEndpointCommandInput,
   GetPrivateGraphEndpointCommandOutput,
 } from "../commands/GetPrivateGraphEndpointCommand";
+import { GetQueryCommandInput, GetQueryCommandOutput } from "../commands/GetQueryCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
 import { ListGraphSnapshotsCommandInput, ListGraphSnapshotsCommandOutput } from "../commands/ListGraphSnapshotsCommand";
 import { ListImportTasksCommandInput, ListImportTasksCommandOutput } from "../commands/ListImportTasksCommand";
@@ -63,6 +73,7 @@ import {
   ListPrivateGraphEndpointsCommandInput,
   ListPrivateGraphEndpointsCommandOutput,
 } from "../commands/ListPrivateGraphEndpointsCommand";
+import { ListQueriesCommandInput, ListQueriesCommandOutput } from "../commands/ListQueriesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -76,6 +87,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateGraphCommandInput, UpdateGraphCommandOutput } from "../commands/UpdateGraphCommand";
 import {
+  AccessDeniedException,
   ConflictException,
   GraphSnapshotSummary,
   ImportOptions,
@@ -85,6 +97,7 @@ import {
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
+  UnprocessableException,
   ValidationException,
   VectorSearchConfiguration,
 } from "../models/models_0";
@@ -102,6 +115,36 @@ export const se_CancelImportTaskCommand = async (
   b.bp("/importtasks/{taskIdentifier}");
   b.p("taskIdentifier", () => input.taskIdentifier!, "{taskIdentifier}", false);
   let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelQueryCommand
+ */
+export const se_CancelQueryCommand = async (
+  input: CancelQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_g]: input[_gI]!,
+  });
+  b.bp("/queries/{queryId}");
+  b.p("queryId", () => input.queryId!, "{queryId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{graphIdentifier}." + resolvedHostname;
+    if (input.graphIdentifier === undefined) {
+      throw new Error("Empty value provided for input host prefix: graphIdentifier.");
+    }
+    resolvedHostname = resolvedHostname.replace("{graphIdentifier}", input.graphIdentifier!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -272,6 +315,45 @@ export const se_DeletePrivateGraphEndpointCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ExecuteQueryCommand
+ */
+export const se_ExecuteQueryCommand = async (
+  input: ExecuteQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_g]: input[_gI]!,
+  });
+  b.bp("/queries");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      explain: [, , `explainMode`],
+      language: [],
+      planCache: [],
+      query: [, , `queryString`],
+      queryTimeoutMilliseconds: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{graphIdentifier}." + resolvedHostname;
+    if (input.graphIdentifier === undefined) {
+      throw new Error("Empty value provided for input host prefix: graphIdentifier.");
+    }
+    resolvedHostname = resolvedHostname.replace("{graphIdentifier}", input.graphIdentifier!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetGraphCommand
  */
 export const se_GetGraphCommand = async (
@@ -304,6 +386,38 @@ export const se_GetGraphSnapshotCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetGraphSummaryCommand
+ */
+export const se_GetGraphSummaryCommand = async (
+  input: GetGraphSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_g]: input[_gI]!,
+  });
+  b.bp("/summary");
+  const query: any = map({
+    [_m]: [, input[_m]!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{graphIdentifier}." + resolvedHostname;
+    if (input.graphIdentifier === undefined) {
+      throw new Error("Empty value provided for input host prefix: graphIdentifier.");
+    }
+    resolvedHostname = resolvedHostname.replace("{graphIdentifier}", input.graphIdentifier!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetImportTaskCommand
  */
 export const se_GetImportTaskCommand = async (
@@ -332,6 +446,36 @@ export const se_GetPrivateGraphEndpointCommand = async (
   b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
   b.p("vpcId", () => input.vpcId!, "{vpcId}", false);
   let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetQueryCommand
+ */
+export const se_GetQueryCommand = async (
+  input: GetQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_g]: input[_gI]!,
+  });
+  b.bp("/queries/{queryId}");
+  b.p("queryId", () => input.queryId!, "{queryId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{graphIdentifier}." + resolvedHostname;
+    if (input.graphIdentifier === undefined) {
+      throw new Error("Empty value provided for input host prefix: graphIdentifier.");
+    }
+    resolvedHostname = resolvedHostname.replace("{graphIdentifier}", input.graphIdentifier!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -410,6 +554,39 @@ export const se_ListPrivateGraphEndpointsCommand = async (
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListQueriesCommand
+ */
+export const se_ListQueriesCommand = async (
+  input: ListQueriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_g]: input[_gI]!,
+  });
+  b.bp("/queries");
+  const query: any = map({
+    [_mR]: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input[_mR]!.toString()],
+    [_s]: [, input[_s]!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{graphIdentifier}." + resolvedHostname;
+    if (input.graphIdentifier === undefined) {
+      throw new Error("Empty value provided for input host prefix: graphIdentifier.");
+    }
+    resolvedHostname = resolvedHostname.replace("{graphIdentifier}", input.graphIdentifier!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
@@ -593,6 +770,61 @@ const de_CancelImportTaskCommandError = async (
     case "ConflictException":
     case "com.amazonaws.neptunegraph#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.neptunegraph#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.neptunegraph#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.neptunegraph#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.neptunegraph#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CancelQueryCommand
+ */
+export const de_CancelQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelQueryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CancelQueryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelQueryCommandError
+ */
+const de_CancelQueryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.neptunegraph#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.neptunegraph#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1087,6 +1319,66 @@ const de_DeletePrivateGraphEndpointCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ExecuteQueryCommand
+ */
+export const de_ExecuteQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __SdkStreamSerdeContext
+): Promise<ExecuteQueryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ExecuteQueryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = output.body;
+  context.sdkStreamMixin(data);
+  contents.payload = data;
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ExecuteQueryCommandError
+ */
+const de_ExecuteQueryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.neptunegraph#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.neptunegraph#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.neptunegraph#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.neptunegraph#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnprocessableException":
+    case "com.amazonaws.neptunegraph#UnprocessableException":
+      throw await de_UnprocessableExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.neptunegraph#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetGraphCommand
  */
 export const de_GetGraphCommand = async (
@@ -1219,6 +1511,67 @@ const de_GetGraphSnapshotCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetGraphSummaryCommand
+ */
+export const de_GetGraphSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGraphSummaryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetGraphSummaryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    graphSummary: _json,
+    lastStatisticsComputationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetGraphSummaryCommandError
+ */
+const de_GetGraphSummaryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGraphSummaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.neptunegraph#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.neptunegraph#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.neptunegraph#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.neptunegraph#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.neptunegraph#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetImportTaskCommand
  */
 export const de_GetImportTaskCommand = async (
@@ -1320,6 +1673,69 @@ const de_GetPrivateGraphEndpointCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.neptunegraph#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.neptunegraph#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.neptunegraph#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.neptunegraph#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetQueryCommand
+ */
+export const de_GetQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetQueryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    elapsed: __expectInt32,
+    id: __expectString,
+    queryString: __expectString,
+    state: __expectString,
+    waited: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetQueryCommandError
+ */
+const de_GetQueryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.neptunegraph#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.neptunegraph#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1551,6 +1967,62 @@ const de_ListPrivateGraphEndpointsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.neptunegraph#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.neptunegraph#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.neptunegraph#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListQueriesCommand
+ */
+export const de_ListQueriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListQueriesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListQueriesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    queries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListQueriesCommandError
+ */
+const de_ListQueriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListQueriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.neptunegraph#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.neptunegraph#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.neptunegraph#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -1951,6 +2423,26 @@ const de_UpdateGraphCommandError = async (
 
 const throwDefaultError = withBaseException(__BaseException);
 /**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
@@ -2050,6 +2542,27 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_restJson1UnprocessableExceptionRes
+ */
+const de_UnprocessableExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnprocessableException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+    reason: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new UnprocessableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ValidationExceptionRes
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
@@ -2078,6 +2591,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagMap omitted.
 
 // se_VectorSearchConfiguration omitted.
+
+// de_EdgeLabels omitted.
+
+// de_EdgeProperties omitted.
+
+// de_EdgeStructure omitted.
+
+// de_EdgeStructures omitted.
+
+// de_GraphDataSummary omitted.
 
 /**
  * deserializeAws_restJson1GraphSnapshotSummary
@@ -2132,11 +2655,29 @@ const de_ImportTaskDetails = (output: any, context: __SerdeContext): ImportTaskD
 
 // de_ImportTaskSummaryList omitted.
 
+// de_LongValuedMap omitted.
+
+// de_LongValuedMapList omitted.
+
 // de_NeptuneImportOptions omitted.
+
+// de_NodeLabels omitted.
+
+// de_NodeProperties omitted.
+
+// de_NodeStructure omitted.
+
+// de_NodeStructures omitted.
+
+// de_OutgoingEdgeLabels omitted.
 
 // de_PrivateGraphEndpointSummary omitted.
 
 // de_PrivateGraphEndpointSummaryList omitted.
+
+// de_QuerySummary omitted.
+
+// de_QuerySummaryList omitted.
 
 // de_SubnetIds omitted.
 
@@ -2163,9 +2704,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _g = "graphidentifier";
 const _gI = "graphIdentifier";
+const _m = "mode";
 const _mR = "maxResults";
 const _nT = "nextToken";
+const _s = "state";
 const _sS = "skipSnapshot";
 const _tK = "tagKeys";
 

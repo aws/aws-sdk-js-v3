@@ -7,6 +7,7 @@ import {
   CancelImportTaskCommandInput,
   CancelImportTaskCommandOutput,
 } from "./commands/CancelImportTaskCommand";
+import { CancelQueryCommand, CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import { CreateGraphCommand, CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
 import {
   CreateGraphSnapshotCommand,
@@ -34,12 +35,22 @@ import {
   DeletePrivateGraphEndpointCommandInput,
   DeletePrivateGraphEndpointCommandOutput,
 } from "./commands/DeletePrivateGraphEndpointCommand";
+import {
+  ExecuteQueryCommand,
+  ExecuteQueryCommandInput,
+  ExecuteQueryCommandOutput,
+} from "./commands/ExecuteQueryCommand";
 import { GetGraphCommand, GetGraphCommandInput, GetGraphCommandOutput } from "./commands/GetGraphCommand";
 import {
   GetGraphSnapshotCommand,
   GetGraphSnapshotCommandInput,
   GetGraphSnapshotCommandOutput,
 } from "./commands/GetGraphSnapshotCommand";
+import {
+  GetGraphSummaryCommand,
+  GetGraphSummaryCommandInput,
+  GetGraphSummaryCommandOutput,
+} from "./commands/GetGraphSummaryCommand";
 import {
   GetImportTaskCommand,
   GetImportTaskCommandInput,
@@ -50,6 +61,7 @@ import {
   GetPrivateGraphEndpointCommandInput,
   GetPrivateGraphEndpointCommandOutput,
 } from "./commands/GetPrivateGraphEndpointCommand";
+import { GetQueryCommand, GetQueryCommandInput, GetQueryCommandOutput } from "./commands/GetQueryCommand";
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import {
   ListGraphSnapshotsCommand,
@@ -66,6 +78,7 @@ import {
   ListPrivateGraphEndpointsCommandInput,
   ListPrivateGraphEndpointsCommandOutput,
 } from "./commands/ListPrivateGraphEndpointsCommand";
+import { ListQueriesCommand, ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -88,6 +101,7 @@ import { NeptuneGraphClient, NeptuneGraphClientConfig } from "./NeptuneGraphClie
 
 const commands = {
   CancelImportTaskCommand,
+  CancelQueryCommand,
   CreateGraphCommand,
   CreateGraphSnapshotCommand,
   CreateGraphUsingImportTaskCommand,
@@ -95,14 +109,18 @@ const commands = {
   DeleteGraphCommand,
   DeleteGraphSnapshotCommand,
   DeletePrivateGraphEndpointCommand,
+  ExecuteQueryCommand,
   GetGraphCommand,
   GetGraphSnapshotCommand,
+  GetGraphSummaryCommand,
   GetImportTaskCommand,
   GetPrivateGraphEndpointCommand,
+  GetQueryCommand,
   ListGraphsCommand,
   ListGraphSnapshotsCommand,
   ListImportTasksCommand,
   ListPrivateGraphEndpointsCommand,
+  ListQueriesCommand,
   ListTagsForResourceCommand,
   ResetGraphCommand,
   RestoreGraphFromSnapshotCommand,
@@ -127,6 +145,17 @@ export interface NeptuneGraph {
     args: CancelImportTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelImportTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelQueryCommand}
+   */
+  cancelQuery(args: CancelQueryCommandInput, options?: __HttpHandlerOptions): Promise<CancelQueryCommandOutput>;
+  cancelQuery(args: CancelQueryCommandInput, cb: (err: any, data?: CancelQueryCommandOutput) => void): void;
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelQueryCommandOutput) => void
   ): void;
 
   /**
@@ -237,6 +266,17 @@ export interface NeptuneGraph {
   ): void;
 
   /**
+   * @see {@link ExecuteQueryCommand}
+   */
+  executeQuery(args: ExecuteQueryCommandInput, options?: __HttpHandlerOptions): Promise<ExecuteQueryCommandOutput>;
+  executeQuery(args: ExecuteQueryCommandInput, cb: (err: any, data?: ExecuteQueryCommandOutput) => void): void;
+  executeQuery(
+    args: ExecuteQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteQueryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetGraphCommand}
    */
   getGraph(args: GetGraphCommandInput, options?: __HttpHandlerOptions): Promise<GetGraphCommandOutput>;
@@ -265,6 +305,20 @@ export interface NeptuneGraph {
   ): void;
 
   /**
+   * @see {@link GetGraphSummaryCommand}
+   */
+  getGraphSummary(
+    args: GetGraphSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGraphSummaryCommandOutput>;
+  getGraphSummary(args: GetGraphSummaryCommandInput, cb: (err: any, data?: GetGraphSummaryCommandOutput) => void): void;
+  getGraphSummary(
+    args: GetGraphSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGraphSummaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetImportTaskCommand}
    */
   getImportTask(args: GetImportTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetImportTaskCommandOutput>;
@@ -290,6 +344,17 @@ export interface NeptuneGraph {
     args: GetPrivateGraphEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPrivateGraphEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryCommand}
+   */
+  getQuery(args: GetQueryCommandInput, options?: __HttpHandlerOptions): Promise<GetQueryCommandOutput>;
+  getQuery(args: GetQueryCommandInput, cb: (err: any, data?: GetQueryCommandOutput) => void): void;
+  getQuery(
+    args: GetQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryCommandOutput) => void
   ): void;
 
   /**
@@ -349,6 +414,17 @@ export interface NeptuneGraph {
     args: ListPrivateGraphEndpointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPrivateGraphEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQueriesCommand}
+   */
+  listQueries(args: ListQueriesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueriesCommandOutput>;
+  listQueries(args: ListQueriesCommandInput, cb: (err: any, data?: ListQueriesCommandOutput) => void): void;
+  listQueries(
+    args: ListQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueriesCommandOutput) => void
   ): void;
 
   /**
@@ -432,9 +508,9 @@ export interface NeptuneGraph {
 
 /**
  * @public
- * <p>Neptune Analytics is a serverless in-memory graph database service for analytics
- *         that delivers high-performance analytics and real-time queries for any graph type. It
- *         complements the Amazon Neptune Database, an industry-leading managed graph database.</p>
+ * <p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to
+ *     insights faster by quickly processing large amounts of graph data, invoking popular graph analytic
+ *     algorithms in low-latency queries, and getting analytics results in seconds.</p>
  */
 export class NeptuneGraph extends NeptuneGraphClient implements NeptuneGraph {}
 createAggregatedClient(commands, NeptuneGraph);

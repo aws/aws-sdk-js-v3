@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceInput, TagResourceOutput } from "../models/models_0";
+import { GetQueryInput, GetQueryOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
+import { de_GetQueryCommand, se_GetQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,42 +16,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link GetQueryCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceInput {}
+export interface GetQueryCommandInput extends GetQueryInput {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link GetQueryCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
+export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds tags to the specified resource.</p>
+ * <p>Retrieves the status of a specified query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneGraphClient, TagResourceCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
- * // const { NeptuneGraphClient, TagResourceCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * import { NeptuneGraphClient, GetQueryCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
+ * // const { NeptuneGraphClient, GetQueryCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
  * const client = new NeptuneGraphClient(config);
- * const input = { // TagResourceInput
- *   resourceArn: "STRING_VALUE", // required
- *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // GetQueryInput
+ *   graphIdentifier: "STRING_VALUE", // required
+ *   queryId: "STRING_VALUE", // required
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new GetQueryCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetQueryOutput
+ * //   id: "STRING_VALUE",
+ * //   queryString: "STRING_VALUE",
+ * //   waited: Number("int"),
+ * //   elapsed: Number("int"),
+ * //   state: "RUNNING" || "WAITING" || "CANCELLING",
+ * // };
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param GetQueryCommandInput - {@link GetQueryCommandInput}
+ * @returns {@link GetQueryCommandOutput}
+ * @see {@link GetQueryCommandInput} for command's `input` shape.
+ * @see {@link GetQueryCommandOutput} for command's `response` shape.
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Raised in case of an authentication or authorization failure.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>A failure occurred on the server.</p>
@@ -69,17 +76,17 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
  */
-export class TagResourceCommand extends $Command
+export class GetQueryCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    GetQueryCommandInput,
+    GetQueryCommandOutput,
     NeptuneGraphClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
   >()
   .ep({
     ...commonParams,
-    ApiType: { type: "staticContextParams", value: `ControlPlane` },
+    ApiType: { type: "staticContextParams", value: `DataPlane` },
   })
   .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
     return [
@@ -87,9 +94,9 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonNeptuneGraph", "TagResource", {})
-  .n("NeptuneGraphClient", "TagResourceCommand")
+  .s("AmazonNeptuneGraph", "GetQuery", {})
+  .n("NeptuneGraphClient", "GetQueryCommand")
   .f(void 0, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .ser(se_GetQueryCommand)
+  .de(de_GetQueryCommand)
   .build() {}

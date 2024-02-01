@@ -78,7 +78,7 @@ export interface CreateGraphSnapshotCommandOutput extends CreateGraphSnapshotOut
  *  <p>The exception was interrupted by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated</p>
+ *  <p>A resource could not be validated.</p>
  *
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>

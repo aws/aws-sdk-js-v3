@@ -1,7 +1,156 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { StreamingBlobTypes } from "@smithy/types";
+
 import { NeptuneGraphServiceException as __BaseException } from "./NeptuneGraphServiceException";
+
+/**
+ * @public
+ * <p>Raised in case of an authentication or authorization failure.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CancelQueryInput {
+  /**
+   * @public
+   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   */
+  graphIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the query to cancel.</p>
+   */
+  queryId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A failure occurred on the server.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>A specified resource could not be located.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The exception was interrupted by throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  BAD_REQUEST: "BAD_REQUEST",
+  CONSTRAINT_VIOLATION: "CONSTRAINT_VIOLATION",
+  ILLEGAL_ARGUMENT: "ILLEGAL_ARGUMENT",
+  MALFORMED_QUERY: "MALFORMED_QUERY",
+  QUERY_CANCELLED: "QUERY_CANCELLED",
+  QUERY_TOO_LARGE: "QUERY_TOO_LARGE",
+  UNSUPPORTED_OPERATION: "UNSUPPORTED_OPERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * <p>A resource could not be validated.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The reason that the resource could not be validated.</p>
+   */
+  reason?: ValidationExceptionReason;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+  }
+}
 
 /**
  * @public
@@ -41,6 +190,404 @@ export class ConflictException extends __BaseException {
     Object.setPrototypeOf(this, ConflictException.prototype);
     this.reason = opts.reason;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExplainMode = {
+  DETAILS: "DETAILS",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ExplainMode = (typeof ExplainMode)[keyof typeof ExplainMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryLanguage = {
+  OPEN_CYPHER: "OPEN_CYPHER",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryLanguage = (typeof QueryLanguage)[keyof typeof QueryLanguage];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlanCacheType = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PlanCacheType = (typeof PlanCacheType)[keyof typeof PlanCacheType];
+
+/**
+ * @public
+ */
+export interface ExecuteQueryInput {
+  /**
+   * @public
+   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   */
+  graphIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The query string to be executed.</p>
+   */
+  queryString: string | undefined;
+
+  /**
+   * @public
+   * <p>The query language the query is written in. Currently only openCypher is supported.</p>
+   */
+  language: QueryLanguage | undefined;
+
+  /**
+   * @public
+   * <p>Query plan cache is a feature that saves the query plan and reuses it on successive executions of the same query.
+   *       This reduces query latency, and works for both <code>READ</code> and <code>UPDATE</code> queries. The plan cache is an
+   *       LRU cache with a 5 minute TTL and a capacity of 1000.</p>
+   */
+  planCache?: PlanCacheType;
+
+  /**
+   * @public
+   * <p>The explain mode parameter returns a query explain instead of the actual query results. A query explain can
+   *       be used to gather insights about the query execution such as planning decisions, time spent on each operator, solutions
+   *       flowing etc.</p>
+   */
+  explainMode?: ExplainMode;
+
+  /**
+   * @public
+   * <p>Specifies the query timeout duration, in milliseconds. (optional)</p>
+   */
+  queryTimeoutMilliseconds?: number;
+}
+
+/**
+ * @public
+ */
+export interface ExecuteQueryOutput {
+  /**
+   * @public
+   * <p>The query results.</p>
+   */
+  payload: StreamingBlobTypes | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UnprocessableExceptionReason = {
+  INTERNAL_LIMIT_EXCEEDED: "INTERNAL_LIMIT_EXCEEDED",
+  MEMORY_LIMIT_EXCEEDED: "MEMORY_LIMIT_EXCEEDED",
+  PARTITION_FULL: "PARTITION_FULL",
+  QUERY_TIMEOUT: "QUERY_TIMEOUT",
+  STORAGE_LIMIT_EXCEEDED: "STORAGE_LIMIT_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type UnprocessableExceptionReason =
+  (typeof UnprocessableExceptionReason)[keyof typeof UnprocessableExceptionReason];
+
+/**
+ * @public
+ * <p>Request cannot be processed due to known reasons. Eg. partition full.</p>
+ */
+export class UnprocessableException extends __BaseException {
+  readonly name: "UnprocessableException" = "UnprocessableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The reason for the unprocessable exception.</p>
+   */
+  reason: UnprocessableExceptionReason | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableException, __BaseException>) {
+    super({
+      name: "UnprocessableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableException.prototype);
+    this.reason = opts.reason;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GraphSummaryMode = {
+  BASIC: "BASIC",
+  DETAILED: "DETAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type GraphSummaryMode = (typeof GraphSummaryMode)[keyof typeof GraphSummaryMode];
+
+/**
+ * @public
+ */
+export interface GetGraphSummaryInput {
+  /**
+   * @public
+   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   */
+  graphIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The summary mode can take one of two values: <code>basic</code> (the default), and
+   *    <code>detailed</code>.</p>
+   */
+  mode?: GraphSummaryMode;
+}
+
+/**
+ * @public
+ * <p>Contains information about an edge in a Neptune Analytics graph.</p>
+ */
+export interface EdgeStructure {
+  /**
+   * @public
+   * <p>The number of instances of the edge in the graph.</p>
+   */
+  count?: number;
+
+  /**
+   * @public
+   * <p>A list of the properties associated with the edge.</p>
+   */
+  edgeProperties?: string[];
+}
+
+/**
+ * @public
+ * <p>Information about a node.</p>
+ */
+export interface NodeStructure {
+  /**
+   * @public
+   * <p>The number of instances of this node.</p>
+   */
+  count?: number;
+
+  /**
+   * @public
+   * <p>Properties associated with this node.</p>
+   */
+  nodeProperties?: string[];
+
+  /**
+   * @public
+   * <p>The outgoing edge labels associated with this node.</p>
+   */
+  distinctOutgoingEdgeLabels?: string[];
+}
+
+/**
+ * @public
+ * <p>Summary information about the graph.</p>
+ */
+export interface GraphDataSummary {
+  /**
+   * @public
+   * <p>The number of nodes in the graph.</p>
+   */
+  numNodes?: number;
+
+  /**
+   * @public
+   * <p>The number of edges in the graph.</p>
+   */
+  numEdges?: number;
+
+  /**
+   * @public
+   * <p>The number of distinct node labels in the graph.</p>
+   */
+  numNodeLabels?: number;
+
+  /**
+   * @public
+   * <p>The number of unique edge labels in the graph.</p>
+   */
+  numEdgeLabels?: number;
+
+  /**
+   * @public
+   * <p>A list of distinct node labels in the graph.</p>
+   */
+  nodeLabels?: string[];
+
+  /**
+   * @public
+   * <p>A list of the edge labels in the graph.</p>
+   */
+  edgeLabels?: string[];
+
+  /**
+   * @public
+   * <p>The number of distinct node properties in the graph.</p>
+   */
+  numNodeProperties?: number;
+
+  /**
+   * @public
+   * <p>The number of edge properties in the graph.</p>
+   */
+  numEdgeProperties?: number;
+
+  /**
+   * @public
+   * <p>A list of the distinct node properties in the graph, along with the count of nodes where each property is used.</p>
+   */
+  nodeProperties?: Record<string, number>[];
+
+  /**
+   * @public
+   * <p>A list of the distinct edge properties in the graph, along with the count of edges
+   *       where each property is used.</p>
+   */
+  edgeProperties?: Record<string, number>[];
+
+  /**
+   * @public
+   * <p>The total number of usages of all node properties.</p>
+   */
+  totalNodePropertyValues?: number;
+
+  /**
+   * @public
+   * <p>The total number of usages of all edge properties.</p>
+   */
+  totalEdgePropertyValues?: number;
+
+  /**
+   * @public
+   * <p>This field is only present when the requested mode is DETAILED. It contains a list of node structures.</p>
+   */
+  nodeStructures?: NodeStructure[];
+
+  /**
+   * @public
+   * <p>This field is only present when the requested mode is DETAILED. It contains a list of edge structures.</p>
+   */
+  edgeStructures?: EdgeStructure[];
+}
+
+/**
+ * @public
+ */
+export interface GetGraphSummaryOutput {
+  /**
+   * @public
+   * <p>Display the version of this tool.</p>
+   */
+  version?: string;
+
+  /**
+   * @public
+   * <p>The timestamp, in ISO 8601 format, of the time at which Neptune Analytics last computed statistics.</p>
+   */
+  lastStatisticsComputationTime?: Date;
+
+  /**
+   * @public
+   * <p>The graph summary.</p>
+   */
+  graphSummary?: GraphDataSummary;
+}
+
+/**
+ * @public
+ */
+export interface GetQueryInput {
+  /**
+   * @public
+   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   */
+  graphIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the query in question.</p>
+   */
+  queryId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryState = {
+  CANCELLING: "CANCELLING",
+  RUNNING: "RUNNING",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryState = (typeof QueryState)[keyof typeof QueryState];
+
+/**
+ * @public
+ */
+export interface GetQueryOutput {
+  /**
+   * @public
+   * <p>The ID of the query in question.</p>
+   */
+  id?: string;
+
+  /**
+   * @public
+   * <p>The query in question.</p>
+   */
+  queryString?: string;
+
+  /**
+   * @public
+   * <p>Indicates how long the query waited, in milliseconds.</p>
+   */
+  waited?: number;
+
+  /**
+   * @public
+   * <p>The number of milliseconds the query has been running.</p>
+   */
+  elapsed?: number;
+
+  /**
+   * @public
+   * <p>State of the query.</p>
+   */
+  state?: QueryState;
 }
 
 /**
@@ -97,7 +644,7 @@ export interface CreateGraphInput {
 
   /**
    * @public
-   * <p>The number of replicas in other AZs. Min =0, Max = 2, Default =1</p>
+   * <p>The number of replicas in other AZs. Min =0, Max = 2, Default = 1.</p>
    */
   replicaCount?: number;
 
@@ -236,27 +783,6 @@ export interface CreateGraphOutput {
 
 /**
  * @public
- * <p>A failure occurred on the server.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * @public
  * <p>A service quota was exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -300,75 +826,6 @@ export class ServiceQuotaExceededException extends __BaseException {
     this.resourceType = opts.resourceType;
     this.serviceCode = opts.serviceCode;
     this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * @public
- * <p>The exception was interrupted by throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  BAD_REQUEST: "BAD_REQUEST",
-  CONSTRAINT_VIOLATION: "CONSTRAINT_VIOLATION",
-  ILLEGAL_ARGUMENT: "ILLEGAL_ARGUMENT",
-  MALFORMED_QUERY: "MALFORMED_QUERY",
-  QUERY_CANCELLED: "QUERY_CANCELLED",
-  QUERY_TOO_LARGE: "QUERY_TOO_LARGE",
-  UNSUPPORTED_OPERATION: "UNSUPPORTED_OPERATION",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * @public
- * <p>A resource could not be validated</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>The reason that the resource could not be validated.</p>
-   */
-  reason?: ValidationExceptionReason;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
   }
 }
 
@@ -484,26 +941,6 @@ export interface DeleteGraphOutput {
    * <p>The build number associated with the graph.</p>
    */
   buildNumber?: string;
-}
-
-/**
- * @public
- * <p>A specified resource could not be located.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
 }
 
 /**
@@ -1109,6 +1546,92 @@ export interface UpdateGraphOutput {
    * <p>The build number of the graph.</p>
    */
   buildNumber?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryStateInput = {
+  ALL: "ALL",
+  CANCELLING: "CANCELLING",
+  RUNNING: "RUNNING",
+  WAITING: "WAITING",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryStateInput = (typeof QueryStateInput)[keyof typeof QueryStateInput];
+
+/**
+ * @public
+ */
+export interface ListQueriesInput {
+  /**
+   * @public
+   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   */
+  graphIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be fetched by the API.</p>
+   */
+  maxResults: number | undefined;
+
+  /**
+   * @public
+   * <p>Filtered list of queries based on state.</p>
+   */
+  state?: QueryStateInput;
+}
+
+/**
+ * @public
+ * <p>Details of the query listed.</p>
+ */
+export interface QuerySummary {
+  /**
+   * @public
+   * <p>A string representation of the id of the query.</p>
+   */
+  id?: string;
+
+  /**
+   * @public
+   * <p>The actual query text. The <code>queryString</code> may be truncated if the actual query string is too long.</p>
+   */
+  queryString?: string;
+
+  /**
+   * @public
+   * <p>The amount of time, in milliseconds, the query has waited in the queue before being picked up by a worker thread.</p>
+   */
+  waited?: number;
+
+  /**
+   * @public
+   * <p>The running time of the query, in milliseconds.</p>
+   */
+  elapsed?: number;
+
+  /**
+   * @public
+   * <p>State of the query.</p>
+   */
+  state?: QueryState;
+}
+
+/**
+ * @public
+ */
+export interface ListQueriesOutput {
+  /**
+   * @public
+   * <p>A list of current openCypher queries.</p>
+   */
+  queries: QuerySummary[] | undefined;
 }
 
 /**
@@ -1797,7 +2320,7 @@ export interface CancelImportTaskOutput {
   /**
    * @public
    * <p>A URL identifying to the location of the data to be imported. This can be an Amazon S3 path,
-   *       or can point to a Neptune database endpoint or snapshot</p>
+   *       or can point to a Neptune database endpoint or snapshot.</p>
    */
   source: string | undefined;
 
@@ -1855,7 +2378,7 @@ export interface NeptuneImportOptions {
    * @public
    * <p>Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by
    *           default. They are imported if <i>preserveEdgeIds</i> is set to true, and ids are stored as
-   *           properties on the relationships with the property name neptuneEdgeId.</p>
+   *           properties on the relationships with the property name <i>neptuneEdgeId</i>.</p>
    */
   preserveEdgeIds?: boolean;
 }
@@ -1921,7 +2444,7 @@ export interface CreateGraphUsingImportTaskInput {
   /**
    * @public
    * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs IAM authenticated.
-   *        (<code>true</code> to enable, or <code>false</code> to disable.</p>
+   *        (<code>true</code> to enable, or <code>false</code> to disable).</p>
    */
   publicConnectivity?: boolean;
 
@@ -2366,3 +2889,10 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
+
+/**
+ * @internal
+ */
+export const ExecuteQueryOutputFilterSensitiveLog = (obj: ExecuteQueryOutput): any => ({
+  ...obj,
+});

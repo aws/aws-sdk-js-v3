@@ -6,9 +6,9 @@
 
 AWS SDK for JavaScript NeptuneGraph Client for Node.js, Browser and React Native.
 
-<p>Neptune Analytics is a serverless in-memory graph database service for analytics
-that delivers high-performance analytics and real-time queries for any graph type. It
-complements the Amazon Neptune Database, an industry-leading managed graph database.</p>
+<p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to
+insights faster by quickly processing large amounts of graph data, invoking popular graph analytic
+algorithms in low-latency queries, and getting analytics results in seconds.</p>
 
 ## Installing
 
@@ -215,6 +215,14 @@ CancelImportTask
 </details>
 <details>
 <summary>
+CancelQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/CancelQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/CancelQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/CancelQueryCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateGraph
 </summary>
 
@@ -271,6 +279,14 @@ DeletePrivateGraphEndpoint
 </details>
 <details>
 <summary>
+ExecuteQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/ExecuteQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/ExecuteQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/ExecuteQueryCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetGraph
 </summary>
 
@@ -287,6 +303,14 @@ GetGraphSnapshot
 </details>
 <details>
 <summary>
+GetGraphSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/GetGraphSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetGraphSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetGraphSummaryCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetImportTask
 </summary>
 
@@ -299,6 +323,14 @@ GetPrivateGraphEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/GetPrivateGraphEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetPrivateGraphEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetPrivateGraphEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/GetQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/GetQueryCommandOutput/)
 
 </details>
 <details>
@@ -331,6 +363,14 @@ ListPrivateGraphEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/ListPrivateGraphEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/ListPrivateGraphEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/ListPrivateGraphEndpointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListQueries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/ListQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/ListQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/ListQueriesCommandOutput/)
 
 </details>
 <details>

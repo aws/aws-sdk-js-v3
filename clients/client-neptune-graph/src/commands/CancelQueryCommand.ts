@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceInput, TagResourceOutput } from "../models/models_0";
+import { CancelQueryInput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
+import { de_CancelQueryCommand, se_CancelQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,42 +16,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link CancelQueryCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceInput {}
+export interface CancelQueryCommandInput extends CancelQueryInput {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link CancelQueryCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
+export interface CancelQueryCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds tags to the specified resource.</p>
+ * <p>Cancels a specified query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneGraphClient, TagResourceCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
- * // const { NeptuneGraphClient, TagResourceCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * import { NeptuneGraphClient, CancelQueryCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
+ * // const { NeptuneGraphClient, CancelQueryCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
  * const client = new NeptuneGraphClient(config);
- * const input = { // TagResourceInput
- *   resourceArn: "STRING_VALUE", // required
- *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // CancelQueryInput
+ *   graphIdentifier: "STRING_VALUE", // required
+ *   queryId: "STRING_VALUE", // required
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param CancelQueryCommandInput - {@link CancelQueryCommandInput}
+ * @returns {@link CancelQueryCommandOutput}
+ * @see {@link CancelQueryCommandInput} for command's `input` shape.
+ * @see {@link CancelQueryCommandOutput} for command's `response` shape.
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Raised in case of an authentication or authorization failure.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>A failure occurred on the server.</p>
@@ -69,17 +70,17 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
  */
-export class TagResourceCommand extends $Command
+export class CancelQueryCommand extends $Command
   .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
+    CancelQueryCommandInput,
+    CancelQueryCommandOutput,
     NeptuneGraphClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
   >()
   .ep({
     ...commonParams,
-    ApiType: { type: "staticContextParams", value: `ControlPlane` },
+    ApiType: { type: "staticContextParams", value: `DataPlane` },
   })
   .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
     return [
@@ -87,9 +88,9 @@ export class TagResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonNeptuneGraph", "TagResource", {})
-  .n("NeptuneGraphClient", "TagResourceCommand")
+  .s("AmazonNeptuneGraph", "CancelQuery", {})
+  .n("NeptuneGraphClient", "CancelQueryCommand")
   .f(void 0, void 0)
-  .ser(se_TagResourceCommand)
-  .de(de_TagResourceCommand)
+  .ser(se_CancelQueryCommand)
+  .de(de_CancelQueryCommand)
   .build() {}

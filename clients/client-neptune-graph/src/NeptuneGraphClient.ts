@@ -43,12 +43,14 @@ import {
   Logger as __Logger,
   Provider as __Provider,
   Provider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
 import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "./commands/CancelImportTaskCommand";
+import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
 import {
   CreateGraphSnapshotCommandInput,
@@ -71,13 +73,16 @@ import {
   DeletePrivateGraphEndpointCommandInput,
   DeletePrivateGraphEndpointCommandOutput,
 } from "./commands/DeletePrivateGraphEndpointCommand";
+import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
 import { GetGraphCommandInput, GetGraphCommandOutput } from "./commands/GetGraphCommand";
 import { GetGraphSnapshotCommandInput, GetGraphSnapshotCommandOutput } from "./commands/GetGraphSnapshotCommand";
+import { GetGraphSummaryCommandInput, GetGraphSummaryCommandOutput } from "./commands/GetGraphSummaryCommand";
 import { GetImportTaskCommandInput, GetImportTaskCommandOutput } from "./commands/GetImportTaskCommand";
 import {
   GetPrivateGraphEndpointCommandInput,
   GetPrivateGraphEndpointCommandOutput,
 } from "./commands/GetPrivateGraphEndpointCommand";
+import { GetQueryCommandInput, GetQueryCommandOutput } from "./commands/GetQueryCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import { ListGraphSnapshotsCommandInput, ListGraphSnapshotsCommandOutput } from "./commands/ListGraphSnapshotsCommand";
 import { ListImportTasksCommandInput, ListImportTasksCommandOutput } from "./commands/ListImportTasksCommand";
@@ -85,6 +90,7 @@ import {
   ListPrivateGraphEndpointsCommandInput,
   ListPrivateGraphEndpointsCommandOutput,
 } from "./commands/ListPrivateGraphEndpointsCommand";
+import { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -113,6 +119,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CancelImportTaskCommandInput
+  | CancelQueryCommandInput
   | CreateGraphCommandInput
   | CreateGraphSnapshotCommandInput
   | CreateGraphUsingImportTaskCommandInput
@@ -120,14 +127,18 @@ export type ServiceInputTypes =
   | DeleteGraphCommandInput
   | DeleteGraphSnapshotCommandInput
   | DeletePrivateGraphEndpointCommandInput
+  | ExecuteQueryCommandInput
   | GetGraphCommandInput
   | GetGraphSnapshotCommandInput
+  | GetGraphSummaryCommandInput
   | GetImportTaskCommandInput
   | GetPrivateGraphEndpointCommandInput
+  | GetQueryCommandInput
   | ListGraphSnapshotsCommandInput
   | ListGraphsCommandInput
   | ListImportTasksCommandInput
   | ListPrivateGraphEndpointsCommandInput
+  | ListQueriesCommandInput
   | ListTagsForResourceCommandInput
   | ResetGraphCommandInput
   | RestoreGraphFromSnapshotCommandInput
@@ -140,6 +151,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CancelImportTaskCommandOutput
+  | CancelQueryCommandOutput
   | CreateGraphCommandOutput
   | CreateGraphSnapshotCommandOutput
   | CreateGraphUsingImportTaskCommandOutput
@@ -147,14 +159,18 @@ export type ServiceOutputTypes =
   | DeleteGraphCommandOutput
   | DeleteGraphSnapshotCommandOutput
   | DeletePrivateGraphEndpointCommandOutput
+  | ExecuteQueryCommandOutput
   | GetGraphCommandOutput
   | GetGraphSnapshotCommandOutput
+  | GetGraphSummaryCommandOutput
   | GetImportTaskCommandOutput
   | GetPrivateGraphEndpointCommandOutput
+  | GetQueryCommandOutput
   | ListGraphSnapshotsCommandOutput
   | ListGraphsCommandOutput
   | ListImportTasksCommandOutput
   | ListPrivateGraphEndpointsCommandOutput
+  | ListQueriesCommandOutput
   | ListTagsForResourceCommandOutput
   | ResetGraphCommandOutput
   | RestoreGraphFromSnapshotCommandOutput
@@ -291,6 +307,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
+
+  /**
+   * The internal function that inject utilities to runtime-specific stream to help users consume the data
+   * @internal
+   */
+  sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
 /**
@@ -334,9 +356,9 @@ export interface NeptuneGraphClientResolvedConfig extends NeptuneGraphClientReso
 
 /**
  * @public
- * <p>Neptune Analytics is a serverless in-memory graph database service for analytics
- *         that delivers high-performance analytics and real-time queries for any graph type. It
- *         complements the Amazon Neptune Database, an industry-leading managed graph database.</p>
+ * <p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to
+ *     insights faster by quickly processing large amounts of graph data, invoking popular graph analytic
+ *     algorithms in low-latency queries, and getting analytics results in seconds.</p>
  */
 export class NeptuneGraphClient extends __Client<
   __HttpHandlerOptions,
