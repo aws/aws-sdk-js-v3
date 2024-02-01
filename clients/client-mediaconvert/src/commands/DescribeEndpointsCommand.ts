@@ -28,6 +28,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
 
 /**
  * @public
+ * @deprecated
+ *
  * Send an request with an empty body to the regional API endpoint to get your account API endpoint.
  * @example
  * Use a bare-bones client and the command you need to make an API call.

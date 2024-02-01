@@ -2756,6 +2756,17 @@ const se___listOfCmafAdditionalManifest = (input: CmafAdditionalManifest[], cont
 };
 
 /**
+ * serializeAws_restJson1__listOfColorConversion3DLUTSetting
+ */
+const se___listOfColorConversion3DLUTSetting = (input: ColorConversion3DLUTSetting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ColorConversion3DLUTSetting(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfDashAdditionalManifest
  */
 const se___listOfDashAdditionalManifest = (input: DashAdditionalManifest[], context: __SerdeContext): any => {
@@ -3508,17 +3519,6 @@ const se_ColorConversion3DLUTSetting = (input: ColorConversion3DLUTSetting, cont
     outputColorSpace: [, , `OutputColorSpace`],
     outputMasteringLuminance: [, , `OutputMasteringLuminance`],
   });
-};
-
-/**
- * serializeAws_restJson1ColorConversion3DLUTSettings
- */
-const se_ColorConversion3DLUTSettings = (input: ColorConversion3DLUTSetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return se_ColorConversion3DLUTSetting(entry, context);
-    });
 };
 
 /**
@@ -4374,7 +4374,7 @@ const se_JobSettings = (input: JobSettings, context: __SerdeContext): any => {
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
     colorConversion3DLUTSettings: [
       ,
-      (_) => se_ColorConversion3DLUTSettings(_, context),
+      (_) => se___listOfColorConversion3DLUTSetting(_, context),
       `ColorConversion3DLUTSettings`,
     ],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
@@ -4400,7 +4400,7 @@ const se_JobTemplateSettings = (input: JobTemplateSettings, context: __SerdeCont
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
     colorConversion3DLUTSettings: [
       ,
-      (_) => se_ColorConversion3DLUTSettings(_, context),
+      (_) => se___listOfColorConversion3DLUTSetting(_, context),
       `ColorConversion3DLUTSettings`,
     ],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
@@ -4984,6 +4984,8 @@ const se_Rectangle = (input: Rectangle, context: __SerdeContext): any => {
  */
 const se_RemixSettings = (input: RemixSettings, context: __SerdeContext): any => {
   return take(input, {
+    audioDescriptionAudioChannel: [, , `AudioDescriptionAudioChannel`],
+    audioDescriptionDataChannel: [, , `AudioDescriptionDataChannel`],
     channelMapping: [, (_) => se_ChannelMapping(_, context), `ChannelMapping`],
     channelsIn: [, , `ChannelsIn`],
     channelsOut: [, , `ChannelsOut`],
@@ -5582,6 +5584,21 @@ const de___listOfCmafAdditionalManifest = (output: any, context: __SerdeContext)
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_CmafAdditionalManifest(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfColorConversion3DLUTSetting
+ */
+const de___listOfColorConversion3DLUTSetting = (
+  output: any,
+  context: __SerdeContext
+): ColorConversion3DLUTSetting[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ColorConversion3DLUTSetting(entry, context);
     });
   return retVal;
 };
@@ -6475,18 +6492,6 @@ const de_ColorConversion3DLUTSetting = (output: any, context: __SerdeContext): C
     OutputColorSpace: [, __expectString, `outputColorSpace`],
     OutputMasteringLuminance: [, __expectInt32, `outputMasteringLuminance`],
   }) as any;
-};
-
-/**
- * deserializeAws_restJson1ColorConversion3DLUTSettings
- */
-const de_ColorConversion3DLUTSettings = (output: any, context: __SerdeContext): ColorConversion3DLUTSetting[] => {
-  const retVal = (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      return de_ColorConversion3DLUTSetting(entry, context);
-    });
-  return retVal;
 };
 
 /**
@@ -7411,7 +7416,7 @@ const de_JobSettings = (output: any, context: __SerdeContext): JobSettings => {
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
     ColorConversion3DLUTSettings: [
       ,
-      (_: any) => de_ColorConversion3DLUTSettings(_, context),
+      (_: any) => de___listOfColorConversion3DLUTSetting(_, context),
       `colorConversion3DLUTSettings`,
     ],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
@@ -7462,7 +7467,7 @@ const de_JobTemplateSettings = (output: any, context: __SerdeContext): JobTempla
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
     ColorConversion3DLUTSettings: [
       ,
-      (_: any) => de_ColorConversion3DLUTSettings(_, context),
+      (_: any) => de___listOfColorConversion3DLUTSetting(_, context),
       `colorConversion3DLUTSettings`,
     ],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
@@ -8115,6 +8120,8 @@ const de_Rectangle = (output: any, context: __SerdeContext): Rectangle => {
  */
 const de_RemixSettings = (output: any, context: __SerdeContext): RemixSettings => {
   return take(output, {
+    AudioDescriptionAudioChannel: [, __expectInt32, `audioDescriptionAudioChannel`],
+    AudioDescriptionDataChannel: [, __expectInt32, `audioDescriptionDataChannel`],
     ChannelMapping: [, (_: any) => de_ChannelMapping(_, context), `channelMapping`],
     ChannelsIn: [, __expectInt32, `channelsIn`],
     ChannelsOut: [, __expectInt32, `channelsOut`],

@@ -343,7 +343,7 @@ export interface AacSettings {
 
   /**
    * @public
-   * Specify the AAC profile. For the widest player compatibility and where higher bitrates are acceptable: Keep the default profile, LC (AAC-LC) For improved audio performance at lower bitrates: Choose HEV1 or HEV2. HEV1 (AAC-HE v1) adds spectral band replication to improve speech audio at low bitrates. HEV2 (AAC-HE v2) adds parametric stereo, which optimizes for encoding stereo audio at very low bitrates.
+   * AAC Profile.
    */
   CodecProfile?: AacCodecProfile;
 
@@ -355,7 +355,7 @@ export interface AacSettings {
 
   /**
    * @public
-   * Specify the AAC rate control mode. For a constant bitrate: Choose CBR. Your AAC output bitrate will be equal to the value that you choose for Bitrate. For a variable bitrate: Choose VBR. Your AAC output bitrate will vary according to your audio content and the value that you choose for Bitrate quality.
+   * Rate Control Mode.
    */
   RateControlMode?: AacRateControlMode;
 
@@ -367,7 +367,7 @@ export interface AacSettings {
 
   /**
    * @public
-   * Specify the AAC sample rate in samples per second (Hz). Valid sample rates depend on the AAC profile and Coding mode that you select. For a list of supported sample rates, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/aac-support.html
+   * Specify the Sample rate in Hz. Valid sample rates depend on the Profile and Coding mode that you select. The following list shows valid sample rates for each Profile and Coding mode. * LC Profile, Coding mode 1.0, 2.0, and Receiver Mix: 8000, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 88200, 96000. * LC Profile, Coding mode 5.1: 32000, 44100, 48000, 96000. * HEV1 Profile, Coding mode 1.0 and Receiver Mix: 22050, 24000, 32000, 44100, 48000. * HEV1 Profile, Coding mode 2.0 and 5.1: 32000, 44100, 48000, 96000. * HEV2 Profile, Coding mode 2.0: 22050, 24000, 32000, 44100, 48000.
    */
   SampleRate?: number;
 
@@ -379,7 +379,7 @@ export interface AacSettings {
 
   /**
    * @public
-   * Specify the quality of your variable bitrate (VBR) AAC audio. For a list of approximate VBR bitrates, see: https://docs.aws.amazon.com/mediaconvert/latest/ug/aac-support.html#aac_vbr
+   * VBR Quality Level - Only used if rate_control_mode is VBR.
    */
   VbrQuality?: AacVbrQuality;
 }
@@ -1751,6 +1751,18 @@ export interface ChannelMapping {
 export interface RemixSettings {
   /**
    * @public
+   * Optionally specify the channel in your input that contains your audio description audio signal. MediaConvert mixes your audio signal across all output channels, while reducing their volume according to your data stream. When you specify an audio description audio channel, you must also specify an audio description data channel. For more information about audio description signals, see the BBC WHP 198 and 051 white papers.
+   */
+  AudioDescriptionAudioChannel?: number;
+
+  /**
+   * @public
+   * Optionally specify the channel in your input that contains your audio description data stream. MediaConvert mixes your audio signal across all output channels, while reducing their volume according to your data stream. When you specify an audio description data channel, you must also specify an audio description audio channel. For more information about audio description signals, see the BBC WHP 198 and 051 white papers.
+   */
+  AudioDescriptionDataChannel?: number;
+
+  /**
+   * @public
    * Channel mapping contains the group of fields that hold the remixing value for each channel, in dB. Specify remix values to indicate how much of the content from your input audio channel you want in your output audio channels. Each instance of the InputChannels or InputChannelsFineTune array specifies these values for one output channel. Use one instance of this array for each output channel. In the console, each array corresponds to a column in the graphical depiction of the mapping matrix. The rows of the graphical matrix correspond to input channels. Valid values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification). Use InputChannels or InputChannelsFineTune to specify your remix values. Don't use both.
    */
   ChannelMapping?: ChannelMapping;
@@ -2992,6 +3004,62 @@ export interface CmafAdditionalManifest {
 
 /**
  * @public
+ * @enum
+ */
+export const ColorSpace = {
+  FOLLOW: "FOLLOW",
+  HDR10: "HDR10",
+  HLG_2020: "HLG_2020",
+  P3D65_HDR: "P3D65_HDR",
+  P3D65_SDR: "P3D65_SDR",
+  P3DCI: "P3DCI",
+  REC_601: "REC_601",
+  REC_709: "REC_709",
+} as const;
+
+/**
+ * @public
+ */
+export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
+
+/**
+ * @public
+ * Custom 3D lut settings
+ */
+export interface ColorConversion3DLUTSetting {
+  /**
+   * @public
+   * Specify the input file S3, HTTP, or HTTPS URL for your 3D LUT .cube file. Note that MediaConvert accepts 3D LUT files up to 8MB in size.
+   */
+  FileInput?: string;
+
+  /**
+   * @public
+   * Specify which inputs use this 3D LUT, according to their color space.
+   */
+  InputColorSpace?: ColorSpace;
+
+  /**
+   * @public
+   * Specify which inputs use this 3D LUT, according to their luminance. To apply this 3D LUT to HDR10 or P3D65 (HDR) inputs with a specific mastering luminance: Enter an integer from 0 to 2147483647, corresponding to the input's Maximum luminance value. To apply this 3D LUT to any input regardless of its luminance: Leave blank, or enter 0.
+   */
+  InputMasteringLuminance?: number;
+
+  /**
+   * @public
+   * Specify which outputs use this 3D LUT, according to their color space.
+   */
+  OutputColorSpace?: ColorSpace;
+
+  /**
+   * @public
+   * Specify which outputs use this 3D LUT, according to their luminance. To apply this 3D LUT to HDR10 or P3D65 (HDR) outputs with a specific luminance: Enter an integer from 0 to 2147483647, corresponding to the output's luminance. To apply this 3D LUT to any output regardless of its luminance: Leave blank, or enter 0.
+   */
+  OutputMasteringLuminance?: number;
+}
+
+/**
+ * @public
  * Specify the details for each additional DASH manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
 export interface DashAdditionalManifest {
@@ -4094,26 +4162,6 @@ export type AlphaBehavior = (typeof AlphaBehavior)[keyof typeof AlphaBehavior];
  * @public
  * @enum
  */
-export const ColorSpace = {
-  FOLLOW: "FOLLOW",
-  HDR10: "HDR10",
-  HLG_2020: "HLG_2020",
-  P3D65_HDR: "P3D65_HDR",
-  P3D65_SDR: "P3D65_SDR",
-  P3DCI: "P3DCI",
-  REC_601: "REC_601",
-  REC_709: "REC_709",
-} as const;
-
-/**
- * @public
- */
-export type ColorSpace = (typeof ColorSpace)[keyof typeof ColorSpace];
-
-/**
- * @public
- * @enum
- */
 export const ColorSpaceUsage = {
   FALLBACK: "FALLBACK",
   FORCE: "FORCE",
@@ -4805,42 +4853,6 @@ export interface AvailBlanking {
    * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
    */
   AvailBlankingImage?: string;
-}
-
-/**
- * @public
- * Custom 3D lut settings
- */
-export interface ColorConversion3DLUTSetting {
-  /**
-   * @public
-   * Specify the input file S3, HTTP, or HTTPS URL for your 3D LUT .cube file. Note that MediaConvert accepts 3D LUT files up to 8MB in size.
-   */
-  FileInput?: string;
-
-  /**
-   * @public
-   * Specify which inputs use this 3D LUT, according to their color space.
-   */
-  InputColorSpace?: ColorSpace;
-
-  /**
-   * @public
-   * Specify which inputs use this 3D LUT, according to their luminance. To apply this 3D LUT to HDR10 or P3D65 (HDR) inputs with a specific mastering luminance: Enter an integer from 0 to 2147483647, corresponding to the input's Maximum luminance value. To apply this 3D LUT to any input regardless of its luminance: Leave blank, or enter 0.
-   */
-  InputMasteringLuminance?: number;
-
-  /**
-   * @public
-   * Specify which outputs use this 3D LUT, according to their color space.
-   */
-  OutputColorSpace?: ColorSpace;
-
-  /**
-   * @public
-   * Specify which outputs use this 3D LUT, according to their luminance. To apply this 3D LUT to HDR10 or P3D65 (HDR) outputs with a specific luminance: Enter an integer from 0 to 2147483647, corresponding to the output's luminance. To apply this 3D LUT to any output regardless of its luminance: Leave blank, or enter 0.
-   */
-  OutputMasteringLuminance?: number;
 }
 
 /**
