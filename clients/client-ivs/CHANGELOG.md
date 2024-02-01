@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.505.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.504.0...v3.505.0) (2024-02-01)
+
+
+### Features
+
+* **client-ivs:** This release introduces a new resource Playback Restriction Policy which can be used to geo-restrict or domain-restrict channel stream playback when associated with a channel.  New APIs to support this resource were introduced in the form of Create/Delete/Get/Update/List. ([ad41dca](https://github.com/aws/aws-sdk-js-v3/commit/ad41dca2a5af4ee1cd18331602cadfe469af6c7b))
+
+
+
+
+
 # [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs

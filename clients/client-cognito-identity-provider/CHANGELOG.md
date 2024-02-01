@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.505.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.504.0...v3.505.0) (2024-02-01)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Added CreateIdentityProvider and UpdateIdentityProvider details for new SAML IdP features ([588a7e2](https://github.com/aws/aws-sdk-js-v3/commit/588a7e220fed43c760b37459ec9dfc8326394786))
+
+
+
+
+
 # [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

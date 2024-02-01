@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.505.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.504.0...v3.505.0) (2024-02-01)
+
+
+### Bug Fixes
+
+* **build:** set noEmitHelpers=false due to importHelpers=true ([#5752](https://github.com/aws/aws-sdk-js-v3/issues/5752)) ([fb81938](https://github.com/aws/aws-sdk-js-v3/commit/fb819381868993e0d12be2bbdac3b3a86c91a0cf))
+
+
+### Features
+
+* **client-cognito-identity-provider:** Added CreateIdentityProvider and UpdateIdentityProvider details for new SAML IdP features ([588a7e2](https://github.com/aws/aws-sdk-js-v3/commit/588a7e220fed43c760b37459ec9dfc8326394786))
+* **client-ivs:** This release introduces a new resource Playback Restriction Policy which can be used to geo-restrict or domain-restrict channel stream playback when associated with a channel.  New APIs to support this resource were introduced in the form of Create/Delete/Get/Update/List. ([ad41dca](https://github.com/aws/aws-sdk-js-v3/commit/ad41dca2a5af4ee1cd18331602cadfe469af6c7b))
+* **client-managedblockchain-query:** This release adds support for transactions that have not reached finality. It also removes support for the status property from the response of the GetTransaction operation. You can use the confirmationStatus and executionStatus properties to determine the status of the transaction. ([97bb566](https://github.com/aws/aws-sdk-js-v3/commit/97bb56611351d9a156a36014641540ba88df234e))
+* **client-mediaconvert:** This release includes support for broadcast-mixed audio description tracks. ([2093c17](https://github.com/aws/aws-sdk-js-v3/commit/2093c17799437acdb4d5cf34daa084a0ace28a2d))
+* **client-neptune-graph:** Adding new APIs in SDK for Amazon Neptune Analytics. These APIs include operations to execute, cancel, list queries and get the graph summary. ([b1650d4](https://github.com/aws/aws-sdk-js-v3/commit/b1650d47a7f084dce9a7d43e5cd21b6e88b8acff))
+* **clients:** update client endpoints as of 2024-02-01 ([e4d3d14](https://github.com/aws/aws-sdk-js-v3/commit/e4d3d1435853da6c64276ec2306947541b62080a))
+
+
+
+
+
 # [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.505.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.504.0...v3.505.0) (2024-02-01)
+
+
+### Features
+
+* **client-neptune-graph:** Adding new APIs in SDK for Amazon Neptune Analytics. These APIs include operations to execute, cancel, list queries and get the graph summary. ([b1650d4](https://github.com/aws/aws-sdk-js-v3/commit/b1650d47a7f084dce9a7d43e5cd21b6e88b8acff))
+
+
+
+
+
 # [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune-graph

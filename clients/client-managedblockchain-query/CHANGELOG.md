@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.505.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.504.0...v3.505.0) (2024-02-01)
+
+
+### Features
+
+* **client-managedblockchain-query:** This release adds support for transactions that have not reached finality. It also removes support for the status property from the response of the GetTransaction operation. You can use the confirmationStatus and executionStatus properties to determine the status of the transaction. ([97bb566](https://github.com/aws/aws-sdk-js-v3/commit/97bb56611351d9a156a36014641540ba88df234e))
+
+
+
+
+
 # [3.504.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.503.1...v3.504.0) (2024-01-31)
 
 **Note:** Version bump only for package @aws-sdk/client-managedblockchain-query
