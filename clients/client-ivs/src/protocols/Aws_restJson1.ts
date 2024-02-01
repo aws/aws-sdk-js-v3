@@ -31,6 +31,10 @@ import {
 } from "../commands/BatchStartViewerSessionRevocationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import {
+  CreatePlaybackRestrictionPolicyCommandInput,
+  CreatePlaybackRestrictionPolicyCommandOutput,
+} from "../commands/CreatePlaybackRestrictionPolicyCommand";
+import {
   CreateRecordingConfigurationCommandInput,
   CreateRecordingConfigurationCommandOutput,
 } from "../commands/CreateRecordingConfigurationCommand";
@@ -41,12 +45,20 @@ import {
   DeletePlaybackKeyPairCommandOutput,
 } from "../commands/DeletePlaybackKeyPairCommand";
 import {
+  DeletePlaybackRestrictionPolicyCommandInput,
+  DeletePlaybackRestrictionPolicyCommandOutput,
+} from "../commands/DeletePlaybackRestrictionPolicyCommand";
+import {
   DeleteRecordingConfigurationCommandInput,
   DeleteRecordingConfigurationCommandOutput,
 } from "../commands/DeleteRecordingConfigurationCommand";
 import { DeleteStreamKeyCommandInput, DeleteStreamKeyCommandOutput } from "../commands/DeleteStreamKeyCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
 import { GetPlaybackKeyPairCommandInput, GetPlaybackKeyPairCommandOutput } from "../commands/GetPlaybackKeyPairCommand";
+import {
+  GetPlaybackRestrictionPolicyCommandInput,
+  GetPlaybackRestrictionPolicyCommandOutput,
+} from "../commands/GetPlaybackRestrictionPolicyCommand";
 import {
   GetRecordingConfigurationCommandInput,
   GetRecordingConfigurationCommandOutput,
@@ -63,6 +75,10 @@ import {
   ListPlaybackKeyPairsCommandInput,
   ListPlaybackKeyPairsCommandOutput,
 } from "../commands/ListPlaybackKeyPairsCommand";
+import {
+  ListPlaybackRestrictionPoliciesCommandInput,
+  ListPlaybackRestrictionPoliciesCommandOutput,
+} from "../commands/ListPlaybackRestrictionPoliciesCommand";
 import {
   ListRecordingConfigurationsCommandInput,
   ListRecordingConfigurationsCommandOutput,
@@ -83,6 +99,10 @@ import { StopStreamCommandInput, StopStreamCommandOutput } from "../commands/Sto
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
+import {
+  UpdatePlaybackRestrictionPolicyCommandInput,
+  UpdatePlaybackRestrictionPolicyCommandOutput,
+} from "../commands/UpdatePlaybackRestrictionPolicyCommand";
 import { IvsServiceException as __BaseException } from "../models/IvsServiceException";
 import {
   _Stream,
@@ -195,10 +215,37 @@ export const se_CreateChannelCommand = async (
       insecureIngest: [],
       latencyMode: [],
       name: [],
+      playbackRestrictionPolicyArn: [],
       preset: [],
       recordingConfigurationArn: [],
       tags: (_) => _json(_),
       type: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreatePlaybackRestrictionPolicyCommand
+ */
+export const se_CreatePlaybackRestrictionPolicyCommand = async (
+  input: CreatePlaybackRestrictionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CreatePlaybackRestrictionPolicy");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      allowedCountries: (_) => _json(_),
+      allowedOrigins: (_) => _json(_),
+      enableStrictOriginEnforcement: [],
+      name: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -300,6 +347,28 @@ export const se_DeletePlaybackKeyPairCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeletePlaybackRestrictionPolicyCommand
+ */
+export const se_DeletePlaybackRestrictionPolicyCommand = async (
+  input: DeletePlaybackRestrictionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/DeletePlaybackRestrictionPolicy");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteRecordingConfigurationCommand
  */
 export const se_DeleteRecordingConfigurationCommand = async (
@@ -377,6 +446,28 @@ export const se_GetPlaybackKeyPairCommand = async (
     "content-type": "application/json",
   };
   b.bp("/GetPlaybackKeyPair");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      arn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetPlaybackRestrictionPolicyCommand
+ */
+export const se_GetPlaybackRestrictionPolicyCommand = async (
+  input: GetPlaybackRestrictionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetPlaybackRestrictionPolicy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -516,6 +607,7 @@ export const se_ListChannelsCommand = async (
   body = JSON.stringify(
     take(input, {
       filterByName: [],
+      filterByPlaybackRestrictionPolicyArn: [],
       filterByRecordingConfigurationArn: [],
       maxResults: [],
       nextToken: [],
@@ -537,6 +629,29 @@ export const se_ListPlaybackKeyPairsCommand = async (
     "content-type": "application/json",
   };
   b.bp("/ListPlaybackKeyPairs");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPlaybackRestrictionPoliciesCommand
+ */
+export const se_ListPlaybackRestrictionPoliciesCommand = async (
+  input: ListPlaybackRestrictionPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListPlaybackRestrictionPolicies");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -793,9 +908,36 @@ export const se_UpdateChannelCommand = async (
       insecureIngest: [],
       latencyMode: [],
       name: [],
+      playbackRestrictionPolicyArn: [],
       preset: [],
       recordingConfigurationArn: [],
       type: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePlaybackRestrictionPolicyCommand
+ */
+export const se_UpdatePlaybackRestrictionPolicyCommand = async (
+  input: UpdatePlaybackRestrictionPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdatePlaybackRestrictionPolicy");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      allowedCountries: (_) => _json(_),
+      allowedOrigins: (_) => _json(_),
+      arn: [],
+      enableStrictOriginEnforcement: [],
+      name: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -989,6 +1131,65 @@ const de_CreateChannelCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.ivs#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreatePlaybackRestrictionPolicyCommand
+ */
+export const de_CreatePlaybackRestrictionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePlaybackRestrictionPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePlaybackRestrictionPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    playbackRestrictionPolicy: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePlaybackRestrictionPolicyCommandError
+ */
+const de_CreatePlaybackRestrictionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePlaybackRestrictionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      throw await de_PendingVerificationRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ivs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ivs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ivs#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1231,6 +1432,61 @@ const de_DeletePlaybackKeyPairCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeletePlaybackRestrictionPolicyCommand
+ */
+export const de_DeletePlaybackRestrictionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePlaybackRestrictionPolicyCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeletePlaybackRestrictionPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePlaybackRestrictionPolicyCommandError
+ */
+const de_DeletePlaybackRestrictionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePlaybackRestrictionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ivs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      throw await de_PendingVerificationRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteRecordingConfigurationCommand
  */
 export const de_DeleteRecordingConfigurationCommand = async (
@@ -1427,6 +1683,62 @@ const de_GetPlaybackKeyPairCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivs#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetPlaybackRestrictionPolicyCommand
+ */
+export const de_GetPlaybackRestrictionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlaybackRestrictionPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetPlaybackRestrictionPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    playbackRestrictionPolicy: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPlaybackRestrictionPolicyCommandError
+ */
+const de_GetPlaybackRestrictionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlaybackRestrictionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      throw await de_PendingVerificationRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ivs#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1812,6 +2124,63 @@ const de_ListPlaybackKeyPairsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivs#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListPlaybackRestrictionPoliciesCommand
+ */
+export const de_ListPlaybackRestrictionPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlaybackRestrictionPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPlaybackRestrictionPoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    playbackRestrictionPolicies: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPlaybackRestrictionPoliciesCommandError
+ */
+const de_ListPlaybackRestrictionPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlaybackRestrictionPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ivs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      throw await de_PendingVerificationRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ivs#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2416,6 +2785,65 @@ const de_UpdateChannelCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdatePlaybackRestrictionPolicyCommand
+ */
+export const de_UpdatePlaybackRestrictionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePlaybackRestrictionPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdatePlaybackRestrictionPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    playbackRestrictionPolicy: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePlaybackRestrictionPolicyCommandError
+ */
+const de_UpdatePlaybackRestrictionPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePlaybackRestrictionPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ivs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      throw await de_PendingVerificationRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -2610,6 +3038,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DestinationConfiguration omitted.
 
+// se_PlaybackRestrictionPolicyAllowedCountryList omitted.
+
+// se_PlaybackRestrictionPolicyAllowedOriginList omitted.
+
 // se_RenditionConfiguration omitted.
 
 // se_RenditionConfigurationRenditionList omitted.
@@ -2653,6 +3085,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_PlaybackKeyPairList omitted.
 
 // de_PlaybackKeyPairSummary omitted.
+
+// de_PlaybackRestrictionPolicy omitted.
+
+// de_PlaybackRestrictionPolicyAllowedCountryList omitted.
+
+// de_PlaybackRestrictionPolicyAllowedOriginList omitted.
+
+// de_PlaybackRestrictionPolicyList omitted.
+
+// de_PlaybackRestrictionPolicySummary omitted.
 
 // de_RecordingConfiguration omitted.
 

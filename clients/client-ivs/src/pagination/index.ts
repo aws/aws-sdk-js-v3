@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListChannelsPaginator";
 export * from "./ListPlaybackKeyPairsPaginator";
+export * from "./ListPlaybackRestrictionPoliciesPaginator";
 export * from "./ListRecordingConfigurationsPaginator";
 export * from "./ListStreamKeysPaginator";
 export * from "./ListStreamSessionsPaginator";

@@ -55,6 +55,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //     },
  * //     insecureIngest: true || false,
  * //     preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //     playbackRestrictionPolicyArn: "STRING_VALUE",
  * //   },
  * // };
  *

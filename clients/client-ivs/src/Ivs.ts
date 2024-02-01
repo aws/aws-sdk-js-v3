@@ -23,6 +23,11 @@ import {
   CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  CreatePlaybackRestrictionPolicyCommand,
+  CreatePlaybackRestrictionPolicyCommandInput,
+  CreatePlaybackRestrictionPolicyCommandOutput,
+} from "./commands/CreatePlaybackRestrictionPolicyCommand";
+import {
   CreateRecordingConfigurationCommand,
   CreateRecordingConfigurationCommandInput,
   CreateRecordingConfigurationCommandOutput,
@@ -43,6 +48,11 @@ import {
   DeletePlaybackKeyPairCommandOutput,
 } from "./commands/DeletePlaybackKeyPairCommand";
 import {
+  DeletePlaybackRestrictionPolicyCommand,
+  DeletePlaybackRestrictionPolicyCommandInput,
+  DeletePlaybackRestrictionPolicyCommandOutput,
+} from "./commands/DeletePlaybackRestrictionPolicyCommand";
+import {
   DeleteRecordingConfigurationCommand,
   DeleteRecordingConfigurationCommandInput,
   DeleteRecordingConfigurationCommandOutput,
@@ -58,6 +68,11 @@ import {
   GetPlaybackKeyPairCommandInput,
   GetPlaybackKeyPairCommandOutput,
 } from "./commands/GetPlaybackKeyPairCommand";
+import {
+  GetPlaybackRestrictionPolicyCommand,
+  GetPlaybackRestrictionPolicyCommandInput,
+  GetPlaybackRestrictionPolicyCommandOutput,
+} from "./commands/GetPlaybackRestrictionPolicyCommand";
 import {
   GetRecordingConfigurationCommand,
   GetRecordingConfigurationCommandInput,
@@ -89,6 +104,11 @@ import {
   ListPlaybackKeyPairsCommandInput,
   ListPlaybackKeyPairsCommandOutput,
 } from "./commands/ListPlaybackKeyPairsCommand";
+import {
+  ListPlaybackRestrictionPoliciesCommand,
+  ListPlaybackRestrictionPoliciesCommandInput,
+  ListPlaybackRestrictionPoliciesCommandOutput,
+} from "./commands/ListPlaybackRestrictionPoliciesCommand";
 import {
   ListRecordingConfigurationsCommand,
   ListRecordingConfigurationsCommandInput,
@@ -128,6 +148,11 @@ import {
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
+import {
+  UpdatePlaybackRestrictionPolicyCommand,
+  UpdatePlaybackRestrictionPolicyCommandInput,
+  UpdatePlaybackRestrictionPolicyCommandOutput,
+} from "./commands/UpdatePlaybackRestrictionPolicyCommand";
 import { IvsClient, IvsClientConfig } from "./IvsClient";
 
 const commands = {
@@ -135,14 +160,17 @@ const commands = {
   BatchGetStreamKeyCommand,
   BatchStartViewerSessionRevocationCommand,
   CreateChannelCommand,
+  CreatePlaybackRestrictionPolicyCommand,
   CreateRecordingConfigurationCommand,
   CreateStreamKeyCommand,
   DeleteChannelCommand,
   DeletePlaybackKeyPairCommand,
+  DeletePlaybackRestrictionPolicyCommand,
   DeleteRecordingConfigurationCommand,
   DeleteStreamKeyCommand,
   GetChannelCommand,
   GetPlaybackKeyPairCommand,
+  GetPlaybackRestrictionPolicyCommand,
   GetRecordingConfigurationCommand,
   GetStreamCommand,
   GetStreamKeyCommand,
@@ -150,6 +178,7 @@ const commands = {
   ImportPlaybackKeyPairCommand,
   ListChannelsCommand,
   ListPlaybackKeyPairsCommand,
+  ListPlaybackRestrictionPoliciesCommand,
   ListRecordingConfigurationsCommand,
   ListStreamKeysCommand,
   ListStreamsCommand,
@@ -161,6 +190,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateChannelCommand,
+  UpdatePlaybackRestrictionPolicyCommand,
 };
 
 export interface Ivs {
@@ -224,6 +254,23 @@ export interface Ivs {
   ): void;
 
   /**
+   * @see {@link CreatePlaybackRestrictionPolicyCommand}
+   */
+  createPlaybackRestrictionPolicy(
+    args: CreatePlaybackRestrictionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePlaybackRestrictionPolicyCommandOutput>;
+  createPlaybackRestrictionPolicy(
+    args: CreatePlaybackRestrictionPolicyCommandInput,
+    cb: (err: any, data?: CreatePlaybackRestrictionPolicyCommandOutput) => void
+  ): void;
+  createPlaybackRestrictionPolicy(
+    args: CreatePlaybackRestrictionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePlaybackRestrictionPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateRecordingConfigurationCommand}
    */
   createRecordingConfiguration(
@@ -283,6 +330,23 @@ export interface Ivs {
   ): void;
 
   /**
+   * @see {@link DeletePlaybackRestrictionPolicyCommand}
+   */
+  deletePlaybackRestrictionPolicy(
+    args: DeletePlaybackRestrictionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePlaybackRestrictionPolicyCommandOutput>;
+  deletePlaybackRestrictionPolicy(
+    args: DeletePlaybackRestrictionPolicyCommandInput,
+    cb: (err: any, data?: DeletePlaybackRestrictionPolicyCommandOutput) => void
+  ): void;
+  deletePlaybackRestrictionPolicy(
+    args: DeletePlaybackRestrictionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePlaybackRestrictionPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteRecordingConfigurationCommand}
    */
   deleteRecordingConfiguration(
@@ -339,6 +403,23 @@ export interface Ivs {
     args: GetPlaybackKeyPairCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPlaybackRestrictionPolicyCommand}
+   */
+  getPlaybackRestrictionPolicy(
+    args: GetPlaybackRestrictionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPlaybackRestrictionPolicyCommandOutput>;
+  getPlaybackRestrictionPolicy(
+    args: GetPlaybackRestrictionPolicyCommandInput,
+    cb: (err: any, data?: GetPlaybackRestrictionPolicyCommandOutput) => void
+  ): void;
+  getPlaybackRestrictionPolicy(
+    args: GetPlaybackRestrictionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPlaybackRestrictionPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -440,6 +521,23 @@ export interface Ivs {
     args: ListPlaybackKeyPairsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPlaybackRestrictionPoliciesCommand}
+   */
+  listPlaybackRestrictionPolicies(
+    args: ListPlaybackRestrictionPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPlaybackRestrictionPoliciesCommandOutput>;
+  listPlaybackRestrictionPolicies(
+    args: ListPlaybackRestrictionPoliciesCommandInput,
+    cb: (err: any, data?: ListPlaybackRestrictionPoliciesCommandOutput) => void
+  ): void;
+  listPlaybackRestrictionPolicies(
+    args: ListPlaybackRestrictionPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPlaybackRestrictionPoliciesCommandOutput) => void
   ): void;
 
   /**
@@ -589,6 +687,23 @@ export interface Ivs {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdatePlaybackRestrictionPolicyCommand}
+   */
+  updatePlaybackRestrictionPolicy(
+    args: UpdatePlaybackRestrictionPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePlaybackRestrictionPolicyCommandOutput>;
+  updatePlaybackRestrictionPolicy(
+    args: UpdatePlaybackRestrictionPolicyCommandInput,
+    cb: (err: any, data?: UpdatePlaybackRestrictionPolicyCommandOutput) => void
+  ): void;
+  updatePlaybackRestrictionPolicy(
+    args: UpdatePlaybackRestrictionPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePlaybackRestrictionPolicyCommandOutput) => void
+  ): void;
 }
 
 /**
@@ -641,32 +756,40 @@ export interface Ivs {
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Channel</b> — Stores configuration data related to your live stream. You first create a
- *           channel and then use the channel’s stream key to start your live stream. See the Channel
- *           endpoints for more information. </p>
+ *                   <b>Channel</b> — Stores configuration data related to your
+ *           live stream. You first create a channel and then use the channel’s stream key to start
+ *           your live stream. See the Channel endpoints for more information. </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Stream key</b> — An identifier assigned by Amazon IVS when you create a channel, which is
- *           then used to authorize streaming. See the StreamKey endpoints for more information.
- *               <i>
- *                      <b>Treat the stream key like a secret, since it allows
- *               anyone to stream to the channel.</b>
+ *                   <b>Stream key</b> — An identifier assigned by Amazon IVS
+ *           when you create a channel, which is then used to authorize streaming. See the StreamKey
+ *           endpoints for more information. <i>
+ *                      <b>Treat the stream key like
+ *               a secret, since it allows anyone to stream to the
+ *           channel.</b>
  *                   </i>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Playback key pair</b> — Video playback may be restricted using playback-authorization
- *           tokens, which use public-key encryption. A playback key pair is the public-private pair of
- *           keys used to sign and validate the playback-authorization token. See the PlaybackKeyPair
+ *                   <b>Playback key pair</b> — Video playback may be restricted
+ *           using playback-authorization tokens, which use public-key encryption. A playback key pair
+ *           is the public-private pair of keys used to sign and validate the playback-authorization
+ *           token. See the PlaybackKeyPair endpoints for more information.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Recording configuration</b> — Stores configuration
+ *           related to recording a live stream and where to store the recorded content. Multiple
+ *           channels can reference the same recording configuration. See the Recording Configuration
  *           endpoints for more information.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Recording configuration</b> — Stores configuration related to recording a live stream and
- *           where to store the recorded content. Multiple channels can reference the same recording
- *           configuration. See the Recording Configuration endpoints for more information.</p>
+ *                   <b>Playback restriction policy</b> — Restricts playback by
+ *           countries and/or origin sites. See the Playback Restriction Policy endpoints for more
+ *           information.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -698,11 +821,9 @@ export interface Ivs {
  *             </li>
  *             <li>
  *                <p>
- *                   <i>Authorization</i> is about granting permissions. Your IAM roles need
- *           to have permissions for Amazon IVS API requests. In addition, authorization is needed to
- *           view <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Amazon
- *             IVS private channels</a>. (Private channels are channels that are enabled for
- *           "playback authorization.")</p>
+ *                   <i>Authorization</i> is about granting permissions. Your IAM roles need to have permissions for Amazon IVS API requests. In addition,
+ *           authorization is needed to view <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Amazon IVS private channels</a>.
+ *           (Private channels are channels that are enabled for "playback authorization.")</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -732,9 +853,9 @@ export interface Ivs {
  *             <b>Amazon Resource Names (ARNs)</b>
  *          </p>
  *          <p>ARNs uniquely identify AWS resources. An ARN is required when you need to specify a
- *       resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
- *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
- *       Reference</i>.</p>
+ *       resource unambiguously across all of AWS, such as in IAM policies and API
+ *       calls. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+ *         Resource Names</a> in the <i>AWS General Reference</i>.</p>
  *          <p>
  *             <b>Channel Endpoints</b>
  *          </p>
@@ -774,72 +895,33 @@ export interface Ivs {
  *             </li>
  *          </ul>
  *          <p>
- *             <b>StreamKey Endpoints</b>
+ *             <b>Playback Restriction Policy Endpoints</b>
  *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateStreamKey</a> — Creates a stream key, used to initiate a
- *           stream, for the specified channel ARN.</p>
+ *                   <a>CreatePlaybackRestrictionPolicy</a> — Creates a new playback
+ *           restriction policy, for constraining playback by countries and/or origins.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetStreamKey</a> — Gets stream key information for the specified
- *           ARN.</p>
+ *                   <a>DeletePlaybackRestrictionPolicy</a> — Deletes the specified
+ *           playback restriction policy</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>BatchGetStreamKey</a> — Performs <a>GetStreamKey</a> on
- *           multiple ARNs simultaneously.</p>
+ *                   <a>GetPlaybackRestrictionPolicy</a> — Gets the specified playback
+ *           restriction policy.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListStreamKeys</a> — Gets summary information about stream keys
- *           for the specified channel.</p>
+ *                   <a>ListPlaybackRestrictionPolicies</a> — Gets summary information
+ *           about playback restriction policies.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteStreamKey</a> — Deletes the stream key for the specified
- *           ARN, so it can no longer be used to stream.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Stream Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GetStream</a> — Gets information about the active (live) stream on
- *           a specified channel.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetStreamSession</a> — Gets metadata on a specified stream.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStreams</a> — Gets summary information about live streams in
- *           your account, in the Amazon Web Services region where the API request is processed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStreamSessions</a> — Gets a summary of current and previous
- *           streams for a specified channel in your account, in the AWS region where the API request
- *           is processed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StopStream</a> — Disconnects the incoming RTMPS stream for the
- *           specified channel. Can be used in conjunction with <a>DeleteStreamKey</a> to
- *           prevent further streaming to a channel.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>PutMetadata</a> — Inserts metadata into the active stream of the
- *           specified channel. At most 5 requests per second per channel are allowed, each with a
- *           maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we recommend batching
- *           your data into a single PutMetadata call.) At most 155 requests per second per account are
- *           allowed.</p>
+ *                   <a>UpdatePlaybackRestrictionPolicy</a> — Updates a specified playback
+ *           restriction policy.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -911,6 +993,75 @@ export interface Ivs {
  *                <p>
  *                   <a>DeleteRecordingConfiguration</a> — Deletes the recording
  *           configuration for the specified ARN.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Stream Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetStream</a> — Gets information about the active (live) stream on
+ *           a specified channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetStreamSession</a> — Gets metadata on a specified stream.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStreams</a> — Gets summary information about live streams in
+ *           your account, in the Amazon Web Services region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStreamSessions</a> — Gets a summary of current and previous
+ *           streams for a specified channel in your account, in the AWS region where the API request
+ *           is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StopStream</a> — Disconnects the incoming RTMPS stream for the
+ *           specified channel. Can be used in conjunction with <a>DeleteStreamKey</a> to
+ *           prevent further streaming to a channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutMetadata</a> — Inserts metadata into the active stream of the
+ *           specified channel. At most 5 requests per second per channel are allowed, each with a
+ *           maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we recommend batching
+ *           your data into a single PutMetadata call.) At most 155 requests per second per account are
+ *           allowed.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>StreamKey Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStreamKey</a> — Creates a stream key, used to initiate a
+ *           stream, for the specified channel ARN.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetStreamKey</a> — Gets stream key information for the specified
+ *           ARN.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>BatchGetStreamKey</a> — Performs <a>GetStreamKey</a> on
+ *           multiple ARNs simultaneously.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStreamKeys</a> — Gets summary information about stream keys
+ *           for the specified channel.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteStreamKey</a> — Deletes the stream key for the specified
+ *           ARN, so it can no longer be used to stream.</p>
  *             </li>
  *          </ul>
  *          <p>

@@ -46,6 +46,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   recordingConfigurationArn: "STRING_VALUE",
  *   insecureIngest: true || false,
  *   preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ *   playbackRestrictionPolicyArn: "STRING_VALUE",
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -64,6 +65,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //     },
  * //     insecureIngest: true || false,
  * //     preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //     playbackRestrictionPolicyArn: "STRING_VALUE",
  * //   },
  * // };
  *

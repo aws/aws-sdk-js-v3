@@ -113,15 +113,16 @@ export interface Channel {
   /**
    * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
-   *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
-   *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
+   *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
+   *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
+   *         Types</a>.</p>
    */
   type?: ChannelType;
 
   /**
    * @public
-   * <p>Recording-configuration ARN. A value other than an empty string indicates that recording
-   *       is enabled. Default: "" (empty string, recording is disabled).</p>
+   * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
+   *     Default: "" (empty string, recording is disabled).</p>
    */
   recordingConfigurationArn?: string;
 
@@ -169,6 +170,12 @@ export interface Channel {
    *       string (<code>""</code>).</p>
    */
   preset?: TranscodePreset;
+
+  /**
+   * @public
+   * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction. Default: "" (empty string, no playback restriction policy is applied).</p>
+   */
+  playbackRestrictionPolicyArn?: string;
 }
 
 /**
@@ -454,7 +461,8 @@ export interface CreateChannelRequest {
    * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
    *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
-   *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
+   *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
+   *         Types</a>.</p>
    */
   type?: ChannelType;
 
@@ -467,7 +475,8 @@ export interface CreateChannelRequest {
 
   /**
    * @public
-   * <p>Recording-configuration ARN. Default: "" (empty string, recording is disabled).</p>
+   * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
+   *      Default: "" (empty string, recording is disabled).</p>
    */
   recordingConfigurationArn?: string;
 
@@ -495,6 +504,13 @@ export interface CreateChannelRequest {
    *       string (<code>""</code>).</p>
    */
   preset?: TranscodePreset;
+
+  /**
+   * @public
+   * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction.
+   *     Default: "" (empty string, no playback restriction policy is applied).</p>
+   */
+  playbackRestrictionPolicyArn?: string;
 }
 
 /**
@@ -564,6 +580,109 @@ export class ServiceQuotaExceededException extends __BaseException {
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.exceptionMessage = opts.exceptionMessage;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreatePlaybackRestrictionPolicyRequest {
+  /**
+   * @public
+   * <p>A list of country codes that control geoblocking restriction. Allowed values are the
+   *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
+   *         alpha-2</a> codes. Default: All countries (an empty array).</p>
+   */
+  allowedCountries?: string[];
+
+  /**
+   * @public
+   * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
+   *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All
+   *       origins (an empty array).</p>
+   */
+  allowedOrigins?: string[];
+
+  /**
+   * @public
+   * <p>Whether channel playback is constrained by origin site. Default:
+   *       <code>false</code>.</p>
+   */
+  enableStrictOriginEnforcement?: boolean;
+
+  /**
+   * @public
+   * <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *         Resources</a> for more information, including restrictions that apply to tags and "Tag
+   *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
+   *       documented there.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>An object representing a policy to constrain playback by country and/or origin
+ *       sites.</p>
+ */
+export interface PlaybackRestrictionPolicy {
+  /**
+   * @public
+   * <p>Playback-restriction-policy ARN</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of country codes that control geoblocking restriction. Allowed values are the
+   *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> codes. Default: All countries (an empty array).</p>
+   */
+  allowedCountries: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
+   *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All origins (an empty array).</p>
+   */
+  allowedOrigins: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Whether channel playback is constrained by origin site. Default:
+   *       <code>false</code>.</p>
+   */
+  enableStrictOriginEnforcement?: boolean;
+
+  /**
+   * @public
+   * <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreatePlaybackRestrictionPolicyResponse {
+  /**
+   * @public
+   * <p/>
+   */
+  playbackRestrictionPolicy?: PlaybackRestrictionPolicy;
 }
 
 /**
@@ -990,6 +1109,17 @@ export interface DeletePlaybackKeyPairResponse {}
 /**
  * @public
  */
+export interface DeletePlaybackRestrictionPolicyRequest {
+  /**
+   * @public
+   * <p>ARN of the playback restriction policy to be deleted.</p>
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteRecordingConfigurationRequest {
   /**
    * @public
@@ -1084,6 +1214,28 @@ export interface GetPlaybackKeyPairResponse {
    *
    */
   keyPair?: PlaybackKeyPair;
+}
+
+/**
+ * @public
+ */
+export interface GetPlaybackRestrictionPolicyRequest {
+  /**
+   * @public
+   * <p>ARN of the playback restriction policy to be returned.</p>
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPlaybackRestrictionPolicyResponse {
+  /**
+   * @public
+   * <p/>
+   */
+  playbackRestrictionPolicy?: PlaybackRestrictionPolicy;
 }
 
 /**
@@ -1535,6 +1687,12 @@ export interface ListChannelsRequest {
 
   /**
    * @public
+   * <p>Filters the channel list to match the specified policy.</p>
+   */
+  filterByPlaybackRestrictionPolicyArn?: string;
+
+  /**
+   * @public
    * <p>The first channel to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
    */
@@ -1582,8 +1740,8 @@ export interface ChannelSummary {
 
   /**
    * @public
-   * <p>Recording-configuration ARN. A value other than an empty string indicates that recording
-   *       is enabled. Default: "" (empty string, recording is disabled).</p>
+   * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
+   *       Default: "" (empty string, recording is disabled).</p>
    */
   recordingConfigurationArn?: string;
 
@@ -1605,8 +1763,9 @@ export interface ChannelSummary {
   /**
    * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
-   *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
-   *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
+   *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
+   *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
+   *         Types</a>.</p>
    */
   type?: ChannelType;
 
@@ -1619,6 +1778,13 @@ export interface ChannelSummary {
    *       string (<code>""</code>).</p>
    */
   preset?: TranscodePreset;
+
+  /**
+   * @public
+   * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction.
+   *     Default: "" (empty string, no playback restriction policy is applied).</p>
+   */
+  playbackRestrictionPolicyArn?: string;
 }
 
 /**
@@ -1699,6 +1865,91 @@ export interface ListPlaybackKeyPairsResponse {
    * @public
    * <p>If there are more key pairs than <code>maxResults</code>, use <code>nextToken</code> in
    *       the request to get the next set.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPlaybackRestrictionPoliciesRequest {
+  /**
+   * @public
+   * <p>The first policy to retrieve. This is used for pagination; see the <code>nextToken</code>
+   *       response field.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Maximum number of policies to return. Default: 1.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary information about a PlaybackRestrictionPolicy.</p>
+ */
+export interface PlaybackRestrictionPolicySummary {
+  /**
+   * @public
+   * <p>Playback-restriction-policy ARN</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of country codes that control geoblocking restriction. Allowed values are the
+   *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
+   *         alpha-2</a> codes. Default: All countries (an empty array).</p>
+   */
+  allowedCountries: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
+   *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All origins (an empty array).</p>
+   */
+  allowedOrigins: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Whether channel playback is constrained by origin site. Default:
+   *       <code>false</code>.</p>
+   */
+  enableStrictOriginEnforcement?: boolean;
+
+  /**
+   * @public
+   * <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
+   *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
+   *       service-specific constraints beyond what is documented there.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListPlaybackRestrictionPoliciesResponse {
+  /**
+   * @public
+   * <p>List of the matching policies.</p>
+   */
+  playbackRestrictionPolicies: PlaybackRestrictionPolicySummary[] | undefined;
+
+  /**
+   * @public
+   * <p>If there are more channels than <code>maxResults</code>, use <code>nextToken</code> in the
+   *       request to get the next set.</p>
    */
   nextToken?: string;
 }
@@ -2176,7 +2427,7 @@ export interface UntagResourceRequest {
 
   /**
    * @public
-   * <p>Array of tags to be removed. Array of maps, each of the form s<code>tring:string
+   * <p>Array of tags to be removed. Array of maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
@@ -2217,8 +2468,9 @@ export interface UpdateChannelRequest {
   /**
    * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
-   *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
-   *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
+   *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
+   *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
+   *         Types</a>.</p>
    */
   type?: ChannelType;
 
@@ -2230,8 +2482,8 @@ export interface UpdateChannelRequest {
 
   /**
    * @public
-   * <p>Recording-configuration ARN. If this is set to an empty string, recording is disabled. A
-   *       value other than an empty string indicates that recording is enabled</p>
+   * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
+   *     If this is set to an empty string, recording is disabled.</p>
    */
   recordingConfigurationArn?: string;
 
@@ -2250,6 +2502,13 @@ export interface UpdateChannelRequest {
    *       string (<code>""</code>).</p>
    */
   preset?: TranscodePreset;
+
+  /**
+   * @public
+   * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction.
+   *      If this is set to an empty string, playback restriction policy is disabled.</p>
+   */
+  playbackRestrictionPolicyArn?: string;
 }
 
 /**
@@ -2258,9 +2517,60 @@ export interface UpdateChannelRequest {
 export interface UpdateChannelResponse {
   /**
    * @public
-   * <p>Object specifying a channel.</p>
+   * <p>Object specifying the updated channel.</p>
    */
   channel?: Channel;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePlaybackRestrictionPolicyRequest {
+  /**
+   * @public
+   * <p>ARN of the playback-restriction-policy to be updated.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of country codes that control geoblocking restriction. Allowed values are the
+   *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
+   *         alpha-2</a> codes. Default: All countries (an empty array).</p>
+   */
+  allowedCountries?: string[];
+
+  /**
+   * @public
+   * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
+   *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All
+   *       origins (an empty array).</p>
+   */
+  allowedOrigins?: string[];
+
+  /**
+   * @public
+   * <p>Whether channel playback is constrained by origin site. Default:
+   *       <code>false</code>.</p>
+   */
+  enableStrictOriginEnforcement?: boolean;
+
+  /**
+   * @public
+   * <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+   */
+  name?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePlaybackRestrictionPolicyResponse {
+  /**
+   * @public
+   * <p>Object specifying the updated policy.</p>
+   */
+  playbackRestrictionPolicy?: PlaybackRestrictionPolicy;
 }
 
 /**

@@ -58,6 +58,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * //       },
  * //       insecureIngest: true || false,
  * //       preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //       playbackRestrictionPolicyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   errors: [ // BatchErrors

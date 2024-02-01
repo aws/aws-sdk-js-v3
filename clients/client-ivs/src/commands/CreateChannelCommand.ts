@@ -50,6 +50,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   },
  *   insecureIngest: true || false,
  *   preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ *   playbackRestrictionPolicyArn: "STRING_VALUE",
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
@@ -68,6 +69,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //     },
  * //     insecureIngest: true || false,
  * //     preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //     playbackRestrictionPolicyArn: "STRING_VALUE",
  * //   },
  * //   streamKey: { // StreamKey
  * //     arn: "STRING_VALUE",

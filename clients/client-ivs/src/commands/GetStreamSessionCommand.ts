@@ -60,6 +60,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //       },
  * //       insecureIngest: true || false,
  * //       preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //       playbackRestrictionPolicyArn: "STRING_VALUE",
  * //     },
  * //     ingestConfiguration: { // IngestConfiguration
  * //       video: { // VideoConfiguration

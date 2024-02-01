@@ -41,6 +41,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * const input = { // ListChannelsRequest
  *   filterByName: "STRING_VALUE",
  *   filterByRecordingConfigurationArn: "STRING_VALUE",
+ *   filterByPlaybackRestrictionPolicyArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -60,6 +61,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //       insecureIngest: true || false,
  * //       type: "BASIC" || "STANDARD" || "ADVANCED_SD" || "ADVANCED_HD",
  * //       preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //       playbackRestrictionPolicyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
