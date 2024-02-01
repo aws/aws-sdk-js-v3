@@ -35,7 +35,7 @@ export interface BatchGetTokenBalanceCommandOutput extends BatchGetTokenBalanceO
  * <p>Gets the token balance for a batch of tokens by using the <code>BatchGetTokenBalance</code>
  *          action for every token in the request.</p>
  *          <note>
- *             <p>Only the native tokens BTC,ETH, and the ERC-20,
+ *             <p>Only the native tokens BTC and ETH, and the ERC-20,
  *          ERC-721, and ERC 1155 token standards are supported.</p>
  *          </note>
  * @example

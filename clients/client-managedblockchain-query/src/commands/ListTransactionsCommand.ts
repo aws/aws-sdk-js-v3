@@ -54,6 +54,11 @@ export interface ListTransactionsCommandOutput extends ListTransactionsOutput, _
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   confirmationStatusFilter: { // ConfirmationStatusFilter
+ *     include: [ // ConfirmationStatusIncludeList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new ListTransactionsCommand(input);
  * const response = await client.send(command);
@@ -63,6 +68,7 @@ export interface ListTransactionsCommandOutput extends ListTransactionsOutput, _
  * //       transactionHash: "STRING_VALUE", // required
  * //       network: "STRING_VALUE", // required
  * //       transactionTimestamp: new Date("TIMESTAMP"), // required
+ * //       confirmationStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

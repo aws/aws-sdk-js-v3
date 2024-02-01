@@ -44,6 +44,8 @@ import {
   BatchGetTokenBalanceInputItem,
   BatchGetTokenBalanceOutputItem,
   BlockchainInstant,
+  ConfirmationStatus,
+  ConfirmationStatusFilter,
   ContractFilter,
   ContractIdentifier,
   InternalServerException,
@@ -242,6 +244,7 @@ export const se_ListTransactionsCommand = async (
   body = JSON.stringify(
     take(input, {
       address: [],
+      confirmationStatusFilter: (_) => _json(_),
       fromBlockchainInstant: (_) => se_BlockchainInstant(_, context),
       maxResults: [],
       network: [],
@@ -899,6 +902,10 @@ const se_BlockchainInstant = (input: BlockchainInstant, context: __SerdeContext)
   });
 };
 
+// se_ConfirmationStatusFilter omitted.
+
+// se_ConfirmationStatusIncludeList omitted.
+
 // se_ContractFilter omitted.
 
 // se_ContractIdentifier omitted.
@@ -1040,7 +1047,6 @@ const de_Transaction = (output: any, context: __SerdeContext): Transaction => {
     signatureR: __expectString,
     signatureS: __expectString,
     signatureV: __expectInt32,
-    status: __expectString,
     to: __expectString,
     transactionFee: __expectString,
     transactionHash: __expectString,
@@ -1059,6 +1065,7 @@ const de_Transaction = (output: any, context: __SerdeContext): Transaction => {
  */
 const de_TransactionOutputItem = (output: any, context: __SerdeContext): TransactionOutputItem => {
   return take(output, {
+    confirmationStatus: __expectString,
     network: __expectString,
     transactionHash: __expectString,
     transactionTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

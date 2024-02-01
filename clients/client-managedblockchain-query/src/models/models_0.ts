@@ -141,7 +141,7 @@ export interface OwnerIdentifier {
  * @public
  * <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p>
  *          <note>
- *             <p>Only the native tokens BTC,ETH, and the ERC-20,
+ *             <p>Only the native tokens BTC and ETH, and the ERC-20,
  *          ERC-721, and ERC 1155 token standards are supported.</p>
  *          </note>
  */
@@ -162,8 +162,8 @@ export interface TokenIdentifier {
    * @public
    * <p>The unique identifier of the token.</p>
    *          <note>
-   *             <p>You must specify this container with <code>btc</code> for the native BTC token, and
-   *          <code>eth</code> for the native ETH token. For all other token types you must
+   *             <p>For native tokens, use the 3 character abbreviation that best matches your token.
+   *          For example, btc for Bitcoin, eth for Ether, etc. For all other token types you must
    *          specify the <code>tokenId</code> in the 64 character hexadecimal <code>tokenid</code> format.</p>
    *          </note>
    */
@@ -179,7 +179,7 @@ export interface BatchGetTokenBalanceInputItem {
    * @public
    * <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p>
    *          <note>
-   *             <p>Only the native tokens BTC,ETH, and the ERC-20,
+   *             <p>Only the native tokens BTC and ETH, and the ERC-20,
    *          ERC-721, and ERC 1155 token standards are supported.</p>
    *          </note>
    */
@@ -238,7 +238,7 @@ export interface BatchGetTokenBalanceErrorItem {
    * @public
    * <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p>
    *          <note>
-   *             <p>Only the native tokens BTC,ETH, and the ERC-20,
+   *             <p>Only the native tokens BTC and ETH, and the ERC-20,
    *          ERC-721, and ERC 1155 token standards are supported.</p>
    *          </note>
    */
@@ -290,7 +290,7 @@ export interface BatchGetTokenBalanceOutputItem {
    * @public
    * <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p>
    *          <note>
-   *             <p>Only the native tokens BTC,ETH, and the ERC-20,
+   *             <p>Only the native tokens BTC and ETH, and the ERC-20,
    *          ERC-721, and ERC 1155 token standards are supported.</p>
    *          </note>
    */
@@ -576,12 +576,30 @@ export class ValidationException extends __BaseException {
  */
 export const ConfirmationStatus = {
   FINAL: "FINAL",
+  NONFINAL: "NONFINAL",
 } as const;
 
 /**
  * @public
  */
 export type ConfirmationStatus = (typeof ConfirmationStatus)[keyof typeof ConfirmationStatus];
+
+/**
+ * @public
+ * <p>The container for the <code>ConfirmationStatusFilter</code> that filters for the <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">
+ *                <i>finality</i>
+ *             </a> of the results.</p>
+ */
+export interface ConfirmationStatusFilter {
+  /**
+   * @public
+   * <p>The container to determine whether to list results that have only reached <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">
+   *                <i>finality</i>
+   *             </a>. Transactions
+   *          that have reached finality are always part of the response.</p>
+   */
+  include: ConfirmationStatus[] | undefined;
+}
 
 /**
  * @public
@@ -727,7 +745,7 @@ export interface GetTokenBalanceOutput {
    * @public
    * <p>The container for the identifier for the token including the unique token ID and its blockchain network.</p>
    *          <note>
-   *             <p>Only the native tokens BTC,ETH, and the ERC-20,
+   *             <p>Only the native tokens BTC and ETH, and the ERC-20,
    *          ERC-721, and ERC 1155 token standards are supported.</p>
    *          </note>
    */
@@ -768,26 +786,6 @@ export interface GetTransactionInput {
    */
   network: QueryNetwork | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const QueryTransactionStatus = {
-  /**
-   * The transaction completed on the blockchain, but failed
-   */
-  FAILED: "FAILED",
-  /**
-   * The transaction has been confirmed and is final in the blockchain
-   */
-  FINAL: "FINAL",
-} as const;
-
-/**
- * @public
- */
-export type QueryTransactionStatus = (typeof QueryTransactionStatus)[keyof typeof QueryTransactionStatus];
 
 /**
  * @public
@@ -849,29 +847,6 @@ export interface Transaction {
    * <p>The number of transactions in the block.</p>
    */
   numberOfTransactions: number | undefined;
-
-  /**
-   * @public
-   * @deprecated
-   *
-   * <p>The status of the transaction.</p>
-   *          <important>
-   *             <p>This property is deprecated. You must use the <code>confirmationStatus</code>
-   *             and the <code>executionStatus</code> properties to determine if the <code>status</code>
-   *             of the transaction is <code>FINAL</code> or <code>FAILED</code>.</p>
-   *             <ul>
-   *                <li>
-   *                   <p>Transactions with a <code>status</code> of <code>FINAL</code> will now have the <code>confirmationStatus</code> set
-   *                to <code>FINAL</code> and the <code>executionStatus</code> set to <code>SUCCEEDED</code>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>Transactions with a <code>status</code> of <code>FAILED</code> will now have the <code>confirmationStatus</code> set
-   *                to <code>FINAL</code> and the <code>executionStatus</code> set to <code>FAILED</code>.</p>
-   *                </li>
-   *             </ul>
-   *          </important>
-   */
-  status?: QueryTransactionStatus;
 
   /**
    * @public
@@ -983,6 +958,15 @@ export interface ListAssetContractsInput {
   /**
    * @public
    * <p>The maximum number of contracts to list.</p>
+   *          <p>Default:<code>100</code>
+   *          </p>
+   *          <note>
+   *             <p>Even if additional results can be retrieved, the request can return less
+   *        results than <code>maxResults</code> or an empty array of results.</p>
+   *             <p>To retrieve the next set of results, make another request with the
+   *          returned <code>nextToken</code> value. The value of <code>nextToken</code> is
+   *          <code>null</code> when there are no more results to return</p>
+   *          </note>
    */
   maxResults?: number;
 }
@@ -1079,6 +1063,15 @@ export interface ListTokenBalancesInput {
   /**
    * @public
    * <p>The maximum number of token balances to return.</p>
+   *          <p>Default:<code>100</code>
+   *          </p>
+   *          <note>
+   *             <p>Even if additional results can be retrieved, the request can return less
+   *        results than <code>maxResults</code> or an empty array of results.</p>
+   *             <p>To retrieve the next set of results, make another request with the
+   *          returned <code>nextToken</code> value. The value of <code>nextToken</code> is
+   *          <code>null</code> when there are no more results to return</p>
+   *          </note>
    */
   maxResults?: number;
 }
@@ -1166,6 +1159,8 @@ export interface ListTransactionEventsInput {
   /**
    * @public
    * <p>The maximum number of transaction events to list.</p>
+   *          <p>Default:<code>100</code>
+   *          </p>
    *          <note>
    *             <p>Even if additional results can be retrieved, the request can return less
    *        results than <code>maxResults</code> or an empty array of results.</p>
@@ -1405,8 +1400,8 @@ export interface ListTransactionsInput {
 
   /**
    * @public
-   * <p>Sorts items in an ascending order if the first page starts at <code>fromTime</code>.
-   *         Sorts items in a descending order if the first page starts at <code>toTime</code>.</p>
+   * <p>The order by which the results will be sorted. If <code>ASCENNDING</code> is selected, the results
+   *          will be ordered by <code>fromTime</code>. </p>
    */
   sort?: ListTransactionsSort;
 
@@ -1419,6 +1414,8 @@ export interface ListTransactionsInput {
   /**
    * @public
    * <p>The maximum number of transactions to list.</p>
+   *          <p>Default:<code>100</code>
+   *          </p>
    *          <note>
    *             <p>Even if additional results can be retrieved, the request can return less
    *        results than <code>maxResults</code> or an empty array of results.</p>
@@ -1428,6 +1425,15 @@ export interface ListTransactionsInput {
    *          </note>
    */
   maxResults?: number;
+
+  /**
+   * @public
+   * <p>This filter is used to include transactions in the response that haven't reached <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">
+   *                <i>finality</i>
+   *             </a>. Transactions that have reached finiality are always
+   *          part of the response.</p>
+   */
+  confirmationStatusFilter?: ConfirmationStatusFilter;
 }
 
 /**
@@ -1452,6 +1458,12 @@ export interface TransactionOutputItem {
    * <p>The time when the transaction occurred.</p>
    */
   transactionTimestamp: Date | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to list transactions that have not reached Finality.</p>
+   */
+  confirmationStatus?: ConfirmationStatus;
 }
 
 /**

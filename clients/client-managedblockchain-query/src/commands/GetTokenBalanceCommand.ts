@@ -34,7 +34,7 @@ export interface GetTokenBalanceCommandOutput extends GetTokenBalanceOutput, __M
  * @public
  * <p>Gets the balance of a specific token, including native tokens, for a given address (wallet or contract) on the blockchain.</p>
  *          <note>
- *             <p>Only the native tokens BTC,ETH, and the ERC-20,
+ *             <p>Only the native tokens BTC and ETH, and the ERC-20,
  *          ERC-721, and ERC 1155 token standards are supported.</p>
  *          </note>
  * @example

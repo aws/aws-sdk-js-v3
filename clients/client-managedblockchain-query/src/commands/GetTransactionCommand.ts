@@ -32,7 +32,13 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
 
 /**
  * @public
- * <p>Get the details of a transaction.</p>
+ * <p>Gets the details of a transaction.</p>
+ *          <note>
+ *             <p>This action will return transaction details for all transactions
+ *          that are <i>confirmed</i> on the blockchain, even if they have not reached
+ *          <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">finality</a>.
+ *       </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,7 +60,6 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
  * //     transactionTimestamp: new Date("TIMESTAMP"), // required
  * //     transactionIndex: Number("long"), // required
  * //     numberOfTransactions: Number("long"), // required
- * //     status: "STRING_VALUE",
  * //     to: "STRING_VALUE", // required
  * //     from: "STRING_VALUE",
  * //     contractAddress: "STRING_VALUE",

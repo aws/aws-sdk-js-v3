@@ -34,6 +34,12 @@ export interface ListTransactionEventsCommandOutput extends ListTransactionEvent
  * @public
  * <p>An array of <code>TransactionEvent</code> objects. Each object contains details
  *          about the transaction event.</p>
+ *          <note>
+ *             <p>This action will return transaction details for all transactions
+ *          that are <i>confirmed</i> on the blockchain, even if they have not reached
+ *          <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">finality</a>.
+ *       </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
