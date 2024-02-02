@@ -29,8 +29,8 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
 /**
  * @public
  * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The
- *         configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the
- *         kernels in the image.</p>
+ *          configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the
+ *          kernels in the image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

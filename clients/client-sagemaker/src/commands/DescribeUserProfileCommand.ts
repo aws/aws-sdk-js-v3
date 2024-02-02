@@ -153,6 +153,9 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * //       KendraSettings: { // KendraSettings
  * //         Status: "ENABLED" || "DISABLED",
  * //       },
+ * //       GenerativeAiSettings: { // GenerativeAiSettings
+ * //         AmazonBedrockRoleArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //     CodeEditorAppSettings: { // CodeEditorAppSettings
  * //       DefaultResourceSpec: {

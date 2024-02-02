@@ -28,7 +28,7 @@ export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __Metadat
 
 /**
  * @public
- * <p>Creates a space used for real time collaboration in a Domain.</p>
+ * <p>Creates a space used for real time collaboration in a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

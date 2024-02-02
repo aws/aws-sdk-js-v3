@@ -138,6 +138,9 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *       KendraSettings: { // KendraSettings
  *         Status: "ENABLED" || "DISABLED",
  *       },
+ *       GenerativeAiSettings: { // GenerativeAiSettings
+ *         AmazonBedrockRoleArn: "STRING_VALUE",
+ *       },
  *     },
  *     CodeEditorAppSettings: { // CodeEditorAppSettings
  *       DefaultResourceSpec: {

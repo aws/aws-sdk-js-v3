@@ -971,13 +971,13 @@ import {
   CreateClusterResponse,
   CreateCodeRepositoryInput,
   CreateCodeRepositoryOutput,
-  CreateCompilationJobRequest,
   DataSource,
   DirectDeploySettings,
   FileSystemConfig,
   FileSystemDataSource,
   FillingType,
   FinalAutoMLJobObjectiveMetric,
+  GenerativeAiSettings,
   GitConfig,
   HolidayConfigAttributes,
   HyperParameterSpecification,
@@ -1056,6 +1056,7 @@ import {
   WorkspaceSettings,
 } from "../models/models_0";
 import {
+  CreateCompilationJobRequest,
   CreateCompilationJobResponse,
   CreateContextRequest,
   CreateContextResponse,
@@ -1142,7 +1143,6 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DatasetDefinition,
-  DebugHookConfig,
   DefaultEbsStorageSettings,
   DefaultSpaceSettings,
   DefaultSpaceStorageSettings,
@@ -1328,6 +1328,7 @@ import {
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
+  DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeleteActionRequest,
@@ -1505,7 +1506,6 @@ import {
   DescribeProjectOutput,
   DescribeSpaceRequest,
   DescribeSpaceResponse,
-  DescribeStudioLifecycleConfigRequest,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1571,6 +1571,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeStudioLifecycleConfigRequest,
   DescribeStudioLifecycleConfigResponse,
   DescribeSubscribedWorkteamRequest,
   DescribeSubscribedWorkteamResponse,
@@ -1789,7 +1790,6 @@ import {
   OidcConfigForResponse,
   PipelineExecutionSummary,
   PredefinedMetricSpecification,
-  ProcessingJobStepMetadata,
   ProductionVariantServerlessUpdateConfig,
   ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
@@ -1869,6 +1869,7 @@ import {
   PipelineExecutionStepMetadata,
   PipelineSummary,
   ProcessingJob,
+  ProcessingJobStepMetadata,
   ProcessingJobSummary,
   ProfilerConfigForUpdate,
   Project,
@@ -21483,6 +21484,8 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 
 // se_ForecastQuantiles omitted.
 
+// se_GenerativeAiSettings omitted.
+
 // se_GetDeviceFleetReportRequest omitted.
 
 // se_GetLineageGroupPolicyRequest omitted.
@@ -24854,6 +24857,7 @@ const de_CandidateSteps = (output: any, context: __SerdeContext): AutoMLCandidat
 const de_CanvasAppSettings = (output: any, context: __SerdeContext): CanvasAppSettings => {
   return take(output, {
     DirectDeploySettings: (_: any) => de_DirectDeploySettings(_, context),
+    GenerativeAiSettings: (_: any) => de_GenerativeAiSettings(_, context),
     IdentityProviderOAuthSettings: (_: any) => de_IdentityProviderOAuthSettings(_, context),
     KendraSettings: (_: any) => de_KendraSettings(_, context),
     ModelRegisterSettings: (_: any) => de_ModelRegisterSettings(_, context),
@@ -29139,6 +29143,15 @@ const de_ForecastQuantiles = (output: any, context: __SerdeContext): string[] =>
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1GenerativeAiSettings
+ */
+const de_GenerativeAiSettings = (output: any, context: __SerdeContext): GenerativeAiSettings => {
+  return take(output, {
+    AmazonBedrockRoleArn: __expectString,
+  }) as any;
 };
 
 /**

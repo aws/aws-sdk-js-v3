@@ -51,7 +51,6 @@ import {
 
 import {
   _InstanceType,
-  DebugHookConfig,
   DockerSettings,
   EdgeOutputConfig,
   ExecutionRoleIdentityConfig,
@@ -81,6 +80,7 @@ import {
   CustomizedMetricSpecification,
   DataCaptureConfigSummary,
   DataProcessing,
+  DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DomainStatus,
@@ -138,6 +138,17 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeStudioLifecycleConfigRequest {
+  /**
+   * @public
+   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to describe.</p>
+   */
+  StudioLifecycleConfigName: string | undefined;
+}
 
 /**
  * @public
@@ -1665,7 +1676,7 @@ export interface DescribeUserProfileResponse {
 
   /**
    * @public
-   * <p>The ID of the user's profile in the Amazon Elastic File System (EFS) volume.</p>
+   * <p>The ID of the user's profile in the Amazon Elastic File System volume.</p>
    */
   HomeEfsFileSystemUid?: string;
 
@@ -2410,7 +2421,7 @@ export interface DomainDetails {
 /**
  * @public
  * <p>A collection of settings that update the current configuration for the
- *                 <code>RStudioServerPro</code> Domain-level app.</p>
+ *       <code>RStudioServerPro</code> Domain-level app.</p>
  */
 export interface RStudioServerProDomainSettingsForUpdate {
   /**
@@ -2422,7 +2433,7 @@ export interface RStudioServerProDomainSettingsForUpdate {
   /**
    * @public
    * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
+   *          the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
 
@@ -5653,7 +5664,7 @@ export interface ListAppImageConfigsRequest {
   /**
    * @public
    * <p>If the previous call to <code>ListImages</code> didn't return the full set of
-   *         AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
+   *          AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.</p>
    */
   NextToken?: string;
 
@@ -5764,7 +5775,7 @@ export interface ListAppsRequest {
   /**
    * @public
    * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set,
-   *             then this value cannot be set.</p>
+   *       then this value cannot be set.</p>
    */
   SpaceNameEquals?: string;
 }
@@ -6338,28 +6349,28 @@ export interface ListCodeRepositoriesInput {
   /**
    * @public
    * <p>A filter that returns only Git repositories that were created after the specified
-   *             time.</p>
+   *          time.</p>
    */
   CreationTimeAfter?: Date;
 
   /**
    * @public
    * <p>A filter that returns only Git repositories that were created before the specified
-   *             time.</p>
+   *          time.</p>
    */
   CreationTimeBefore?: Date;
 
   /**
    * @public
    * <p>A filter that returns only Git repositories that were last modified after the
-   *             specified time.</p>
+   *          specified time.</p>
    */
   LastModifiedTimeAfter?: Date;
 
   /**
    * @public
    * <p>A filter that returns only Git repositories that were last modified before the
-   *             specified time.</p>
+   *          specified time.</p>
    */
   LastModifiedTimeBefore?: Date;
 
@@ -6372,15 +6383,15 @@ export interface ListCodeRepositoriesInput {
   /**
    * @public
    * <p>A string in the Git repositories name. This filter returns only repositories whose
-   *             name contains the specified string.</p>
+   *          name contains the specified string.</p>
    */
   NameContains?: string;
 
   /**
    * @public
    * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
-   *             the token in the next request.</p>
+   *          response includes a <code>NextToken</code>. To get the next set of Git repositories, use
+   *          the token in the next request.</p>
    */
   NextToken?: string;
 
@@ -6404,7 +6415,7 @@ export interface ListCodeRepositoriesOutput {
   /**
    * @public
    * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following
-   *             values for the repository: </p>
+   *          values for the repository: </p>
    *          <ul>
    *             <li>
    *                <p>Name</p>
@@ -6420,8 +6431,8 @@ export interface ListCodeRepositoriesOutput {
    *             </li>
    *             <li>
    *                <p>Configuration information, including the URL location of the repository and
-   *                     the ARN of the Amazon Web Services Secrets Manager secret that contains the
-   *                     credentials used to access the repository.</p>
+   *                the ARN of the Amazon Web Services Secrets Manager secret that contains the
+   *                credentials used to access the repository.</p>
    *             </li>
    *          </ul>
    */
@@ -6430,8 +6441,8 @@ export interface ListCodeRepositoriesOutput {
   /**
    * @public
    * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
-   *             the token in the next request.</p>
+   *          response includes a <code>NextToken</code>. To get the next set of Git repositories, use
+   *          the token in the next request.</p>
    */
   NextToken?: string;
 }
@@ -10595,8 +10606,8 @@ export interface ListNotebookInstanceLifecycleConfigsInput {
   /**
    * @public
    * <p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was
-   *             truncated, the response includes a <code>NextToken</code>. To get the next set of
-   *             lifecycle configurations, use the token in the next request.</p>
+   *          truncated, the response includes a <code>NextToken</code>. To get the next set of
+   *          lifecycle configurations, use the token in the next request.</p>
    */
   NextToken?: string;
 
@@ -10621,35 +10632,35 @@ export interface ListNotebookInstanceLifecycleConfigsInput {
   /**
    * @public
    * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
-   *             configurations whose name contains the specified string.</p>
+   *          configurations whose name contains the specified string.</p>
    */
   NameContains?: string;
 
   /**
    * @public
    * <p>A filter that returns only lifecycle configurations that were created before the
-   *             specified time (timestamp).</p>
+   *          specified time (timestamp).</p>
    */
   CreationTimeBefore?: Date;
 
   /**
    * @public
    * <p>A filter that returns only lifecycle configurations that were created after the
-   *             specified time (timestamp).</p>
+   *          specified time (timestamp).</p>
    */
   CreationTimeAfter?: Date;
 
   /**
    * @public
    * <p>A filter that returns only lifecycle configurations that were modified before the
-   *             specified time (timestamp).</p>
+   *          specified time (timestamp).</p>
    */
   LastModifiedTimeBefore?: Date;
 
   /**
    * @public
    * <p>A filter that returns only lifecycle configurations that were modified after the
-   *             specified time (timestamp).</p>
+   *          specified time (timestamp).</p>
    */
   LastModifiedTimeAfter?: Date;
 }
@@ -10691,14 +10702,14 @@ export interface ListNotebookInstanceLifecycleConfigsOutput {
   /**
    * @public
    * <p>If the response is truncated, SageMaker returns this token. To get the next set of
-   *             lifecycle configurations, use it in the next request. </p>
+   *          lifecycle configurations, use it in the next request. </p>
    */
   NextToken?: string;
 
   /**
    * @public
    * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
-   *             a lifecycle configuration.</p>
+   *          a lifecycle configuration.</p>
    */
   NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
 }
@@ -10859,7 +10870,7 @@ export interface NotebookInstanceSummary {
   /**
    * @public
    * <p>The URL that you use to connect to the Jupyter notebook running in your notebook
-   *             instance. </p>
+   *          instance. </p>
    */
   Url?: string;
 
@@ -10884,31 +10895,31 @@ export interface NotebookInstanceSummary {
   /**
    * @public
    * <p>The name of a notebook instance lifecycle configuration associated with this notebook
-   *             instance.</p>
+   *          instance.</p>
    *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
-   *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+   *          2.1: (Optional) Customize a Notebook Instance</a>.</p>
    */
   NotebookInstanceLifecycleConfigName?: string;
 
   /**
    * @public
    * <p>The Git repository associated with the notebook instance as its default code
-   *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *             or in any other Git repository. When you open a notebook instance, it opens in the
-   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *          repository. This can be either the name of a Git repository stored as a resource in your
+   *          account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *          or in any other Git repository. When you open a notebook instance, it opens in the
+   *          directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *             Repositories with SageMaker Notebook Instances</a>.</p>
    */
   DefaultCodeRepository?: string;
 
   /**
    * @public
    * <p>An array of up to three Git repositories associated with the notebook instance. These
-   *             can be either the names of Git repositories stored as resources in your account, or the
-   *             URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *             or in any other Git repository. These repositories are cloned at the same level as the
-   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *          can be either the names of Git repositories stored as resources in your account, or the
+   *          URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *          or in any other Git repository. These repositories are cloned at the same level as the
+   *          default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *             Repositories with SageMaker Notebook Instances</a>.</p>
    */
   AdditionalCodeRepositories?: string[];
 }
@@ -11097,18 +11108,6 @@ export interface ModelStepMetadata {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the created model.</p>
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- * <p>Metadata for a processing job step.</p>
- */
-export interface ProcessingJobStepMetadata {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
    */
   Arn?: string;
 }

@@ -139,6 +139,9 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *       KendraSettings: { // KendraSettings
  *         Status: "ENABLED" || "DISABLED",
  *       },
+ *       GenerativeAiSettings: { // GenerativeAiSettings
+ *         AmazonBedrockRoleArn: "STRING_VALUE",
+ *       },
  *     },
  *     CodeEditorAppSettings: { // CodeEditorAppSettings
  *       DefaultResourceSpec: {

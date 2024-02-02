@@ -33,7 +33,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *      user-oriented features. This entity is created when a user onboards to a domain. If an
  *      administrator invites a person by email or imports them from IAM Identity Center, a user profile is
  *      automatically created. A user profile is the primary holder of settings for an individual
- *      user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
+ *      user and has a reference to the user's private Amazon Elastic File System home directory.
  *    </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -152,6 +152,9 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *       },
  *       KendraSettings: { // KendraSettings
  *         Status: "ENABLED" || "DISABLED",
+ *       },
+ *       GenerativeAiSettings: { // GenerativeAiSettings
+ *         AmazonBedrockRoleArn: "STRING_VALUE",
  *       },
  *     },
  *     CodeEditorAppSettings: { // CodeEditorAppSettings

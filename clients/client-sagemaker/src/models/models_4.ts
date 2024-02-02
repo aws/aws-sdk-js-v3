@@ -42,7 +42,6 @@ import {
 
 import {
   _InstanceType,
-  DebugHookConfig,
   DefaultSpaceSettings,
   DeploymentConfig,
   DriftCheckBaselines,
@@ -94,6 +93,7 @@ import {
 import {
   CrossAccountFilterOption,
   DataProcessing,
+  DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeploymentRecommendation,
@@ -151,7 +151,6 @@ import {
   MetricData,
   ModelStepMetadata,
   MonitoringAlertSummary,
-  ProcessingJobStepMetadata,
   ResourceType,
   SecondaryStatus,
   SecondaryStatusTransition,
@@ -168,6 +167,18 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Metadata for a processing job step.</p>
+ */
+export interface ProcessingJobStepMetadata {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
+   */
+  Arn?: string;
+}
 
 /**
  * @public
@@ -1193,16 +1204,16 @@ export interface ListSpacesRequest {
   /**
    * @public
    * <p>If the previous response was truncated, you will receive this token. Use it in your
-   *             next request to receive the next set of results.</p>
+   *       next request to receive the next set of results.</p>
    */
   NextToken?: string;
 
   /**
    * @public
    * <p>The total number of items to return in the response. If the total number of items
-   *             available is more than the value specified, a <code>NextToken</code> is provided in the
-   *             response. To resume pagination, provide the <code>NextToken</code> value in the as part
-   *             of a subsequent call. The default value is 10.</p>
+   *       available is more than the value specified, a <code>NextToken</code> is provided in the
+   *       response. To resume pagination, provide the <code>NextToken</code> value in the as part
+   *       of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 
@@ -1215,13 +1226,13 @@ export interface ListSpacesRequest {
   /**
    * @public
    * <p>The parameter by which to sort the results. The default is
-   *             <code>CreationTime</code>.</p>
+   *       <code>CreationTime</code>.</p>
    */
   SortBy?: SpaceSortKey;
 
   /**
    * @public
-   * <p>A parameter to search for the Domain ID.</p>
+   * <p>A parameter to search for the domain ID.</p>
    */
   DomainIdEquals?: string;
 
@@ -1281,7 +1292,7 @@ export interface SpaceSharingSettingsSummary {
 export interface SpaceDetails {
   /**
    * @public
-   * <p>The ID of the associated Domain.</p>
+   * <p>The ID of the associated domain.</p>
    */
   DomainId?: string;
 
@@ -1347,7 +1358,7 @@ export interface ListSpacesResponse {
   /**
    * @public
    * <p>If the previous response was truncated, you will receive this token. Use it in your
-   *             next request to receive the next set of results.</p>
+   *       next request to receive the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -1428,9 +1439,9 @@ export interface ListStudioLifecycleConfigsRequest {
   /**
    * @public
    * <p>The total number of items to return in the response. If the total
-   *             number of items available is more than the value specified, a <code>NextToken</code>
-   *             is provided in the response. To resume pagination, provide the <code>NextToken</code>
-   *             value in the as part of a subsequent call. The default value is 10.</p>
+   *       number of items available is more than the value specified, a <code>NextToken</code>
+   *       is provided in the response. To resume pagination, provide the <code>NextToken</code>
+   *       value in the as part of a subsequent call. The default value is 10.</p>
    */
   MaxResults?: number;
 
@@ -1532,7 +1543,7 @@ export interface ListStudioLifecycleConfigsResponse {
   /**
    * @public
    * <p>If the previous response was truncated, you will receive this token.
-   *             Use it in your next request to receive the next set of results.</p>
+   *       Use it in your next request to receive the next set of results.</p>
    */
   NextToken?: string;
 
@@ -4434,7 +4445,7 @@ export type SearchSortOrder = (typeof SearchSortOrder)[keyof typeof SearchSortOr
 export interface VisibilityConditions {
   /**
    * @public
-   * <p>The key for that specifies the tag that you're using to filter the search results. The key must start with <code>Tags.</code>.</p>
+   * <p>The key that specifies the tag that you're using to filter the search results. It must be in the following format: <code>Tags.<key>/EqualsIfExists</code>.</p>
    */
   Key?: string;
 
@@ -5774,7 +5785,7 @@ export interface UpdateAppImageConfigRequest {
 export interface UpdateAppImageConfigResponse {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
+   * <p>The ARN for the AppImageConfig.</p>
    */
   AppImageConfigArn?: string;
 }
@@ -5860,12 +5871,12 @@ export interface UpdateCodeRepositoryInput {
   /**
    * @public
    * <p>The configuration of the git repository, including the URL and the Amazon Resource
-   *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
-   *             credentials used to access the repository. The secret must have a staging label of
-   *                 <code>AWSCURRENT</code> and must be in the following format:</p>
+   *          Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
+   *          credentials used to access the repository. The secret must have a staging label of
+   *          <code>AWSCURRENT</code> and must be in the following format:</p>
    *          <p>
    *             <code>\{"username": <i>UserName</i>, "password":
-   *                     <i>Password</i>\}</code>
+   *             <i>Password</i>\}</code>
    *          </p>
    */
   GitConfig?: GitConfigForUpdate;
@@ -6013,7 +6024,7 @@ export interface UpdateDomainRequest {
 
   /**
    * @public
-   * <p>The default settings used to create a space within the Domain.</p>
+   * <p>The default settings used to create a space within the domain.</p>
    */
   DefaultSpaceSettings?: DefaultSpaceSettings;
 
@@ -7031,15 +7042,15 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
   /**
    * @public
    * <p>The shell script that runs only once, when you create a notebook instance. The shell
-   *             script must be a base64-encoded string.</p>
+   *          script must be a base64-encoded string.</p>
    */
   OnCreate?: NotebookInstanceLifecycleHook[];
 
   /**
    * @public
    * <p>The shell script that runs every time you start a notebook instance, including when
-   *             you create the notebook instance. The shell script must be a base64-encoded
-   *             string.</p>
+   *          you create the notebook instance. The shell script must be a base64-encoded
+   *          string.</p>
    */
   OnStart?: NotebookInstanceLifecycleHook[];
 }
@@ -7224,7 +7235,7 @@ export interface UpdateProjectOutput {
 export interface UpdateSpaceRequest {
   /**
    * @public
-   * <p>The ID of the associated Domain.</p>
+   * <p>The ID of the associated domain.</p>
    */
   DomainId: string | undefined;
 

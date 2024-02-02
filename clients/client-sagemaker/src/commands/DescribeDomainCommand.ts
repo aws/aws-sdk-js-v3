@@ -154,6 +154,9 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //       KendraSettings: { // KendraSettings
  * //         Status: "ENABLED" || "DISABLED",
  * //       },
+ * //       GenerativeAiSettings: { // GenerativeAiSettings
+ * //         AmazonBedrockRoleArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //     CodeEditorAppSettings: { // CodeEditorAppSettings
  * //       DefaultResourceSpec: {

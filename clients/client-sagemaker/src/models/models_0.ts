@@ -3955,7 +3955,7 @@ export type AppInstanceType = (typeof AppInstanceType)[keyof typeof AppInstanceT
 /**
  * @public
  * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
- *      the version runs on.</p>
+ *          the version runs on.</p>
  */
 export interface ResourceSpec {
   /**
@@ -3983,7 +3983,7 @@ export interface ResourceSpec {
    *             <p>
    *                <b>JupyterServer apps</b> only support the <code>system</code> value.</p>
    *             <p>For <b>KernelGateway apps</b>, the <code>system</code>
-   *              value is translated to <code>ml.t3.medium</code>. KernelGateway apps also support all other values for available
+   *             value is translated to <code>ml.t3.medium</code>. KernelGateway apps also support all other values for available
    *             instance types.</p>
    *          </note>
    */
@@ -4063,7 +4063,7 @@ export interface AppDetails {
   /**
    * @public
    * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
+   *          the version runs on.</p>
    */
   ResourceSpec?: ResourceSpec;
 }
@@ -4094,13 +4094,13 @@ export interface ContainerConfig {
 
 /**
  * @public
- * <p>The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.</p>
+ * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
  */
 export interface FileSystemConfig {
   /**
    * @public
    * <p>The path within the image to mount the user's EFS home directory. The directory
-   *         should be empty. If not specified, defaults to <i>/home/sagemaker-user</i>.</p>
+   *          should be empty. If not specified, defaults to <i>/home/sagemaker-user</i>.</p>
    */
   MountPath?: string;
 
@@ -4124,7 +4124,7 @@ export interface FileSystemConfig {
 export interface JupyterLabAppImageConfig {
   /**
    * @public
-   * <p>The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.</p>
+   * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
    */
   FileSystemConfig?: FileSystemConfig;
 
@@ -4156,7 +4156,7 @@ export interface KernelSpec {
 /**
  * @public
  * <p>The configuration for the file system and kernels in a SageMaker image running as a
- *         KernelGateway app.</p>
+ *          KernelGateway app.</p>
  */
 export interface KernelGatewayImageConfig {
   /**
@@ -4167,7 +4167,7 @@ export interface KernelGatewayImageConfig {
 
   /**
    * @public
-   * <p>The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.</p>
+   * <p>The Amazon Elastic File System storage configuration for a SageMaker image.</p>
    */
   FileSystemConfig?: FileSystemConfig;
 }
@@ -4179,7 +4179,7 @@ export interface KernelGatewayImageConfig {
 export interface AppImageConfigDetails {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the AppImageConfig.</p>
+   * <p>The ARN of the AppImageConfig.</p>
    */
   AppImageConfigArn?: string;
 
@@ -5989,7 +5989,7 @@ export interface AutoMLJobSummary {
 export interface AutoMLOutputDataConfig {
   /**
    * @public
-   * <p>The Key Management Service (KMS) encryption key ID.</p>
+   * <p>The Key Management Service encryption key ID.</p>
    */
   KmsKeyId?: string;
 
@@ -6150,7 +6150,7 @@ export interface TabularJobConfig {
    * @public
    * <p>The type of supervised learning problem available for the model candidates of the AutoML
    *          job V2. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
-   *             Amazon SageMaker Autopilot problem types</a>.</p>
+   *             SageMaker Autopilot problem types</a>.</p>
    *          <note>
    *             <p>You must either specify the type of supervised learning problem in
    *                <code>ProblemType</code> and provide the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html#sagemaker-CreateAutoMLJobV2-request-AutoMLJobObjective">AutoMLJobObjective</a> metric, or none at all.</p>
@@ -6719,7 +6719,7 @@ export interface TabularResolvedAttributes {
    * <p>The type of supervised learning problem available for the model candidates of the AutoML
    *          job V2 (Binary Classification, Multiclass Classification, Regression). For more
    *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
-   *             Amazon SageMaker Autopilot problem types</a>.</p>
+   *             SageMaker Autopilot problem types</a>.</p>
    */
   ProblemType?: ProblemType;
 }
@@ -7683,6 +7683,23 @@ export interface DirectDeploySettings {
 
 /**
  * @public
+ * <p>The generative AI settings for the SageMaker Canvas application.</p>
+ *          <p>Configure these settings for Canvas users starting chats with generative AI foundation models.
+ *       For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-fm-chat.html">
+ *         Use generative AI with foundation models</a>.</p>
+ */
+export interface GenerativeAiSettings {
+  /**
+   * @public
+   * <p>The ARN of an Amazon Web Services IAM role that allows fine-tuning of large language models (LLMs) in
+   *       Amazon Bedrock. The IAM role should have Amazon S3 read and write permissions, as well as a trust relationship that
+   *       establishes <code>bedrock.amazonaws.com</code> as a service principal.</p>
+   */
+  AmazonBedrockRoleArn?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const DataSourceName = {
@@ -7843,6 +7860,12 @@ export interface CanvasAppSettings {
    * <p>The settings for document querying.</p>
    */
   KendraSettings?: KendraSettings;
+
+  /**
+   * @public
+   * <p>The generative AI settings for the SageMaker Canvas application.</p>
+   */
+  GenerativeAiSettings?: GenerativeAiSettings;
 }
 
 /**
@@ -8842,7 +8865,7 @@ export interface CodeEditorAppSettings {
   /**
    * @public
    * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
+   *          the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
 
@@ -9400,7 +9423,7 @@ export interface RepositoryAuthConfig {
 /**
  * @public
  * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
- *             accessible from your Amazon Virtual Private Cloud (VPC).</p>
+ *          accessible from your Amazon Virtual Private Cloud (VPC).</p>
  */
 export interface ImageConfig {
   /**
@@ -9414,7 +9437,7 @@ export interface ImageConfig {
    *             <li>
    *                <p>
    *                   <code>Vpc</code> - The model image is hosted in a private Docker registry in
-   *                     your VPC.</p>
+   *                your VPC.</p>
    *             </li>
    *          </ul>
    */
@@ -9423,10 +9446,10 @@ export interface ImageConfig {
   /**
    * @public
    * <p>(Optional) Specifies an authentication configuration for the private docker registry
-   *             where your model image is hosted. Specify a value for this property only if you
-   *             specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field,
-   *             and the private Docker registry where the model image is hosted requires
-   *             authentication.</p>
+   *          where your model image is hosted. Specify a value for this property only if you
+   *          specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field,
+   *          and the private Docker registry where the model image is hosted requires
+   *          authentication.</p>
    */
   RepositoryAuthConfig?: RepositoryAuthConfig;
 }
@@ -10374,7 +10397,7 @@ export interface CreateAppRequest {
   /**
    * @public
    * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *             must be set.</p>
+   *       must be set.</p>
    */
   SpaceName?: string;
 
@@ -10461,8 +10484,8 @@ export interface CreateAppImageConfigRequest {
   /**
    * @public
    * <p>The KernelGatewayImageConfig. You can only specify one image kernel in the
-   * 	AppImageConfig API. This kernel will be shown to users before the
-   * 	image starts. Once the image runs, all kernels are visible in JupyterLab.</p>
+   *          AppImageConfig API. This kernel will be shown to users before the
+   *          image starts. Once the image runs, all kernels are visible in JupyterLab.</p>
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
 
@@ -10479,7 +10502,7 @@ export interface CreateAppImageConfigRequest {
 export interface CreateAppImageConfigResponse {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the AppImageConfig.</p>
+   * <p>The ARN of the AppImageConfig.</p>
    */
   AppImageConfigArn?: string;
 }
@@ -10598,7 +10621,7 @@ export interface CreateAutoMLJobRequest {
    * @public
    * <p>Defines the type of supervised learning problem available for the candidates. For more
    *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
-   *             Amazon SageMaker Autopilot problem types</a>.</p>
+   *             SageMaker Autopilot problem types</a>.</p>
    */
   ProblemType?: ProblemType;
 
@@ -10842,22 +10865,22 @@ export interface CreateCodeRepositoryInput {
   /**
    * @public
    * <p>The name of the Git repository. The name must have 1 to 63 characters. Valid
-   *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+   *          characters are a-z, A-Z, 0-9, and - (hyphen).</p>
    */
   CodeRepositoryName: string | undefined;
 
   /**
    * @public
    * <p>Specifies details about the repository, including the URL where the repository is
-   *             located, the default branch, and credentials to use to access the repository.</p>
+   *          located, the default branch, and credentials to use to access the repository.</p>
    */
   GitConfig: GitConfig | undefined;
 
   /**
    * @public
    * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   *          resources in different ways, for example, by purpose, owner, or environment. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 }
@@ -11659,89 +11682,4 @@ export interface NeoVpcConfig {
    *             accessing the model in Amazon S3.</p>
    */
   Subnets: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCompilationJobRequest {
-  /**
-   * @public
-   * <p>A name for the model compilation job. The name must be unique within the Amazon Web Services Region and within your Amazon Web Services account. </p>
-   */
-  CompilationJobName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on
-   *             your behalf. </p>
-   *          <p>During model compilation, Amazon SageMaker needs your permission to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Read input data from an S3 bucket</p>
-   *             </li>
-   *             <li>
-   *                <p>Write model artifacts to an S3 bucket</p>
-   *             </li>
-   *             <li>
-   *                <p>Write logs to Amazon CloudWatch Logs</p>
-   *             </li>
-   *             <li>
-   *                <p>Publish metrics to Amazon CloudWatch</p>
-   *             </li>
-   *          </ul>
-   *          <p>You grant permissions for all of these tasks to an IAM role. To pass this role to
-   *             Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission. For
-   *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker
-   *                 Roles.</a>
-   *          </p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of a versioned model package. Provide either a
-   *     <code>ModelPackageVersionArn</code> or an <code>InputConfig</code> object in the
-   *     request syntax. The presence of both objects in the <code>CreateCompilationJob</code>
-   *     request will return an exception.</p>
-   */
-  ModelPackageVersionArn?: string;
-
-  /**
-   * @public
-   * <p>Provides information about the location of input model artifacts, the name and shape
-   *             of the expected data inputs, and the framework in which the model was trained.</p>
-   */
-  InputConfig?: InputConfig;
-
-  /**
-   * @public
-   * <p>Provides information about the output location for the compiled model and the target
-   *             device the model runs on.</p>
-   */
-  OutputConfig: OutputConfig | undefined;
-
-  /**
-   * @public
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your compilation job
-   *             to connect to. Control access to your models by configuring the VPC. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
-   */
-  VpcConfig?: NeoVpcConfig;
-
-  /**
-   * @public
-   * <p>Specifies a limit to how long a model compilation job can run. When the job reaches
-   *             the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training
-   *             costs.</p>
-   */
-  StoppingCondition: StoppingCondition | undefined;
-
-  /**
-   * @public
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   */
-  Tags?: Tag[];
 }

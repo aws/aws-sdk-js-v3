@@ -44,6 +44,7 @@ import {
   ClusterStatus,
   CognitoConfig,
   CognitoMemberDefinition,
+  CollectionConfiguration,
   CompilationJobStatus,
   ContainerDefinition,
   ContextSource,
@@ -81,7 +82,6 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
-  DebugHookConfig,
   DefaultSpaceSettings,
   DeploymentConfig,
   DeviceSelectionConfig,
@@ -172,6 +172,43 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and
+ *             storage paths. To learn more about
+ *             how to configure the <code>DebugHookConfig</code> parameter,
+ *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
+ */
+export interface DebugHookConfig {
+  /**
+   * @public
+   * <p>Path to local storage location for metrics and tensors. Defaults to
+   *                 <code>/opt/ml/output/tensors/</code>.</p>
+   */
+  LocalPath?: string;
+
+  /**
+   * @public
+   * <p>Path to Amazon S3 storage location for metrics and tensors.</p>
+   */
+  S3OutputPath: string | undefined;
+
+  /**
+   * @public
+   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters.</p>
+   */
+  HookParameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Configuration information for Amazon SageMaker Debugger tensor collections. To learn more about
+   *             how to configure the <code>CollectionConfiguration</code> parameter,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.
+   *         </p>
+   */
+  CollectionConfigurations?: CollectionConfiguration[];
+}
 
 /**
  * @public
@@ -1683,7 +1720,7 @@ export interface DeleteAppRequest {
   /**
    * @public
    * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *             must be set.</p>
+   *       must be set.</p>
    */
   SpaceName?: string;
 
@@ -1877,13 +1914,13 @@ export type RetentionType = (typeof RetentionType)[keyof typeof RetentionType];
 
 /**
  * @public
- * <p>The retention policy for data stored on an Amazon Elastic File System (EFS) volume.</p>
+ * <p>The retention policy for data stored on an Amazon Elastic File System volume.</p>
  */
 export interface RetentionPolicy {
   /**
    * @public
-   * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the EFS volume.</p>
-   *          <p>Specify <code>Delete</code> to delete the data stored on the EFS volume.</p>
+   * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the Amazon EFS volume.</p>
+   *          <p>Specify <code>Delete</code> to delete the data stored on the Amazon EFS volume.</p>
    */
   HomeEfsFileSystem?: RetentionType;
 }
@@ -2334,7 +2371,7 @@ export interface DeleteProjectInput {
 export interface DeleteSpaceRequest {
   /**
    * @public
-   * <p>The ID of the associated Domain.</p>
+   * <p>The ID of the associated domain.</p>
    */
   DomainId: string | undefined;
 
@@ -2949,7 +2986,7 @@ export interface DescribeAppResponse {
   /**
    * @public
    * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *             must be set.</p>
+   *       must be set.</p>
    */
   SpaceName?: string;
 
@@ -3007,7 +3044,7 @@ export interface DescribeAppImageConfigRequest {
 export interface DescribeAppImageConfigResponse {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the AppImageConfig.</p>
+   * <p>The ARN of the AppImageConfig.</p>
    */
   AppImageConfigArn?: string;
 
@@ -3207,7 +3244,7 @@ export interface DescribeAutoMLJobResponse {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that has read permission to the input data
+   * <p>The ARN of the IAM role that has read permission to the input data
    *          location and write permission to the output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
@@ -3357,7 +3394,7 @@ export interface DescribeAutoMLJobV2Response {
 
   /**
    * @public
-   * <p>The ARN of the Identity and Access Management role that has read permission to the input data location and
+   * <p>The ARN of the IAM role that has read permission to the input data location and
    *          write permission to the output data location in Amazon S3.</p>
    */
   RoleArn: string | undefined;
@@ -3598,8 +3635,8 @@ export interface DescribeCodeRepositoryOutput {
   /**
    * @public
    * <p>Configuration details about the repository, including the URL where the repository is
-   *             located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the
-   *             repository.</p>
+   *          located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the
+   *          repository.</p>
    */
   GitConfig?: GitConfig;
 }
@@ -9298,7 +9335,7 @@ export interface DescribeNotebookInstanceLifecycleConfigOutput {
   /**
    * @public
    * <p>The shell script that runs every time you start a notebook instance, including when
-   *             you create the notebook instance.</p>
+   *          you create the notebook instance.</p>
    */
   OnStart?: NotebookInstanceLifecycleHook[];
 
@@ -9943,7 +9980,7 @@ export interface DescribeProjectOutput {
 export interface DescribeSpaceRequest {
   /**
    * @public
-   * <p>The ID of the associated Domain.</p>
+   * <p>The ID of the associated domain.</p>
    */
   DomainId: string | undefined;
 
@@ -9979,7 +10016,7 @@ export type SpaceStatus = (typeof SpaceStatus)[keyof typeof SpaceStatus];
 export interface DescribeSpaceResponse {
   /**
    * @public
-   * <p>The ID of the associated Domain.</p>
+   * <p>The ID of the associated domain.</p>
    */
   DomainId?: string;
 
@@ -9997,7 +10034,7 @@ export interface DescribeSpaceResponse {
 
   /**
    * @public
-   * <p>The ID of the space's profile in the Amazon Elastic File System volume.</p>
+   * <p>The ID of the space's profile in the Amazon EFS volume.</p>
    */
   HomeEfsFileSystemUid?: string;
 
@@ -10069,17 +10106,6 @@ export interface DescribeSpaceResponse {
    *          </ul>
    */
   Url?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeStudioLifecycleConfigRequest {
-  /**
-   * @public
-   * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration to describe.</p>
-   */
-  StudioLifecycleConfigName: string | undefined;
 }
 
 /**

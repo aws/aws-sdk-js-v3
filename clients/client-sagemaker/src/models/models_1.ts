@@ -31,7 +31,6 @@ import {
   CodeEditorAppSettings,
   CodeRepository,
   CollectionConfig,
-  CollectionConfiguration,
   CollectionType,
   ContainerDefinition,
   ContentClassifier,
@@ -42,10 +41,13 @@ import {
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
   InferenceSpecification,
+  InputConfig,
   MetadataProperties,
   MetricDefinition,
   MetricsSource,
   ModelApprovalStatus,
+  NeoVpcConfig,
+  OutputConfig,
   OutputDataConfig,
   ProcessingS3DataDistributionType,
   ProcessingS3InputMode,
@@ -59,6 +61,91 @@ import {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCompilationJobRequest {
+  /**
+   * @public
+   * <p>A name for the model compilation job. The name must be unique within the Amazon Web Services Region and within your Amazon Web Services account. </p>
+   */
+  CompilationJobName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on
+   *             your behalf. </p>
+   *          <p>During model compilation, Amazon SageMaker needs your permission to:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Read input data from an S3 bucket</p>
+   *             </li>
+   *             <li>
+   *                <p>Write model artifacts to an S3 bucket</p>
+   *             </li>
+   *             <li>
+   *                <p>Write logs to Amazon CloudWatch Logs</p>
+   *             </li>
+   *             <li>
+   *                <p>Publish metrics to Amazon CloudWatch</p>
+   *             </li>
+   *          </ul>
+   *          <p>You grant permissions for all of these tasks to an IAM role. To pass this role to
+   *             Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission. For
+   *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker
+   *                 Roles.</a>
+   *          </p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of a versioned model package. Provide either a
+   *     <code>ModelPackageVersionArn</code> or an <code>InputConfig</code> object in the
+   *     request syntax. The presence of both objects in the <code>CreateCompilationJob</code>
+   *     request will return an exception.</p>
+   */
+  ModelPackageVersionArn?: string;
+
+  /**
+   * @public
+   * <p>Provides information about the location of input model artifacts, the name and shape
+   *             of the expected data inputs, and the framework in which the model was trained.</p>
+   */
+  InputConfig?: InputConfig;
+
+  /**
+   * @public
+   * <p>Provides information about the output location for the compiled model and the target
+   *             device the model runs on.</p>
+   */
+  OutputConfig: OutputConfig | undefined;
+
+  /**
+   * @public
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your compilation job
+   *             to connect to. Control access to your models by configuring the VPC. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: NeoVpcConfig;
+
+  /**
+   * @public
+   * <p>Specifies a limit to how long a model compilation job can run. When the job reaches
+   *             the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training
+   *             costs.</p>
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * @public
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -785,7 +872,7 @@ export interface JupyterServerAppSettings {
 /**
  * @public
  * <p>A custom SageMaker image. For more information, see
- *        <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
+ *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
  */
 export interface CustomImage {
   /**
@@ -816,9 +903,9 @@ export interface KernelGatewayAppSettings {
    * @public
    * <p>The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.</p>
    *          <note>
-   *             <p>The Amazon SageMaker Studio UI does not use the default instance type value set here. The default
-   *           instance type set here is used when Apps are created using the Amazon Web Services Command Line Interface or Amazon Web Services CloudFormation
-   *             and the instance type parameter value is not passed.</p>
+   *             <p>The Amazon SageMaker Studio UI does not use the default instance type value set here. The
+   *         default instance type set here is used when Apps are created using the CLI or
+   *           CloudFormation and the instance type parameter value is not passed.</p>
    *          </note>
    */
   DefaultResourceSpec?: ResourceSpec;
@@ -841,7 +928,7 @@ export interface KernelGatewayAppSettings {
 
 /**
  * @public
- * <p>A collection of settings that apply to spaces created in the Domain.</p>
+ * <p>A collection of settings that apply to spaces created in the domain.</p>
  */
 export interface DefaultSpaceSettings {
   /**
@@ -852,7 +939,7 @@ export interface DefaultSpaceSettings {
 
   /**
    * @public
-   * <p>The security group IDs for the Amazon Virtual Private Cloud that the space uses for communication.</p>
+   * <p>The security group IDs for the Amazon VPC that the space uses for communication.</p>
    */
   SecurityGroups?: string[];
 
@@ -956,7 +1043,7 @@ export interface JupyterLabAppSettings {
   /**
    * @public
    * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
+   *          the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
 
@@ -987,7 +1074,7 @@ export interface RSessionAppSettings {
   /**
    * @public
    * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
+   *          the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
 
@@ -1030,21 +1117,21 @@ export type RStudioServerProUserGroup = (typeof RStudioServerProUserGroup)[keyof
 /**
  * @public
  * <p>A collection of settings that configure user interaction with the
- *                 <code>RStudioServerPro</code> app.</p>
+ *       <code>RStudioServerPro</code> app.</p>
  */
 export interface RStudioServerProAppSettings {
   /**
    * @public
    * <p>Indicates whether the current user has access to the <code>RStudioServerPro</code>
-   *             app.</p>
+   *       app.</p>
    */
   AccessStatus?: RStudioServerProAccessStatus;
 
   /**
    * @public
    * <p>The level of permissions that the user has within the <code>RStudioServerPro</code>
-   *             app. This value defaults to `User`. The `Admin` value allows the user access to the
-   *             RStudio Administrative Dashboard.</p>
+   *       app. This value defaults to `User`. The `Admin` value allows the user access to the
+   *       RStudio Administrative Dashboard.</p>
    */
   UserGroup?: RStudioServerProUserGroup;
 }
@@ -1066,30 +1153,30 @@ export type NotebookOutputOption = (typeof NotebookOutputOption)[keyof typeof No
 /**
  * @public
  * <p>Specifies options for sharing Amazon SageMaker Studio notebooks. These settings are
- *     specified as part of <code>DefaultUserSettings</code> when the <code>CreateDomain</code>
- *     API is called, and as part of <code>UserSettings</code> when the <code>CreateUserProfile</code>
- *     API is called. When <code>SharingSettings</code> is not specified, notebook sharing
- *     isn't allowed.</p>
+ *       specified as part of <code>DefaultUserSettings</code> when the <code>CreateDomain</code>
+ *       API is called, and as part of <code>UserSettings</code> when the <code>CreateUserProfile</code>
+ *       API is called. When <code>SharingSettings</code> is not specified, notebook sharing
+ *       isn't allowed.</p>
  */
 export interface SharingSettings {
   /**
    * @public
    * <p>Whether to include the notebook cell output when sharing the notebook. The default
-   *          is <code>Disabled</code>.</p>
+   *       is <code>Disabled</code>.</p>
    */
   NotebookOutputOption?: NotebookOutputOption;
 
   /**
    * @public
    * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the Amazon S3 bucket used
-   *          to store the shared notebook snapshots.</p>
+   *       to store the shared notebook snapshots.</p>
    */
   S3OutputPath?: string;
 
   /**
    * @public
    * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the Amazon Web Services Key Management Service (KMS)
-   *          encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.</p>
+   *       encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.</p>
    */
   S3KmsKeyId?: string;
 }
@@ -1157,8 +1244,8 @@ export interface TensorBoardAppSettings {
  *       when the <code>CreateDomain</code> API is called.</p>
  *          <p>
  *             <code>SecurityGroups</code> is aggregated when specified in both calls. For all other
- *      settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
- *      take precedence over those specified in <code>CreateDomain</code>.</p>
+ *       settings in <code>UserSettings</code>, the values specified in <code>CreateUserProfile</code>
+ *       take precedence over those specified in <code>CreateDomain</code>.</p>
  */
 export interface UserSettings {
   /**
@@ -1171,11 +1258,11 @@ export interface UserSettings {
    * @public
    * <p>The security groups for the Amazon Virtual Private Cloud (VPC) that the domain uses for communication.</p>
    *          <p>Optional when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
-   *          <code>PublicInternetOnly</code>.</p>
+   *       <code>PublicInternetOnly</code>.</p>
    *          <p>Required when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
-   *           <code>VpcOnly</code>, unless specified as part of the <code>DefaultUserSettings</code> for the domain.</p>
+   *       <code>VpcOnly</code>, unless specified as part of the <code>DefaultUserSettings</code> for the domain.</p>
    *          <p>Amazon SageMaker adds a security group to allow NFS traffic from Amazon SageMaker Studio. Therefore, the
-   *          number of security groups that you can specify is one less than the maximum number shown.</p>
+   *       number of security groups that you can specify is one less than the maximum number shown.</p>
    */
   SecurityGroups?: string[];
 
@@ -1206,7 +1293,7 @@ export interface UserSettings {
   /**
    * @public
    * <p>A collection of settings that configure user interaction with the
-   *                 <code>RStudioServerPro</code> app.</p>
+   *       <code>RStudioServerPro</code> app.</p>
    */
   RStudioServerProAppSettings?: RStudioServerProAppSettings;
 
@@ -1312,13 +1399,13 @@ export type ExecutionRoleIdentityConfig =
 /**
  * @public
  * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level
- *             app.</p>
+ *       app.</p>
  */
 export interface RStudioServerProDomainSettings {
   /**
    * @public
    * <p>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level
-   *             app.</p>
+   *       app.</p>
    */
   DomainExecutionRoleArn: string | undefined;
 
@@ -1337,7 +1424,7 @@ export interface RStudioServerProDomainSettings {
   /**
    * @public
    * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
+   *          the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
 }
@@ -4123,7 +4210,7 @@ export interface HyperbandStrategyConfig {
    *          launched by a hyperparameter tuning job. Once a job reaches the <code>MaxResource</code>
    *          value, it is stopped. If a value for <code>MaxResource</code> is not provided, and
    *             <code>Hyperband</code> is selected as the hyperparameter tuning strategy,
-   *             <code>HyperbandTrainingJ</code> attempts to infer <code>MaxResource</code> from the
+   *             <code>HyperbandTraining</code> attempts to infer <code>MaxResource</code> from the
    *          following keys (if present) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>:</p>
    *          <ul>
    *             <li>
@@ -4155,7 +4242,7 @@ export interface HyperbandStrategyConfig {
    *          <p>If <code>HyperbandStrategyConfig</code> is unable to infer a value for
    *             <code>MaxResource</code>, it generates a validation error. The maximum value is 20,000
    *          epochs. All metrics that correspond to an objective metric are used to derive <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">early stopping
-   *             decisions</a>. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html">distributive</a> training jobs,
+   *             decisions</a>. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html">distributed</a> training jobs,
    *          ensure that duplicate metrics are not printed in the logs across the individual nodes in a
    *          training job. If multiple nodes are publishing duplicate or incorrect metrics, training
    *          jobs may make an incorrect stopping decision and stop the job prematurely. </p>
@@ -5047,7 +5134,7 @@ export interface CreateImageVersionRequest {
   /**
    * @public
    * <p>The registry path of the container image to use as the starting point for this
-   *         version. The path is an Amazon Elastic Container Registry (ECR) URI in the following format:</p>
+   *         version. The path is an Amazon ECR URI in the following format:</p>
    *          <p>
    *             <code><acct-id>.dkr.ecr.<region>.amazonaws.com/<repo-name[:tag] or [@digest]></code>
    *          </p>
@@ -10292,27 +10379,27 @@ export interface CreateNotebookInstanceInput {
   /**
    * @public
    * <p>The ID of the subnet in a VPC to which you would like to have a connectivity from
-   *             your ML compute instance. </p>
+   *          your ML compute instance. </p>
    */
   SubnetId?: string;
 
   /**
    * @public
    * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be
-   *             for the same VPC as specified in the subnet. </p>
+   *          for the same VPC as specified in the subnet. </p>
    */
   SecurityGroupIds?: string[];
 
   /**
    * @public
    * <p> When you send any requests to Amazon Web Services resources from the notebook
-   *             instance, SageMaker assumes this role to perform tasks on your behalf. You must grant this
-   *             role necessary permissions so SageMaker can perform these tasks. The policy must allow the
-   *             SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For
-   *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
+   *          instance, SageMaker assumes this role to perform tasks on your behalf. You must grant this
+   *          role necessary permissions so SageMaker can perform these tasks. The policy must allow the
+   *          SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For
+   *          more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
    *          <note>
    *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
-   *                     <code>iam:PassRole</code> permission.</p>
+   *             <code>iam:PassRole</code> permission.</p>
    *          </note>
    */
   RoleArn: string | undefined;
@@ -10320,87 +10407,87 @@ export interface CreateNotebookInstanceInput {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
-   *             SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The
-   *             KMS key you provide must be enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling
-   *                 Keys</a> in the <i>Amazon Web Services Key Management Service Developer
-   *                 Guide</i>.</p>
+   *          SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The
+   *          KMS key you provide must be enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling
+   *             Keys</a> in the <i>Amazon Web Services Key Management Service Developer
+   *                Guide</i>.</p>
    */
   KmsKeyId?: string;
 
   /**
    * @public
    * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   *          resources in different ways, for example, by purpose, owner, or environment. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    */
   Tags?: Tag[];
 
   /**
    * @public
    * <p>The name of a lifecycle configuration to associate with the notebook instance. For
-   *             information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
-   *                 Customize a Notebook Instance</a>.</p>
+   *          information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+   *             Customize a Notebook Instance</a>.</p>
    */
   LifecycleConfigName?: string;
 
   /**
    * @public
    * <p>Sets whether SageMaker provides internet access to the notebook instance. If you set this
-   *             to <code>Disabled</code> this notebook instance is able to access resources only in your
-   *             VPC, and is not be able to connect to SageMaker training and endpoint services unless you
-   *             configure a NAT Gateway in your VPC.</p>
+   *          to <code>Disabled</code> this notebook instance is able to access resources only in your
+   *          VPC, and is not be able to connect to SageMaker training and endpoint services unless you
+   *          configure a NAT Gateway in your VPC.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value
-   *             of this parameter to <code>Disabled</code> only if you set a value for the
-   *                 <code>SubnetId</code> parameter.</p>
+   *          of this parameter to <code>Disabled</code> only if you set a value for the
+   *          <code>SubnetId</code> parameter.</p>
    */
   DirectInternetAccess?: DirectInternetAccess;
 
   /**
    * @public
    * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
-   *             default value is 5 GB.</p>
+   *          default value is 5 GB.</p>
    */
   VolumeSizeInGB?: number;
 
   /**
    * @public
    * <p>A list of Elastic Inference (EI) instance types to associate with this notebook
-   *             instance. Currently, only one instance type can be associated with a notebook instance.
-   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
+   *          instance. Currently, only one instance type can be associated with a notebook instance.
+   *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
   AcceleratorTypes?: NotebookInstanceAcceleratorType[];
 
   /**
    * @public
    * <p>A Git repository to associate with the notebook instance as its default code
-   *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *             or in any other Git repository. When you open a notebook instance, it opens in the
-   *             directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *          repository. This can be either the name of a Git repository stored as a resource in your
+   *          account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *          or in any other Git repository. When you open a notebook instance, it opens in the
+   *          directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *             Repositories with SageMaker Notebook Instances</a>.</p>
    */
   DefaultCodeRepository?: string;
 
   /**
    * @public
    * <p>An array of up to three Git repositories to associate with the notebook instance.
-   *             These can be either the names of Git repositories stored as resources in your account,
-   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
-   *             or in any other Git repository. These repositories are cloned at the same level as the
-   *             default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with SageMaker Notebook Instances</a>.</p>
+   *          These can be either the names of Git repositories stored as resources in your account,
+   *          or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a>
+   *          or in any other Git repository. These repositories are cloned at the same level as the
+   *          default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *             Repositories with SageMaker Notebook Instances</a>.</p>
    */
   AdditionalCodeRepositories?: string[];
 
   /**
    * @public
    * <p>Whether root access is enabled or disabled for users of the notebook instance. The
-   *             default value is <code>Enabled</code>.</p>
+   *          default value is <code>Enabled</code>.</p>
    *          <note>
    *             <p>Lifecycle configurations need root access to be able to set up a notebook
-   *                 instance. Because of this, lifecycle configurations associated with a notebook
-   *                 instance always run with root access even if you disable root access for
-   *                 users.</p>
+   *             instance. Because of this, lifecycle configurations associated with a notebook
+   *             instance always run with root access even if you disable root access for
+   *             users.</p>
    *          </note>
    */
   RootAccess?: RootAccess;
@@ -10434,21 +10521,21 @@ export interface CreateNotebookInstanceOutput {
  * <p>Contains the notebook instance lifecycle configuration script.</p>
  *          <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
  *          <p>The value of the <code>$PATH</code> environment variable that is available to both
- *             scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p>
- *          <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group
- *                 <code>/aws/sagemaker/NotebookInstances</code> in log stream
- *                 <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p>
+ *          scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p>
+ *          <p>View Amazon CloudWatch Logs for notebook instance lifecycle configurations in log group
+ *          <code>/aws/sagemaker/NotebookInstances</code> in log stream
+ *          <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p>
  *          <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs
- *             for longer than 5 minutes, it fails and the notebook instance is not created or
- *             started.</p>
+ *          for longer than 5 minutes, it fails and the notebook instance is not created or
+ *          started.</p>
  *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
- *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+ *          2.1: (Optional) Customize a Notebook Instance</a>.</p>
  */
 export interface NotebookInstanceLifecycleHook {
   /**
    * @public
    * <p>A base64-encoded string that contains a shell script for a notebook instance lifecycle
-   *             configuration.</p>
+   *          configuration.</p>
    */
   Content?: string;
 }
@@ -10466,14 +10553,14 @@ export interface CreateNotebookInstanceLifecycleConfigInput {
   /**
    * @public
    * <p>A shell script that runs only once, when you create a notebook instance. The shell
-   *             script must be a base64-encoded string.</p>
+   *          script must be a base64-encoded string.</p>
    */
   OnCreate?: NotebookInstanceLifecycleHook[];
 
   /**
    * @public
    * <p>A shell script that runs every time you start a notebook instance, including when you
-   *             create the notebook instance. The shell script must be a base64-encoded string.</p>
+   *          create the notebook instance. The shell script must be a base64-encoded string.</p>
    */
   OnStart?: NotebookInstanceLifecycleHook[];
 }
@@ -11452,7 +11539,7 @@ export interface SpaceCodeEditorAppSettings {
   /**
    * @public
    * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
+   *          the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
 }
@@ -11518,7 +11605,7 @@ export interface SpaceJupyterLabAppSettings {
   /**
    * @public
    * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
-   *      the version runs on.</p>
+   *          the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
 
@@ -11635,7 +11722,7 @@ export interface SpaceSharingSettings {
 export interface CreateSpaceRequest {
   /**
    * @public
-   * <p>The ID of the associated Domain.</p>
+   * <p>The ID of the associated domain.</p>
    */
   DomainId: string | undefined;
 
@@ -11648,8 +11735,8 @@ export interface CreateSpaceRequest {
   /**
    * @public
    * <p>Tags to associated with the space. Each tag consists of a key and an optional value.
-   *             Tag keys must be unique for each resource. Tags are searchable using the
-   *                 <code>Search</code> API.</p>
+   *       Tag keys must be unique for each resource. Tags are searchable using the
+   *       <code>Search</code> API.</p>
    */
   Tags?: Tag[];
 
@@ -11744,43 +11831,6 @@ export interface CreateStudioLifecycleConfigResponse {
    * <p>The ARN of your created Lifecycle Configuration.</p>
    */
   StudioLifecycleConfigArn?: string;
-}
-
-/**
- * @public
- * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and
- *             storage paths. To learn more about
- *             how to configure the <code>DebugHookConfig</code> parameter,
- *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
- */
-export interface DebugHookConfig {
-  /**
-   * @public
-   * <p>Path to local storage location for metrics and tensors. Defaults to
-   *                 <code>/opt/ml/output/tensors/</code>.</p>
-   */
-  LocalPath?: string;
-
-  /**
-   * @public
-   * <p>Path to Amazon S3 storage location for metrics and tensors.</p>
-   */
-  S3OutputPath: string | undefined;
-
-  /**
-   * @public
-   * <p>Configuration information for the Amazon SageMaker Debugger hook parameters.</p>
-   */
-  HookParameters?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Configuration information for Amazon SageMaker Debugger tensor collections. To learn more about
-   *             how to configure the <code>CollectionConfiguration</code> parameter,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.
-   *         </p>
-   */
-  CollectionConfigurations?: CollectionConfiguration[];
 }
 
 /**

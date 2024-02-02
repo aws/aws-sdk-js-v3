@@ -30,7 +30,7 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  * @public
  * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser,
  *        the user will be automatically signed in to the domain, and granted access to all of
- *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
+ *        the Apps and files associated with the Domain's Amazon Elastic File System volume.
  *        This operation can only be called when the authentication mode equals IAM.
  *    </p>
  *          <p>The IAM role or user passed to this API defines the permissions to access the app. Once
