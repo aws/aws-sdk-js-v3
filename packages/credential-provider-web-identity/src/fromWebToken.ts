@@ -161,7 +161,14 @@ export const fromWebToken =
 
     if (!roleAssumerWithWebIdentity) {
       const { getDefaultRoleAssumerWithWebIdentity } = await import("./loadSts");
-      roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(init.clientConfig, init.clientPlugins);
+      roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(
+        {
+          ...init.clientConfig,
+          credentialProviderLogger: init.logger,
+          parentClientConfig: init.parentClientConfig,
+        },
+        init.clientPlugins
+      );
     }
 
     return roleAssumerWithWebIdentity!({

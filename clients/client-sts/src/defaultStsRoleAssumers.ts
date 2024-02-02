@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 // Please do not touch this file. It's generated from template in:
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultStsRoleAssumers.ts
-import { AwsCredentialIdentity, Provider } from "@smithy/types";
+import type { CredentialProviderOptions } from "@aws-sdk/types";
+import { partition } from "@aws-sdk/util-endpoints";
+import { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
 
 import { AssumeRoleCommand, AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
 import {
@@ -9,6 +11,14 @@ import {
   AssumeRoleWithWebIdentityCommandInput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
 import type { STSClient, STSClientConfig, STSClientResolvedConfig } from "./STSClient";
+
+/**
+ * @public
+ */
+export type STSRoleAssumerOptions = Pick<STSClientConfig, "logger" | "region" | "requestHandler"> & {
+  credentialProviderLogger?: Logger;
+  parentClientConfig?: CredentialProviderOptions["parentClientConfig"];
+};
 
 /**
  * @internal
@@ -21,19 +31,37 @@ export type RoleAssumer = (
 const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 
 /**
- * Inject the fallback STS region of us-east-1.
+ * @internal
+ *
+ * Default to the us-east-1 region for aws partition,
+ * or default to the parent client region otherwise.
  */
-const decorateDefaultRegion = (region: string | Provider<string> | undefined): string | Provider<string> => {
-  if (typeof region !== "function") {
-    return region === undefined ? ASSUME_ROLE_DEFAULT_REGION : region;
+const resolveRegion = async (
+  _region: string | Provider<string> | undefined,
+  _parentRegion: string | Provider<string> | undefined,
+  credentialProviderLogger?: Logger
+): Promise<string> => {
+  const region: string | undefined = typeof _region === "function" ? await _region() : _region;
+  const parentRegion: string | undefined = typeof _parentRegion === "function" ? await _parentRegion() : _parentRegion;
+
+  if (!parentRegion || partition(parentRegion).name === "aws") {
+    credentialProviderLogger?.debug?.(
+      "@aws-sdk/client-sts::resolveRegion",
+      "accepting first of:",
+      `${region} (provider)`,
+      `${ASSUME_ROLE_DEFAULT_REGION} (STS default)`
+    );
+    return region ?? ASSUME_ROLE_DEFAULT_REGION;
+  } else {
+    credentialProviderLogger?.debug?.(
+      "@aws-sdk/client-sts::resolveRegion",
+      "accepting first of:",
+      `${region} (provider)`,
+      `${parentRegion} (parent client)`,
+      `${ASSUME_ROLE_DEFAULT_REGION} (STS default)`
+    );
+    return region ?? parentRegion ?? ASSUME_ROLE_DEFAULT_REGION;
   }
-  return async () => {
-    try {
-      return await region();
-    } catch (e) {
-      return ASSUME_ROLE_DEFAULT_REGION;
-    }
-  };
 };
 
 /**
@@ -41,7 +69,7 @@ const decorateDefaultRegion = (region: string | Provider<string> | undefined): s
  * @internal
  */
 export const getDefaultRoleAssumer = (
-  stsOptions: Pick<STSClientConfig, "logger" | "region" | "requestHandler">,
+  stsOptions: STSRoleAssumerOptions,
   stsClientCtor: new (options: STSClientConfig) => STSClient
 ): RoleAssumer => {
   let stsClient: STSClient;
@@ -49,12 +77,17 @@ export const getDefaultRoleAssumer = (
   return async (sourceCreds, params) => {
     closureSourceCreds = sourceCreds;
     if (!stsClient) {
-      const { logger, region, requestHandler } = stsOptions;
+      const { logger, region, requestHandler, credentialProviderLogger } = stsOptions;
+      const resolvedRegion = await resolveRegion(
+        region,
+        stsOptions?.parentClientConfig?.region,
+        credentialProviderLogger
+      );
       stsClient = new stsClientCtor({
         logger,
         // A hack to make sts client uses the credential in current closure.
         credentialDefaultProvider: () => async () => closureSourceCreds,
-        region: decorateDefaultRegion(region || stsOptions.region),
+        region: resolvedRegion,
         ...(requestHandler ? { requestHandler } : {}),
       });
     }
@@ -85,16 +118,21 @@ export type RoleAssumerWithWebIdentity = (
  * @internal
  */
 export const getDefaultRoleAssumerWithWebIdentity = (
-  stsOptions: Pick<STSClientConfig, "logger" | "region" | "requestHandler">,
+  stsOptions: STSRoleAssumerOptions,
   stsClientCtor: new (options: STSClientConfig) => STSClient
 ): RoleAssumerWithWebIdentity => {
   let stsClient: STSClient;
   return async (params) => {
     if (!stsClient) {
-      const { logger, region, requestHandler } = stsOptions;
+      const { logger, region, requestHandler, credentialProviderLogger } = stsOptions;
+      const resolvedRegion = await resolveRegion(
+        region,
+        stsOptions?.parentClientConfig?.region,
+        credentialProviderLogger
+      );
       stsClient = new stsClientCtor({
         logger,
-        region: decorateDefaultRegion(region || stsOptions.region),
+        region: resolvedRegion,
         ...(requestHandler ? { requestHandler } : {}),
       });
     }

@@ -67,58 +67,41 @@ jest.mock("@aws-sdk/client-sso", () => {
   };
 });
 
+let stsSpy: jest.Spied<any> | any | undefined = undefined;
+
 jest.mock("@aws-sdk/client-sts", () => {
   const actual = jest.requireActual("@aws-sdk/client-sts");
+
+  const originalSend = actual.STSClient.prototype.send;
+
+  stsSpy = jest.spyOn(actual.STSClient.prototype, "send").mockImplementation(async function (command: any) {
+    if (command.constructor.name === "AssumeRoleCommand") {
+      return {
+        Credentials: {
+          AccessKeyId: "STS_AR_ACCESS_KEY_ID",
+          SecretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+          SessionToken: "STS_AR_SESSION_TOKEN",
+          Expiration: new Date("3000/1/1"),
+          CredentialScope: "us-stsar-1__" + (await this.config.region()),
+        },
+      };
+    }
+    if (command.constructor.name === "AssumeRoleWithWebIdentityCommand") {
+      return {
+        Credentials: {
+          AccessKeyId: "STS_ARWI_ACCESS_KEY_ID",
+          SecretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
+          SessionToken: "STS_ARWI_SESSION_TOKEN",
+          Expiration: new Date("3000/1/1"),
+          CredentialScope: "us-stsarwi-1__" + (await this.config.region()),
+        },
+      };
+    }
+    return originalSend.bind(this)(command);
+  });
+
   return {
     ...actual,
-    getDefaultRoleAssumer() {
-      return async () => {
-        return {
-          accessKeyId: "STS_AR_ACCESS_KEY_ID",
-          secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-          sessionToken: "STS_AR_SESSION_TOKEN",
-          expiration: new Date("3000/1/1"),
-          credentialScope: "us-stsar-1",
-        };
-      };
-    },
-    getDefaultRoleAssumerWithWebIdentity() {
-      return async () => {
-        return {
-          accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
-          secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-          sessionToken: "STS_ARWI_SESSION_TOKEN",
-          expiration: new Date("3000/1/1"),
-          credentialScope: "us-stsarwi-1",
-        };
-      };
-    },
-    STSClient: class {
-      async send(command: any) {
-        if (command.constructor.name === "AssumeRoleCommand") {
-          return {
-            Credentials: {
-              AccessKeyId: "STS_AR_ACCESS_KEY_ID",
-              SecretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
-              SessionToken: "STS_AR_SESSION_TOKEN",
-              Expiration: new Date("3000/1/1"),
-              CredentialScope: "us-stsar-1",
-            },
-          };
-        }
-        if (command.constructor.name === "AssumeRoleWithWebIdentityCommand") {
-          return {
-            Credentials: {
-              AccessKeyId: "STS_ARWI_ACCESS_KEY_ID",
-              SecretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
-              SessionToken: "STS_ARWI_SESSION_TOKEN",
-              Expiration: new Date("3000/1/1"),
-              CredentialScope: "us-stsarwi-1",
-            },
-          };
-        }
-      }
-    },
   };
 });
 
@@ -266,6 +249,7 @@ describe("credential-provider-node integration test", () => {
   afterAll(async () => {
     jest.clearAllMocks();
     jest.clearAllTimers();
+    stsSpy?.mockRestore();
   });
 
   describe("fromEnv", () => {
@@ -356,7 +340,35 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000/1/1"),
-        credentialScope: "us-stsar-1",
+        credentialScope: "us-stsar-1__us-east-1",
+      });
+    });
+
+    it("should use the outer client's region for STS when the partition is not AWS", async () => {
+      sts = new STS({
+        region: "us-gov-stsar-1",
+        requestHandler: mockRequestHandler,
+      });
+      iniProfileData.assume = {
+        region: "us-gov-stsar-1",
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      };
+      Object.assign(iniProfileData.default, {
+        region: "us-gov-stsar-1",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "assume",
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AR_ACCESS_KEY_ID",
+        secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        sessionToken: "STS_AR_SESSION_TOKEN",
+        expiration: new Date("3000/1/1"),
+        credentialScope: "us-stsar-1__us-gov-stsar-1",
       });
     });
 
@@ -376,13 +388,29 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
         expiration: new Date("3000/1/1"),
-        credentialScope: "us-stsarwi-1",
+        credentialScope: "us-stsarwi-1__us-east-1",
       });
     });
 
-    xit("should resolve credentials from STS assumeRoleWithWebIdentity if the ini profile is configured for web identity and the client region is not the default AWS partition", async () => {
-      // TODO
-      // this is difficult to do when getDefaultRoleAssumerWithWebIdentity is mocked.
+    it("should resolve credentials from STS assumeRoleWithWebIdentity if the ini profile is configured for web identity and the client region is not the default AWS partition", async () => {
+      sts = new STS({
+        region: "us-gov-sts-1",
+        requestHandler: mockRequestHandler,
+      });
+      Object.assign(iniProfileData.default, {
+        region: "us-gov-sts-1",
+        web_identity_token_file: "token-filepath",
+        role_arn: "ROLE_ARN",
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
+        secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
+        sessionToken: "STS_ARWI_SESSION_TOKEN",
+        expiration: new Date("3000/1/1"),
+        credentialScope: "us-stsarwi-1__us-gov-sts-1",
+      });
     });
 
     it("should resolve process credentials if the profile is a process profile", async () => {
@@ -454,7 +482,7 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
         expiration: new Date("3000/1/1"),
-        credentialScope: "us-stsarwi-1",
+        credentialScope: "us-stsarwi-1__us-east-1",
       });
     });
   });
