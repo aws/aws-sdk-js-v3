@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.506.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.505.0...v3.506.0) (2024-02-02)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Canvas adds GenerativeAiSettings support for CanvasAppSettings. ([66c026c](https://github.com/aws/aws-sdk-js-v3/commit/66c026cd4a26805c15fb5b40238c3fb2ec429e07))
+* **clients:** update client endpoints as of 2024-02-02 ([1b512d0](https://github.com/aws/aws-sdk-js-v3/commit/1b512d064682bc7bae017070af473a854d3590b2))
+
+
+
+
+
 # [3.505.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.504.0...v3.505.0) (2024-02-01)
 
 
