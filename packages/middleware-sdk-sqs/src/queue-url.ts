@@ -69,7 +69,7 @@ Set [endpoint=string] or [useQueueUrlAsEndpoint=false] on the SQSClient.`
             resolvedEndpoint.url = queueUrlOrigin;
           }
         } catch (e: unknown) {
-          logger.warn(`Failed to parse QueueUrl: ${input.QueueUrl}.`);
+          logger.warn(e);
         }
       }
       return next(args);
