@@ -326,5 +326,23 @@ describe("middleware-sdk-sqs", () => {
         MessageBody: "hello",
       });
     });
+
+    it("does not override endpoint if custom endpoint given to client", async () => {
+      const client = new SQS({
+        region: "us-west-2",
+        endpoint: "https://custom-endpoint.com/",
+      });
+
+      requireRequestsFrom(client).toMatch({
+        hostname: "custom-endpoint.com",
+        protocol: "https:",
+        path: "/",
+      });
+
+      await client.sendMessage({
+        QueueUrl: "https://abc.com/123/MyQueue",
+        MessageBody: "hello",
+      });
+    });
   });
 });

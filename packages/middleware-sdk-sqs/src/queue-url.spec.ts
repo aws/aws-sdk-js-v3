@@ -22,6 +22,10 @@ describe("queueUrlMiddleware", () => {
     };
   });
 
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   it("should use the QueueUrl hostname as the endpoint if useQueueUrlAsEndpoint is true", async () => {
     const middleware = queueUrlMiddleware({ useQueueUrlAsEndpoint: true });
     const input = { QueueUrl: "https://xyz.com/123/MyQueue" };
@@ -72,5 +76,22 @@ describe("queueUrlMiddleware", () => {
 
     expect(mockNextHandler).toHaveBeenCalledWith(args);
     expect(mockContext.endpointV2?.url.href).toEqual("https://sqs.us-east-1.amazonaws.com/");
+  });
+
+  it("should not modify the endpoint when a custom endpoint is provided in config", async () => {
+    const middleware = queueUrlMiddleware({ useQueueUrlAsEndpoint: true, endpoint: "https://my-endpoint.com/" });
+    const input = { QueueUrl: "https://xyz.com/123/MyQueue" };
+    const request = new HttpRequest({
+      hostname: "my-endpoint.com",
+      protocol: "https:",
+      path: "/",
+    });
+    const args: FinalizeHandlerArguments<any> = { input, request };
+
+    await middleware(mockNextHandler, mockContext)(args);
+
+    expect(mockNextHandler).toHaveBeenCalledWith(args);
+    expect(mockContext.endpointV2?.url.href).toEqual("https://sqs.us-east-1.amazonaws.com/");
+    expect(mockContext.logger?.warn).not.toHaveBeenCalled();
   });
 });

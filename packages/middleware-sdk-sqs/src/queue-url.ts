@@ -1,9 +1,12 @@
 import {
+  Endpoint,
+  EndpointV2,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
   HandlerExecutionContext,
   MiddlewareStack,
   Pluggable,
+  Provider,
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
 import { NoOpLogger } from "@smithy/smithy-client";
@@ -26,7 +29,9 @@ export interface QueueUrlResolvedConfig {
   useQueueUrlAsEndpoint: boolean;
 }
 
-export interface PreviouslyResolved {}
+export interface PreviouslyResolved {
+  endpoint?: string | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
+}
 
 export const resolveQueueUrlConfig = <T>(
   config: T & PreviouslyResolved & QueueUrlInputConfig
@@ -40,7 +45,7 @@ export const resolveQueueUrlConfig = <T>(
 /**
  * @internal
  */
-export function queueUrlMiddleware({ useQueueUrlAsEndpoint }: QueueUrlResolvedConfig) {
+export function queueUrlMiddleware({ useQueueUrlAsEndpoint, endpoint }: QueueUrlResolvedConfig & PreviouslyResolved) {
   return <Output extends object>(
     next: (args: FinalizeHandlerArguments<any>) => Promise<FinalizeHandlerOutput<Output>>,
     context: HandlerExecutionContext
@@ -49,7 +54,7 @@ export function queueUrlMiddleware({ useQueueUrlAsEndpoint }: QueueUrlResolvedCo
       const { input } = args;
       const resolvedEndpoint = context.endpointV2;
 
-      if (input.QueueUrl && resolvedEndpoint && useQueueUrlAsEndpoint) {
+      if (!endpoint && input.QueueUrl && resolvedEndpoint && useQueueUrlAsEndpoint) {
         const logger = context.logger instanceof NoOpLogger || !context.logger?.warn ? console : context.logger;
         try {
           const queueUrl: URL = new URL(input.QueueUrl);
