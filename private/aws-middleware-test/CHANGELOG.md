@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.507.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.506.0...v3.507.0) (2024-02-05)
+
+**Note:** Version bump only for package @aws-sdk/aws-middleware-test
+
+
+
+
+
 # [3.506.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.505.0...v3.506.0) (2024-02-02)
 
 **Note:** Version bump only for package @aws-sdk/aws-middleware-test

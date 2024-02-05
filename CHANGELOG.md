@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.507.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.506.0...v3.507.0) (2024-02-05)
+
+
+### Bug Fixes
+
+* **middleware-sdk-sqs:** add middleware to prioritize QueueUrl endpoint resolution ([#5759](https://github.com/aws/aws-sdk-js-v3/issues/5759)) ([2da1b6c](https://github.com/aws/aws-sdk-js-v3/commit/2da1b6cd935915829ee1a621f312a3b6007ac534))
+
+
+### Features
+
+* **client-glue:** Introduce Catalog Encryption Role within Glue Data Catalog Settings. Introduce SASL/PLAIN as an authentication method for Glue Kafka connections ([8df187d](https://github.com/aws/aws-sdk-js-v3/commit/8df187d41b0bd9421531d452268f2c4a14baf5e8))
+* unified error dispatcher in protocols ([#5756](https://github.com/aws/aws-sdk-js-v3/issues/5756)) ([0872087](https://github.com/aws/aws-sdk-js-v3/commit/0872087ef56422541bd38d293f97613dfd10236f))
+
+
+
+
+
 # [3.506.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.505.0...v3.506.0) (2024-02-02)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.507.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.506.0...v3.507.0) (2024-02-05)
+
+
+### Bug Fixes
+
+* **middleware-sdk-sqs:** add middleware to prioritize QueueUrl endpoint resolution ([#5759](https://github.com/aws/aws-sdk-js-v3/issues/5759)) ([2da1b6c](https://github.com/aws/aws-sdk-js-v3/commit/2da1b6cd935915829ee1a621f312a3b6007ac534))
+
+
+
+
+
 # [3.502.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.501.0...v3.502.0) (2024-01-29)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-sqs
