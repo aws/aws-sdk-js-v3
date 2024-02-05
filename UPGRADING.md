@@ -458,13 +458,17 @@ S3 client in v3 supports S3 global client, or following region redirects, if an 
 
 ## DynamoDB Document Client
 
-In v2, you can use the [`AWS.DynamoDB.DocumentClient` class](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html)
-to call DynamoDB API with native JavaScript types like Buffer, Array, and Object. It thus simplifies working with items
-in Amazon DynamoDB by abstracting away the notion of attribute values.
+### Basic Usage of DynamoDB Document Client in v3
 
-In v3, equivalent [`@aws-sdk/lib-dynamodb`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_lib_dynamodb.html)
-is available. It's similar to normal service clients from v3 SDK, with the difference that it takes a basic DynamoDB
-client in its constructor. Here's an brief example:
+- In v2, you can use the [`AWS.DynamoDB.DocumentClient` class](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html)
+  to call DynamoDB API with native JavaScript types like Array, Number, and Object. It thus simplifies working with items
+  in Amazon DynamoDB by abstracting away the notion of attribute values.
+
+- In v3, the equivalent [`@aws-sdk/lib-dynamodb`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_lib_dynamodb.html)
+  is available. It's similar to normal service clients from v3 SDK, with the difference that it takes a basic DynamoDB
+  client in its constructor.
+
+Example:
 
 ```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"; // ES6 import
@@ -485,6 +489,38 @@ await ddbDocClient.send(
       id: "1",
       content: "content from DynamoDBDocumentClient",
     },
+  })
+);
+```
+
+### `undefined` values in when marshalling
+
+- In v2 `undefined` values in objects were automatically omitted during the marshalling process to DynamoDB.
+
+- In v3, the default marshalling behavior in @aws-sdk/lib-dynamodb has changed: objects with `undefined` values are no longer omitted. To align with v2's functionality, developers must explicitly set the `removeUndefinedValues` to `true` in the `marshallOptions` of the DynamoDBDocumentClient.
+
+Example:
+
+```js
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
+
+const client = new DynamoDBClient({});
+
+// The DynamoDBDocumentClient is configured to handle undefined values properly
+const ddbDocClient = DynamoDBDocumentClient.from(client, {
+  marshallOptions: {
+    removeUndefinedValues: true
+  }
+});
+
+await ddbDocClient.send(
+  new PutCommand({
+    TableName,
+    Item: {
+      id: "123",
+      content: undefined // This value will be automatically omitted
+    };
   })
 );
 ```
